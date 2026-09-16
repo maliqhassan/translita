@@ -15,6 +15,7 @@ import {
 } from '@/components';
 import { APP, isAutoDetect, languageName } from '@/constants';
 import { useHistoryActions } from '@/features/history';
+import { useOfflineTranslationPermitted } from '@/features/offline';
 import { useTheme } from '@/hooks';
 import type { Plan } from '@/services';
 import {
@@ -81,6 +82,27 @@ export function SettingsScreen() {
    * the switcher cannot ship. Nothing here can change a plan in production.
    */
   const planSwitcher = useDevelopmentPlanSwitcher();
+  /** Whether on-device translation may be offered at all. */
+  const offlinePermitted = useOfflineTranslationPermitted();
+
+  /**
+   * Steps the mode, or offers the upgrade instead of selecting a mode that
+   * would only fail later.
+   *
+   * The stored mode is left exactly as it was when the upgrade is offered.
+   * Someone who paid for on-device translation and then lapsed keeps their
+   * choice, and nothing is silently rewritten behind their back.
+   */
+  const cycleMode = () => {
+    const nextMode = next(MODE_ORDER, preferences.translationMode, 'auto');
+
+    if (nextMode === 'offline' && !offlinePermitted) {
+      router.push('/upgrade');
+      return;
+    }
+
+    update({ translationMode: nextMode });
+  };
 
   const openPicker = (field: 'source' | 'target') => {
     router.push({ pathname: '/translate/language-picker', params: { field } });
@@ -166,14 +188,14 @@ export function SettingsScreen() {
             icon="git-branch-outline"
             title="Translation mode"
             subtitle={MODE_HINTS[preferences.translationMode]}
-            onPress={() =>
-              update({
-                translationMode: next(MODE_ORDER, preferences.translationMode, 'auto'),
-              })
-            }
+            onPress={cycleMode}
             showChevron={false}
             accessibilityLabel={`Translation mode, currently ${MODE_LABELS[preferences.translationMode]}`}
-            accessibilityHint="Cycles between automatic, online only and on-device only"
+            accessibilityHint={
+              offlinePermitted
+                ? 'Cycles between automatic, online only and on-device only'
+                : 'Cycles between automatic and online only. On-device translation is part of Transee Pro'
+            }
             trailing={
               <Text variant="body" color="textSecondary">
                 {MODE_LABELS[preferences.translationMode]}
@@ -181,11 +203,19 @@ export function SettingsScreen() {
             }
           />
           <Divider inset={theme.spacing.base} />
+          {/* Still reachable when locked, because a lapsed subscriber needs
+              to get in and delete packs to reclaim storage. What changes is
+              what it promises on the way in. */}
           <ListItem
-            icon="cloud-download-outline"
+            icon={offlinePermitted ? 'cloud-download-outline' : 'lock-closed-outline'}
             title="Language packs"
-            subtitle="Download languages to translate them without a connection"
+            subtitle={
+              offlinePermitted
+                ? 'Download languages to translate them without a connection'
+                : 'Translating without a connection is part of Transee Pro'
+            }
             onPress={() => router.push('/settings/language-packs')}
+            trailing={offlinePermitted ? undefined : <Badge label="Pro" tone="primary" />}
           />
         </Card>
       </View>

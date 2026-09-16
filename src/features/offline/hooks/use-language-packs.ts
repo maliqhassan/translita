@@ -9,6 +9,8 @@ import {
 } from '@/services';
 import type { AppError } from '@/types';
 
+import { useOfflineTranslationPermitted } from './use-offline-entitlement';
+
 /**
  * Language packs, as the screen needs them.
  *
@@ -30,12 +32,20 @@ export type LanguagePacksState = {
   error?: AppError;
   /** Set when the last download or removal failed, for a dismissible notice. */
   actionError?: AppError;
+  /**
+   * Whether downloading is offered at all.
+   *
+   * False means the plan does not include on-device translation, so a
+   * downloaded pack could not be used. Removal stays available either way.
+   */
+  canDownload: boolean;
   download: (modelId: string) => void;
   remove: (modelId: string) => void;
   dismissActionError: () => void;
 };
 
 export function useLanguagePacks(): LanguagePacksState {
+  const canDownload = useOfflineTranslationPermitted();
   const [packs, setPacks] = useState<readonly LanguagePack[]>([]);
   const [overrides, setOverrides] = useState<PackOverrides>({});
   const [available, setAvailable] = useState(false);
@@ -118,10 +128,20 @@ export function useLanguagePacks(): LanguagePacksState {
     [reload],
   );
 
+  /**
+   * Downloads only when the plan includes on-device translation.
+   *
+   * Guarded here rather than only in the screen, so no stale callback or
+   * second entry point can start a large download for a user who could not
+   * use the result. A model is tens of megabytes; fetching one that routing
+   * will refuse to touch wastes the user's data and their storage.
+   */
   const download = useCallback(
-    (modelId: string) =>
-      run(modelId, 'downloading', (id) => services.offlineModels.downloadModel(id)),
-    [run],
+    (modelId: string) => {
+      if (!canDownload) return;
+      run(modelId, 'downloading', (id) => services.offlineModels.downloadModel(id));
+    },
+    [canDownload, run],
   );
 
   const remove = useCallback(
@@ -137,7 +157,10 @@ export function useLanguagePacks(): LanguagePacksState {
     packs: applyOverrides(packs, overrides),
     error,
     actionError,
+    canDownload,
     download,
+    // Deliberately ungated: reclaiming storage must never require a
+    // subscription, and a lapsed subscriber still owns the space.
     remove,
     dismissActionError: useCallback(() => setActionError(undefined), []),
   };

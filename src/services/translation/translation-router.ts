@@ -117,6 +117,21 @@ export function createTranslationRouter(options: TranslationRouterOptions): Tran
       );
     }
 
+    /*
+     * No connection, and the on-device engine is not theirs to fall back to.
+     *
+     * Checked before the message below, which would otherwise blame the
+     * language pair — "no on-device model covers en to de" — for something
+     * that is nothing to do with the languages and cannot be fixed by
+     * changing them. The obstacle is the plan, so say that.
+     */
+    if (networkStatus === 'offline' && !offlineEntitled) {
+      return appError(
+        'entitlement_required',
+        'There is no connection, and translating without one is part of Transee Pro.',
+      );
+    }
+
     if (networkStatus === 'offline') {
       return appError(
         'network_unavailable',

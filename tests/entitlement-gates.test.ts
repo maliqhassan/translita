@@ -4,6 +4,7 @@ import { describe, it } from 'node:test';
 
 import { PRO_BENEFITS } from '@/features/paywall/pro-benefits';
 import { CAPABILITIES, PLAN_CAPABILITIES } from '@/services/entitlements';
+import { offlineTranslationPermittedFor } from '@/services/translation/offline-entitlement';
 
 /**
  * Where entitlement decisions are allowed to live.
@@ -575,14 +576,38 @@ describe('nothing else was gated', () => {
 
 describe('the offline engine gate lives below the UI', () => {
   it('is decided in the routing and cache layer, never by a screen', () => {
-    // A component that could decide whether an engine may run would be a
+    // A component that could decide whether an engine may *run* would be a
     // second gate, and the one a user could get around by reaching the router
-    // another way.
+    // another way. `orderEngines` and the `offlineEntitled` getter are that
+    // decision; nothing above the services layer may touch either.
     const offenders = [...sources('src/features'), ...sources('src/components')].filter((path) =>
-      /offlineEntitled|offlineTranslationPermitted|orderEngines/.test(code(path)),
+      /\bofflineEntitled\b|orderEngines/.test(code(path)),
     );
 
     assert.deepEqual(offenders, []);
+  });
+
+  it('keeps the bridge-reading helper out of React entirely', () => {
+    // `offlineTranslationPermitted()` reads a module-level snapshot, so a
+    // component calling it would not re-render when the plan changed and a
+    // locked control would stay locked after an upgrade. Features get the
+    // reactive form instead.
+    const offenders = [...sources('src/features'), ...sources('src/components')].filter((path) =>
+      /offlineTranslationPermitted\s*\(\s*\)/.test(code(path)),
+    );
+
+    assert.deepEqual(offenders, []);
+  });
+
+  it('gives the UI one door to the same rule', () => {
+    // Presentation still has to agree with routing — a screen that offered
+    // what routing refuses, or locked what it allows, is worse than either
+    // behaviour alone. So the hook is the only feature-side caller.
+    const callers = sources('src/features').filter((path) =>
+      code(path).includes('offlineTranslationPermittedFor'),
+    );
+
+    assert.deepEqual(callers, ['src/features/offline/hooks/use-offline-entitlement.ts']);
   });
 
   it('leaves feature code choosing no engine at all', () => {
@@ -654,5 +679,174 @@ describe('the offline engine gate lives below the UI', () => {
   it('gives that error its own code and its own copy', () => {
     assert.match(read('src/types/common.ts'), /\| 'entitlement_required'/);
     assert.match(read('src/constants/messages.ts'), /entitlement_required: '[^']+'/);
+  });
+});
+
+describe('the offline entitlement UX is inert until the flag flips', () => {
+  const HOOK = 'src/features/offline/hooks/use-offline-entitlement.ts';
+
+  it('keeps the rollout flag off', () => {
+    // Everything in this step is written to be dormant. With the flag false
+    // the shared rule answers true for every plan, so each gate below renders
+    // exactly what it rendered before Step 4.
+    assert.match(read('src/constants/config.ts'), /offlineEntitlement: false/);
+  });
+
+  it('answers true for everyone while enforcement is off', () => {
+    // The property the whole step rests on, asserted against the real rule
+    // rather than a copy of it.
+    assert.equal(offlineTranslationPermittedFor(false), true);
+    assert.equal(offlineTranslationPermittedFor(true), true);
+  });
+
+  it('routes the UI and the router through one rule', () => {
+    const helper = code('src/services/translation/offline-entitlement.ts');
+
+    // `offlineTranslationPermitted` feeds the bridge answer into the same
+    // function the hook calls, so presentation and routing cannot disagree.
+    assert.match(
+      helper,
+      /offlineTranslationPermitted\(\): boolean \{\s*return offlineTranslationPermittedFor\(hasActiveCapability\('offlineTranslation'\)\)/,
+    );
+    assert.match(helper, /if \(!FEATURES\.offlineEntitlement\) return true;/);
+  });
+
+  it('gives the UI a reactive reader, not the snapshot one', () => {
+    const hook = code(HOOK);
+
+    // A component reading the module-level snapshot would not re-render on a
+    // plan change, so a locked control would stay locked after upgrading.
+    assert.match(hook, /useEntitlements/);
+    assert.match(hook, /offlineTranslationPermittedFor\(has\('offlineTranslation'\)\)/);
+  });
+});
+
+describe('a free user is not offered on-device translation', () => {
+  const SETTINGS_SCREEN = 'src/features/settings/screens/settings-screen.tsx';
+
+  it('offers the upgrade instead of selecting on-device mode', () => {
+    const settings = code(SETTINGS_SCREEN);
+
+    assert.match(settings, /if \(nextMode === 'offline' && !offlinePermitted\) \{/);
+    assert.match(settings, /router\.push\('\/upgrade'\)/);
+  });
+
+  it('never rewrites the stored mode behind the user', () => {
+    const settings = code(SETTINGS_SCREEN);
+
+    // Someone who paid for on-device translation and lapsed keeps their
+    // choice. The upgrade branch returns before `update` is reached.
+    assert.match(
+      settings,
+      /router\.push\('\/upgrade'\);\s*return;\s*\}\s*update\(\{ translationMode: nextMode \}\)/,
+    );
+  });
+
+  it('marks the language packs row as Pro rather than hiding it', () => {
+    const settings = code(SETTINGS_SCREEN);
+
+    // Still reachable: a lapsed subscriber has to get in to delete packs.
+    assert.match(settings, /offlinePermitted \? 'cloud-download-outline' : 'lock-closed-outline'/);
+    assert.match(settings, /onPress=\{\(\) => router\.push\('\/settings\/language-packs'\)\}/);
+  });
+});
+
+describe('language packs respect the entitlement', () => {
+  const PACKS_HOOK = 'src/features/offline/hooks/use-language-packs.ts';
+  const PACKS_SCREEN = 'src/features/offline/screens/language-packs-screen.tsx';
+  const PACK_ITEM = 'src/features/offline/components/language-pack-item.tsx';
+
+  it('refuses to download in the controller, not only in the screen', () => {
+    // A model is tens of megabytes. No stale callback or second entry point
+    // may start one for a user whose plan cannot use the result.
+    assert.match(read(PACKS_HOOK), /if \(!canDownload\) return;/);
+  });
+
+  it('leaves removal ungated', () => {
+    const hook = read(PACKS_HOOK);
+
+    // Reclaiming storage must never require a subscription. Scoped to the
+    // callback itself: the returned object mentions `canDownload` as a field,
+    // which is not a gate on removal.
+    const remove = hook.slice(hook.indexOf('const remove = useCallback'), hook.indexOf('return {'));
+    assert.ok(remove.length > 0, 'the remove callback was found');
+    assert.equal(remove.includes('canDownload'), false);
+    assert.match(hook, /deleteModel/);
+  });
+
+  it('offers no download control at all when locked', () => {
+    // Omitted rather than disabled, so there is no dead button to press.
+    assert.match(
+      read(PACKS_SCREEN),
+      /onDownload=\{canDownload \? onPress\(download\) : undefined\}/,
+    );
+    assert.match(read(PACK_ITEM), /const action = ready \? onRemove : onDownload;/);
+    assert.match(read(PACK_ITEM), /\) : action \? \(/);
+  });
+
+  it('says why, once, rather than on every row', () => {
+    const screen = read(PACKS_SCREEN);
+
+    assert.match(screen, /available && !canDownload \?/);
+    assert.match(screen, /Offline translation is part of Transee Pro/);
+    assert.match(screen, /router\.push\('\/upgrade'\)/);
+  });
+
+  it('still lists what is already on the device', () => {
+    // Hiding installed packs would make a lapsed subscriber think their
+    // downloads were deleted.
+    const screen = read(PACKS_SCREEN);
+    assert.match(screen, /data=\{available \? packs : \[\]\}/);
+    assert.match(screen, /can still be removed to free up space/);
+  });
+});
+
+describe('a denied translation says what is actually wrong', () => {
+  const TRANSLATE = 'src/features/translation/screens/translate-screen.tsx';
+  const RESULT_CARD = 'src/features/translation/components/translation-result-card.tsx';
+
+  it('maps the entitlement error before any readiness answer', () => {
+    // Readiness would describe a device state the user cannot act on, so the
+    // entitlement answer wins.
+    assert.match(
+      read(TRANSLATE),
+      /if \(error\.code === 'entitlement_required'\) return offlineEntitlementNotice\(\);/,
+    );
+  });
+
+  it('stops offering a pack download to someone who may not use one', () => {
+    assert.match(read(TRANSLATE), /useOfflineReadiness\(mode !== 'online' && offlinePermitted\)/);
+  });
+
+  it('sends the entitlement notice to the paywall, not the packs screen', () => {
+    const card = code(RESULT_CARD);
+
+    assert.match(card, /const upgrading = notice\?\.actionTarget === 'upgrade';/);
+    assert.match(card, /const onAction = upgrading \? onUpgrade : onOpenPacks;/);
+  });
+
+  it('drops "Try again" when retrying cannot possibly work', () => {
+    // The plan will not have changed between two taps.
+    assert.match(code(RESULT_CARD), /\{upgrading \? null : \(\s*<Button label="Try again"/);
+  });
+
+  it('names the plan rather than the language pair when there is no connection', () => {
+    const router = code('src/services/translation/translation-router.ts');
+
+    // "no on-device model covers en to de" blames the languages for something
+    // changing them cannot fix.
+    assert.match(
+      router,
+      /if \(networkStatus === 'offline' && !offlineEntitled\) \{\s*return appError\(\s*'entitlement_required'/,
+    );
+  });
+
+  it('keeps that check ahead of the pair-blaming message', () => {
+    const router = code('src/services/translation/translation-router.ts');
+    const entitlement = router.indexOf("networkStatus === 'offline' && !offlineEntitled");
+    const pairBlame = router.indexOf('no on-device model covers');
+
+    assert.ok(entitlement > 0 && pairBlame > 0);
+    assert.ok(entitlement < pairBlame, 'the entitlement branch must come first');
   });
 });

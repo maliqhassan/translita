@@ -6,7 +6,13 @@ import { Button, Card, GradientHeader, IconButton, Screen, Text } from '@/compon
 import { APP, errorMessage } from '@/constants';
 import { TextScanner, consumePendingScan } from '@/features/camera';
 import { RecentTranslations } from '@/features/history';
-import { OfflineReadinessNotice, offlineNotice, useOfflineReadiness } from '@/features/offline';
+import {
+  OfflineReadinessNotice,
+  offlineEntitlementNotice,
+  offlineNotice,
+  useOfflineReadiness,
+  useOfflineTranslationPermitted,
+} from '@/features/offline';
 import { useTheme } from '@/hooks';
 import { useLanguagePair, usePreferences, type LanguageField } from '@/store';
 import type { AppError } from '@/types';
@@ -93,17 +99,29 @@ export function TranslateScreen() {
    * the real reason. Online mode is excluded: there a pack is genuinely not
    * the user's problem.
    */
-  const { readiness } = useOfflineReadiness(mode !== 'online');
+  const offlinePermitted = useOfflineTranslationPermitted();
+
+  // Readiness answers "is this device ready to translate on its own", which is
+  // only worth asking of someone allowed to. Without this the banner would
+  // offer a pack download to a user whose plan excludes the feature entirely.
+  const { readiness } = useOfflineReadiness(mode !== 'online' && offlinePermitted);
 
   /**
-   * Only these two codes can mean "something is missing on the device". Every
-   * other failure keeps its generic message, so a network timeout never turns
-   * into an invitation to download a language pack.
+   * Why a translation failed, when the reason is worth more than the generic
+   * message.
+   *
+   * The entitlement is checked first: it explains the failure completely, and
+   * the readiness answer underneath it would only describe a device state the
+   * user cannot act on. Every other failure keeps its generic message, so a
+   * network timeout never turns into an invitation to download a pack.
    */
-  const offlineDetail = (error: AppError) =>
-    readiness && (error.code === 'model_missing' || error.code === 'unsupported_language')
+  const offlineDetail = (error: AppError) => {
+    if (error.code === 'entitlement_required') return offlineEntitlementNotice();
+
+    return readiness && (error.code === 'model_missing' || error.code === 'unsupported_language')
       ? offlineNotice(readiness)
       : undefined;
+  };
 
   const openPicker = (field: LanguageField) => {
     router.push({ pathname: '/translate/language-picker', params: { field } });
@@ -158,6 +176,7 @@ export function TranslateScreen() {
           onRetry={translate}
           offlineDetail={offlineDetail}
           onOpenPacks={() => router.push('/settings/language-packs')}
+          onUpgrade={() => router.push('/upgrade')}
           speak={speak}
           onSelectLanguage={openPicker}
         />

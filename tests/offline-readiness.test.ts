@@ -352,7 +352,11 @@ describe('the fix is reachable from where it is needed', () => {
     // backend reachable then surfaced as "this language pair is not available
     // yet", blaming the languages for a missing download. Online stays
     // excluded: there a pack genuinely is not the user's problem.
-    assert.match(screen, /useOfflineReadiness\(mode !== 'online'\)/);
+    //
+    // The entitlement conjunct is the second exclusion, for the same reason
+    // in reverse: a missing pack is not the obstacle when the whole feature
+    // is not the user's to begin with.
+    assert.match(screen, /useOfflineReadiness\(mode !== 'online' && offlinePermitted\)/);
   });
 
   it('still warns before translating only in on-device mode', () => {

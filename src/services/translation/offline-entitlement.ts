@@ -26,9 +26,26 @@ import { hasActiveCapability } from '../entitlements';
  * one.
  */
 export function offlineTranslationPermitted(): boolean {
-  // Enforcement has not been switched on yet: routing behaves as it always
+  return offlineTranslationPermittedFor(hasActiveCapability('offlineTranslation'));
+}
+
+/**
+ * The same rule, given the capability rather than reading it.
+ *
+ * React cannot use the bridge above: a component reading a module-level
+ * snapshot does not re-render when the plan changes, so a locked control would
+ * stay locked after an upgrade. The UI holds the capability already — from
+ * `useEntitlements()` — and needs only the rollout flag applied to it.
+ *
+ * Split out rather than duplicated so there is still exactly one place that
+ * knows enforcement is behind a flag. Two copies would eventually disagree,
+ * and a UI that said "Pro only" while routing allowed it — or the reverse —
+ * is worse than either behaviour on its own.
+ */
+export function offlineTranslationPermittedFor(entitled: boolean): boolean {
+  // Enforcement has not been switched on yet: everything behaves as it always
   // has, for every plan. See `FEATURES.offlineEntitlement`.
   if (!FEATURES.offlineEntitlement) return true;
 
-  return hasActiveCapability('offlineTranslation');
+  return entitled;
 }

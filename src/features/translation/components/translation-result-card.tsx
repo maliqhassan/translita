@@ -34,6 +34,8 @@ export type TranslationResultCardProps = {
   offlineDetail?: (error: AppError) => OfflineNotice | undefined;
   /** Shown alongside the retry button when the fix is a download. */
   onOpenPacks?: () => void;
+  /** Shown instead when the fix is a subscription rather than a download. */
+  onUpgrade?: () => void;
   /** Absent when the device has no speech engine: the control is then hidden. */
   speak?: SpeakController;
   /** Opens the picker for one side of the pair. */
@@ -72,6 +74,7 @@ export function TranslationResultCard({
   onRetry,
   offlineDetail,
   onOpenPacks,
+  onUpgrade,
   speak,
   onSelectLanguage,
 }: TranslationResultCardProps) {
@@ -121,6 +124,17 @@ export function TranslationResultCard({
     // the readiness check answers that instead of the error code.
     const notice = offlineDetail?.(state.error);
 
+    /*
+     * Where the notice's action goes, and whether retrying is worth offering.
+     *
+     * An entitlement failure will fail again identically: the plan has not
+     * changed between two taps, so "Try again" would be a button that cannot
+     * work. It is dropped there and kept everywhere else, where the cause
+     * genuinely can be transient.
+     */
+    const upgrading = notice?.actionTarget === 'upgrade';
+    const onAction = upgrading ? onUpgrade : onOpenPacks;
+
     return (
       <ResultShell>
         {panelHeader()}
@@ -138,15 +152,18 @@ export function TranslationResultCard({
             {notice ? notice.description : errorMessage(state.error)}
           </Text>
           <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
-            {notice?.actionLabel && onOpenPacks ? (
+            {notice?.actionLabel && onAction ? (
               <Button
                 label={notice.actionLabel}
                 variant="primary"
                 size="sm"
-                onPress={onOpenPacks}
+                icon={upgrading ? 'sparkles-outline' : undefined}
+                onPress={onAction}
               />
             ) : null}
-            <Button label="Try again" variant="secondary" size="sm" onPress={onRetry} />
+            {upgrading ? null : (
+              <Button label="Try again" variant="secondary" size="sm" onPress={onRetry} />
+            )}
           </View>
         </Animated.View>
       </ResultShell>

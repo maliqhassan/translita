@@ -1,7 +1,18 @@
 import { useRouter } from 'expo-router';
 import { FlatList, View } from 'react-native';
 
-import { Card, Divider, EmptyState, IconButton, Screen, ScreenHeader, Text } from '@/components';
+import {
+  Badge,
+  Button,
+  Card,
+  Divider,
+  EmptyState,
+  Icon,
+  IconButton,
+  Screen,
+  ScreenHeader,
+  Text,
+} from '@/components';
 import { errorMessage } from '@/constants';
 import { useTheme } from '@/hooks';
 import type { LanguagePack } from '@/services';
@@ -20,8 +31,17 @@ import { useLanguagePacks } from '../hooks/use-language-packs';
 export function LanguagePacksScreen() {
   const theme = useTheme();
   const router = useRouter();
-  const { available, loading, packs, error, actionError, download, remove, dismissActionError } =
-    useLanguagePacks();
+  const {
+    available,
+    loading,
+    packs,
+    error,
+    actionError,
+    canDownload,
+    download,
+    remove,
+    dismissActionError,
+  } = useLanguagePacks();
 
   const downloaded = packs.filter((pack) => pack.state === 'ready').length;
 
@@ -29,7 +49,11 @@ export function LanguagePacksScreen() {
     <Screen edges={['top', 'bottom']}>
       <ScreenHeader
         title="Language Packs"
-        subtitle="Download a language to translate it without a connection"
+        subtitle={
+          canDownload
+            ? 'Download a language to translate it without a connection'
+            : 'Translating without a connection is part of Transee Pro'
+        }
         leading={
           <IconButton
             name="chevron-back-outline"
@@ -38,6 +62,36 @@ export function LanguagePacksScreen() {
           />
         }
       />
+
+      {/* Said once, at the top, rather than repeated on every row. Downloading
+          is what Pro unlocks; the packs already on the device stay listed and
+          stay deletable, because reclaiming storage is not a paid feature. */}
+      {available && !canDownload ? (
+        <Card variant="outlined" style={{ gap: theme.spacing.sm }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+            <Icon name="lock-closed-outline" size={18} color="primary" />
+            <Text variant="bodySmall" style={{ flex: 1 }}>
+              Offline translation is part of Transee Pro
+            </Text>
+            <Badge label="Pro" tone="primary" />
+          </View>
+
+          <Text variant="caption" color="textSecondary">
+            {downloaded > 0
+              ? 'Packs already on this device are kept and can still be removed to free up space.'
+              : 'Pro downloads language packs so you can translate with no connection at all.'}
+          </Text>
+
+          <Button
+            label="See what Pro includes"
+            variant="secondary"
+            size="sm"
+            icon="sparkles-outline"
+            onPress={() => router.push('/upgrade')}
+            accessibilityHint="Opens the Transee Pro screen"
+          />
+        </Card>
+      ) : null}
 
       {actionError ? (
         <Card variant="outlined">
@@ -76,7 +130,14 @@ export function LanguagePacksScreen() {
           <PacksEmptyState available={available} loading={loading} hasError={Boolean(error)} />
         }
         renderItem={({ item }: { item: LanguagePack }) => (
-          <LanguagePackItem pack={item} onDownload={onPress(download)} onRemove={onPress(remove)} />
+          <LanguagePackItem
+            pack={item}
+            // Omitted rather than disabled when locked: the row then shows no
+            // download control at all, so nothing offers an action that would
+            // fetch a model the plan cannot use.
+            onDownload={canDownload ? onPress(download) : undefined}
+            onRemove={onPress(remove)}
+          />
         )}
       />
     </Screen>

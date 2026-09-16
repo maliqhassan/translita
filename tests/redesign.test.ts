@@ -205,8 +205,10 @@ describe('a failure names the real reason', () => {
   it('checks readiness in automatic mode, not only on-device', () => {
     // Otherwise an undownloaded pack reads as "this language pair is not
     // available yet", which blames the languages for a missing download.
+    // Entitlement is the other exclusion: a pack is not the obstacle when the
+    // feature itself is not included in the plan.
     const screen = read('src/features/translation/screens/translate-screen.tsx');
-    assert.match(screen, /useOfflineReadiness\(mode !== 'online'\)/);
+    assert.match(screen, /useOfflineReadiness\(mode !== 'online' && offlinePermitted\)/);
   });
 
   it('still shows the pre-emptive banner only on-device', () => {

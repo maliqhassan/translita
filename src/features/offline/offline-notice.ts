@@ -18,9 +18,35 @@ import type { LanguageId } from '@/types';
 export type OfflineNotice = {
   title: string;
   description: string;
-  /** Present only when opening the packs screen would actually help. */
+  /** Present only when there is somewhere useful to send the user. */
   actionLabel?: string;
+  /**
+   * Where that action goes.
+   *
+   * Defaults to the packs screen, which is where every readiness notice led
+   * before plans existed. An entitlement problem leads to the paywall
+   * instead — sending someone to download a pack they may not use is a dead
+   * end, and the reverse offers an upgrade to someone who only needs a file.
+   */
+  actionTarget?: 'packs' | 'upgrade';
 };
+
+/**
+ * What to say when on-device translation is not included in the plan.
+ *
+ * Separate from `offlineNotice` below, which answers "is the device ready".
+ * Readiness and entitlement are different questions with different fixes, and
+ * a missing pack is never the reason when the feature itself is not theirs.
+ */
+export function offlineEntitlementNotice(): OfflineNotice {
+  return {
+    title: 'Offline translation is part of Transee Pro',
+    description:
+      'Pro translates with no connection at all, using language packs stored on your device. Online translation stays available on the free plan.',
+    actionLabel: 'See what Pro includes',
+    actionTarget: 'upgrade',
+  };
+}
 
 /** Joins names the way a sentence would: "English and German". */
 function listNames(languages: readonly LanguageId[]): string {

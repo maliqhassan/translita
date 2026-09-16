@@ -45,6 +45,15 @@ export function LanguagePackItem({ pack, onDownload, onRemove }: LanguagePackIte
   const ready = pack.state === 'ready';
   const failed = pack.state === 'failed';
 
+  /**
+   * The one control this row offers, or none.
+   *
+   * A caller that omits `onDownload` — because the plan does not include
+   * on-device translation — gets no download button rather than a dead one.
+   * Removal is passed separately and stays available either way.
+   */
+  const action = ready ? onRemove : onDownload;
+
   return (
     <ListItem
       icon={ready ? 'checkmark-circle-outline' : 'cloud-download-outline'}
@@ -63,7 +72,7 @@ export function LanguagePackItem({ pack, onDownload, onRemove }: LanguagePackIte
                 {STATE_LABEL[pack.state]}
               </Text>
             </View>
-          ) : (
+          ) : action ? (
             <IconButton
               name={ready ? 'trash-outline' : failed ? 'refresh-outline' : 'cloud-download-outline'}
               accessibilityLabel={
@@ -73,9 +82,9 @@ export function LanguagePackItem({ pack, onDownload, onRemove }: LanguagePackIte
                     ? `Retry downloading the ${pack.name} pack`
                     : `Download the ${pack.name} pack`
               }
-              onPress={() => (ready ? onRemove?.(pack) : onDownload?.(pack))}
+              onPress={() => action(pack)}
             />
-          )}
+          ) : null}
         </View>
       }
     />
