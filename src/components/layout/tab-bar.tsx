@@ -52,10 +52,15 @@ export function AppTabBar({ state, descriptors, navigation, icons }: AppTabBarPr
          * A phone with three-button navigation in its own strip reports an
          * inset of zero, which left the bar sitting right on the system
          * buttons. Gesture phones report a real inset and need no extra.
+         *
+         * The floor is a layout token rather than a spacing step because it is
+         * measuring clearance from hardware, not expressing rhythm: it wants to
+         * be tuned against a real phone, and 12pt was not enough to keep the
+         * pill off the back/home/recents keys.
          */
-        paddingBottom: Math.max(insets.bottom, theme.spacing.md),
+        paddingBottom: Math.max(insets.bottom, theme.layout.tabBarFloorInset),
         paddingHorizontal: theme.spacing.base,
-        paddingTop: theme.spacing.xs,
+        paddingTop: theme.spacing.sm,
         backgroundColor: theme.colors.background,
       }}
     >
@@ -64,8 +69,10 @@ export function AppTabBar({ state, descriptors, navigation, icons }: AppTabBarPr
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-around',
-          paddingVertical: theme.spacing.xxs,
-          paddingHorizontal: theme.spacing.xxs,
+          // Enough that the selected pill sits inside the bar rather than
+          // against its border, which is what made the old bar look cramped.
+          paddingVertical: theme.spacing.xs,
+          paddingHorizontal: theme.spacing.xs,
           borderRadius: theme.radius.full,
           backgroundColor: theme.colors.tabBar,
           borderWidth: 1,
@@ -171,7 +178,11 @@ function TabItem({
           },
         ]}
       >
-        <Icon name={iconName} size={21} color={isFocused ? 'primary' : 'tabBarInactive'} />
+        <Icon
+          name={iconName}
+          size={theme.layout.tabIconSize}
+          color={isFocused ? 'primary' : 'tabBarInactive'}
+        />
 
         {/* The label rides beside the icon only on the selected tab, which
             keeps the bar quiet without hiding what anything is. */}

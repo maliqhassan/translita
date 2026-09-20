@@ -8,6 +8,16 @@ export const layout = {
   hairline: StyleSheet.hairlineWidth,
   borderWidth: 1,
   tabBarHeight: Platform.select({ ios: 56, default: 60 }),
+  /** Glyph size in the bottom navigation. */
+  tabIconSize: 22,
+  /**
+   * Clearance below the tab bar on a phone that reports no bottom inset.
+   *
+   * Three-button navigation lives in its own strip and reports an inset of
+   * zero, so the bar is only as clear of the back/home/recents keys as this
+   * makes it. Gesture phones report a real inset, which is larger and wins.
+   */
+  tabBarFloorInset: 24,
   maxContentWidth: 720,
   /** Extra touch area for small icon-only controls. */
   iconHitSlop: { top: 8, bottom: 8, left: 8, right: 8 },

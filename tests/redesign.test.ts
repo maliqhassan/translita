@@ -190,9 +190,22 @@ describe('the header chrome', () => {
 describe('the bottom navigation', () => {
   it('keeps a floor under the safe-area inset', () => {
     // A phone with three-button navigation in its own strip reports zero, and
-    // the bar ended up sitting on the buttons.
+    // the bar ended up sitting on the buttons. The first floor was 12pt, which
+    // was still too close on a real device; it is now a named layout token so
+    // the number can be tuned without hunting through spacing steps.
     const bar = read('src/components/layout/tab-bar.tsx');
-    assert.match(bar, /Math.max\(insets.bottom, theme.spacing.md\)/);
+    assert.match(bar, /Math\.max\(insets\.bottom, theme\.layout\.tabBarFloorInset\)/);
+  });
+
+  it('gives that floor more room than a spacing step did', () => {
+    // Measuring clearance from hardware, not rhythm: this wants to stay well
+    // clear of the system keys, so it is asserted as a minimum rather than an
+    // exact value.
+    const layout = read('src/constants/layout.ts');
+    const floor = Number(layout.match(/tabBarFloorInset: (\d+)/)?.[1]);
+
+    assert.ok(Number.isFinite(floor), 'the token exists');
+    assert.ok(floor >= 20, `expected at least 20pt of clearance, found ${floor}`);
   });
 
   it('keeps inactive glyphs dark enough to see', () => {
