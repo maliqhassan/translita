@@ -3,6 +3,11 @@ import { describe, it } from 'node:test';
 
 import { TRANSLATION_CONFIG, hasBackendConfigured } from '@/constants/translation-config';
 import {
+  entitlementsFor,
+  publishActiveEntitlements,
+  resetActiveEntitlements,
+} from '@/services/entitlements';
+import {
   getActivePreferences,
   publishActivePreferences,
   resetActivePreferences,
@@ -54,7 +59,12 @@ describe('service registry', () => {
     // replace the whole candidate list with the sample engine, so the offline
     // engine was never asked. Selecting on-device mode must now reach it, and
     // the honest model_missing is proof it did.
+    //
+    // Pro is published because the entitlement gate is live: it removes the
+    // offline engine before availability is asked, so without this the request
+    // would be refused earlier and this would stop testing what it is for.
     publishActivePreferences({ ...getActivePreferences(), translationMode: 'offline' });
+    publishActiveEntitlements(entitlementsFor('pro', 'local'));
 
     try {
       const result = await services.translation.router.translate(request);
@@ -63,6 +73,25 @@ describe('service registry', () => {
       assert.equal(!result.ok && result.error.code, 'model_missing');
     } finally {
       resetActivePreferences();
+      resetActiveEntitlements();
+    }
+  });
+
+  it('refuses a free user the offline engine in that same scenario', async () => {
+    // The other half of the pair. Same build, same absent backend, same mode —
+    // only the plan differs, and it is reported as the plan rather than as a
+    // missing language pack the user could not have used anyway.
+    publishActivePreferences({ ...getActivePreferences(), translationMode: 'offline' });
+    publishActiveEntitlements(entitlementsFor('free', 'local'));
+
+    try {
+      const result = await services.translation.router.translate(request);
+
+      assert.equal(result.ok, false);
+      assert.equal(!result.ok && result.error.code, 'entitlement_required');
+    } finally {
+      resetActivePreferences();
+      resetActiveEntitlements();
     }
   });
 

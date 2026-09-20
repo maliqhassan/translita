@@ -7,6 +7,7 @@ import {
   createMlKitOfflineEngine,
   type MlKitNative,
 } from '@/services/translation/offline/mlkit/mlkit-offline-engine';
+import { offlineTranslationPermittedFor } from '@/services/translation/offline-entitlement';
 import { createOfflineTranslationService } from '@/services/translation/offline-translation-service';
 import { orderEngines } from '@/services/translation/routing-policy';
 import { createTranslationRouter } from '@/services/translation/translation-router';
@@ -482,9 +483,19 @@ describe('the entitlement is read per request, never captured', () => {
 });
 
 describe('the offline entitlement rollout flag', () => {
-  it('defaults to off, so nothing changes for users yet', () => {
+  it('is on, so the gate above is live rather than dormant', () => {
+    // This asserted `false` for the whole period the enforcement sat built but
+    // switched off. Flipping it is what made every scenario in this file a
+    // description of real behaviour instead of a rehearsal.
     const config = readFileSync('src/constants/config.ts', 'utf8');
-    assert.match(config, /offlineEntitlement: false/);
+    assert.match(config, /offlineEntitlement: true/);
+  });
+
+  it('denies an unentitled user through the shared rule', () => {
+    // The flag and the capability are combined in one place; with the flag on,
+    // the capability is the whole answer.
+    assert.equal(offlineTranslationPermittedFor(false), false);
+    assert.equal(offlineTranslationPermittedFor(true), true);
   });
 
   it('is what the single shared helper combines with the capability', () => {

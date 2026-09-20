@@ -65,14 +65,18 @@ export const FEATURES = {
    *
    * Deliberately separate from `offlineTranslation` above, which says whether
    * the capability exists in this build at all. The two are different
-   * questions and this one cannot be answered yet: no translation backend is
-   * deployed, so the on-device engine is currently the only path that works.
-   * Enforcing today would leave free users unable to translate anything.
+   * questions.
    *
-   * Turn this on only once online translation is deployed and verified on a
-   * device. Until then the enforcement is implemented, tested and dormant.
+   * Built dormant and switched on afterwards, because enforcing it while the
+   * on-device engine was the only working path would have left free users
+   * unable to translate anything. It was enabled once online translation was
+   * deployed and verified on a device.
+   *
+   * That order is worth keeping in mind before changing anything here: with
+   * enforcement on, a free user has no fallback, so online translation being
+   * reachable is what keeps the free plan usable at all.
    */
-  offlineEntitlement: false,
+  offlineEntitlement: true,
   /**
    * Scanning text with the camera, over ML Kit's bundled Latin recogniser.
    * Implemented end to end and compiles; no device has pointed a camera at

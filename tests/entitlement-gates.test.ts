@@ -682,20 +682,21 @@ describe('the offline engine gate lives below the UI', () => {
   });
 });
 
-describe('the offline entitlement UX is inert until the flag flips', () => {
+describe('the offline entitlement UX is live', () => {
   const HOOK = 'src/features/offline/hooks/use-offline-entitlement.ts';
 
-  it('keeps the rollout flag off', () => {
-    // Everything in this step is written to be dormant. With the flag false
-    // the shared rule answers true for every plan, so each gate below renders
-    // exactly what it rendered before Step 4.
-    assert.match(read('src/constants/config.ts'), /offlineEntitlement: false/);
+  it('has the rollout flag on', () => {
+    // Built dormant and switched on once online translation was deployed and
+    // verified on a device. Until then this asserted `false`, because gating
+    // offline while it was the only working engine would have left free users
+    // unable to translate at all.
+    assert.match(read('src/constants/config.ts'), /offlineEntitlement: true/);
   });
 
-  it('answers true for everyone while enforcement is off', () => {
+  it('answers by capability now that enforcement is on', () => {
     // The property the whole step rests on, asserted against the real rule
-    // rather than a copy of it.
-    assert.equal(offlineTranslationPermittedFor(false), true);
+    // rather than a copy of it. With the flag on the rule is the capability.
+    assert.equal(offlineTranslationPermittedFor(false), false);
     assert.equal(offlineTranslationPermittedFor(true), true);
   });
 
