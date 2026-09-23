@@ -476,12 +476,199 @@ both themes because a live camera feed does not follow the app's theme.
 renders, the permission dialog appears, a capture succeeds or any real text is
 recognised are all open until someone tests a build.
 
-## Not yet built
+## Day 19 -- History remembers how text arrived
 
-Every capability in the original plan now has an implementation. What remains
-is hardware verification, not code.
+`c17e6c1`. Every history row recorded `origin: 'text'`, whichever way the text
+had actually been produced. The draft carried no provenance, so dictation,
+scanning and pasting all looked like typing by the time they reached the
+database.
 
-Everything else in the original plan has shipped:
+The fix is a named setter per route -- `setDictated`, `setScanned`,
+`setPasted` -- so the origin travels with the draft into the request and onto
+the row. The history list renders a different icon for each.
+
+## The redesign, the deployable backend, and Free/Pro -- Step 2A
+
+`4030a4d`. One large commit, and worth naming honestly: it carries four pieces
+of work that were developed in sequence but committed together.
+
+**A visual redesign.** A gradient header that bleeds under the status bar, a
+hand-written floating tab bar, a segmented control, per-panel language headers
+and a `SwapLanguagesButton`. The brand colour moved to `#70d6ff`, which forced
+`resolveInk` and a `primaryStrong` token: white on that blue measures 1.6:1,
+and brand-coloured _text_ needs a darker ink to clear 4.5:1.
+
+**A deployable backend.** `server/` has existed since Day 5; this added the
+`Dockerfile`, `.dockerignore`, the optional `TRANSLATION_PROVIDER_ENDPOINT`
+and a privacy test suite. The image holds no credential -- the provider key is
+supplied by the host at run time.
+
+**The Camera tab became real.** It had been a signpost telling the user to go
+and use another tab. It now opens the same scanner and hands the result across
+the tab boundary through `pending-scan.ts`.
+
+**Step 2A: the entitlement core.** Plans (`free` | `pro`) and capabilities are
+modelled separately, with one table mapping them, so no screen ever compares a
+plan. `EntitlementsService` sits over the existing preferences storage seam;
+`resolveFeatureAccess` answers _shipped, then supported, then entitled_, in
+that order, because the order decides what the user is told -- a device with no
+recogniser must read as unavailable, never as locked. Camera OCR is the first
+gated capability. The Upgrade screen is a placeholder that cannot take money.
+
+## Step 2B -- Speech to text becomes Pro
+
+`3363fde`. The same three-layer rule applied to dictation, through the same
+`resolveFeatureAccess`, so the ordering lives in one place for both gates.
+
+The microphone needed two guards the camera did not. A plan can change while a
+permission dialog is open, so the entitlement is re-read immediately before
+`start()`; and losing the entitlement mid-session cancels the session, because
+a microphone left open behind a lock is a privacy problem rather than a
+cosmetic one.
+
+## Step 2C -- Offline routing enforcement, built dormant
+
+`5e0af74`. The gate lives in `isEligible` in `routing-policy.ts`, which runs
+_before_ an engine is asked whether it is available and before it is asked
+whether it covers the pair. That ordering is the whole design: it makes
+installed language packs, a lost connection, an unreachable backend and a mode
+persisted from a previous subscription all stop being ways in.
+
+Evaluated per request, never captured, so a plan change lands on the very next
+translation. The cache is gated too -- it sits _above_ the router, so a hit
+would otherwise keep serving an on-device translation long after the plan that
+earned it lapsed.
+
+Shipped behind `FEATURES.offlineEntitlement`, defaulting to **false**. With no
+backend deployed, the on-device engine was the only working path; enforcing
+then would have left free users unable to translate anything.
+
+## Step 3 -- The backend deployed, and builds that know its address
+
+`873a3da`. The backend was deployed to Render's free tier against an Azure AI
+Translator resource, and verified by request: `/health`, `/languages`, a real
+`en -> de` translation, and auto-detect correctly identifying French.
+
+The repository change is small and deliberate: each `eas.json` build profile
+names the EAS environment it draws `EXPO_PUBLIC_TRANSEE_API_URL` from, and the
+URL itself is **not** committed. `preview` and `production` are configured
+independently, so a staging backend cannot be baked into a store build. The
+value is inlined at build time, so changing it always needs a new build.
+
+## Step 4 -- Offline entitlement UX
+
+`df703bc` then `21da5ec`. The UX first, still dormant; the flag flipped second.
+
+`offlineTranslationPermittedFor` was split out of the routing helper so the UI
+and the router act on one rule rather than two copies, and a reactive hook was
+added over it -- a component reading the module-level snapshot would not
+re-render on a plan change, leaving a locked control locked after an upgrade.
+
+Selecting on-device mode offers the upgrade instead, **without rewriting the
+stored preference**: someone who paid for it and lapsed keeps their choice.
+Language packs stay listed and deletable but cannot be downloaded, because
+reclaiming storage is not a paid feature and fetching a model the plan cannot
+use wastes the user's data. A denied translation names the plan rather than
+blaming the language pair, links to the paywall instead of a pack download,
+and drops "Try again" where retrying cannot work.
+
+`21da5ec` then set `FEATURES.offlineEntitlement` to `true`, once online
+translation was deployed and verified on a device.
+
+## Tab bar clearance
+
+`21a269e`. Three-button navigation lives in its own strip and reports a bottom
+inset of zero, so the floor under that inset was all that kept the bar off the
+back/home/recents keys -- and 12pt was not enough on a real device. The floor
+is now a named layout token at 24pt, because it measures clearance from
+hardware rather than expressing spacing rhythm.
+
+## Text-to-speech settings (uncommitted)
+
+Not yet committed; present in the working tree only.
+
+`SpeakOptions` had accepted `voiceId`, `rate` and `pitch` since Day 15 and
+nothing had ever supplied them. Two preferences now do: `speechRate`, validated
+by membership of five documented steps rather than by range, and a voice stored
+as `voiceId` plus the `voiceLanguage` it was chosen for.
+
+Storing the language alongside the id is what lets a selection be applied only
+where it belongs. Matching compares the base language and -- only when both
+tags carry one -- the script, so `zh-Hans` never speaks `zh-Hant` while
+`en-GB` still matches `en-US`. Region is deliberately never compared: an
+unexpected accent is intelligible, a wrong writing system is not. A selection
+that does not apply is kept, not deleted.
+
+An in-settings voice preview auditions a voice without committing to it,
+speaking a short sample in that voice's own language at the configured rate.
+It reads preferences and never writes them.
+
+## Project status
+
+Every capability in the original plan has an implementation, and the
+monetisation work that followed it is implemented too. What remains is a
+mixture of hardware verification, small known defects, and one product
+decision.
+
+**A build succeeding proves compilation and packaging. It proves nothing about
+behaviour.** The three tables below keep those apart on purpose.
+
+### Verified on a physical device
+
+| Capability                        | Evidence                                          |
+| --------------------------------- | ------------------------------------------------- |
+| Online translation                | Reported working against the deployed backend     |
+| Offline translation               | Reported working on device                        |
+| Free/Pro gating of Scan and Speak | Free correctly locked out of both                 |
+| Offline entitlement UX            | Step 4 scenarios run with the flag temporarily on |
+| Backend + Azure                   | `/health`, `/languages` and real translations     |
+| TTS playback                      | Audio heard; stop and replay work                 |
+| TTS speech rate                   | Rate changes audible                              |
+| TTS voice selection               | Selecting a voice changes playback                |
+| TTS language switching            | Works                                             |
+| Tab bar clearance                 | Confirmed visually on the target phone            |
+
+### Implemented, not verified on a device
+
+| Capability                        | What is unproven                                                                          |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| **TTS in-settings voice preview** | Never run on hardware. Scheduled with a later module                                      |
+| Camera OCR (the recogniser)       | Its _gating_ is verified; no camera has been opened, and no real text has been recognised |
+| Speech to text (the recogniser)   | Its _gating_ is verified; nothing has been spoken into it                                 |
+| Language pack download/delete     | Exercised in the Step 4 checklist; not independently confirmed here                       |
+
+`offline.supported` stays `false` across the catalogue until a device confirms
+a model actually translates. Camera OCR and speech-to-text remain in the same
+position Day 18 and Day 17 left them: the code exists, compiles and is
+packaged, and the entitlement gates in front of them are verified, but the
+capabilities themselves are not.
+
+### Capabilities, after feature parity
+
+The tiers were rewritten. Free and Pro now hold the **same** translation
+features; `adFree` is the only thing Pro adds, and the table is written as an
+addition -- `pro: [...FREE_CAPABILITIES, 'adFree']` -- so the two cannot drift
+into a state where a paid tier quietly gains a feature.
+
+| Capability           | Free | Pro | State                                                              |
+| -------------------- | ---- | --- | ------------------------------------------------------------------ |
+| `cameraOcr`          | yes  | yes | Enforced against the device probe only, never against the plan     |
+| `speechRecognition`  | yes  | yes | Same                                                               |
+| `offlineTranslation` | yes  | yes | Same; `FEATURES.offlineEntitlement` is off, so nothing consults it |
+| `adFree`             | no   | yes | Declared, not yet enforced -- **there are no ads in the app**      |
+
+`extendedOnlineQuota` was **removed**. It was declared and advertised while no
+code anywhere counted usage, so it was deleted from the `Capability` union
+rather than left as a promise; a reference to it is now a compile error.
+
+The gating machinery -- the `locked` states, the routing gate, the cache guard
+and the in-flight guard -- is deliberately retained and unreachable. Re-tiering
+later is a flag and a table entry, not a rediscovery of every bypass.
+
+The Upgrade screen now promises exactly one thing: removing ads. That promise
+is still unfulfilled, because neither ads nor billing are implemented.
+
+### Original plan, and where each part lives
 
 | Capability              | Shipped   | Where                                       |
 | ----------------------- | --------- | ------------------------------------------- |
@@ -496,10 +683,166 @@ Everything else in the original plan has shipped:
 | Camera OCR              | Day 18    | `services.ocr` (camera in the composer)     |
 | Connectivity routing    | Day 16    | the candidate list in `service-registry.ts` |
 
-Offline translation is shipped in the sense that the code exists, compiles and
-is packaged; it is **not** verified on hardware, and `offline.supported` stays
-`false` across the catalogue until a device says otherwise.
-
 `FEATURES.mockTranslation` is the only switch that admits the sample engine.
 Deleting `mock-translation-service.ts` is possible once a backend is configured
 by default, but until then it is the only way to exercise the app end to end.
+
+## Known issues and deferred work
+
+Separated by how certain they are. A confirmed defect has been observed; a risk
+has been reasoned about but not seen.
+
+### Fixed (uncommitted)
+
+These fixes live in the working tree and have not been committed.
+
+| Issue                     | Where                                        | How it was closed                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Intermittent test failure | `tests/history-origins.test.ts`              | The diagnosis had been incomplete. `listRecent` orders by `created_at DESC, id DESC`, so the id _is_ the tiebreaker -- but the fixture returned one constant id for every result, leaving rows tied on both keys and ordered however SQLite happened to return them. A per-result id restores the tiebreaker. Test-only: production always had unique ids from `createId`                                   |
+| Rate limiter never swept  | `server/src/rate-limit.ts`                   | `check` now reclaims expired windows once the map holds more than 1,000 clients, so it can no longer grow unattended. Chosen over a timer, which would have to be created, unref'd so it cannot hold the process open, and torn down by whoever built the limiter. Quiet services never pay for it; only the rare crossing call is O(n). `sweep()` stays on the contract for explicit reclaim and for tests |
+| In-flight request join    | `src/services/translation/caching-router.ts` | A joiner's result is now checked against the current entitlement, and refusal delegates to the router so the wording stays `entitlement_required`. The **originator is deliberately exempt**: its translation began while the entitlement held, and Step 2C settled that such a request may finish rather than being cancelled. A **joiner** is a new request and is gated like one                         |
+
+The in-flight guard was demonstrated rather than asserted: with it disabled,
+three of the new tests fail; with it restored, all pass.
+
+Caveats that remain, by design:
+
+- A refused joiner costs one extra router call. Cheap in the case this exists
+  for -- routing refuses before reaching an engine -- but if the user is
+  entitled to online, that call performs a real online translation.
+- The cached on-device entry survives a refusal, consistent with the rule that
+  a refused entry is left in place rather than evicted. Someone who
+  resubscribes gets it back.
+- Sub-millisecond interleaving inside the in-flight registry is not
+  exhaustively proven. Both paths are now safe, so the outcome is correct
+  either way, but the ordering itself has not been tested.
+
+### Confirmed, still open
+
+| Issue                                | Where                                          | Notes                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Voice-enumeration error copy         | `voice-screen.tsx` via `constants/messages.ts` | `getVoices()` fails with `service_unavailable`, which renders as "Translation is unavailable right now". Nothing about translation failed. **Blocked**: every route to a fix runs through uncommitted TTS files, and `service_unavailable` is shared with translation, so its copy cannot simply be reworded. Do it once the TTS work is committed |
+| Unauthenticated translation endpoint | `server/src/server.ts`                         | A decision, not automatically a defect -- see below                                                                                                                                                                                                                                                                                                |
+
+### Risks, reasoned about but not observed
+
+| Risk                         | Where              | Notes                                                                                                                                                                                                                                   |
+| ---------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Voice list key handling      | `voice-screen.tsx` | `keyExtractor` trusts `voice.identifier`. A platform reporting missing or duplicate identifiers would produce React key warnings and confuse the selected-row comparison                                                                |
+| Render free-tier cold starts | deployment         | The instance sleeps after ~15 minutes and has been measured at 12-13s to wake, against the app's 10s request timeout. With offline now gated, a free user has no fallback, so a cold start reads as a broken app rather than a slow one |
+
+### The unauthenticated endpoint, in full
+
+`POST /translation` takes no credential. Investigated rather than assumed, and
+it is a decision rather than a defect at the current tier.
+
+**What is protected.** The Azure key never leaves the server; user text is
+never logged; the body is capped at 64 KB on `Content-Length` and again while
+streaming; text is capped at 5,000 characters; 60 requests per minute per
+client with `Retry-After`; a provider auth failure is reported as
+`provider_unavailable`, so a caller learns nothing about the credential.
+
+**What is exposed.** Azure quota. On the free F0 tier that is 2M characters a
+month with a hard cap: exhaustion stops translation until the month resets and
+**cannot generate a bill**.
+
+**Why the obvious fix is not one.** A shared secret in an `EXPO_PUBLIC_*`
+variable is inlined into the bundle and readable by anyone holding the APK --
+security theatre. Real authentication needs account identity, which is the
+deferred billing and auth work.
+
+**It becomes a genuine defect the moment the tier changes.** Either keep F0 as
+the cap, or schedule authentication alongside billing.
+
+### Deferred by decision
+
+- **Grandfathering.** Users who downloaded language packs before offline gating
+  lose access to them, with no in-app explanation. No data is deleted. Whether
+  to exempt them is an open product question.
+- **Physical verification of the voice preview**, scheduled alongside a later
+  module rather than on its own.
+
+## Next milestone -- requires a product decision
+
+The original plan is complete and the roadmap records no agreed next module.
+The candidates below all exist in the codebase or in prior project
+documentation; none has an approved specification or priority. **They are
+candidates, not commitments.**
+
+| Candidate                     | Evidence it exists                                                                                  | What is missing                                                                                                                         |
+| ----------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Enforce `adFree`              | Declared in `plan-capabilities.ts`, advertised on the Upgrade screen                                | **No ad SDK is installed.** Needs a provider, a placement decision, and proof the SDK works on Expo SDK 57                              |
+| RevenueCat subscriptions      | `EntitlementsService` is a contract a billing-backed implementation can be bound to in the registry | **Not implemented.** No SDK, no products, no offerings. See the decisions below                                                         |
+| Conversation mode             | `FEATURES.conversationMode: false` in `config.ts`                                                   | Appears nowhere else in the repository -- no design, no service, no roadmap entry. Building it would mean designing it from a flag name |
+| Close what remains open above | The fixed table records what is already done                                                        | Only two remain: the voice-enumeration copy, blocked until the TTS work is committed, and the endpoint decision below                   |
+
+`conversationMode` deserves the clearest warning: a flag name is not a
+specification, and implementing one from the other is inventing a feature.
+
+The repository establishes no priority between these. That ordering is a
+product decision.
+
+## Onboarding and the translator home screen
+
+Both were built after the original plan closed, and neither has run on
+hardware.
+
+**First-launch onboarding.** A mint welcome screen, then a five-slide
+carousel: routing, the language catalogue, speech, the camera and language
+packs. Swiping is React Native's own paged `ScrollView`, so no pager
+dependency was added, and the illustrations are drawn from views rather than
+shipped as assets.
+
+Every slide claims only what the code does, and the tests enforce the absences
+as much as the presences -- no "AI-powered" claim, no promise that every
+language works offline, no unlimited or instant translation, and the two
+device-dependent slides say "on supported devices". The camera slide says
+Latin script, because the bundled recogniser reads nothing else.
+
+Completion is one preference on the existing store. `PREFERENCES_VERSION` went
+to 2 and `migrate` marks any version-1 file complete, so **existing installs
+are never sent back through onboarding**. That is safe because nothing writes
+preferences on load: a stored file proves deliberate use. The one install
+treated as new is a user who never changed a setting, who has no file to
+migrate and sees the welcome screen once.
+
+The privacy-policy URL is **deliberately empty**. The link says so rather than
+opening a 404. Google Play will not accept a listing without one.
+
+**Home screen.** A Pro control beside settings, and shortcuts to Voice,
+Camera, Languages and History. Ionicons has no crown glyph, so the Pro pill
+uses `sparkles`, matching the paywall. There is no help control, because there
+is no help screen; the reference design's Phrases and Quotation tiles are
+absent, because neither feature exists. The shortcuts sit below the composer,
+the result and the Translate button, and a test pins that order so a future ad
+placement cannot push a translation off the screen.
+
+## The commercial model, as agreed
+
+| Decision           | Value                                                     |
+| ------------------ | --------------------------------------------------------- |
+| Feature difference | None. Free and Pro translate identically                  |
+| Pro benefit        | Ad removal, and nothing else                              |
+| Billing provider   | RevenueCat -- **planned, not implemented**                |
+| Billing periods    | Monthly and yearly                                        |
+| Free trial         | None                                                      |
+| Price positioning  | Low. **Exact prices are not decided and are not in code** |
+| Sign-in            | None, and none planned                                    |
+| Admin panel        | Out of scope for the initial release                      |
+| Initial platform   | Android                                                   |
+
+Nothing above is built. There is no RevenueCat SDK, no ad SDK, no product
+identifier, no price and no purchase flow anywhere in the repository, and the
+Upgrade screen's button is deliberately disabled so it cannot appear to take
+money.
+
+### Still open before release
+
+- **Ads are the entire Pro proposition and do not exist.** Until an ad SDK
+  ships, Pro removes something nobody sees.
+- **RevenueCat integration**, including the anonymous purchase-transfer
+  behaviour, which cannot be inferred from the repository and must be tested.
+- **The privacy-policy URL.**
+- **The exposed Azure key** has still not been regenerated.
+- **No device verification** of onboarding, the carousel, the home screen,
+  camera OCR, dictation or the voice preview.
