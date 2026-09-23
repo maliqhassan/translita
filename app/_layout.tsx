@@ -11,8 +11,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { Theme } from '@/constants';
+import { OnboardingFlow } from '@/features/onboarding';
 import { useTheme } from '@/hooks';
-import { AppProviders } from '@/store';
+import { AppProviders, usePreferences } from '@/store';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -40,10 +41,31 @@ function toNavigationTheme(theme: Theme): NavigationTheme {
  */
 function RootNavigator() {
   const theme = useTheme();
+  const { preferences, update } = usePreferences();
 
   useEffect(() => {
     void SplashScreen.hideAsync();
   }, []);
+
+  /*
+   * Onboarding replaces the navigator rather than being a route in it.
+   *
+   * Preferences are already loaded by this point — the provider renders
+   * nothing until they are — so this decision is made once, with the real
+   * answer, and never flickers from tabs to welcome and back.
+   *
+   * Rendering it *instead of* the Stack is what keeps the promise that there
+   * is only ever one translator: there is no second copy to navigate to, and
+   * no route a user could land back on with the system back button. Finishing
+   * writes the preference, this re-renders, and the navigator mounts on its
+   * own first tab.
+   *
+   * The flow owns which of its own screens is showing. This only knows whether
+   * onboarding is done, which is the only part worth persisting.
+   */
+  if (!preferences.onboardingComplete) {
+    return <OnboardingFlow onComplete={() => update({ onboardingComplete: true })} />;
+  }
 
   return (
     <ThemeProvider value={toNavigationTheme(theme)}>

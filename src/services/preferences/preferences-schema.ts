@@ -19,7 +19,7 @@ import type { Preferences, SpeechRate, ThemePreference, TranslationMode } from '
  * migration at all. The version exists for the rarer case of a field changing
  * *meaning*, where `migrate` below is the place to translate it.
  */
-export const PREFERENCES_VERSION = 1;
+export const PREFERENCES_VERSION = 2;
 
 export const DEFAULT_PREFERENCES: Preferences = {
   sourceLanguage: DEFAULTS.sourceLanguage,
@@ -33,6 +33,9 @@ export const DEFAULT_PREFERENCES: Preferences = {
   // The engine's natural pace, and no voice chosen: an install that has never
   // opened Settings speaks exactly as it did before these fields existed.
   speechRate: 1,
+  // A fresh install has not been through the welcome screen. Existing installs
+  // are migrated to true rather than taking this default — see `migrate`.
+  onboardingComplete: false,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -112,15 +115,29 @@ function repairTarget(source: string, target: string): string {
 }
 
 /**
- * Hook for shape changes between versions. Nothing needs translating yet, so
- * this is the identity; it exists so the first real migration has an obvious
- * home rather than being bolted onto the parser.
+ * Hook for shape changes between versions.
+ *
+ * Version 2 added `onboardingComplete`, and it is the case the version number
+ * exists for: reading the field as missing-means-default would be *wrong* for
+ * everyone who already had the app. Their file is proof they have used it, so
+ * they are migrated to true and never see the welcome screen.
+ *
+ * This is safe precisely because nothing writes preferences on load — the file
+ * appears only once the user changes something. A stored record therefore
+ * means a deliberate act, not merely a launch, and cannot be produced by a
+ * first run that was interrupted before Get Started.
+ *
+ * The one install this treats as new is an existing user who never changed a
+ * single setting. They have no file to migrate and are indistinguishable from
+ * a fresh install; they see the welcome screen once. Nothing is lost —
+ * preferences and history are untouched either way.
  */
 function migrate(record: Record<string, unknown>, version: number): Record<string, unknown> {
   if (version >= PREFERENCES_VERSION) return record;
-  // Older payloads are read field by field below, which is already tolerant of
-  // anything missing, so no rewriting is required for version 1.
-  return record;
+
+  // Explicitly stored values still win, so a version-1 file that somehow
+  // carries the field keeps what it says.
+  return { onboardingComplete: true, ...record };
 }
 
 /**
@@ -151,6 +168,10 @@ export function parsePreferences(payload: unknown): Preferences {
     theme: readEnum(record.theme, THEMES, DEFAULT_PREFERENCES.theme),
     saveHistory: readBoolean(record.saveHistory, DEFAULT_PREFERENCES.saveHistory),
     speechRate: readSpeechRate(record.speechRate, DEFAULT_PREFERENCES.speechRate),
+    onboardingComplete: readBoolean(
+      record.onboardingComplete,
+      DEFAULT_PREFERENCES.onboardingComplete,
+    ),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

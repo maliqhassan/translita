@@ -84,6 +84,9 @@ describe('default preferences', () => {
       // than undefined, so the stored file keeps the shape an older build
       // already copes with.
       speechRate: 1,
+      // A fresh install has not been through the welcome screen yet. Installs
+      // that predate the field are migrated to true instead of taking this.
+      onboardingComplete: false,
     });
   });
 
@@ -113,6 +116,7 @@ describe('parsing stored preferences', () => {
       // A non-default rate, so this also proves the field survives parsing
       // rather than being quietly replaced by the default.
       speechRate: 1.25,
+      onboardingComplete: true,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -200,6 +204,7 @@ describe('preferences service', () => {
       theme: 'dark',
       saveHistory: false,
       speechRate: 0.5,
+      onboardingComplete: true,
     };
 
     assert.equal((await service.save(saved)).ok, true);

@@ -88,6 +88,25 @@ export type ColorTokens = {
   tabBarBorder: string;
   tabBarActive: string;
   tabBarInactive: string;
+
+  /**
+   * The welcome screen: a full-bleed field of colour with content on top.
+   *
+   * Its own tokens rather than the gradient ones because it is deliberately a
+   * different colour from the rest of the app — a mint field, where the app
+   * proper is sky blue. Declaring that exception here is what keeps it out of
+   * the component, which still styles itself entirely through the theme.
+   *
+   * It barely shifts between light and dark. The screen is a solid field of
+   * brand colour either way, so following the scheme would only make the
+   * first thing a user sees look like two different products.
+   */
+  onboarding: string;
+  onOnboarding: string;
+  onOnboardingMuted: string;
+  /** The primary action sitting on that field, and the ink on it. */
+  onboardingAction: string;
+  onOnboardingAction: string;
 };
 
 export const lightColors: ColorTokens = {
@@ -121,6 +140,14 @@ export const lightColors: ColorTokens = {
   dangerMuted: palette.red[100],
 
   overlay: 'rgba(11, 12, 16, 0.45)',
+  onboarding: palette.mint[500],
+  // White on this mint is about 3.1:1 — short of 4.5:1 for body text, which
+  // is why the title is display-sized and the muted line is only a shade
+  // under white rather than the usual heavy fade.
+  onOnboarding: '#FFFFFF',
+  onOnboardingMuted: 'rgba(255, 255, 255, 0.92)',
+  onboardingAction: palette.neutral[0],
+  onOnboardingAction: palette.mint[600],
   gradientFrom: palette.indigo[500],
   gradientTo: palette.indigo[300],
   // Dark ink, not white: white on this blue is about 1.6:1 and unreadable.
@@ -170,6 +197,13 @@ export const darkColors: ColorTokens = {
   dangerMuted: 'rgba(219, 69, 69, 0.16)',
 
   overlay: 'rgba(0, 0, 0, 0.6)',
+  // A shade deeper than light mode, and no more: this is a brand field, not
+  // a surface, so it does not invert.
+  onboarding: palette.mint[600],
+  onOnboarding: '#FFFFFF',
+  onOnboardingMuted: 'rgba(255, 255, 255, 0.92)',
+  onboardingAction: palette.neutral[0],
+  onOnboardingAction: palette.mint[700],
   gradientFrom: palette.indigo[800],
   gradientTo: palette.indigo[700],
   // Deep enough here that white is the readable choice.

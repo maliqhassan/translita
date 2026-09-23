@@ -54,6 +54,20 @@ export type Preferences = {
    * deleted — while the user is translating into something else.
    */
   voiceLanguage?: LanguageId;
+  /**
+   * Whether the welcome screen has been got past.
+   *
+   * A preference rather than a slot of its own, because it is genuinely a
+   * per-install setting and the preferences file is already the place the app
+   * remembers per-install things. It is deliberately not something the user
+   * can toggle in Settings: there is nothing to choose, only something that
+   * has or has not happened.
+   *
+   * False by default, so a fresh install is shown the welcome screen. An
+   * install that predates the field is migrated to true — see
+   * `preferences-schema`, where the reasoning lives.
+   */
+  onboardingComplete: boolean;
 };
 
 /**

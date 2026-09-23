@@ -5,6 +5,27 @@ export const APP = {
   version: '0.2.0',
 } as const;
 
+/**
+ * Where the app's published legal documents live.
+ *
+ * Empty because nothing has been published yet, and an empty string is the
+ * honest way to say so. It is deliberately not a plausible-looking
+ * `https://transee.app/privacy`: a URL that 404s on a store listing is worse
+ * than a screen that admits the document is not ready, and a placeholder that
+ * looks real is one nobody remembers to replace.
+ *
+ * The welcome screen reads this and tells the user plainly when it is unset,
+ * rather than offering a link that does nothing. Setting it here is the only
+ * change needed to make that link live.
+ *
+ * REQUIRED BEFORE RELEASE: Google Play will not accept the listing without a
+ * privacy policy URL, and the app collects nothing but stores translations on
+ * the device, which the policy still has to state.
+ */
+export const LEGAL = {
+  privacyPolicyUrl: '',
+} as const;
+
 /** Keys for persisted values. Namespaced so a stray key can never collide. */
 export const STORAGE_KEYS = {
   preferences: 'transee.preferences.v1',

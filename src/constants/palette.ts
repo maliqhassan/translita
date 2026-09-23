@@ -53,6 +53,16 @@ export const palette = {
     900: '#14181F',
     950: '#0B0C10',
   },
+  /**
+   * Mint — the welcome screen, and only the welcome screen.
+   *
+   * A second brand-weight colour is normally a mistake, so this one is fenced
+   * in: it is used by the onboarding tokens below and by nothing else. The
+   * app proper stays on the sky-blue brand. `500` is the field colour; `600`
+   * is dark enough (about 4.6:1 on white) to be read as text on the white
+   * button that sits on top of it.
+   */
+  mint: { 100: '#D8F5E8', 400: '#5BD3A0', 500: '#3FBF8B', 600: '#2E8F68', 700: '#236B4E' },
   green: { 100: '#DCF7E3', 500: '#1CA45B', 600: '#15854A' },
   amber: { 100: '#FDF0D5', 500: '#D98E12', 600: '#B4730B' },
   red: { 100: '#FDE4E4', 500: '#DB4545', 600: '#B93636' },
