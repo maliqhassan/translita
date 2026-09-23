@@ -287,3 +287,225 @@ describe('cached on-device results respect the entitlement', () => {
     assert.equal(calls(), 0);
   });
 });
+
+/**
+ * The in-flight join, and the entitlement hole it used to open.
+ *
+ * Two identical requests share one translation. The joiner never called
+ * `mayServe`, so it could be handed an on-device result across a loss of
+ * entitlement that happened while the original was still running.
+ *
+ * The originator is deliberately still exempt: its translation began while the
+ * entitlement held, and an in-flight request is allowed to finish rather than
+ * being cancelled. These pin both halves of that.
+ */
+describe('a request that joins one already in flight', () => {
+  const offline = (text: string): TranslationResult => ({ ...result(text), engine: 'offline' });
+
+  /**
+   * A router whose translation is held open until released.
+   *
+   * It consults the same entitlement the cache does, so a call made after the
+   * plan lapses refuses exactly as the real routing policy would — without
+   * reaching an engine.
+   */
+  function heldRouter(entitled: () => boolean) {
+    let calls = 0;
+
+    /*
+     * The gate is created up front rather than inside `translate`.
+     *
+     * Capturing the resolver when the router is entered looks equivalent and
+     * is not: `withCache` awaits the cache read before it ever calls the
+     * router, so a test that releases immediately can do so while the resolver
+     * is still undefined — and the translation then never settles. Creating it
+     * here makes `release` safe to call at any point, including before anyone
+     * is waiting on it.
+     */
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+
+    return {
+      calls: () => calls,
+      release: () => release(),
+      router: {
+        async translate() {
+          calls += 1;
+
+          if (!entitled()) {
+            return err(appError('entitlement_required', 'On-device translation is part of Pro.'));
+          }
+
+          await gate;
+
+          return ok(offline('Hallo'));
+        },
+        async resolveEngine() {
+          return 'offline' as const;
+        },
+      },
+    };
+  }
+
+  const request = (text: string) => ({
+    text,
+    sourceLanguage: 'en',
+    targetLanguage: 'de',
+    origin: 'text' as const,
+  });
+
+  /**
+   * Lets both calls reach the in-flight registry before the test acts.
+   *
+   * `withCache` awaits the cache read before it ever reaches `inFlight.run`,
+   * so a test that releases or changes the plan immediately would do so while
+   * the second call has not joined yet — and would be testing two separate
+   * translations rather than a shared one.
+   */
+  const inFlightNow = () => new Promise((resolve) => setTimeout(resolve, 0));
+
+  it('shares one translation when the entitlement holds throughout', async () => {
+    const entitled = () => true;
+    const { router, release, calls } = heldRouter(entitled);
+    const cached = withCache(router, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: createInFlightRegistry(),
+      offlineEntitled: entitled,
+    });
+
+    const first = cached.translate(request('Hello'));
+    const second = cached.translate(request('Hello'));
+    await inFlightNow();
+
+    release();
+    const [a, b] = await Promise.all([first, second]);
+
+    assert.equal(a.ok && a.value.translatedText, 'Hallo');
+    assert.equal(b.ok && b.value.translatedText, 'Hallo');
+    assert.equal(calls(), 1, 'the work was shared, not duplicated');
+  });
+
+  it('refuses the joiner when the entitlement is lost mid-flight', async () => {
+    let entitled = true;
+    const { router, release } = heldRouter(() => entitled);
+    const cached = withCache(router, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: createInFlightRegistry(),
+      offlineEntitled: () => entitled,
+    });
+
+    const originator = cached.translate(request('Hello'));
+    const joiner = cached.translate(request('Hello'));
+    await inFlightNow();
+
+    // The plan lapses while the shared translation is still running.
+    entitled = false;
+    release();
+
+    const [a, b] = await Promise.all([originator, joiner]);
+
+    // Started while entitled, so it is allowed to finish.
+    assert.equal(a.ok && a.value.translatedText, 'Hallo');
+
+    // Arrived as a new request, so it is gated like one.
+    assert.equal(b.ok, false);
+  });
+
+  it('gives that joiner the established entitlement error', async () => {
+    let entitled = true;
+    const { router, release } = heldRouter(() => entitled);
+    const cached = withCache(router, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: createInFlightRegistry(),
+      offlineEntitled: () => entitled,
+    });
+
+    const originator = cached.translate(request('Hello'));
+    const joiner = cached.translate(request('Hello'));
+    await inFlightNow();
+
+    entitled = false;
+    release();
+
+    await originator;
+    const refused = await joiner;
+
+    // The wording is the router's, not invented by the cache decorator.
+    assert.equal(!refused.ok && refused.error.code, 'entitlement_required');
+  });
+
+  it('never hands a joiner an on-device result it may not have', async () => {
+    let entitled = true;
+    const { router, release } = heldRouter(() => entitled);
+    const cached = withCache(router, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: createInFlightRegistry(),
+      offlineEntitled: () => entitled,
+    });
+
+    const originator = cached.translate(request('Hello'));
+    const joiner = cached.translate(request('Hello'));
+    await inFlightNow();
+
+    entitled = false;
+    release();
+    await originator;
+
+    const refused = await joiner;
+    assert.equal(refused.ok && refused.value.engine === 'offline', false);
+  });
+
+  it('leaves an online result alone, because it was never in question', async () => {
+    let entitled = true;
+    let calls = 0;
+    const onlineRouter = {
+      async translate() {
+        calls += 1;
+        return ok({ ...result('Hallo'), engine: 'online' as const });
+      },
+      async resolveEngine() {
+        return 'online' as const;
+      },
+    };
+
+    const cached = withCache(onlineRouter, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: createInFlightRegistry(),
+      offlineEntitled: () => entitled,
+    });
+
+    const first = cached.translate(request('Hello'));
+    const second = cached.translate(request('Hello'));
+    await inFlightNow();
+
+    entitled = false;
+    const [a, b] = await Promise.all([first, second]);
+
+    assert.equal(a.ok && a.value.translatedText, 'Hallo');
+    assert.equal(b.ok && b.value.translatedText, 'Hallo');
+    assert.ok(calls <= 2, 'losing offline entitlement must not re-run an online translation');
+  });
+
+  it('still releases the shared slot once the work settles', async () => {
+    const entitled = () => true;
+    const registry = createInFlightRegistry();
+    const { router, release } = heldRouter(entitled);
+    const cached = withCache(router, {
+      cache: createMemoryTranslationCache({ maxEntries: 8 }),
+      inFlight: registry,
+      offlineEntitled: entitled,
+    });
+
+    const first = cached.translate(request('Hello'));
+    const second = cached.translate(request('Hello'));
+    await inFlightNow();
+    assert.equal(registry.size, 1, 'both calls share one slot');
+
+    release();
+    await Promise.all([first, second]);
+
+    assert.equal(registry.size, 0, 'the slot is dropped, so this is not a cache');
+  });
+});

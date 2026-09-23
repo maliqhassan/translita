@@ -45,6 +45,18 @@ async function repository() {
   return repo;
 }
 
+/**
+ * A fresh id per result, because the ordering below depends on one.
+ *
+ * `listRecent` orders by `created_at DESC, id DESC`. Several translations made
+ * in the same millisecond share a timestamp, so the id is the tiebreaker that
+ * makes the order deterministic — and a fixture returning one constant id for
+ * every row removed it, leaving rows tied on *both* keys and ordered however
+ * SQLite happened to return them. Production never had this problem:
+ * `createId` is unique per call.
+ */
+let nextResultId = 0;
+
 const onlineEngine: TranslationService = {
   id: 'test.online',
   engine: 'online',
@@ -52,7 +64,7 @@ const onlineEngine: TranslationService = {
   supportsPair: async () => true,
   translate: async (r) =>
     ok({
-      id: 'online-1',
+      id: `online-${(nextResultId += 1)}`,
       sourceText: r.text,
       translatedText: 'from-online',
       sourceLanguage: r.sourceLanguage,

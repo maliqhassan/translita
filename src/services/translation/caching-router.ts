@@ -65,25 +65,48 @@ export function withCache(
       }
 
       const key = translationCacheKey(normalized.value);
+
+      /**
+       * Whether this call is the one that actually started the translation.
+       *
+       * `run` is invoked only for the originator; a joiner is handed the
+       * promise already running. The assignment happens synchronously before
+       * the first await, so it is settled long before the result arrives, and
+       * each `translate` call has its own closure to record it in.
+       */
+      let originated = false;
+
       const run = async (): ServiceResult<TranslationResult> => {
+        originated = true;
         const result = await router.translate(request);
         if (result.ok) await cache.set(normalized.value, result.value);
         return result;
       };
 
+      const result = await (inFlight ? inFlight.run(key, run) : run());
+
       /*
-       * Known and accepted: a request that joins one already in flight
-       * receives its result directly, without passing `mayServe`. So a second
-       * request for identical text, made in the moment between an on-device
-       * translation starting and settling, can still be served across a
-       * simultaneous loss of entitlement.
+       * A joiner is a new request, so it is gated like one.
        *
-       * Left alone deliberately. Closing it means either refusing to share
-       * in-flight work or re-translating the joiner's request, and neither is
-       * worth it for a window this narrow: the entitlement would have to lapse
-       * during a single translation, and the next request is gated normally.
+       * Sharing the in-flight promise used to hand a joiner the result without
+       * passing `mayServe`, so a second request for identical text — made in
+       * the moment between an on-device translation starting and settling —
+       * could be served across a simultaneous loss of entitlement.
+       *
+       * The originator is deliberately exempt: its translation began while the
+       * entitlement held, and Step 2C settled that such a request may finish
+       * rather than being cancelled mid-flight. A joiner has no such claim.
+       *
+       * Refusal delegates to the router rather than inventing an error here,
+       * so the wording stays the router's. That is not a second translation in
+       * the case this exists for: with the engine no longer eligible, routing
+       * refuses before any engine is asked whether it is available.
        */
-      return inFlight ? inFlight.run(key, run) : run();
+      if (!originated && result.ok && !mayServe(result.value)) {
+        return router.translate(request);
+      }
+
+      return result;
     },
 
     resolveEngine: (request) => router.resolveEngine(request),

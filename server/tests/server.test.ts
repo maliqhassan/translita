@@ -222,6 +222,40 @@ describe('rate limiter unit', () => {
     limiter.sweep();
     assert.equal(limiter.size, 0);
   });
+
+  it('reclaims expired windows on its own once the map has grown', () => {
+    // `sweep` had no production caller, so every client address seen was kept
+    // for the life of the process. Checking does the reclaiming now, which is
+    // why no timer has to be created, unref'd and torn down by the caller.
+    let now = 0;
+    const limiter = createRateLimiter({ max: 1, windowMs: 1000, now: () => now });
+
+    for (let i = 0; i < 1_200; i += 1) limiter.check(`client-${i}`);
+    const grown = limiter.size;
+    assert.ok(grown > 1_000, `expected the map to grow first, saw ${grown}`);
+
+    // Every window above is now expired; one more check should clear them.
+    now = 5_000;
+    limiter.check('someone-new');
+
+    assert.ok(limiter.size < grown, `expected a reclaim, size stayed ${limiter.size}`);
+    assert.equal(limiter.size, 1, 'only the live window survives');
+  });
+
+  it('still rate limits correctly across a reclaim', () => {
+    // The sweep must not drop a window that is still counting, or a client
+    // would get a fresh allowance simply because the service was busy.
+    let now = 0;
+    const limiter = createRateLimiter({ max: 2, windowMs: 1000, now: () => now });
+
+    assert.equal(limiter.check('watched').allowed, true);
+    assert.equal(limiter.check('watched').allowed, true);
+
+    // Grow the map past the threshold while the watched window is still open.
+    for (let i = 0; i < 1_200; i += 1) limiter.check(`filler-${i}`);
+
+    assert.equal(limiter.check('watched').allowed, false, 'the third call is over the limit');
+  });
 });
 
 describe('config', () => {
