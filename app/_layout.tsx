@@ -61,6 +61,7 @@ function RootNavigator() {
         <Stack.Screen name="camera/result" options={{ headerShown: false }} />
         <Stack.Screen name="history/[id]" options={{ headerShown: false }} />
         <Stack.Screen name="settings/language-packs" options={{ headerShown: false }} />
+        <Stack.Screen name="settings/voice" options={{ headerShown: false }} />
         <Stack.Screen name="upgrade" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ title: 'Not found' }} />
       </Stack>

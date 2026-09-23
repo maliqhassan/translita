@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { FEATURES } from '@/constants';
-import { services } from '@/services';
+import { services, speakOptionsFor } from '@/services';
+import { usePreferences } from '@/store';
 import type { LanguageCode } from '@/types';
 
 /**
@@ -25,6 +26,9 @@ export type SpeakController = {
 };
 
 export function useSpeak(): SpeakController {
+  // Read here rather than threaded through the screen: the rate and voice are
+  // the user's standing choice, not something a caller decides per utterance.
+  const { preferences } = usePreferences();
   const [speaking, setSpeaking] = useState(false);
   const [available, setAvailable] = useState(false);
 
@@ -62,13 +66,13 @@ export function useSpeak(): SpeakController {
       }
 
       setSpeaking(true);
-      void services.tts.speak(text, { language }).then(() => {
+      void services.tts.speak(text, speakOptionsFor(language, preferences)).then(() => {
         // The promise settles on done, stopped and error alike, which is
         // exactly when the button should stop offering to stop.
         if (mounted.current) setSpeaking(false);
       });
     },
-    [speaking, stop],
+    [preferences, speaking, stop],
   );
 
   return { speaking, available, toggle, stop };

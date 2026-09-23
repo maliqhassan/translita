@@ -17,14 +17,15 @@ import { APP, isAutoDetect, languageName } from '@/constants';
 import { useHistoryActions } from '@/features/history';
 import { useOfflineTranslationPermitted } from '@/features/offline';
 import { useTheme } from '@/hooks';
-import type { Plan } from '@/services';
+import { voiceMatchesLanguage, type Plan } from '@/services';
 import {
   useDevelopmentPlanSwitcher,
   useEntitlements,
   useLanguagePair,
   usePreferences,
 } from '@/store';
-import type { BooleanPreference, ThemePreference, TranslationMode } from '@/types';
+import { SPEECH_RATES } from '@/types';
+import type { BooleanPreference, SpeechRate, ThemePreference, TranslationMode } from '@/types';
 
 /** Cycled in order, so one tap moves to the next option. */
 const THEME_ORDER: readonly ThemePreference[] = ['system', 'light', 'dark'];
@@ -65,6 +66,15 @@ const PLAN_SUBTITLES: Record<Plan, string> = {
 /** Cycled by the development switcher, in the same way the theme row cycles. */
 const PLAN_ORDER: readonly Plan[] = ['free', 'pro'];
 
+/** Slowest first, so one tap always speeds up until it wraps. */
+const RATE_LABELS: Record<SpeechRate, string> = {
+  0.5: 'Slowest',
+  0.75: 'Slow',
+  1: 'Normal',
+  1.25: 'Fast',
+  1.5: 'Faster',
+};
+
 /** Steps to the next value in a fixed list, wrapping at the end. */
 function next<T>(order: readonly T[], current: T, fallback: T): T {
   return order[(order.indexOf(current) + 1) % order.length] ?? fallback;
@@ -82,6 +92,17 @@ export function SettingsScreen() {
    * the switcher cannot ship. Nothing here can change a plan in production.
    */
   const planSwitcher = useDevelopmentPlanSwitcher();
+
+  /**
+   * Whether the saved voice applies to what is about to be spoken.
+   *
+   * A selection made for another language is still stored — the user may come
+   * back to it — but the row must not claim it is in use.
+   */
+  const voiceInUse =
+    preferences.voiceId !== undefined &&
+    preferences.voiceLanguage !== undefined &&
+    voiceMatchesLanguage(preferences.voiceLanguage, pair.target);
   /** Whether on-device translation may be offered at all. */
   const offlinePermitted = useOfflineTranslationPermitted();
 
@@ -216,6 +237,41 @@ export function SettingsScreen() {
             }
             onPress={() => router.push('/settings/language-packs')}
             trailing={offlinePermitted ? undefined : <Badge label="Pro" tone="primary" />}
+          />
+        </Card>
+      </View>
+
+      <View>
+        <SectionHeader title="Speech" description="Used when reading a translation aloud." />
+        <Card variant="outlined" padding="none">
+          <ListItem
+            icon="speedometer-outline"
+            title="Speech rate"
+            subtitle="How fast a translation is read aloud"
+            onPress={() => update({ speechRate: next(SPEECH_RATES, preferences.speechRate, 1) })}
+            showChevron={false}
+            accessibilityLabel={`Speech rate, currently ${RATE_LABELS[preferences.speechRate]}`}
+            accessibilityHint="Cycles between the available speaking speeds"
+            trailing={
+              <Text variant="body" color="textSecondary">
+                {RATE_LABELS[preferences.speechRate]}
+              </Text>
+            }
+          />
+          <Divider inset={theme.spacing.base} />
+          {/* Voices are per language, so this row is about the current target
+              and says so — a voice chosen for another language is kept but not
+              applied, and the row reads Default until that language is back. */}
+          <ListItem
+            icon="mic-circle-outline"
+            title="Voice"
+            subtitle={`Used for ${languageName(pair.target)}`}
+            onPress={() => router.push('/settings/voice')}
+            trailing={
+              <Text variant="body" color="textSecondary">
+                {voiceInUse ? 'Custom' : 'Default'}
+              </Text>
+            }
           />
         </Card>
       </View>

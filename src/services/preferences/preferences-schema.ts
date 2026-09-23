@@ -1,5 +1,6 @@
 import { DEFAULTS, getLanguage, isAutoDetect } from '@/constants';
-import type { Preferences, ThemePreference, TranslationMode } from '@/types';
+import { SPEECH_RATES } from '@/types';
+import type { Preferences, SpeechRate, ThemePreference, TranslationMode } from '@/types';
 
 /**
  * The stored shape of preferences, and the rules for reading it back safely.
@@ -29,6 +30,9 @@ export const DEFAULT_PREFERENCES: Preferences = {
   // designed. Dark mode stays available and is still a one-tap choice.
   theme: 'light',
   saveHistory: true,
+  // The engine's natural pace, and no voice chosen: an install that has never
+  // opened Settings speaks exactly as it did before these fields existed.
+  speechRate: 1,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -49,6 +53,50 @@ function readEnum<T extends string>(value: unknown, allowed: readonly T[], fallb
 /** A language is only accepted if the catalogue still knows it. */
 function readLanguage(value: unknown, fallback: string): string {
   return typeof value === 'string' && getLanguage(value) ? value : fallback;
+}
+
+/**
+ * A rate is only accepted if it is one of the steps the UI can actually show.
+ *
+ * Checked by membership rather than by range, so a plausible-looking 1.1 — or
+ * a 3 from an edited file — falls back to the natural pace instead of being
+ * clamped into something nobody chose. `NaN` and `Infinity` fail the same way.
+ */
+function readSpeechRate(value: unknown, fallback: SpeechRate): SpeechRate {
+  return typeof value === 'number' && SPEECH_RATES.includes(value as SpeechRate)
+    ? (value as SpeechRate)
+    : fallback;
+}
+
+/**
+ * A non-empty string, or undefined.
+ *
+ * Voice ids are the platform's own opaque identifiers, so there is nothing to
+ * validate beyond the shape: a device that no longer has the voice simply
+ * ignores it and speaks in its default, which is the same outcome as never
+ * having chosen one.
+ */
+function readOptionalString(value: unknown): string | undefined {
+  return typeof value === 'string' && value.trim().length > 0 ? value : undefined;
+}
+
+/**
+ * The voice and the language it was chosen for, kept or dropped together.
+ *
+ * Half a pair is unusable: an id with no language could be applied to the
+ * wrong language, and a language with no id says nothing. Either the record
+ * has both and the language is still in the catalogue, or there is no
+ * selection at all.
+ */
+function readVoice(
+  record: Record<string, unknown>,
+): Pick<Preferences, 'voiceId' | 'voiceLanguage'> {
+  const voiceId = readOptionalString(record.voiceId);
+  const language = readOptionalString(record.voiceLanguage);
+
+  if (!voiceId || !language || !getLanguage(language)) return {};
+
+  return { voiceId, voiceLanguage: language };
 }
 
 /**
@@ -102,6 +150,10 @@ export function parsePreferences(payload: unknown): Preferences {
     ),
     theme: readEnum(record.theme, THEMES, DEFAULT_PREFERENCES.theme),
     saveHistory: readBoolean(record.saveHistory, DEFAULT_PREFERENCES.saveHistory),
+    speechRate: readSpeechRate(record.speechRate, DEFAULT_PREFERENCES.speechRate),
+    // Spread rather than assigned, so an absent selection leaves the keys off
+    // entirely instead of writing `undefined` into stored JSON.
+    ...readVoice(record),
   };
 }
 

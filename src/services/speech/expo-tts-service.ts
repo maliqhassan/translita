@@ -5,6 +5,7 @@ import { appError, createLogger, err, ok } from '@/utils';
 
 import type { ServiceResult } from '../types';
 
+import { voiceMatchesLanguage } from './speak-options';
 import type { SpeakOptions, TTSEvent, TTSService, Voice } from './tts-service';
 
 const log = createLogger('tts');
@@ -141,9 +142,9 @@ export function createExpoTTSService(speech: typeof Speech = Speech): TTSService
         if (!language) return ok(mapped);
 
         // Match on the base subtag so `en` finds `en-GB`, without claiming a
-        // regional voice is the one that was asked for.
-        const base = baseTag(language);
-        return ok(mapped.filter((voice) => baseTag(voice.language) === base));
+        // regional voice is the one that was asked for. The same rule decides
+        // whether a saved voice may be applied, so it lives in one place.
+        return ok(mapped.filter((voice) => voiceMatchesLanguage(voice.language, language)));
       } catch (cause) {
         log.warn('could not list voices');
         return err(
@@ -157,11 +158,6 @@ export function createExpoTTSService(speech: typeof Speech = Speech): TTSService
       return () => listeners.delete(listener);
     },
   };
-}
-
-/** `en-GB` and `en_GB` both reduce to `en`; platforms use both separators. */
-function baseTag(tag: string): string {
-  return tag.toLowerCase().split(/[-_]/)[0] ?? tag.toLowerCase();
 }
 
 export const expoTTSService: TTSService = createExpoTTSService();

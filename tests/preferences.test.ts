@@ -78,6 +78,12 @@ describe('default preferences', () => {
       // reviewed in light mode, so a first launch looks as designed.
       theme: 'light',
       saveHistory: true,
+      // The engine's natural pace, and no voice chosen: an install that never
+      // opens the speech settings speaks exactly as it did before they
+      // existed. `voiceId` and `voiceLanguage` are deliberately absent rather
+      // than undefined, so the stored file keeps the shape an older build
+      // already copes with.
+      speechRate: 1,
     });
   });
 
@@ -104,6 +110,9 @@ describe('parsing stored preferences', () => {
       translationMode: 'online',
       theme: 'dark',
       saveHistory: false,
+      // A non-default rate, so this also proves the field survives parsing
+      // rather than being quietly replaced by the default.
+      speechRate: 1.25,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -190,6 +199,7 @@ describe('preferences service', () => {
       translationMode: 'online',
       theme: 'dark',
       saveHistory: false,
+      speechRate: 0.5,
     };
 
     assert.equal((await service.save(saved)).ok, true);
