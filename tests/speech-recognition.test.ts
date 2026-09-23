@@ -505,7 +505,7 @@ describe('the microphone is wired, not decorative', () => {
   });
 });
 
-describe('dictation is a Pro capability', () => {
+describe('dictation is available on every plan', () => {
   /**
    * The decision itself is `resolveFeatureAccess`, which is unit-tested
    * exhaustively in `entitlements.test.ts`. What is worth pinning here is that
@@ -519,12 +519,27 @@ describe('dictation is a Pro capability', () => {
       entitled: capabilitiesFor(plan).has('speechRecognition'),
     });
 
-  it('is locked for a free user on a device that could listen', () => {
-    assert.equal(accessFor(true, true, 'free'), 'locked');
+  it('is allowed for a free user on a device that could listen', () => {
+    // This asserted `locked` while dictation was sold as part of Pro.
+    assert.equal(accessFor(true, true, 'free'), 'allowed');
   });
 
   it('is allowed for a pro user on a device that could listen', () => {
     assert.equal(accessFor(true, true, 'pro'), 'allowed');
+  });
+
+  it('answers the same on both plans, whatever the device says', () => {
+    // Feature parity at the level the gate actually works on. The plan is
+    // simply not one of the inputs that can change the answer any more.
+    for (const shipped of [true, false]) {
+      for (const supported of [true, false]) {
+        assert.equal(
+          accessFor(shipped, supported, 'free'),
+          accessFor(shipped, supported, 'pro'),
+          `shipped=${shipped} supported=${supported}`,
+        );
+      }
+    }
   });
 
   it('is unavailable when the capability is not in this build, on either plan', () => {
@@ -540,6 +555,10 @@ describe('dictation is a Pro capability', () => {
   it('never reports locked for a device that could not listen anyway', () => {
     // `locked` is what leads to the paywall. A phone with no recogniser must
     // never reach it, because upgrading would not give it one.
+    //
+    // Still worth pinning even though nothing is locked today: this is the
+    // rule that stops a device limitation being sold as a plan limitation,
+    // and it has to survive any future change to the tiers.
     for (const plan of ['free', 'pro'] as const) {
       assert.notEqual(accessFor(true, false, plan), 'locked');
       assert.notEqual(accessFor(false, false, plan), 'locked');
@@ -547,9 +566,26 @@ describe('dictation is a Pro capability', () => {
     }
   });
 
-  it('is part of the Pro plan and not the free one', () => {
+  it('is never locked on any plan, because both plans hold it', () => {
+    for (const plan of ['free', 'pro'] as const) {
+      for (const shipped of [true, false]) {
+        for (const supported of [true, false]) {
+          assert.notEqual(accessFor(shipped, supported, plan), 'locked');
+        }
+      }
+    }
+  });
+
+  it('keeps a device with no recogniser unavailable rather than allowed', () => {
+    // The half of the rule that must not be lost in making everything free:
+    // a phone that cannot listen is still told so, on both plans.
+    assert.equal(accessFor(true, false, 'free'), 'unavailable');
+    assert.equal(accessFor(true, false, 'pro'), 'unavailable');
+  });
+
+  it('is part of both plans', () => {
     assert.equal(capabilitiesFor('pro').has('speechRecognition'), true);
-    assert.equal(capabilitiesFor('free').has('speechRecognition'), false);
+    assert.equal(capabilitiesFor('free').has('speechRecognition'), true);
   });
 
   it('is sold under a name of its own, separate from the build flag', () => {

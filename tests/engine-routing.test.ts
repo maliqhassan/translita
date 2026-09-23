@@ -272,7 +272,19 @@ describe('the sample engine is opt-in only', () => {
 });
 
 /**
- * Step 2C: the on-device engine is Pro-only, once enforcement is switched on.
+ * The on-device engine gate, exercised directly.
+ *
+ * On-device translation is no longer a paid feature: both plans hold the
+ * capability and `FEATURES.offlineEntitlement` is off, so in a running app
+ * this gate always permits. What is pinned below is the *mechanism* — it is
+ * kept wired so a future re-tiering is a flag and a table entry rather than a
+ * rediscovery of every bypass, and a mechanism nothing exercises is a
+ * mechanism that has quietly stopped working.
+ *
+ * The entitlement is therefore injected here rather than read from a plan.
+ * Which plans hold the capability is a separate question, asserted in
+ * `entitlements.test.ts`; what the flag makes of it is asserted at the end of
+ * this file.
  *
  * The gate lives in `isEligible`, which runs before an engine is asked whether
  * it is available and before it is asked whether it covers the pair. That
@@ -284,23 +296,23 @@ describe('the sample engine is opt-in only', () => {
  * what the registry passes in; the getter is what routing acts on, and that is
  * what is exercised. The flag's own wiring is pinned separately below.
  */
-const free = () => false;
-const pro = () => true;
+const unentitled = () => false;
+const entitled = () => true;
 
-describe('offline routing is gated on the entitlement', () => {
-  it('serves a free user online when a working backend is reachable', async () => {
+describe('offline routing honours the injected entitlement', () => {
+  it('serves an unentitled caller online when a working backend is reachable', async () => {
     const result = await routerWith(
       [workingOnline, offlineWith(['en', 'de'])],
       'auto',
       'online',
-      free,
+      unentitled,
     ).translate(request);
 
     assert.equal(result.ok, true);
     assert.equal(result.ok && result.value.engine, 'online');
   });
 
-  it('refuses a free user the on-device engine with no connection', async () => {
+  it('refuses an unentitled caller the on-device engine with no connection', async () => {
     // The named bypass: auto mode, offline network, both packs present. The
     // offline engine ranks first when there is no connection and would have
     // answered. Connectivity only reorders — it never drops an engine — so
@@ -310,14 +322,14 @@ describe('offline routing is gated on the entitlement', () => {
       [workingOnline, offlineWith(['en', 'de'])],
       'auto',
       'offline',
-      free,
+      unentitled,
     ).translate(request);
 
     assert.equal(result.ok && result.value.engine === 'offline', false);
     assert.equal(result.ok && result.value.engine, 'online');
   });
 
-  it('gives a free user nothing at all when only the on-device engine could serve', async () => {
+  it('gives an unentitled caller nothing at all when only the on-device engine could serve', async () => {
     // The same scenario with the backend unreachable, which is the shape the
     // bypass actually took: no connection, packs installed, nothing else able
     // to answer. It must fail rather than fall through.
@@ -325,13 +337,13 @@ describe('offline routing is gated on the entitlement', () => {
       [unconfiguredOnline, offlineWith(['en', 'de'])],
       'auto',
       'offline',
-      free,
+      unentitled,
     ).translate(request);
 
     assert.equal(result.ok, false);
   });
 
-  it('refuses a free user the on-device engine when the backend is unconfigured', async () => {
+  it('refuses an unentitled caller the on-device engine when the backend is unconfigured', async () => {
     // The quieter bypass, and the one live today: nothing about the network is
     // wrong, the online engine simply reports itself unusable, and routing
     // used to fall straight through.
@@ -339,19 +351,19 @@ describe('offline routing is gated on the entitlement', () => {
       [unconfiguredOnline, offlineWith(['en', 'de'])],
       'auto',
       'online',
-      free,
+      unentitled,
     ).translate(request);
 
     assert.equal(result.ok, false);
     assert.equal(!result.ok && result.error.code, 'service_unavailable');
   });
 
-  it('refuses a free user who has on-device mode persisted from before', async () => {
+  it('refuses an unentitled caller who has on-device mode persisted from before', async () => {
     const result = await routerWith(
       [unconfiguredOnline, offlineWith(['en', 'de'])],
       'offline',
       'online',
-      free,
+      unentitled,
     ).translate(request);
 
     assert.equal(result.ok, false);
@@ -366,7 +378,7 @@ describe('offline routing is gated on the entitlement', () => {
         [unconfiguredOnline, offlineWith([])],
         'offline',
         'offline',
-        free,
+        unentitled,
       ).translate(request);
 
       assert.equal(!result.ok && result.error.code, 'entitlement_required');
@@ -375,21 +387,24 @@ describe('offline routing is gated on the entitlement', () => {
     return check();
   });
 
-  it('refuses a free user even with every pack installed and no other engine', async () => {
-    const result = await routerWith([offlineWith(['en', 'de'])], 'auto', 'offline', free).translate(
-      request,
-    );
+  it('refuses an unentitled caller even with every pack installed and no other engine', async () => {
+    const result = await routerWith(
+      [offlineWith(['en', 'de'])],
+      'auto',
+      'offline',
+      unentitled,
+    ).translate(request);
 
     assert.equal(result.ok, false);
   });
 
-  it('leaves a pro user exactly as they were', async () => {
+  it('leaves an entitled caller exactly as they were', async () => {
     for (const mode of ['auto', 'offline'] as TranslationMode[]) {
       const result = await routerWith(
         [unconfiguredOnline, offlineWith(['en', 'de'])],
         mode,
         'offline',
-        pro,
+        entitled,
       ).translate(request);
 
       assert.equal(result.ok, true, mode);
@@ -415,11 +430,11 @@ describe('offline routing is gated on the entitlement', () => {
     const engines = [unconfiguredOnline, offlineWith(['en', 'de'])];
 
     assert.equal(
-      await routerWith(engines, 'auto', 'offline', pro).resolveEngine(request),
+      await routerWith(engines, 'auto', 'offline', entitled).resolveEngine(request),
       'offline',
     );
     assert.notEqual(
-      await routerWith(engines, 'auto', 'offline', free).resolveEngine(request),
+      await routerWith(engines, 'auto', 'offline', unentitled).resolveEngine(request),
       'offline',
     );
   });
@@ -476,26 +491,37 @@ describe('the entitlement is read per request, never captured', () => {
       },
     };
 
-    await routerWith([watchful], 'auto', 'offline', free).translate(request);
+    await routerWith([watchful], 'auto', 'offline', unentitled).translate(request);
 
     assert.equal(probed, 0, 'the engine must never be consulted at all');
   });
 });
 
 describe('the offline entitlement rollout flag', () => {
-  it('is on, so the gate above is live rather than dormant', () => {
-    // This asserted `false` for the whole period the enforcement sat built but
-    // switched off. Flipping it is what made every scenario in this file a
-    // description of real behaviour instead of a rehearsal.
+  it('is off, so the gate above is dormant rather than live', () => {
+    // It was on for the period on-device translation was sold as part of Pro.
+    // With every plan holding the capability there is nothing left for it to
+    // enforce, and leaving it on would make free users' on-device translation
+    // depend on the capability table staying exactly right.
     const config = readFileSync('src/constants/config.ts', 'utf8');
-    assert.match(config, /offlineEntitlement: true/);
+    assert.match(config, /offlineEntitlement: false/);
   });
 
-  it('denies an unentitled user through the shared rule', () => {
-    // The flag and the capability are combined in one place; with the flag on,
-    // the capability is the whole answer.
-    assert.equal(offlineTranslationPermittedFor(false), false);
+  it('permits everyone through the shared rule while it is off', () => {
+    // The flag and the capability are combined in one place. With the flag
+    // off the capability is not consulted at all, so even a caller who
+    // somehow held no entitlement is still served.
+    assert.equal(offlineTranslationPermittedFor(false), true);
     assert.equal(offlineTranslationPermittedFor(true), true);
+  });
+
+  it('is not the switch that removes on-device translation from the build', () => {
+    // Two different questions, deliberately two different flags: this one
+    // decides whether the entitlement is consulted, `offlineTranslation`
+    // decides whether the capability exists here at all.
+    const config = readFileSync('src/constants/config.ts', 'utf8');
+
+    assert.match(config, /offlineTranslation: true/);
   });
 
   it('is what the single shared helper combines with the capability', () => {

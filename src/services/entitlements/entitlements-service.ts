@@ -8,7 +8,9 @@ import type { Service, ServiceResult } from '../types';
  * Plans are a commercial fact; capabilities are what the app actually asks
  * about. Screens and hooks consult capabilities only, so moving a feature
  * between tiers — or adding a tier — is a change to one table rather than a
- * change to every call site.
+ * change to every call site. That indirection is what let the tiers be
+ * rewritten to "every feature on both plans, Pro removes the ads" by editing
+ * `PLAN_CAPABILITIES` and nothing else.
  *
  * IMPORTANT: this is product gating, not purchase enforcement. The state
  * behind it is a small file in the app's own storage, so a rooted device or a
@@ -27,8 +29,7 @@ export type Plan = 'free' | 'pro';
  * `adFree` is deliberately positive: `has('adFree')` reads correctly, where a
  * negative `ads` capability would make every call site a double negative.
  */
-export type Capability =
-  'cameraOcr' | 'speechRecognition' | 'offlineTranslation' | 'adFree' | 'extendedOnlineQuota';
+export type Capability = 'cameraOcr' | 'speechRecognition' | 'offlineTranslation' | 'adFree';
 
 /**
  * Where the current entitlement came from.

@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
-import { PRO_BENEFITS } from '@/features/paywall/pro-benefits';
-import { CAPABILITIES, PLAN_CAPABILITIES } from '@/services/entitlements';
+import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '@/features/paywall/pro-benefits';
+import { CAPABILITIES, PLAN_CAPABILITIES, PRO_ONLY_CAPABILITIES } from '@/services/entitlements';
 import { offlineTranslationPermittedFor } from '@/services/translation/offline-entitlement';
 
 /**
@@ -469,19 +469,92 @@ describe('the entitlement system is wired in', () => {
 });
 
 describe('the paywall is a placeholder and says so', () => {
-  it('lists exactly the capabilities Pro grants', () => {
+  it('lists exactly what Pro adds, not what the reader already has', () => {
+    // The assertion that keeps the paywall honest. It used to compare against
+    // the whole of `PLAN_CAPABILITIES.pro`, which was right when Pro was four
+    // features and an ad switch; now that Free holds the features, comparing
+    // against Pro's full list would require advertising things the reader is
+    // already using.
     assert.deepEqual(
       PRO_BENEFITS.map((benefit) => benefit.capability),
-      [...PLAN_CAPABILITIES.pro],
+      [...PRO_ONLY_CAPABILITIES],
     );
   });
 
-  it('leaves no capability unexplained', () => {
-    for (const capability of CAPABILITIES) {
+  it('never advertises a capability the free plan already includes', () => {
+    for (const benefit of PRO_BENEFITS) {
+      assert.equal(
+        PLAN_CAPABILITIES.free.includes(benefit.capability),
+        false,
+        `${benefit.capability} is advertised but free users already have it`,
+      );
+    }
+  });
+
+  it('leaves nothing Pro adds unexplained', () => {
+    for (const capability of PRO_ONLY_CAPABILITIES) {
       assert.ok(
         PRO_BENEFITS.some((benefit) => benefit.capability === capability),
         `${capability} is sold but never described`,
       );
+    }
+  });
+
+  it('says plainly what every plan already includes', () => {
+    // Named rather than implied, so the screen reads as "here is what you
+    // have" instead of leaving the free features looking withheld.
+    assert.ok(INCLUDED_ON_EVERY_PLAN.length > 0);
+
+    const titles = INCLUDED_ON_EVERY_PLAN.map((feature) => feature.title.toLowerCase()).join(' ');
+    for (const expected of ['offline', 'camera', 'speech', 'history']) {
+      assert.ok(titles.includes(expected), `${expected} is free but goes unmentioned`);
+    }
+
+    assert.match(code(UPGRADE), /INCLUDED_ON_EVERY_PLAN/);
+  });
+
+  it('does not claim Pro unlocks a feature', () => {
+    const screen = code(UPGRADE).toLowerCase();
+
+    // The words a feature paywall reaches for. None of them can be true now:
+    // there is nothing left to unlock.
+    for (const word of ['unlock', 'upgrade to use', 'pro only', 'pro-only']) {
+      assert.equal(screen.includes(word), false, word);
+    }
+  });
+
+  it('names no price, period or plan that has not been decided', () => {
+    const screen = code(UPGRADE).toLowerCase();
+
+    for (const word of ['monthly', 'yearly', 'annual', '/mo', 'per month', 'per year']) {
+      assert.equal(screen.includes(word), false, word);
+    }
+
+    // A currency symbol next to a number. Matched as a pattern rather than as
+    // a bare symbol, because the screen legitimately contains a template
+    // literal and `$` on its own would always match.
+    assert.equal(/[$£€]s?d/.test(screen), false, 'a price appears on the screen');
+  });
+
+  it('describes extendedOnlineQuota nowhere, because nothing counts one', () => {
+    // It was declared and advertised as "a much higher daily allowance" while
+    // no code anywhere tracked usage. Removed rather than left as a promise.
+    // Not asserted through `CAPABILITIES.includes`: the capability is gone
+    // from the union, so that comparison no longer type-checks — which is a
+    // stronger guarantee than any runtime assertion could be. What is left to
+    // check is that no copy anywhere still describes it.
+    assert.equal(CAPABILITIES.length, 4);
+
+    for (const path of [
+      ...sources('src/features/paywall'),
+      ...sources('src/services/entitlements'),
+    ]) {
+      assert.equal(read(path).includes('extendedOnlineQuota'), false, path);
+    }
+
+    const screen = code(UPGRADE).toLowerCase();
+    for (const word of ['allowance', 'quota', 'unlimited']) {
+      assert.equal(screen.includes(word), false, word);
     }
   });
 
@@ -682,22 +755,28 @@ describe('the offline engine gate lives below the UI', () => {
   });
 });
 
-describe('the offline entitlement UX is live', () => {
+describe('the offline entitlement UX is retained but dormant', () => {
   const HOOK = 'src/features/offline/hooks/use-offline-entitlement.ts';
 
-  it('has the rollout flag on', () => {
-    // Built dormant and switched on once online translation was deployed and
-    // verified on a device. Until then this asserted `false`, because gating
-    // offline while it was the only working engine would have left free users
-    // unable to translate at all.
-    assert.match(read('src/constants/config.ts'), /offlineEntitlement: true/);
+  it('has the rollout flag off', () => {
+    // On-device translation is part of the free app again, so there is
+    // nothing for enforcement to do. The flag is off rather than merely
+    // redundant, so the feature cannot be lost to an edit of the table.
+    assert.match(read('src/constants/config.ts'), /offlineEntitlement: false/);
   });
 
-  it('answers by capability now that enforcement is on', () => {
-    // The property the whole step rests on, asserted against the real rule
-    // rather than a copy of it. With the flag on the rule is the capability.
-    assert.equal(offlineTranslationPermittedFor(false), false);
+  it('permits on-device translation on every plan', () => {
+    // Asserted against the real rule rather than a copy of it. Both of these
+    // answer true: the flag short-circuits before the capability is read.
+    assert.equal(offlineTranslationPermittedFor(false), true);
     assert.equal(offlineTranslationPermittedFor(true), true);
+  });
+
+  it('would still permit it on the capability alone, if the flag came back', () => {
+    // Belt and braces, stated as a test: both plans hold the capability, so
+    // flipping the flag on by itself could not take the feature away.
+    assert.ok(PLAN_CAPABILITIES.free.includes('offlineTranslation'));
+    assert.ok(PLAN_CAPABILITIES.pro.includes('offlineTranslation'));
   });
 
   it('routes the UI and the router through one rule', () => {
@@ -722,7 +801,16 @@ describe('the offline entitlement UX is live', () => {
   });
 });
 
-describe('a free user is not offered on-device translation', () => {
+describe('the locked on-device path is kept, though nothing reaches it now', () => {
+  /*
+   * Every assertion here is structural, and every branch it pins is dead
+   * while both plans hold `offlineTranslation`. They are kept deliberately.
+   *
+   * The alternative was deleting the locked states outright, which would have
+   * thrown away the part of this that is genuinely hard — knowing which four
+   * places had to agree — to save a branch the bundler keeps anyway. What is
+   * asserted is that the code is still correct, not that a user sees it.
+   */
   const SETTINGS_SCREEN = 'src/features/settings/screens/settings-screen.tsx';
 
   it('offers the upgrade instead of selecting on-device mode', () => {

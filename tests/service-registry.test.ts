@@ -60,9 +60,9 @@ describe('service registry', () => {
     // engine was never asked. Selecting on-device mode must now reach it, and
     // the honest model_missing is proof it did.
     //
-    // Pro is published because the entitlement gate is live: it removes the
-    // offline engine before availability is asked, so without this the request
-    // would be refused earlier and this would stop testing what it is for.
+    // The plan is published explicitly rather than left to the default, so
+    // this keeps testing the registry wiring and not whatever the capability
+    // table happens to say on the day.
     publishActivePreferences({ ...getActivePreferences(), translationMode: 'offline' });
     publishActiveEntitlements(entitlementsFor('pro', 'local'));
 
@@ -77,10 +77,20 @@ describe('service registry', () => {
     }
   });
 
-  it('refuses a free user the offline engine in that same scenario', async () => {
-    // The other half of the pair. Same build, same absent backend, same mode —
-    // only the plan differs, and it is reported as the plan rather than as a
-    // missing language pack the user could not have used anyway.
+  it('gives a free user the offline engine in that same scenario', async () => {
+    /*
+     * The other half of the pair, and the one that changed.
+     *
+     * This used to assert `entitlement_required`: same build, same absent
+     * backend, same mode, and the free user was refused on the plan alone.
+     * On-device translation is part of the free app now, so the two plans are
+     * expected to reach exactly the same place — `model_missing`, which is a
+     * fact about this machine having no pack rather than about the plan.
+     *
+     * Kept as a pair rather than collapsed into one case: "both plans behave
+     * identically" is the property worth pinning, and it needs both halves to
+     * say so.
+     */
     publishActivePreferences({ ...getActivePreferences(), translationMode: 'offline' });
     publishActiveEntitlements(entitlementsFor('free', 'local'));
 
@@ -88,7 +98,32 @@ describe('service registry', () => {
       const result = await services.translation.router.translate(request);
 
       assert.equal(result.ok, false);
-      assert.equal(!result.ok && result.error.code, 'entitlement_required');
+      assert.equal(!result.ok && result.error.code, 'model_missing');
+      assert.notEqual(!result.ok && result.error.code, 'entitlement_required');
+    } finally {
+      resetActivePreferences();
+      resetActiveEntitlements();
+    }
+  });
+
+  it('routes a free user exactly as it routes a paying one', async () => {
+    // Feature parity, asserted end to end through the real registry rather
+    // than through the capability table it derives from.
+    publishActivePreferences({ ...getActivePreferences(), translationMode: 'offline' });
+
+    try {
+      publishActiveEntitlements(entitlementsFor('free', 'local'));
+      const asFree = await services.translation.router.translate(request);
+
+      publishActiveEntitlements(entitlementsFor('pro', 'local'));
+      const asPro = await services.translation.router.translate(request);
+
+      assert.equal(asFree.ok, asPro.ok);
+      assert.equal(
+        !asFree.ok && !asPro.ok && asFree.error.code === asPro.error.code,
+        true,
+        'the plan must make no difference to how a translation is routed',
+      );
     } finally {
       resetActivePreferences();
       resetActiveEntitlements();

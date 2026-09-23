@@ -7,6 +7,7 @@ import {
   ENTITLEMENTS_VERSION,
   PLANS,
   PLAN_CAPABILITIES,
+  PRO_ONLY_CAPABILITIES,
   capabilitiesFor,
   createLocalEntitlementsService,
   defaultEntitlements,
@@ -79,22 +80,47 @@ describe('the plan to capability table', () => {
     }
   });
 
-  it('gives Free none of the paid capabilities', () => {
-    assert.deepEqual(PLAN_CAPABILITIES.free, []);
+  it('gives Free every feature the app has', () => {
+    assert.deepEqual([...PLAN_CAPABILITIES.free].sort(), [
+      'cameraOcr',
+      'offlineTranslation',
+      'speechRecognition',
+    ]);
   });
 
   it('gives Pro every capability the app knows about', () => {
     assert.deepEqual([...PLAN_CAPABILITIES.pro].sort(), [...CAPABILITIES].sort());
   });
 
-  it('names exactly the five capabilities agreed for this step', () => {
+  it('separates the two plans by adFree and by nothing else', () => {
+    // The product decision, stated as an assertion: the plans differ over
+    // advertising and over no feature at all. Anything else appearing here is
+    // a translation feature that has been taken away from the free app.
+    assert.deepEqual([...PRO_ONLY_CAPABILITIES], ['adFree']);
+
+    const missingFromFree = PLAN_CAPABILITIES.pro.filter(
+      (capability) => !PLAN_CAPABILITIES.free.includes(capability),
+    );
+    assert.deepEqual(missingFromFree, ['adFree']);
+  });
+
+  it('gives Free nothing Pro does not also have', () => {
+    for (const capability of PLAN_CAPABILITIES.free) {
+      assert.ok(PLAN_CAPABILITIES.pro.includes(capability), capability);
+    }
+  });
+
+  it('names exactly the four capabilities that are actually enforced', () => {
+    // 'extendedOnlineQuota' used to sit here. It was declared and advertised
+    // but never checked anywhere, so it was removed rather than left as a
+    // promise of a daily allowance that no code counts.
     assert.deepEqual(CAPABILITIES, [
       'cameraOcr',
       'speechRecognition',
       'offlineTranslation',
       'adFree',
-      'extendedOnlineQuota',
     ]);
+    assert.equal(CAPABILITIES.includes('extendedOnlineQuota' as Capability), false);
   });
 
   it('states adFree positively, so no call site is a double negative', () => {
@@ -105,8 +131,18 @@ describe('the plan to capability table', () => {
   it('defaults to Free, which is the safe way to be wrong', () => {
     assert.equal(DEFAULT_PLAN, 'free');
     assert.equal(defaultEntitlements().plan, 'free');
-    assert.equal(defaultEntitlements().capabilities.size, 0);
     assert.equal(defaultEntitlements().source, 'default');
+  });
+
+  it('defaults to a plan that can already use the whole app', () => {
+    // Being wrong for the moment before storage is read now costs the user
+    // nothing but an advert, where it used to cost them the camera.
+    const capabilities = defaultEntitlements().capabilities;
+
+    assert.equal(capabilities.has('cameraOcr'), true);
+    assert.equal(capabilities.has('speechRecognition'), true);
+    assert.equal(capabilities.has('offlineTranslation'), true);
+    assert.equal(capabilities.has('adFree'), false);
   });
 
   it('builds a snapshot from a plan and where it came from', () => {
@@ -119,9 +155,9 @@ describe('the plan to capability table', () => {
 
   it('hands out a fresh capability set each time, not a shared one', () => {
     const first = capabilitiesFor('free') as Set<Capability>;
-    first.add('cameraOcr');
+    first.add('adFree');
 
-    assert.equal(capabilitiesFor('free').has('cameraOcr'), false);
+    assert.equal(capabilitiesFor('free').has('adFree'), false);
   });
 
   it('recognises only the plans it knows', () => {
@@ -134,16 +170,16 @@ describe('the plan to capability table', () => {
 });
 
 describe('has(), for every capability on every plan', () => {
-  it('answers false for all five on Free', async () => {
+  it('answers true on Free for every capability but adFree', async () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.load();
 
     for (const capability of CAPABILITIES) {
-      assert.equal(service.has(capability), false, capability);
+      assert.equal(service.has(capability), capability !== 'adFree', capability);
     }
   });
 
-  it('answers true for all five on Pro', async () => {
+  it('answers true for all of them on Pro', async () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.setPlan('pro');
 
@@ -161,7 +197,8 @@ describe('current(), before anything is loaded', () => {
     // be allowed to be undefined or to require awaiting.
     assert.equal(service.current().plan, 'free');
     assert.equal(service.current().source, 'default');
-    assert.equal(service.has('cameraOcr'), false);
+    assert.equal(service.has('adFree'), false);
+    assert.equal(service.has('cameraOcr'), true, 'features are not withheld while loading');
   });
 
   it('reads nothing on construction', async () => {
@@ -232,7 +269,7 @@ describe('load()', () => {
 
     assert.equal(loaded.plan, 'pro');
     assert.equal(loaded.source, 'local');
-    assert.equal(service.has('cameraOcr'), true);
+    assert.equal(service.has('adFree'), true);
   });
 
   it('updates current() as a side effect, not only its return value', async () => {
@@ -272,16 +309,16 @@ describe('persistence round trip', () => {
   it('derives capabilities from the plan rather than storing them', () => {
     // A stored capability list would let one edited field buy one feature,
     // and would go stale the moment the tiers changed.
-    assert.equal(serializePlan('pro').includes('cameraOcr'), false);
+    assert.equal(serializePlan('pro').includes('adFree'), false);
     assert.equal(serializePlan('pro').includes('capabilities'), false);
   });
 
   it('ignores any capabilities that appear in stored data', async () => {
-    const forged = JSON.stringify({ version: 1, plan: 'free', capabilities: ['cameraOcr'] });
+    const forged = JSON.stringify({ version: 1, plan: 'free', capabilities: ['adFree'] });
     const service = createLocalEntitlementsService(memoryStorage(forged));
     await service.load();
 
-    assert.equal(service.has('cameraOcr'), false);
+    assert.equal(service.has('adFree'), false);
   });
 
   it('keeps the runtime change even when the write fails', async () => {
@@ -393,13 +430,13 @@ describe('changes propagate to what the app reads', () => {
   it('changes what has() answers immediately, with no reload', async () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.load();
-    assert.equal(service.has('cameraOcr'), false);
+    assert.equal(service.has('adFree'), false);
 
     await service.setPlan('pro');
-    assert.equal(service.has('cameraOcr'), true);
+    assert.equal(service.has('adFree'), true);
 
     await service.setPlan('free');
-    assert.equal(service.has('cameraOcr'), false);
+    assert.equal(service.has('adFree'), false);
   });
 
   it('marks a switched plan as read from the device', async () => {
@@ -415,7 +452,8 @@ describe('the bridge for code that cannot use a hook', () => {
     resetActiveEntitlements();
 
     assert.equal(getActivePlan(), 'free');
-    assert.equal(hasActiveCapability('cameraOcr'), false);
+    assert.equal(hasActiveCapability('adFree'), false);
+    assert.equal(hasActiveCapability('offlineTranslation'), true);
     assert.equal(getActiveEntitlements().source, 'default');
   });
 
@@ -424,7 +462,7 @@ describe('the bridge for code that cannot use a hook', () => {
     publishActiveEntitlements(entitlementsFor('pro', 'local'));
 
     assert.equal(getActivePlan(), 'pro');
-    assert.equal(hasActiveCapability('cameraOcr'), true);
+    assert.equal(hasActiveCapability('adFree'), true);
     assert.equal(getActiveEntitlements().source, 'local');
   });
 

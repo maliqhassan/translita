@@ -5,6 +5,11 @@ import { hasActiveCapability } from '../entitlements';
 /**
  * Whether the on-device engine may run for the user as they stand right now.
  *
+ * Currently: yes, for everyone. Both plans hold the capability and enforcement
+ * is switched off, so this answers true. It is kept — rather than deleted and
+ * its call sites unwired — because it is the only place that knows *why*, and
+ * because the two bypasses it closes are not obvious enough to rediscover.
+ *
  * One function, two callers — the routing policy and the cache — so the answer
  * cannot differ between "may this engine be chosen" and "may this stored
  * result be handed back". Two copies of this rule would eventually disagree,
@@ -43,8 +48,10 @@ export function offlineTranslationPermitted(): boolean {
  * is worse than either behaviour on its own.
  */
 export function offlineTranslationPermittedFor(entitled: boolean): boolean {
-  // Enforcement has not been switched on yet: everything behaves as it always
-  // has, for every plan. See `FEATURES.offlineEntitlement`.
+  // Enforcement is off, so on-device translation is available on every plan —
+  // which is also what the capability table says, independently. Two answers
+  // agreeing is the point: the feature cannot be lost to a single edit in
+  // either place. See `FEATURES.offlineEntitlement`.
   if (!FEATURES.offlineEntitlement) return true;
 
   return entitled;

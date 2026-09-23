@@ -63,20 +63,24 @@ export const FEATURES = {
    * engine is a candidate for everyone, on any plan. On, and it is a candidate
    * only for a user entitled to it.
    *
-   * Deliberately separate from `offlineTranslation` above, which says whether
-   * the capability exists in this build at all. The two are different
-   * questions.
+   * Dormant again, and this time as the settled product position rather than
+   * as a staging step. Both plans hold `offlineTranslation`, so enforcement
+   * would grant it to everyone anyway — but leaving the flag on would make
+   * free users' on-device translation depend on the capability table staying
+   * exactly right, and an accidental edit there would silently take the
+   * feature away. Off, nothing but this line can.
    *
-   * Built dormant and switched on afterwards, because enforcing it while the
-   * on-device engine was the only working path would have left free users
-   * unable to translate anything. It was enabled once online translation was
-   * deployed and verified on a device.
+   * It is not the switch that turns on-device translation off. That is
+   * `offlineTranslation` above, which decides whether the capability exists in
+   * this build at all; this one only decides whether the entitlement is
+   * consulted. The two are different questions and are kept apart on purpose.
    *
-   * That order is worth keeping in mind before changing anything here: with
-   * enforcement on, a free user has no fallback, so online translation being
-   * reachable is what keeps the free plan usable at all.
+   * The machinery behind it — the routing gate, the cache guard and the
+   * in-flight guard — is deliberately still wired up. Turning this back on and
+   * moving `offlineTranslation` out of the free list is all that a future
+   * re-tiering would take.
    */
-  offlineEntitlement: true,
+  offlineEntitlement: false,
   /**
    * Scanning text with the camera, over ML Kit's bundled Latin recogniser.
    * Implemented end to end and compiles; no device has pointed a camera at

@@ -6,7 +6,7 @@ import { APP } from '@/constants';
 import { useTheme } from '@/hooks';
 import { useEntitlements } from '@/store';
 
-import { PRO_BENEFITS } from '../pro-benefits';
+import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '../pro-benefits';
 
 /**
  * What Transee Pro is, and — for now — an honest statement that it cannot be
@@ -16,6 +16,11 @@ import { PRO_BENEFITS } from '../pro-benefits';
  * receipt to validate, so there is no button here that could take money, and
  * nothing on this screen changes the user's plan. Faking a purchase would put
  * the app one tap away from claiming an entitlement it never granted.
+ *
+ * It also has to be honest about the opposite thing. Pro no longer unlocks any
+ * feature, so the screen leads with what every plan already includes and asks
+ * for money only for the removal of ads. Listing the app's features as though
+ * they were behind this screen would be selling something already given away.
  */
 export function UpgradeScreen() {
   const theme = useTheme();
@@ -34,7 +39,7 @@ export function UpgradeScreen() {
     <Screen scrollable edges={['top', 'bottom']}>
       <ScreenHeader
         title={`${APP.name} Pro`}
-        subtitle="Everything in the free plan, and the features that need more than a connection"
+        subtitle="Every translation feature is free. Pro removes the ads."
         leading={
           <IconButton
             name="chevron-back-outline"
@@ -80,11 +85,29 @@ export function UpgradeScreen() {
         ))}
       </Card>
 
+      {/* Named rather than implied. Someone weighing a subscription should be
+          able to see that none of this is what they would be paying for. */}
+      <Card variant="outlined" style={{ gap: theme.spacing.sm }}>
+        <Text variant="body">Included on every plan, free</Text>
+
+        {INCLUDED_ON_EVERY_PLAN.map((feature) => (
+          <View
+            key={feature.title}
+            style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}
+          >
+            <Icon name={feature.icon} size={16} color="textSecondary" />
+            <Text variant="bodySmall" color="textSecondary" style={{ flex: 1 }}>
+              {feature.title}
+            </Text>
+          </View>
+        ))}
+      </Card>
+
       {hasEveryBenefit ? (
         <Card variant="outlined" style={{ gap: theme.spacing.sm, alignItems: 'flex-start' }}>
           <Badge label="Pro" tone="primary" icon="checkmark-circle-outline" />
           <Text variant="bodySmall" color="textSecondary">
-            You already have every Pro feature on this device.
+            You are on Pro, so the app is ad-free on this device.
           </Text>
         </Card>
       ) : (
@@ -97,7 +120,9 @@ export function UpgradeScreen() {
 
           {/* Disabled rather than absent: the shape of the thing is worth
               showing, but it must not look as though a tap would buy
-              anything. Nothing here can grant a plan. */}
+              anything. Nothing here can grant a plan. No price, period or
+              plan choice is shown, because none has been decided — inventing
+              one here is how a placeholder becomes a false promise. */}
           <Button
             label="Subscriptions coming soon"
             icon="time-outline"

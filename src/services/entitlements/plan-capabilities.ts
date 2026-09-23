@@ -16,32 +16,47 @@ export const CAPABILITIES: readonly Capability[] = [
   'speechRecognition',
   'offlineTranslation',
   'adFree',
-  'extendedOnlineQuota',
 ];
 
 /**
  * An unknown, unreadable or not-yet-loaded state is Free.
  *
- * Failing closed is the right default for something commercial: the cost of
- * being wrong is a user briefly seeing an upgrade prompt they do not need,
- * rather than a paid feature being given away.
+ * Still the right default, though no longer for the original reason. Nothing
+ * about translating is withheld from Free any more, so being wrong here costs
+ * the user nothing: they see the app in full, with ads, until the real
+ * entitlement arrives. Defaulting the other way would show a paying-tier
+ * experience to someone who had not paid.
  */
 export const DEFAULT_PLAN: Plan = 'free';
 
 /**
- * Free is the online, text-to-text product; Pro adds the capabilities that
- * cost something to run or to build.
+ * Every feature, on both plans. Pro removes the ads.
  *
- * Note that holding the `offlineTranslation` capability is not yet what
- * decides whether on-device translation runs — routing is untouched in this
- * step, so offline works for everyone exactly as it did. The entry is here so
- * the table is complete and the decision is a product one, not a scramble
- * through the code later.
+ * This is the whole product model, and it is deliberately written as an
+ * addition rather than as two hand-maintained lists: Pro *is* Free plus
+ * `adFree`, so the two can never drift into a state where a paid tier
+ * accidentally gains — or a free tier accidentally loses — a translation
+ * feature.
+ *
+ * The earlier model put Camera OCR, dictation and on-device translation behind
+ * Pro. That was reversed as a product decision: the features cost the same to
+ * run whoever uses them, and gating them made the free app a demo rather than
+ * a translator. The capabilities survive the reversal on purpose — see
+ * `feature-access.ts` — because the gates they feed still answer the question
+ * of whether a *device* can do something, which is not a commercial question
+ * at all.
  */
+const FREE_CAPABILITIES = ['cameraOcr', 'speechRecognition', 'offlineTranslation'] as const;
+
 export const PLAN_CAPABILITIES: Readonly<Record<Plan, readonly Capability[]>> = {
-  free: [],
-  pro: ['cameraOcr', 'speechRecognition', 'offlineTranslation', 'adFree', 'extendedOnlineQuota'],
+  free: FREE_CAPABILITIES,
+  pro: [...FREE_CAPABILITIES, 'adFree'],
 };
+
+/** What Pro adds over Free, derived so a paywall cannot overstate it. */
+export const PRO_ONLY_CAPABILITIES: readonly Capability[] = PLAN_CAPABILITIES.pro.filter(
+  (capability) => !PLAN_CAPABILITIES.free.includes(capability),
+);
 
 export function capabilitiesFor(plan: Plan): ReadonlySet<Capability> {
   return new Set(PLAN_CAPABILITIES[plan]);
