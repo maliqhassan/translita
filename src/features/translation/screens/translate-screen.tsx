@@ -18,6 +18,8 @@ import { useLanguagePair, usePreferences, type LanguageField } from '@/store';
 import type { AppError } from '@/types';
 
 import { BrandMark } from '../components/brand-mark';
+import { FeatureTiles, type FeatureTile } from '../components/feature-tiles';
+import { HomeActions } from '../components/home-actions';
 import { SwapLanguagesButton } from '../components/swap-languages-button';
 import { TranslationComposer } from '../components/translation-composer';
 import { TranslationResultCard } from '../components/translation-result-card';
@@ -127,6 +129,56 @@ export function TranslateScreen() {
     router.push({ pathname: '/translate/language-picker', params: { field } });
   };
 
+  /*
+   * Shortcuts to features that already exist, and to nothing else.
+   *
+   * Dictation is a control rather than a destination — there is no voice
+   * screen, so the tile starts the microphone that is already on this screen.
+   * It is dropped entirely when the device has no recogniser, on the same
+   * rule the composer's own microphone follows: an action that cannot work is
+   * not shown rather than shown failing.
+   *
+   * Nothing here is gated by plan. Every one of these is part of the free app.
+   */
+  const tiles: readonly FeatureTile[] = [
+    ...(speech.status === 'unavailable'
+      ? []
+      : [
+          {
+            key: 'voice',
+            icon: 'mic-outline' as const,
+            title: 'Voice',
+            subtitle: 'Speak instead of typing',
+            onPress: () => speech.toggle(pair.source),
+            accessibilityHint: 'Starts dictation in the source language',
+          },
+        ]),
+    {
+      key: 'camera',
+      icon: 'camera-outline',
+      title: 'Camera',
+      subtitle: 'Translate what you point at',
+      onPress: () => router.push('/camera'),
+      accessibilityHint: 'Opens the camera tab',
+    },
+    {
+      key: 'packs',
+      icon: 'cloud-download-outline',
+      title: 'Languages',
+      subtitle: 'Download for offline use',
+      onPress: () => router.push('/settings/language-packs'),
+      accessibilityHint: 'Opens the language packs screen',
+    },
+    {
+      key: 'history',
+      icon: 'time-outline',
+      title: 'History',
+      subtitle: 'Everything you have translated',
+      onPress: () => router.push('/history'),
+      accessibilityHint: 'Opens the history tab',
+    },
+  ];
+
   return (
     <Screen
       scrollable
@@ -138,11 +190,9 @@ export function TranslateScreen() {
           subtitle={APP.tagline}
           leading={<BrandMark onGradient />}
           actions={
-            <IconButton
-              name="settings-outline"
-              variant="soft"
-              accessibilityLabel="Open settings"
-              onPress={() => router.push('/settings')}
+            <HomeActions
+              onOpenUpgrade={() => router.push('/upgrade')}
+              onOpenSettings={() => router.push('/settings')}
             />
           }
         />
@@ -223,6 +273,8 @@ export function TranslateScreen() {
           accessibilityHint="Translates the text you entered"
         />
       </View>
+
+      <FeatureTiles tiles={tiles} />
 
       <TextScanner
         visible={scan.scanning}
