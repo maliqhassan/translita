@@ -37,6 +37,15 @@ const read = (path: string) => readFileSync(path, 'utf8');
  */
 const APPROVED_ADVERTISING: readonly string[] = ['react-native-google-mobile-ads'];
 
+/**
+ * The one billing dependency that has been approved, by exact name.
+ *
+ * Same rule as advertising: exact equality, so a differently-named purchase
+ * or billing library still fails. RevenueCat is the agreed provider and this
+ * is its SDK.
+ */
+const APPROVED_BILLING: readonly string[] = ['react-native-purchases'];
+
 /** Source with block comments and comment-only lines removed. */
 const code = (path: string) =>
   read(path)
@@ -559,7 +568,7 @@ describe('nothing was monetised in this step', () => {
     for (const name of names) {
       // One approved ad SDK is stepped over. RevenueCat, purchases, billing,
       // IAP, Firebase, auth and every other ad library still fail here.
-      if (APPROVED_ADVERTISING.includes(name)) continue;
+      if (APPROVED_ADVERTISING.includes(name) || APPROVED_BILLING.includes(name)) continue;
 
       assert.equal(
         /revenuecat|purchases|billing|iap|admob|ads|firebase|auth/i.test(name),
@@ -568,8 +577,9 @@ describe('nothing was monetised in this step', () => {
       );
     }
 
-    // The exemption cannot grow quietly.
+    // Neither exemption can grow quietly.
     assert.equal(APPROVED_ADVERTISING.length, 1);
+    assert.equal(APPROVED_BILLING.length, 1);
   });
 
   it('shows no advertisement and no placeholder pretending to be one', () => {

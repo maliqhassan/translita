@@ -97,6 +97,27 @@ const STUBS = {
    * The ML Kit module is resolved optionally, so under Node it simply is not
    * there — which is exactly the "no native build" case the engine must handle.
    */
+  /**
+   * RevenueCat's SDK is a native module and cannot load under Node.
+   *
+   * The service is exercised against an injected `CustomerInfo` shape rather
+   * than through this stub, so it only has to satisfy the module-level import
+   * and the enum the service reads. Anything else throws rather than quietly
+   * answering.
+   */
+  'react-native-purchases': {
+    default: {
+      configure: () => {
+        throw new Error('react-native-purchases is unavailable under Node.');
+      },
+      getCustomerInfo: async () => {
+        throw new Error('react-native-purchases is unavailable under Node.');
+      },
+      addCustomerInfoUpdateListener: () => () => {},
+      setLogLevel: () => {},
+    },
+    LOG_LEVEL: { DEBUG: 'DEBUG', INFO: 'INFO', WARN: 'WARN', ERROR: 'ERROR' },
+  },
   'expo-modules-core': {
     requireOptionalNativeModule: () => null,
     requireNativeModule: () => {

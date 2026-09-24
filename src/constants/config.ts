@@ -48,6 +48,22 @@ export const STORAGE_KEYS = {
  * The product identifiers are the part that has to be exact — they must match
  * what is created in the Play Console, character for character.
  */
+/**
+ * RevenueCat's public SDK key.
+ *
+ * Public by design, and safe in the bundle: it identifies the app to
+ * RevenueCat and authorises nothing. Their own documentation says to ship it.
+ * The *secret* key — the `sk_` one — is a different thing entirely and must
+ * never come near this file or any other in `src`.
+ *
+ * Read from the environment so a build can point at a different project, with
+ * the current key as the default rather than a required variable: a build
+ * without it still runs, and reports everyone as Free.
+ */
+export const REVENUECAT = {
+  publicKey: process.env.EXPO_PUBLIC_REVENUECAT_KEY ?? 'goog_QAdWIwOTzORKHVuTIcqVUrkHFat',
+} as const;
+
 export const PRO_PLANS = {
   monthly: { productId: 'translita_pro_monthly', displayPrice: '$4.99', period: 'month' },
   yearly: { productId: 'translita_pro_yearly', displayPrice: '$29.99', period: 'year' },

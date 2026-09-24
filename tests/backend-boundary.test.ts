@@ -48,7 +48,7 @@ describe('the app never learns the provider credential', () => {
     }
   });
 
-  it('reads exactly one public variable, and it is the backend URL', () => {
+  it('reads only the public variables it is meant to', () => {
     const used = new Set<string>();
 
     for (const path of SOURCES) {
@@ -57,7 +57,17 @@ describe('the app never learns the provider credential', () => {
       }
     }
 
-    assert.deepEqual([...used], ['EXPO_PUBLIC_TRANSEE_API_URL']);
+    /*
+     * Two, and both are public by nature: the backend's own URL, and
+     * RevenueCat's public SDK key, which identifies the app and authorises
+     * nothing. Anything that grants access — the Azure credential, the model
+     * credential, RevenueCat's secret key — lives on the server and must
+     * never appear in this list.
+     */
+    assert.deepEqual([...used].sort(), [
+      'EXPO_PUBLIC_REVENUECAT_KEY',
+      'EXPO_PUBLIC_TRANSEE_API_URL',
+    ]);
   });
 
   it('carries nothing credential-shaped in its translation configuration', () => {

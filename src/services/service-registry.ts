@@ -1,10 +1,11 @@
-import { FEATURES, STORAGE_KEYS, TRANSLATION_CONFIG } from '@/constants';
+import { FEATURES, REVENUECAT, STORAGE_KEYS, TRANSLATION_CONFIG } from '@/constants';
 import { createExpoSQLiteDatabase, createHistoryRepository } from '@/database';
 import { TranseeMlKit, TranseeOcr } from '@modules/transee-mlkit';
 
 import { expoClipboardService } from './clipboard';
 import {
   createLocalEntitlementsService,
+  createRevenueCatEntitlementsService,
   type DevelopmentEntitlementsService,
   type EntitlementsService,
 } from './entitlements';
@@ -153,7 +154,22 @@ const localEntitlements = createLocalEntitlementsService(
   createFilePreferencesStorage(`${STORAGE_KEYS.entitlements}.json`),
 );
 
-const entitlementsService: EntitlementsService = localEntitlements;
+/**
+ * The plan, from the store rather than from a file on the device.
+ *
+ * The swap the contract was shaped for. `EntitlementsService` has no setter,
+ * so binding this in place of the local implementation changes nothing above
+ * the registry — and makes any accidental client-side plan change a compile
+ * error rather than a silent free upgrade.
+ *
+ * The local implementation stays bound behind `developmentEntitlements`, which
+ * is `undefined` in a release build. That is what lets the plan switcher keep
+ * working for testing without it ever shipping.
+ */
+const entitlementsService: EntitlementsService = createRevenueCatEntitlementsService({
+  apiKey: REVENUECAT.publicKey,
+  debug: __DEV__,
+});
 
 /**
  * The plan switcher's only door, and only in a development build.

@@ -29,6 +29,15 @@ const read = (path: string) => readFileSync(path, 'utf8');
  */
 const APPROVED_ADVERTISING: readonly string[] = ['react-native-google-mobile-ads'];
 
+/**
+ * The one billing dependency that has been approved, by exact name.
+ *
+ * Same rule as advertising: exact equality, so a differently-named purchase
+ * or billing library still fails. RevenueCat is the agreed provider and this
+ * is its SDK.
+ */
+const APPROVED_BILLING: readonly string[] = ['react-native-purchases'];
+
 const HOOK = 'src/features/translation/hooks/use-camera-ocr.ts';
 const SPEECH_HOOK = 'src/features/translation/hooks/use-speech-recognition.ts';
 const COMPOSER = 'src/features/translation/components/translation-composer.tsx';
@@ -246,10 +255,22 @@ describe('an unsupported device is never sold anything', () => {
 });
 
 describe('the development switcher cannot ship', () => {
+  it('binds the plan to the store rather than to a file on the device', () => {
+    const registry = code(REGISTRY);
+
+    assert.match(registry, /createRevenueCatEntitlementsService\(/);
+    assert.match(registry, /apiKey: REVENUECAT\.publicKey/);
+  });
+
   it('is the only thing the registry exposes a setter through', () => {
     const registry = read(REGISTRY);
 
-    assert.match(registry, /const entitlementsService: EntitlementsService = localEntitlements/);
+    // The billing-backed implementation is what the app reads now; the local
+    // one survives only behind the development switcher below.
+    assert.match(
+      registry,
+      /const entitlementsService: EntitlementsService = createRevenueCatEntitlementsService/,
+    );
     assert.match(registry, /entitlements: entitlementsService/);
   });
 
@@ -640,7 +661,7 @@ describe('the paywall is a placeholder and says so', () => {
     for (const name of Object.keys(pkg.dependencies)) {
       // The approved ad SDK is stepped over; the pattern below is unchanged,
       // so billing, purchases and every other ad library still fail here.
-      if (APPROVED_ADVERTISING.includes(name)) continue;
+      if (APPROVED_ADVERTISING.includes(name) || APPROVED_BILLING.includes(name)) continue;
 
       assert.equal(
         /billing|purchase|revenuecat|iap|admob|ads/i.test(name),
@@ -649,20 +670,45 @@ describe('the paywall is a placeholder and says so', () => {
       );
     }
 
-    // The exemption cannot grow quietly.
+    // Neither exemption can grow quietly.
     assert.equal(APPROVED_ADVERTISING.length, 1);
+    assert.equal(APPROVED_BILLING.length, 1);
   });
 
-  it('carries no subscription secret and no new public variable', () => {
-    for (const path of [
-      ...sources('src/services/entitlements'),
-      ...sources('src/features/paywall'),
-    ]) {
-      const source = read(path).toLowerCase();
-      for (const word of ['expo_public_', 'apikey', 'api_key', 'secret', 'token']) {
-        assert.equal(source.includes(word), false, `${word} in ${path}`);
-      }
+  it('carries no subscription secret', () => {
+    /*
+     * This once forbade the word "apiKey" outright, which was right while
+     * nothing was sold. Billing needs a key, so the rule sharpens rather than
+     * relaxes: RevenueCat's *public* key identifies the app and authorises
+     * nothing, and shipping it is what their documentation says to do. The
+     * secret `sk_` key can read and change account data and must never be
+     * anywhere near this bundle.
+     */
+    for (const path of [...sources('src'), ...sources('app')]) {
+      const source = read(path);
+
+      assert.equal(/\bsk_[A-Za-z0-9]{10,}/.test(source), false, `a secret key in ${path}`);
+      assert.equal(/secretKey|secret_key/i.test(source), false, `a secret key name in ${path}`);
     }
+  });
+
+  it('ships only the public key, and reads it from one place', () => {
+    const config = read('src/constants/config.ts');
+
+    // Public keys start goog_ on Android. The secret ones start sk_.
+    assert.match(config, /'goog_[A-Za-z0-9]+'/);
+
+    // A secret key *value*, not the word. The comment beside the public key
+    // explains what a secret key is, and explaining it is the opposite of
+    // shipping one.
+    assert.equal(/'sk_[A-Za-z0-9]{10,}'/.test(config), false);
+
+    // No screen or service writes a key of its own.
+    const offenders = [...sources('src/services/entitlements'), ...sources('src/features')].filter(
+      (path) => /goog_[A-Za-z0-9]{10,}/.test(read(path)),
+    );
+
+    assert.deepEqual(offenders, []);
   });
 
   it('states in the code that this is not purchase enforcement', () => {
