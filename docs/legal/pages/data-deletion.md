@@ -49,7 +49,7 @@ Nothing that identifies you.
 
 If you believe we hold any personal data about you, email:
 
-{{devopsmarkaz@gmail.com}}
+devopsmarkaz@gmail.com
 
 with the subject line "Data deletion".
 
@@ -59,6 +59,6 @@ We will respond within **30 days**.
 
 ## Contact
 
-{{Translita Offline Translation App}}
-{{Pakistan}}
-{{devopsmarkaz@gmail.com}}
+Translita Offline Translator
+Pakistan
+devopsmarkaz@gmail.com

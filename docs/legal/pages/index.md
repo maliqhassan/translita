@@ -10,4 +10,4 @@ Legal and privacy information for the Translita translation app.
 - [Terms of Use](./terms.md)
 - [Data Deletion](./data-deletion.md)
 
-Questions: {{devopsmarkaz@gmail.com}}
+Questions: devopsmarkaz@gmail.com

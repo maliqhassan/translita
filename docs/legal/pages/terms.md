@@ -12,7 +12,7 @@ title: Terms of Use — Translita
 
 By installing or using Translita ("the app"), you agree to these terms. If you do not agree, do not use the app.
 
-The app is published by **{{Translita Offline Translation App}}** ("we", "us"), of **{{Pakistan}}**.
+The app is published by **Translita Offline Translator** ("we", "us"), of **Attock, Pakistan**.
 
 ## 2. What the app does
 
@@ -102,7 +102,7 @@ We may suspend or terminate access if you breach these terms. Sections 3, 7, 10 
 
 ## 12. Governing law
 
-These terms are governed by the laws of **{{JURISDICTION}}**, and disputes are subject to the courts of **{{JURISDICTION}}**, without affecting any mandatory protections of the country you live in.
+These terms are governed by the laws of **Pakistan**, and disputes are subject to the courts of **Pakistan**, without affecting any mandatory protections of the country you live in.
 
 ## 13. Changes to these terms
 
@@ -110,6 +110,6 @@ If these terms change materially, the date at the top will change. Continuing to
 
 ## 14. Contact
 
-**{{Translita Offline Translation App}}**
-{{Pakistan}}
-{{devopsmarkaz@gmail.com}}
+**Translita Offline Translator**
+Attock, Pakistan
+devopsmarkaz@gmail.com

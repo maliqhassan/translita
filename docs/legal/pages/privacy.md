@@ -18,9 +18,9 @@ We do not sell your data.
 
 ## Who we are
 
-Translita is published by **{{Translita Offline Translation App}}**, of **{{Pakistan}}**.
+Translita is published by **Translita Offline Translator**, of **Attock, Pakistan**.
 
-For any privacy question, write to **{{devopsmarkaz@gmail.com}}**.
+For any privacy question, write to **devopsmarkaz@gmail.com**.
 
 ## What stays on your phone
 
@@ -82,7 +82,7 @@ Subscription status is managed by **RevenueCat** on our behalf. RevenueCat recei
 
 ## Children
 
-Translita is not directed at children under 13, and we do not knowingly collect their personal data. If you believe a child has provided personal information, write to **{{CONTACT_EMAIL}}** and we will delete it.
+Translita is not directed at children under 13, and we do not knowingly collect their personal data. If you believe a child has provided personal information, write to **devopsmarkaz@gmail.com** and we will delete it.
 
 ## Your rights
 
@@ -92,7 +92,7 @@ Because Translita has no accounts, we hold almost nothing tied to you. In practi
 
 - **Data on your phone** — you can delete it yourself at any time. See _Deleting your data_ below.
 - **Advertising identifier** — reset or delete it in Android Settings.
-- **Anything else** — write to **{{devopsmarkaz@gmail.com}}** and we will respond within 30 days.
+- **Anything else** — write to **devopsmarkaz@gmail.com** and we will respond within 30 days.
 
 ## Deleting your data
 
@@ -104,7 +104,7 @@ Because Translita has no accounts, we hold almost nothing tied to you. In practi
 
 **On our servers:** we keep no account and no stored copy of your translations or practice conversations, so there is nothing on our servers to delete.
 
-**To make a formal request**, see our [Data Deletion page](./data-deletion.md), or email **{{devopsmarkaz@gmail.com}}** with the subject "Data deletion".
+**To make a formal request**, see our [Data Deletion page](./data-deletion.md), or email **devopsmarkaz@gmail.com** with the subject "Data deletion".
 
 ## Where data is processed
 
@@ -122,6 +122,6 @@ If this policy changes materially, the date at the top will change. Continuing t
 
 ## Contact
 
-**{{Translita Offline Translation App}}**
-{{Pakistan}}
-{{devopsmarkaz@gmail.com}}
+**Translita Offline Translator**
+Attock, Pakistan
+devopsmarkaz@gmail.com
