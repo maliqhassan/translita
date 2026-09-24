@@ -87,6 +87,8 @@ describe('default preferences', () => {
       // A fresh install has not been through the welcome screen yet. Installs
       // that predate the field are migrated to true instead of taking this.
       onboardingComplete: false,
+      // The full free AI practice allowance, unspent.
+      aiTurnsUsed: 0,
     });
   });
 
@@ -117,6 +119,7 @@ describe('parsing stored preferences', () => {
       // rather than being quietly replaced by the default.
       speechRate: 1.25,
       onboardingComplete: true,
+      aiTurnsUsed: 0,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -205,6 +208,7 @@ describe('preferences service', () => {
       saveHistory: false,
       speechRate: 0.5,
       onboardingComplete: true,
+      aiTurnsUsed: 0,
     };
 
     assert.equal((await service.save(saved)).ok, true);

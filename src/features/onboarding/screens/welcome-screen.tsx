@@ -61,7 +61,12 @@ export function WelcomeScreen({ onGetStarted }: { onGetStarted: () => void }) {
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.onboarding }}>
       {/* Light content, because the field is brand colour in both themes. */}
-      <StatusBar barStyle="light-content" backgroundColor={theme.colors.onboarding} />
+      <StatusBar
+        // The field is the brand fill, which is light: the clock and icons
+        // have to be dark on it, and only invert when the theme does.
+        barStyle={theme.scheme === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={theme.colors.onboarding}
+      />
 
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
         <View

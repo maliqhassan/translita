@@ -7,7 +7,7 @@ import { invalidResponseError } from '../../http';
 import type { ProviderAdapter, ProviderTranslation } from './translation-provider';
 
 /**
- * Validates the Transee backend's translation payload.
+ * Validates the Translita backend's translation payload.
  *
  * A response is not trusted because it parsed as JSON. Every field is checked
  * for presence and type before anything reaches the app, and a payload that

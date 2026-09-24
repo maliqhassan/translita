@@ -131,7 +131,7 @@ export function TranslationComposer({
               variant="ghost"
               size="sm"
               onPress={scan.upgrade}
-              accessibilityHint="Camera text recognition is part of Transee Pro"
+              accessibilityHint="Camera text recognition is part of Translita Pro"
               style={{ paddingHorizontal: theme.spacing.md }}
             />
           ) : (
@@ -155,7 +155,7 @@ export function TranslationComposer({
               variant="ghost"
               size="sm"
               onPress={speech.upgrade}
-              accessibilityHint="Speech-to-text is part of Transee Pro"
+              accessibilityHint="Speech-to-text is part of Translita Pro"
               style={{ paddingHorizontal: theme.spacing.md }}
             />
           ) : (

@@ -215,7 +215,7 @@ export function SettingsScreen() {
             accessibilityHint={
               offlinePermitted
                 ? 'Cycles between automatic, online only and on-device only'
-                : 'Cycles between automatic and online only. On-device translation is part of Transee Pro'
+                : 'Cycles between automatic and online only. On-device translation is part of Translita Pro'
             }
             trailing={
               <Text variant="body" color="textSecondary">
@@ -233,7 +233,7 @@ export function SettingsScreen() {
             subtitle={
               offlinePermitted
                 ? 'Download languages to translate them without a connection'
-                : 'Translating without a connection is part of Transee Pro'
+                : 'Translating without a connection is part of Translita Pro'
             }
             onPress={() => router.push('/settings/language-packs')}
             trailing={offlinePermitted ? undefined : <Badge label="Pro" tone="primary" />}

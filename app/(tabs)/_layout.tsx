@@ -1,6 +1,7 @@
 import { Tabs } from 'expo-router';
 
 import { AppTabBar, type TabIcons } from '@/components';
+import { PlanBannerAd } from '@/features/ads';
 
 type TabConfig = {
   name: string;
@@ -29,7 +30,19 @@ export default function TabsLayout() {
       // The bar is ours: a floating rounded pill rather than a full-width
       // strip. It handles its own safe-area inset, which is what keeps it
       // clear of the Android gesture bar and the back/home/recents buttons.
-      tabBar={(props) => <AppTabBar {...props} icons={TAB_ICONS} />}
+      /*
+       * The free plan's banner rides directly above the bar, in the same slot.
+       *
+       * Putting it here rather than in a screen is what makes the placement
+       * safe: it is outside every scroll view, so no amount of content can
+       * push it over a translation, and it cannot be duplicated per tab.
+       */
+      tabBar={(props) => (
+        <>
+          <PlanBannerAd />
+          <AppTabBar {...props} icons={TAB_ICONS} />
+        </>
+      )}
       screenOptions={{ headerShown: false }}
     >
       {TABS.map((tab) => (

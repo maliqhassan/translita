@@ -28,7 +28,7 @@ export function HomeActions({ onOpenUpgrade, onOpenSettings }: HomeActionsProps)
       <Pressable
         onPress={onOpenUpgrade}
         accessibilityRole="button"
-        accessibilityLabel="Transee Pro"
+        accessibilityLabel="Translita Pro"
         accessibilityHint="Opens the Pro screen"
         style={({ pressed }) => ({
           flexDirection: 'row',

@@ -144,14 +144,14 @@ function PermissionPrompt({
       ) : canAskAgain ? (
         <>
           <Text variant="bodySmall" color="onCamera" align="center">
-            Transee needs the camera to scan text. Nothing is uploaded — the picture is read on this
-            device and then discarded.
+            Translita needs the camera to scan text. Nothing is uploaded — the picture is read on
+            this device and then discarded.
           </Text>
           <Button label="Allow camera" onPress={onRequest} size="sm" />
         </>
       ) : (
         <Text variant="bodySmall" color="onCamera" align="center">
-          Camera access is turned off for Transee. It can be re-enabled in the system settings for
+          Camera access is turned off for Translita. It can be re-enabled in the system settings for
           this app.
         </Text>
       )}

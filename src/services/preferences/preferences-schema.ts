@@ -36,6 +36,8 @@ export const DEFAULT_PREFERENCES: Preferences = {
   // A fresh install has not been through the welcome screen. Existing installs
   // are migrated to true rather than taking this default — see `migrate`.
   onboardingComplete: false,
+  // The full free allowance, unspent.
+  aiTurnsUsed: 0,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -69,6 +71,19 @@ function readSpeechRate(value: unknown, fallback: SpeechRate): SpeechRate {
   return typeof value === 'number' && SPEECH_RATES.includes(value as SpeechRate)
     ? (value as SpeechRate)
     : fallback;
+}
+
+/**
+ * A whole, non-negative count.
+ *
+ * An edited file could carry a negative number, which would silently hand out
+ * an unlimited allowance, or a fraction, which would never equal the limit.
+ * Anything that is not a clean count reads as none used — the cautious
+ * direction, since the allowance is small and the cost of being wrong is a
+ * few free exchanges rather than a wall in front of a paying user.
+ */
+function readCount(value: unknown, fallback: number): number {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 ? value : fallback;
 }
 
 /**
@@ -172,6 +187,7 @@ export function parsePreferences(payload: unknown): Preferences {
       record.onboardingComplete,
       DEFAULT_PREFERENCES.onboardingComplete,
     ),
+    aiTurnsUsed: readCount(record.aiTurnsUsed, DEFAULT_PREFERENCES.aiTurnsUsed),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

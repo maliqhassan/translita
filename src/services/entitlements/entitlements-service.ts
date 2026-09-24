@@ -29,7 +29,20 @@ export type Plan = 'free' | 'pro';
  * `adFree` is deliberately positive: `has('adFree')` reads correctly, where a
  * negative `ads` capability would make every call site a double negative.
  */
-export type Capability = 'cameraOcr' | 'speechRecognition' | 'offlineTranslation' | 'adFree';
+export type Capability =
+  | 'cameraOcr'
+  | 'speechRecognition'
+  | 'offlineTranslation'
+  | 'adFree'
+  /**
+   * Conversational practice with an AI partner.
+   *
+   * The second paid capability, and the first that costs money to run: every
+   * exchange is a billed model call. That is why it is the one feature with a
+   * free allowance rather than a hard wall — a taste is worth paying for, an
+   * unlimited free tier is not.
+   */
+  | 'aiTutor';
 
 /**
  * Where the current entitlement came from.

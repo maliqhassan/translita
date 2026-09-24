@@ -93,7 +93,12 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.onboarding }}>
-      <StatusBar barStyle="light-content" backgroundColor={theme.colors.onboarding} />
+      <StatusBar
+        // The field is the brand fill, which is light: the clock and icons
+        // have to be dark on it, and only invert when the theme does.
+        barStyle={theme.scheme === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={theme.colors.onboarding}
+      />
 
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
         {/* Skip sits above the pages and disappears on the last slide, where

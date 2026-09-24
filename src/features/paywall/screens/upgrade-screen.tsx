@@ -2,14 +2,14 @@ import { useRouter } from 'expo-router';
 import { View } from 'react-native';
 
 import { Badge, Button, Card, Icon, IconButton, Screen, ScreenHeader, Text } from '@/components';
-import { APP } from '@/constants';
+import { APP, PRO_PLANS } from '@/constants';
 import { useTheme } from '@/hooks';
 import { useEntitlements } from '@/store';
 
 import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '../pro-benefits';
 
 /**
- * What Transee Pro is, and — for now — an honest statement that it cannot be
+ * What Translita Pro is, and — for now — an honest statement that it cannot be
  * bought yet.
  *
  * Deliberately a placeholder. There is no billing SDK, no store product and no
@@ -39,7 +39,7 @@ export function UpgradeScreen() {
     <Screen scrollable edges={['top', 'bottom']}>
       <ScreenHeader
         title={`${APP.name} Pro`}
-        subtitle="Every translation feature is free. Pro removes the ads."
+        subtitle="Every translation feature is free. Pro adds unlimited AI practice, and removes the ads."
         leading={
           <IconButton
             name="chevron-back-outline"
@@ -113,6 +113,48 @@ export function UpgradeScreen() {
       ) : (
         <Card variant="outlined" style={{ gap: theme.spacing.md }}>
           <Text variant="body">Subscriptions are coming soon</Text>
+
+          {/* The intended plans, shown so the shape of the offer is clear.
+              Neither is purchasable, and the prices are the intended ones
+              rather than the store's — the store returns a localised price
+              per country, and this screen will read that once billing is
+              wired. Nothing here can take money. */}
+          <View style={{ gap: theme.spacing.sm }}>
+            {(
+              [
+                { ...PRO_PLANS.yearly, best: true },
+                { ...PRO_PLANS.monthly, best: false },
+              ] as const
+            ).map((plan) => (
+              <View
+                key={plan.productId}
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: theme.spacing.sm,
+                  padding: theme.spacing.md,
+                  borderRadius: theme.radius.md,
+                  borderWidth: theme.layout.borderWidth,
+                  borderColor: plan.best ? theme.colors.primaryBorder : theme.colors.border,
+                  backgroundColor: plan.best ? theme.colors.primaryMuted : 'transparent',
+                }}
+              >
+                <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+                  <Text variant="body" style={{ fontWeight: '600' }}>
+                    {plan.displayPrice} per {plan.period}
+                  </Text>
+                  {plan.best ? (
+                    <Text variant="caption" color="primary">
+                      Save {PRO_PLANS.yearlySavingPercent}% against monthly
+                    </Text>
+                  ) : null}
+                </View>
+
+                {plan.best ? <Badge label="Best value" tone="primary" /> : null}
+              </View>
+            ))}
+          </View>
+
           <Text variant="bodySmall" color="textSecondary">
             There is nothing to buy yet. When subscriptions open, Pro will be a purchase through
             your app store, and this screen is where it will happen.
@@ -129,7 +171,7 @@ export function UpgradeScreen() {
             size="lg"
             fullWidth
             disabled
-            accessibilityHint="Transee Pro cannot be purchased yet"
+            accessibilityHint="Translita Pro cannot be purchased yet"
           />
         </Card>
       )}

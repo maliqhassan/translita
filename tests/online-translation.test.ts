@@ -103,7 +103,7 @@ describe('online translation success', () => {
     assert.equal(result.value.sourceText, 'Hello, how are you?');
   });
 
-  it('sends the Transee contract, not a provider payload', async () => {
+  it('sends the Translita contract, not a provider payload', async () => {
     const { service, sent } = onlineWith([json({ translatedText: 'Hallo' })]);
     await service.translate(request);
 

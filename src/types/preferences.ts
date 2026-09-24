@@ -68,6 +68,21 @@ export type Preferences = {
    * `preferences-schema`, where the reasoning lives.
    */
   onboardingComplete: boolean;
+  /**
+   * AI practice exchanges used against the free allowance.
+   *
+   * Counted here rather than on a server because there is no account to count
+   * against: the app has no sign-in, deliberately. That makes this an honest
+   * allowance rather than an enforceable quota — reinstalling resets it, and
+   * nothing pretends otherwise.
+   *
+   * It is enough for what it is for. The allowance exists so somebody can
+   * find out whether they like practising before paying, not to stop a
+   * determined person reinstalling. The cost of that is a few tenths of a
+   * penny; the cost of demanding an account to prevent it is the whole
+   * no-sign-in promise.
+   */
+  aiTurnsUsed: number;
 };
 
 /**

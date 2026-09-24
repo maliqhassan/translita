@@ -40,7 +40,7 @@ export type OfflineNotice = {
  */
 export function offlineEntitlementNotice(): OfflineNotice {
   return {
-    title: 'Offline translation is part of Transee Pro',
+    title: 'Offline translation is part of Translita Pro',
     description:
       'Pro translates with no connection at all, using language packs stored on your device. Online translation stays available on the free plan.',
     actionLabel: 'See what Pro includes',

@@ -38,15 +38,17 @@ function contrast(a: string, b: string): number {
 }
 
 describe('the brand colour', () => {
-  it('is the requested one', () => {
-    assert.equal(palette.indigo[400], '#70D6FF');
-    assert.equal(lightColors.primary, '#70D6FF');
+  it('is the colour sampled from the logo', () => {
+    // Taken from the artwork rather than chosen: #0CC0DF is the dominant
+    // opaque pixel in `assets/images/icon.png`.
+    assert.equal(palette.brand[400], '#0CC0DF');
+    assert.equal(lightColors.primary, '#0CC0DF');
   });
 
   it('carries dark text on it, because white would be unreadable', () => {
-    // White on #70D6FF is roughly 1.6:1. This is the reason the fill cannot
-    // simply be swapped in without moving the label colour too.
-    assert.ok(contrast('#70D6FF', '#FFFFFF') < 3, 'white must be rejected');
+    // White on #0CC0DF is 2.18:1. Like the sky blue it replaced, the brand is
+    // a fill and not an ink, which is why the label colour moves with it.
+    assert.ok(contrast('#0CC0DF', '#FFFFFF') < 3, 'white must be rejected');
 
     for (const theme of [lightColors, darkColors]) {
       assert.ok(

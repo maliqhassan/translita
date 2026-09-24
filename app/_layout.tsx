@@ -81,6 +81,7 @@ function RootNavigator() {
           options={{ headerShown: false, presentation: 'modal' }}
         />
         <Stack.Screen name="camera/result" options={{ headerShown: false }} />
+        <Stack.Screen name="conversation" options={{ headerShown: false }} />
         <Stack.Screen name="history/[id]" options={{ headerShown: false }} />
         <Stack.Screen name="settings/language-packs" options={{ headerShown: false }} />
         <Stack.Screen name="settings/voice" options={{ headerShown: false }} />

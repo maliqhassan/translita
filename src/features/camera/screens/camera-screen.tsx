@@ -65,7 +65,7 @@ export function CameraScreen() {
             <Badge label="Pro" tone="primary" />
 
             <Text variant="body" align="center">
-              Camera text recognition is part of Transee Pro
+              Camera text recognition is part of Translita Pro
             </Text>
             <Text variant="bodySmall" color="textSecondary" align="center">
               Your device can read text from a picture. Pro turns it on, along with speech-to-text,
@@ -78,7 +78,7 @@ export function CameraScreen() {
               size="lg"
               fullWidth
               onPress={scan.upgrade}
-              accessibilityHint="Opens the Transee Pro screen"
+              accessibilityHint="Opens the Translita Pro screen"
             />
           </Card>
         </View>

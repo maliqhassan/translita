@@ -34,12 +34,20 @@ import { ok } from '@/utils';
  * This file is about the product, not the mechanism.
  */
 
-/** Everything a user translates with, as opposed to what they pay to remove. */
+/**
+ * What is sold. Neither is a translation feature.
+ *
+ * `adFree` removes advertising; `aiTutor` is unlimited practice with a model
+ * that costs money on every exchange, and which everyone gets a free taste of.
+ */
+const SOLD: readonly Capability[] = ['adFree', 'aiTutor'];
+
+/** Everything a user translates with, as opposed to what they pay for. */
 const FEATURE_CAPABILITIES: readonly Capability[] = CAPABILITIES.filter(
-  (capability) => capability !== 'adFree',
+  (capability) => !SOLD.includes(capability),
 );
 
-describe('the two plans differ over advertising and nothing else', () => {
+describe('the two plans differ over no translation feature at all', () => {
   it('gives every feature capability to both plans', () => {
     for (const capability of FEATURE_CAPABILITIES) {
       assert.equal(capabilitiesFor('free').has(capability), true, `free lost ${capability}`);
@@ -47,10 +55,13 @@ describe('the two plans differ over advertising and nothing else', () => {
     }
   });
 
-  it('withholds adFree from Free, and only adFree', () => {
-    assert.equal(capabilitiesFor('free').has('adFree'), false);
-    assert.equal(capabilitiesFor('pro').has('adFree'), true);
-    assert.deepEqual([...PRO_ONLY_CAPABILITIES], ['adFree']);
+  it('withholds exactly what is sold, and nothing else', () => {
+    for (const capability of SOLD) {
+      assert.equal(capabilitiesFor('free').has(capability), false, capability);
+      assert.equal(capabilitiesFor('pro').has(capability), true, capability);
+    }
+
+    assert.deepEqual([...PRO_ONLY_CAPABILITIES].sort(), [...SOLD].sort());
   });
 
   it('leaves no feature capability in the Pro-only list', () => {
@@ -58,7 +69,7 @@ describe('the two plans differ over advertising and nothing else', () => {
       assert.equal(
         FEATURE_CAPABILITIES.includes(capability),
         false,
-        `${capability} is a feature and must not be sold`,
+        `${capability} is a translation feature and must not be sold`,
       );
     }
   });
@@ -69,7 +80,7 @@ describe('the two plans differ over advertising and nothing else', () => {
     const table = readFileSync('src/services/entitlements/plan-capabilities.ts', 'utf8');
 
     assert.match(table, /free: FREE_CAPABILITIES/);
-    assert.match(table, /pro: \[\.\.\.FREE_CAPABILITIES, 'adFree'\]/);
+    assert.match(table, /pro: \[\.\.\.FREE_CAPABILITIES, 'adFree', 'aiTutor'\]/);
   });
 });
 
@@ -231,7 +242,7 @@ describe('a free user keeps on-device results the cache already holds', () => {
 describe('nothing sells a feature any more', () => {
   it('leaves the plan-conditional copy unreachable rather than untrue', () => {
     /*
-     * The locked-state strings — "part of Transee Pro" and the rest — are
+     * The locked-state strings — "part of Translita Pro" and the rest — are
      * still in the source, inside branches that need a missing capability to
      * render. Nothing has one, so nothing renders them.
      *

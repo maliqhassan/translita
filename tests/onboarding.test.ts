@@ -27,6 +27,16 @@ import { ok } from '@/utils';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
+/**
+ * Advertising dependencies that have been approved, by exact name.
+ *
+ * Exact equality, never a pattern: `react-native-google-mobile-ads-mediation`
+ * or any other SDK that happens to contain "ads" is a different package and
+ * must still fail this. The list is one line and named so that widening it is
+ * a visible decision rather than a loosened regex.
+ */
+const APPROVED_ADVERTISING: readonly string[] = ['react-native-google-mobile-ads'];
+
 /** Source with block comments and comment-only lines removed. */
 const code = (path: string) =>
   read(path)
@@ -449,7 +459,7 @@ describe('the slides claim only what the app actually does', () => {
   });
 
   it('makes no AI claim, because nothing here is one', () => {
-    // The reference design leads with "AI-Powered Translations". Transee
+    // The reference design leads with "AI-Powered Translations". Translita
     // routes to Azure Translator and to ML Kit, neither of which the app
     // has any business describing that way.
     for (const word of [' ai ', 'ai-powered', 'artificial intelligence', 'neural', 'gpt']) {
@@ -522,12 +532,19 @@ describe('nothing was monetised in this step', () => {
 
     const names = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.devDependencies ?? {})];
     for (const name of names) {
+      // One approved ad SDK is stepped over. RevenueCat, purchases, billing,
+      // IAP, Firebase, auth and every other ad library still fail here.
+      if (APPROVED_ADVERTISING.includes(name)) continue;
+
       assert.equal(
         /revenuecat|purchases|billing|iap|admob|ads|firebase|auth/i.test(name),
         false,
         name,
       );
     }
+
+    // The exemption cannot grow quietly.
+    assert.equal(APPROVED_ADVERTISING.length, 1);
   });
 
   it('shows no advertisement and no placeholder pretending to be one', () => {

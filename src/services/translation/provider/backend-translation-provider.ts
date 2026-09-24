@@ -23,7 +23,7 @@ export type BackendProviderOptions = {
 };
 
 /**
- * Talks to the Transee backend, which holds the provider credential.
+ * Talks to the Translita backend, which holds the provider credential.
  *
  * The app sends only the language pair and the text. It never sends, stores or
  * knows a provider API key — that stays server-side, which is the whole reason
@@ -52,7 +52,7 @@ export function createBackendTranslationProvider(
 
     async translate(request: NormalizedTranslationRequest): ServiceResult<ProviderTranslation> {
       if (!configured) {
-        return err(httpStatusError(503, 'No Transee backend URL is configured for this build.'));
+        return err(httpStatusError(503, 'No Translita backend URL is configured for this build.'));
       }
 
       const response = await options.http.send({

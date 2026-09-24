@@ -5,7 +5,7 @@ import type { ServiceResult } from '../../types';
 import type { NormalizedTranslationRequest } from '../translation-request';
 
 /**
- * A translation as a provider returns it, already normalised into Transee's
+ * A translation as a provider returns it, already normalised into Translita's
  * vocabulary. No provider-specific field ever travels further than this.
  */
 export type ProviderTranslation = {
@@ -35,7 +35,7 @@ export type ProviderAdapter = {
 /**
  * A reachable source of translations.
  *
- * For Transee this is always our own backend, which holds the provider
+ * For Translita this is always our own backend, which holds the provider
  * credential server-side. The interface stays provider-shaped so that
  * arrangement is a deployment decision rather than an architectural one.
  */

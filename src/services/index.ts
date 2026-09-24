@@ -8,4 +8,5 @@ export * from './preferences';
 export * from './service-registry';
 export * from './speech';
 export * from './translation';
+export * from './tutor';
 export * from './types';

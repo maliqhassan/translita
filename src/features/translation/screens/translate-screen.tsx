@@ -132,25 +132,40 @@ export function TranslateScreen() {
   /*
    * Shortcuts to features that already exist, and to nothing else.
    *
-   * Dictation is a control rather than a destination — there is no voice
-   * screen, so the tile starts the microphone that is already on this screen.
-   * It is dropped entirely when the device has no recogniser, on the same
-   * rule the composer's own microphone follows: an action that cannot work is
-   * not shown rather than shown failing.
+   * Offline leads, and is the only emphasised tile: translating with no
+   * connection is what distinguishes this app, and it was previously a row
+   * that read as a footnote. It points at the language packs screen because
+   * downloading a pack is the thing standing between a user and offline
+   * translation — the mode itself needs no setup.
+   *
+   * The voice tile opens the conversation screen rather than starting
+   * dictation here. Dictation already has a control in the composer, so a
+   * shortcut that did the same thing twice was the weaker of the two uses.
+   * It is dropped when the device has no recogniser, on the same rule the
+   * composer's microphone follows.
    *
    * Nothing here is gated by plan. Every one of these is part of the free app.
    */
   const tiles: readonly FeatureTile[] = [
+    {
+      key: 'packs',
+      icon: 'cloud-offline-outline',
+      title: 'Offline translation',
+      subtitle: 'Download a language and translate with no connection',
+      onPress: () => router.push('/settings/language-packs'),
+      accessibilityHint: 'Opens the language packs screen',
+      emphasis: true,
+    },
     ...(speech.status === 'unavailable'
       ? []
       : [
           {
-            key: 'voice',
-            icon: 'mic-outline' as const,
-            title: 'Voice',
-            subtitle: 'Speak instead of typing',
-            onPress: () => speech.toggle(pair.source),
-            accessibilityHint: 'Starts dictation in the source language',
+            key: 'conversation',
+            icon: 'chatbubbles-outline' as const,
+            title: 'Conversation',
+            subtitle: 'Two people, two microphones',
+            onPress: () => router.push('/conversation'),
+            accessibilityHint: 'Opens the two-way spoken conversation screen',
           },
         ]),
     {
@@ -160,14 +175,6 @@ export function TranslateScreen() {
       subtitle: 'Translate what you point at',
       onPress: () => router.push('/camera'),
       accessibilityHint: 'Opens the camera tab',
-    },
-    {
-      key: 'packs',
-      icon: 'cloud-download-outline',
-      title: 'Languages',
-      subtitle: 'Download for offline use',
-      onPress: () => router.push('/settings/language-packs'),
-      accessibilityHint: 'Opens the language packs screen',
     },
     {
       key: 'history',

@@ -8,14 +8,14 @@
  *
  * The intended topology keeps the secret off the device entirely:
  *
- *     app  ->  Transee backend  ->  translation provider
+ *     app  ->  Translita backend  ->  translation provider
  *              (holds the key)
  *
  * The app knows only the backend's public URL.
  */
 
 /**
- * Public base URL of the Transee backend, e.g. `https://api.transee.app`.
+ * Public base URL of the Translita backend, e.g. `https://api.transee.app`.
  *
  * Read from `EXPO_PUBLIC_TRANSEE_API_URL`, which Expo inlines at build time.
  * Undefined until a backend exists, which is what keeps the online engine
@@ -29,6 +29,13 @@ export const TRANSLATION_CONFIG = {
     baseUrl: backendUrl,
     /** Path appended to `baseUrl` for a translation. */
     translatePath: '/translation',
+    /**
+     * Path for conversational language practice.
+     *
+     * Same host, same build-time URL: the model credential lives beside the
+     * translation one on the server, and neither is ever in this app.
+     */
+    tutorPath: '/tutor',
   },
 
   /** Abort a request that has not answered in this long. */

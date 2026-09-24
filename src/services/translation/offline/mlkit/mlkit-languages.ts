@@ -1,7 +1,7 @@
 import type { LanguageId } from '@/types';
 
 /**
- * Mapping between Transee LanguageIds and ML Kit translation languages.
+ * Mapping between Translita LanguageIds and ML Kit translation languages.
  *
  * ML Kit exposes **59** languages as `TranslateLanguage` constants. Our
  * catalogue has 89. This module is the explicit, auditable join between them:

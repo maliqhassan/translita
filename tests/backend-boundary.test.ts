@@ -7,7 +7,7 @@ import { TRANSLATION_CONFIG, hasBackendConfigured } from '@/constants/translatio
 /**
  * The line between the app and the provider.
  *
- * The app talks to the Transee backend and knows nothing else: not Azure's
+ * The app talks to the Translita backend and knows nothing else: not Azure's
  * host, not its headers, and above all not its key. Every `EXPO_PUBLIC_*`
  * value is inlined into the bundle at build time and is readable by anyone
  * holding the APK, so the only one allowed is the public backend URL.
@@ -70,7 +70,7 @@ describe('the app never learns the provider credential', () => {
 });
 
 describe('the backend URL is the app’s only address for translation', () => {
-  it('points at a Transee host, never a provider one, when set', () => {
+  it('points at a Translita host, never a provider one, when set', () => {
     const url = TRANSLATION_CONFIG.backend.baseUrl;
 
     if (url !== undefined) {
@@ -78,7 +78,7 @@ describe('the backend URL is the app’s only address for translation', () => {
     }
   });
 
-  it('appends the Transee path, matching the backend route', () => {
+  it('appends the Translita path, matching the backend route', () => {
     assert.equal(TRANSLATION_CONFIG.backend.translatePath, '/translation');
   });
 

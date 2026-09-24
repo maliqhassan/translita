@@ -3,7 +3,7 @@ import type { LanguageId, TranslationRequest, TranslationResult } from '@/types'
 import type { ServiceResult } from '../../types';
 
 /**
- * The seam between Transee and whatever machine-translation runtime runs
+ * The seam between Translita and whatever machine-translation runtime runs
  * on the device.
  *
  * Everything runtime-specific lives behind this: which library, which model

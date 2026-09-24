@@ -92,16 +92,21 @@ describe('the plan to capability table', () => {
     assert.deepEqual([...PLAN_CAPABILITIES.pro].sort(), [...CAPABILITIES].sort());
   });
 
-  it('separates the two plans by adFree and by nothing else', () => {
-    // The product decision, stated as an assertion: the plans differ over
-    // advertising and over no feature at all. Anything else appearing here is
-    // a translation feature that has been taken away from the free app.
-    assert.deepEqual([...PRO_ONLY_CAPABILITIES], ['adFree']);
+  it('sells only advertising removal and AI practice, never a translation feature', () => {
+    /*
+     * The product decision, stated as an assertion.
+     *
+     * Two things are paid for, and neither is a translation feature: removing
+     * adverts, and unlimited practice with a model that costs money on every
+     * exchange. Anything else appearing in this list is a translation feature
+     * that has been taken away from the free app.
+     */
+    assert.deepEqual([...PRO_ONLY_CAPABILITIES].sort(), ['adFree', 'aiTutor']);
 
     const missingFromFree = PLAN_CAPABILITIES.pro.filter(
       (capability) => !PLAN_CAPABILITIES.free.includes(capability),
     );
-    assert.deepEqual(missingFromFree, ['adFree']);
+    assert.deepEqual([...missingFromFree].sort(), ['adFree', 'aiTutor']);
   });
 
   it('gives Free nothing Pro does not also have', () => {
@@ -110,7 +115,7 @@ describe('the plan to capability table', () => {
     }
   });
 
-  it('names exactly the four capabilities that are actually enforced', () => {
+  it('names exactly the capabilities that are actually enforced', () => {
     // 'extendedOnlineQuota' used to sit here. It was declared and advertised
     // but never checked anywhere, so it was removed rather than left as a
     // promise of a daily allowance that no code counts.
@@ -119,8 +124,8 @@ describe('the plan to capability table', () => {
       'speechRecognition',
       'offlineTranslation',
       'adFree',
+      'aiTutor',
     ]);
-    assert.equal(CAPABILITIES.includes('extendedOnlineQuota' as Capability), false);
   });
 
   it('states adFree positively, so no call site is a double negative', () => {
@@ -143,6 +148,7 @@ describe('the plan to capability table', () => {
     assert.equal(capabilities.has('speechRecognition'), true);
     assert.equal(capabilities.has('offlineTranslation'), true);
     assert.equal(capabilities.has('adFree'), false);
+    assert.equal(capabilities.has('aiTutor'), false);
   });
 
   it('builds a snapshot from a plan and where it came from', () => {
@@ -170,12 +176,13 @@ describe('the plan to capability table', () => {
 });
 
 describe('has(), for every capability on every plan', () => {
-  it('answers true on Free for every capability but adFree', async () => {
+  it('answers true on Free for every capability that is not sold', async () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.load();
 
+    const sold = ['adFree', 'aiTutor'];
     for (const capability of CAPABILITIES) {
-      assert.equal(service.has(capability), capability !== 'adFree', capability);
+      assert.equal(service.has(capability), !sold.includes(capability), capability);
     }
   });
 

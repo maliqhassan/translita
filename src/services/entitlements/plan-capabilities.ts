@@ -16,6 +16,7 @@ export const CAPABILITIES: readonly Capability[] = [
   'speechRecognition',
   'offlineTranslation',
   'adFree',
+  'aiTutor',
 ];
 
 /**
@@ -50,7 +51,7 @@ const FREE_CAPABILITIES = ['cameraOcr', 'speechRecognition', 'offlineTranslation
 
 export const PLAN_CAPABILITIES: Readonly<Record<Plan, readonly Capability[]>> = {
   free: FREE_CAPABILITIES,
-  pro: [...FREE_CAPABILITIES, 'adFree'],
+  pro: [...FREE_CAPABILITIES, 'adFree', 'aiTutor'],
 };
 
 /** What Pro adds over Free, derived so a paywall cannot overstate it. */

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { PRO_PLANS } from '@/constants';
 import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '@/features/paywall/pro-benefits';
 import { CAPABILITIES, PLAN_CAPABILITIES, PRO_ONLY_CAPABILITIES } from '@/services/entitlements';
 import { offlineTranslationPermittedFor } from '@/services/translation/offline-entitlement';
@@ -17,6 +18,16 @@ import { offlineTranslationPermittedFor } from '@/services/translation/offline-e
  */
 
 const read = (path: string) => readFileSync(path, 'utf8');
+
+/**
+ * Advertising dependencies that have been approved, by exact name.
+ *
+ * Exact equality, never a pattern: `react-native-google-mobile-ads-mediation`
+ * or any other SDK that happens to contain "ads" is a different package and
+ * must still fail this. The list is one line and named so that widening it is
+ * a visible decision rather than a loosened regex.
+ */
+const APPROVED_ADVERTISING: readonly string[] = ['react-native-google-mobile-ads'];
 
 const HOOK = 'src/features/translation/hooks/use-camera-ocr.ts';
 const SPEECH_HOOK = 'src/features/translation/hooks/use-speech-recognition.ts';
@@ -222,7 +233,7 @@ describe('an unsupported device is never sold anything', () => {
     assert.equal(/Scanning is not in this build[\s\S]{0,400}scan\.upgrade/.test(screen), false);
 
     // Locked says what the plan does not include and offers the upgrade.
-    assert.match(screen, /Camera text recognition is part of Transee Pro/);
+    assert.match(screen, /Camera text recognition is part of Translita Pro/);
     assert.match(screen, /onPress=\{scan\.upgrade\}/);
   });
 
@@ -476,8 +487,8 @@ describe('the paywall is a placeholder and says so', () => {
     // against Pro's full list would require advertising things the reader is
     // already using.
     assert.deepEqual(
-      PRO_BENEFITS.map((benefit) => benefit.capability),
-      [...PRO_ONLY_CAPABILITIES],
+      PRO_BENEFITS.map((benefit) => benefit.capability).sort(),
+      [...PRO_ONLY_CAPABILITIES].sort(),
     );
   });
 
@@ -523,17 +534,43 @@ describe('the paywall is a placeholder and says so', () => {
     }
   });
 
-  it('names no price, period or plan that has not been decided', () => {
-    const screen = code(UPGRADE).toLowerCase();
+  it('names the decided plans, and no invented ones', () => {
+    /*
+     * This once asserted that no price appeared at all, which was right while
+     * none had been agreed. Two have been, so the assertion becomes: exactly
+     * those two, from the one place they are defined.
+     */
+    assert.deepEqual(
+      Object.keys(PRO_PLANS).sort(),
+      ['monthly', 'yearlySavingPercent', 'yearly'].sort(),
+    );
 
-    for (const word of ['monthly', 'yearly', 'annual', '/mo', 'per month', 'per year']) {
-      assert.equal(screen.includes(word), false, word);
+    assert.match(PRO_PLANS.monthly.displayPrice, /^\$\d+\.\d{2}$/);
+    assert.match(PRO_PLANS.yearly.displayPrice, /^\$\d+\.\d{2}$/);
+
+    // Product ids reach the Play Console verbatim, so they are lowercase and
+    // free of anything a store would reject.
+    for (const plan of [PRO_PLANS.monthly, PRO_PLANS.yearly]) {
+      assert.match(plan.productId, /^[a-z0-9_]+$/);
     }
 
-    // A currency symbol next to a number. Matched as a pattern rather than as
-    // a bare symbol, because the screen legitimately contains a template
-    // literal and `$` on its own would always match.
-    assert.equal(/[$£€]s?d/.test(screen), false, 'a price appears on the screen');
+    // No free trial was agreed, and nothing may imply one.
+    const screen = code(UPGRADE).toLowerCase();
+    for (const word of ['free trial', 'try free', 'trial period']) {
+      assert.equal(screen.includes(word), false, word);
+    }
+  });
+
+  it('does not overstate the yearly saving', () => {
+    // The badge says a number; the number has to be true of the two prices.
+    const monthly = Number(PRO_PLANS.monthly.displayPrice.replace('$', ''));
+    const yearly = Number(PRO_PLANS.yearly.displayPrice.replace('$', ''));
+    const actual = Math.round((1 - yearly / (monthly * 12)) * 100);
+
+    assert.ok(
+      PRO_PLANS.yearlySavingPercent <= actual,
+      `claims ${PRO_PLANS.yearlySavingPercent}% but the real saving is ${actual}%`,
+    );
   });
 
   it('describes extendedOnlineQuota nowhere, because nothing counts one', () => {
@@ -543,7 +580,7 @@ describe('the paywall is a placeholder and says so', () => {
     // from the union, so that comparison no longer type-checks — which is a
     // stronger guarantee than any runtime assertion could be. What is left to
     // check is that no copy anywhere still describes it.
-    assert.equal(CAPABILITIES.length, 4);
+    assert.equal(CAPABILITIES.length, 5);
 
     for (const path of [
       ...sources('src/features/paywall'),
@@ -552,33 +589,68 @@ describe('the paywall is a placeholder and says so', () => {
       assert.equal(read(path).includes('extendedOnlineQuota'), false, path);
     }
 
+    /*
+     * "Unlimited" is no longer forbidden outright, because it became true of
+     * one thing: AI practice really is unlimited on Pro, and everyone really
+     * does get a few free. What must never come back is the claim this guard
+     * was written for — an unlimited or metered *translation* allowance, which
+     * nothing counts and nothing enforces.
+     */
+    const benefits = PRO_BENEFITS.map((b) => `${b.title} ${b.description}`)
+      .join(' ')
+      .toLowerCase();
+    for (const claim of ['unlimited translation', 'unlimited translations', 'daily allowance']) {
+      assert.equal(benefits.includes(claim), false, claim);
+    }
+
     const screen = code(UPGRADE).toLowerCase();
-    for (const word of ['allowance', 'quota', 'unlimited']) {
+    for (const word of ['allowance', 'quota']) {
       assert.equal(screen.includes(word), false, word);
     }
   });
 
   it('cannot take money or grant a plan', () => {
+    /*
+     * The prices are decided and shown; what must still be impossible is
+     * paying them. There is no billing SDK, no purchase call and no way for
+     * this screen to change anybody's plan.
+     */
     const screen = code(UPGRADE);
 
     assert.match(screen, /disabled/);
     assert.match(screen, /coming soon/i);
     assert.equal(screen.includes('setPlan'), false);
-    for (const word of ['purchase(', 'billing', 'revenuecat', 'sku', 'price']) {
+    for (const word of ['purchase(', 'revenuecat', 'billing']) {
       assert.equal(screen.toLowerCase().includes(word), false, word);
     }
   });
 
-  it('adds no billing dependency', () => {
+  it('reads the plans from one place rather than writing them into the screen', () => {
+    // A price typed into a component is a price that goes stale silently, and
+    // the product ids have to match the Play Console exactly.
+    const screen = code(UPGRADE);
+
+    assert.match(screen, /PRO_PLANS/);
+    assert.equal(/\$\d/.test(screen), false, 'a price literal reached the screen');
+  });
+
+  it('adds no billing dependency, and no unapproved advertising one', () => {
     const pkg = JSON.parse(read('package.json')) as { dependencies: Record<string, string> };
 
     for (const name of Object.keys(pkg.dependencies)) {
+      // The approved ad SDK is stepped over; the pattern below is unchanged,
+      // so billing, purchases and every other ad library still fail here.
+      if (APPROVED_ADVERTISING.includes(name)) continue;
+
       assert.equal(
         /billing|purchase|revenuecat|iap|admob|ads/i.test(name),
         false,
-        `${name} is not part of this step`,
+        `${name} has not been approved`,
       );
     }
+
+    // The exemption cannot grow quietly.
+    assert.equal(APPROVED_ADVERTISING.length, 1);
   });
 
   it('carries no subscription secret and no new public variable', () => {
@@ -877,7 +949,7 @@ describe('language packs respect the entitlement', () => {
     const screen = read(PACKS_SCREEN);
 
     assert.match(screen, /available && !canDownload \?/);
-    assert.match(screen, /Offline translation is part of Transee Pro/);
+    assert.match(screen, /Offline translation is part of Translita Pro/);
     assert.match(screen, /router\.push\('\/upgrade'\)/);
   });
 

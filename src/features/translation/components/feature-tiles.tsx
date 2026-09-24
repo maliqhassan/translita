@@ -10,6 +10,13 @@ export type FeatureTile = {
   subtitle: string;
   onPress: () => void;
   accessibilityHint: string;
+  /**
+   * Draws this tile as the headline one: full width, brand-filled.
+   *
+   * At most one tile should claim it. The point is to have somewhere for the
+   * eye to land first, which stops working the moment everything is emphasised.
+   */
+  emphasis?: boolean;
 };
 
 /**
@@ -19,8 +26,10 @@ export type FeatureTile = {
  * Quotation tiles; neither feature exists here, so neither is drawn — a tile
  * that opens nothing teaches a user not to trust the others.
  *
- * Laid out two to a row, and one per row once the system font is large, where
- * two columns would leave every label truncated to a word and a half.
+ * Deliberately given real visual weight rather than being a list of rows.
+ * These are the second thing on the screen after translating, and the offline
+ * one in particular is the app's whole distinguishing feature — it was
+ * previously a 38pt icon on a hairline row, which read as a footnote.
  */
 export function FeatureTiles({ tiles }: { tiles: readonly FeatureTile[] }) {
   const theme = useTheme();
@@ -28,6 +37,7 @@ export function FeatureTiles({ tiles }: { tiles: readonly FeatureTile[] }) {
 
   if (tiles.length === 0) return null;
 
+  /** Two columns, unless the text is large enough that two would truncate. */
   const single = isLargeText || isNarrow;
 
   return (
@@ -36,62 +46,79 @@ export function FeatureTiles({ tiles }: { tiles: readonly FeatureTile[] }) {
         Shortcuts
       </Text>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: theme.spacing.sm,
-        }}
-      >
-        {tiles.map((tile) => (
-          <Pressable
-            key={tile.key}
-            onPress={tile.onPress}
-            accessibilityRole="button"
-            accessibilityLabel={`${tile.title}. ${tile.subtitle}`}
-            accessibilityHint={tile.accessibilityHint}
-            style={({ pressed }) => ({
-              // Two columns are the gap short of half, so the row still fits
-              // once the gap between them is counted.
-              width: single ? '100%' : `${50}%`,
-              flexGrow: 1,
-              flexBasis: single ? '100%' : 0,
-              minWidth: single ? undefined : 150,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: theme.spacing.md,
-              minHeight: theme.layout.minTouchTarget,
-              padding: theme.spacing.md,
-              borderRadius: theme.radius.lg,
-              backgroundColor: theme.colors.surface,
-              borderWidth: theme.layout.borderWidth,
-              borderColor: theme.colors.border,
-              opacity: pressed ? theme.motion.opacityPressed : 1,
-            })}
-          >
-            <View
-              style={{
-                width: 38,
-                height: 38,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: theme.radius.md,
-                backgroundColor: theme.colors.primaryMuted,
-              }}
-            >
-              <Icon name={tile.icon} size={19} color="primary" />
-            </View>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing.sm }}>
+        {tiles.map((tile) => {
+          const wide = tile.emphasis || single;
 
-            <View style={{ flex: 1 }}>
-              <Text variant="body" numberOfLines={1}>
-                {tile.title}
-              </Text>
-              <Text variant="caption" color="textSecondary" numberOfLines={1}>
-                {tile.subtitle}
-              </Text>
-            </View>
-          </Pressable>
-        ))}
+          return (
+            <Pressable
+              key={tile.key}
+              onPress={tile.onPress}
+              accessibilityRole="button"
+              accessibilityLabel={`${tile.title}. ${tile.subtitle}`}
+              accessibilityHint={tile.accessibilityHint}
+              style={({ pressed }) => ({
+                width: wide ? '100%' : undefined,
+                flexGrow: wide ? 0 : 1,
+                flexBasis: wide ? '100%' : 0,
+                minWidth: wide ? undefined : 150,
+                flexDirection: tile.emphasis ? 'row' : 'column',
+                alignItems: tile.emphasis ? 'center' : 'flex-start',
+                gap: tile.emphasis ? theme.spacing.md : theme.spacing.sm,
+                minHeight: theme.layout.minTouchTarget,
+                padding: theme.spacing.base,
+                borderRadius: theme.radius.lg,
+                backgroundColor: tile.emphasis ? theme.colors.primary : theme.colors.surface,
+                borderWidth: tile.emphasis ? 0 : theme.layout.borderWidth,
+                borderColor: theme.colors.border,
+                opacity: pressed ? theme.motion.opacityPressed : 1,
+              })}
+            >
+              <View
+                style={{
+                  width: 44,
+                  height: 44,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: theme.radius.md,
+                  // On the filled tile the badge has to lift off the brand
+                  // rather than tint into it.
+                  backgroundColor: tile.emphasis
+                    ? theme.colors.onGradientSurface
+                    : theme.colors.primaryMuted,
+                }}
+              >
+                <Icon
+                  name={tile.icon}
+                  size={22}
+                  color={tile.emphasis ? 'textOnPrimary' : 'primary'}
+                />
+              </View>
+
+              <View style={{ flex: tile.emphasis ? 1 : undefined, gap: theme.spacing.xxs }}>
+                <Text
+                  variant="body"
+                  style={{ fontWeight: '600' }}
+                  color={tile.emphasis ? 'textOnPrimary' : 'text'}
+                  numberOfLines={1}
+                >
+                  {tile.title}
+                </Text>
+                <Text
+                  variant="caption"
+                  color={tile.emphasis ? 'textOnPrimary' : 'textSecondary'}
+                  numberOfLines={2}
+                >
+                  {tile.subtitle}
+                </Text>
+              </View>
+
+              {tile.emphasis ? (
+                <Icon name="chevron-forward" size={20} color="textOnPrimary" />
+              ) : null}
+            </Pressable>
+          );
+        })}
       </View>
     </View>
   );

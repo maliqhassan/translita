@@ -30,6 +30,25 @@ export type ServerConfig = {
   /** Upstream call timeout. */
   providerTimeoutMs: number;
   rateLimit: { max: number; windowMs: number };
+
+  /**
+   * The language-practice tutor. Absent means the endpoint is not served.
+   *
+   * Kept apart from the translation credential on purpose: they are different
+   * vendors, they are billed differently, and a deployment may legitimately
+   * want translation without practice.
+   */
+  tutorApiKey?: string;
+  tutorModel: string;
+  tutorMaxTokens: number;
+  /**
+   * A much tighter limit than translation's.
+   *
+   * Translation runs against a hard-capped free tier that cannot bill. This
+   * one bills per request, so the limit is the first line of defence and is
+   * deliberately low enough to be felt by a script and not by a learner.
+   */
+  tutorRateLimit: { max: number; windowMs: number };
 };
 
 function readInt(value: string | undefined, fallback: number): number {
@@ -58,6 +77,13 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     rateLimit: {
       max: readInt(env.RATE_LIMIT_MAX, 60),
       windowMs: readInt(env.RATE_LIMIT_WINDOW_MS, 60_000),
+    },
+    tutorApiKey: env.OPENAI_API_KEY?.trim() || undefined,
+    tutorModel: env.TUTOR_MODEL?.trim() || 'gpt-4o-mini',
+    tutorMaxTokens: readInt(env.TUTOR_MAX_TOKENS, 220),
+    tutorRateLimit: {
+      max: readInt(env.TUTOR_RATE_LIMIT_MAX, 20),
+      windowMs: readInt(env.TUTOR_RATE_LIMIT_WINDOW_MS, 60 * 60_000),
     },
   };
 }

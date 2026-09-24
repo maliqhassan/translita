@@ -32,6 +32,7 @@ import {
   withCache,
   type TranslationService,
 } from './translation';
+import { createBackendTutorService } from './tutor';
 
 /**
  * Single place where concrete services are bound to their interfaces.
@@ -186,6 +187,18 @@ export const services = {
    * cannot change anything.
    */
   entitlements: entitlementsService,
+  /**
+   * Conversational language practice.
+   *
+   * Reports itself unavailable in a build with no backend URL, exactly as the
+   * online engine does, so the screen can hide practice rather than offer
+   * something that cannot answer. The model credential is on the server.
+   */
+  tutor: createBackendTutorService({
+    baseUrl: TRANSLATION_CONFIG.backend.baseUrl,
+    path: TRANSLATION_CONFIG.backend.tutorPath,
+    http,
+  }),
   network: expoNetworkService,
   clipboard: expoClipboardService,
   ocr: ocrRecognizer,

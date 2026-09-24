@@ -56,7 +56,7 @@ export type SpeechRecognitionNative = {
 function blockedError() {
   return appError(
     'permission_denied',
-    'Microphone access is turned off for Transee. It can be re-enabled in system settings.',
+    'Microphone access is turned off for Translita. It can be re-enabled in system settings.',
   );
 }
 

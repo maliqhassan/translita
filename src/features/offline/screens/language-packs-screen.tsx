@@ -52,7 +52,7 @@ export function LanguagePacksScreen() {
         subtitle={
           canDownload
             ? 'Download a language to translate it without a connection'
-            : 'Translating without a connection is part of Transee Pro'
+            : 'Translating without a connection is part of Translita Pro'
         }
         leading={
           <IconButton
@@ -71,7 +71,7 @@ export function LanguagePacksScreen() {
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
             <Icon name="lock-closed-outline" size={18} color="primary" />
             <Text variant="bodySmall" style={{ flex: 1 }}>
-              Offline translation is part of Transee Pro
+              Offline translation is part of Translita Pro
             </Text>
             <Badge label="Pro" tone="primary" />
           </View>
@@ -88,7 +88,7 @@ export function LanguagePacksScreen() {
             size="sm"
             icon="sparkles-outline"
             onPress={() => router.push('/upgrade')}
-            accessibilityHint="Opens the Transee Pro screen"
+            accessibilityHint="Opens the Translita Pro screen"
           />
         </Card>
       ) : null}

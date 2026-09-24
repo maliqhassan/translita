@@ -6,27 +6,26 @@
 
 export const palette = {
   /**
-   * Brand — a bright sky blue built around #70D6FF.
+   * Brand — the cyan of the app logo, sampled from it rather than guessed.
    *
-   * The requested colour is `400`, and it is deliberately light. That makes it
-   * excellent as a *fill* with dark text on it (about 11.5:1) and unusable as
-   * text on a white surface (about 1.6:1, where 4.5:1 is the floor). The scale
-   * therefore carries a darker shade of the same hue at `700` for anything
-   * that has to be read as text or an icon.
+   * `400` is the logo's own colour, #0CC0DF. Like the sky blue it replaced it
+   * is a *fill*, not an ink: white on it is 2.18:1 and unreadable, while black
+   * is 9.62:1. Anything that has to be read as text or an icon therefore uses
+   * `700`, which is 5.97:1 on the app background.
    */
-  indigo: {
-    50: '#EAF8FF',
-    100: '#D2F0FF',
-    200: '#B0E6FF',
-    300: '#8FDCFF',
-    /** The requested brand colour. */
-    400: '#70D6FF',
-    500: '#38BDF0',
-    600: '#0EA5D9',
-    /** Brand ink: 4.95:1 on the app background, so text and icons use this. */
-    700: '#0A749C',
-    800: '#0A6386',
-    900: '#0A4E6B',
+  brand: {
+    50: '#E8FAFE',
+    100: '#C8F2FA',
+    200: '#97E7F5',
+    300: '#57D6EC',
+    /** The logo colour. */
+    400: '#0CC0DF',
+    500: '#0AA8C4',
+    600: '#0990A7',
+    /** Brand ink: 5.97:1 on the app background, so text and icons use this. */
+    700: '#07697A',
+    800: '#06606F',
+    900: '#0A4E5B',
   },
   /** Accent — teal, reserved for offline/ready affordances. */
   teal: {
@@ -53,16 +52,6 @@ export const palette = {
     900: '#14181F',
     950: '#0B0C10',
   },
-  /**
-   * Mint — the welcome screen, and only the welcome screen.
-   *
-   * A second brand-weight colour is normally a mistake, so this one is fenced
-   * in: it is used by the onboarding tokens below and by nothing else. The
-   * app proper stays on the sky-blue brand. `500` is the field colour; `600`
-   * is dark enough (about 4.6:1 on white) to be read as text on the white
-   * button that sits on top of it.
-   */
-  mint: { 100: '#D8F5E8', 400: '#5BD3A0', 500: '#3FBF8B', 600: '#2E8F68', 700: '#236B4E' },
   green: { 100: '#DCF7E3', 500: '#1CA45B', 600: '#15854A' },
   amber: { 100: '#FDF0D5', 500: '#D98E12', 600: '#B4730B' },
   red: { 100: '#FDE4E4', 500: '#DB4545', 600: '#B93636' },

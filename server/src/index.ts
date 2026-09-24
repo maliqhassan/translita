@@ -6,6 +6,8 @@ import { createAzureProvider } from './translation/azure-provider';
 import { createFakeProvider } from './translation/fake-provider';
 import { createLanguageResolver, loadLanguageMap } from './translation/language-map';
 import type { TranslationProvider } from './translation/provider';
+import type { TutorProvider } from './tutor/contract';
+import { createOpenAiTutor } from './tutor/openai-provider';
 
 /**
  * Boots the Transee translation backend.
@@ -38,8 +40,26 @@ function selectProvider(): TranslationProvider {
   return azure;
 }
 
+/**
+ * The tutor is optional.
+ *
+ * No credential means the endpoint answers `provider_unavailable` rather than
+ * the process refusing to boot: translating is the product, and practice is
+ * an extra. A deployment without an OpenAI key should still translate.
+ */
+function selectTutor(): TutorProvider | undefined {
+  if (!config.tutorApiKey) return undefined;
+
+  return createOpenAiTutor({
+    apiKey: config.tutorApiKey,
+    model: config.tutorModel,
+    maxTokens: config.tutorMaxTokens,
+  });
+}
+
 const provider = selectProvider();
-const handler = createRequestHandler({ config, provider, languages });
+const tutor = selectTutor();
+const handler = createRequestHandler({ config, provider, languages, tutor });
 
 const server = createServer((request, response) => {
   void handler(request, response).catch(() => {
@@ -58,4 +78,6 @@ server.listen(config.port, () => {
   console.log(`Transee backend listening on :${config.port}`);
   console.log(describeConfig(config));
   console.log(`languages: ${languages.supportedIds().length} supported`);
+  // Presence only, never the value, and never the model's own key.
+  console.log(`tutor: ${tutor ? `enabled (${config.tutorModel})` : 'disabled'}`);
 });

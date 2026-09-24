@@ -1,7 +1,7 @@
 /** App-wide constants. Anything tweakable without a code review lives here. */
 export const APP = {
-  name: 'Transee',
-  tagline: 'Translate anywhere, online or off',
+  name: 'Translita',
+  tagline: 'Offline translation app',
   version: '0.2.0',
 } as const;
 
@@ -37,6 +37,34 @@ export const STORAGE_KEYS = {
    */
   entitlements: 'transee.entitlements.v1',
 } as const;
+
+/**
+ * How the paid tier is sold.
+ *
+ * Prices here are the *intended* ones, for a screen that has nothing better
+ * to show yet. They are not the source of truth and must not become it: the
+ * store returns a localised price per country, and a hard-coded dollar figure
+ * shown to somebody in Karachi or Lagos is simply wrong. Once RevenueCat is
+ * wired the screen reads its offerings instead and these become fallbacks.
+ *
+ * The product identifiers are the part that has to be exact — they must match
+ * what is created in the Play Console, character for character.
+ */
+export const PRO_PLANS = {
+  monthly: { productId: 'translita_pro_monthly', displayPrice: '$4.99', period: 'month' },
+  yearly: { productId: 'translita_pro_yearly', displayPrice: '$29.99', period: 'year' },
+  /** Shown beside the yearly option. Derived, so it cannot contradict itself. */
+  yearlySavingPercent: 50,
+} as const;
+
+/**
+ * Free AI practice exchanges, before Pro is required.
+ *
+ * Small on purpose. Each one is a billed model call, and the allowance exists
+ * so somebody can find out whether they like practising — not to be a usable
+ * free tier.
+ */
+export const AI_TRIAL_TURNS = 10;
 
 export const DEFAULTS = {
   sourceLanguage: 'en',
@@ -115,7 +143,15 @@ export const FEATURES = {
    */
   speechInput: true,
   textToSpeech: true,
-  conversationMode: false,
+  /**
+   * Two-sided spoken conversation, on its own screen.
+   *
+   * Built once there was a specification to build from. It composes the
+   * recogniser, the router and the speech engine that already exist rather
+   * than adding a capability, which is why it needs no device work of its own
+   * beyond what dictation already required.
+   */
+  conversationMode: true,
 } as const;
 
 export type FeatureFlag = keyof typeof FEATURES;

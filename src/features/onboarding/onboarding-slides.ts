@@ -48,7 +48,7 @@ export const ONBOARDING_SLIDES: readonly OnboardingSlide[] = [
     // Verified in `routing-policy.ts`: `orderEngines` ranks the online engine
     // first when a connection is reported and the on-device engine first when
     // it is not, in the default `auto` mode.
-    body: 'Transee translates over the internet when you have a connection, and switches to on-device translation when you do not.',
+    body: 'Translita translates over the internet when you have a connection, and switches to on-device translation when you do not.',
   },
   {
     key: 'text',
@@ -56,7 +56,7 @@ export const ONBOARDING_SLIDES: readonly OnboardingSlide[] = [
     heading: `${languageCount} languages`,
     // Verified in `language-catalog.ts` and `languages.ts`: the catalogue is
     // the authoritative list, and `SOURCE_LANGUAGES` prepends auto-detect.
-    body: 'Type or paste text, pick a pair from the catalogue, and let Transee detect the source language if you are not sure.',
+    body: 'Type or paste text, pick a pair from the catalogue, and let Translita detect the source language if you are not sure.',
   },
   {
     key: 'speech',

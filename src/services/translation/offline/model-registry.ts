@@ -27,7 +27,7 @@ export type RuntimeCapability = {
   format: string;
   /** Model catalogue version, as the runtime states it. */
   version: string;
-  /** Languages the runtime can translate, in Transee LanguageIds. */
+  /** Languages the runtime can translate, in Translita LanguageIds. */
   languages: readonly LanguageId[];
 };
 

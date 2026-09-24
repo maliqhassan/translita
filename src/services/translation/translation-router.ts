@@ -98,7 +98,7 @@ export function createTranslationRouter(options: TranslationRouterOptions): Tran
      * rewriting it would lose their choice if they resubscribe.
      */
     if (mode === 'offline' && !offlineEntitled) {
-      return appError('entitlement_required', 'On-device translation is part of Transee Pro.');
+      return appError('entitlement_required', 'On-device translation is part of Translita Pro.');
     }
 
     // The user restricted routing themselves; say so plainly rather than
@@ -128,7 +128,7 @@ export function createTranslationRouter(options: TranslationRouterOptions): Tran
     if (networkStatus === 'offline' && !offlineEntitled) {
       return appError(
         'entitlement_required',
-        'There is no connection, and translating without one is part of Transee Pro.',
+        'There is no connection, and translating without one is part of Translita Pro.',
       );
     }
 

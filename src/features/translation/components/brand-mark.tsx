@@ -13,7 +13,7 @@ export type BrandMarkProps = {
   onGradient?: boolean;
 };
 
-/** The small Transee glyph that anchors the home header. */
+/** The small Translita glyph that anchors the home header. */
 export function BrandMark({ onGradient = false }: BrandMarkProps) {
   const theme = useTheme();
 

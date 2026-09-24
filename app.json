@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Transee",
+    "name": "Translita",
     "slug": "transee",
     "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "transee",
+    "scheme": "translita",
     "userInterfaceStyle": "automatic",
     "android": {
-      "package": "com.transee.app",
+      "package": "com.translita.app",
       "adaptiveIcon": {
         "backgroundColor": "#EEF0FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -17,7 +17,7 @@
       "predictiveBackGestureEnabled": false
     },
     "ios": {
-      "bundleIdentifier": "com.transee.app",
+      "bundleIdentifier": "com.translita.app",
       "supportsTablet": true
     },
     "web": {
@@ -38,7 +38,14 @@
         }
       ],
       "expo-sqlite",
-      "expo-speech-recognition"
+      "expo-speech-recognition",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "androidSdk": "classic"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
