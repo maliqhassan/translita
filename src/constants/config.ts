@@ -8,22 +8,20 @@ export const APP = {
 /**
  * Where the app's published legal documents live.
  *
- * Empty because nothing has been published yet, and an empty string is the
- * honest way to say so. It is deliberately not a plausible-looking
- * `https://transee.app/privacy`: a URL that 404s on a store listing is worse
- * than a screen that admits the document is not ready, and a placeholder that
- * looks real is one nobody remembers to replace.
+ * Published on GitHub Pages and verified reachable on 24 September 2026. The
+ * welcome screen links the privacy policy; the other two are here because the
+ * Play listing needs all three and a second place to keep URLs is a second
+ * place for them to go stale.
  *
- * The welcome screen reads this and tells the user plainly when it is unset,
- * rather than offering a link that does nothing. Setting it here is the only
- * change needed to make that link live.
- *
- * REQUIRED BEFORE RELEASE: Google Play will not accept the listing without a
- * privacy policy URL, and the app collects nothing but stores translations on
- * the device, which the policy still has to state.
+ * The documents describe advertising and subscriptions, neither of which is
+ * in the build yet. Whichever version is live when a build is submitted has
+ * to match what the app actually does, and the Data safety form has to match
+ * both.
  */
 export const LEGAL = {
-  privacyPolicyUrl: '',
+  privacyPolicyUrl: 'https://maliqhassan.github.io/translita-legal/privacy',
+  termsUrl: 'https://maliqhassan.github.io/translita-legal/terms',
+  dataDeletionUrl: 'https://maliqhassan.github.io/translita-legal/data-deletion',
 } as const;
 
 /** Keys for persisted values. Namespaced so a stray key can never collide. */

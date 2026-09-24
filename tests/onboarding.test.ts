@@ -256,15 +256,40 @@ describe('the welcome screen', () => {
 });
 
 describe('the privacy policy link', () => {
-  it('has no invented URL', () => {
-    // Nothing has been published, and a plausible-looking URL that 404s on a
-    // store listing is worse than an honest blank.
-    assert.equal(LEGAL.privacyPolicyUrl, '');
+  it('points at a policy that is actually published', () => {
+    /*
+     * This asserted an empty string for the whole period nothing was
+     * published, because a plausible-looking URL that 404s on a store listing
+     * is worse than an honest blank. The documents are live now, so the
+     * assertion becomes: a real one, over HTTPS.
+     */
+    assert.match(LEGAL.privacyPolicyUrl, /^https:\/\/\S+$/);
+    assert.equal(LEGAL.privacyPolicyUrl.includes('example.com'), false);
+  });
+
+  it('carries the other two URLs the store asks for', () => {
+    // Play wants privacy, terms and a data-deletion route. Keeping them
+    // together means there is one place for them to go stale rather than
+    // three.
+    for (const url of [LEGAL.termsUrl, LEGAL.dataDeletionUrl]) {
+      assert.match(url, /^https:\/\/\S+$/);
+    }
+
+    // Three distinct documents, not the same link three times.
+    const urls = [LEGAL.privacyPolicyUrl, LEGAL.termsUrl, LEGAL.dataDeletionUrl];
+    assert.equal(new Set(urls).size, 3);
   });
 
   it('is declared in one isolated place', () => {
-    assert.match(read('src/constants/config.ts'), /privacyPolicyUrl: ''/);
-    assert.match(read('src/constants/config.ts'), /REQUIRED BEFORE RELEASE/);
+    const config = read('src/constants/config.ts');
+
+    assert.match(config, /privacyPolicyUrl: 'https:/);
+
+    // The whole point of the constant: the screen reads it rather than
+    // writing a URL of its own.
+    const screen = code(WELCOME);
+    assert.match(screen, /LEGAL\.privacyPolicyUrl/);
+    assert.equal(/https:\/\/\S*privacy/i.test(screen), false, 'a URL literal reached the screen');
   });
 
   it('never silently does nothing', () => {

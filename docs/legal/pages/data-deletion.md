@@ -4,7 +4,7 @@ title: Data Deletion — Translita
 
 # Deleting your Translita data
 
-**Last updated: {{LAST_UPDATED}}**
+**Last updated: 24 September 2026**
 
 ## Translita has no accounts
 
@@ -49,16 +49,16 @@ Nothing that identifies you.
 
 If you believe we hold any personal data about you, email:
 
-**{{CONTACT_EMAIL}}**
+{{devopsmarkaz@gmail.com}}
 
-with the subject line **"Data deletion"**.
+with the subject line "Data deletion".
 
 Please tell us anything that would help us locate the data. Because we do not operate accounts, we may ask for more detail before we can act.
 
-We will respond within **{{RESPONSE_DAYS}} days**.
+We will respond within **30 days**.
 
 ## Contact
 
-**{{PUBLISHER_NAME}}**
-{{PUBLISHER_ADDRESS}}
-{{CONTACT_EMAIL}}
+{{Translita Offline Translation App}}
+{{Pakistan}}
+{{devopsmarkaz@gmail.com}}

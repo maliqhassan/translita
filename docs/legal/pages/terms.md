@@ -6,13 +6,13 @@ title: Terms of Use — Translita
 
 **Translita**
 
-**Last updated: {{LAST_UPDATED}}**
+**Last updated: 24 September 2026**
 
 ## 1. Agreement
 
 By installing or using Translita ("the app"), you agree to these terms. If you do not agree, do not use the app.
 
-The app is published by **{{PUBLISHER_NAME}}** ("we", "us"), of **{{PUBLISHER_ADDRESS}}**.
+The app is published by **{{Translita Offline Translation App}}** ("we", "us"), of **{{Pakistan}}**.
 
 ## 2. What the app does
 
@@ -88,7 +88,7 @@ To the fullest extent the law allows:
 
 - The app is provided **"as is"**, without warranties of any kind.
 - We are not liable for indirect, incidental or consequential loss, or for loss arising from reliance on a translation.
-- Where liability cannot be excluded, it is limited to the greater of **{{LIABILITY_CAP}}** or the amount you paid us in the {{LIABILITY_MONTHS}} months before the claim.
+- Where liability cannot be excluded, it is limited to the greater of **USD 50** or the amount you paid us in the 12 months before the claim.
 
 Nothing here limits liability that cannot lawfully be limited, including for death or personal injury caused by negligence, or for fraud.
 
@@ -110,6 +110,6 @@ If these terms change materially, the date at the top will change. Continuing to
 
 ## 14. Contact
 
-**{{PUBLISHER_NAME}}**
-{{PUBLISHER_ADDRESS}}
-{{CONTACT_EMAIL}}
+**{{Translita Offline Translation App}}**
+{{Pakistan}}
+{{devopsmarkaz@gmail.com}}
