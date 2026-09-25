@@ -56,6 +56,14 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
           {turn.heard}
         </Text>
 
+        {/* Practice only: what the learner said, in their own language, so
+            they can confirm they were understood as they meant to be. */}
+        {tutor?.kind === 'reply' && tutor.heardGloss ? (
+          <Text variant="caption" color="textMuted">
+            {tutor.heardGloss}
+          </Text>
+        ) : null}
+
         <View style={{ height: 1, backgroundColor: theme.colors.border }} />
 
         {tutor?.kind === 'clarify' ? (
@@ -91,6 +99,11 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
             {tutor?.kind === 'reply' && tutor.followUp ? (
               <Text variant="body" style={{ fontWeight: '600' }}>
                 {tutor.followUp}
+              </Text>
+            ) : null}
+            {tutor?.kind === 'reply' && tutor.followUpGloss ? (
+              <Text variant="caption" color="textMuted">
+                {tutor.followUpGloss}
               </Text>
             ) : null}
           </View>

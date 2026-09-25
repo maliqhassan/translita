@@ -31,12 +31,23 @@ export type TutorReply =
   /** A normal reply: an answer in the target language, plus a question back. */
   | {
       kind: 'reply';
+      /**
+       * What the learner said, translated into their own language.
+       *
+       * So they can confirm they were understood as they meant to be, the same
+       * way the reply and the follow-up are each paired with their own
+       * language. Without it, only the tutor's half of the exchange was ever
+       * shown bilingually — the learner's own words were not.
+       */
+      heardGloss: string;
       /** In the language being learned. */
       reply: string;
       /** The same thing in the learner's language, so they can check themselves. */
       gloss: string;
       /** A question back, in the language being learned, to keep the thread going. */
       followUp: string;
+      /** The same question, in the learner's language. */
+      followUpGloss: string;
     }
   /**
    * What was heard did not resolve to something sayable, so the tutor offers

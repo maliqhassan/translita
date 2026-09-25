@@ -33,7 +33,16 @@ export type TutorAsk = {
 };
 
 export type TutorReply =
-  | { kind: 'reply'; reply: string; gloss: string; followUp: string }
+  | {
+      kind: 'reply';
+      /** What the learner said, translated into their own language. */
+      heardGloss: string;
+      reply: string;
+      gloss: string;
+      followUp: string;
+      /** The follow-up question, translated into the learner's own language. */
+      followUpGloss: string;
+    }
   /** What was heard was ambiguous; these are the phrases it might have been. */
   | { kind: 'clarify'; options: readonly string[] }
   /** Outside language practice. The message is in the learner's language. */
@@ -71,7 +80,14 @@ function toReply(data: unknown): TutorReply | undefined {
   if (value.kind === 'reply') {
     const reply = text('reply');
     return reply
-      ? { kind: 'reply', reply, gloss: text('gloss'), followUp: text('followUp') }
+      ? {
+          kind: 'reply',
+          heardGloss: text('heardGloss'),
+          reply,
+          gloss: text('gloss'),
+          followUp: text('followUp'),
+          followUpGloss: text('followUpGloss'),
+        }
       : undefined;
   }
 

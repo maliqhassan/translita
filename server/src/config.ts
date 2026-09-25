@@ -80,7 +80,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     },
     tutorApiKey: env.OPENAI_API_KEY?.trim() || undefined,
     tutorModel: env.TUTOR_MODEL?.trim() || 'gpt-4o-mini',
-    tutorMaxTokens: readInt(env.TUTOR_MAX_TOKENS, 220),
+    tutorMaxTokens: readInt(env.TUTOR_MAX_TOKENS, 320),
     tutorRateLimit: {
       max: readInt(env.TUTOR_RATE_LIMIT_MAX, 20),
       windowMs: readInt(env.TUTOR_RATE_LIMIT_WINDOW_MS, 60 * 60_000),

@@ -41,7 +41,14 @@ const fakeTutor: TutorProvider = {
     if (request.heard === 'off topic') {
       return { kind: 'declined', message: 'Let us stick to practising.' };
     }
-    return { kind: 'reply', reply: 'Muy bien', gloss: 'Very well', followUp: '¿Y tú?' };
+    return {
+      kind: 'reply',
+      heardGloss: 'How are you',
+      reply: 'Muy bien',
+      gloss: 'Very well',
+      followUp: '¿Y tú?',
+      followUpGloss: 'And you?',
+    };
   },
 };
 
@@ -84,6 +91,9 @@ describe('POST /tutor', () => {
     assert.equal(body.reply, 'Muy bien');
     assert.equal(body.gloss, 'Very well');
     assert.ok(body.followUp.length > 0, 'a tutor that asks nothing back ends the conversation');
+    // Both halves of the exchange are bilingual, not just the tutor's own reply.
+    assert.ok(body.heardGloss.length > 0, 'what the learner said was never translated back');
+    assert.ok(body.followUpGloss.length > 0, 'the question back was never translated');
   });
 
   it('offers choices rather than guessing at something garbled', async () => {

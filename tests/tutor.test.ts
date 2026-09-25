@@ -124,6 +124,34 @@ describe('the tutor service', () => {
     assert.ok(body.history.length <= 8, 'a long conversation must not be re-uploaded in full');
   });
 
+  it('reads both halves of the exchange bilingually, not just the reply', async () => {
+    const http = fakeHttp(200, {
+      kind: 'reply',
+      heardGloss: 'How are you',
+      reply: 'hola',
+      gloss: 'hi',
+      followUp: '¿y tú?',
+      followUpGloss: 'And you?',
+    });
+    const service = createBackendTutorService({
+      baseUrl: 'https://api.test',
+      path: '/tutor',
+      http,
+    });
+
+    const result = await service.respond(ask);
+
+    assert.ok(result.ok && result.value.kind === 'reply');
+    assert.equal(
+      result.ok && result.value.kind === 'reply' && result.value.heardGloss,
+      'How are you',
+    );
+    assert.equal(
+      result.ok && result.value.kind === 'reply' && result.value.followUpGloss,
+      'And you?',
+    );
+  });
+
   it('reads back all three shapes the server can answer with', async () => {
     const cases: [unknown, string][] = [
       [{ kind: 'reply', reply: 'hola', gloss: 'hi', followUp: '¿y tú?' }, 'reply'],
