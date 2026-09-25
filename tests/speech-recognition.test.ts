@@ -293,14 +293,19 @@ describe('a recognition session', () => {
     assert.equal(native.listenerCount, 0, 'no listeners may outlive the session');
   });
 
-  it('ignores a second start rather than opening two sessions', async () => {
+  it('tears down a stale session before opening a second one, rather than wedging silently', async () => {
+    // A session that never reaches `end` — the app backgrounded mid-listen, a
+    // screen changed while the mic was open — must not permanently disable
+    // every microphone in the app. The second start recovers it instead of
+    // being silently ignored forever.
     const native = fakeNative();
     const service = createExpoSpeechRecognitionService(native);
 
     await service.start({ language: 'en' });
     await service.start({ language: 'en' });
 
-    assert.equal(native.calls.filter((call) => call.startsWith('start')).length, 1);
+    assert.equal(native.calls.filter((call) => call.startsWith('start')).length, 2);
+    assert.ok(native.calls.includes('abort'), 'the stale session is aborted first');
   });
 
   it('ignores a stop when nothing is listening', async () => {

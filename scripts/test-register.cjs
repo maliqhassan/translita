@@ -115,8 +115,30 @@ const STUBS = {
       },
       addCustomerInfoUpdateListener: () => () => {},
       setLogLevel: () => {},
+      getOfferings: async () => {
+        throw new Error('react-native-purchases is unavailable under Node.');
+      },
+      purchasePackage: async () => {
+        throw new Error('react-native-purchases is unavailable under Node.');
+      },
+      restorePurchases: async () => {
+        throw new Error('react-native-purchases is unavailable under Node.');
+      },
     },
     LOG_LEVEL: { DEBUG: 'DEBUG', INFO: 'INFO', WARN: 'WARN', ERROR: 'ERROR' },
+    // Read at module scope by the purchase service, so it has to exist even
+    // though nothing under Node ever reaches a real package.
+    PACKAGE_TYPE: {
+      UNKNOWN: 'UNKNOWN',
+      CUSTOM: 'CUSTOM',
+      LIFETIME: 'LIFETIME',
+      ANNUAL: 'ANNUAL',
+      SIX_MONTH: 'SIX_MONTH',
+      THREE_MONTH: 'THREE_MONTH',
+      TWO_MONTH: 'TWO_MONTH',
+      MONTHLY: 'MONTHLY',
+      WEEKLY: 'WEEKLY',
+    },
   },
   'expo-modules-core': {
     requireOptionalNativeModule: () => null,

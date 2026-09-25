@@ -40,6 +40,10 @@ yarn-error.*
 /ios
 /android
 
+# native module build output (modules/*/android is source, its build/ is not)
+modules/*/android/build/
+modules/*/android/.cxx/
+
 # unit test build output
 .test-build/
 
@@ -54,3 +58,9 @@ server/.test-build/
 .env
 .env.local
 .env.*.local
+
+# Signing. The upload key and its passwords never go near the repository:
+# anyone holding both can publish an update as you.
+*.keystore
+*.jks
+android/keystore.properties

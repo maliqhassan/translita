@@ -6,8 +6,10 @@ import { expoClipboardService } from './clipboard';
 import {
   createLocalEntitlementsService,
   createRevenueCatEntitlementsService,
+  createRevenueCatPurchaseService,
   type DevelopmentEntitlementsService,
   type EntitlementsService,
+  type PurchaseService,
 } from './entitlements';
 import { createFetchHttpClient } from './http';
 import { expoNetworkService } from './network';
@@ -166,10 +168,23 @@ const localEntitlements = createLocalEntitlementsService(
  * is `undefined` in a release build. That is what lets the plan switcher keep
  * working for testing without it ever shipping.
  */
-const entitlementsService: EntitlementsService = createRevenueCatEntitlementsService({
+const revenueCat = {
   apiKey: REVENUECAT.publicKey,
   debug: __DEV__,
-});
+} as const;
+
+const entitlementsService: EntitlementsService = createRevenueCatEntitlementsService(revenueCat);
+
+/**
+ * Selling the plan, which is a different job from reading it.
+ *
+ * Bound from the same options as the entitlements service so both talk to one
+ * configured SDK. Kept a separate service because the read side must stay
+ * unable to grant anything: this one can open the store's sheet, and still
+ * cannot change a plan — only a validated receipt reaching RevenueCat does
+ * that, and it arrives on the entitlements listener.
+ */
+const purchaseService: PurchaseService = createRevenueCatPurchaseService(revenueCat);
 
 /**
  * The plan switcher's only door, and only in a development build.
@@ -203,6 +218,13 @@ export const services = {
    * cannot change anything.
    */
   entitlements: entitlementsService,
+  /**
+   * Buying Pro.
+   *
+   * Separate from `entitlements` on purpose: this can ask for money, and
+   * cannot hand out a plan.
+   */
+  purchases: purchaseService,
   /**
    * Conversational language practice.
    *

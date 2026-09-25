@@ -1,4 +1,4 @@
-import { useRouter } from 'expo-router';
+import { useIsFocused, useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { FEATURES } from '@/constants';
@@ -73,6 +73,7 @@ export type SpeechRecognitionCallbacks = {
 
 export function useSpeechRecognition(callbacks: SpeechRecognitionCallbacks): SpeechController {
   const router = useRouter();
+  const isFocused = useIsFocused();
   const { has, loaded } = useEntitlements();
 
   const [flow, setFlow] = useState<SpeechFlow>('idle');
@@ -132,6 +133,32 @@ export function useSpeechRecognition(callbacks: SpeechRecognitionCallbacks): Spe
     allowedNow.current = allowed;
   }, [allowed]);
 
+  /**
+   * The same guard, for focus.
+   *
+   * The recogniser is one session shared by the whole app, and a navigation
+   * stack keeps the screen behind the new one mounted rather than destroying
+   * it. Without this, its subscription stays live in the background right
+   * alongside the screen now in front, and a result meant for the one on
+   * screen reaches both — heard on the Conversation screen, it would still
+   * land in the Translate screen's own draft, sitting unseen underneath.
+   */
+  const focusedNow = useRef(isFocused);
+  useEffect(() => {
+    focusedNow.current = isFocused;
+  }, [isFocused]);
+
+  /**
+   * Losing focus closes the microphone, exactly as losing the entitlement
+   * does below. A session left running behind the screen that opened it would
+   * keep listening for words meant for whatever is now in front.
+   */
+  useEffect(() => {
+    if (isFocused || !busy.current) return;
+    busy.current = false;
+    void services.speech.cancel();
+  }, [isFocused]);
+
   useEffect(() => {
     mounted.current = true;
 
@@ -150,12 +177,13 @@ export function useSpeechRecognition(callbacks: SpeechRecognitionCallbacks): Spe
         case 'partial':
           // Guarded as well as `toggle`, so no transcript can reach the draft
           // without the entitlement — not from a session that outlived a plan
-          // change, not from anything else already in flight.
-          if (!allowedNow.current) return;
+          // change, not from anything else already in flight — and not from a
+          // screen that is no longer the one on screen.
+          if (!allowedNow.current || !focusedNow.current) return;
           handlers.current.onPartial(event.transcript);
           break;
         case 'final':
-          if (!allowedNow.current) return;
+          if (!allowedNow.current || !focusedNow.current) return;
           handlers.current.onFinal(event.transcript);
           break;
         case 'error':

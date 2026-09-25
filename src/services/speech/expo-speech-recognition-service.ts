@@ -142,8 +142,20 @@ export function createExpoSpeechRecognitionService(
       }
 
       // A second start would leak the first session's native listeners and
-      // leave two sets of events racing to fill the same input.
-      if (listening) return ok(undefined);
+      // leave two sets of events racing to fill the same input. Rather than
+      // silently no-op, the stale session is torn down first: a session that
+      // never reached `end` (the app backgrounded mid-listen, a screen
+      // changed while the mic was still open) would otherwise wedge this
+      // singleton's flag `true` forever, quietly disabling every microphone
+      // in the app for the rest of the process's life.
+      if (listening) {
+        try {
+          native.abort();
+        } catch (cause) {
+          log.warn('could not abort the stale session', cause);
+        }
+        teardown();
+      }
 
       // `auto` is a routing instruction, not a language. The recogniser needs a
       // real locale, and guessing one would put words in the user's mouth.

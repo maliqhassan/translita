@@ -64,6 +64,20 @@ export const REVENUECAT = {
   publicKey: process.env.EXPO_PUBLIC_REVENUECAT_KEY ?? 'goog_QAdWIwOTzORKHVuTIcqVUrkHFat',
 } as const;
 
+/**
+ * Google AdMob unit IDs.
+ *
+ * Shown to free users only. The banner shows at the bottom of key screens,
+ * app open ads fire on launch, and interstitials show after high-value
+ * actions to drive conversions to Pro.
+ */
+export const ADMOB = {
+  appId: 'ca-app-pub-345385857634040434~1355505693',
+  bannerAdUnit: 'ca-app-pub-345385857634040434/9583591912',
+  interstitialAdUnit: 'ca-app-pub-345385857634040434/1509660773',
+  appOpenAdUnit: 'ca-app-pub-345385857634040434/2315390268',
+} as const;
+
 export const PRO_PLANS = {
   monthly: { productId: 'translita_pro_monthly', displayPrice: '$4.99', period: 'month' },
   yearly: { productId: 'translita_pro_yearly', displayPrice: '$29.99', period: 'year' },

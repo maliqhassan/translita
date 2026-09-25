@@ -1,10 +1,11 @@
-import Purchases, { LOG_LEVEL, type CustomerInfo } from 'react-native-purchases';
+import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
 import type { Unsubscribe } from '@/types';
 import { createLogger } from '@/utils';
 
 import type { Capability, Entitlements, EntitlementsService, Plan } from './entitlements-service';
 import { defaultEntitlements, entitlementsFor } from './plan-capabilities';
+import { configureRevenueCat, type RevenueCatOptions } from './revenuecat-client';
 
 const log = createLogger('entitlements.revenuecat');
 
@@ -30,13 +31,6 @@ const log = createLogger('entitlements.revenuecat');
 /** The identifier configured in the RevenueCat dashboard. */
 export const PRO_ENTITLEMENT = 'pro';
 
-export type RevenueCatOptions = {
-  /** The public SDK key. Absent means the service reports everyone as Free. */
-  apiKey?: string;
-  /** Verbose SDK logging. Development only. */
-  debug?: boolean;
-};
-
 /** Reads the plan out of whatever RevenueCat last said. */
 function planFrom(info: CustomerInfo): Plan {
   return info.entitlements.active[PRO_ENTITLEMENT] ? 'pro' : 'free';
@@ -45,11 +39,11 @@ function planFrom(info: CustomerInfo): Plan {
 export function createRevenueCatEntitlementsService(
   options: RevenueCatOptions,
 ): EntitlementsService {
-  const { apiKey, debug = false } = options;
+  const { apiKey } = options;
 
   let snapshot: Entitlements = defaultEntitlements();
   const listeners = new Set<() => void>();
-  let configured = false;
+  let listening = false;
 
   const publish = (next: Entitlements) => {
     snapshot = next;
@@ -94,25 +88,20 @@ export function createRevenueCatEntitlementsService(
      * and Free is the whole product minus the adverts.
      */
     async load(): Promise<Entitlements> {
-      if (!apiKey) {
+      if (!configureRevenueCat(options)) {
         // Expected in a build configured without billing. Not an error.
         log.debug('no RevenueCat key; everyone is Free');
         return snapshot;
       }
 
       try {
-        if (!configured) {
-          if (debug) Purchases.setLogLevel(LOG_LEVEL.DEBUG);
-
-          // No appUserID: RevenueCat generates an anonymous one per install,
-          // which is what lets this work with no sign-in. Purchases follow
-          // the store account, not an identity we hold.
-          Purchases.configure({ apiKey });
-
-          // Registered once. Renewals, cancellations and restores all arrive
-          // here, so a lapse takes effect without the app being reopened.
+        if (!listening) {
+          // Registered once. Renewals, cancellations, restores and the
+          // receipt from a fresh purchase all arrive here, so a change takes
+          // effect without the app being reopened — and without the purchase
+          // service ever touching a plan itself.
           Purchases.addCustomerInfoUpdateListener(apply);
-          configured = true;
+          listening = true;
         }
 
         apply(await Purchases.getCustomerInfo());

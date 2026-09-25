@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import {
+  Card,
   EmptyState,
   Icon,
   IconButton,
@@ -11,7 +12,7 @@ import {
   SegmentedControl,
   Text,
 } from '@/components';
-import { languageName } from '@/constants';
+import { errorMessage, languageName } from '@/constants';
 import { useTheme } from '@/hooks';
 import { services } from '@/services';
 import { useLanguagePair } from '@/store';
@@ -102,6 +103,22 @@ export function ConversationScreen() {
     onFinal,
   });
 
+  /**
+   * A failed session must let go of the side it opened.
+   *
+   * `onFinal` is the only other place that clears `openedBy` and the "which
+   * side is open" state, and a recognition error never reaches it: the
+   * recogniser reports the failure on its own `error` event instead. Without
+   * this, a mic that fails — nothing heard, no connection, a native error —
+   * stayed lit and unusable for the rest of the visit, with nothing on screen
+   * to say why.
+   */
+  useEffect(() => {
+    if (speech.status !== 'error' && speech.status !== 'permission_denied') return;
+    openedBy.current = undefined;
+    conversation.cancel();
+  }, [speech.status, conversation]);
+
   /** The language each side speaks, which is also what its mic listens for. */
   const languageFor = (side: Side): LanguageId => {
     if (mode === 'tutor') return pair.target;
@@ -174,6 +191,21 @@ export function ConversationScreen() {
             }}
           />
         </View>
+      ) : null}
+
+      {speech.error ? (
+        <Card variant="outlined" style={{ marginBottom: theme.spacing.sm }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+            <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
+              {errorMessage(speech.error)}
+            </Text>
+            <IconButton
+              name="close-outline"
+              accessibilityLabel="Dismiss this message"
+              onPress={speech.dismissError}
+            />
+          </View>
+        </Card>
       ) : null}
 
       <ScrollView

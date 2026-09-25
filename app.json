@@ -9,6 +9,7 @@
     "userInterfaceStyle": "automatic",
     "android": {
       "package": "com.translita.app",
+      "versionCode": 6,
       "adaptiveIcon": {
         "backgroundColor": "#EEF0FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

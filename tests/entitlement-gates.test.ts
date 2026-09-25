@@ -395,8 +395,11 @@ describe('a free user cannot reach the microphone', () => {
     const hook = read(SPEECH_HOOK);
 
     // Both transcript events are guarded, so a session that outlived a plan
-    // change cannot write into the draft.
-    const guards = hook.match(/if \(!allowedNow\.current\) return;/g) ?? [];
+    // change cannot write into the draft, and nor can one that outlived the
+    // screen that opened it — a navigation stack keeps the screen behind the
+    // current one mounted, so its own subscription is still live.
+    const guards =
+      hook.match(/if \(!allowedNow\.current \|\| !focusedNow\.current\) return;/g) ?? [];
     assert.equal(guards.length, 2, 'both partial and final are guarded');
   });
 
@@ -630,20 +633,82 @@ describe('the paywall is a placeholder and says so', () => {
     }
   });
 
-  it('cannot take money or grant a plan', () => {
+  it('can take money, and still cannot grant a plan', () => {
     /*
-     * The prices are decided and shown; what must still be impossible is
-     * paying them. There is no billing SDK, no purchase call and no way for
-     * this screen to change anybody's plan.
+     * This guard used to assert that paying was impossible. Billing shipped,
+     * so it asserts the half that must never change instead: the screen can
+     * start a purchase, and has no way to make anybody Pro.
+     *
+     * That separation is the whole design. A receipt is validated by
+     * RevenueCat and arrives on the entitlements listener; nothing on this
+     * screen writes a plan, and nothing here may learn how.
      */
     const screen = code(UPGRADE);
 
-    assert.match(screen, /disabled/);
-    assert.match(screen, /coming soon/i);
+    // No setter, and no reach into the development switcher that has one.
     assert.equal(screen.includes('setPlan'), false);
-    for (const word of ['purchase(', 'revenuecat', 'billing']) {
-      assert.equal(screen.toLowerCase().includes(word), false, word);
+    assert.equal(screen.includes('developmentEntitlements'), false);
+    assert.equal(screen.includes('entitlementsFor'), false);
+
+    // The SDK stays behind the service layer. A screen that imported it could
+    // purchase without the hook, which is where cancellation and failure are
+    // turned into something a person should see.
+    assert.equal(screen.includes('react-native-purchases'), false);
+    assert.equal(/\bPurchases\./.test(screen), false, 'the SDK reached the screen');
+
+    // Money goes out through the one hook.
+    assert.match(screen, /usePurchase\(\)/);
+  });
+
+  it('keeps selling a plan apart from granting one', () => {
+    /*
+     * The two RevenueCat services exist separately so that the one which can
+     * ask for money is structurally unable to hand out a capability. If they
+     * ever merge, a purchase call and an entitlement write end up in the same
+     * file, one careless edit apart.
+     */
+    const purchases = code('src/services/entitlements/revenuecat-purchase-service.ts');
+
+    for (const forbidden of ['entitlementsFor', 'PLAN_CAPABILITIES', 'defaultEntitlements']) {
+      assert.equal(purchases.includes(forbidden), false, `${forbidden} in the purchase service`);
     }
+
+    // It may read what the store said; it may not decide what that means.
+    assert.equal(/:\s*Plan\b/.test(purchases), false, 'the purchase service names a plan');
+  });
+
+  it('configures the billing SDK in exactly one place', () => {
+    /*
+     * `Purchases.configure` must be called once per process, and two services
+     * now use the SDK. Either calling it itself would make the second call
+     * depend on whether the first had happened.
+     */
+    const offenders = sources('src/services').filter((path) =>
+      /Purchases\.configure\(/.test(read(path)),
+    );
+
+    assert.deepEqual(offenders, ['src/services/entitlements/revenuecat-client.ts']);
+  });
+
+  it('offers a way back to a purchase already made', () => {
+    /*
+     * Both stores require it, and Translita has no accounts — so restoring is
+     * the only route back to Pro after a reinstall or a new device. Its
+     * absence would strand paying customers with no recourse but support.
+     */
+    assert.match(code(UPGRADE), /restore/i);
+  });
+
+  it('shows the price the store gave, not the one in configuration', () => {
+    /*
+     * Play returns a localised price per country. Rendering the configured
+     * figure would quote somebody a price in the wrong currency, and one the
+     * app cannot charge.
+     */
+    const screen = code(UPGRADE);
+
+    assert.match(screen, /plan\.price/);
+    assert.equal(screen.includes('displayPrice'), false, 'a configured price reached the screen');
   });
 
   it('reads the plans from one place rather than writing them into the screen', () => {
