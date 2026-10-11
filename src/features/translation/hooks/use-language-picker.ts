@@ -7,6 +7,7 @@ import {
   getLanguage,
   searchLanguages,
 } from '@/constants';
+import { t } from '@/i18n';
 import { useLanguagePair, type LanguageField } from '@/store';
 import type { Language, LanguageId } from '@/types';
 
@@ -78,13 +79,13 @@ export function useLanguagePicker(
     const shortlists: PickerRow[] = [];
 
     if (recentLanguages.length > 0) {
-      shortlists.push({ kind: 'section', key: 'section-recent', title: 'Recent' });
+      shortlists.push({ kind: 'section', key: 'section-recent', title: t('Recent') });
       shortlists.push({ kind: 'chips', key: 'chips-recent', languages: recentLanguages });
     }
 
-    shortlists.push({ kind: 'section', key: 'section-popular', title: 'Popular' });
+    shortlists.push({ kind: 'section', key: 'section-popular', title: t('Popular') });
     shortlists.push({ kind: 'chips', key: 'chips-popular', languages: POPULAR_LANGUAGES });
-    shortlists.push({ kind: 'section', key: 'section-all', title: 'All languages' });
+    shortlists.push({ kind: 'section', key: 'section-all', title: t('All languages') });
 
     return [...shortlists, ...toLanguageRows(pool)];
   }, [isSearching, matches, pool, recentLanguages]);

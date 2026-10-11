@@ -445,7 +445,7 @@ describe('the screen is reachable', () => {
     const settings = readFileSync('src/features/settings/screens/settings-screen.tsx', 'utf8');
 
     assert.match(settings, /'\/settings\/language-packs'/);
-    assert.match(settings, /title="Language packs"/);
+    assert.match(settings, /title=\{t\('Language packs'\)\}/);
   });
 
   it('is registered in the navigator', () => {

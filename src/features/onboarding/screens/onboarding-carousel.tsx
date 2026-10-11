@@ -12,7 +12,10 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Icon, Text } from '@/components';
+import { APP } from '@/constants';
+import { BrandMark } from '@/features/translation';
 import { useResponsive, useTheme } from '@/hooks';
+import { t } from '@/i18n';
 
 import { SlideIllustration } from '../components/slide-illustration';
 import { ONBOARDING_SLIDES } from '../onboarding-slides';
@@ -29,6 +32,10 @@ import { ONBOARDING_SLIDES } from '../onboarding-slides';
  * Buttons scroll it rather than setting the index themselves, and the index is
  * updated from the scroll position, so a swipe and a tap can never disagree
  * about where the user is.
+ *
+ * Styled like the app it leads into: a white page, navy type, the logo at
+ * the top, and the brand blue for the artwork's tints, the progress and the
+ * one button that moves forward.
  */
 export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
   const theme = useTheme();
@@ -92,31 +99,45 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
   const illustration = Math.min(width * (isShort ? 0.46 : 0.56), 260);
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.colors.onboarding }}>
+    <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <StatusBar
-        // The field is the brand fill, which is light: the clock and icons
-        // have to be dark on it, and only invert when the theme does.
         barStyle={theme.scheme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.colors.onboarding}
+        backgroundColor={theme.colors.background}
       />
 
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
-        {/* Skip sits above the pages and disappears on the last slide, where
-            the primary action already finishes onboarding. */}
+        {/* The logo on the left, as on every tab of the app. Skip sits on the
+            right and disappears on the last slide, where the primary action
+            already finishes onboarding. */}
         <View
           style={{
-            height: theme.layout.minTouchTarget,
-            justifyContent: 'center',
-            alignItems: 'flex-end',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: theme.spacing.md,
+            minHeight: theme.layout.minTouchTarget,
+            marginTop: theme.spacing.sm,
             paddingHorizontal: theme.layout.screenPadding,
           }}
         >
+          <View
+            style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md }}
+            accessible
+            accessibilityRole="header"
+            accessibilityLabel={APP.name}
+          >
+            <BrandMark />
+            <Text variant="brandTitle" maxFontSizeMultiplier={1.25}>
+              {APP.name}
+            </Text>
+          </View>
+
           {isLast ? null : (
             <Pressable
               onPress={finish}
               accessibilityRole="button"
-              accessibilityLabel="Skip"
-              accessibilityHint="Skips the tour and opens the translator"
+              accessibilityLabel={t('Skip')}
+              accessibilityHint={t('Skips the tour and opens the translator')}
               hitSlop={theme.spacing.sm}
               style={({ pressed }) => ({
                 paddingHorizontal: theme.spacing.md,
@@ -125,8 +146,8 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
                 opacity: pressed ? theme.motion.opacityPressed : 1,
               })}
             >
-              <Text variant="label" style={{ color: theme.colors.onOnboardingMuted }}>
-                Skip
+              <Text variant="label" color="textSecondary">
+                {t('Skip')}
               </Text>
             </Pressable>
           )}
@@ -155,15 +176,11 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
               <SlideIllustration icon={slide.icon} size={illustration} />
 
               <View style={{ gap: theme.spacing.sm, alignItems: 'center' }}>
-                <Text variant="h1" align="center" style={{ color: theme.colors.onOnboarding }}>
-                  {slide.heading}
+                <Text variant="h1" align="center">
+                  {t(slide.heading, slide.params)}
                 </Text>
-                <Text
-                  variant="bodyLarge"
-                  align="center"
-                  style={{ color: theme.colors.onOnboardingMuted }}
-                >
-                  {slide.body}
+                <Text variant="bodyLarge" color="textSecondary" align="center">
+                  {t(slide.body)}
                 </Text>
               </View>
             </View>
@@ -184,7 +201,10 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
             style={{ flexDirection: 'row', justifyContent: 'center', gap: theme.spacing.xs }}
             accessible
             accessibilityRole="progressbar"
-            accessibilityLabel={`Slide ${index + 1} of ${ONBOARDING_SLIDES.length}`}
+            accessibilityLabel={t('Slide {current} of {total}', {
+              current: index + 1,
+              total: ONBOARDING_SLIDES.length,
+            })}
           >
             {ONBOARDING_SLIDES.map((slide, slideIndex) => (
               <View
@@ -196,10 +216,7 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
                   width: slideIndex === index ? 22 : 8,
                   borderRadius: theme.radius.full,
                   backgroundColor:
-                    slideIndex === index
-                      ? theme.colors.onboardingAction
-                      : theme.colors.onOnboardingMuted,
-                  opacity: slideIndex === index ? 1 : 0.45,
+                    slideIndex === index ? theme.colors.primary : theme.colors.primaryBorder,
                 }}
               />
             ))}
@@ -212,8 +229,8 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
               onPress={() => goTo(index - 1)}
               disabled={index === 0}
               accessibilityRole="button"
-              accessibilityLabel="Previous"
-              accessibilityHint="Goes back one slide"
+              accessibilityLabel={t('Previous')}
+              accessibilityHint={t('Goes back one slide')}
               accessibilityState={{ disabled: index === 0 }}
               style={({ pressed }) => ({
                 width: theme.layout.minTouchTarget,
@@ -222,36 +239,45 @@ export function OnboardingCarousel({ onDone }: { onDone: () => void }) {
                 justifyContent: 'center',
                 borderRadius: theme.radius.full,
                 borderWidth: theme.layout.borderWidth,
-                borderColor: theme.colors.onOnboardingMuted,
-                opacity: index === 0 ? 0 : pressed ? theme.motion.opacityPressed : 1,
+                borderColor: theme.colors.border,
+                backgroundColor: pressed ? theme.colors.primaryMuted : theme.colors.surface,
+                opacity: index === 0 ? 0 : 1,
               })}
             >
-              <Icon name="chevron-back" size={20} color="onboardingAction" />
+              <Icon name="chevron-back" size={20} color="primaryStrong" />
             </Pressable>
 
             <Pressable
               onPress={() => (isLast ? finish() : goTo(index + 1))}
               accessibilityRole="button"
-              accessibilityLabel={isLast ? 'Start translating' : 'Next'}
+              accessibilityLabel={isLast ? t('Start translating') : t('Next')}
               accessibilityHint={
-                isLast ? 'Finishes the tour and opens the translator' : 'Goes to the next slide'
+                isLast
+                  ? t('Finishes the tour and opens the translator')
+                  : t('Goes to the next slide')
               }
               style={({ pressed }) => ({
                 flex: 1,
-                height: 56,
+                // The same height, corners and press as the app's large
+                // buttons, so the last tap here matches the first one there.
+                height: 54,
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: theme.spacing.sm,
-                borderRadius: theme.radius.lg,
-                backgroundColor: theme.colors.onboardingAction,
-                opacity: pressed ? theme.motion.opacityPressed : 1,
+                borderRadius: theme.radius.md,
+                backgroundColor: pressed ? theme.colors.primaryPressed : theme.colors.primary,
+                transform: [{ scale: pressed ? theme.motion.scalePressed : 1 }],
               })}
             >
-              <Text variant="button" style={{ color: theme.colors.onOnboardingAction }}>
-                {isLast ? 'Start Translating' : 'Next'}
+              <Text variant="buttonLarge" color="textOnPrimary" maxFontSizeMultiplier={1.3}>
+                {isLast ? t('Start Translating') : t('Next')}
               </Text>
-              {isLast ? null : <Icon name="chevron-forward" size={18} color="onOnboardingAction" />}
+              <Icon
+                name={isLast ? 'arrow-forward' : 'chevron-forward'}
+                size={20}
+                color="textOnPrimary"
+              />
             </Pressable>
           </View>
         </View>

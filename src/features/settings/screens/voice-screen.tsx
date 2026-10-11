@@ -13,6 +13,7 @@ import {
 } from '@/components';
 import { errorMessage, languageName } from '@/constants';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 import { voiceMatchesLanguage, type Voice } from '@/services';
 import { useLanguagePair, usePreferences } from '@/store';
 
@@ -79,12 +80,12 @@ export function VoiceScreen() {
   return (
     <Screen edges={['top', 'bottom']}>
       <ScreenHeader
-        title="Voice"
-        subtitle={`Used when reading ${languageName(pair.target)} aloud`}
+        title={t('Voice')}
+        subtitle={t('Used when reading {language} aloud', { language: languageName(pair.target) })}
         leading={
           <IconButton
             name="chevron-back-outline"
-            accessibilityLabel="Back to settings"
+            accessibilityLabel={t('Back to settings')}
             onPress={() => router.back()}
           />
         }
@@ -96,7 +97,7 @@ export function VoiceScreen() {
       {preview.error ? (
         <Card variant="outlined">
           <Text variant="bodySmall" color="warning">
-            That voice could not be previewed. It may no longer be installed on this device.
+            {t('That voice could not be previewed. It may no longer be installed on this device.')}
           </Text>
         </Card>
       ) : null}
@@ -112,15 +113,15 @@ export function VoiceScreen() {
                 starts in, and the one thing guaranteed to work. */}
             <ListItem
               icon="phone-portrait-outline"
-              title="Default"
-              subtitle="Let this device choose"
+              title={t('Default')}
+              subtitle={t('Let this device choose')}
               onPress={withPreviewStopped(useDefault)}
               showChevron={false}
               selected={selectedId === undefined}
               trailing={
                 selectedId === undefined ? (
                   <Text variant="body" color="primary">
-                    Selected
+                    {t('Selected')}
                   </Text>
                 ) : undefined
               }
@@ -140,7 +141,7 @@ export function VoiceScreen() {
             onPress={withPreviewStopped(() => choose(item))}
             showChevron={false}
             selected={selectedId === item.id}
-            accessibilityHint="Selects this voice for reading translations aloud"
+            accessibilityHint={t('Selects this voice for reading translations aloud')}
             trailing={
               /* Two separate actions in one row, kept apart deliberately:
                  tapping the row selects, tapping the button only auditions.
@@ -149,7 +150,7 @@ export function VoiceScreen() {
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
                 {selectedId === item.id ? (
                   <Text variant="body" color="primary">
-                    Selected
+                    {t('Selected')}
                   </Text>
                 ) : null}
 
@@ -161,8 +162,8 @@ export function VoiceScreen() {
                   // this control and the row it sits in.
                   accessibilityLabel={
                     preview.playingId === item.id
-                      ? `Stop previewing ${item.name || item.id}`
-                      : `Preview ${item.name || item.id} without selecting it`
+                      ? t('Stop previewing {voice}', { voice: item.name || item.id })
+                      : t('Preview {voice} without selecting it', { voice: item.name || item.id })
                   }
                   onPress={() => preview.toggle(item)}
                 />
@@ -192,14 +193,14 @@ function VoicesEmptyState({
   error?: { code: string; message: string };
 }) {
   if (loading) {
-    return <EmptyState icon="mic-outline" title="Looking for voices" />;
+    return <EmptyState icon="mic-outline" title={t('Looking for voices')} />;
   }
 
   if (error) {
     return (
       <EmptyState
         icon="alert-circle-outline"
-        title="Could not read the available voices"
+        title={t('Could not read the available voices')}
         description={errorMessage(error as Parameters<typeof errorMessage>[0])}
       />
     );
@@ -208,8 +209,10 @@ function VoicesEmptyState({
   return (
     <EmptyState
       icon="mic-off-outline"
-      title={`No ${languageName(language)} voices on this device`}
-      description="Your device will use its own default voice instead. Installing a voice for this language in the system settings will make it available here."
+      title={t('No {language} voices on this device', { language: languageName(language) })}
+      description={t(
+        'Your device will use its own default voice instead. Installing a voice for this language in the system settings will make it available here.',
+      )}
     />
   );
 }

@@ -39,7 +39,8 @@ export function SegmentedControl<T extends string>({
 }: SegmentedControlProps<T>) {
   const theme = useTheme();
 
-  const track = onGradient ? theme.colors.onGradientMuted : theme.colors.surfaceMuted;
+  // White on the page, so the track reads against the mist background.
+  const track = onGradient ? theme.colors.onGradientMuted : theme.colors.surface;
   const selectedBackground = onGradient ? theme.colors.onGradient : theme.colors.primary;
 
   return (
@@ -52,6 +53,8 @@ export function SegmentedControl<T extends string>({
           padding: theme.spacing.xxs,
           borderRadius: theme.radius.full,
           backgroundColor: track,
+          borderWidth: onGradient ? 0 : theme.layout.borderWidth,
+          borderColor: theme.colors.border,
         },
         style,
       ]}

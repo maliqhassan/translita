@@ -35,12 +35,14 @@ import { ok } from '@/utils';
  */
 
 /**
- * What is sold. Neither is a translation feature.
+ * What is sold. Not a translation feature.
  *
- * `adFree` removes advertising; `aiTutor` is unlimited practice with a model
- * that costs money on every exchange, and which everyone gets a free taste of.
+ * `adFree` removes advertising — the only thing left in this list. `aiTutor`
+ * used to sit here too, priced the same way a translation call is not: a model
+ * costs money on every exchange. An interstitial pays for it now instead, so
+ * it moved into `FREE_CAPABILITIES` alongside the features above it.
  */
-const SOLD: readonly Capability[] = ['adFree', 'aiTutor'];
+const SOLD: readonly Capability[] = ['adFree'];
 
 /** Everything a user translates with, as opposed to what they pay for. */
 const FEATURE_CAPABILITIES: readonly Capability[] = CAPABILITIES.filter(
@@ -80,7 +82,7 @@ describe('the two plans differ over no translation feature at all', () => {
     const table = readFileSync('src/services/entitlements/plan-capabilities.ts', 'utf8');
 
     assert.match(table, /free: FREE_CAPABILITIES/);
-    assert.match(table, /pro: \[\.\.\.FREE_CAPABILITIES, 'adFree', 'aiTutor'\]/);
+    assert.match(table, /pro: \[\.\.\.FREE_CAPABILITIES, 'adFree'\]/);
   });
 });
 

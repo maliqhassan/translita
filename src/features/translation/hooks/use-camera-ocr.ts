@@ -1,7 +1,8 @@
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { FEATURES } from '@/constants';
+import { FEATURES, UNAVAILABLE_INPUT_MESSAGES } from '@/constants';
+import { t } from '@/i18n';
 import { resolveFeatureAccess, services } from '@/services';
 import { useEntitlements } from '@/store';
 import type { AppError } from '@/types';
@@ -47,7 +48,17 @@ export type CameraOcrController = {
   scanning: boolean;
   busy: boolean;
   error?: AppError;
-  /** Opens the scanner. The only path to a camera permission request. */
+  /**
+   * Why a tap did nothing, when the control was tapped where scanning cannot
+   * run. Ready to show as it is.
+   */
+  notice?: string;
+  /**
+   * Opens the scanner. The only path to a camera permission request.
+   *
+   * Where scanning cannot run it opens nothing and sets `notice` instead, so
+   * the control can stay on screen and still answer a tap.
+   */
   open: () => void;
   /** Closes the scanner without reading anything. */
   close: () => void;
@@ -64,6 +75,8 @@ export function useCameraOcr(onText: (text: string) => void): CameraOcrControlle
 
   const [flow, setFlow] = useState<ScanFlow>('idle');
   const [error, setError] = useState<AppError | undefined>(undefined);
+  /** Set by a tap on a control that could not run; cleared by dismissing. */
+  const [tappedUnavailable, setTappedUnavailable] = useState(false);
   /**
    * Undefined until the recogniser has answered for itself — except when the
    * capability is not in this build, where there is nothing to ask and the
@@ -119,11 +132,29 @@ export function useCameraOcr(onText: (text: string) => void): CameraOcrControlle
   // whatever was open rather than leaving a scanner running behind a lock.
   const status: ScanStatus = allowed ? flow : access;
 
+  /*
+   * Derived rather than stored, so it follows the answers as they arrive: a
+   * tap in the first moment reads "getting ready", becomes the real reason if
+   * the device says no, and disappears on its own if the device says yes.
+   */
+  const notice =
+    tappedUnavailable && access === 'unavailable'
+      ? supported === false
+        ? t(UNAVAILABLE_INPUT_MESSAGES.scan)
+        : t(UNAVAILABLE_INPUT_MESSAGES.pending)
+      : undefined;
+
   const open = useCallback(() => {
-    if (!allowed) return;
+    if (!allowed) {
+      // Explains rather than does nothing. A locked control leads to the
+      // upgrade screen through `upgrade`, never through here.
+      if (access === 'unavailable') setTappedUnavailable(true);
+      return;
+    }
+    setTappedUnavailable(false);
     setError(undefined);
     setFlow('scanning');
-  }, [allowed]);
+  }, [access, allowed]);
 
   const close = useCallback(() => {
     reading.current = false;
@@ -170,11 +201,13 @@ export function useCameraOcr(onText: (text: string) => void): CameraOcrControlle
     scanning: status === 'scanning' || status === 'recognizing',
     busy: status === 'recognizing',
     error,
+    notice,
     open,
     close,
     capture,
     upgrade,
     dismissError: useCallback(() => {
+      setTappedUnavailable(false);
       setError(undefined);
       setFlow((current) => (current === 'error' ? 'idle' : current));
     }, []),

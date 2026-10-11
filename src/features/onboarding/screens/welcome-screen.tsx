@@ -3,11 +3,23 @@ import { useState } from 'react';
 import { Pressable, StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Text } from '@/components';
+import { Button, Icon, Text, type IconName } from '@/components';
 import { APP, LEGAL } from '@/constants';
 import { useResponsive, useTheme } from '@/hooks';
+import { msg, t } from '@/i18n';
 
 import { WelcomeIllustration } from '../components/welcome-illustration';
+
+/**
+ * The ways in, named under the tagline. Each is a real control in the
+ * translator, so the row describes the app rather than advertising it.
+ */
+const HIGHLIGHTS: readonly { icon: IconName; label: string }[] = [
+  { icon: 'text-outline', label: msg('Type') },
+  { icon: 'mic-outline', label: msg('Speak') },
+  { icon: 'scan-outline', label: msg('Scan') },
+  { icon: 'cloud-download-outline', label: msg('Offline') },
+];
 
 /**
  * The first thing a new install sees.
@@ -23,8 +35,13 @@ import { WelcomeIllustration } from '../components/welcome-illustration';
  * navigate to, no history entry to go back into, and no moment where the tabs
  * appear and are then replaced.
  *
- * It takes the whole screen including both safe areas, so the colour runs to
+ * It takes the whole screen including both safe areas, so the page runs to
  * the top and the button stays clear of the Android navigation buttons.
+ *
+ * White, like the app it opens into, with the brand blue kept for the
+ * artwork's tints and the one button. It used to be a full field of cyan,
+ * which was heavy, and made the first screen look like a different product
+ * from the second.
  */
 export function WelcomeScreen({ onGetStarted }: { onGetStarted: () => void }) {
   const theme = useTheme();
@@ -42,7 +59,7 @@ export function WelcomeScreen({ onGetStarted }: { onGetStarted: () => void }) {
   const openPrivacyPolicy = () => {
     if (!LEGAL.privacyPolicyUrl) {
       setPolicyNote(
-        'The privacy policy is not published yet. It will be linked here before release.',
+        t('The privacy policy is not published yet. It will be linked here before release.'),
       );
       return;
     }
@@ -50,22 +67,19 @@ export function WelcomeScreen({ onGetStarted }: { onGetStarted: () => void }) {
     // Failure is silent to the user by design: there is no browser to fall
     // back to, and blocking the welcome screen on it would be worse.
     void Linking.openURL(LEGAL.privacyPolicyUrl).catch(() => {
-      setPolicyNote('That link could not be opened on this device.');
+      setPolicyNote(t('That link could not be opened on this device.'));
     });
   };
 
   // Big enough to be the thing you look at, small enough that a 5" phone still
   // shows the button without scrolling.
-  const illustration = Math.min(width * (isShort ? 0.58 : 0.72), 320);
+  const illustration = Math.min(width * (isShort ? 0.5 : 0.66), 280);
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.colors.onboarding }}>
-      {/* Light content, because the field is brand colour in both themes. */}
+    <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <StatusBar
-        // The field is the brand fill, which is light: the clock and icons
-        // have to be dark on it, and only invert when the theme does.
         barStyle={theme.scheme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.colors.onboarding}
+        backgroundColor={theme.colors.background}
       />
 
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
@@ -86,80 +100,84 @@ export function WelcomeScreen({ onGetStarted }: { onGetStarted: () => void }) {
             <View
               style={{ alignItems: 'center', gap: theme.spacing.xs, marginTop: theme.spacing.xxl }}
             >
-              <Text
-                variant="display"
-                color="onGradient"
-                align="center"
-                style={{ color: theme.colors.onOnboarding }}
-              >
+              <Text variant="display" align="center">
                 {APP.name}
               </Text>
-              <Text
-                variant="bodyLarge"
-                align="center"
-                style={{ color: theme.colors.onOnboardingMuted }}
-              >
+              <Text variant="bodyLarge" color="textSecondary" align="center">
                 {APP.tagline}
               </Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: theme.spacing.sm,
+                marginTop: theme.spacing.lg,
+              }}
+            >
+              {HIGHLIGHTS.map((item) => (
+                <View
+                  key={t(item.label)}
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: theme.spacing.xs,
+                    paddingHorizontal: theme.spacing.md,
+                    paddingVertical: theme.spacing.xs,
+                    borderRadius: theme.radius.full,
+                    backgroundColor: theme.colors.primaryMuted,
+                  }}
+                >
+                  <Icon name={item.icon} size={16} color="primaryStrong" />
+                  <Text variant="label" color="primaryStrong" maxFontSizeMultiplier={1.3}>
+                    {item.label}
+                  </Text>
+                </View>
+              ))}
             </View>
           </View>
 
           <View style={{ gap: theme.spacing.base }}>
-            <Pressable
+            <Button
+              label={t('Get Started')}
+              icon="arrow-forward"
+              iconPosition="right"
+              size="lg"
+              fullWidth
               onPress={onGetStarted}
-              accessibilityRole="button"
-              accessibilityLabel="Get started"
-              accessibilityHint="Opens the translator"
-              style={({ pressed }) => ({
-                height: 56,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: theme.radius.lg,
-                backgroundColor: theme.colors.onboardingAction,
-                opacity: pressed ? theme.motion.opacityPressed : 1,
-              })}
-            >
-              <Text variant="button" style={{ color: theme.colors.onOnboardingAction }}>
-                Get Started
-              </Text>
-            </Pressable>
+              accessibilityHint={t('Opens a short tour of the app')}
+            />
 
             <View style={{ alignItems: 'center', gap: theme.spacing.xxs }}>
-              <Text
-                variant="bodySmall"
-                align="center"
-                style={{ color: theme.colors.onOnboardingMuted }}
-              >
-                By tapping Get Started, you agree to our
+              <Text variant="bodySmall" color="textSecondary" align="center">
+                {t('By tapping Get Started, you agree to our')}
               </Text>
 
               <Pressable
                 onPress={openPrivacyPolicy}
                 accessibilityRole="link"
-                accessibilityLabel="Privacy Policy"
+                accessibilityLabel={t('Privacy Policy')}
                 hitSlop={theme.spacing.sm}
               >
                 {({ pressed }) => (
                   <Text
                     variant="label"
+                    color="primaryStrong"
                     align="center"
                     style={{
-                      color: theme.colors.onOnboarding,
                       textDecorationLine: 'underline',
                       opacity: pressed ? theme.motion.opacityPressed : 1,
                     }}
                   >
-                    Privacy Policy
+                    {t('Privacy Policy')}
                   </Text>
                 )}
               </Pressable>
 
               {policyNote ? (
-                <Text
-                  variant="caption"
-                  align="center"
-                  style={{ color: theme.colors.onOnboardingMuted }}
-                >
+                <Text variant="caption" color="textSecondary" align="center">
                   {policyNote}
                 </Text>
               ) : null}

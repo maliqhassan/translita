@@ -2,20 +2,26 @@
   "expo": {
     "name": "Translita",
     "slug": "transee",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "translita",
     "userInterfaceStyle": "automatic",
     "android": {
       "package": "com.translita.app",
-      "versionCode": 6,
+      "versionCode": 21,
       "adaptiveIcon": {
-        "backgroundColor": "#EEF0FE",
+        "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "googleServicesFile": "./google-services.json"
     },
     "ios": {
       "bundleIdentifier": "com.translita.app",
@@ -32,10 +38,11 @@
         {
           "backgroundColor": "#FFFFFF",
           "dark": {
-            "backgroundColor": "#0B0C10"
+            "backgroundColor": "#0B0C10",
+            "image": "./assets/images/splash-icon-dark.png"
           },
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 96
+          "imageWidth": 120
         }
       ],
       "expo-sqlite",
@@ -43,10 +50,11 @@
       [
         "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "androidAppId": "ca-app-pub-3453858576340434~1355505693",
           "androidSdk": "classic"
         }
-      ]
+      ],
+      "@react-native-firebase/app"
     ],
     "experiments": {
       "typedRoutes": true,

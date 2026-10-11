@@ -4,6 +4,7 @@ import { describe, it } from 'node:test';
 
 import { LANGUAGES, LEGAL } from '@/constants';
 import { ONBOARDING_SLIDES } from '@/features/onboarding/onboarding-slides';
+import { t } from '@/i18n';
 import {
   DEFAULT_PREFERENCES,
   PREFERENCES_VERSION,
@@ -45,6 +46,15 @@ const APPROVED_ADVERTISING: readonly string[] = ['react-native-google-mobile-ads
  * is its SDK.
  */
 const APPROVED_BILLING: readonly string[] = ['react-native-purchases'];
+
+/**
+ * Usage analytics: which features are used, never what is typed or said.
+ * Approved by name, like the two above, so nothing else from Firebase slips in.
+ */
+const APPROVED_ANALYTICS: readonly string[] = [
+  '@react-native-firebase/app',
+  '@react-native-firebase/analytics',
+];
 
 /** Source with block comments and comment-only lines removed. */
 const code = (path: string) =>
@@ -199,8 +209,13 @@ describe('the welcome screen', () => {
     // Get Started no longer finishes onboarding — it opens the carousel. The
     // preference is written when the flow completes, which is Skip or Start
     // Translating and nothing else.
-    assert.match(code(LAYOUT), /onComplete=\{\(\) => update\(\{ onboardingComplete: true \}\)\}/);
-    assert.match(code(FLOW), /onGetStarted=\{\(\) => setStarted\(true\)\}/);
+    // In one write: two updates in a row would overwrite each other.
+    assert.ok(
+      code(LAYOUT).includes(
+        'onComplete={() => update({ onboardingComplete: true, appLanguageChosen: true })}',
+      ),
+    );
+    assert.match(code(FLOW), /onGetStarted=\{\(\) => setStep\('tour'\)\}/);
   });
 
   it('resets nothing on the way through', () => {
@@ -244,6 +259,23 @@ describe('the welcome screen', () => {
     }
 
     assert.equal(code(FLOW).includes('style'), false, 'the flow should not style anything');
+  });
+
+  it('is a light page in the app theme, not a field of brand colour', () => {
+    // It was a full screen of cyan with red and orange bubbles, heavy and off
+    // the palette of the white app it opens into. Both screens now sit on the
+    // page colour, and the brand blue is kept for tints and the one button.
+    for (const path of [WELCOME, CAROUSEL]) {
+      assert.match(code(path), /backgroundColor: theme\.colors\.background/, path);
+    }
+
+    const colours = read('src/constants/colors.ts');
+    assert.equal(/onboarding|onOnboarding/i.test(colours), false, 'the old field tokens are back');
+
+    const art = code(ILLUSTRATION);
+    for (const offPalette of ['theme.colors.danger', 'theme.colors.warning']) {
+      assert.equal(art.includes(offPalette), false, offPalette);
+    }
   });
 
   it('adds no image or vector dependency for its artwork', () => {
@@ -398,7 +430,8 @@ describe('the onboarding carousel', () => {
   it('shows where the user is, and not only by colour', () => {
     const carousel = code(CAROUSEL);
 
-    assert.match(carousel, /Slide \$\{index \+ 1\} of \$\{ONBOARDING_SLIDES\.length\}/);
+    assert.match(carousel, /t\('Slide \{current\} of \{total\}'/);
+    assert.match(carousel, /total: ONBOARDING_SLIDES\.length/);
     // The current dot is a different width, so the position survives a
     // colour-blind reading.
     assert.match(carousel, /slideIndex === index \? 22 : 8/);
@@ -408,14 +441,17 @@ describe('the onboarding carousel', () => {
     const carousel = code(CAROUSEL);
 
     assert.match(carousel, /isLast \? null : \(/);
-    assert.match(carousel, /accessibilityLabel="Skip"/);
+    assert.match(carousel, /accessibilityLabel=\{t\('Skip'\)\}/);
   });
 
   it('ends on a prominent Start Translating', () => {
     const carousel = code(CAROUSEL);
 
-    assert.match(carousel, /isLast \? 'Start Translating' : 'Next'/);
-    assert.match(carousel, /accessibilityLabel=\{isLast \? 'Start translating' : 'Next'\}/);
+    assert.match(carousel, /isLast \? t\('Start Translating'\) : t\('Next'\)/);
+    assert.match(
+      carousel,
+      /accessibilityLabel=\{isLast \? t\('Start translating'\) : t\('Next'\)\}/,
+    );
   });
 
   it('finishes through one path, whether skipped or completed', () => {
@@ -444,7 +480,7 @@ describe('the onboarding carousel', () => {
     const carousel = code(CAROUSEL);
 
     for (const label of ['Skip', 'Previous']) {
-      assert.ok(carousel.includes(`accessibilityLabel="${label}"`), label);
+      assert.ok(carousel.includes(`accessibilityLabel={t('${label}')}`), label);
     }
     assert.match(carousel, /accessibilityRole="progressbar"/);
   });
@@ -460,7 +496,7 @@ describe('the onboarding carousel', () => {
 
     assert.equal(flow.includes('usePreferences'), false);
     assert.equal(code(CAROUSEL).includes('usePreferences'), false);
-    assert.match(flow, /useState\(false\)/);
+    assert.match(flow, /useState<Step>\('loading'\)/);
   });
 });
 
@@ -536,7 +572,9 @@ describe('the slides claim only what the app actually does', () => {
 
     assert.match(source, /LANGUAGES\.length/);
     assert.ok(
-      ONBOARDING_SLIDES.some((slide) => slide.heading.includes(String(LANGUAGES.length))),
+      ONBOARDING_SLIDES.some((slide) =>
+        t(slide.heading, slide.params).includes(String(LANGUAGES.length)),
+      ),
       'no slide reports the catalogue size',
     );
   });
@@ -568,7 +606,13 @@ describe('nothing was monetised in this step', () => {
     for (const name of names) {
       // One approved ad SDK is stepped over. RevenueCat, purchases, billing,
       // IAP, Firebase, auth and every other ad library still fail here.
-      if (APPROVED_ADVERTISING.includes(name) || APPROVED_BILLING.includes(name)) continue;
+      if (
+        APPROVED_ADVERTISING.includes(name) ||
+        APPROVED_BILLING.includes(name) ||
+        APPROVED_ANALYTICS.includes(name)
+      ) {
+        continue;
+      }
 
       assert.equal(
         /revenuecat|purchases|billing|iap|admob|ads|firebase|auth/i.test(name),
@@ -580,6 +624,7 @@ describe('nothing was monetised in this step', () => {
     // Neither exemption can grow quietly.
     assert.equal(APPROVED_ADVERTISING.length, 1);
     assert.equal(APPROVED_BILLING.length, 1);
+    assert.equal(APPROVED_ANALYTICS.length, 2);
   });
 
   it('shows no advertisement and no placeholder pretending to be one', () => {

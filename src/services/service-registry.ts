@@ -2,7 +2,9 @@ import { FEATURES, REVENUECAT, STORAGE_KEYS, TRANSLATION_CONFIG } from '@/consta
 import { createExpoSQLiteDatabase, createHistoryRepository } from '@/database';
 import { TranseeMlKit, TranseeOcr } from '@modules/transee-mlkit';
 
+import { createFirebaseAnalyticsService } from './analytics';
 import { expoClipboardService } from './clipboard';
+import { createConversationHistoryService } from './conversation';
 import {
   createLocalEntitlementsService,
   createRevenueCatEntitlementsService,
@@ -14,6 +16,7 @@ import {
 import { createFetchHttpClient } from './http';
 import { expoNetworkService } from './network';
 import { createMlKitOcrService } from './ocr';
+import { createSavedPhrasesService } from './phrases';
 import {
   createFilePreferencesStorage,
   createPreferencesService,
@@ -36,6 +39,7 @@ import {
   type TranslationService,
 } from './translation';
 import { createBackendTutorService } from './tutor';
+import { createServerWarmupService } from './warmup';
 
 /**
  * Single place where concrete services are bound to their interfaces.
@@ -237,6 +241,40 @@ export const services = {
     path: TRANSLATION_CONFIG.backend.tutorPath,
     http,
   }),
+  /**
+   * The Conversation screen's transcripts, so they survive closing the app.
+   *
+   * Its own named slot through the same file-backed seam preferences and
+   * entitlements use — a transcript is not a translation the user asked for,
+   * so it stays out of `history` above, and it is small and cleared by the
+   * user rather than queried, so it stays out of SQL entirely.
+   */
+  conversationHistory: createConversationHistoryService(
+    createFilePreferencesStorage(`${STORAGE_KEYS.conversationHistory}.json`),
+  ),
+  /**
+   * Wakes the translation server when the app comes into view, so the first
+   * translation of a visit does not wait for it to start. Sends nothing about
+   * the user, and does nothing in a build with no backend URL.
+   */
+  serverWarmup: createServerWarmupService({
+    baseUrl: TRANSLATION_CONFIG.backend.baseUrl,
+    path: TRANSLATION_CONFIG.warmup.path,
+    timeoutMs: TRANSLATION_CONFIG.warmup.timeoutMs,
+    http,
+  }),
+  /**
+   * Usage analytics: which features are used, never what was said or typed.
+   * Does nothing in a build without the native SDK (Expo Go).
+   */
+  analytics: createFirebaseAnalyticsService(),
+  /**
+   * Phrases the user saved, each with its translation, so they can be shown
+   * or read aloud with no connection. One small file, like the transcripts.
+   */
+  savedPhrases: createSavedPhrasesService(
+    createFilePreferencesStorage(`${STORAGE_KEYS.savedPhrases}.json`),
+  ),
   network: expoNetworkService,
   clipboard: expoClipboardService,
   ocr: ocrRecognizer,

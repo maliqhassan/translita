@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, type ViewStyle } from 'react-native';
 
+import type { ColorTokens } from '@/constants';
 import { useTheme } from '@/hooks';
 
 import { Icon, type IconName } from './icon';
@@ -11,6 +12,8 @@ export type IconButtonProps = {
   accessibilityLabel: string;
   variant?: 'plain' | 'soft' | 'solid';
   size?: number;
+  /** Glyph colour; defaults to the ink that suits the variant. */
+  color?: keyof ColorTokens;
   disabled?: boolean;
   style?: ViewStyle;
 };
@@ -21,6 +24,7 @@ export function IconButton({
   accessibilityLabel,
   variant = 'plain',
   size = 20,
+  color,
   disabled = false,
   style,
 }: IconButtonProps) {
@@ -56,7 +60,11 @@ export function IconButton({
         style,
       ]}
     >
-      <Icon name={name} size={size} color={variant === 'solid' ? 'textOnPrimary' : 'text'} />
+      <Icon
+        name={name}
+        size={size}
+        color={color ?? (variant === 'solid' ? 'textOnPrimary' : 'text')}
+      />
     </Pressable>
   );
 }

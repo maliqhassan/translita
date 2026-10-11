@@ -38,6 +38,22 @@ export const TRANSLATION_CONFIG = {
     tutorPath: '/tutor',
   },
 
+  /**
+   * Waking the server before the first translation of a visit.
+   *
+   * The server sleeps after about fifteen idle minutes, and the first request
+   * after that waits while it starts. The app asks for the health check when
+   * it opens or comes back to the foreground — at most once per
+   * `intervalMs`, which is shorter than the server's idle limit, so a server
+   * kept awake by a recent ping is not pinged again for nothing.
+   */
+  warmup: {
+    path: '/health',
+    intervalMs: 10 * 60_000,
+    /** Long enough for a full wake-up to answer rather than be cut off. */
+    timeoutMs: 60_000,
+  },
+
   /** Abort a request that has not answered in this long. */
   timeoutMs: 10_000,
 

@@ -46,12 +46,24 @@ export const DEFAULT_PLAN: Plan = 'free';
  * `feature-access.ts` — because the gates they feed still answer the question
  * of whether a *device* can do something, which is not a commercial question
  * at all.
+ *
+ * `aiTutor` joined this list for the same reason `adFree` is the one thing
+ * left out of it: a model call costs money on every exchange the same way a
+ * translation call does, but an interstitial pays for it directly instead of
+ * asking for a subscription — see `useConversationInterstitialAd`. The
+ * capability itself survives the move exactly as the others did, so reversing
+ * it back into a Pro-only sale is one line, not a redesign.
  */
-const FREE_CAPABILITIES = ['cameraOcr', 'speechRecognition', 'offlineTranslation'] as const;
+const FREE_CAPABILITIES = [
+  'cameraOcr',
+  'speechRecognition',
+  'offlineTranslation',
+  'aiTutor',
+] as const;
 
 export const PLAN_CAPABILITIES: Readonly<Record<Plan, readonly Capability[]>> = {
   free: FREE_CAPABILITIES,
-  pro: [...FREE_CAPABILITIES, 'adFree', 'aiTutor'],
+  pro: [...FREE_CAPABILITIES, 'adFree'],
 };
 
 /** What Pro adds over Free, derived so a paywall cannot overstate it. */

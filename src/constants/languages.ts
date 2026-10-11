@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Language, LanguageId } from '@/types';
 import { foldForSearch } from '@/utils';
 
@@ -35,7 +36,9 @@ export function getLanguage(id: LanguageId): Language | undefined {
 
 /** Display name, falling back to the raw id so the UI never renders blank. */
 export function languageName(id: LanguageId): string {
-  return BY_ID.get(id)?.name ?? id;
+  // In the app's own language: "German" reads "جرمن" to an Urdu speaker.
+  const name = BY_ID.get(id)?.name;
+  return name ? t(name) : id;
 }
 
 /** Short badge text, e.g. `EN`, `ZH-HANS`. */

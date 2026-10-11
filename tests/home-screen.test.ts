@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { ADMOB } from '@/constants';
+
 /**
  * The translator home screen: its header controls and its shortcuts.
  *
@@ -41,7 +43,7 @@ describe('the home screen header', () => {
     assert.ok(existsSync('app/upgrade.tsx'));
     assert.ok(existsSync('app/(tabs)/settings.tsx'));
 
-    assert.match(actions, /accessibilityLabel="Translita Pro"/);
+    assert.match(actions, /accessibilityLabel=\{t\('Translita Pro'\)\}/);
   });
 
   it('invents no help button, because there is no help screen', () => {
@@ -49,6 +51,31 @@ describe('the home screen header', () => {
 
     assert.equal(actions.includes('help'), false);
     assert.equal(existsSync('app/help.tsx'), false);
+  });
+
+  it('puts the logo and title on one line, identical on every tab', () => {
+    // Home used to draw its own header, with a status line under the name
+    // that lifted it off the logo's line, and the row took the height of its
+    // tallest control — so the logo sat at a different height on each tab.
+    const header = code('src/components/layout/screen-header.tsx');
+    assert.match(header, /minHeight: theme\.layout\.minTouchTarget/);
+    assert.match(header, /variant=\{compact \? 'brandTitle' : 'h1'\}/);
+
+    assert.match(
+      code('src/features/translation/components/home-header.tsx'),
+      /<ScreenHeader\s+compact/,
+    );
+    for (const screen of [
+      'src/features/camera/screens/camera-screen.tsx',
+      'src/features/history/screens/history-screen.tsx',
+      'src/features/settings/screens/settings-screen.tsx',
+    ]) {
+      assert.match(
+        code(screen),
+        /<ScreenHeader\s+compact[\s\S]{0,80}leading=\{<BrandMark \/>\}/,
+        screen,
+      );
+    }
   });
 
   it('claims nothing about the user being Pro', () => {
@@ -65,10 +92,11 @@ describe('the home screen header', () => {
 describe('the feature shortcuts', () => {
   it('goes only to routes that exist', () => {
     const screen = code(TRANSLATE);
+    // History is its own tab, so it is not repeated here.
     const routes: [string, string][] = [
       ["router.push('/camera')", 'app/(tabs)/camera.tsx'],
+      ["router.push('/conversation')", 'app/conversation.tsx'],
       ["router.push('/settings/language-packs')", 'app/settings/language-packs.tsx'],
-      ["router.push('/history')", 'app/(tabs)/history.tsx'],
     ];
 
     for (const [call, file] of routes) {
@@ -77,20 +105,43 @@ describe('the feature shortcuts', () => {
     }
   });
 
-  it('invents neither Phrases nor Quotation', () => {
-    // Both appear in the reference design. Neither feature exists here, and a
-    // tile that opens nothing teaches a user not to trust the others.
-    const screen = code(TRANSLATE).toLowerCase();
+  it('opens AI Practice straight into the tutor, and never strands it', () => {
+    // The card asks for Practice through the route. The Conversation screen
+    // honours that, and falls back to a person when this build has no tutor,
+    // rather than sitting in a mode with no way out.
+    assert.match(
+      code(TRANSLATE),
+      /router\.push\(\{ pathname: '\/conversation', params: \{ mode: 'tutor' \} \}\)/,
+    );
 
-    for (const word of ['phrase', 'quotation']) {
-      assert.equal(screen.includes(word), false, word);
-    }
+    const conversation = code('src/features/conversation/screens/conversation-screen.tsx');
+    assert.match(conversation, /params\.mode === 'tutor' \? 'tutor' : 'person'/);
+    assert.match(conversation, /if \(!available\) setMode\('person'\);/);
   });
 
-  it('drops the voice shortcut when the device cannot listen', () => {
-    // The same rule the composer's own microphone follows: an action that
-    // cannot work is not shown, rather than shown failing.
-    assert.match(code(TRANSLATE), /speech\.status === 'unavailable'\s*\?\s*\[\]/);
+  it('lists Phrases now that it exists, and still invents no Quotation', () => {
+    // Phrases was left out while there was nothing behind it; it is a real
+    // screen now. Quotation still does not exist, so it still has no tile.
+    const screen = code(TRANSLATE);
+
+    assert.ok(screen.includes("router.push('/phrases')"));
+    assert.ok(existsSync('app/phrases.tsx'));
+    assert.equal(screen.toLowerCase().includes('quotation'), false);
+  });
+
+  it('always lists Conversation, and lets that screen explain a missing recogniser', () => {
+    // It used to vanish whenever speech read as unavailable — which is also
+    // the answer for a moment at startup, and always in Expo Go — so the
+    // feature looked missing. The row now always shows; the Conversation
+    // screen says plainly when a device cannot listen.
+    const screen = code(TRANSLATE);
+
+    assert.match(screen, /key: 'conversation'/);
+    assert.equal(/speech\.status === 'unavailable'\s*\?\s*\[\]/.test(screen), false);
+    assert.match(
+      code('src/features/conversation/screens/conversation-screen.tsx'),
+      /no speech recogniser/,
+    );
   });
 
   it('gates no shortcut on a plan', () => {
@@ -124,7 +175,52 @@ describe('the feature shortcuts', () => {
 
     assert.ok(screen.indexOf('<TranslationComposer') < screen.indexOf('<FeatureTiles'));
     assert.ok(screen.indexOf('<TranslationResultCard') < screen.indexOf('<FeatureTiles'));
-    assert.ok(screen.indexOf('label="Translate"') < screen.indexOf('<FeatureTiles'));
+    assert.ok(screen.indexOf("label={t('Translate')}") < screen.indexOf('<FeatureTiles'));
+  });
+});
+
+describe('before and after translating are one screen, not two', () => {
+  it('adds no separate result route', () => {
+    for (const path of ['app/result.tsx', 'app/translate/result.tsx', 'app/translation.tsx']) {
+      assert.equal(existsSync(path), false, path);
+    }
+    assert.equal(code(TRANSLATE).includes("router.push('/result"), false);
+  });
+
+  it('keeps the shortcuts and recent list below, before and after translating', () => {
+    const screen = code(TRANSLATE);
+
+    // They used to vanish once a result appeared. Now nothing gates them on
+    // the translation state.
+    assert.equal(screen.includes('hasResult'), false, 'the shortcuts are gated on a result again');
+
+    // Both below the Translate button, in one block that glides down when the
+    // result card opens above it.
+    const translate = screen.indexOf("label={t('Translate')}");
+    const tiles = screen.indexOf('<FeatureTiles tiles={tiles} />');
+    const recent = screen.indexOf('<RecentTranslations />');
+    assert.ok(translate < tiles && tiles < recent, 'Translate, then shortcuts, then recent');
+
+    const block = screen.slice(screen.lastIndexOf('<Animated.View', tiles), recent);
+    assert.match(block, /layout=\{LinearTransition/);
+  });
+
+  it('reveals the result directly below the source box, above the Translate button', () => {
+    const screen = code(TRANSLATE);
+
+    assert.ok(screen.indexOf('<TranslationComposer') < screen.indexOf('<TranslationResultCard'));
+    assert.ok(screen.indexOf('<TranslationResultCard') < screen.indexOf("label={t('Translate')}"));
+  });
+
+  it('draws nothing for the result before anything is translated', () => {
+    assert.match(
+      code('src/features/translation/components/translation-result-card.tsx'),
+      /if \(state\.status === 'idle'\) return null;/,
+    );
+  });
+
+  it('only claims the device is offline ready when the current pair is', () => {
+    assert.match(code(TRANSLATE), /offlineReady=\{readiness\?\.kind === 'ready'\}/);
   });
 });
 
@@ -179,12 +275,13 @@ describe('the AdMob spike banner', () => {
     );
   });
 
-  it('uses the package test unit, never a real ad unit', () => {
+  it('asks the shared chooser for its unit, and writes none down itself', () => {
     const banner = code(BANNER);
 
-    assert.ok(banner.includes('unitId={TestIds.BANNER}'), 'not using the package test id');
-    // A literal `ca-app-pub-` id in a component would be how a real unit
-    // arrives by accident. The App ID lives in app.json, not here.
+    // Real in release, Google's test unit in development — decided in one
+    // place for every format, never per component.
+    assert.match(banner, /const unitId = unitFor\('banner'\);/);
+    assert.match(banner, /unitId=\{unitId\}/);
     assert.equal(/ca-app-pub-/.test(banner), false);
   });
 
@@ -209,7 +306,7 @@ describe('the AdMob spike banner', () => {
     assert.equal(code(TILES).includes('BannerAd'), false);
   });
 
-  it('declares the test AdMob application id in app.json, not in code', () => {
+  it('declares the real AdMob application id in app.json, matching the config', () => {
     const app = JSON.parse(read('app.json')) as {
       expo: { plugins: (string | [string, Record<string, string>])[] };
     };
@@ -219,8 +316,10 @@ describe('the AdMob spike banner', () => {
     );
 
     assert.ok(Array.isArray(entry), 'the ads plugin is not configured');
-    // Google's published sample application id. Never a real one.
-    assert.equal(entry[1].androidAppId, 'ca-app-pub-3940256099942544~3347511713');
-    assert.equal('iosAppId' in entry[1], false, 'this spike is Android only');
+    // The account's own app, not Google's sample: live units only fill for
+    // the app they were created under.
+    assert.equal(entry[1].androidAppId, ADMOB.appId);
+    assert.equal(entry[1].androidAppId.includes('3940256099942544'), false, 'the sample app id');
+    assert.equal('iosAppId' in entry[1], false, 'Android only');
   });
 });

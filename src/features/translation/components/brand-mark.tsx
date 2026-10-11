@@ -1,36 +1,39 @@
-import { View } from 'react-native';
+import { Image } from 'react-native';
 
-import { Icon } from '@/components';
-import { useTheme } from '@/hooks';
+/**
+ * The Translita mark: a cyan speech bubble with an "A", and a navy bubble
+ * with 文 behind it.
+ *
+ * The same artwork as the launcher icon, generated from the one master by
+ * `scripts/generate-icons.mjs` — trimmed to its own edges, on a transparent
+ * background, with the original black turned to the app's navy. It therefore
+ * sits directly on the page with no tile behind it, and the app and its icon
+ * can never drift apart.
+ */
 
-export type BrandMarkProps = {
-  /**
-   * Rendered on the header gradient rather than on the app background.
-   *
-   * The solid indigo tile disappears against the gradient, so on it the mark
-   * becomes a translucent white tile instead. Same glyph, legible on both.
-   */
-  onGradient?: boolean;
-};
+const LOGO = require('../../../../assets/images/logo-mark.png') as number;
 
-/** The small Translita glyph that anchors the home header. */
-export function BrandMark({ onGradient = false }: BrandMarkProps) {
-  const theme = useTheme();
+/** The artwork's own proportions (240×196), so it never stretches. */
+const ASPECT = 240 / 196;
 
+/**
+ * One size everywhere, on purpose.
+ *
+ * It used to take a width, and Home asked for 40 while Camera, History and
+ * Settings took the 52 default — so the logo visibly jumped in size on every
+ * tab change. With no option there is nothing to disagree about.
+ */
+const WIDTH = 44;
+
+export function BrandMark() {
+  const width = WIDTH;
   return (
-    <View
+    <Image
+      source={LOGO}
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants"
-      style={{
-        width: 34,
-        height: 34,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: theme.radius.md,
-        backgroundColor: onGradient ? theme.colors.onGradientSurface : theme.colors.primary,
-      }}
-    >
-      <Icon name="language" size={19} color={onGradient ? 'primary' : 'textOnPrimary'} />
-    </View>
+      resizeMode="contain"
+      style={{ width, height: width / ASPECT }}
+    />
   );
 }

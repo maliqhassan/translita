@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { t } from '@/i18n';
 import { services, type PurchasePlan } from '@/services';
 import type { AsyncState } from '@/types';
 
@@ -32,7 +33,7 @@ export type PurchaseState = {
   restore: () => Promise<void>;
 };
 
-export function usePurchase(): PurchaseState {
+export function usePurchase(source: 'onboarding' | 'app' = 'app'): PurchaseState {
   /*
    * Starts loading rather than idle, because the effect below always runs on
    * mount. Setting it inside the effect would be a second render before the
@@ -60,20 +61,37 @@ export function usePurchase(): PurchaseState {
     };
   }, []);
 
-  const buy = useCallback(async (planId: string) => {
-    setBusy(true);
-    setNotice(null);
+  // Counted once per visit to the Pro screen, which is the only place this
+  // hook is mounted.
+  useEffect(() => {
+    services.analytics.log({ name: 'paywall_view', params: { source } });
+  }, [source]);
 
-    const result = await services.purchases.purchase(planId);
+  const buy = useCallback(
+    async (planId: string) => {
+      setBusy(true);
+      setNotice(null);
 
-    setBusy(false);
+      const result = await services.purchases.purchase(planId);
 
-    // Backing out of the store sheet is a decision, not a failure. Saying
-    // anything at all here would be scolding somebody for changing their mind.
-    if (result.ok || result.error.code === 'cancelled') return;
+      setBusy(false);
 
-    setNotice(result.error.message);
-  }, []);
+      if (result.ok) {
+        const period =
+          plans.status === 'success'
+            ? plans.data.find((plan) => plan.id === planId)?.period
+            : undefined;
+        if (period) services.analytics.log({ name: 'subscription_started', params: { period } });
+      }
+
+      // Backing out of the store sheet is a decision, not a failure. Saying
+      // anything at all here would be scolding somebody for changing their mind.
+      if (result.ok || result.error.code === 'cancelled') return;
+
+      setNotice(result.error.message);
+    },
+    [plans],
+  );
 
   const restore = useCallback(async () => {
     setBusy(true);
@@ -95,8 +113,8 @@ export function usePurchase(): PurchaseState {
      */
     setNotice(
       result.value
-        ? 'Purchases restored.'
-        : 'No previous purchase was found for this store account.',
+        ? t('Purchases restored.')
+        : t('No previous purchase was found for this store account.'),
     );
   }, []);
 

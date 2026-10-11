@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
+
+import { darkColors, lightColors } from '@/constants/colors';
 
 /**
  * The redesign's contract.
@@ -76,8 +78,8 @@ describe('the language picker', () => {
     const picker = read(PICKER);
 
     assert.match(picker, /SegmentedControl/);
-    assert.match(picker, /label: 'FROM'/);
-    assert.match(picker, /label: 'TO'/);
+    assert.match(picker, /label: t\('From'\)/);
+    assert.match(picker, /label: t\('To'\)/);
     assert.match(picker, /onChange={setSide}/);
   });
 
@@ -115,22 +117,58 @@ describe('the language picker', () => {
 });
 
 describe('no second catalogue, and no invented data', () => {
-  it('adds no flag assets or flag mapping', () => {
-    // Our catalogue carries no region, and a flag per *language* would be a
-    // guess: Arabic, Spanish and English have no single correct one.
-    const offenders: string[] = [];
+  it('keeps flags to one documented mapping, and only as a cue beside the name', () => {
+    /*
+     * This used to forbid flags outright: a flag per *language* is a guess,
+     * since Arabic, Spanish and English have no single correct one. Flags
+     * were then asked for on the language packs screen. The guess is now
+     * made in exactly one place, with the rule written down beside it, and
+     * the name still always comes from the catalogue.
+     */
+    const mappings: string[] = [];
     const walk = (dir: string) => {
       for (const entry of readdirSync(dir, { withFileTypes: true })) {
         const path = dir + '/' + entry.name;
         if (entry.isDirectory()) walk(path);
-        else if (/\.tsx?$/.test(entry.name) && /flagEmoji|FLAGS|flagFor/.test(read(path))) {
-          offenders.push(path);
+        else if (/\.tsx?$/.test(entry.name) && /const REGION\b/.test(read(path))) {
+          mappings.push(path);
         }
       }
     };
     walk('src');
 
-    assert.deepEqual(offenders, []);
+    assert.deepEqual(mappings, ['src/constants/language-flags.ts'], 'a second flag mapping');
+
+    // Shown next to the catalogue name, never instead of it.
+    const item = read('src/features/offline/components/language-pack-item.tsx');
+    assert.match(item, /<FlagCircle language=\{pack\.language\} \/>/);
+    assert.match(item, /\{t\(pack\.name\)\}/);
+    assert.match(read('src/components/ui/flag-circle.tsx'), /languageRegion\(language\)/);
+  });
+
+  it('maps common languages to a country, and detect-language to none', async () => {
+    const { languageRegion } = await import('@/constants/language-flags');
+
+    assert.equal(languageRegion('de'), 'DE');
+    assert.equal(languageRegion('pt-BR'), 'BR');
+    assert.equal(languageRegion('zh-Hant'), 'TW');
+    assert.equal(languageRegion('auto'), undefined);
+  });
+
+  it('bundles a real image for every country it maps to, so none is blank', () => {
+    // Images, not emoji: each phone maker's emoji font draws flags at its own
+    // size and offset, so emoji could not be cropped to a circle reliably.
+    const regions = [...read('src/constants/language-flags.ts').matchAll(/: '([A-Z]{2})',/g)].map(
+      (match) => match[1]!,
+    );
+    const images = read('src/constants/flag-images.ts');
+
+    for (const region of new Set(regions)) {
+      const file = 'assets/flags/' + region.toLowerCase() + '.png';
+      assert.ok(existsSync(file), file + ' is missing');
+      assert.equal(readFileSync(file).subarray(1, 4).toString(), 'PNG', file + ' is not a PNG');
+      assert.ok(images.includes(region + ':'), region + ' is not in the image map');
+    }
   });
 
   it('keeps the language catalogue as the only source of names', () => {
@@ -163,16 +201,45 @@ describe('the redesign left the plumbing alone', () => {
 });
 
 describe('the header chrome', () => {
-  it('uses a surface token for the brand tile, not a text colour', () => {
-    // Painting the tile with the muted *ink* is what made it a dark square on
-    // the light gradient: dark ink, dark tile.
+  it('shows the real logo on the page, with no square behind it', () => {
+    // The mark is the launcher artwork itself, trimmed and transparent — not a
+    // redrawing of it, and never sat on a cyan or black tile.
     const mark = read('src/features/translation/components/brand-mark.tsx');
 
-    assert.match(mark, /onGradientSurface/);
-    assert.equal(
-      mark.includes('backgroundColor: onGradient ? theme.colors.onGradientMuted'),
-      false,
-    );
+    assert.match(mark, /require\('\.\.\/\.\.\/\.\.\/\.\.\/assets\/images\/logo-mark\.png'\)/);
+    assert.equal(mark.includes('backgroundColor'), false, 'a tile crept back in');
+    assert.match(mark, /resizeMode="contain"/);
+  });
+
+  it('ships every icon layer with transparency, at launcher size', () => {
+    // Read straight from the PNG header: width and height at bytes 16–23,
+    // colour type at 25, where 6 (RGBA) is the only type with alpha.
+    const header = (path: string) => {
+      const png = readFileSync(path);
+      return { width: png.readUInt32BE(16), height: png.readUInt32BE(20), type: png[25] };
+    };
+
+    for (const path of [
+      'assets/images/logo-mark.png',
+      'assets/images/android-icon-foreground.png',
+      'assets/images/android-icon-monochrome.png',
+      'assets/images/splash-icon.png',
+    ]) {
+      assert.equal(header(path).type, 6, `${path} has no alpha channel`);
+    }
+
+    // Adaptive layers at the size the launcher resamples from, and the
+    // monochrome layer no longer Expo's 432px placeholder.
+    for (const path of [
+      'assets/images/android-icon-foreground.png',
+      'assets/images/android-icon-monochrome.png',
+    ]) {
+      assert.deepEqual(
+        [header(path).width, header(path).height],
+        [1024, 1024],
+        `${path} is not 1024×1024`,
+      );
+    }
   });
 
   it('defines that surface in both themes', () => {
@@ -209,8 +276,24 @@ describe('the bottom navigation', () => {
   });
 
   it('keeps inactive glyphs dark enough to see', () => {
-    const colors = read('src/constants/colors.ts');
-    assert.match(colors, /tabBarInactive: palette.neutral\[600\]/);
+    // Computed rather than pinned to one token, so the palette can follow the
+    // design while the legibility floor stays.
+    const luminance = (hex: string) => {
+      const channels = [1, 3, 5].map((i) => {
+        const part = Number.parseInt(hex.slice(i, i + 2), 16) / 255;
+        return part <= 0.03928 ? part / 12.92 : ((part + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * channels[0]! + 0.7152 * channels[1]! + 0.0722 * channels[2]!;
+    };
+    const contrast = (a: string, b: string) => {
+      const [light, dark] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+      return (light! + 0.05) / (dark! + 0.05);
+    };
+
+    for (const theme of [lightColors, darkColors]) {
+      const ratio = contrast(theme.tabBarInactive, theme.tabBar);
+      assert.ok(ratio >= 4.5, `inactive tab is ${ratio.toFixed(2)}:1`);
+    }
   });
 });
 

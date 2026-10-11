@@ -22,6 +22,12 @@ export type ScreenProps = {
    * area, otherwise there would be a band of background above the gradient.
    */
   headerBleed?: boolean;
+  /**
+   * Paints the soft vertical wash behind the page instead of the flat
+   * background, for screens whose cards are translucent "glass". The flat
+   * colour stays underneath wherever the gradient cannot be drawn.
+   */
+  wash?: boolean;
   edges?: readonly Edge[];
   contentStyle?: ViewStyle;
 };
@@ -37,6 +43,7 @@ export function Screen({
   keyboardAvoiding = false,
   edgeToEdge = false,
   headerBleed = false,
+  wash = false,
   edges = ['top'],
   contentStyle,
 }: ScreenProps) {
@@ -78,7 +85,18 @@ export function Screen({
   );
 
   return (
-    <SafeAreaView edges={safeEdges} style={{ flex: 1, backgroundColor: theme.colors.background }}>
+    <SafeAreaView
+      edges={safeEdges}
+      style={{
+        flex: 1,
+        // The page colour underneath, so a device that cannot draw the
+        // gradient still shows the mist blue rather than a pale fallback.
+        backgroundColor: wash ? theme.colors.washFrom : theme.colors.background,
+        experimental_backgroundImage: wash
+          ? `linear-gradient(180deg, ${theme.colors.washFrom} 0%, ${theme.colors.washTo} 100%)`
+          : undefined,
+      }}
+    >
       <StatusBar barStyle={theme.scheme === 'dark' ? 'light-content' : 'dark-content'} />
       {keyboardAvoiding ? (
         <KeyboardAvoidingView

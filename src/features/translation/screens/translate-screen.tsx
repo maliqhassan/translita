@@ -1,9 +1,11 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback } from 'react';
-import { View } from 'react-native';
+import { Keyboard, View } from 'react-native';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 
-import { Button, Card, GradientHeader, IconButton, Screen, Text } from '@/components';
-import { APP, errorMessage } from '@/constants';
+import { Button, Card, IconButton, Screen, Text } from '@/components';
+import { errorMessage } from '@/constants';
+import { useInterstitialAds } from '@/features/ads';
 import { TextScanner, consumePendingScan } from '@/features/camera';
 import { RecentTranslations } from '@/features/history';
 import {
@@ -14,13 +16,13 @@ import {
   useOfflineTranslationPermitted,
 } from '@/features/offline';
 import { useTheme } from '@/hooks';
-import { useLanguagePair, usePreferences, type LanguageField } from '@/store';
+import { msg, t } from '@/i18n';
+import { services } from '@/services';
+import { useLanguagePair, usePreferences, useSavedPhrases, type LanguageField } from '@/store';
 import type { AppError } from '@/types';
 
-import { BrandMark } from '../components/brand-mark';
 import { FeatureTiles, type FeatureTile } from '../components/feature-tiles';
-import { HomeActions } from '../components/home-actions';
-import { SwapLanguagesButton } from '../components/swap-languages-button';
+import { HomeHeader } from '../components/home-header';
 import { TranslationComposer } from '../components/translation-composer';
 import { TranslationResultCard } from '../components/translation-result-card';
 import { useCameraOcr } from '../hooks/use-camera-ocr';
@@ -74,6 +76,12 @@ export function TranslateScreen() {
    * translated only when the user presses Translate.
    */
   const scan = useCameraOcr(setScanned);
+  const ads = useInterstitialAds();
+  const phrases = useSavedPhrases();
+
+  // A failure, or the reason a tap on Scan or Speak could not run here.
+  const scanMessage = scan.notice ?? (scan.error ? errorMessage(scan.error) : undefined);
+  const speechMessage = speech.notice ?? (speech.error ? errorMessage(speech.error) : undefined);
 
   /**
    * A scan made on the Camera tab arrives here.
@@ -130,78 +138,96 @@ export function TranslateScreen() {
   };
 
   /*
-   * Shortcuts to features that already exist, and to nothing else.
+   * Shortcuts to the other ways of translating, and to nothing else.
    *
-   * Offline leads, and is the only emphasised tile: translating with no
-   * connection is what distinguishes this app, and it was previously a row
-   * that read as a footnote. It points at the language packs screen because
-   * downloading a pack is the thing standing between a user and offline
-   * translation — the mode itself needs no setup.
+   * Offline points at the language packs screen, because downloading a pack
+   * is the one step between a user and translating with no connection.
+   * History is not here: it has its own tab.
    *
-   * The voice tile opens the conversation screen rather than starting
-   * dictation here. Dictation already has a control in the composer, so a
-   * shortcut that did the same thing twice was the weaker of the two uses.
-   * It is dropped when the device has no recogniser, on the same rule the
-   * composer's microphone follows.
+   * Conversation is always listed. It used to be hidden when the device
+   * reported no speech recogniser — but that is also the answer for a moment
+   * at startup before the check completes, and always in Expo Go, so the
+   * feature looked missing. The Conversation screen itself says plainly when
+   * a device cannot listen, which is a better answer than an absent row.
+   *
+   * AI Practice opens the same Conversation screen straight into its Practice
+   * mode — a real feature that was only reachable through a toggle there.
    *
    * Nothing here is gated by plan. Every one of these is part of the free app.
    */
   const tiles: readonly FeatureTile[] = [
     {
-      key: 'packs',
-      icon: 'cloud-offline-outline',
-      title: 'Offline translation',
-      subtitle: 'Download a language and translate with no connection',
-      onPress: () => router.push('/settings/language-packs'),
-      accessibilityHint: 'Opens the language packs screen',
-      emphasis: true,
+      key: 'conversation',
+      icon: 'chatbubbles-outline',
+      title: t('Conversation'),
+      subtitle: t('Talk in two languages'),
+      onPress: () => ads.openAfterAd(() => router.push('/conversation')),
+      accessibilityHint: t('Opens the two-way spoken conversation screen'),
     },
-    ...(speech.status === 'unavailable'
-      ? []
-      : [
-          {
-            key: 'conversation',
-            icon: 'chatbubbles-outline' as const,
-            title: 'Conversation',
-            subtitle: 'Two people, two microphones',
-            onPress: () => router.push('/conversation'),
-            accessibilityHint: 'Opens the two-way spoken conversation screen',
-          },
-        ]),
     {
       key: 'camera',
       icon: 'camera-outline',
-      title: 'Camera',
-      subtitle: 'Translate what you point at',
+      title: t('Camera'),
+      subtitle: t('Translate photos'),
       onPress: () => router.push('/camera'),
-      accessibilityHint: 'Opens the camera tab',
+      accessibilityHint: t('Opens the camera tab'),
     },
     {
-      key: 'history',
-      icon: 'time-outline',
-      title: 'History',
-      subtitle: 'Everything you have translated',
-      onPress: () => router.push('/history'),
-      accessibilityHint: 'Opens the history tab',
+      key: 'practice',
+      icon: 'school-outline',
+      title: t('AI Practice'),
+      subtitle: t('Learn by speaking'),
+      onPress: () =>
+        ads.openAfterAd(() =>
+          router.push({ pathname: '/conversation', params: { mode: 'tutor' } }),
+        ),
+      accessibilityHint: t('Opens conversation practice with an AI tutor'),
+    },
+    {
+      key: 'offline',
+      icon: 'cloud-download-outline',
+      title: t('Offline'),
+      subtitle: t('Download languages to use without internet'),
+      onPress: () => router.push('/settings/language-packs'),
+      accessibilityHint: t('Opens the language packs screen'),
+    },
+    {
+      key: 'phrases',
+      icon: 'bookmarks-outline',
+      title: t('Travel phrases'),
+      subtitle: t('Ready-made phrases, and the ones you saved, even offline'),
+      onPress: () => router.push('/phrases'),
+      badge: preferences.phrasesSeen ? undefined : msg('New'),
+      accessibilityHint: t('Opens the travel phrasebook and your saved phrases'),
     },
   ];
+
+  /**
+   * Translate, and put the keyboard away.
+   *
+   * With the keyboard still up, the result card opened underneath it and the
+   * user saw nothing happen. Dismissing it first means the answer lands in
+   * view.
+   */
+  const submit = useCallback(() => {
+    Keyboard.dismiss();
+    if (!canTranslate) return;
+    translate();
+    // Free plan only, and only on some presses — the hook decides both. It
+    // runs as the request goes out, so the ad covers the wait, not the result.
+    ads.onTranslate();
+  }, [canTranslate, translate, ads]);
 
   return (
     <Screen
       scrollable
       keyboardAvoiding
-      headerBleed
+      wash
       header={
-        <GradientHeader
-          title={APP.name}
-          subtitle={APP.tagline}
-          leading={<BrandMark onGradient />}
-          actions={
-            <HomeActions
-              onOpenUpgrade={() => router.push('/upgrade')}
-              onOpenSettings={() => router.push('/settings')}
-            />
-          }
+        <HomeHeader
+          offlineReady={readiness?.kind === 'ready'}
+          onOpenUpgrade={() => router.push('/upgrade')}
+          onOpenSettings={() => router.push('/settings')}
         />
       }
     >
@@ -210,20 +236,22 @@ export function TranslateScreen() {
           so readiness is used to explain a failure, not to pre-empt one. */}
       <OfflineReadinessNotice readiness={mode === 'offline' ? readiness : undefined} />
 
-      <View style={{ gap: theme.spacing.sm }}>
+      <View style={{ gap: theme.spacing.base }}>
         <TranslationComposer
           value={input}
           onChangeText={setInput}
           onClear={clearInput}
           onPaste={paste}
           sourceLanguage={pair.source}
+          targetLanguage={pair.target}
           onSelectLanguage={openPicker}
+          canSwap={canSwap}
+          onSwap={swap}
           editable={!isTranslating}
           speech={speech}
-          scan={scan}
+          // The Scan button opens the camera after an ad, when one is due.
+          scan={{ ...scan, open: () => ads.openAfterAd(scan.open) }}
         />
-
-        <SwapLanguagesButton canSwap={canSwap} onSwap={swap} />
 
         <TranslationResultCard
           state={state}
@@ -235,53 +263,96 @@ export function TranslateScreen() {
           onOpenPacks={() => router.push('/settings/language-packs')}
           onUpgrade={() => router.push('/upgrade')}
           speak={speak}
-          onSelectLanguage={openPicker}
+          phrase={{
+            saved:
+              state.status === 'success' &&
+              phrases.isSaved(
+                state.data.sourceText,
+                state.data.detectedLanguage ?? state.data.sourceLanguage,
+                state.data.targetLanguage,
+              ),
+            toggle: (result) => {
+              const nowSaved = phrases.toggle({
+                text: result.sourceText,
+                translation: result.translatedText,
+                sourceLanguage: result.detectedLanguage ?? result.sourceLanguage,
+                targetLanguage: result.targetLanguage,
+              });
+              if (nowSaved) {
+                services.analytics.log({ name: 'phrase_saved', params: { from: 'translation' } });
+              }
+            },
+          }}
         />
 
-        {scan.error ? (
+        {scanMessage ? (
           <Card variant="outlined">
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
               <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
-                {errorMessage(scan.error)}
+                {scanMessage}
               </Text>
               <IconButton
                 name="close-outline"
-                accessibilityLabel="Dismiss this message"
+                accessibilityLabel={t('Dismiss this message')}
                 onPress={scan.dismissError}
               />
             </View>
           </Card>
         ) : null}
 
-        {speech.error ? (
+        {speechMessage ? (
           <Card variant="outlined">
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
               <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
-                {errorMessage(speech.error)}
+                {speechMessage}
               </Text>
               <IconButton
                 name="close-outline"
-                accessibilityLabel="Dismiss this message"
+                accessibilityLabel={t('Dismiss this message')}
                 onPress={speech.dismissError}
               />
             </View>
           </Card>
         ) : null}
 
-        <Button
-          label="Translate"
-          icon="arrow-forward"
-          iconPosition="right"
-          size="lg"
-          fullWidth
-          loading={isTranslating}
-          disabled={!canTranslate}
-          onPress={translate}
-          accessibilityHint="Translates the text you entered"
-        />
+        {/* Glides to its new place when the result card opens above it,
+            rather than jumping — the one element that moves between the two
+            states, so the move is shown instead of cut. */}
+        <Animated.View layout={LinearTransition.duration(theme.motion.duration.normal)}>
+          <Button
+            label={t('Translate')}
+            icon="arrow-forward"
+            iconPosition="right"
+            size="lg"
+            fullWidth
+            loading={isTranslating}
+            disabled={!canTranslate}
+            onPress={submit}
+            accessibilityHint={t('Translates the text you entered')}
+            style={{
+              borderRadius: theme.radius.full,
+              height: theme.layout.minTouchTarget + theme.spacing.base,
+            }}
+          />
+        </Animated.View>
       </View>
 
-      <FeatureTiles tiles={tiles} />
+      {/*
+       * One screen, before and after translating.
+       *
+       * The shortcuts and the recent list stay under the Translate button in
+       * both states. When a result opens above them they glide down to make
+       * room rather than disappearing, so the other ways of translating are
+       * always one scroll away — and the translation just made shows up at
+       * the top of Recent.
+       */}
+      <Animated.View
+        layout={LinearTransition.duration(theme.motion.duration.normal)}
+        style={{ gap: theme.spacing.base }}
+      >
+        <FeatureTiles tiles={tiles} />
+        <RecentTranslations />
+      </Animated.View>
 
       <TextScanner
         visible={scan.scanning}
@@ -289,8 +360,6 @@ export function TranslateScreen() {
         onCapture={scan.capture}
         onClose={scan.close}
       />
-
-      <RecentTranslations />
     </Screen>
   );
 }

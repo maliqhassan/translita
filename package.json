@@ -1,6 +1,6 @@
 {
   "name": "transee",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "~15.1.1",
+    "@react-native-firebase/analytics": "^26.4.0",
+    "@react-native-firebase/app": "^26.4.0",
     "expo": "~57.0.17",
     "expo-camera": "~57.0.4",
     "expo-clipboard": "~57.0.1",

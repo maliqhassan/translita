@@ -114,7 +114,7 @@ describe('the Camera tab scans', () => {
 
     assert.match(screen, /useCameraOcr/);
     assert.match(screen, /TextScanner/);
-    assert.match(screen, /label="Open camera"/);
+    assert.match(screen, /label=\{t\('Open camera'\)\}/);
 
     // The signpost it used to be is gone.
     assert.equal(screen.includes('Scan from the Translate tab'), false);

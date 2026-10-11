@@ -1,9 +1,11 @@
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, Pressable, View } from 'react-native';
+import { useEffect } from 'react';
+import { ActivityIndicator, BackHandler, Pressable, View } from 'react-native';
 
 import { Badge, Button, Card, Icon, IconButton, Screen, ScreenHeader, Text } from '@/components';
 import { APP, PRO_PLANS } from '@/constants';
 import { useTheme } from '@/hooks';
+import { msg, t } from '@/i18n';
 import type { PurchasePlan } from '@/services';
 import { useEntitlements } from '@/store';
 
@@ -12,8 +14,8 @@ import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '../pro-benefits';
 
 /** The word beside the price, per period the store can return. */
 const PERIOD_LABEL: Record<PurchasePlan['period'], string> = {
-  month: 'month',
-  year: 'year',
+  month: msg('month'),
+  year: msg('year'),
 };
 
 /**
@@ -30,16 +32,57 @@ const PERIOD_LABEL: Record<PurchasePlan['period'], string> = {
  * described yet — never as what somebody is charged.
  *
  * It also has to be honest about the opposite thing. Pro no longer unlocks any
- * feature, so the screen leads with what every plan already includes and asks
- * for money only for the removal of ads and for unlimited practice. Listing
- * the app's features as though they were behind this screen would be selling
- * something already given away.
+ * feature — AI practice included, now funded by an interstitial rather than a
+ * paywall — so the screen leads with what every plan already includes and
+ * asks for money only for the removal of ads. Listing the app's features as
+ * though they were behind this screen would be selling something already
+ * given away.
  */
 export function UpgradeScreen() {
-  const theme = useTheme();
   const router = useRouter();
+
+  const close = () => {
+    if (router.canGoBack()) router.back();
+    else router.replace('/');
+  };
+
+  return <UpgradeContent source="app" onClose={close} />;
+}
+
+/**
+ * The last step of onboarding: the Pro offer, before Home.
+ *
+ * Part of the flow rather than a route pushed after it. A push had to wait for
+ * the navigator to exist and could be lost on the way; a step simply renders,
+ * every time onboarding runs. It is an offer, not a gate — the whole app is
+ * free — so the way out is as plain as the way in: the close button at the
+ * top, "Continue with ads" at the bottom, and Android's back button all go on
+ * to Home.
+ */
+export function OnboardingPaywall({ onDone }: { onDone: () => void }) {
+  useEffect(() => {
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      onDone();
+      return true;
+    });
+    return () => subscription.remove();
+  }, [onDone]);
+
+  return <UpgradeContent source="onboarding" onClose={onDone} />;
+}
+
+function UpgradeContent({
+  source,
+  onClose,
+}: {
+  /** Where the visit came from, for analytics. */
+  source: 'onboarding' | 'app';
+  onClose: () => void;
+}) {
+  const theme = useTheme();
   const { has } = useEntitlements();
-  const { plans, busy, notice, buy, restore } = usePurchase();
+  const fromOnboarding = source === 'onboarding';
+  const { plans, busy, notice, buy, restore } = usePurchase(source);
 
   /*
    * Asked as a capability question, not `plan === 'pro'`.
@@ -53,13 +96,27 @@ export function UpgradeScreen() {
     <Screen scrollable edges={['top', 'bottom']}>
       <ScreenHeader
         title={`${APP.name} Pro`}
-        subtitle="Every translation feature is free. Pro adds unlimited AI practice, and removes the ads."
+        subtitle={t(
+          'Every feature is free, including AI conversation practice. Pro removes the ads.',
+        )}
         leading={
-          <IconButton
-            name="chevron-back-outline"
-            accessibilityLabel="Go back"
-            onPress={() => router.back()}
-          />
+          fromOnboarding ? undefined : (
+            <IconButton
+              name="chevron-back-outline"
+              accessibilityLabel={t('Go back')}
+              onPress={onClose}
+            />
+          )
+        }
+        actions={
+          fromOnboarding ? (
+            <IconButton
+              name="close"
+              variant="soft"
+              accessibilityLabel={t('Close and continue with ads')}
+              onPress={onClose}
+            />
+          ) : undefined
         }
       />
 
@@ -90,9 +147,9 @@ export function UpgradeScreen() {
             </View>
 
             <View style={{ flex: 1, gap: theme.spacing.xxs }}>
-              <Text variant="body">{benefit.title}</Text>
+              <Text variant="body">{t(benefit.title)}</Text>
               <Text variant="bodySmall" color="textSecondary">
-                {benefit.description}
+                {t(benefit.description)}
               </Text>
             </View>
           </View>
@@ -102,7 +159,7 @@ export function UpgradeScreen() {
       {/* Named rather than implied. Someone weighing a subscription should be
           able to see that none of this is what they would be paying for. */}
       <Card variant="outlined" style={{ gap: theme.spacing.sm }}>
-        <Text variant="body">Included on every plan, free</Text>
+        <Text variant="body">{t('Included on every plan, free')}</Text>
 
         {INCLUDED_ON_EVERY_PLAN.map((feature) => (
           <View
@@ -111,7 +168,7 @@ export function UpgradeScreen() {
           >
             <Icon name={feature.icon} size={16} color="textSecondary" />
             <Text variant="bodySmall" color="textSecondary" style={{ flex: 1 }}>
-              {feature.title}
+              {t(feature.title)}
             </Text>
           </View>
         ))}
@@ -119,9 +176,9 @@ export function UpgradeScreen() {
 
       {hasEveryBenefit ? (
         <Card variant="outlined" style={{ gap: theme.spacing.sm, alignItems: 'flex-start' }}>
-          <Badge label="Pro" tone="primary" icon="checkmark-circle-outline" />
+          <Badge label={t('Pro')} tone="primary" icon="checkmark-circle-outline" />
           <Text variant="bodySmall" color="textSecondary">
-            You are on Pro, so the app is ad-free on this device.
+            {t('You are on Pro, so the app is ad-free on this device.')}
           </Text>
         </Card>
       ) : (
@@ -134,7 +191,7 @@ export function UpgradeScreen() {
 
           {plans.status === 'success' && plans.data.length > 0 ? (
             <>
-              <Text variant="body">Choose a plan</Text>
+              <Text variant="body">{t('Choose a plan')}</Text>
 
               {/* One row per plan the store actually offered, priced as the
                   store priced it. A row is the buy button: a separate button
@@ -150,7 +207,10 @@ export function UpgradeScreen() {
                       disabled={busy}
                       onPress={() => void buy(plan.id)}
                       accessibilityRole="button"
-                      accessibilityLabel={`Subscribe for ${plan.price} per ${PERIOD_LABEL[plan.period]}`}
+                      accessibilityLabel={t('Subscribe for {price} per {period}', {
+                        price: plan.price,
+                        period: t(PERIOD_LABEL[plan.period]),
+                      })}
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -165,16 +225,21 @@ export function UpgradeScreen() {
                     >
                       <View style={{ flex: 1, gap: theme.spacing.xxs }}>
                         <Text variant="body" style={{ fontWeight: '600' }}>
-                          {plan.price} per {PERIOD_LABEL[plan.period]}
+                          {t('{price} per {period}', {
+                            price: plan.price,
+                            period: t(PERIOD_LABEL[plan.period]),
+                          })}
                         </Text>
                         {best ? (
                           <Text variant="caption" color="primary">
-                            Save {PRO_PLANS.yearlySavingPercent}% against monthly
+                            {t('Save {percent}% against monthly', {
+                              percent: PRO_PLANS.yearlySavingPercent,
+                            })}
                           </Text>
                         ) : null}
                       </View>
 
-                      {best ? <Badge label="Best value" tone="primary" /> : null}
+                      {best ? <Badge label={t('Best value')} tone="primary" /> : null}
                       <Icon name="chevron-forward-outline" size={18} color="textSecondary" />
                     </Pressable>
                   );
@@ -182,8 +247,9 @@ export function UpgradeScreen() {
               </View>
 
               <Text variant="bodySmall" color="textSecondary">
-                Billed through Google Play and renews automatically. Cancel any time in Play Store →
-                Subscriptions.
+                {t(
+                  'Billed through Google Play and renews automatically. Cancel any time in Play Store → Subscriptions.',
+                )}
               </Text>
             </>
           ) : null}
@@ -192,10 +258,11 @@ export function UpgradeScreen() {
               as a broken paywall, and never as a price we cannot charge. */}
           {(plans.status === 'success' && plans.data.length === 0) || plans.status === 'error' ? (
             <>
-              <Text variant="body">Subscriptions are unavailable right now</Text>
+              <Text variant="body">{t('Subscriptions are unavailable right now')}</Text>
               <Text variant="bodySmall" color="textSecondary">
-                Pro could not be reached on this device. Every translation feature keeps working,
-                and you can try again later.
+                {t(
+                  'Pro could not be reached on this device. Every translation feature keeps working, and you can try again later.',
+                )}
               </Text>
             </>
           ) : null}
@@ -209,19 +276,30 @@ export function UpgradeScreen() {
           {/* Required by both stores, and the only route back to Pro after a
               reinstall — there is no account to sign in to. */}
           <Button
-            label="Restore purchases"
+            label={t('Restore purchases')}
             icon="refresh-outline"
             variant="ghost"
             fullWidth
             disabled={busy}
             onPress={() => void restore()}
-            accessibilityHint="Checks your store account for an existing subscription"
+            accessibilityHint={t('Checks your store account for an existing subscription')}
           />
         </Card>
       )}
 
+      {fromOnboarding ? (
+        <Button
+          // Someone who has just bought Pro is not continuing with ads.
+          label={hasEveryBenefit ? t('Continue') : t('Continue with ads')}
+          variant="ghost"
+          fullWidth
+          onPress={onClose}
+          accessibilityHint={t('Closes this screen and opens the translator')}
+        />
+      ) : null}
+
       <Text variant="caption" color="textMuted" align="center">
-        Translations and settings stay on this device, on either plan.
+        {t('Translations and settings stay on this device, on either plan.')}
       </Text>
     </Screen>
   );

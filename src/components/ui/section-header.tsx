@@ -25,7 +25,7 @@ export function SectionHeader({ title, description, action }: SectionHeaderProps
       }}
     >
       <View style={{ flex: 1, gap: theme.spacing.xxs }}>
-        <Text variant="label" color="textSecondary">
+        <Text variant="sectionLabel" color="textSecondary">
           {title.toUpperCase()}
         </Text>
         {description ? (

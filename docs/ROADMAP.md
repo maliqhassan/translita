@@ -787,7 +787,7 @@ product decision.
 Both were built after the original plan closed, and neither has run on
 hardware.
 
-**First-launch onboarding.** A mint welcome screen, then a five-slide
+**First-launch onboarding.** A white welcome screen in the app's own theme, then a five-slide
 carousel: routing, the language catalogue, speech, the camera and language
 packs. Swiping is React Native's own paged `ScrollView`, so no pager
 dependency was added, and the illustrations are drawn from views rather than

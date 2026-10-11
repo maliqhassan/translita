@@ -143,6 +143,41 @@ describe('the two microphones cannot fight over one session', () => {
   });
 });
 
+describe('the language pair is changeable from this screen, not only from Home', () => {
+  it('opens the same picker route Translate uses, rather than a second one', () => {
+    const screen = code(SCREEN);
+
+    assert.match(screen, /pathname: '\/translate\/language-picker'/);
+  });
+
+  it('a tap on either mic label opens the picker, separately from toggling the mic', () => {
+    const screen = code(SCREEN);
+
+    // Two distinct handlers on two distinct elements: `onPress` starts or
+    // stops listening, `onSelectLanguage` opens the picker. Collapsing them
+    // onto one Pressable would make tapping the language also start the mic.
+    assert.match(screen, /onSelectLanguage: \(\) => void/);
+    assert.equal(
+      (screen.match(/onSelectLanguage=\{\(\) => openPicker\(/g) ?? []).length,
+      2,
+      'both mic buttons must open a picker',
+    );
+  });
+
+  it('practice sends the learner mic to the target field, never the source', () => {
+    // The learner's one microphone always speaks the language being learned,
+    // whichever side of the pair that is stored as.
+    assert.match(code(SCREEN), /if \(mode === 'tutor'\) return 'target';/);
+  });
+
+  it('practice still lets the native language be changed, even with one mic', () => {
+    // The far slot loses its microphone in Practice, not its meaning: the
+    // tutor still glosses into this language, so it stays visible and tappable
+    // rather than becoming a blank space.
+    assert.match(code(SCREEN), /onPress=\{\(\) => openPicker\('source'\)\}/);
+  });
+});
+
 describe('the transcript reads as a conversation', () => {
   it('sides each turn, and does not rely on colour alone', () => {
     const turn = code(TURN);
@@ -153,8 +188,8 @@ describe('the transcript reads as a conversation', () => {
   it('offers share, copy and listen on a finished turn', () => {
     const turn = code(TURN);
 
-    assert.match(turn, /accessibilityLabel="Share this translation"/);
-    assert.match(turn, /accessibilityLabel="Copy this translation"/);
+    assert.match(turn, /accessibilityLabel=\{t\('Share this translation'\)\}/);
+    assert.match(turn, /accessibilityLabel=\{t\('Copy this translation'\)\}/);
     assert.match(turn, /Read this aloud/);
   });
 

@@ -71,13 +71,14 @@ export function AppTabBar({ state, descriptors, navigation, icons }: AppTabBarPr
           justifyContent: 'space-around',
           // Enough that the selected pill sits inside the bar rather than
           // against its border, which is what made the old bar look cramped.
-          paddingVertical: theme.spacing.xs,
+          paddingVertical: theme.spacing.sm,
           paddingHorizontal: theme.spacing.xs,
-          borderRadius: theme.radius.full,
+          borderRadius: theme.radius.xl,
           backgroundColor: theme.colors.tabBar,
           borderWidth: 1,
           borderColor: theme.colors.tabBarBorder,
-          ...theme.shadows.lg,
+          ...theme.shadows.md,
+          shadowColor: theme.colors.shadow,
         }}
       >
         {state.routes.map((route, index) => {
@@ -128,8 +129,8 @@ type TabItemProps = {
 };
 
 /**
- * One tab. The pill grows in behind the selected one rather than appearing,
- * which makes the change of tab readable as movement instead of a flash.
+ * One tab: its icon over its label, both always shown. The selected tab is
+ * drawn in cyan and eases up to full size, so the change reads as movement.
  */
 function TabItem({
   label,
@@ -140,13 +141,13 @@ function TabItem({
   onLongPress,
 }: TabItemProps) {
   const theme = useTheme();
-  const scale = useSharedValue(isFocused ? 1 : 0.9);
+  const scale = useSharedValue(isFocused ? 1 : 0.94);
 
   useEffect(() => {
-    scale.value = withSpring(isFocused ? 1 : 0.9, { damping: 16, stiffness: 220 });
+    scale.value = withSpring(isFocused ? 1 : 0.94, { damping: 16, stiffness: 220 });
   }, [isFocused, scale]);
 
-  const pillStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
+  const itemStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
 
   return (
     <Pressable
@@ -164,33 +165,20 @@ function TabItem({
         opacity: pressed ? theme.motion.opacityPressed : 1,
       })}
     >
-      <Animated.View
-        style={[
-          pillStyle,
-          {
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: theme.spacing.xs,
-            paddingVertical: theme.spacing.xs,
-            paddingHorizontal: isFocused ? theme.spacing.md : theme.spacing.sm,
-            borderRadius: theme.radius.full,
-            backgroundColor: isFocused ? theme.colors.primaryMuted : 'transparent',
-          },
-        ]}
-      >
+      <Animated.View style={[itemStyle, { alignItems: 'center', gap: theme.spacing.xxs }]}>
         <Icon
           name={iconName}
           size={theme.layout.tabIconSize}
-          color={isFocused ? 'primary' : 'tabBarInactive'}
+          color={isFocused ? 'tabBarActive' : 'tabBarInactive'}
         />
-
-        {/* The label rides beside the icon only on the selected tab, which
-            keeps the bar quiet without hiding what anything is. */}
-        {isFocused ? (
-          <Text variant="caption" color="primary" numberOfLines={1}>
-            {label}
-          </Text>
-        ) : null}
+        <Text
+          variant="tabLabel"
+          color={isFocused ? 'tabBarActive' : 'tabBarInactive'}
+          numberOfLines={1}
+          maxFontSizeMultiplier={1.2}
+        >
+          {label}
+        </Text>
       </Animated.View>
     </Pressable>
   );

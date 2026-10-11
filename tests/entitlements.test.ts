@@ -82,6 +82,7 @@ describe('the plan to capability table', () => {
 
   it('gives Free every feature the app has', () => {
     assert.deepEqual([...PLAN_CAPABILITIES.free].sort(), [
+      'aiTutor',
       'cameraOcr',
       'offlineTranslation',
       'speechRecognition',
@@ -92,21 +93,23 @@ describe('the plan to capability table', () => {
     assert.deepEqual([...PLAN_CAPABILITIES.pro].sort(), [...CAPABILITIES].sort());
   });
 
-  it('sells only advertising removal and AI practice, never a translation feature', () => {
+  it('sells only advertising removal, never a translation feature', () => {
     /*
      * The product decision, stated as an assertion.
      *
-     * Two things are paid for, and neither is a translation feature: removing
-     * adverts, and unlimited practice with a model that costs money on every
-     * exchange. Anything else appearing in this list is a translation feature
-     * that has been taken away from the free app.
+     * Exactly one thing is paid for, and it is not a translation feature:
+     * removing adverts. AI practice used to sit here too, priced the same way
+     * — a model call costs money on every exchange — but an interstitial pays
+     * for it instead now, the same way one pays for the rest of the free app.
+     * Anything appearing in this list is a translation feature that has been
+     * taken away from the free app.
      */
-    assert.deepEqual([...PRO_ONLY_CAPABILITIES].sort(), ['adFree', 'aiTutor']);
+    assert.deepEqual([...PRO_ONLY_CAPABILITIES].sort(), ['adFree']);
 
     const missingFromFree = PLAN_CAPABILITIES.pro.filter(
       (capability) => !PLAN_CAPABILITIES.free.includes(capability),
     );
-    assert.deepEqual([...missingFromFree].sort(), ['adFree', 'aiTutor']);
+    assert.deepEqual([...missingFromFree].sort(), ['adFree']);
   });
 
   it('gives Free nothing Pro does not also have', () => {
@@ -147,8 +150,8 @@ describe('the plan to capability table', () => {
     assert.equal(capabilities.has('cameraOcr'), true);
     assert.equal(capabilities.has('speechRecognition'), true);
     assert.equal(capabilities.has('offlineTranslation'), true);
+    assert.equal(capabilities.has('aiTutor'), true);
     assert.equal(capabilities.has('adFree'), false);
-    assert.equal(capabilities.has('aiTutor'), false);
   });
 
   it('builds a snapshot from a plan and where it came from', () => {
@@ -180,7 +183,7 @@ describe('has(), for every capability on every plan', () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.load();
 
-    const sold = ['adFree', 'aiTutor'];
+    const sold = ['adFree'];
     for (const capability of CAPABILITIES) {
       assert.equal(service.has(capability), !sold.includes(capability), capability);
     }

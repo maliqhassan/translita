@@ -263,12 +263,18 @@ describe('the architecture holds', () => {
     assert.equal(composer.includes('services.ocr'), false);
   });
 
-  it('hides the camera control when recognition is unavailable', () => {
+  it('keeps the camera control when recognition is unavailable, and says why on a tap', () => {
+    // Hiding it made scanning look removed wherever the recogniser was
+    // missing — in Expo Go, always. The control stays; the hook explains.
     const composer = readFileSync(
       'src/features/translation/components/translation-composer.tsx',
       'utf8',
     );
-    assert.match(composer, /scan\.status !== 'unavailable'/);
+    assert.equal(/scan\.status !== 'unavailable'/.test(composer), false);
+    assert.match(
+      readFileSync('src/features/translation/hooks/use-camera-ocr.ts', 'utf8'),
+      /UNAVAILABLE_INPUT_MESSAGES\.scan/,
+    );
   });
 
   it('writes scanned text into the translation input, tagged as scanned', () => {

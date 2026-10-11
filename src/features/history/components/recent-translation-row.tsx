@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import { Icon, Text } from '@/components';
 import { getLanguage } from '@/constants';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 import type { HistoryEntry, LanguageCode } from '@/types';
 import { formatRelativeTime } from '@/utils';
 
@@ -28,8 +29,8 @@ export function RecentTranslationRow({ entry, onPress }: RecentTranslationRowPro
     <Pressable
       onPress={() => onPress(entry)}
       accessibilityRole="button"
-      accessibilityLabel={`${source} to ${target}. ${entry.sourceText}. Translated: ${entry.translatedText}`}
-      accessibilityHint="Opens this translation"
+      accessibilityLabel={`${t('{from} to {to}', { from: source, to: target })}. ${entry.sourceText}. ${t('Translated:')} ${entry.translatedText}`}
+      accessibilityHint={t('Opens this translation')}
       style={({ pressed }) => ({
         gap: theme.spacing.xs,
         minHeight: theme.layout.minTouchTarget,
@@ -52,7 +53,7 @@ export function RecentTranslationRow({ entry, onPress }: RecentTranslationRowPro
         <Text variant="caption" color="textMuted">
           {formatRelativeTime(entry.createdAt)}
         </Text>
-        {entry.isFavorite ? <Icon name="star" size={11} color="warning" /> : null}
+        {entry.isFavorite ? <Icon name="star" size={11} color="primary" /> : null}
       </View>
 
       <Text variant="bodySmall" color="textSecondary" numberOfLines={1}>

@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { Icon, Text } from '@/components';
+import { FlagCircle, Icon, Text } from '@/components';
 import { useTheme } from '@/hooks';
 import type { Language, LanguageId } from '@/types';
 
@@ -11,7 +11,10 @@ export type LanguageChipProps = {
   onSelect: (id: LanguageId) => void;
 };
 
-/** Compact tappable pill used by the Popular and Recent shortlists. */
+/**
+ * Compact tappable pill used by the Popular and Recent shortlists: a small
+ * round flag and the name, on the brand's pale blue when it is the one chosen.
+ */
 function LanguageChipComponent({ language, isSelected, onSelect }: LanguageChipProps) {
   const theme = useTheme();
   const handlePress = useCallback(() => onSelect(language.id), [onSelect, language.id]);
@@ -26,8 +29,9 @@ function LanguageChipComponent({ language, isSelected, onSelect }: LanguageChipP
         flexDirection: 'row',
         alignItems: 'center',
         gap: theme.spacing.xs,
-        minHeight: 38,
-        paddingHorizontal: theme.spacing.md,
+        minHeight: theme.layout.minTouchTarget - theme.spacing.xxs,
+        paddingLeft: theme.spacing.xs,
+        paddingRight: theme.spacing.md,
         borderRadius: theme.radius.full,
         borderWidth: theme.layout.borderWidth,
         borderColor: isSelected ? theme.colors.primaryBorder : theme.colors.border,
@@ -38,10 +42,11 @@ function LanguageChipComponent({ language, isSelected, onSelect }: LanguageChipP
             : theme.colors.surface,
       })}
     >
-      {isSelected ? <Icon name="checkmark" size={13} color="primary" /> : null}
-      <Text variant="bodySmall" color={isSelected ? 'primary' : 'text'} numberOfLines={1}>
+      <FlagCircle language={language.id} size={24} />
+      <Text variant="label" color={isSelected ? 'primary' : 'text'} numberOfLines={1}>
         {language.name}
       </Text>
+      {isSelected ? <Icon name="checkmark" size={14} color="primary" /> : null}
     </Pressable>
   );
 }
@@ -63,7 +68,7 @@ export function LanguageChipRow({ languages, selectedId, onSelect }: LanguageChi
         flexDirection: 'row',
         flexWrap: 'wrap',
         gap: theme.spacing.sm,
-        paddingHorizontal: theme.spacing.base,
+        paddingHorizontal: theme.layout.screenPadding,
         paddingBottom: theme.spacing.base,
       }}
     >

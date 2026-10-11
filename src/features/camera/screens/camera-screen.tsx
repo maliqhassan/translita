@@ -2,13 +2,53 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { View } from 'react-native';
 
-import { Badge, Button, Card, EmptyState, GradientHeader, Icon, Screen, Text } from '@/components';
+import {
+  Badge,
+  Button,
+  Card,
+  Divider,
+  EmptyState,
+  Icon,
+  ListItem,
+  Screen,
+  ScreenHeader,
+  SectionHeader,
+  Text,
+  type IconName,
+} from '@/components';
 import { errorMessage } from '@/constants';
-import { useCameraOcr } from '@/features/translation';
+import { useInterstitialAds } from '@/features/ads';
+import { BrandMark, useCameraOcr } from '@/features/translation';
 import { useTheme } from '@/hooks';
+import { msg, t } from '@/i18n';
 
 import { TextScanner } from '../components/text-scanner';
 import { setPendingScan } from '../pending-scan';
+
+/**
+ * What makes the recogniser succeed, said before the user tries.
+ *
+ * The last one is a real limit, not advice: the bundled on-device recogniser
+ * reads Latin script only, so saying so up front beats a scan that returns
+ * nothing from a page of Arabic or Chinese.
+ */
+const CAMERA_TIPS: readonly { icon: IconName; title: string; subtitle: string }[] = [
+  {
+    icon: 'expand-outline',
+    title: msg('Fill the frame'),
+    subtitle: msg('Get close enough that the text is large'),
+  },
+  {
+    icon: 'sunny-outline',
+    title: msg('Use good light'),
+    subtitle: msg('Avoid glare and deep shadow on the page'),
+  },
+  {
+    icon: 'text-outline',
+    title: msg('Latin-script text'),
+    subtitle: msg('Reads English, Spanish, German and other Latin-script languages'),
+  },
+];
 
 /**
  * The Camera tab: scan text, then hand it to the translate screen.
@@ -43,75 +83,120 @@ export function CameraScreen() {
     ),
   );
 
+  const ads = useInterstitialAds();
+
   const unavailable = scan.status === 'unavailable';
   const locked = scan.status === 'locked';
 
   return (
     <Screen
-      headerBleed
-      header={<GradientHeader title="Camera" subtitle="Point at text to translate it" />}
+      wash
+      scrollable
+      header={<ScreenHeader compact title={t('Camera')} leading={<BrandMark />} />}
     >
       {unavailable ? (
         <EmptyState
           icon="phone-portrait-outline"
-          title="Scanning is not in this build"
-          description="Text recognition needs the native module, which is only present in a development or release build of the app."
+          title={t('Scanning is not in this build')}
+          description={t(
+            'Text recognition needs the native module, which is only present in a development or release build of the app.',
+          )}
         />
       ) : locked ? (
-        <View style={{ flex: 1, gap: theme.spacing.base, justifyContent: 'center' }}>
-          <Card variant="outlined" style={{ gap: theme.spacing.md, alignItems: 'center' }}>
+        <View style={{ gap: theme.spacing.base }}>
+          <Card
+            variant="glass"
+            padding="lg"
+            style={{ gap: theme.spacing.md, alignItems: 'center' }}
+          >
             <Icon name="lock-closed-outline" size={40} color="primary" />
 
-            <Badge label="Pro" tone="primary" />
+            <Badge label={t('Pro')} tone="primary" />
 
             <Text variant="body" align="center">
-              Camera text recognition is part of Translita Pro
+              {t('Camera text recognition is part of Translita Pro')}
             </Text>
             <Text variant="bodySmall" color="textSecondary" align="center">
-              Your device can read text from a picture. Pro turns it on, along with speech-to-text,
-              offline translation and an ad-free app.
+              {t(
+                'Your device can read text from a picture. Pro turns it on, along with speech-to-text, offline translation and an ad-free app.',
+              )}
             </Text>
 
             <Button
-              label="See what Pro includes"
+              label={t('See what Pro includes')}
               icon="sparkles-outline"
               size="lg"
               fullWidth
               onPress={scan.upgrade}
-              accessibilityHint="Opens the Translita Pro screen"
+              accessibilityHint={t('Opens the Translita Pro screen')}
             />
           </Card>
         </View>
       ) : (
-        <View style={{ flex: 1, gap: theme.spacing.base, justifyContent: 'center' }}>
-          <Card variant="outlined" style={{ gap: theme.spacing.md, alignItems: 'center' }}>
-            <Icon name="scan-outline" size={40} color="primary" />
+        <View style={{ gap: theme.spacing.base }}>
+          <Card
+            variant="glass"
+            padding="lg"
+            style={{ gap: theme.spacing.base, alignItems: 'center' }}
+          >
+            <View
+              style={{
+                width: 96,
+                height: 96,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: theme.radius.full,
+                backgroundColor: theme.colors.primaryMuted,
+              }}
+            >
+              <Icon name="scan-outline" size={44} color="primary" />
+            </View>
 
-            <Text variant="body" align="center">
-              Scan a menu, a sign or a page
-            </Text>
-            <Text variant="bodySmall" color="textSecondary" align="center">
-              The picture is read on this device and then discarded. Recognised text goes into the
-              translate box, where you can correct it before translating.
-            </Text>
+            <View style={{ gap: theme.spacing.xs, alignItems: 'center' }}>
+              <Text variant="h3" align="center">
+                {t('Scan a menu, a sign or a page')}
+              </Text>
+              <Text variant="bodySmall" color="textSecondary" align="center">
+                {t(
+                  'The picture is read on this device and then discarded. The text lands in the translate box, where you can correct it before translating.',
+                )}
+              </Text>
+            </View>
 
             <Button
-              label="Open camera"
+              label={t('Open camera')}
               icon="camera-outline"
               size="lg"
               fullWidth
-              onPress={scan.open}
-              accessibilityHint="Opens the camera to read text from a picture"
+              // After an ad, when one is due; closing it opens the camera.
+              onPress={() => ads.openAfterAd(scan.open)}
+              accessibilityHint={t('Opens the camera to read text from a picture')}
+              style={{
+                borderRadius: theme.radius.full,
+                height: theme.layout.minTouchTarget + theme.spacing.base,
+              }}
             />
           </Card>
 
           {scan.error ? (
-            <Card variant="outlined">
+            <Card variant="glass">
               <Text variant="bodySmall" color="warning">
                 {errorMessage(scan.error)}
               </Text>
             </Card>
           ) : null}
+
+          <View>
+            <SectionHeader title={t('For a clean scan')} />
+            <Card variant="glass" padding="none">
+              {CAMERA_TIPS.map((tip, index) => (
+                <View key={tip.title}>
+                  {index > 0 ? <Divider inset={theme.spacing.base} /> : null}
+                  <ListItem icon={tip.icon} title={t(tip.title)} subtitle={t(tip.subtitle)} />
+                </View>
+              ))}
+            </Card>
+          </View>
         </View>
       )}
 

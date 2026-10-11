@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
-import { PRO_PLANS } from '@/constants';
+import { PRO_PLANS, UNAVAILABLE_INPUT_MESSAGES } from '@/constants';
 import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '@/features/paywall/pro-benefits';
 import { CAPABILITIES, PLAN_CAPABILITIES, PRO_ONLY_CAPABILITIES } from '@/services/entitlements';
 import { offlineTranslationPermittedFor } from '@/services/translation/offline-entitlement';
@@ -196,7 +196,11 @@ describe('the Camera OCR decision lives in the controller', () => {
 
 describe('a free user cannot reach the recogniser', () => {
   it('refuses to open the scanner', () => {
-    assert.match(read(HOOK), /const open = useCallback\(\(\) => \{\s*if \(!allowed\) return;/);
+    // Nothing past the early return runs; inside it, only the explanation.
+    assert.match(
+      read(HOOK),
+      /const open = useCallback\(\(\) => \{\s*if \(!allowed\) \{[^}]*setTappedUnavailable\(true\);\s*return;\s*\}/,
+    );
   });
 
   it('refuses to recognise a capture even if one arrives', () => {
@@ -227,11 +231,17 @@ describe('an unsupported device is never sold anything', () => {
     assert.match(read(HOOK), /if \(access !== 'locked'\) return;\s*router\.push\('\/upgrade'\)/);
   });
 
-  it('hides the scan control entirely when it is unavailable', () => {
-    const composer = read(COMPOSER);
+  it('answers a tap on an unavailable scan with the reason, not the paywall', () => {
+    const hook = read(HOOK);
 
-    assert.match(composer, /canScan = scan && scan\.status !== 'unavailable'/);
-    assert.match(composer, /\{canScan \?/);
+    // The control stays on screen; the controller explains instead.
+    assert.match(read(COMPOSER), /\{scan \? \(/);
+    assert.match(hook, /if \(access === 'unavailable'\) setTappedUnavailable\(true\);\s*return;/);
+    assert.match(hook, /UNAVAILABLE_INPUT_MESSAGES\.scan/);
+    // Never an upsell: the reason says where it works, and offers nothing.
+    for (const text of Object.values(UNAVAILABLE_INPUT_MESSAGES)) {
+      assert.equal(/pro\b|upgrade|subscri/i.test(text), false, text);
+    }
   });
 
   it('keeps the device message and the plan message apart on the camera tab', () => {
@@ -250,7 +260,7 @@ describe('an unsupported device is never sold anything', () => {
     const composer = read(COMPOSER);
 
     assert.match(composer, /icon="lock-closed-outline"[\s\S]{0,200}onPress=\{scan\.upgrade\}/);
-    assert.match(composer, /icon="camera-outline"[\s\S]{0,200}onPress=\{scan\.open\}/);
+    assert.match(composer, /icon="scan-outline"[\s\S]{0,200}onPress=\{scan\.open\}/);
   });
 });
 
@@ -379,7 +389,10 @@ describe('the speech recognition decision lives in the controller', () => {
 
 describe('a free user cannot reach the microphone', () => {
   it('refuses to start or stop a session', () => {
-    assert.match(read(SPEECH_HOOK), /\(language: LanguageCode\) => \{\s*if \(!allowed\) return;/);
+    assert.match(
+      read(SPEECH_HOOK),
+      /\(language: LanguageCode\) => \{\s*if \(!allowed\) \{[^}]*setTappedUnavailable\(true\);\s*return;\s*\}/,
+    );
   });
 
   it('re-checks after the permission dialog, which the plan can outlive', () => {
@@ -436,11 +449,12 @@ describe('an unsupported device is never sold dictation', () => {
     );
   });
 
-  it('hides the microphone entirely when it is unavailable', () => {
-    const composer = read(COMPOSER);
+  it('answers a tap on an unavailable microphone with the reason, not the paywall', () => {
+    const hook = read(SPEECH_HOOK);
 
-    assert.match(composer, /canSpeak = speech && speech\.status !== 'unavailable'/);
-    assert.match(composer, /\{canSpeak \?/);
+    assert.match(read(COMPOSER), /\{speech \? \(/);
+    assert.match(hook, /if \(access === 'unavailable'\) setTappedUnavailable\(true\);\s*return;/);
+    assert.match(hook, /UNAVAILABLE_INPUT_MESSAGES\.speech/);
   });
 
   it('leads a locked Speak button to the paywall rather than the microphone', () => {
@@ -615,10 +629,10 @@ describe('the paywall is a placeholder and says so', () => {
 
     /*
      * "Unlimited" is no longer forbidden outright, because it became true of
-     * one thing: AI practice really is unlimited on Pro, and everyone really
-     * does get a few free. What must never come back is the claim this guard
-     * was written for — an unlimited or metered *translation* allowance, which
-     * nothing counts and nothing enforces.
+     * one thing: AI practice really is unlimited, for everyone, now that an
+     * interstitial pays for it instead of a plan. What must never come back is
+     * the claim this guard was written for — an unlimited or metered
+     * *translation* allowance, which nothing counts and nothing enforces.
      */
     const benefits = PRO_BENEFITS.map((b) => `${b.title} ${b.description}`)
       .join(' ')
@@ -656,8 +670,11 @@ describe('the paywall is a placeholder and says so', () => {
     assert.equal(screen.includes('react-native-purchases'), false);
     assert.equal(/\bPurchases\./.test(screen), false, 'the SDK reached the screen');
 
-    // Money goes out through the one hook.
-    assert.match(screen, /usePurchase\(\)/);
+    // Money goes out through the one hook. It is told where the visit came
+    // from, for analytics, and nothing else.
+    assert.match(screen, /usePurchase\(source\)/);
+    assert.match(screen, /<UpgradeContent source="app"/);
+    assert.match(screen, /<UpgradeContent source="onboarding"/);
   });
 
   it('keeps selling a plan apart from granting one', () => {
@@ -1068,7 +1085,9 @@ describe('language packs respect the entitlement', () => {
     // Hiding installed packs would make a lapsed subscriber think their
     // downloads were deleted.
     const screen = read(PACKS_SCREEN);
-    assert.match(screen, /data=\{available \? packs : \[\]\}/);
+    // No rows at all without a runtime; the sections are built from nothing.
+    assert.match(screen, /const listed = available \? packs : \[\];/);
+    assert.match(screen, /packSections\(listed, recentIds\)/);
     assert.match(screen, /can still be removed to free up space/);
   });
 });
@@ -1099,7 +1118,10 @@ describe('a denied translation says what is actually wrong', () => {
 
   it('drops "Try again" when retrying cannot possibly work', () => {
     // The plan will not have changed between two taps.
-    assert.match(code(RESULT_CARD), /\{upgrading \? null : \(\s*<Button label="Try again"/);
+    assert.match(
+      code(RESULT_CARD),
+      /\{upgrading \? null : \(\s*<Button label=\{t\('Try again'\)\}/,
+    );
   });
 
   it('names the plan rather than the language pair when there is no connection', () => {

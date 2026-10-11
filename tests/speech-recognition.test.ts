@@ -430,22 +430,30 @@ describe('privacy of what was said', () => {
   });
 
   it('keeps the platform recogniser in exactly one file', () => {
-    const offenders: string[] = [];
+    const importers: string[] = [];
+    const namers: string[] = [];
     const walk = (dir: string) => {
       for (const entry of readdirSync(dir, { withFileTypes: true })) {
         const path = `${dir}/${entry.name}`;
         if (entry.isDirectory()) walk(path);
-        else if (
-          /\.tsx?$/.test(entry.name) &&
-          readFileSync(path, 'utf8').includes("from 'expo-speech-recognition'")
-        ) {
-          offenders.push(path);
+        else if (/\.tsx?$/.test(entry.name)) {
+          const source = readFileSync(path, 'utf8');
+          if (source.includes("from 'expo-speech-recognition'")) importers.push(path);
+          if (source.includes("'ExpoSpeechRecognition'")) namers.push(path);
         }
       }
     };
     walk('src');
 
-    assert.deepEqual(offenders, ['src/services/speech/expo-speech-recognition-service.ts']);
+    // Nobody imports the package entry: it throws on import wherever the
+    // native module is missing, which crashed Expo Go at startup.
+    assert.deepEqual(importers, []);
+    // The native module is named in exactly one place, and resolved optionally.
+    assert.deepEqual(namers, ['src/services/speech/expo-speech-recognition-service.ts']);
+    assert.match(
+      readFileSync(namers[0]!, 'utf8'),
+      /requireOptionalNativeModule<SpeechRecognitionNative>\('ExpoSpeechRecognition'\)/,
+    );
   });
 
   it('adds no telemetry', () => {
@@ -472,16 +480,22 @@ describe('the microphone is wired, not decorative', () => {
     assert.match(composer, /speech\.toggle\(sourceLanguage\)/);
     // The redesign made this a labelled button rather than a bare icon, so the
     // listening state is now shown by the label as well as the glyph.
-    assert.match(composer, /speech\.listening \? 'Stop' : 'Speak'/);
+    assert.match(composer, /speech\.listening \? t\('Stop'\) : t\('Speak'\)/);
     assert.equal(composer.includes('expo-speech-recognition'), false);
   });
 
-  it('hides the microphone when recognition is unavailable', () => {
+  it('keeps the microphone when recognition is unavailable, and says why on a tap', () => {
+    // Hiding it made dictation look removed wherever the recogniser was
+    // missing — in Expo Go, always. The control stays; the hook explains.
     const composer = readFileSync(
       'src/features/translation/components/translation-composer.tsx',
       'utf8',
     );
-    assert.match(composer, /speech\.status !== 'unavailable'/);
+    assert.equal(/speech\.status !== 'unavailable'/.test(composer), false);
+    assert.match(
+      readFileSync('src/features/translation/hooks/use-speech-recognition.ts', 'utf8'),
+      /UNAVAILABLE_INPUT_MESSAGES\.speech/,
+    );
   });
 
   it('writes recognised text into the translation input, tagged as spoken', () => {

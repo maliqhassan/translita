@@ -1,4 +1,5 @@
 import { getLanguage } from '@/constants';
+import { t } from '@/i18n';
 import type { OfflineReadiness } from '@/services';
 import type { LanguageId } from '@/types';
 
@@ -40,10 +41,11 @@ export type OfflineNotice = {
  */
 export function offlineEntitlementNotice(): OfflineNotice {
   return {
-    title: 'Offline translation is part of Translita Pro',
-    description:
+    title: t('Offline translation is part of Translita Pro'),
+    description: t(
       'Pro translates with no connection at all, using language packs stored on your device. Online translation stays available on the free plan.',
-    actionLabel: 'See what Pro includes',
+    ),
+    actionLabel: t('See what Pro includes'),
     actionTarget: 'upgrade',
   };
 }
@@ -52,7 +54,10 @@ export function offlineEntitlementNotice(): OfflineNotice {
 function listNames(languages: readonly LanguageId[]): string {
   const names = languages.map((id) => getLanguage(id)?.name ?? id);
   if (names.length <= 1) return names[0] ?? '';
-  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+  return t('{list} and {last}', {
+    list: names.slice(0, -1).join(', '),
+    last: names[names.length - 1] ?? '',
+  });
 }
 
 export function offlineNotice(readiness: OfflineReadiness): OfflineNotice | undefined {
@@ -62,31 +67,37 @@ export function offlineNotice(readiness: OfflineReadiness): OfflineNotice | unde
 
     case 'runtime_missing':
       return {
-        title: 'On-device translation is not in this build',
-        description:
+        title: t('On-device translation is not in this build'),
+        description: t(
           'It needs the native translation module, which is only present in a development or release build. Switch to Automatic or Online to translate for now.',
+        ),
       };
 
     case 'source_undetectable':
       return {
-        title: 'Choose a language to translate from',
-        description:
+        title: t('Choose a language to translate from'),
+        description: t(
           'On-device translation cannot detect the language automatically. Pick the source language and try again.',
+        ),
       };
 
     case 'unsupported':
       return {
-        title: `${listNames(readiness.languages)} cannot be translated on device`,
-        description:
+        title: t('{languages} cannot be translated on device', {
+          languages: listNames(readiness.languages),
+        }),
+        description: t(
           'There is no on-device model for it, so a download cannot fix this. Switch to Automatic or Online to translate this pair.',
+        ),
       };
 
     case 'packs_missing':
       return {
-        title: `${listNames(readiness.languages)} not downloaded`,
-        description:
+        title: t('{languages} not downloaded', { languages: listNames(readiness.languages) }),
+        description: t(
           'On-device translation needs a language pack for each side of the pair. Download the required language pack in Settings, Language Packs.',
-        actionLabel: 'Open Language Packs',
+        ),
+        actionLabel: t('Open Language Packs'),
       };
   }
 }

@@ -80,6 +80,14 @@ export type ColorTokens = {
   cameraSurface: string;
   onCamera: string;
   onCameraMuted: string;
+  /**
+   * The page wash behind the home and settings screens: a soft vertical fall
+   * rather than a flat fill, with translucent "glass" cards sitting on it.
+   */
+  washFrom: string;
+  washTo: string;
+  glass: string;
+  glassBorder: string;
   /** Skeleton / shimmer base. */
   skeleton: string;
   shadow: string;
@@ -88,39 +96,23 @@ export type ColorTokens = {
   tabBarBorder: string;
   tabBarActive: string;
   tabBarInactive: string;
-
-  /**
-   * The welcome screen: a full-bleed field of colour with content on top.
-   *
-   * Its own tokens rather than the gradient ones because it is a flat field
-   * where the header is a gradient, not because the colour differs: both are
-   * the brand now. Keeping the tokens separate is what lets onboarding change
-   * without touching the header, and keeps literals out of the component.
-   *
-   * It barely shifts between light and dark. The screen is a solid field of
-   * brand colour either way, so following the scheme would only make the
-   * first thing a user sees look like two different products.
-   */
-  onboarding: string;
-  onOnboarding: string;
-  onOnboardingMuted: string;
-  /** The primary action sitting on that field, and the ink on it. */
-  onboardingAction: string;
-  onOnboardingAction: string;
 };
 
 export const lightColors: ColorTokens = {
-  background: palette.neutral[50],
+  // A white page, navy ink and the brand blue as the only colour — the plain,
+  // familiar look of a translator. Cards are told apart by a hairline border
+  // rather than a tinted page behind them.
+  background: palette.neutral[0],
   surface: palette.neutral[0],
-  surfaceMuted: palette.neutral[100],
-  surfaceStrong: palette.neutral[200],
+  surfaceMuted: palette.sky[50],
+  surfaceStrong: palette.sky[200],
 
-  border: palette.neutral[200],
+  border: palette.sky[200],
   borderStrong: palette.neutral[300],
 
-  text: palette.neutral[900],
-  textSecondary: palette.neutral[600],
-  textMuted: palette.neutral[400],
+  text: palette.sky[950],
+  textSecondary: palette.sky[600],
+  textMuted: palette.sky[450],
   textOnPrimary: palette.neutral[900],
 
   primary: palette.brand[400],
@@ -140,13 +132,6 @@ export const lightColors: ColorTokens = {
   dangerMuted: palette.red[100],
 
   overlay: 'rgba(11, 12, 16, 0.45)',
-  onboarding: palette.brand[400],
-  // Dark ink, not white: the brand fill is light, so white on it is 2.18:1
-  // and black is 9.62:1 — the same rule the gradient header already follows.
-  onOnboarding: palette.neutral[900],
-  onOnboardingMuted: 'rgba(10, 78, 91, 0.78)',
-  onboardingAction: palette.neutral[0],
-  onOnboardingAction: palette.brand[700],
   gradientFrom: palette.brand[500],
   gradientTo: palette.brand[300],
   // Dark ink, not white: white on this blue is about 1.6:1 and unreadable.
@@ -156,13 +141,24 @@ export const lightColors: ColorTokens = {
   cameraSurface: '#000000',
   onCamera: '#FFFFFF',
   onCameraMuted: 'rgba(255, 255, 255, 0.4)',
+  // The wash is white now too, so a screen asking for it matches the rest.
+  washFrom: palette.neutral[0],
+  washTo: palette.neutral[0],
+  // Opaque on purpose. A translucent card with an Android elevation shadow
+  // lets the shadow show through its own face, which drew every card as a
+  // grey slab with the white content floating inside it.
+  glass: palette.neutral[0],
+  // Visible on white: the card's edge is its border, not a contrast of fills.
+  glassBorder: palette.sky[200],
   skeleton: palette.neutral[200],
   shadow: '#0B0C10',
 
   tabBar: palette.neutral[0],
-  tabBarBorder: palette.neutral[200],
-  tabBarActive: palette.brand[700],
-  tabBarInactive: palette.neutral[600],
+  tabBarBorder: palette.sky[200],
+  // Cyan, as in the design, at the darkest step that still reads at 3:1 on
+  // the white bar — the lighter logo cyan is under that.
+  tabBarActive: palette.brand[600],
+  tabBarInactive: palette.sky[600],
 };
 
 export const darkColors: ColorTokens = {
@@ -196,12 +192,6 @@ export const darkColors: ColorTokens = {
   dangerMuted: 'rgba(219, 69, 69, 0.16)',
 
   overlay: 'rgba(0, 0, 0, 0.6)',
-  // Deep enough here that white is the readable choice, at 7.22:1.
-  onboarding: palette.brand[800],
-  onOnboarding: '#FFFFFF',
-  onOnboardingMuted: 'rgba(255, 255, 255, 0.92)',
-  onboardingAction: palette.neutral[0],
-  onOnboardingAction: palette.brand[800],
   gradientFrom: palette.brand[800],
   gradientTo: palette.brand[700],
   // Deep enough here that white is the readable choice.
@@ -211,11 +201,16 @@ export const darkColors: ColorTokens = {
   cameraSurface: '#000000',
   onCamera: '#FFFFFF',
   onCameraMuted: 'rgba(255, 255, 255, 0.4)',
+  washFrom: palette.neutral[900],
+  washTo: palette.neutral[950],
+  glass: palette.neutral[850],
+  glassBorder: palette.neutral[800],
   skeleton: palette.neutral[800],
   shadow: '#000000',
 
   tabBar: palette.neutral[900],
   tabBarBorder: palette.neutral[800],
   tabBarActive: palette.brand[300],
-  tabBarInactive: palette.neutral[500],
+  // Every tab now carries a label, so the inactive ink has to read as text.
+  tabBarInactive: palette.neutral[400],
 };

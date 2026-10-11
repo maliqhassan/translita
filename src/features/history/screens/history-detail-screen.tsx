@@ -14,8 +14,9 @@ import {
   Text,
 } from '@/components';
 import { languageName, languageShortCode } from '@/constants';
-import { useCopyToClipboard } from '@/features/translation';
+import { useCopyToClipboard, useSpeak } from '@/features/translation';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 import type { HistoryEntry } from '@/types';
 import { formatRelativeTime } from '@/utils';
 
@@ -59,13 +60,14 @@ export function HistoryDetailScreen() {
   const entry = useHistoryEntry(id);
   const { toggleFavorite, remove } = useHistoryActions();
   const copy = useCopyToClipboard();
+  const speak = useSpeak();
 
   const confirmDelete = useCallback(
     (record: HistoryEntry) => {
-      Alert.alert('Delete translation?', 'This cannot be undone.', [
-        { text: 'Cancel', style: 'cancel' },
+      Alert.alert(t('Delete translation?'), t('This cannot be undone.'), [
+        { text: t('Cancel'), style: 'cancel' },
         {
-          text: 'Delete',
+          text: t('Delete'),
           style: 'destructive',
           onPress: () => {
             void remove(record.id).then(() => router.back());
@@ -79,9 +81,14 @@ export function HistoryDetailScreen() {
   const header = (
     <ScreenHeader
       compact
-      title="Translation"
+      title={t('Translation')}
       actions={
-        <IconButton name="close" variant="soft" accessibilityLabel="Close" onPress={router.back} />
+        <IconButton
+          name="close"
+          variant="soft"
+          accessibilityLabel={t('Close')}
+          onPress={router.back}
+        />
       }
     />
   );
@@ -89,7 +96,7 @@ export function HistoryDetailScreen() {
   if (entry.status === 'loading') {
     return (
       <Screen edges={['top', 'bottom']} header={header}>
-        <LoadingState message="Loading translation…" />
+        <LoadingState message={t('Loading translation…')} />
       </Screen>
     );
   }
@@ -99,8 +106,8 @@ export function HistoryDetailScreen() {
       <Screen edges={['top', 'bottom']} header={header}>
         <EmptyState
           icon="alert-circle-outline"
-          title="History unavailable"
-          description="Saved translations cannot be read on this device right now."
+          title={t('History unavailable')}
+          description={t('Saved translations cannot be read on this device right now.')}
         />
       </Screen>
     );
@@ -113,9 +120,9 @@ export function HistoryDetailScreen() {
       <Screen edges={['top', 'bottom']} header={header}>
         <EmptyState
           icon="document-text-outline"
-          title="Translation not found"
-          description="This translation is no longer saved on your device."
-          actionLabel="Back to history"
+          title={t('Translation not found')}
+          description={t('This translation is no longer saved on your device.')}
+          actionLabel={t('Back to history')}
           onAction={() => router.back()}
         />
       </Screen>
@@ -127,7 +134,7 @@ export function HistoryDetailScreen() {
 
   return (
     <Screen edges={['top', 'bottom']} scrollable header={header}>
-      <TextPanel label="From" code={languageShortCode(sourceId)} text={record.sourceText} />
+      <TextPanel label={t('From')} code={languageShortCode(sourceId)} text={record.sourceText} />
 
       <View style={{ alignItems: 'center' }}>
         <Text variant="caption" color="textMuted">
@@ -136,7 +143,7 @@ export function HistoryDetailScreen() {
       </View>
 
       <TextPanel
-        label="To"
+        label={t('To')}
         code={languageShortCode(record.targetLanguage)}
         text={record.translatedText}
         emphasis
@@ -156,34 +163,53 @@ export function HistoryDetailScreen() {
         <Badge label={formatRelativeTime(record.createdAt)} tone="neutral" icon="time-outline" />
       </View>
 
+      {/* Read in the translation's own language, with the voice and speed
+          chosen in Settings — the same control as on the Translate screen.
+          Hidden on a device with no speech engine rather than failing. */}
+      {speak.available ? (
+        <Button
+          label={speak.isSpeaking(record.translatedText) ? t('Stop') : t('Listen')}
+          icon={
+            speak.isSpeaking(record.translatedText) ? 'stop-circle-outline' : 'volume-high-outline'
+          }
+          fullWidth
+          onPress={() => speak.toggle(record.translatedText, record.targetLanguage)}
+          accessibilityHint={
+            speak.isSpeaking(record.translatedText)
+              ? t('Stops reading aloud')
+              : t('Reads the translation aloud')
+          }
+        />
+      ) : null}
+
       <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
         <Button
-          label={copy.justCopied ? 'Copied' : 'Copy'}
+          label={copy.justCopied ? t('Copied') : t('Copy')}
           icon={copy.justCopied ? 'checkmark-circle' : 'copy-outline'}
           variant="secondary"
           onPress={() => copy.copy(record.translatedText)}
-          accessibilityHint="Copies the translation to the clipboard"
+          accessibilityHint={t('Copies the translation to the clipboard')}
           style={{ flex: 1 }}
         />
         <Button
-          label={record.isFavorite ? 'Favourited' : 'Favourite'}
+          label={record.isFavorite ? t('Favourited') : t('Favourite')}
           icon={record.isFavorite ? 'star' : 'star-outline'}
           variant="secondary"
           onPress={() => void toggleFavorite(record.id)}
           accessibilityHint={
-            record.isFavorite ? 'Removes this from favourites' : 'Adds this to favourites'
+            record.isFavorite ? t('Removes this from favourites') : t('Adds this to favourites')
           }
           style={{ flex: 1 }}
         />
       </View>
 
       <Button
-        label="Delete"
+        label={t('Delete')}
         icon="trash-outline"
         variant="danger"
         fullWidth
         onPress={() => confirmDelete(record)}
-        accessibilityHint="Permanently deletes this saved translation"
+        accessibilityHint={t('Permanently deletes this saved translation')}
       />
     </Screen>
   );

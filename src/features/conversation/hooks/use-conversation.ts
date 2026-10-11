@@ -1,8 +1,14 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { services, type TutorReply, type TutorTurn } from '@/services';
-import { usePreferences } from '@/store';
-import type { AppError, LanguageId, TranslationResult } from '@/types';
+import { services, type TutorTurn } from '@/services';
+import {
+  useConversationStore,
+  usePreferences,
+  type ConversationMode,
+  type ConversationSide,
+  type ConversationTurn,
+} from '@/store';
+import type { LanguageId } from '@/types';
 
 import { translateAndRecord } from '../../translation/record-translation';
 
@@ -15,32 +21,17 @@ import { translateAndRecord } from '../../translation/record-translation';
  * them. Recognition comes from the caller (one recogniser, shared), the
  * translation goes through the same `translateAndRecord` the main screen uses,
  * so a conversation lands in history exactly as a typed translation does.
+ *
+ * The turns themselves live in `useConversationStore`, not in a `useState`
+ * here — a navigation stack keeps the screen behind this one mounted rather
+ * than destroying it, so state kept only in this hook would be reset by an
+ * ordinary trip to another tab and back. See the store for why.
  */
 
 /** Which participant spoke. `near` is the phone's owner, `far` the other. */
-export type Side = 'near' | 'far';
+export type Side = ConversationSide;
 
-export type ConversationTurn = {
-  id: string;
-  side: Side;
-  /** What was heard, kept even when the translation fails. */
-  heard: string;
-  sourceLanguage: LanguageId;
-  targetLanguage: LanguageId;
-  /** Absent while translating, and when translating failed. */
-  result?: TranslationResult;
-  error?: AppError;
-  /**
-   * The tutor's answer, when this turn was practice rather than translation.
-   *
-   * A practice turn is still a turn — same bubble, same transcript — so the
-   * screen does not need two lists. What differs is what fills it.
-   */
-  tutor?: TutorReply;
-};
-
-/** Who the far side is. Practice replaces the second person with a tutor. */
-export type ConversationMode = 'person' | 'tutor';
+export type { ConversationMode, ConversationTurn };
 
 export type ConversationController = {
   turns: readonly ConversationTurn[];
@@ -54,6 +45,16 @@ export type ConversationController = {
   submit: (side: Side, heard: string) => void;
   clear: () => void;
 };
+
+/**
+ * An answer worth reading aloud, and the language to read it in.
+ *
+ * In Person mode that is the translation, in the listener's language. In
+ * Practice it is the tutor's reply and question back, in the language being
+ * learned. Absent for anything that is not an answer to hear: a failure, a
+ * "did you mean" list, or a polite refusal.
+ */
+export type SpokenAnswer = { text: string; language: LanguageId };
 
 /**
  * `near` speaks the source language and `far` speaks the target, so a turn's
@@ -79,21 +80,31 @@ function threadFrom(turns: readonly ConversationTurn[]): TutorTurn[] {
   return thread;
 }
 
+/** Collision-resistant without a counter that would need to survive a remount. */
+function newTurnId(): string {
+  return `turn-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
 export function useConversation(
   source: LanguageId,
   target: LanguageId,
   mode: ConversationMode = 'person',
+  /**
+   * Fired once a reply resolves, in either mode, with whether the ad interval
+   * was reached and the answer to read aloud, if there is one. The caller
+   * decides what both mean — this hook knows nothing about ads or speech, the
+   * same way it does not know about entitlements.
+   */
+  onReply?: (dueForAd: boolean, answer?: SpokenAnswer) => void,
 ): ConversationController {
   const { preferences } = usePreferences();
-  const [turns, setTurns] = useState<readonly ConversationTurn[]>([]);
+  const store = useConversationStore();
+  const turns = store.turnsFor(mode);
   const [listening, setListening] = useState<Side | undefined>(undefined);
-
-  /** Ids are local to the transcript; history assigns its own. */
-  const nextId = useRef(0);
 
   const begin = useCallback((side: Side) => setListening(side), []);
   const cancel = useCallback(() => setListening(undefined), []);
-  const clear = useCallback(() => setTurns([]), []);
+  const clear = useCallback(() => store.clear(mode), [store, mode]);
 
   const submit = useCallback(
     (side: Side, heard: string) => {
@@ -102,15 +113,15 @@ export function useConversation(
       if (!text) return;
 
       const { from, to } = directionFor(side, source, target);
-      nextId.current += 1;
-      const id = `turn-${nextId.current}`;
+      const id = newTurnId();
 
       // The turn appears the moment it is spoken, answer pending. Waiting for
       // the round trip would make the phone look like it had not heard.
-      setTurns((current) => [
-        ...current,
-        { id, side, heard: text, sourceLanguage: from, targetLanguage: to },
-      ]);
+      store.append(mode, { id, side, heard: text, sourceLanguage: from, targetLanguage: to });
+      services.analytics.log({
+        name: 'conversation_turn',
+        params: { mode: mode === 'tutor' ? 'practice' : 'person' },
+      });
 
       /*
        * Practice answers instead of translating.
@@ -125,15 +136,14 @@ export function useConversation(
         void services.tutor
           .respond({ learning: to, native: from, heard: text, history: thread })
           .then((result) => {
-            setTurns((current) =>
-              current.map((turn) =>
-                turn.id === id
-                  ? result.ok
-                    ? { ...turn, tutor: result.value }
-                    : { ...turn, error: result.error }
-                  : turn,
-              ),
+            store.update(mode, id, (turn) =>
+              result.ok ? { ...turn, tutor: result.value } : { ...turn, error: result.error },
             );
+            const answer =
+              result.ok && result.value.kind === 'reply'
+                ? { text: `${result.value.reply} ${result.value.followUp}`.trim(), language: to }
+                : undefined;
+            onReply?.(store.recordReply(), answer);
           });
         return;
       }
@@ -144,21 +154,18 @@ export function useConversation(
         { text, sourceLanguage: from, targetLanguage: to, origin: 'voice' },
         { saveHistory: preferences.saveHistory },
       ).then((result) => {
-        setTurns((current) =>
-          current.map((turn) =>
-            turn.id === id
-              ? result.ok
-                ? { ...turn, result: result.value }
-                : { ...turn, error: result.error }
-              : turn,
-          ),
+        store.update(mode, id, (turn) =>
+          result.ok ? { ...turn, result: result.value } : { ...turn, error: result.error },
         );
+        // The listener's language: `to` is the side that did not speak.
+        const answer = result.ok ? { text: result.value.translatedText, language: to } : undefined;
+        onReply?.(store.recordReply(), answer);
       });
     },
     // `turns` is a dependency on purpose: the tutor is given the thread as
     // it stands, and a stale closure would hand it a conversation missing its
     // most recent exchanges.
-    [mode, preferences.saveHistory, source, target, turns],
+    [mode, preferences.saveHistory, source, target, turns, store, onReply],
   );
 
   return { turns, listening, begin, cancel, submit, clear };

@@ -1,9 +1,11 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button, Icon, Spinner, Text } from '@/components';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 
 /**
  * The camera sheet: preview, one shutter, and nothing else.
@@ -30,7 +32,33 @@ export type TextScannerProps = {
 };
 
 export function TextScanner({ visible, busy = false, onCapture, onClose }: TextScannerProps) {
+  return (
+    /*
+     * Drawn under both system bars on every Android version, so the preview
+     * fills the screen. A modal is its own window, so it gets its own
+     * safe-area provider: the app's one measures the main window, and inside
+     * Expo Go that reported no navigation bar at all — the controls then sat
+     * underneath the back and home buttons. Measured here, the insets are
+     * this window's own, tall for three buttons and thin for gestures.
+     */
+    <Modal
+      visible={visible}
+      animationType="slide"
+      onRequestClose={onClose}
+      statusBarTranslucent
+      navigationBarTranslucent
+    >
+      <SafeAreaProvider>
+        <ScannerContent busy={busy} onCapture={onCapture} onClose={onClose} />
+      </SafeAreaProvider>
+    </Modal>
+  );
+}
+
+/** The scanner itself, measuring the modal's own window. */
+function ScannerContent({ busy = false, onCapture, onClose }: Omit<TextScannerProps, 'visible'>) {
   const theme = useTheme();
+  const insets = useSafeAreaInsets();
   const [permission, requestPermission] = useCameraPermissions();
   const camera = useRef<CameraView>(null);
   const [ready, setReady] = useState(false);
@@ -45,66 +73,68 @@ export function TextScanner({ visible, busy = false, onCapture, onClose }: TextS
   };
 
   return (
-    <Modal visible={visible} animationType="slide" onRequestClose={onClose} statusBarTranslucent>
-      <View style={{ flex: 1, backgroundColor: theme.colors.cameraSurface }}>
+    <View style={{ flex: 1, backgroundColor: theme.colors.cameraSurface }}>
+      {permission?.granted ? (
+        <CameraView
+          ref={camera}
+          style={{ flex: 1 }}
+          facing="back"
+          onCameraReady={() => setReady(true)}
+        />
+      ) : (
+        <PermissionPrompt
+          /** Undefined until the first check resolves. */
+          checked={permission !== null}
+          canAskAgain={permission?.canAskAgain ?? true}
+          onRequest={() => void requestPermission()}
+        />
+      )}
+
+      <View
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          paddingHorizontal: theme.spacing.lg,
+          paddingTop: theme.spacing.lg,
+          // Clear of the navigation bar, whatever its height on this device:
+          // tall for three buttons, a thin strip for gesture navigation.
+          paddingBottom: insets.bottom + theme.spacing.lg,
+          gap: theme.spacing.md,
+          alignItems: 'center',
+        }}
+      >
         {permission?.granted ? (
-          <CameraView
-            ref={camera}
-            style={{ flex: 1 }}
-            facing="back"
-            onCameraReady={() => setReady(true)}
-          />
-        ) : (
-          <PermissionPrompt
-            /** Undefined until the first check resolves. */
-            checked={permission !== null}
-            canAskAgain={permission?.canAskAgain ?? true}
-            onRequest={() => void requestPermission()}
-          />
-        )}
+          <>
+            <Text variant="caption" color="onCamera">
+              {busy ? t('Reading the text…') : t('Point at the text and tap to scan')}
+            </Text>
 
-        <View
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            padding: theme.spacing.lg,
-            gap: theme.spacing.md,
-            alignItems: 'center',
-          }}
-        >
-          {permission?.granted ? (
-            <>
-              <Text variant="caption" color="onCamera">
-                {busy ? 'Reading the text…' : 'Point at the text and tap to scan'}
-              </Text>
+            <Pressable
+              onPress={() => void takePicture()}
+              disabled={!ready || busy}
+              accessibilityRole="button"
+              accessibilityLabel={t('Scan the text in view')}
+              accessibilityState={{ disabled: !ready || busy, busy }}
+              style={{
+                width: 72,
+                height: 72,
+                borderRadius: theme.radius.full,
+                backgroundColor:
+                  ready && !busy ? theme.colors.onCamera : theme.colors.onCameraMuted,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {busy ? <Spinner /> : <Icon name="scan-outline" size={28} color="text" />}
+            </Pressable>
+          </>
+        ) : null}
 
-              <Pressable
-                onPress={() => void takePicture()}
-                disabled={!ready || busy}
-                accessibilityRole="button"
-                accessibilityLabel="Scan the text in view"
-                accessibilityState={{ disabled: !ready || busy, busy }}
-                style={{
-                  width: 72,
-                  height: 72,
-                  borderRadius: theme.radius.full,
-                  backgroundColor:
-                    ready && !busy ? theme.colors.onCamera : theme.colors.onCameraMuted,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {busy ? <Spinner /> : <Icon name="scan-outline" size={28} color="text" />}
-              </Pressable>
-            </>
-          ) : null}
-
-          <Button label="Cancel" variant="secondary" size="sm" onPress={onClose} />
-        </View>
+        <Button label={t('Cancel')} variant="secondary" size="sm" onPress={onClose} />
       </View>
-    </Modal>
+    </View>
   );
 }
 
@@ -139,20 +169,22 @@ function PermissionPrompt({
 
       {!checked ? (
         <Text variant="bodySmall" color="onCamera" align="center">
-          Checking camera access…
+          {t('Checking camera access…')}
         </Text>
       ) : canAskAgain ? (
         <>
           <Text variant="bodySmall" color="onCamera" align="center">
-            Translita needs the camera to scan text. Nothing is uploaded — the picture is read on
-            this device and then discarded.
+            {t(
+              'Translita needs the camera to scan text. Nothing is uploaded — the picture is read on this device and then discarded.',
+            )}
           </Text>
-          <Button label="Allow camera" onPress={onRequest} size="sm" />
+          <Button label={t('Allow camera')} onPress={onRequest} size="sm" />
         </>
       ) : (
         <Text variant="bodySmall" color="onCamera" align="center">
-          Camera access is turned off for Translita. It can be re-enabled in the system settings for
-          this app.
+          {t(
+            'Camera access is turned off for Translita. It can be re-enabled in the system settings for this app.',
+          )}
         </Text>
       )}
     </View>

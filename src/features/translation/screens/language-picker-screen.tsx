@@ -3,17 +3,17 @@ import { useCallback, useState } from 'react';
 import { FlatList, Platform, View, type ListRenderItemInfo } from 'react-native';
 
 import {
-  Divider,
   EmptyState,
-  GradientHeader,
   IconButton,
   Screen,
+  ScreenHeader,
   SearchField,
   SectionHeader,
   SegmentedControl,
 } from '@/components';
 import { useLanguagePackStatus } from '@/features/offline';
 import { useTheme } from '@/hooks';
+import { msg, t } from '@/i18n';
 import type { LanguageField } from '@/store';
 
 import { LanguageChipRow } from '../components/language-chip';
@@ -45,13 +45,18 @@ export function LanguagePickerScreen() {
   const packStatus = useLanguagePackStatus();
 
   const { selectedId, otherSideId, select } = picker;
-  const otherSideLabel = side === 'source' ? 'Target' : 'Source';
+  const otherSideLabel = side === 'source' ? msg('Target') : msg('Source');
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<PickerRow>) => {
       if (item.kind === 'section') {
         return (
-          <View style={{ paddingHorizontal: theme.spacing.base, paddingTop: theme.spacing.base }}>
+          <View
+            style={{
+              paddingHorizontal: theme.layout.screenPadding,
+              paddingTop: theme.spacing.base,
+            }}
+          >
             <SectionHeader title={item.title} />
           </View>
         );
@@ -73,32 +78,49 @@ export function LanguagePickerScreen() {
         />
       );
     },
-    [otherSideId, otherSideLabel, packStatus, select, selectedId, theme.spacing.base],
+    [
+      otherSideId,
+      otherSideLabel,
+      packStatus,
+      select,
+      selectedId,
+      theme.layout.screenPadding,
+      theme.spacing.base,
+    ],
   );
 
   return (
     <Screen
       edgeToEdge
-      headerBleed
-      edges={['bottom']}
+      edges={['top', 'bottom']}
       header={
-        <GradientHeader
-          title="Language Selection"
-          actions={
-            <IconButton
-              name="close"
-              variant="soft"
-              accessibilityLabel="Close language picker"
-              onPress={dismiss}
-            />
-          }
+        // Plain white like every other screen: the title and close button,
+        // then which side is being chosen, then the search.
+        <View
+          style={{
+            paddingHorizontal: theme.layout.screenPadding,
+            paddingBottom: theme.spacing.md,
+            gap: theme.spacing.md,
+          }}
         >
+          <ScreenHeader
+            compact
+            title={t('Choose a language')}
+            actions={
+              <IconButton
+                name="close"
+                variant="soft"
+                accessibilityLabel={t('Close language picker')}
+                onPress={dismiss}
+              />
+            }
+          />
+
           <SegmentedControl
-            onGradient
-            accessibilityLabel="Choose which side of the pair to change"
+            accessibilityLabel={t('Choose which side of the pair to change')}
             options={[
-              { value: 'source', label: 'FROM' },
-              { value: 'target', label: 'TO' },
+              { value: 'source', label: t('From') },
+              { value: 'target', label: t('To') },
             ]}
             value={side}
             onChange={setSide}
@@ -108,10 +130,10 @@ export function LanguagePickerScreen() {
             value={picker.query}
             onChangeText={picker.setQuery}
             onClear={picker.clearQuery}
-            placeholder="Search by name or code"
-            accessibilityLabel="Search languages by name, native name or code"
+            placeholder={t('Search languages')}
+            accessibilityLabel={t('Search languages by name, native name or code')}
           />
-        </GradientHeader>
+        </View>
       }
     >
       <FlatList
@@ -120,9 +142,6 @@ export function LanguagePickerScreen() {
         renderItem={renderItem}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
-        ItemSeparatorComponent={({ leadingItem }: { leadingItem?: PickerRow }) =>
-          leadingItem?.kind === 'language' ? <Divider inset={theme.spacing.base} /> : null
-        }
         contentContainerStyle={
           picker.rows.length === 0
             ? { flexGrow: 1 }
@@ -131,8 +150,13 @@ export function LanguagePickerScreen() {
         ListEmptyComponent={
           <EmptyState
             icon="search-outline"
-            title="No languages found"
-            description={`Nothing matches “${picker.query.trim()}”. Try a name, a native name or a code like DE.`}
+            title={t('No languages found')}
+            description={t(
+              'Nothing matches “{query}”. Try a name, a native name or a code like DE.',
+              {
+                query: picker.query.trim(),
+              },
+            )}
           />
         }
         initialNumToRender={14}

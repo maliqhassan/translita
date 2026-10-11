@@ -78,6 +78,14 @@ describe('default preferences', () => {
       // reviewed in light mode, so a first launch looks as designed.
       theme: 'light',
       saveHistory: true,
+      // A conversation reads each answer aloud unless turned off.
+      conversationAutoSpeak: true,
+      // The Phrases shortcut says New until the screen is first opened.
+      phrasesSeen: false,
+      // English until the first screen offers the phone's own language.
+      appLanguage: 'en',
+      // Not asked yet: the question shows once, including to existing users.
+      appLanguageChosen: false,
       // The engine's natural pace, and no voice chosen: an install that never
       // opens the speech settings speaks exactly as it did before they
       // existed. `voiceId` and `voiceLanguage` are deliberately absent rather
@@ -115,13 +123,34 @@ describe('parsing stored preferences', () => {
       translationMode: 'online',
       theme: 'dark',
       saveHistory: false,
+      // Off, the non-default, so it is proven to survive parsing.
+      conversationAutoSpeak: false,
+      phrasesSeen: true,
       // A non-default rate, so this also proves the field survives parsing
       // rather than being quietly replaced by the default.
       speechRate: 1.25,
       onboardingComplete: true,
       aiTurnsUsed: 0,
+      // Not English, so the app language is proven to survive parsing.
+      appLanguage: 'ur',
+      appLanguageChosen: true,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
+  });
+
+  it('asks an existing user once, since their stored file has never answered', () => {
+    // A file written before the question existed: onboarding done, no answer.
+    const stored = parsePreferences({ version: 1, onboardingComplete: true });
+    assert.equal(stored.onboardingComplete, true);
+    assert.equal(stored.appLanguageChosen, false);
+    assert.equal(parsePreferences({ version: 1, appLanguageChosen: true }).appLanguageChosen, true);
+  });
+
+  it('reads an unknown app language as English', () => {
+    for (const appLanguage of ['xx', 'english', 42, null]) {
+      assert.equal(parsePreferences({ version: 1, appLanguage }).appLanguage, 'en');
+    }
+    assert.equal(parsePreferences({ version: 1, appLanguage: 'ar' }).appLanguage, 'ar');
   });
 
   it('falls back to defaults for anything unreadable', () => {
@@ -206,9 +235,13 @@ describe('preferences service', () => {
       translationMode: 'online',
       theme: 'dark',
       saveHistory: false,
+      conversationAutoSpeak: false,
+      phrasesSeen: true,
       speechRate: 0.5,
       onboardingComplete: true,
       aiTurnsUsed: 0,
+      appLanguage: 'es',
+      appLanguageChosen: true,
     };
 
     assert.equal((await service.save(saved)).ok, true);
@@ -383,5 +416,24 @@ describe('language pair persistence', () => {
     });
     assert.equal(canSwap({ source: 'auto', target: 'de' }), false);
     assert.deepEqual(remember(['de', 'fr'], 'de'), ['de', 'fr']);
+  });
+});
+
+describe('conversation auto-speak', () => {
+  it('is on for an install that predates the setting', () => {
+    // Older files have no such key: they take the default rather than off.
+    const parsed = parsePreferences({ version: 2, sourceLanguage: 'en', targetLanguage: 'fr' });
+    assert.equal(parsed.conversationAutoSpeak, true);
+  });
+
+  it('keeps an explicit off, and ignores anything that is not a boolean', () => {
+    assert.equal(
+      parsePreferences({ version: 2, conversationAutoSpeak: false }).conversationAutoSpeak,
+      false,
+    );
+    assert.equal(
+      parsePreferences({ version: 2, conversationAutoSpeak: 'no' }).conversationAutoSpeak,
+      true,
+    );
   });
 });

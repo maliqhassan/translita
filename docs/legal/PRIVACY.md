@@ -3,7 +3,7 @@ Written for: people installing Translita, and the Play Console reviewer who read
 # Privacy Policy
 
 **Translita**
-Last updated: 24 September 2026
+Last updated: 9 October 2026
 
 > **⚠️ BEFORE PUBLISHING — this document is a draft, not legal advice.**
 > Three things must be done before it goes live:
@@ -20,7 +20,7 @@ Last updated: 24 September 2026
 
 Translita does not ask you to create an account and does not ask who you are.
 
-Your translations, your history and your settings stay on your phone. Three things do leave it, and only when you use the feature that needs them: text you choose to translate online, speech you dictate, and sentences you speak to the AI practice partner.
+Your translations, your history and your settings stay on your phone. Three things do leave it, and only when you use the feature that needs them: text you choose to translate online, speech you dictate, and sentences you speak to the AI practice partner. When you open the app it also sends our server a short wake-up request, which contains nothing about you.
 
 We do not sell your data.
 
@@ -34,6 +34,8 @@ For any privacy question, write to **[CONTACT EMAIL]**.
 All of the following is stored only in the app's private storage on your device. We cannot read it, and it is never uploaded:
 
 - Your translation history
+- Your Conversation and AI practice transcripts, so you can pick them up again later
+- Your saved phrases and their translations
 - Your language choices, theme, voice and speed settings
 - Downloaded offline language packs
 - Whether you have completed onboarding, and how many free AI practice replies you have used
@@ -50,6 +52,14 @@ When your device is online and you translate, the **text you typed, scanned or s
 - Azure processes it under Microsoft's terms. See Microsoft's privacy statement: https://privacy.microsoft.com/privacystatement
 - **If you translate offline**, nothing is sent anywhere — the translation happens on your device.
 
+### A wake-up request
+
+When you open Translita, or come back to it, the app sends a short request to our server so it is ready before your first online translation. The request contains nothing about you and nothing you have typed — it only asks the server whether it is running. It is not sent while Translita is set to translate offline only, or when your phone has no connection.
+
+### Usage statistics
+
+To understand which features people use, Translita sends usage statistics to **Google Analytics for Firebase**: which screens and features are used (for example, opening Conversation or the Pro screen, or making a translation), the language codes of a translation (such as "en" to "de"), and whether the app is on the free or Pro plan. Firebase also collects an identifier for the app installation, the device model, the Android version and an approximate country. It never receives the text you type, scan or speak, or your saved phrases. See [how Google uses data from apps that use its services](https://policies.google.com/technologies/partner-sites).
+
 ### Speech you dictate
 
 Dictation uses **your phone's own speech recogniser**. On most Android phones this is supplied by Google and **sends your audio to Google's servers** to transcribe. That happens between your phone and Google; the audio never reaches us. It is governed by Google's privacy policy and your device settings.
@@ -60,7 +70,11 @@ If you use the AI practice partner, the **sentence you spoke and the recent exch
 
 - We do not store the conversation. It is held for the length of the request.
 - OpenAI processes it under their API terms. As of writing, OpenAI states that API data is not used to train their models: https://openai.com/policies/api-data-usage-policies
-- Practice conversations are **not** saved to your translation history.
+- Practice conversations are **not** saved to your translation history. The transcript is kept only on your phone, on the Conversation screen, until you clear it.
+
+### Offline language packs
+
+When you download a language pack, your phone fetches the translation model from **Google's** servers — the offline translator is Google ML Kit. Only the request for the model is sent, never the text you translate. Once a pack is downloaded, offline translation happens entirely on your device.
 
 ### Camera
 
@@ -102,7 +116,7 @@ Because Translita has **no accounts**, we hold almost nothing tied to you. In pr
 
 ## Deleting your data
 
-**In the app:** Settings → **Clear translation history** removes your saved translations, and Settings → **Reset settings** restores every preference to its default. Uninstalling removes everything the app has stored.
+**In the app:** Settings → **Clear translation history** removes your saved translations, Settings → **Reset settings** restores every preference to its default, and the bin icon on the Conversation screen clears a saved conversation. Uninstalling removes everything the app has stored.
 
 **Server-side:** we keep no account and no stored copy of your translations or conversations, so there is nothing on our servers to delete.
 

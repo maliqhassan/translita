@@ -49,62 +49,70 @@ describe('scanning is a first-class input', () => {
   it('is a labelled action, not a bare icon', () => {
     const composer = read(COMPOSER);
 
-    assert.match(composer, /label="Scan"/);
-    assert.match(composer, /icon="camera-outline"/);
+    assert.match(composer, /label=\{t\('Scan'\)\}/);
+    assert.match(composer, /icon="scan-outline"/);
   });
 
   it('sits alongside the other ways of getting text in', () => {
     const composer = read(COMPOSER);
 
-    for (const label of ['label="Scan"', 'label="Paste"']) {
-      assert.match(composer, new RegExp(label));
+    for (const label of ["label={t('Scan')}", "label={t('Paste')}"]) {
+      assert.ok(composer.includes(label), label);
     }
-    assert.match(composer, /speech\.listening \? 'Stop' : 'Speak'/);
+    assert.match(composer, /speech\.listening \? t\('Stop'\) : t\('Speak'\)/);
   });
 
   it('says what it does, so the camera glyph never has to be guessed', () => {
     assert.match(
       read(COMPOSER),
-      /accessibilityHint="Opens the camera to read text from a picture"/,
+      /accessibilityHint=\{t\('Opens the camera to read text from a picture'\)\}/,
     );
   });
 
-  it('still disappears entirely when the device cannot scan', () => {
+  it('stays on the box even where the device cannot scan', () => {
+    // Hiding it made the feature look removed — in Expo Go it was never
+    // there. The control now always shows, and a tap explains itself.
     const composer = read(COMPOSER);
 
-    assert.match(composer, /canScan = scan && scan\.status !== 'unavailable'/);
-    assert.match(composer, /\{canScan \?/);
+    assert.match(composer, /\{scan \? \(/);
+    assert.match(composer, /\{speech \? \(/);
+    assert.equal(/status !== 'unavailable'/.test(composer), false);
   });
 });
 
-describe('the two panels read as a pair', () => {
-  it('gives each panel its own language header', () => {
-    assert.match(read(COMPOSER), /field="source"/);
-    assert.match(read(RESULT), /field="target"/);
+describe('the pair reads as one From/To row', () => {
+  it('names both sides at the top of the source card', () => {
+    const composer = read(COMPOSER);
+
+    assert.match(composer, /field="source"/);
+    assert.match(composer, /field="target"/);
   });
 
   it('puts the swap control between them', () => {
-    const screen = read(SCREEN);
+    const composer = read(COMPOSER);
 
-    const composer = screen.indexOf('<TranslationComposer');
-    const swap = screen.indexOf('<SwapLanguagesButton');
-    const result = screen.indexOf('<TranslationResultCard');
+    const source = composer.indexOf('field="source"');
+    const swap = composer.indexOf('<SwapLanguagesButton');
+    const target = composer.indexOf('field="target"');
 
-    assert.ok(composer >= 0 && swap >= 0 && result >= 0, 'all three are rendered');
-    assert.ok(composer < swap && swap < result, 'source, swap, target, in that order');
+    assert.ok(source >= 0 && swap >= 0 && target >= 0, 'all three are rendered');
+    assert.ok(source < swap && swap < target, 'From, swap, To, in that order');
   });
 
-  it('names the target language in every state, not only on success', () => {
+  it('names the target language in every state the result card draws', () => {
     const result = read(RESULT);
 
-    // Four render branches: loading, error, idle, success.
-    const headers = result.match(/\{panelHeader\(/g) ?? [];
-    assert.equal(headers.length, 4);
+    // Three drawn branches — loading, error, success. Idle draws nothing.
+    const headers = result.match(/\{overline\(/g) ?? [];
+    assert.equal(headers.length, 3);
   });
 
-  it('lets either panel open the picker for its own side', () => {
-    const screen = read(SCREEN);
-    assert.equal((screen.match(/onSelectLanguage=\{openPicker\}/g) ?? []).length, 2);
+  it('lets each side open the picker for itself', () => {
+    const composer = read(COMPOSER);
+
+    assert.match(composer, /onPress=\{\(\) => onSelectLanguage\('source'\)\}/);
+    assert.match(composer, /onPress=\{\(\) => onSelectLanguage\('target'\)\}/);
+    assert.match(read(SCREEN), /onSelectLanguage=\{openPicker\}/);
   });
 
   it('has no separate language bar left over', () => {
@@ -130,8 +138,17 @@ describe('the translate action stays explicit', () => {
   it('keeps a full-width Translate button', () => {
     const screen = read(SCREEN);
 
-    assert.match(screen, /label="Translate"/);
-    assert.match(screen, /onPress=\{translate\}/);
+    assert.match(screen, /label=\{t\('Translate'\)\}/);
+    assert.match(screen, /onPress=\{submit\}/);
+  });
+
+  it('puts the keyboard away before translating, so the result lands in view', () => {
+    const screen = read(SCREEN);
+
+    assert.match(
+      screen,
+      /const submit = useCallback\(\(\) => \{\s*Keyboard\.dismiss\(\);\s*if \(!canTranslate\) return;\s*translate\(\);/,
+    );
   });
 
   it('disables it while a translation is in flight', () => {

@@ -4,8 +4,8 @@ import { Icon, type IconName } from '@/components';
 import { useTheme } from '@/hooks';
 
 /**
- * The visual on a carousel slide: an icon inside the same rings the welcome
- * screen uses.
+ * The visual on a carousel slide: an icon on a white badge, inside the same
+ * ring and pale-blue disc the welcome screen uses.
  *
  * Deliberately one shape repeated with a different glyph, rather than five
  * bespoke pictures. Five hand-built illustrations would be five things to keep
@@ -13,8 +13,10 @@ import { useTheme } from '@/hooks';
  * something that can be honestly approximated out of rounded views — trying
  * would land somewhere between the two and look like neither.
  *
- * Repeating the rings is also what ties the carousel to the welcome screen it
- * follows, so the two read as one sequence rather than two designs.
+ * Repeating the shape is also what ties the carousel to the welcome screen it
+ * follows, so the two read as one sequence rather than two designs. Both are
+ * light: the brand's palest tints on the white page, with the cyan kept for
+ * the icon itself.
  *
  * The icon comes from Ionicons, which is the only icon set in the project, so
  * nothing is added to draw these.
@@ -22,15 +24,7 @@ import { useTheme } from '@/hooks';
 export function SlideIllustration({ icon, size }: { icon: IconName; size: number }) {
   const theme = useTheme();
 
-  const ring = (diameter: number, opacity: number) => ({
-    position: 'absolute' as const,
-    width: diameter,
-    height: diameter,
-    borderRadius: theme.radius.full,
-    borderWidth: 1,
-    borderColor: theme.colors.onOnboardingMuted,
-    opacity,
-  });
+  const badge = size * 0.46;
 
   return (
     <View
@@ -41,20 +35,41 @@ export function SlideIllustration({ icon, size }: { icon: IconName; size: number
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants"
     >
-      <View style={ring(size, 0.35)} />
-      <View style={ring(size * 0.82, 0.55)} />
+      <View
+        style={{
+          position: 'absolute',
+          width: size,
+          height: size,
+          borderRadius: theme.radius.full,
+          borderWidth: theme.layout.borderWidth,
+          borderColor: theme.colors.primaryBorder,
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          width: size * 0.8,
+          height: size * 0.8,
+          borderRadius: theme.radius.full,
+          backgroundColor: theme.colors.primaryMuted,
+        }}
+      />
 
       <View
         style={{
-          width: size * 0.56,
-          height: size * 0.56,
+          width: badge,
+          height: badge,
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: theme.radius.full,
-          backgroundColor: theme.colors.onboardingAction,
+          backgroundColor: theme.colors.surface,
+          borderWidth: theme.layout.borderWidth,
+          borderColor: theme.colors.primaryBorder,
+          ...theme.shadows.md,
+          shadowColor: theme.colors.shadow,
         }}
       >
-        <Icon name={icon} size={size * 0.26} color="onOnboardingAction" />
+        <Icon name={icon} size={Math.round(badge * 0.46)} color="primary" />
       </View>
     </View>
   );

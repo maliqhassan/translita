@@ -2,6 +2,7 @@ import { Pressable, View } from 'react-native';
 
 import { Icon, Text } from '@/components';
 import { useTheme } from '@/hooks';
+import { msg, t } from '@/i18n';
 
 export type MicState = 'idle' | 'listening' | 'processing' | 'unavailable';
 
@@ -11,10 +12,10 @@ export type MicButtonProps = {
 };
 
 const LABELS: Record<MicState, string> = {
-  idle: 'Tap to speak',
-  listening: 'Listening…',
-  processing: 'Processing…',
-  unavailable: 'Voice input unavailable',
+  idle: msg('Tap to speak'),
+  listening: msg('Listening…'),
+  processing: msg('Processing…'),
+  unavailable: msg('Voice input unavailable'),
 };
 
 /** Large press-to-talk control. Recognition is wired in on the voice day. */
@@ -29,7 +30,7 @@ export function MicButton({ state = 'idle', onPress }: MicButtonProps) {
         onPress={onPress}
         disabled={disabled}
         accessibilityRole="button"
-        accessibilityLabel={LABELS[state]}
+        accessibilityLabel={t(LABELS[state])}
         accessibilityState={{ disabled, busy: state === 'processing' }}
         style={({ pressed }) => ({
           width: 76,
@@ -48,7 +49,7 @@ export function MicButton({ state = 'idle', onPress }: MicButtonProps) {
         <Icon name={active ? 'stop' : 'mic'} size={30} color="textOnPrimary" />
       </Pressable>
       <Text variant="bodySmall" color="textSecondary">
-        {LABELS[state]}
+        {t(LABELS[state])}
       </Text>
     </View>
   );

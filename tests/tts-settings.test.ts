@@ -356,9 +356,14 @@ describe('the wiring around the settings', () => {
   it('keeps play and stop exactly as they were', () => {
     const hook = read('src/features/translation/hooks/use-speak.ts');
 
-    // Tapping while speaking still stops rather than queueing a second
-    // utterance, and leaving the screen still silences it.
-    assert.match(hook, /if \(speaking\) \{\s*stop\(\);\s*return;\s*\}/);
+    // Tapping the text that is playing stops it. Tapping a different one
+    // never queues a second utterance: it stops the first, then speaks. And
+    // leaving the screen still silences it.
+    assert.match(hook, /if \(current === text\) \{\s*stop\(\);\s*return;\s*\}/);
+    assert.match(
+      hook,
+      /async \(text: string, language: LanguageCode\) => \{\s*await services\.tts\.stop\(\);/,
+    );
     assert.match(hook, /void services\.tts\.stop\(\)/);
   });
 
@@ -408,7 +413,7 @@ describe('the wiring around the settings', () => {
     const settings = read('src/features/settings/screens/settings-screen.tsx');
 
     assert.match(settings, /voiceMatchesLanguage\(preferences\.voiceLanguage, pair\.target\)/);
-    assert.match(settings, /voiceInUse \? 'Custom' : 'Default'/);
+    assert.match(settings, /voiceInUse \? t\('Custom'\) : t\('Default'\)/);
   });
 
   it('explains an empty voice list instead of reporting a failure', () => {
@@ -551,8 +556,8 @@ describe('previewing a voice', () => {
   it('labels the preview control for a screen reader, including its state', () => {
     const screen = read(SCREEN);
 
-    assert.match(screen, /Stop previewing \$\{item\.name \|\| item\.id\}/);
-    assert.match(screen, /Preview \$\{item\.name \|\| item\.id\} without selecting it/);
+    assert.match(screen, /t\('Stop previewing \{voice\}'/);
+    assert.match(screen, /t\('Preview \{voice\} without selecting it'/);
     assert.match(
       screen,
       /preview\.playingId === item\.id \? 'stop-circle' : 'play-circle-outline'/,

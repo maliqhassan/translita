@@ -4,6 +4,7 @@ import { View } from 'react-native';
 
 import { Button, Card, Divider, EmptyState, LoadingState, SectionHeader, Text } from '@/components';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 import type { HistoryEntry } from '@/types';
 
 import { useRecentTranslations } from '../hooks/use-history';
@@ -28,11 +29,11 @@ export function RecentTranslations() {
   return (
     <View>
       <SectionHeader
-        title="Recent"
+        title={t('Recent')}
         action={
           entries.length > 0 ? (
             <Button
-              label="See all"
+              label={t('See all')}
               variant="ghost"
               size="sm"
               icon="chevron-forward"
@@ -44,24 +45,24 @@ export function RecentTranslations() {
         }
       />
 
-      <Card variant="outlined" padding="none">
+      <Card variant="outlined" padding="none" style={{ borderRadius: theme.radius.xl }}>
         {recent.status === 'loading' ? (
           <View style={{ paddingVertical: theme.spacing.xl }}>
-            <LoadingState message="Loading history…" />
+            <LoadingState message={t('Loading history…')} />
           </View>
         ) : recent.status === 'error' ? (
           // History is unavailable, but translating still works. Say only that.
           <EmptyState
             icon="alert-circle-outline"
-            title="History unavailable"
-            description="Your translations cannot be saved on this device right now."
+            title={t('History unavailable')}
+            description={t('Your translations cannot be saved on this device right now.')}
             compact
           />
         ) : entries.length === 0 ? (
           <EmptyState
             icon="time-outline"
-            title="Nothing yet"
-            description="Translations you make will show up here."
+            title={t('Nothing yet')}
+            description={t('Translations you make will show up here.')}
             compact
           />
         ) : (
@@ -76,7 +77,7 @@ export function RecentTranslations() {
 
       {recent.status === 'success' && entries.length > 0 ? (
         <Text variant="caption" color="textMuted" style={{ marginTop: theme.spacing.sm }}>
-          Saved on this device only.
+          {t('Saved on this device only.')}
         </Text>
       ) : null}
     </View>

@@ -3,6 +3,7 @@ export * from './button';
 export * from './card';
 export * from './divider';
 export * from './empty-state';
+export * from './flag-circle';
 export * from './icon';
 export * from './icon-button';
 export * from './input';

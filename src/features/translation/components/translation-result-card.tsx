@@ -1,12 +1,22 @@
 import type { ReactNode } from 'react';
-import { View } from 'react-native';
+import { Pressable, Share, View } from 'react-native';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 
-import { Badge, Button, Card, Icon, IconButton, Skeleton, Spinner, Text } from '@/components';
-import { errorMessage } from '@/constants';
+import {
+  Badge,
+  Button,
+  Card,
+  Icon,
+  IconButton,
+  Skeleton,
+  Spinner,
+  Text,
+  type IconName,
+} from '@/components';
+import { errorMessage, getLanguage } from '@/constants';
 import type { OfflineNotice } from '@/features/offline';
 import { useTheme } from '@/hooks';
-import type { LanguageField } from '@/store';
+import { msg, t } from '@/i18n';
 import type {
   AppError,
   AsyncState,
@@ -17,8 +27,6 @@ import type {
 
 import type { CopyController } from '../hooks/use-copy-to-clipboard';
 import type { SpeakController } from '../hooks/use-speak';
-
-import { LanguagePanelHeader } from './language-panel-header';
 
 export type TranslationResultCardProps = {
   state: AsyncState<TranslationResult>;
@@ -38,34 +46,101 @@ export type TranslationResultCardProps = {
   onUpgrade?: () => void;
   /** Absent when the device has no speech engine: the control is then hidden. */
   speak?: SpeakController;
-  /** Opens the picker for one side of the pair. */
-  onSelectLanguage?: (field: LanguageField) => void;
+  /**
+   * Saving the translation as a phrase, for use offline later. Absent hides
+   * the action; `saved` says whether this translation already is one.
+   */
+  phrase?: { saved: boolean; toggle: (result: TranslationResult) => void };
 };
 
-const ENGINE_BADGE: Record<
-  TranslationEngine,
-  {
-    label: string;
-    tone: 'primary' | 'accent' | 'warning';
-    icon: 'cloud-outline' | 'cloud-offline-outline' | 'flask-outline';
-  }
+/**
+ * Online is the default and goes unbadged, so the card stays as quiet as the
+ * design. On-device is worth saying — it is the app's distinguishing feature,
+ * and tells the user no connection was used — and a sample result must always
+ * say it is not a real translation.
+ */
+const ENGINE_BADGE: Partial<
+  Record<
+    TranslationEngine,
+    {
+      label: string;
+      tone: 'primary' | 'warning';
+      icon: 'cloud-offline-outline' | 'flask-outline';
+    }
+  >
 > = {
-  online: { label: 'Online', tone: 'primary', icon: 'cloud-outline' },
-  offline: { label: 'Offline', tone: 'accent', icon: 'cloud-offline-outline' },
-  mock: { label: 'Sample', tone: 'warning', icon: 'flask-outline' },
+  offline: { label: msg('Offline'), tone: 'primary', icon: 'cloud-offline-outline' },
+  mock: { label: msg('Sample'), tone: 'warning', icon: 'flask-outline' },
 };
 
-/** Shared shell so every state is the same size and the layout never jumps. */
+/**
+ * Shared shell so loading, error and success are the same card.
+ *
+ * The brand's pale blue, set apart from the white text box above it — the
+ * answer reads as a different kind of thing from the question, without a
+ * second colour on the screen.
+ */
 function ResultShell({ children }: { children: ReactNode }) {
   const theme = useTheme();
   return (
-    <Card variant="filled" style={{ minHeight: 160, gap: theme.spacing.md }}>
+    <Card
+      variant="filled"
+      padding="lg"
+      style={{
+        minHeight: 180,
+        gap: theme.spacing.lg,
+        borderRadius: theme.radius.xl,
+        backgroundColor: theme.colors.primaryMuted,
+      }}
+    >
       {children}
     </Card>
   );
 }
 
-/** Renders whichever of idle / loading / error / success the screen is in. */
+type ResultActionProps = {
+  label: string;
+  icon: IconName;
+  onPress: () => void;
+  accessibilityLabel: string;
+};
+
+/** Listen, Copy and Share: equal-width white pills along the bottom of the card. */
+function ResultAction({ label, icon, onPress, accessibilityLabel }: ResultActionProps) {
+  const theme = useTheme();
+
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      style={({ pressed }) => ({
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: theme.spacing.sm,
+        minHeight: theme.layout.minTouchTarget,
+        borderRadius: theme.radius.full,
+        backgroundColor: theme.colors.surface,
+        opacity: pressed ? theme.motion.opacityPressed : 1,
+        transform: [{ scale: pressed ? theme.motion.scalePressed : 1 }],
+      })}
+    >
+      <Icon name={icon} size={18} color="primary" />
+      <Text variant="label" color="primary" maxFontSizeMultiplier={1.3}>
+        {label}
+      </Text>
+    </Pressable>
+  );
+}
+
+/**
+ * The translation, revealed below the source box on the same screen.
+ *
+ * There is no idle state to draw: before anything has been translated the
+ * screen shows its shortcuts here instead, so this renders nothing.
+ */
 export function TranslationResultCard({
   state,
   targetLanguage,
@@ -76,32 +151,42 @@ export function TranslationResultCard({
   onOpenPacks,
   onUpgrade,
   speak,
-  onSelectLanguage,
+  phrase,
 }: TranslationResultCardProps) {
   const theme = useTheme();
+  const targetName = getLanguage(targetLanguage)?.name ?? targetLanguage;
 
-  /**
-   * The target panel names its language in every state, so the pair stays
-   * readable while a translation is still empty, loading or failed.
-   */
-  const panelHeader = (actions?: ReactNode) =>
-    onSelectLanguage ? (
-      <LanguagePanelHeader
-        field="target"
-        id={targetLanguage}
-        onPress={() => onSelectLanguage('target')}
-        actions={actions}
-      />
-    ) : null;
+  /** The target language, named in every state so the pair stays readable. */
+  const overline = (trailing?: ReactNode) => (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: theme.spacing.sm,
+      }}
+    >
+      <Text variant="overline" color="primary" numberOfLines={1}>
+        {targetName}
+      </Text>
+      {trailing ? (
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+          {trailing}
+        </View>
+      ) : null}
+    </View>
+  );
+
+  if (state.status === 'idle') return null;
 
   if (state.status === 'loading') {
     return (
       <ResultShell>
-        {panelHeader()}
+        {overline()}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
           <Spinner />
           <Text variant="caption" color="textSecondary" accessibilityLiveRegion="polite">
-            Translating…
+            {t('Translating…')}
           </Text>
         </View>
         <View
@@ -109,9 +194,8 @@ export function TranslationResultCard({
           accessibilityElementsHidden
           importantForAccessibility="no-hide-descendants"
         >
-          <Skeleton height={18} width="92%" />
-          <Skeleton height={18} width="78%" />
-          <Skeleton height={18} width="55%" />
+          <Skeleton height={24} width="88%" />
+          <Skeleton height={24} width="64%" />
         </View>
       </ResultShell>
     );
@@ -137,7 +221,9 @@ export function TranslationResultCard({
 
     return (
       <ResultShell>
-        {panelHeader()}
+        {overline(
+          <IconButton name="close" size={18} accessibilityLabel={t('Dismiss')} onPress={onClear} />,
+        )}
         <Animated.View
           entering={FadeIn.duration(theme.motion.duration.normal)}
           style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: theme.spacing.md }}
@@ -162,26 +248,10 @@ export function TranslationResultCard({
               />
             ) : null}
             {upgrading ? null : (
-              <Button label="Try again" variant="secondary" size="sm" onPress={onRetry} />
+              <Button label={t('Try again')} variant="secondary" size="sm" onPress={onRetry} />
             )}
           </View>
         </Animated.View>
-      </ResultShell>
-    );
-  }
-
-  if (state.status === 'idle') {
-    return (
-      <ResultShell>
-        {panelHeader()}
-        <View
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: theme.spacing.sm }}
-        >
-          <Icon name="language-outline" size={24} color="textMuted" />
-          <Text variant="bodySmall" color="textMuted" align="center">
-            Your translation will appear here.
-          </Text>
-        </View>
       </ResultShell>
     );
   }
@@ -192,39 +262,65 @@ export function TranslationResultCard({
   return (
     <Animated.View entering={FadeInDown.duration(theme.motion.duration.normal).springify()}>
       <ResultShell>
-        {panelHeader(<Badge label={badge.label} tone={badge.tone} icon={badge.icon} />)}
+        {overline(
+          <>
+            {badge ? <Badge label={t(badge.label)} tone={badge.tone} icon={badge.icon} /> : null}
+            <IconButton
+              name="close"
+              size={18}
+              accessibilityLabel={t('Clear the translation')}
+              onPress={onClear}
+            />
+          </>,
+        )}
 
-        <Text variant="translatedText" selectable accessibilityLiveRegion="polite">
+        <Text variant="translatedHero" selectable accessibilityLiveRegion="polite">
           {result.translatedText}
         </Text>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            gap: theme.spacing.xs,
-          }}
-        >
+        <View style={{ flexDirection: 'row', gap: theme.spacing.sm, marginTop: 'auto' }}>
           {speak?.available ? (
-            <IconButton
-              name={speak.speaking ? 'stop-circle-outline' : 'volume-medium-outline'}
+            <ResultAction
+              label={speak.isSpeaking(result.translatedText) ? t('Stop') : t('Listen')}
+              icon={
+                speak.isSpeaking(result.translatedText)
+                  ? 'stop-circle-outline'
+                  : 'volume-high-outline'
+              }
               accessibilityLabel={
-                speak.speaking ? 'Stop reading aloud' : 'Read the translation aloud'
+                speak.isSpeaking(result.translatedText)
+                  ? t('Stop reading aloud')
+                  : t('Read the translation aloud')
               }
               onPress={() => speak.toggle(result.translatedText, targetLanguage)}
             />
           ) : null}
-          <IconButton
-            name={copy.justCopied ? 'checkmark-circle' : 'copy-outline'}
-            accessibilityLabel={copy.justCopied ? 'Translation copied' : 'Copy the translation'}
+          <ResultAction
+            label={copy.justCopied ? t('Copied') : t('Copy')}
+            icon={copy.justCopied ? 'checkmark-circle-outline' : 'copy-outline'}
+            accessibilityLabel={
+              copy.justCopied ? t('Translation copied') : t('Copy the translation')
+            }
             onPress={() => copy.copy(result.translatedText)}
           />
-          <IconButton
-            name="refresh-outline"
-            accessibilityLabel="Clear the translation"
-            onPress={onClear}
+          <ResultAction
+            label={t('Share')}
+            icon="share-social-outline"
+            accessibilityLabel={t('Share the translation')}
+            onPress={() => void Share.share({ message: result.translatedText })}
           />
+          {phrase ? (
+            <ResultAction
+              label={phrase.saved ? t('Saved') : t('Save')}
+              icon={phrase.saved ? 'bookmark' : 'bookmark-outline'}
+              accessibilityLabel={
+                phrase.saved
+                  ? t('Remove from saved phrases')
+                  : t('Save as a phrase, for use offline')
+              }
+              onPress={() => phrase.toggle(result)}
+            />
+          ) : null}
         </View>
       </ResultShell>
     </Animated.View>

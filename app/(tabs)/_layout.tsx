@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 
 import { AppTabBar, type TabIcons } from '@/components';
 import { PlanBannerAd } from '@/features/ads';
+import { msg, t } from '@/i18n';
 
 type TabConfig = {
   name: string;
@@ -10,15 +11,15 @@ type TabConfig = {
 
 /** Declaring tabs as data keeps the layout free of repeated JSX. */
 const TABS: readonly TabConfig[] = [
-  { name: 'index', title: 'Translate' },
-  { name: 'camera', title: 'Camera' },
-  { name: 'history', title: 'History' },
-  { name: 'settings', title: 'Settings' },
+  { name: 'index', title: msg('Translate') },
+  { name: 'camera', title: msg('Camera') },
+  { name: 'history', title: msg('History') },
+  { name: 'settings', title: msg('Settings') },
 ];
 
 /** Filled when selected, outlined otherwise — the usual Ionicons pairing. */
 const TAB_ICONS: TabIcons = {
-  index: { inactive: 'language-outline', active: 'language' },
+  index: { inactive: 'home-outline', active: 'home' },
   camera: { inactive: 'camera-outline', active: 'camera' },
   history: { inactive: 'time-outline', active: 'time' },
   settings: { inactive: 'settings-outline', active: 'settings' },
@@ -46,7 +47,7 @@ export default function TabsLayout() {
       screenOptions={{ headerShown: false }}
     >
       {TABS.map((tab) => (
-        <Tabs.Screen key={tab.name} name={tab.name} options={{ title: tab.title }} />
+        <Tabs.Screen key={tab.name} name={tab.name} options={{ title: t(tab.title) }} />
       ))}
     </Tabs>
   );

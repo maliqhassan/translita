@@ -10,6 +10,11 @@ export type ListItemProps = {
   title: string;
   subtitle?: string;
   icon?: IconName;
+  /**
+   * Drawn in the same well as `icon`, for a glyph that is not an icon — a
+   * flag, say. Takes precedence over `icon`.
+   */
+  leading?: ReactNode;
   /** Trailing slot — a Switch, Badge or plain text value. */
   trailing?: ReactNode;
   onPress?: () => void;
@@ -28,6 +33,7 @@ export function ListItem({
   title,
   subtitle,
   icon,
+  leading,
   trailing,
   onPress,
   showChevron,
@@ -57,27 +63,35 @@ export function ListItem({
         backgroundColor: pressed && onPress ? theme.colors.surfaceMuted : 'transparent',
       })}
     >
-      {icon ? (
+      {leading || icon ? (
         <View
           style={{
-            width: 34,
-            height: 34,
+            width: 40,
+            height: 40,
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: theme.radius.sm,
+            borderRadius: theme.radius.md,
             backgroundColor: destructive ? theme.colors.dangerMuted : theme.colors.surfaceMuted,
           }}
         >
-          <Icon name={icon} size={18} color={destructive ? 'danger' : 'textSecondary'} />
+          {leading ??
+            (icon ? <Icon name={icon} size={20} color={destructive ? 'danger' : 'text'} /> : null)}
         </View>
       ) : null}
 
       <View style={{ flex: 1, gap: theme.spacing.xxs }}>
-        <Text variant="body" color={destructive ? 'danger' : 'text'} numberOfLines={1}>
+        <Text
+          variant="rowTitle"
+          color={destructive ? 'danger' : 'text'}
+          numberOfLines={1}
+          maxFontSizeMultiplier={1.4}
+        >
           {title}
         </Text>
         {subtitle ? (
-          <Text variant="bodySmall" color="textMuted" numberOfLines={2}>
+          // The secondary ink, not the muted one: a row's subtitle usually
+          // carries its current value ("English", "Automatic") and has to read.
+          <Text variant="bodySmall" color="textSecondary" numberOfLines={2}>
             {subtitle}
           </Text>
         ) : null}

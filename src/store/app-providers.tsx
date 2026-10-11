@@ -1,10 +1,12 @@
 import type { ReactNode } from 'react';
 
+import { ConversationProvider } from './conversation-store';
 import { DatabaseProvider } from './database-store';
 import { EntitlementsProvider } from './entitlements-store';
 import { LanguageProvider } from './language-store';
 import { NetworkProvider } from './network-store';
 import { PreferencesProvider } from './preferences-store';
+import { SavedPhrasesProvider } from './saved-phrases-store';
 
 /**
  * Single composition point for global providers. New stores are added here so
@@ -23,7 +25,11 @@ export function AppProviders({ children }: { children: ReactNode }) {
       <NetworkProvider>
         <PreferencesProvider>
           <EntitlementsProvider>
-            <LanguageProvider>{children}</LanguageProvider>
+            <LanguageProvider>
+              <ConversationProvider>
+                <SavedPhrasesProvider>{children}</SavedPhrasesProvider>
+              </ConversationProvider>
+            </LanguageProvider>
           </EntitlementsProvider>
         </PreferencesProvider>
       </NetworkProvider>

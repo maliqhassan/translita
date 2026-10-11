@@ -25,17 +25,11 @@ export type ProBenefit = {
 
 export const PRO_BENEFITS: readonly ProBenefit[] = [
   {
-    capability: 'aiTutor',
-    icon: 'school-outline',
-    title: 'Practise with an AI partner',
-    description:
-      'Speak in the language you are learning and get a reply, a translation to check yourself against, and a question back. Everyone gets a few free; Pro is unlimited.',
-  },
-  {
     capability: 'adFree',
     icon: 'sparkles-outline',
     title: 'No ads',
-    description: 'Remove every advertisement in the app.',
+    description:
+      'Remove every advertisement in the app, including the one after every so many replies in Conversation.',
   },
 ];
 
@@ -59,5 +53,9 @@ export const INCLUDED_ON_EVERY_PLAN: readonly IncludedFeature[] = [
   { icon: 'mic-outline', title: 'Speech-to-text dictation' },
   { icon: 'volume-high-outline', title: 'Text-to-speech, with voice and speed settings' },
   { icon: 'chatbubbles-outline', title: 'Two-way conversation with another person' },
+  {
+    icon: 'school-outline',
+    title: 'AI conversation practice, with a reply, a translation and a question back',
+  },
   { icon: 'time-outline', title: 'Translation history' },
 ];

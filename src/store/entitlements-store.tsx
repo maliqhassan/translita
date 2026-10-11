@@ -64,6 +64,7 @@ export function EntitlementsProvider({ children }: { children: ReactNode }) {
     const sync = () => {
       const current = services.entitlements.current();
       publishActiveEntitlements(current);
+      services.analytics.setUserProperty({ name: 'plan', value: current.plan });
       if (active) setEntitlements(current);
     };
 

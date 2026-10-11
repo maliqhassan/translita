@@ -195,13 +195,20 @@ describe('the tutor service', () => {
   });
 });
 
-describe('practice is sold, with a taste given away', () => {
-  it('is a capability of its own, held only by Pro', () => {
+describe('practice is free, and an interstitial pays for it instead of a plan', () => {
+  it('is a capability of its own, and Free holds it like every other feature', () => {
+    /*
+     * It used to be sellable — held only by Pro, with a small free taste — the
+     * same way `adFree` still is. A model call costs money on every exchange
+     * either way; what changed is which mechanism pays for that cost. An
+     * interstitial after every few replies pays for it now, so the capability
+     * moved into `FREE_CAPABILITIES` the same way Camera OCR and dictation did
+     * before it, and Pro no longer needs to name it at all.
+     */
     const capabilities = read('src/services/entitlements/plan-capabilities.ts');
 
-    assert.match(capabilities, /'adFree', 'aiTutor'/);
-    // And not in the free list, which is what makes it sellable.
-    assert.equal(/FREE_CAPABILITIES = \[[^\]]*aiTutor/.test(capabilities), false);
+    assert.match(capabilities, /FREE_CAPABILITIES = \[[^\]]*aiTutor/);
+    assert.equal(/pro: \[\.\.\.FREE_CAPABILITIES[^\]]*aiTutor/.test(capabilities), false);
   });
 
   it('asks the capability, never the plan', () => {

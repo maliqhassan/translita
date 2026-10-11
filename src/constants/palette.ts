@@ -27,6 +27,26 @@ export const palette = {
     800: '#06606F',
     900: '#0A4E5B',
   },
+  /**
+   * The soft blue wash behind the home and settings screens, and the
+   * periwinkle ink of the headline's second line. Sampled from the design
+   * mockups; used only through semantic tokens.
+   */
+  sky: {
+    /** The source card's tint: lifted off the page, a shade under white. */
+    25: '#F8FAFF',
+    /** Quiet fills on white cards: pills, input actions, icon wells. */
+    50: '#EFF3FB',
+    /** The page itself. */
+    100: '#E6EDFA',
+    200: '#DAE2F2',
+    400: '#8F9CD6',
+    450: '#8B95B1',
+    500: '#7D8CC0',
+    600: '#586482',
+    /** Deep navy, for text on the light UI. */
+    950: '#0E1330',
+  },
   /** Accent — teal, reserved for offline/ready affordances. */
   teal: {
     50: '#E6FAF7',

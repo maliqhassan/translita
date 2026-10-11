@@ -1,4 +1,4 @@
-import { ExpoSpeechRecognitionModule } from 'expo-speech-recognition';
+import { requireOptionalNativeModule } from 'expo-modules-core';
 
 import { isAutoDetect } from '@/constants';
 import type { Unsubscribe } from '@/types';
@@ -17,7 +17,7 @@ const log = createLogger('speech');
 /**
  * Microphone to text, over the platform's own speech recogniser.
  *
- * The only file in the app that imports `expo-speech-recognition`, the same
+ * The only file in the app that reaches the platform recogniser, the same
  * rule that keeps expo-sqlite, expo-clipboard and expo-speech each in one
  * place. Everything above sees `SpeechService`.
  *
@@ -81,8 +81,35 @@ function toAppError(code: string) {
   }
 }
 
+/**
+ * The platform recogniser, or null in a build that does not contain it.
+ *
+ * Resolved optionally, the same way the ML Kit module is, rather than by
+ * importing `expo-speech-recognition`: that package's entry calls
+ * `requireNativeModule` the moment it is imported, which throws wherever the
+ * module is absent — Expo Go, most visibly — and took the whole app down at
+ * startup. Resolved here, a missing recogniser just makes this service report
+ * itself unavailable, and the microphone controls hide.
+ *
+ * The package's own entry rewraps `stop` and `abort` so they are called with
+ * no arguments; the same is done here so behaviour is unchanged in a full
+ * build.
+ */
+function resolveNative(): SpeechRecognitionNative | null {
+  const module = requireOptionalNativeModule<SpeechRecognitionNative>('ExpoSpeechRecognition');
+  if (!module) return null;
+
+  const stop = module.stop;
+  const abort = module.abort;
+  module.stop = () => stop();
+  module.abort = () => abort();
+  return module;
+}
+
+const NATIVE = resolveNative();
+
 export function createExpoSpeechRecognitionService(
-  native: SpeechRecognitionNative | null = ExpoSpeechRecognitionModule as SpeechRecognitionNative,
+  native: SpeechRecognitionNative | null = NATIVE,
 ): SpeechService {
   const listeners = new Set<(event: SpeechRecognitionEvent) => void>();
   /** Native subscriptions held only while a session is running. */
@@ -265,7 +292,7 @@ export function createExpoSpeechRecognitionService(
  * never imply otherwise.
  */
 export function supportsOnDeviceRecognition(
-  native: SpeechRecognitionNative | null = ExpoSpeechRecognitionModule as SpeechRecognitionNative,
+  native: SpeechRecognitionNative | null = NATIVE,
 ): boolean {
   try {
     return native?.supportsOnDeviceRecognition() ?? false;

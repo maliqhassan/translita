@@ -34,6 +34,32 @@ export type Preferences = {
   /** Save completed translations to the on-device history. */
   saveHistory: boolean;
   /**
+   * Whether the Conversation screen reads each answer aloud as it arrives —
+   * a translation in the listener's language, or the tutor's reply in the
+   * language being learned — so two people can talk without anyone tapping a
+   * speaker icon. On by default; the screen's own speaker button switches it.
+   */
+  conversationAutoSpeak: boolean;
+  /**
+   * Whether the Phrases screen has been opened. Until it has, its shortcut on
+   * the home screen carries a "New" tag; once seen, the tag goes for good.
+   */
+  phrasesSeen: boolean;
+  /**
+   * The language the app itself is shown in — menus, buttons, messages — as
+   * one of the app's own languages (see `APP_LANGUAGES`). Chosen on the first
+   * onboarding screen, changeable in Settings. Separate from the translation
+   * pair above, which is what the user translates.
+   */
+  appLanguage: string;
+  /**
+   * Whether the user has been asked which language the app should speak.
+   * Answered in onboarding on a new install. Someone who used the app before
+   * it spoke other languages is asked once, on their next launch, and can
+   * close the question to keep things as they were.
+   */
+  appLanguageChosen: boolean;
+  /**
    * How fast a translation is read aloud, where 1 is the engine's natural
    * pace. Only the documented steps are accepted; anything else reads as 1.
    */

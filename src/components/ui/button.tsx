@@ -73,6 +73,8 @@ export function Button({
             : pressed
               ? theme.motion.opacityPressed
               : 1,
+          // A slight press-in, so a tap is felt as well as seen.
+          transform: [{ scale: pressed && !isInactive ? theme.motion.scalePressed : 1 }],
           alignSelf: fullWidth ? 'stretch' : 'flex-start',
         },
         style,
@@ -90,13 +92,18 @@ export function Button({
       ) : (
         <View style={[styles.content, { gap: theme.spacing.sm }]}>
           {icon && iconPosition === 'left' ? (
-            <Icon name={icon} size={18} color={labelColor} />
+            <Icon name={icon} size={size === 'lg' ? 20 : 18} color={labelColor} />
           ) : null}
-          <Text variant="button" color={labelColor} numberOfLines={1}>
+          <Text
+            variant={size === 'lg' ? 'buttonLarge' : 'button'}
+            color={labelColor}
+            numberOfLines={1}
+            maxFontSizeMultiplier={1.3}
+          >
             {label}
           </Text>
           {icon && iconPosition === 'right' ? (
-            <Icon name={icon} size={18} color={labelColor} />
+            <Icon name={icon} size={size === 'lg' ? 20 : 18} color={labelColor} />
           ) : null}
         </View>
       )}

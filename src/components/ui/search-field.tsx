@@ -1,6 +1,7 @@
 import { TextInput, View, type TextInputProps } from 'react-native';
 
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 
 import { Icon } from './icon';
 import { IconButton } from './icon-button';
@@ -23,8 +24,8 @@ export function SearchField({
   value,
   onChangeText,
   onClear,
-  placeholder = 'Search',
-  accessibilityLabel = 'Search',
+  placeholder = t('Search'),
+  accessibilityLabel = t('Search'),
   ...rest
 }: SearchFieldProps) {
   const theme = useTheme();
@@ -69,7 +70,7 @@ export function SearchField({
         <IconButton
           name="close-circle"
           size={18}
-          accessibilityLabel="Clear search"
+          accessibilityLabel={t('Clear search')}
           onPress={onClear}
         />
       ) : null}

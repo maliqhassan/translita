@@ -5,7 +5,12 @@ import { useTheme } from '@/hooks';
 import { Icon, type IconName } from './icon';
 import { Text, type TextColor } from './text';
 
-export type BadgeTone = 'neutral' | 'primary' | 'accent' | 'success' | 'warning' | 'danger';
+/**
+ * `highlight` is the one solid tone: the brand fill with dark ink, for the
+ * rare tag that has to be noticed — a new feature — rather than read in passing.
+ */
+export type BadgeTone =
+  'neutral' | 'primary' | 'highlight' | 'accent' | 'success' | 'warning' | 'danger';
 
 export type BadgeProps = {
   label: string;
@@ -20,6 +25,7 @@ export function Badge({ label, tone = 'neutral', icon }: BadgeProps) {
   const tones: Record<BadgeTone, { background: string; foreground: TextColor }> = {
     neutral: { background: theme.colors.surfaceMuted, foreground: 'textSecondary' },
     primary: { background: theme.colors.primaryMuted, foreground: 'primary' },
+    highlight: { background: theme.colors.primary, foreground: 'textOnPrimary' },
     accent: { background: theme.colors.accentMuted, foreground: 'accent' },
     success: { background: theme.colors.successMuted, foreground: 'success' },
     warning: { background: theme.colors.warningMuted, foreground: 'warning' },

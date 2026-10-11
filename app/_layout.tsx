@@ -6,13 +6,17 @@ import {
   type Theme as NavigationTheme,
 } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { Theme } from '@/constants';
-import { OnboardingFlow } from '@/features/onboarding';
+import { AppOpenAdController } from '@/features/ads';
+import { LanguagePrompt, OnboardingFlow } from '@/features/onboarding';
+import { ReturnToSettingsOnLanguageChange } from '@/features/settings';
+import { ServerWarmup } from '@/features/translation';
 import { useTheme } from '@/hooks';
+import { DEFAULT_APP_LANGUAGE, I18nProvider, isAppLanguage } from '@/i18n';
 import { AppProviders, usePreferences } from '@/store';
 
 void SplashScreen.preventAutoHideAsync();
@@ -43,6 +47,16 @@ function RootNavigator() {
   const theme = useTheme();
   const { preferences, update } = usePreferences();
 
+  /**
+   * Whether onboarding was already done when the app opened. Read once, on
+   * the first render: finishing the tour flips the preference, but it must
+   * not turn that first session into one that opens with an advert.
+   */
+  const [onboardedAtLaunch] = useState(
+    // Nor the launch that asks an existing user for their language.
+    preferences.onboardingComplete && preferences.appLanguageChosen,
+  );
+
   useEffect(() => {
     void SplashScreen.hideAsync();
   }, []);
@@ -63,32 +77,68 @@ function RootNavigator() {
    * The flow owns which of its own screens is showing. This only knows whether
    * onboarding is done, which is the only part worth persisting.
    */
+  const language = isAppLanguage(preferences.appLanguage)
+    ? preferences.appLanguage
+    : DEFAULT_APP_LANGUAGE;
+
   if (!preferences.onboardingComplete) {
-    return <OnboardingFlow onComplete={() => update({ onboardingComplete: true })} />;
+    return (
+      <I18nProvider language={language}>
+        <OnboardingFlow
+          onComplete={() => update({ onboardingComplete: true, appLanguageChosen: true })}
+        />
+      </I18nProvider>
+    );
+  }
+
+  /*
+   * Someone who used the app before it spoke other languages finished
+   * onboarding without being asked. They are asked once, here, in place of the
+   * navigator — the same way onboarding is shown — and never again.
+   */
+  if (!preferences.appLanguageChosen) {
+    return (
+      <I18nProvider language={language}>
+        <LanguagePrompt />
+      </I18nProvider>
+    );
   }
 
   return (
-    <ThemeProvider value={toNavigationTheme(theme)}>
-      <Stack
-        screenOptions={{
-          headerShadowVisible: false,
-          contentStyle: { backgroundColor: theme.colors.background },
-        }}
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="translate/language-picker"
-          options={{ headerShown: false, presentation: 'modal' }}
-        />
-        <Stack.Screen name="camera/result" options={{ headerShown: false }} />
-        <Stack.Screen name="conversation" options={{ headerShown: false }} />
-        <Stack.Screen name="history/[id]" options={{ headerShown: false }} />
-        <Stack.Screen name="settings/language-packs" options={{ headerShown: false }} />
-        <Stack.Screen name="settings/voice" options={{ headerShown: false }} />
-        <Stack.Screen name="upgrade" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ title: 'Not found' }} />
-      </Stack>
-    </ThemeProvider>
+    <I18nProvider language={language}>
+      <ThemeProvider value={toNavigationTheme(theme)}>
+        {/* Past onboarding only, by being down here: a first launch sees the
+          welcome screen and the tour, never an advert. */}
+        <AppOpenAdController showOnLaunch={onboardedAtLaunch} />
+        {/* The navigator below starts again on Home; this returns to Settings. */}
+        <ReturnToSettingsOnLanguageChange />
+        {/* Keyed by language: changing it in Settings redraws every screen in
+          the new language. Only the navigator is keyed, so the advert
+          controller above keeps its state and does not fire again. */}
+        <Stack
+          key={language}
+          screenOptions={{
+            headerShadowVisible: false,
+            contentStyle: { backgroundColor: theme.colors.background },
+          }}
+        >
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="translate/language-picker"
+            options={{ headerShown: false, presentation: 'modal' }}
+          />
+          <Stack.Screen name="camera/result" options={{ headerShown: false }} />
+          <Stack.Screen name="conversation" options={{ headerShown: false }} />
+          <Stack.Screen name="phrases" options={{ headerShown: false }} />
+          <Stack.Screen name="history/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="settings/language-packs" options={{ headerShown: false }} />
+          <Stack.Screen name="settings/voice" options={{ headerShown: false }} />
+          <Stack.Screen name="settings/app-language" options={{ headerShown: false }} />
+          <Stack.Screen name="upgrade" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ title: 'Not found' }} />
+        </Stack>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
 
@@ -97,6 +147,9 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <AppProviders>
+          {/* Wakes the translation server on opening and on every return to
+              the app, onboarding included — see the component. */}
+          <ServerWarmup />
           <RootNavigator />
         </AppProviders>
       </SafeAreaProvider>

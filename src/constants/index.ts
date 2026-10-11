@@ -1,5 +1,6 @@
 export * from './colors';
 export * from './config';
+export * from './language-flags';
 export * from './languages';
 export * from './ink';
 export * from './layout';

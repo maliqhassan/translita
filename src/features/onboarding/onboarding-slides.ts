@@ -29,6 +29,8 @@ export type OnboardingSlide = {
   icon: IconName;
   heading: string;
   body: string;
+  /** Values for `{name}` placeholders in the heading. */
+  params?: Readonly<Record<string, number>>;
 };
 
 /**
@@ -53,7 +55,9 @@ export const ONBOARDING_SLIDES: readonly OnboardingSlide[] = [
   {
     key: 'text',
     icon: 'language-outline',
-    heading: `${languageCount} languages`,
+    // The number fills a placeholder, so each language can place it.
+    heading: '{count} languages',
+    params: { count: languageCount },
     // Verified in `language-catalog.ts` and `languages.ts`: the catalogue is
     // the authoritative list, and `SOURCE_LANGUAGES` prepends auto-detect.
     body: 'Type or paste text, pick a pair from the catalogue, and let Translita detect the source language if you are not sure.',

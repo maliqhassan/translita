@@ -15,7 +15,10 @@ type State = {
 };
 
 type Action =
-  { type: 'setSource'; id: LanguageId } | { type: 'setTarget'; id: LanguageId } | { type: 'swap' };
+  | { type: 'setSource'; id: LanguageId }
+  | { type: 'setTarget'; id: LanguageId }
+  | { type: 'setPair'; pair: LanguagePair }
+  | { type: 'swap' };
 
 function reducer(state: State, action: Action): State {
   const { pair } = state;
@@ -46,6 +49,9 @@ function reducer(state: State, action: Action): State {
       };
     }
 
+    case 'setPair':
+      return { ...state, pair: action.pair };
+
     case 'swap':
       return { ...state, pair: applySwap(pair) };
   }
@@ -59,6 +65,11 @@ type LanguageContextValue = {
   setTarget: (id: LanguageId) => void;
   /** Writes whichever side the picker was opened for. */
   select: (field: LanguageField, id: LanguageId) => void;
+  /**
+   * Both sides at once, for a starting pair. Setting them one after the other
+   * would persist the first change against the pair as it was before it.
+   */
+  setPair: (pair: LanguagePair) => void;
   swap: () => void;
 };
 
@@ -112,6 +123,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setSource,
       setTarget,
       select: (field, id) => (field === 'source' ? setSource(id) : setTarget(id)),
+      setPair: (next) => {
+        dispatch({ type: 'setPair', pair: next });
+        persist(next);
+      },
       swap: () => {
         dispatch({ type: 'swap' });
         persist(applySwap(state.pair));

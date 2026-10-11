@@ -3,6 +3,7 @@ import { View } from 'react-native';
 
 import { Button, Card, Icon, Text } from '@/components';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 import type { OfflineReadiness } from '@/services';
 
 import { offlineNotice } from '../offline-notice';
@@ -48,7 +49,9 @@ export function OfflineReadinessNotice({ readiness }: OfflineReadinessNoticeProp
           size="sm"
           icon="cloud-download-outline"
           onPress={() => router.push('/settings/language-packs')}
-          accessibilityHint="Opens the language packs screen so you can download what this pair needs"
+          accessibilityHint={t(
+            'Opens the language packs screen so you can download what this pair needs',
+          )}
         />
       ) : null}
     </Card>

@@ -3,6 +3,7 @@ import { ActivityIndicator, Animated, View, type ViewStyle } from 'react-native'
 
 import type { RadiusToken } from '@/constants';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 
 import { Text } from './text';
 
@@ -19,7 +20,7 @@ export type LoadingStateProps = {
 };
 
 /** Full-panel loading state for a screen or card that has nothing to show yet. */
-export function LoadingState({ message = 'Loading…' }: LoadingStateProps) {
+export function LoadingState({ message = t('Loading…') }: LoadingStateProps) {
   const theme = useTheme();
   return (
     <View

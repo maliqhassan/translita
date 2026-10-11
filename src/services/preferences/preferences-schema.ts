@@ -1,4 +1,5 @@
 import { DEFAULTS, getLanguage, isAutoDetect } from '@/constants';
+import { DEFAULT_APP_LANGUAGE, isAppLanguage } from '@/i18n';
 import { SPEECH_RATES } from '@/types';
 import type { Preferences, SpeechRate, ThemePreference, TranslationMode } from '@/types';
 
@@ -30,6 +31,17 @@ export const DEFAULT_PREFERENCES: Preferences = {
   // designed. Dark mode stays available and is still a one-tap choice.
   theme: 'light',
   saveHistory: true,
+  // A conversation reads itself aloud unless the user turns it off: that is
+  // what makes it an interpreter rather than a transcript.
+  conversationAutoSpeak: true,
+  // Unseen until the Phrases screen is first opened, so the shortcut says New.
+  phrasesSeen: false,
+  // English until the user picks a language on the first onboarding screen.
+  // An install from before the setting existed keeps English.
+  appLanguage: DEFAULT_APP_LANGUAGE,
+  // Not asked yet. A stored file from before the question existed reads as
+  // not asked too, which is what shows it once to existing users.
+  appLanguageChosen: false,
   // The engine's natural pace, and no voice chosen: an install that has never
   // opened Settings speaks exactly as it did before these fields existed.
   speechRate: 1,
@@ -182,6 +194,15 @@ export function parsePreferences(payload: unknown): Preferences {
     ),
     theme: readEnum(record.theme, THEMES, DEFAULT_PREFERENCES.theme),
     saveHistory: readBoolean(record.saveHistory, DEFAULT_PREFERENCES.saveHistory),
+    conversationAutoSpeak: readBoolean(
+      record.conversationAutoSpeak,
+      DEFAULT_PREFERENCES.conversationAutoSpeak,
+    ),
+    phrasesSeen: readBoolean(record.phrasesSeen, DEFAULT_PREFERENCES.phrasesSeen),
+    appLanguage: isAppLanguage(record.appLanguage)
+      ? record.appLanguage
+      : DEFAULT_PREFERENCES.appLanguage,
+    appLanguageChosen: readBoolean(record.appLanguageChosen, DEFAULT_PREFERENCES.appLanguageChosen),
     speechRate: readSpeechRate(record.speechRate, DEFAULT_PREFERENCES.speechRate),
     onboardingComplete: readBoolean(
       record.onboardingComplete,

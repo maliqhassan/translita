@@ -2,7 +2,7 @@
 export const APP = {
   name: 'Translita',
   tagline: 'Offline translation app',
-  version: '0.2.0',
+  version: '0.3.0',
 } as const;
 
 /**
@@ -34,6 +34,16 @@ export const STORAGE_KEYS = {
    * issued by a server instead of set on the device.
    */
   entitlements: 'transee.entitlements.v1',
+  /**
+   * The Conversation screen's transcripts, Person and Practice together.
+   *
+   * Its own slot rather than a preference for the same reason entitlements
+   * get one: this is a transcript, not a setting, and clearing it is a
+   * transcript action ("clear this conversation"), not a reset to a default.
+   */
+  conversationHistory: 'transee.conversation.v1',
+  /** Phrases the user saved, with their translations, for offline use. */
+  savedPhrases: 'transee.phrases.v1',
 } as const;
 
 /**
@@ -65,34 +75,94 @@ export const REVENUECAT = {
 } as const;
 
 /**
- * Google AdMob unit IDs.
+ * Google AdMob: the app and its three ad units, as created in the AdMob
+ * console for publisher `pub-3453858576340434`.
  *
- * Shown to free users only. The banner shows at the bottom of key screens,
- * app open ads fire on launch, and interstitials show after high-value
- * actions to drive conversions to Pro.
+ * Every ID carries that 16-digit publisher number. They once carried an
+ * extra "04" in the middle — a publisher that does not exist — so no request
+ * could ever have been filled. A test now pins that all four agree.
+ *
+ * Release builds only. A development build uses Google's test units instead
+ * (see `features/ads/ad-units.ts`): requesting live ads while building the
+ * app is how an AdMob account gets flagged for invalid traffic.
+ *
+ * Free plan only, everywhere: the banner above the tab bar, an interstitial
+ * every few Conversation replies, and an app-open ad on returning to the app.
+ *
+ * The App ID is also declared in `app.json`, which is where the ads plugin
+ * reads it from to write the Android manifest; a test pins that they match.
  */
 export const ADMOB = {
-  appId: 'ca-app-pub-345385857634040434~1355505693',
-  bannerAdUnit: 'ca-app-pub-345385857634040434/9583591912',
-  interstitialAdUnit: 'ca-app-pub-345385857634040434/1509660773',
-  appOpenAdUnit: 'ca-app-pub-345385857634040434/2315390268',
+  appId: 'ca-app-pub-3453858576340434~1355505693',
+  bannerAdUnit: 'ca-app-pub-3453858576340434/9583591912',
+  interstitialAdUnit: 'ca-app-pub-3453858576340434/1509660773',
+  appOpenAdUnit: 'ca-app-pub-3453858576340434/2315390268',
 } as const;
 
 export const PRO_PLANS = {
-  monthly: { productId: 'translita_pro_monthly', displayPrice: '$4.99', period: 'month' },
-  yearly: { productId: 'translita_pro_yearly', displayPrice: '$29.99', period: 'year' },
-  /** Shown beside the yearly option. Derived, so it cannot contradict itself. */
-  yearlySavingPercent: 50,
+  monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.99', period: 'month' },
+  yearly: { productId: 'translita_pro_yearly', displayPrice: '$9.99', period: 'year' },
+  /**
+   * Shown beside the yearly option. Kept at or under the real saving —
+   * $0.99 × 12 = $11.88 against $9.99 is ~16% — rather than the round number,
+   * so the badge can never overstate what it claims.
+   */
+  yearlySavingPercent: 15,
 } as const;
 
 /**
  * Free AI practice exchanges, before Pro is required.
  *
- * Small on purpose. Each one is a billed model call, and the allowance exists
- * so somebody can find out whether they like practising — not to be a usable
- * free tier.
+ * Dormant, not deleted. `aiTutor` moved into Free's own capability list, which
+ * makes `useAiAccess.unlimited` true for everyone and this number irrelevant —
+ * matching how `FEATURES.offlineEntitlement` stays wired but switched off
+ * rather than torn out. The allowance machinery is untouched underneath it, so
+ * reversing that one line is all a future re-tiering would take.
  */
 export const AI_TRIAL_TURNS = 10;
+
+/**
+ * How often a full-screen ad interrupts the Conversation screen.
+ *
+ * One counter for both Person and Practice: the ad is what funds the feature
+ * as a whole, not one side of it. Every Nth reply that actually answers — a
+ * translation landing or the tutor responding — is followed by an
+ * interstitial, for a free user only; `adFree` skips this entirely.
+ */
+export const CONVERSATION_AD_INTERVAL = 2;
+
+/**
+ * How hard the free plan leans on full-screen ads. Every number for it lives
+ * here, so the whole policy can be turned up or down in one place.
+ *
+ * Deliberately heavy. The free plan is meant to be worth leaving, and Pro, at
+ * $0.99 a month, removes all of it. Heavy, though, not reckless: each value
+ * stays inside what AdMob allows — ads at natural breaks, never on top of
+ * something the user is in the middle of, never two back to back — because an
+ * account limited or closed for ad placement earns nothing at all.
+ */
+export const AD_PACING = {
+  /**
+   * An interstitial on every Nth press of Translate, shown as the request
+   * goes out, so it covers the wait rather than the result.
+   */
+  translationsPerInterstitial: 2,
+  /** Never two full-screen ads closer together than this, of any kind. */
+  minGapMs: 30_000,
+  /**
+   * An app-open ad on coming back after at least this long away. Anything
+   * shorter — a permission prompt, a quick share — is still using the app.
+   */
+  appOpenMinAwayMs: 5_000,
+  /**
+   * On launch, how long to wait for an app-open ad to arrive. Any later and it
+   * would land on a screen the user has already started using, which AdMob
+   * treats as an unexpected interruption.
+   */
+  appOpenLaunchWaitMs: 5_000,
+  /** The Pro screen opens after every Nth full-screen ad a free user closes. */
+  adsPerUpgradePrompt: 3,
+} as const;
 
 export const DEFAULTS = {
   sourceLanguage: 'en',

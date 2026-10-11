@@ -4,6 +4,7 @@ import { Share, View } from 'react-native';
 import { Card, IconButton, Text } from '@/components';
 import { errorMessage } from '@/constants';
 import { useTheme } from '@/hooks';
+import { t } from '@/i18n';
 
 import type { ConversationTurn as Turn } from '../hooks/use-conversation';
 
@@ -11,7 +12,8 @@ export type ConversationTurnProps = {
   turn: Turn;
   /** Reads the translation aloud. Absent when the device cannot speak. */
   onSpeak?: (text: string, language: string) => void;
-  speaking?: boolean;
+  /** Whether a given text is the one being read aloud right now. */
+  isSpeaking?: (text: string) => boolean;
 };
 
 /**
@@ -23,7 +25,7 @@ export type ConversationTurnProps = {
  * read without being told. Colour follows the side as well as position, so it
  * still reads when the phone is flat on a table between them.
  */
-export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnProps) {
+export function ConversationTurn({ turn, onSpeak, isSpeaking }: ConversationTurnProps) {
   const theme = useTheme();
   const isNear = turn.side === 'near';
 
@@ -37,6 +39,8 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
   const tutor = turn.tutor;
   const translated =
     turn.result?.translatedText ?? (tutor?.kind === 'reply' ? tutor.reply : undefined);
+  // Only this turn's own button changes while its text is being read.
+  const speaking = translated !== undefined && (isSpeaking?.(translated) ?? false);
 
   return (
     <View style={{ flexDirection: 'row', justifyContent: isNear ? 'flex-end' : 'flex-start' }}>
@@ -72,7 +76,7 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
           // the wrong thing.
           <View style={{ gap: theme.spacing.xxs }}>
             <Text variant="bodySmall" color="textSecondary">
-              Did you mean?
+              {t('Did you mean?')}
             </Text>
             {tutor.options.map((option) => (
               <Text key={option} variant="body" style={{ fontWeight: '600' }}>
@@ -113,7 +117,7 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
           </Text>
         ) : (
           <Text variant="bodySmall" color="textMuted">
-            Translating…
+            {t('Translating…')}
           </Text>
         )}
 
@@ -122,20 +126,20 @@ export function ConversationTurn({ turn, onSpeak, speaking }: ConversationTurnPr
             <IconButton
               name="share-outline"
               size={18}
-              accessibilityLabel="Share this translation"
+              accessibilityLabel={t('Share this translation')}
               onPress={() => void Share.share({ message: translated })}
             />
             <IconButton
               name="copy-outline"
               size={18}
-              accessibilityLabel="Copy this translation"
+              accessibilityLabel={t('Copy this translation')}
               onPress={() => void Clipboard.setStringAsync(translated)}
             />
             {onSpeak ? (
               <IconButton
                 name={speaking ? 'stop-circle-outline' : 'volume-medium-outline'}
                 size={18}
-                accessibilityLabel={speaking ? 'Stop reading aloud' : 'Read this aloud'}
+                accessibilityLabel={speaking ? t('Stop reading aloud') : t('Read this aloud')}
                 onPress={() => onSpeak(translated, turn.targetLanguage)}
               />
             ) : null}

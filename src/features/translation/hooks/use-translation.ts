@@ -108,6 +108,12 @@ export function useTranslation(): TranslationController {
       },
       { saveHistory: preferences.saveHistory },
     ).then((result) => {
+      if (result.ok) {
+        services.analytics.log({
+          name: 'translation',
+          params: { method: origin, source_language: source, target_language: target },
+        });
+      }
       if (id !== requestId.current) return;
 
       settle(
