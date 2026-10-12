@@ -1,5 +1,9 @@
 import { FEATURES, REVENUECAT, STORAGE_KEYS, TRANSLATION_CONFIG } from '@/constants';
-import { createExpoSQLiteDatabase, createHistoryRepository } from '@/database';
+import {
+  createAcademyRepository,
+  createExpoSQLiteDatabase,
+  createHistoryRepository,
+} from '@/database';
 import { TranseeMlKit, TranseeOcr } from '@modules/transee-mlkit';
 
 import { createFirebaseAnalyticsService } from './analytics';
@@ -146,7 +150,10 @@ const translationRouter = withCache(
  * implementation, so features depend on `HistoryRepository` and never on
  * expo-sqlite.
  */
-const historyRepository = createHistoryRepository(createExpoSQLiteDatabase());
+const database = createExpoSQLiteDatabase();
+const historyRepository = createHistoryRepository(database);
+/** The AI Academy's progress, on the same connection and file as history. */
+const academyRepository = createAcademyRepository(database);
 
 /**
  * Entitlements, over the same one-slot storage seam preferences use.
@@ -213,6 +220,11 @@ export const services = {
   },
   /** Persistent translation history. Call `initialize()` before querying. */
   history: historyRepository,
+  /**
+   * AI Academy progress. Initialised by the Academy store once history has
+   * opened the database, so the two never race to open the one file.
+   */
+  academy: academyRepository,
   /** Device-local user settings. */
   preferences: createPreferencesService(createFilePreferencesStorage()),
   /**

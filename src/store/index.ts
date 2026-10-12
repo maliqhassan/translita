@@ -1,3 +1,4 @@
+export * from './academy-store';
 export * from './app-providers';
 export * from './conversation-store';
 export * from './database-store';

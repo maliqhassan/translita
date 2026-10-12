@@ -8,6 +8,11 @@ export const TABLES = {
   favorites: 'favorites',
   languagePacks: 'language_packs',
   preferences: 'preferences',
+  academyEnrollment: 'academy_enrollment',
+  academyLessons: 'academy_lesson_progress',
+  academyItems: 'academy_item_stats',
+  academyPosition: 'academy_position',
+  academyResults: 'academy_results',
 } as const;
 
 export type TableName = (typeof TABLES)[keyof typeof TABLES];

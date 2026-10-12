@@ -8,7 +8,7 @@ export type Migration = {
 };
 
 /** Bump as migrations are appended; the runner compares against `user_version`. */
-export const LATEST_SCHEMA_VERSION = 2;
+export const LATEST_SCHEMA_VERSION = 3;
 
 export const MIGRATIONS: readonly Migration[] = [
   {
@@ -52,6 +52,70 @@ export const MIGRATIONS: readonly Migration[] = [
       // it and SQLite never has to sort the filtered rows.
       `CREATE INDEX IF NOT EXISTS idx_translations_favourite
         ON ${TABLES.translations} (is_favorite, created_at DESC);`,
+    ],
+  },
+  {
+    version: 3,
+    name: 'academy',
+    statements: [
+      // One row per course the user has started.
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyEnrollment} (
+        course_id TEXT PRIMARY KEY NOT NULL,
+        base_language TEXT NOT NULL,
+        goal TEXT NOT NULL,
+        level TEXT NOT NULL,
+        minutes_per_day INTEGER NOT NULL,
+        address_as TEXT NOT NULL,
+        start_day INTEGER NOT NULL,
+        started_at INTEGER NOT NULL,
+        completed_at INTEGER
+      );`,
+      // A finished day, kept at its best score.
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyLessons} (
+        course_id TEXT NOT NULL,
+        lesson_id TEXT NOT NULL,
+        day INTEGER NOT NULL,
+        score REAL NOT NULL,
+        stars INTEGER NOT NULL,
+        attempts INTEGER NOT NULL,
+        completed_at INTEGER NOT NULL,
+        PRIMARY KEY (course_id, lesson_id)
+      );`,
+      // How well each word is known, for spaced review.
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyItems} (
+        course_id TEXT NOT NULL,
+        item_id TEXT NOT NULL,
+        correct INTEGER NOT NULL,
+        wrong INTEGER NOT NULL,
+        box INTEGER NOT NULL,
+        last_seen_at INTEGER NOT NULL,
+        next_review_at INTEGER NOT NULL,
+        PRIMARY KEY (course_id, item_id)
+      );`,
+      // Review asks for what is due soonest, so the index carries that order.
+      `CREATE INDEX IF NOT EXISTS idx_academy_items_due
+        ON ${TABLES.academyItems} (course_id, next_review_at);`,
+      // Where the learner is inside a lesson: one row per course.
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyPosition} (
+        course_id TEXT PRIMARY KEY NOT NULL,
+        lesson_id TEXT NOT NULL,
+        step INTEGER NOT NULL,
+        state TEXT NOT NULL,
+        updated_at INTEGER NOT NULL
+      );`,
+      // Checkpoints, the two parts of the final exam, and the report.
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyResults} (
+        id TEXT PRIMARY KEY NOT NULL,
+        course_id TEXT NOT NULL,
+        kind TEXT NOT NULL,
+        lesson_id TEXT,
+        score REAL NOT NULL,
+        passed INTEGER NOT NULL,
+        data TEXT,
+        created_at INTEGER NOT NULL
+      );`,
+      `CREATE INDEX IF NOT EXISTS idx_academy_results_course
+        ON ${TABLES.academyResults} (course_id, kind, created_at DESC);`,
     ],
   },
 ];

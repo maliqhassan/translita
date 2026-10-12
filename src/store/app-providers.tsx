@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import { AcademyProvider } from './academy-store';
 import { ConversationProvider } from './conversation-store';
 import { DatabaseProvider } from './database-store';
 import { EntitlementsProvider } from './entitlements-store';
@@ -27,7 +28,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
           <EntitlementsProvider>
             <LanguageProvider>
               <ConversationProvider>
-                <SavedPhrasesProvider>{children}</SavedPhrasesProvider>
+                <SavedPhrasesProvider>
+                  <AcademyProvider>{children}</AcademyProvider>
+                </SavedPhrasesProvider>
               </ConversationProvider>
             </LanguageProvider>
           </EntitlementsProvider>

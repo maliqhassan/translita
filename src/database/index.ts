@@ -1,3 +1,4 @@
+export * from './academy-repository';
 export * from './database';
 export * from './expo-sqlite-database';
 export * from './history-mapping';

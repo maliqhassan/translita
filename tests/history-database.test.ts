@@ -122,7 +122,11 @@ describe('database and migrations', () => {
     assert.equal(pendingMigrations(LATEST_SCHEMA_VERSION).length, 0);
     assert.deepEqual(
       pendingMigrations(1).map((migration) => migration.version),
-      [2],
+      [2, 3],
+    );
+    assert.deepEqual(
+      pendingMigrations(2).map((migration) => migration.version),
+      [3],
     );
   });
 
