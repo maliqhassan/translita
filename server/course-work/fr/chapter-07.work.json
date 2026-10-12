@@ -1,0 +1,376 @@
+{
+ "title": "At the Hotel",
+ "lessons": [
+  {
+   "title": "Checking In",
+   "items": [
+    {
+     "text": "une réservation",
+     "meaning": "a reservation",
+     "example": "J'ai une réservation.",
+     "exampleMeaning": "I have a reservation."
+    },
+    {
+     "text": "la clé",
+     "meaning": "the key",
+     "example": "Où est la clé de ma chambre ?",
+     "exampleMeaning": "Where is the key to my room?"
+    },
+    {
+     "text": "un lit",
+     "meaning": "a bed",
+     "example": "Il y a un lit dans ma chambre.",
+     "exampleMeaning": "There is a bed in my room."
+    },
+    {
+     "text": "un ascenseur",
+     "meaning": "an elevator",
+     "example": "L'ascenseur est à gauche.",
+     "exampleMeaning": "The elevator is on the left."
+    },
+    {
+     "text": "l'accueil",
+     "meaning": "the reception",
+     "example": "Je vais à l'accueil.",
+     "exampleMeaning": "I am going to the reception."
+    },
+    {
+     "text": "je souhaite",
+     "meaning": "I wish",
+     "example": "Je souhaite avoir une chambre calme.",
+     "exampleMeaning": "I wish to have a quiet room."
+    }
+   ],
+   "tip": "Use 'il y a' to say 'there is' or 'there are' in French. Remember to match the verb with the number of items you speak about.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, vous avez une réservation ?",
+     "meaning": "Hello, do you have a reservation?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai une réservation.",
+     "meaning": "Yes, I have a reservation."
+    },
+    {
+     "speaker": "A",
+     "text": "Quel est votre nom ?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mon nom est Alex.",
+     "meaning": "My name is Alex."
+    },
+    {
+     "speaker": "A",
+     "text": "Voici la clé de votre chambre.",
+     "meaning": "Here is the key to your room."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci beaucoup !",
+     "meaning": "Thank you very much!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "The hotel staff member who checks in guests.",
+    "learnerRole": "A guest checking into the hotel.",
+    "brief": "Start by greeting each other. Ask if the guest has a reservation, then ask for their name and give them the key.",
+    "goal": "You need to check in and receive your room key."
+   }
+  },
+  {
+   "title": "Reporting a Problem",
+   "items": [
+    {
+     "text": "un problème",
+     "meaning": "a problem",
+     "example": "Il y a un problème avec ma chambre.",
+     "exampleMeaning": "There is a problem with my room."
+    },
+    {
+     "text": "bruyant(e)",
+     "meaning": "noisy",
+     "example": "Ma chambre est bruyante.",
+     "exampleMeaning": "My room is noisy."
+    },
+    {
+     "text": "changer",
+     "meaning": "to change",
+     "example": "Je veux changer de chambre.",
+     "exampleMeaning": "I want to change rooms."
+    },
+    {
+     "text": "réparer",
+     "meaning": "to repair",
+     "example": "Il faut réparer le chauffage.",
+     "exampleMeaning": "The heating needs to be repaired."
+    },
+    {
+     "text": "demander",
+     "meaning": "to ask",
+     "example": "Je vais demander de l'aide.",
+     "exampleMeaning": "I will ask for help."
+    },
+    {
+     "text": "il y a un problème",
+     "meaning": "there is a problem",
+     "example": "Il y a un problème avec la connexion Wi-Fi.",
+     "exampleMeaning": "There is a problem with the Wi-Fi connection."
+    }
+   ],
+   "tip": "When you report a problem, use 'Il y a' for 'There is' to explain the issue. Be polite when asking for help.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, comment puis-je vous aider ?",
+     "meaning": "Hello, how can I help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il y a un problème avec ma chambre.",
+     "meaning": "There is a problem with my room."
+    },
+    {
+     "speaker": "A",
+     "text": "Quel est le problème ?",
+     "meaning": "What is the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ma chambre est bruyante.",
+     "meaning": "My room is noisy."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accord, je vais changer votre chambre.",
+     "meaning": "Okay, I will change your room."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci pour votre aide.",
+     "meaning": "Thank you for your help."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "The hotel staff member who helps guests with issues.",
+    "learnerRole": "A guest reporting a problem with their room.",
+    "brief": "Start by greeting and explaining you have a problem. Describe the issue and ask for a solution.",
+    "goal": "You need to report a problem and ask to change rooms."
+   }
+  },
+  {
+   "title": "Making Polite Requests",
+   "items": [
+    {
+     "text": "pourriez-vous",
+     "meaning": "could you",
+     "example": "Pourriez-vous m'aider, s'il vous plaît ?",
+     "exampleMeaning": "Could you help me, please?"
+    },
+    {
+     "text": "pourriez-vous m'aider?",
+     "meaning": "could you help me?",
+     "example": "Pourriez-vous m'aider à trouver ma chambre?",
+     "exampleMeaning": "Could you help me find my room?"
+    },
+    {
+     "text": "avoir",
+     "meaning": "to have",
+     "example": "Je voudrais avoir une chambre calme.",
+     "exampleMeaning": "I would like to have a quiet room."
+    },
+    {
+     "text": "merci de votre aide",
+     "meaning": "thank you for your help",
+     "example": "Merci de votre aide !",
+     "exampleMeaning": "Thank you for your help!"
+    },
+    {
+     "text": "est-ce que vous avez",
+     "meaning": "do you have",
+     "example": "Est-ce que vous avez un plan de la ville ?",
+     "exampleMeaning": "Do you have a city map?"
+    },
+    {
+     "text": "certainement",
+     "meaning": "certainly",
+     "example": "Certainement, je peux vous apporter un coussin supplémentaire.",
+     "exampleMeaning": "Certainly, I can bring you an extra pillow."
+    }
+   ],
+   "tip": "Use 'pourriez-vous' to make polite requests. It shows respect and is a good way to ask for something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, que puis-je faire pour vous ?",
+     "meaning": "Hello, what can I do for you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Pourriez-vous m'aider, s'il vous plaît ?",
+     "meaning": "Could you help me, please?"
+    },
+    {
+     "speaker": "A",
+     "text": "Bien sûr, quel est le problème ?",
+     "meaning": "Of course, what is the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je voudrais avoir une chambre calme.",
+     "meaning": "I would like to have a quiet room."
+    },
+    {
+     "speaker": "A",
+     "text": "Est-ce que vous avez une réservation ?",
+     "meaning": "Do you have a reservation?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, merci de votre aide !",
+     "meaning": "Yes, thank you for your help!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "The hotel staff member who assists guests.",
+    "learnerRole": "A guest making polite requests at the hotel.",
+    "brief": "Start by explaining you need assistance. Make a polite request for help or information.",
+    "goal": "You need to make a polite request and receive assistance."
+   }
+  },
+  {
+   "title": "Finding Amenities",
+   "items": [
+    {
+     "text": "où se trouve",
+     "meaning": "where is",
+     "example": "Où se trouve la piscine ?",
+     "exampleMeaning": "Where is the swimming pool?"
+    },
+    {
+     "text": "le petit déjeuner",
+     "meaning": "the breakfast",
+     "example": "Le petit déjeuner est servi à 8 heures.",
+     "exampleMeaning": "Breakfast is served at 8 o'clock."
+    },
+    {
+     "text": "le Wi-Fi",
+     "meaning": "the Wi-Fi",
+     "example": "Où est le mot de passe du Wi-Fi ?",
+     "exampleMeaning": "Where is the Wi-Fi password?"
+    },
+    {
+     "text": "le restaurant",
+     "meaning": "the restaurant",
+     "example": "Le restaurant est au premier étage.",
+     "exampleMeaning": "The restaurant is on the first floor."
+    },
+    {
+     "text": "les toilettes",
+     "meaning": "the restrooms",
+     "example": "Où sont les toilettes ?",
+     "exampleMeaning": "Where are the restrooms?"
+    },
+    {
+     "text": "vous avez besoin de",
+     "meaning": "you need",
+     "example": "Vous avez besoin de la clé pour entrer.",
+     "exampleMeaning": "You need the key to enter."
+    }
+   ],
+   "tip": "To ask for directions or locations, use 'où se trouve' for 'where is'. It's a helpful phrase in any situation.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, comment puis-je vous aider ?",
+     "meaning": "Hello, how can I help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Où se trouve le restaurant ?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "A",
+     "text": "Le restaurant est au premier étage.",
+     "meaning": "The restaurant is on the first floor."
+    },
+    {
+     "speaker": "B",
+     "text": "Et les toilettes ?",
+     "meaning": "And the restrooms?"
+    },
+    {
+     "speaker": "A",
+     "text": "Les toilettes sont à droite.",
+     "meaning": "The restrooms are on the right."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci, avez-vous besoin de la clé ?",
+     "meaning": "Thank you, do you need the key?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "The hotel staff member who provides information.",
+    "learnerRole": "A guest looking for hotel amenities.",
+    "brief": "Start by asking for help. Inquire about the location of different amenities in the hotel.",
+    "goal": "You need to find out where the amenities are located."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 7 Review: At the Hotel",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Bonjour, comment puis-je vous aider ?",
+    "meaning": "Hello, how can I help you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Où se trouve la piscine ?",
+    "meaning": "Where is the swimming pool?"
+   },
+   {
+    "speaker": "A",
+    "text": "La piscine est au sous-sol.",
+    "meaning": "The swimming pool is in the basement."
+   },
+   {
+    "speaker": "B",
+    "text": "Je voudrais un café, s'il vous plaît.",
+    "meaning": "I would like a coffee, please."
+   },
+   {
+    "speaker": "A",
+    "text": "D'accord, je vais vous l'apporter.",
+    "meaning": "Okay, I will bring it to you."
+   },
+   {
+    "speaker": "B",
+    "text": "Il y a un problème avec ma chambre.",
+    "meaning": "There is a problem with my room."
+   },
+   {
+    "speaker": "A",
+    "text": "Quel est le problème ?",
+    "meaning": "What is the problem?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ma chambre est bruyante.",
+    "meaning": "My room is noisy."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "The hotel staff member who assists guests.",
+   "learnerRole": "A guest with various inquiries and issues.",
+   "brief": "You will ask about your reservation, report a problem, and inquire about amenities.",
+   "goal": "You need to successfully navigate the hotel experience."
+  }
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "title": "Opiniones y Experiencias",
+ "lessons": [
+  {
+   "title": "Fundamentos del Pasado",
+   "items": [
+    {
+     "text": "fui",
+     "meaning": "I went / I was",
+     "example": "Ayer fui al cine.",
+     "exampleMeaning": "Yesterday I went to the cinema."
+    },
+    {
+     "text": "tuve",
+     "meaning": "I had",
+     "example": "La semana pasada tuve una reunión.",
+     "exampleMeaning": "Last week I had a meeting."
+    },
+    {
+     "text": "hice",
+     "meaning": "I did / I made",
+     "example": "Hice la tarea anoche.",
+     "exampleMeaning": "I did the homework last night."
+    },
+    {
+     "text": "vi",
+     "meaning": "I saw",
+     "example": "Vi una película interesante.",
+     "exampleMeaning": "I saw an interesting movie."
+    },
+    {
+     "text": "fue",
+     "meaning": "It was / He/She went",
+     "example": "La fiesta fue divertida.",
+     "exampleMeaning": "The party was fun."
+    },
+    {
+     "text": "estuve",
+     "meaning": "I was",
+     "example": "Estuve en la playa el fin de semana.",
+     "exampleMeaning": "I was at the beach last weekend."
+    }
+   ],
+   "tip": "El pasado en español a menudo utiliza verbos diferentes que en inglés. Presta atención al contexto para elegir el verbo correcto.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde fuiste ayer?",
+     "meaning": "Where did you go yesterday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Fui al parque.",
+     "meaning": "I went to the park."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Qué hiciste allí?",
+     "meaning": "What did you do there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Hice un picnic.",
+     "meaning": "I had a picnic."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te gustó?",
+     "meaning": "Did you like it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, fue muy bonito.",
+     "meaning": "Yes, it was very nice."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "un amigo que pregunta sobre tus actividades recientes",
+    "learnerRole": "tú, compartiendo tus experiencias",
+    "brief": "Habla sobre lo que hiciste ayer y cómo te sentiste al respecto. Haz preguntas para saber más sobre las experiencias de tu amigo.",
+    "goal": "Debes compartir tus actividades pasadas y expresar tus opiniones."
+   }
+  },
+  {
+   "title": "Compartiendo Opiniones",
+   "items": [
+    {
+     "text": "me gustó",
+     "meaning": "I liked",
+     "example": "Me gustó la película.",
+     "exampleMeaning": "I liked the movie."
+    },
+    {
+     "text": "no me gustó",
+     "meaning": "I didn't like",
+     "example": "No me gustó la comida.",
+     "exampleMeaning": "I didn't like the food."
+    },
+    {
+     "text": "fue genial",
+     "meaning": "It was great",
+     "example": "La música fue genial.",
+     "exampleMeaning": "The music was great."
+    },
+    {
+     "text": "me encantó",
+     "meaning": "I loved",
+     "example": "Me encantó el libro.",
+     "exampleMeaning": "I loved the book."
+    },
+    {
+     "text": "no fue bueno",
+     "meaning": "It wasn't good",
+     "example": "No fue bueno el servicio.",
+     "exampleMeaning": "The service wasn't good."
+    },
+    {
+     "text": "me pareció interesante",
+     "meaning": "I found it interesting",
+     "example": "Me pareció interesante la charla.",
+     "exampleMeaning": "I found the talk interesting."
+    }
+   ],
+   "tip": "Al compartir opiniones, usa 'me gustó' para cosas que te gustaron y 'no me gustó' para cosas que no te gustaron. Esto ayuda a expresar tus sentimientos claramente.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Te gustó la película?",
+     "meaning": "Did you like the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, me gustó mucho.",
+     "meaning": "Yes, I liked it a lot."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Qué te pareció el final?",
+     "meaning": "What did you think of the ending?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me pareció interesante.",
+     "meaning": "I found it interesting."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y la música?",
+     "meaning": "And the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "Fue genial, me encantó.",
+     "meaning": "It was great, I loved it."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "un amigo discutiendo una película o evento reciente",
+    "learnerRole": "tú, compartiendo tus opiniones",
+    "brief": "Discute una película o evento al que ambos asistieron. Comparte lo que te gustó o no te gustó de él.",
+    "goal": "Debes expresar tus opiniones sobre la película o el evento."
+   }
+  },
+  {
+   "title": "Gustos y Desagrados en el Pasado",
+   "items": [
+    {
+     "text": "me gustó mucho",
+     "meaning": "I liked a lot",
+     "example": "Me gustó mucho el concierto.",
+     "exampleMeaning": "I liked the concert a lot."
+    },
+    {
+     "text": "no me gustó nada",
+     "meaning": "I didn't like at all",
+     "example": "No me gustó nada el libro.",
+     "exampleMeaning": "I didn't like the book at all."
+    },
+    {
+     "text": "fue increíble",
+     "meaning": "It was incredible",
+     "example": "La vista fue increíble.",
+     "exampleMeaning": "The view was incredible."
+    },
+    {
+     "text": "no fue divertido",
+     "meaning": "It wasn't fun",
+     "example": "La reunión no fue divertida.",
+     "exampleMeaning": "The meeting wasn't fun."
+    },
+    {
+     "text": "me pareció aburrido",
+     "meaning": "I found it boring",
+     "example": "Me pareció aburrido el documental.",
+     "exampleMeaning": "I found the documentary boring."
+    },
+    {
+     "text": "disfruté",
+     "meaning": "I enjoyed",
+     "example": "Disfruté mucho el viaje.",
+     "exampleMeaning": "I enjoyed the trip a lot."
+    }
+   ],
+   "tip": "Usa 'me gustó mucho' para gustos fuertes y 'no me gustó nada' para desagrados fuertes. Esto añade énfasis a tus sentimientos.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cómo fue el concierto?",
+     "meaning": "How was the concert?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me gustó mucho, fue increíble.",
+     "meaning": "I liked it a lot, it was incredible."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y la comida?",
+     "meaning": "And the food?"
+    },
+    {
+     "speaker": "B",
+     "text": "No me gustó nada, fue mala.",
+     "meaning": "I didn't like it at all, it was bad."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te pareció aburrido?",
+     "meaning": "Did you find it boring?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, disfruté mucho.",
+     "meaning": "No, I enjoyed it a lot."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "un amigo discutiendo un concierto o viaje reciente",
+    "learnerRole": "tú, compartiendo tus experiencias",
+    "brief": "Habla sobre un concierto o viaje al que asististe. Comparte tus gustos y desagrados sobre él.",
+    "goal": "Debes expresar tus gustos y desagrados sobre el concierto o viaje."
+   }
+  },
+  {
+   "title": "Reflexionando sobre Experiencias",
+   "items": [
+    {
+     "text": "lo pasé bien",
+     "meaning": "I had a good time",
+     "example": "Lo pasé bien en la fiesta.",
+     "exampleMeaning": "I had a good time at the party."
+    },
+    {
+     "text": "no lo disfruté",
+     "meaning": "I didn't enjoy it",
+     "example": "No lo disfruté mucho.",
+     "exampleMeaning": "I didn't enjoy it much."
+    },
+    {
+     "text": "me gustaría repetir",
+     "meaning": "I would like to do it again",
+     "example": "Me gustaría repetir la experiencia.",
+     "exampleMeaning": "I would like to do the experience again."
+    },
+    {
+     "text": "no volvería",
+     "meaning": "I wouldn't go back",
+     "example": "No volvería a ese restaurante.",
+     "exampleMeaning": "I wouldn't go back to that restaurant."
+    },
+    {
+     "text": "fue una experiencia única",
+     "meaning": "It was a unique experience",
+     "example": "Fue una experiencia única.",
+     "exampleMeaning": "It was a unique experience."
+    },
+    {
+     "text": "me siento feliz",
+     "meaning": "I feel happy",
+     "example": "Me siento feliz por lo que hice.",
+     "exampleMeaning": "I feel happy about what I did."
+    }
+   ],
+   "tip": "Al reflexionar sobre experiencias, usa frases como 'lo pasé bien' para buenos momentos y 'no lo disfruté' para malas experiencias.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cómo fue la fiesta?",
+     "meaning": "How was the party?"
+    },
+    {
+     "speaker": "B",
+     "text": "Lo pasé bien, gracias.",
+     "meaning": "I had a good time, thank you."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te gustaría repetirla?",
+     "meaning": "Would you like to do it again?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, me gustaría repetir.",
+     "meaning": "Yes, I would like to do it again."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Volverías a ese lugar?",
+     "meaning": "Would you go back to that place?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, no volvería.",
+     "meaning": "No, I wouldn't go back."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "un amigo preguntando sobre tus experiencias recientes",
+    "learnerRole": "tú, compartiendo tus sentimientos",
+    "brief": "Discute tus experiencias recientes y cómo te sentiste al respecto. Pregunta a tu amigo sobre sus experiencias también.",
+    "goal": "Debes reflexionar sobre tus experiencias y expresar tus sentimientos."
+   }
+  }
+ ],
+ "review": {
+  "title": "Revisión del Capítulo 12",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Qué hiciste el fin de semana?",
+    "meaning": "What did you do on the weekend?"
+   },
+   {
+    "speaker": "B",
+    "text": "Fui a un concierto.",
+    "meaning": "I went to a concert."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Te gustó?",
+    "meaning": "Did you like it?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, me encantó, fue increíble.",
+    "meaning": "Yes, I loved it, it was incredible."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Lo pasaste bien?",
+    "meaning": "Did you have a good time?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, lo pasé bien, pero no me gustó la comida.",
+    "meaning": "Yes, I had a good time, but I didn't like the food."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Te gustaría repetir?",
+    "meaning": "Would you like to do it again?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, me gustaría repetir la experiencia.",
+    "meaning": "Yes, I would like to do the experience again."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "un amigo discutiendo actividades pasadas",
+   "learnerRole": "tú, compartiendo tus experiencias",
+   "brief": "Habla sobre lo que hiciste recientemente, compartiendo tus opiniones y sentimientos sobre esas experiencias.",
+   "goal": "Debes expresar tus gustos y desagrados sobre tus actividades recientes."
+  }
+ }
+}

@@ -1,0 +1,418 @@
+{
+ "id": "c09",
+ "number": 9,
+ "title": "Health and the doctor",
+ "lessons": [
+  {
+   "id": "c09-d1",
+   "day": 41,
+   "title": "Talking about Pain",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c09-d1-i1",
+     "text": "der Kopf",
+     "meaning": "the head",
+     "example": "Mein Kopf tut weh.",
+     "exampleMeaning": "My head hurts."
+    },
+    {
+     "id": "c09-d1-i2",
+     "text": "der Bauch",
+     "meaning": "the stomach",
+     "example": "Mein Bauch tut weh.",
+     "exampleMeaning": "My stomach hurts."
+    },
+    {
+     "id": "c09-d1-i3",
+     "text": "die Schulter",
+     "meaning": "the shoulder",
+     "example": "Meine Schulter tut weh.",
+     "exampleMeaning": "My shoulder hurts."
+    },
+    {
+     "id": "c09-d1-i4",
+     "text": "die Beine",
+     "meaning": "the legs",
+     "example": "Meine Beine tun weh.",
+     "exampleMeaning": "My legs hurt."
+    },
+    {
+     "id": "c09-d1-i5",
+     "text": "schmerzen",
+     "meaning": "to hurt",
+     "example": "Wo schmerzt es?",
+     "exampleMeaning": "Where does it hurt?"
+    },
+    {
+     "id": "c09-d1-i6",
+     "text": "ich habe",
+     "meaning": "I have",
+     "example": "Ich habe Kopfschmerzen.",
+     "exampleMeaning": "I have a headache."
+    }
+   ],
+   "tip": "In German, the verb comes second in the sentence. For example, in 'Ich habe Kopfschmerzen', 'Ich' is the subject, 'habe' is the verb, and 'Kopfschmerzen' is the object.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo schmerzt es?",
+     "meaning": "Where does it hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mein Kopf tut weh.",
+     "meaning": "My head hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du auch Bauchschmerzen?",
+     "meaning": "Do you also have stomach pain?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, mein Bauch tut weh.",
+     "meaning": "Yes, my stomach hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "Gehe zum Arzt.",
+     "meaning": "Go to the doctor."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe keine Zeit.",
+     "meaning": "I have no time."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who is concerned about your health",
+    "learnerRole": "a person who is feeling unwell",
+    "brief": "Your friend asks about your health. Tell them where it hurts and respond to their suggestions.",
+    "goal": "You should explain your symptoms."
+   }
+  },
+  {
+   "id": "c09-d2",
+   "day": 42,
+   "title": "At the Pharmacy",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c09-d2-i1",
+     "text": "die Tablette",
+     "meaning": "the tablet",
+     "example": "Ich brauche eine Tablette gegen Kopfschmerzen.",
+     "exampleMeaning": "I need a tablet for headaches."
+    },
+    {
+     "id": "c09-d2-i2",
+     "text": "die Tabletten",
+     "meaning": "the tablets",
+     "example": "Ich brauche Tabletten.",
+     "exampleMeaning": "I need tablets."
+    },
+    {
+     "id": "c09-d2-i3",
+     "text": "das Rezept",
+     "meaning": "the prescription",
+     "example": "Hast du das Rezept?",
+     "exampleMeaning": "Do you have the prescription?"
+    },
+    {
+     "id": "c09-d2-i4",
+     "text": "verkaufen",
+     "meaning": "to sell",
+     "example": "Die Apotheke verkauft Medikamente.",
+     "exampleMeaning": "The pharmacy sells medicine."
+    },
+    {
+     "id": "c09-d2-i5",
+     "text": "der Arzt",
+     "meaning": "the doctor",
+     "example": "Ich gehe zum Arzt.",
+     "exampleMeaning": "I am going to the doctor."
+    },
+    {
+     "id": "c09-d2-i6",
+     "text": "nehmen",
+     "meaning": "to take",
+     "example": "Nimm die Tabletten.",
+     "exampleMeaning": "Take the tablets."
+    }
+   ],
+   "tip": "When asking for something at the pharmacy, use 'Ich hätte gerne...' to make it polite. For example, 'Ich hätte gerne die Tabletten.' means 'I would like the tablets.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich gehe zur Apotheke.",
+     "meaning": "I am going to the pharmacy."
+    },
+    {
+     "speaker": "B",
+     "text": "Was brauchst du?",
+     "meaning": "What do you need?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ich brauche Tabletten.",
+     "meaning": "I need tablets."
+    },
+    {
+     "speaker": "B",
+     "text": "Hast du das Rezept?",
+     "meaning": "Do you have the prescription?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ja, ich habe es.",
+     "meaning": "Yes, I have it."
+    },
+    {
+     "speaker": "B",
+     "text": "Dann kannst du die Tabletten nehmen.",
+     "meaning": "Then you can take the tablets."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who is helping you",
+    "learnerRole": "a person needing medicine",
+    "brief": "Your friend is asking what you need at the pharmacy. Tell them what you need and if you have a prescription.",
+    "goal": "You should communicate your needs clearly."
+   }
+  },
+  {
+   "id": "c09-d3",
+   "day": 43,
+   "title": "Giving Advice",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c09-d3-i1",
+     "text": "trinken",
+     "meaning": "to drink",
+     "example": "Trink viel Wasser.",
+     "exampleMeaning": "Drink a lot of water."
+    },
+    {
+     "id": "c09-d3-i2",
+     "text": "ruhen",
+     "meaning": "to rest",
+     "example": "Du musst dich ausruhen.",
+     "exampleMeaning": "You need to rest."
+    },
+    {
+     "id": "c09-d3-i3",
+     "text": "essen",
+     "meaning": "to eat",
+     "example": "Iss gesundes Essen.",
+     "exampleMeaning": "Eat healthy food."
+    },
+    {
+     "id": "c09-d3-i4",
+     "text": "gehen",
+     "meaning": "to go",
+     "example": "Geh zum Arzt.",
+     "exampleMeaning": "Go to the doctor."
+    },
+    {
+     "id": "c09-d3-i5",
+     "text": "schlafen",
+     "meaning": "to sleep",
+     "example": "Schlaf genug.",
+     "exampleMeaning": "Sleep enough."
+    },
+    {
+     "id": "c09-d3-i6",
+     "text": "das Medikament",
+     "meaning": "the medication",
+     "example": "Nimm dein Medikament.",
+     "exampleMeaning": "Take your medication."
+    }
+   ],
+   "tip": "Use the imperative form to give advice. For example, 'Trink viel Wasser' is a command meaning 'Drink a lot of water.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie fühlst du dich?",
+     "meaning": "How do you feel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich fühle mich schlecht.",
+     "meaning": "I feel bad."
+    },
+    {
+     "speaker": "A",
+     "text": "Du musst dich ausruhen.",
+     "meaning": "You need to rest."
+    },
+    {
+     "speaker": "B",
+     "text": "Was soll ich noch machen?",
+     "meaning": "What else should I do?"
+    },
+    {
+     "speaker": "A",
+     "text": "Trink viel Wasser und schlaf genug.",
+     "meaning": "Drink a lot of water and sleep enough."
+    },
+    {
+     "speaker": "B",
+     "text": "Danke für den Rat!",
+     "meaning": "Thank you for the advice!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend giving health advice",
+    "learnerRole": "a person feeling unwell",
+    "brief": "Your friend asks how you feel and gives you advice. Respond to their questions and suggestions.",
+    "goal": "You should express your feelings and respond to advice."
+   }
+  },
+  {
+   "id": "c09-d4",
+   "day": 44,
+   "title": "Feeling Better",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c09-d4-i1",
+     "text": "besser",
+     "meaning": "better",
+     "example": "Ich fühle mich besser.",
+     "exampleMeaning": "I feel better."
+    },
+    {
+     "id": "c09-d4-i2",
+     "text": "der Arzttermin",
+     "meaning": "the doctor's appointment",
+     "example": "Ich habe einen Arzttermin.",
+     "exampleMeaning": "I have a doctor's appointment."
+    },
+    {
+     "id": "c09-d4-i3",
+     "text": "die Gesundheit",
+     "meaning": "the health",
+     "example": "Gesundheit ist wichtig.",
+     "exampleMeaning": "Health is important."
+    },
+    {
+     "id": "c09-d4-i4",
+     "text": "der Stress",
+     "meaning": "the stress",
+     "example": "Stress ist nicht gut.",
+     "exampleMeaning": "Stress is not good."
+    },
+    {
+     "id": "c09-d4-i5",
+     "text": "entspannen",
+     "meaning": "to relax",
+     "example": "Entspanne dich.",
+     "exampleMeaning": "Relax."
+    },
+    {
+     "id": "c09-d4-i6",
+     "text": "warnen",
+     "meaning": "to warn",
+     "example": "Der Arzt warnt dich.",
+     "exampleMeaning": "The doctor warns you."
+    }
+   ],
+   "tip": "When talking about improvement, use 'Ich fühle mich...' to express how you feel. For instance, 'Ich fühle mich besser' means 'I feel better.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie geht es dir heute?",
+     "meaning": "How are you today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich fühle mich besser.",
+     "meaning": "I feel better."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du einen Arzttermin?",
+     "meaning": "Do you have a doctor's appointment?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe einen Arzttermin.",
+     "meaning": "Yes, I have a doctor's appointment."
+    },
+    {
+     "speaker": "A",
+     "text": "Das ist gut. Gesundheit ist wichtig.",
+     "meaning": "That’s good. Health is important."
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich werde mich entspannen.",
+     "meaning": "Yes, I will relax."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend checking on your health",
+    "learnerRole": "a person recovering from illness",
+    "brief": "Your friend asks how you are feeling and if you have seen a doctor. Respond positively and discuss health.",
+    "goal": "You should show improvement in your health and discuss your plans."
+   }
+  },
+  {
+   "id": "c09-d5",
+   "day": 45,
+   "title": "Review of Health and the Doctor",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo schmerzt es?",
+     "meaning": "Where does it hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mein Bauch tut weh.",
+     "meaning": "My stomach hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du Tabletten?",
+     "meaning": "Do you have tablets?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich brauche sie aus der Apotheke.",
+     "meaning": "I need them from the pharmacy."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du einen Arzttermin?",
+     "meaning": "Do you have a doctor's appointment?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich gehe morgen.",
+     "meaning": "Yes, I am going tomorrow."
+    },
+    {
+     "speaker": "A",
+     "text": "Trink viel Wasser und entspanne dich.",
+     "meaning": "Drink a lot of water and relax."
+    },
+    {
+     "speaker": "B",
+     "text": "Danke, ich fühle mich besser.",
+     "meaning": "Thank you, I feel better."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend checking on your health",
+    "learnerRole": "a person recovering from illness",
+    "brief": "Your friend asks about your health and gives advice. Discuss your symptoms and plans for recovery.",
+    "goal": "You should express your symptoms and show improvement."
+   }
+  }
+ ]
+}

@@ -1,0 +1,376 @@
+{
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "title": "What time is it?",
+   "items": [
+    {
+     "text": "Quelle heure est-il ?",
+     "meaning": "What time is it?",
+     "example": "Quelle heure est-il ?",
+     "exampleMeaning": "What time is it?"
+    },
+    {
+     "text": "Il est... heures.",
+     "meaning": "It is... o'clock.",
+     "example": "Il est deux heures.",
+     "exampleMeaning": "It is two o'clock."
+    },
+    {
+     "text": "C'est l'heure de...",
+     "meaning": "It's time to...",
+     "example": "C'est l'heure de partir.",
+     "exampleMeaning": "It's time to leave."
+    },
+    {
+     "text": "Il est quelle heure ?",
+     "meaning": "What time is it?",
+     "example": "Il est quelle heure ?",
+     "exampleMeaning": "What time is it?"
+    },
+    {
+     "text": "Ça marche.",
+     "meaning": "It works./That works.",
+     "example": "Ça marche, nous pouvons partir à 9 heures.",
+     "exampleMeaning": "It works, we can leave at 9 o'clock."
+    },
+    {
+     "text": "Maintenant.",
+     "meaning": "Now.",
+     "example": "Je vais maintenant acheter un ticket.",
+     "exampleMeaning": "I will now buy a ticket."
+    }
+   ],
+   "tip": "In French, we use 'Il est' to tell the time. Remember to use the correct hour and add 'heures' for hours.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quelle heure est-il ?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il est trois heures.",
+     "meaning": "It is three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est l'heure de partir ?",
+     "meaning": "Is it time to leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, c'est l'heure de partir.",
+     "meaning": "Yes, it's time to leave."
+    },
+    {
+     "speaker": "A",
+     "text": "À quelle heure commence le bus ?",
+     "meaning": "At what time does the bus start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il commence maintenant.",
+     "meaning": "It starts now."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A person at the bus station",
+    "learnerRole": "You are a traveler",
+    "brief": "Ask the person at the bus station for the time and when the bus leaves. Listen to their answers.",
+    "goal": "You need to find out the bus schedule."
+   }
+  },
+  {
+   "title": "Buying a ticket",
+   "items": [
+    {
+     "text": "Un ticket, s'il vous plaît.",
+     "meaning": "A ticket, please.",
+     "example": "Je voudrais un ticket, s'il vous plaît.",
+     "exampleMeaning": "I would like a ticket, please."
+    },
+    {
+     "text": "Un billet, s'il vous plaît.",
+     "meaning": "A ticket, please.",
+     "example": "Un billet, s'il vous plaît, pour Paris.",
+     "exampleMeaning": "A ticket, please, to Paris."
+    },
+    {
+     "text": "Je prends...",
+     "meaning": "I take...",
+     "example": "Je prends le train.",
+     "exampleMeaning": "I take the train."
+    },
+    {
+     "text": "Un aller simple.",
+     "meaning": "A one-way ticket.",
+     "example": "Je voudrais un aller simple, s'il vous plaît.",
+     "exampleMeaning": "I would like a one-way ticket, please."
+    },
+    {
+     "text": "Un aller-retour.",
+     "meaning": "A round-trip ticket.",
+     "example": "Je veux un aller-retour.",
+     "exampleMeaning": "I want a round-trip ticket."
+    },
+    {
+     "text": "Merci infiniment !",
+     "meaning": "Thank you very much!",
+     "example": "Merci infiniment pour votre aide !",
+     "exampleMeaning": "Thank you very much for your help!"
+    }
+   ],
+   "tip": "When buying a ticket, you can specify if you want a one-way ('aller simple') or round-trip ('aller-retour') ticket. Always remember to say 's'il vous plaît'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, je voudrais un ticket, s'il vous plaît.",
+     "meaning": "Hello, I would like a ticket, please."
+    },
+    {
+     "speaker": "B",
+     "text": "Combien ça coûte ?",
+     "meaning": "How much does it cost?"
+    },
+    {
+     "speaker": "A",
+     "text": "Un ticket coûte cinq euros.",
+     "meaning": "A ticket costs five euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Je prends un aller simple.",
+     "meaning": "I take a one-way ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accord, voilà votre ticket.",
+     "meaning": "Okay, here is your ticket."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci beaucoup !",
+     "meaning": "Thank you very much!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A ticket seller",
+    "learnerRole": "You are a customer",
+    "brief": "Ask the ticket seller for a ticket and its price. Make sure to specify what type of ticket you want.",
+    "goal": "You need to buy a ticket."
+   }
+  },
+  {
+   "title": "Using the present tense",
+   "items": [
+    {
+     "text": "Je vais.",
+     "meaning": "I go.",
+     "example": "Je vais à la gare.",
+     "exampleMeaning": "I go to the station."
+    },
+    {
+     "text": "Tu prends.",
+     "meaning": "You take.",
+     "example": "Tu prends le bus.",
+     "exampleMeaning": "You take the bus."
+    },
+    {
+     "text": "Il/Elle prend.",
+     "meaning": "He/She takes.",
+     "example": "Elle prend le métro.",
+     "exampleMeaning": "She takes the subway."
+    },
+    {
+     "text": "Nous allons.",
+     "meaning": "We go.",
+     "example": "Nous allons au parc.",
+     "exampleMeaning": "We go to the park."
+    },
+    {
+     "text": "Vous allez.",
+     "meaning": "You (formal/plural) go.",
+     "example": "Vous allez à l'école.",
+     "exampleMeaning": "You go to school."
+    },
+    {
+     "text": "Ils/Elles vont.",
+     "meaning": "They go.",
+     "example": "Ils vont au cinéma.",
+     "exampleMeaning": "They go to the cinema."
+    }
+   ],
+   "tip": "In French, the present tense is formed by using the correct subject pronoun and the verb. For example, 'Je' means 'I', and 'vais' is the form of 'aller' for 'I'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Où vas-tu ?",
+     "meaning": "Where are you going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je vais à la gare.",
+     "meaning": "I go to the station."
+    },
+    {
+     "speaker": "A",
+     "text": "Que prends-tu ?",
+     "meaning": "What do you take?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je prends le bus.",
+     "meaning": "I take the bus."
+    },
+    {
+     "speaker": "A",
+     "text": "Vous allez au cinéma ?",
+     "meaning": "Are you going to the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, nous allons au cinéma.",
+     "meaning": "Yes, we go to the cinema."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend",
+    "learnerRole": "You are a traveler",
+    "brief": "Ask your friend where they are going and what transport they are taking. Respond with your plans.",
+    "goal": "You need to share your travel plans."
+   }
+  },
+  {
+   "title": "Transport plans",
+   "items": [
+    {
+     "text": "À quelle heure part le train ?",
+     "meaning": "At what time does the train leave?",
+     "example": "À quelle heure part le train pour Paris ?",
+     "exampleMeaning": "At what time does the train to Paris leave?"
+    },
+    {
+     "text": "Je vais prendre le train.",
+     "meaning": "I am going to take the train.",
+     "example": "Je vais prendre le train à dix heures.",
+     "exampleMeaning": "I am going to take the train at ten o'clock."
+    },
+    {
+     "text": "Il y a un bus à... heures.",
+     "meaning": "There is a bus at... o'clock.",
+     "example": "Il y a un bus à cinq heures.",
+     "exampleMeaning": "There is a bus at five o'clock."
+    },
+    {
+     "text": "C'est le bon quai ?",
+     "meaning": "Is this the right platform?",
+     "example": "C'est le bon quai pour le train ?",
+     "exampleMeaning": "Is this the right platform for the train?"
+    },
+    {
+     "text": "Je suis en retard.",
+     "meaning": "I am late.",
+     "example": "Je suis en retard pour le train.",
+     "exampleMeaning": "I am late for the train."
+    },
+    {
+     "text": "Aucun souci.",
+     "meaning": "No problem.",
+     "example": "Aucun souci, je peux t'aider avec ça.",
+     "exampleMeaning": "No problem, I can help you with that."
+    }
+   ],
+   "tip": "When asking about transport times, use 'À quelle heure' for questions. You can also specify the transport type.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "À quelle heure part le train ?",
+     "meaning": "At what time does the train leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il part à dix heures.",
+     "meaning": "It leaves at ten o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Je vais prendre le train.",
+     "meaning": "I am going to take the train."
+    },
+    {
+     "speaker": "B",
+     "text": "C'est le bon quai ?",
+     "meaning": "Is this the right platform?"
+    },
+    {
+     "speaker": "A",
+     "text": "Oui, c'est le bon quai.",
+     "meaning": "Yes, this is the right platform."
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis en retard !",
+     "meaning": "I am late!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A fellow traveler",
+    "learnerRole": "You are planning your journey",
+    "brief": "Ask the fellow traveler about the train schedule and confirm the platform. Share your travel plans.",
+    "goal": "You need to coordinate your transport plans."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Getting around by transport",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Quelle heure est-il ?",
+    "meaning": "What time is it?"
+   },
+   {
+    "speaker": "B",
+    "text": "Il est trois heures.",
+    "meaning": "It is three o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "Je voudrais un ticket, s'il vous plaît.",
+    "meaning": "I would like a ticket, please."
+   },
+   {
+    "speaker": "B",
+    "text": "Combien ça coûte ?",
+    "meaning": "How much does it cost?"
+   },
+   {
+    "speaker": "A",
+    "text": "Je vais prendre le train à dix heures.",
+    "meaning": "I am going to take the train at ten o'clock."
+   },
+   {
+    "speaker": "B",
+    "text": "C'est le bon quai pour le bus ?",
+    "meaning": "Is this the right platform for the bus?"
+   },
+   {
+    "speaker": "A",
+    "text": "Oui, c'est le bon quai.",
+    "meaning": "Yes, this is the right platform."
+   },
+   {
+    "speaker": "B",
+    "text": "Merci beaucoup !",
+    "meaning": "Thank you very much!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A fellow traveler",
+   "learnerRole": "You are planning your journey",
+   "brief": "Discuss the time, buy a ticket, and confirm your transport plans with a fellow traveler.",
+   "goal": "You need to effectively communicate about your travel plans."
+  }
+ }
+}

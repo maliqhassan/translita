@@ -1,0 +1,418 @@
+{
+ "id": "c07",
+ "number": 7,
+ "title": "At the hotel",
+ "lessons": [
+  {
+   "id": "c07-d1",
+   "day": 31,
+   "title": "There is/There are",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d1-i1",
+     "text": "hay",
+     "meaning": "there is/there are",
+     "example": "En la habitación hay una cama.",
+     "exampleMeaning": "In the room there is a bed."
+    },
+    {
+     "id": "c07-d1-i2",
+     "text": "una habitación",
+     "meaning": "a room",
+     "example": "Quiero reservar una habitación.",
+     "exampleMeaning": "I want to book a room."
+    },
+    {
+     "id": "c07-d1-i3",
+     "text": "un baño",
+     "meaning": "a bathroom",
+     "example": "¿Hay un baño aquí?",
+     "exampleMeaning": "Is there a bathroom here?"
+    },
+    {
+     "id": "c07-d1-i4",
+     "text": "una piscina",
+     "meaning": "a pool",
+     "example": "En el hotel hay una piscina.",
+     "exampleMeaning": "In the hotel there is a pool."
+    },
+    {
+     "id": "c07-d1-i5",
+     "text": "un restaurante",
+     "meaning": "a restaurant",
+     "example": "Hay un restaurante en el hotel.",
+     "exampleMeaning": "There is a restaurant in the hotel."
+    },
+    {
+     "id": "c07-d1-i6",
+     "text": "un gimnasio",
+     "meaning": "a gym",
+     "example": "¿Hay un gimnasio en el hotel?",
+     "exampleMeaning": "Is there a gym in the hotel?"
+    }
+   ],
+   "tip": "Use 'hay' to indicate the existence of something. It is used for both singular and plural nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Hay una habitación libre?",
+     "meaning": "Is there a free room?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, hay una habitación con vista al mar.",
+     "meaning": "Yes, there is a room with a sea view."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Hay un baño en la habitación?",
+     "meaning": "Is there a bathroom in the room?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, hay un baño privado.",
+     "meaning": "Yes, there is a private bathroom."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Hay una piscina en el hotel?",
+     "meaning": "Is there a pool in the hotel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, hay una piscina grande.",
+     "meaning": "Yes, there is a big pool."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Receptionist at the hotel",
+    "learnerRole": "Guest looking for a room",
+    "brief": "You want to check if there is a free room and ask about the facilities.",
+    "goal": "You need to find out about the room and the amenities."
+   }
+  },
+  {
+   "id": "c07-d2",
+   "day": 32,
+   "title": "Polite Requests",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d2-i1",
+     "text": "¿podría ayudarme?",
+     "meaning": "could you help me?",
+     "example": "¿Podría ayudarme, por favor?",
+     "exampleMeaning": "Could you help me, please?"
+    },
+    {
+     "id": "c07-d2-i2",
+     "text": "¿Puede...?",
+     "meaning": "Can you...?",
+     "example": "¿Puede traerme una toalla?",
+     "exampleMeaning": "Can you bring me a towel?"
+    },
+    {
+     "id": "c07-d2-i3",
+     "text": "me gustaría",
+     "meaning": "I would like",
+     "example": "Me gustaría un café, por favor.",
+     "exampleMeaning": "I would like a coffee, please."
+    },
+    {
+     "id": "c07-d2-i4",
+     "text": "¿Podría...?",
+     "meaning": "Could you...?",
+     "example": "¿Podría darme la llave?",
+     "exampleMeaning": "Could you give me the key?"
+    },
+    {
+     "id": "c07-d2-i5",
+     "text": "gracias por su ayuda",
+     "meaning": "thank you for your help",
+     "example": "Gracias por su ayuda con la reserva.",
+     "exampleMeaning": "Thank you for your help with the reservation."
+    },
+    {
+     "id": "c07-d2-i6",
+     "text": "¿Es posible...?",
+     "meaning": "Is it possible...?",
+     "example": "¿Es posible tener una habitación más grande?",
+     "exampleMeaning": "Is it possible to have a bigger room?"
+    }
+   ],
+   "tip": "Use 'por favor' to make your requests polite. Starting with '¿Puede...?' or '¿Podría...?' is also very polite.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Puede darme una toalla, por favor?",
+     "meaning": "Can you give me a towel, please?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro, aquí tiene.",
+     "meaning": "Of course, here you go."
+    },
+    {
+     "speaker": "A",
+     "text": "Me gustaría un café, por favor.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, lo traigo enseguida.",
+     "meaning": "Yes, I will bring it right away."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Es posible tener una habitación más grande?",
+     "meaning": "Is it possible to have a bigger room?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, es posible. Se lo puedo cambiar.",
+     "meaning": "Yes, it is possible. I can change it for you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Receptionist at the hotel",
+    "learnerRole": "Guest making requests",
+    "brief": "You need to ask for a towel and a coffee. Also, you want to check if a bigger room is available.",
+    "goal": "You should successfully make polite requests."
+   }
+  },
+  {
+   "id": "c07-d3",
+   "day": 33,
+   "title": "Reporting a Problem",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d3-i1",
+     "text": "hay un problema",
+     "meaning": "there is a problem",
+     "example": "Hay un problema con el aire acondicionado.",
+     "exampleMeaning": "There is a problem with the air conditioning."
+    },
+    {
+     "id": "c07-d3-i2",
+     "text": "no funciona",
+     "meaning": "does not work",
+     "example": "El televisor no funciona.",
+     "exampleMeaning": "The TV does not work."
+    },
+    {
+     "id": "c07-d3-i3",
+     "text": "no hay agua",
+     "meaning": "there is no water",
+     "example": "En mi habitación no hay agua.",
+     "exampleMeaning": "In my room there is no water."
+    },
+    {
+     "id": "c07-d3-i4",
+     "text": "¿puede ayudarme?",
+     "meaning": "can you help me",
+     "example": "¿Puede ayudarme con el problema?",
+     "exampleMeaning": "Can you help me with the problem?"
+    },
+    {
+     "id": "c07-d3-i5",
+     "text": "necesito ayuda",
+     "meaning": "I need help",
+     "example": "Necesito ayuda con el aire acondicionado.",
+     "exampleMeaning": "I need help with the air conditioning."
+    },
+    {
+     "id": "c07-d3-i6",
+     "text": "lo siento",
+     "meaning": "I’m sorry",
+     "example": "Lo siento por los inconvenientes.",
+     "exampleMeaning": "I’m sorry for the inconveniences."
+    }
+   ],
+   "tip": "When reporting a problem, start with 'Hay un problema...' to explain the issue clearly. Always ask for help politely.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, hay un problema con el aire acondicionado.",
+     "meaning": "Hello, there is a problem with the air conditioning."
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento. ¿Qué problema tiene?",
+     "meaning": "I’m sorry. What problem do you have?"
+    },
+    {
+     "speaker": "A",
+     "text": "No funciona, no enfría.",
+     "meaning": "It does not work, it does not cool."
+    },
+    {
+     "speaker": "B",
+     "text": "Entiendo. ¿Puede ayudarme a solucionarlo?",
+     "meaning": "I understand. Can you help me fix it?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sí, necesito ayuda con el televisor también.",
+     "meaning": "Yes, I need help with the TV too."
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento por los inconvenientes. Voy a ayudarle.",
+     "meaning": "I’m sorry for the inconveniences. I will help you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Receptionist at the hotel",
+    "learnerRole": "Guest reporting a problem",
+    "brief": "You need to explain that the air conditioning and the TV are not working.",
+    "goal": "You should successfully report the problems."
+   }
+  },
+  {
+   "id": "c07-d4",
+   "day": 34,
+   "title": "Polite Follow-ups",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d4-i1",
+     "text": "¿Cuándo?",
+     "meaning": "When?",
+     "example": "¿Cuándo estará listo el cambio?",
+     "exampleMeaning": "When will the change be ready?"
+    },
+    {
+     "id": "c07-d4-i2",
+     "text": "¿Dónde puedo...?",
+     "meaning": "Where can I...?",
+     "example": "¿Dónde puedo encontrar un taxi?",
+     "exampleMeaning": "Where can I find a taxi?"
+    },
+    {
+     "id": "c07-d4-i3",
+     "text": "¿Qué debo hacer?",
+     "meaning": "What should I do?",
+     "example": "¿Qué debo hacer si no hay agua?",
+     "exampleMeaning": "What should I do if there is no water?"
+    },
+    {
+     "id": "c07-d4-i4",
+     "text": "¿Es necesario...?",
+     "meaning": "Is it necessary...?",
+     "example": "¿Es necesario llenar un formulario?",
+     "exampleMeaning": "Is it necessary to fill out a form?"
+    },
+    {
+     "id": "c07-d4-i5",
+     "text": "¿por qué?",
+     "meaning": "why",
+     "example": "¿Por qué no hay agua en mi habitación?",
+     "exampleMeaning": "Why is there no water in my room?"
+    },
+    {
+     "id": "c07-d4-i6",
+     "text": "¿Puede confirmar...?",
+     "meaning": "Can you confirm...?",
+     "example": "¿Puede confirmar el cambio de habitación?",
+     "exampleMeaning": "Can you confirm the room change?"
+    }
+   ],
+   "tip": "Use questions like '¿Cuándo?' or '¿Dónde puedo...?' to ask for more information. This helps clarify any issues.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuándo estará listo el cambio de habitación?",
+     "meaning": "When will the room change be ready?"
+    },
+    {
+     "speaker": "B",
+     "text": "Estará listo mañana por la mañana.",
+     "meaning": "It will be ready tomorrow morning."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde puedo encontrar un taxi?",
+     "meaning": "Where can I find a taxi?"
+    },
+    {
+     "speaker": "B",
+     "text": "Puede encontrar un taxi afuera del hotel.",
+     "meaning": "You can find a taxi outside the hotel."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Qué debo hacer si no hay agua?",
+     "meaning": "What should I do if there is no water?"
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento, le traeré agua embotellada.",
+     "meaning": "I’m sorry, I will bring you bottled water."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Receptionist at the hotel",
+    "learnerRole": "Guest following up on issues",
+    "brief": "You are checking on the status of your room change and asking about a taxi.",
+    "goal": "You should successfully follow up on your requests."
+   }
+  },
+  {
+   "id": "c07-d5",
+   "day": 35,
+   "title": "Review of Chapter 7: At the hotel",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Hay un problema con el aire acondicionado?",
+     "meaning": "Is there a problem with the air conditioning?"
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento, no funciona bien.",
+     "meaning": "I’m sorry, it does not work well."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Puede ayudarme?",
+     "meaning": "Can you help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, ¿qué debo hacer?",
+     "meaning": "Yes, what should I do?"
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuándo estará listo el cambio?",
+     "meaning": "When will the change be ready?"
+    },
+    {
+     "speaker": "B",
+     "text": "Estará listo mañana por la mañana.",
+     "meaning": "It will be ready tomorrow morning."
+    },
+    {
+     "speaker": "A",
+     "text": "Gracias por su ayuda.",
+     "meaning": "Thank you for your help."
+    },
+    {
+     "speaker": "B",
+     "text": "De nada, que tenga un buen día.",
+     "meaning": "You're welcome, have a nice day."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Receptionist at the hotel",
+    "learnerRole": "Guest interacting with the receptionist",
+    "brief": "You will ask about problems with your room, request assistance, and follow up on changes.",
+    "goal": "You should successfully communicate all your needs."
+   }
+  }
+ ]
+}

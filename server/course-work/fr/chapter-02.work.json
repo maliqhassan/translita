@@ -1,0 +1,376 @@
+{
+ "title": "At the café",
+ "lessons": [
+  {
+   "title": "Ordering Drinks",
+   "items": [
+    {
+     "text": "un café",
+     "meaning": "a coffee",
+     "example": "Je voudrais un café, s'il vous plaît.",
+     "exampleMeaning": "I would like a coffee, please."
+    },
+    {
+     "text": "un thé",
+     "meaning": "a tea",
+     "example": "Je prends un thé.",
+     "exampleMeaning": "I am having a tea."
+    },
+    {
+     "text": "de l'eau",
+     "meaning": "some water",
+     "example": "Avez-vous de l'eau ?",
+     "exampleMeaning": "Do you have some water?"
+    },
+    {
+     "text": "un jus d'orange",
+     "meaning": "an orange juice",
+     "example": "Je voudrais un jus d'orange.",
+     "exampleMeaning": "I would like an orange juice."
+    },
+    {
+     "text": "s'il vous plaît",
+     "meaning": "please",
+     "example": "Un café, s'il vous plaît.",
+     "exampleMeaning": "A coffee, please."
+    },
+    {
+     "text": "merci",
+     "meaning": "thank you",
+     "example": "Merci beaucoup !",
+     "exampleMeaning": "Thank you very much!"
+    }
+   ],
+   "tip": "In French, it's polite to use 's'il vous plaît' when asking for something. Always remember to say 'merci' after receiving something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, que désirez-vous ?",
+     "meaning": "Hello, what would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je voudrais un café, s'il vous plaît.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Et avec ça ?",
+     "meaning": "And with that?"
+    },
+    {
+     "speaker": "B",
+     "text": "Un jus d'orange, merci.",
+     "meaning": "An orange juice, thank you."
+    },
+    {
+     "speaker": "A",
+     "text": "Bien sûr, c'est tout ?",
+     "meaning": "Of course, is that all?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, c'est tout, merci !",
+     "meaning": "Yes, that’s all, thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café waiter",
+    "learnerRole": "A customer",
+    "brief": "You are at the café. Ask for a coffee and an orange juice politely. Remember to use 's'il vous plaît' and 'merci'.",
+    "goal": "You should successfully order your drinks."
+   }
+  },
+  {
+   "title": "Ordering Food",
+   "items": [
+    {
+     "text": "un croissant",
+     "meaning": "a croissant",
+     "example": "Je prends un croissant.",
+     "exampleMeaning": "I am having a croissant."
+    },
+    {
+     "text": "une baguette",
+     "meaning": "a baguette",
+     "example": "Avez-vous une baguette ?",
+     "exampleMeaning": "Do you have a baguette?"
+    },
+    {
+     "text": "une salade",
+     "meaning": "a salad",
+     "example": "Je voudrais une salade, s'il vous plaît.",
+     "exampleMeaning": "I would like a salad, please."
+    },
+    {
+     "text": "un sandwich",
+     "meaning": "a sandwich",
+     "example": "Je veux un sandwich au fromage.",
+     "exampleMeaning": "I want a cheese sandwich."
+    },
+    {
+     "text": "combien ça coûte ?",
+     "meaning": "how much does it cost?",
+     "example": "Combien ça coûte, le croissant ?",
+     "exampleMeaning": "How much does the croissant cost?"
+    },
+    {
+     "text": "c'est délicieux",
+     "meaning": "it's delicious",
+     "example": "Le sandwich est délicieux.",
+     "exampleMeaning": "The sandwich is delicious."
+    }
+   ],
+   "tip": "When ordering food, you can use 'Je voudrais' to express what you want. Don't forget to ask 'combien ça coûte ?' to know the price.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Que voulez-vous manger ?",
+     "meaning": "What do you want to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je voudrais une salade, s'il vous plaît.",
+     "meaning": "I would like a salad, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Et un croissant ?",
+     "meaning": "And a croissant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, un croissant aussi.",
+     "meaning": "Yes, a croissant too."
+    },
+    {
+     "speaker": "A",
+     "text": "Combien ça coûte ?",
+     "meaning": "How much does it cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est délicieux, merci !",
+     "meaning": "It's delicious, thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café waiter",
+    "learnerRole": "A customer",
+    "brief": "You want to order food at the café. Ask for a salad and a croissant. Don't forget to ask the price.",
+    "goal": "You should successfully order your food."
+   }
+  },
+  {
+   "title": "Using Numbers",
+   "items": [
+    {
+     "text": "un",
+     "meaning": "one",
+     "example": "Je veux un croissant.",
+     "exampleMeaning": "I want one croissant."
+    },
+    {
+     "text": "deux",
+     "meaning": "two",
+     "example": "Je prends deux cafés.",
+     "exampleMeaning": "I am having two coffees."
+    },
+    {
+     "text": "trois",
+     "meaning": "three",
+     "example": "Il y a trois sandwiches.",
+     "exampleMeaning": "There are three sandwiches."
+    },
+    {
+     "text": "quatre",
+     "meaning": "four",
+     "example": "Je voudrais quatre jus d'orange.",
+     "exampleMeaning": "I would like four orange juices."
+    },
+    {
+     "text": "cinq",
+     "meaning": "five",
+     "example": "C'est cinq euros.",
+     "exampleMeaning": "It's five euros."
+    },
+    {
+     "text": "dix",
+     "meaning": "ten",
+     "example": "Je veux dix croissants.",
+     "exampleMeaning": "I want ten croissants."
+    }
+   ],
+   "tip": "Numbers in French are important for ordering. Practice counting from one to ten to help with your orders.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Combien de croissants voulez-vous ?",
+     "meaning": "How many croissants do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je veux deux croissants, s'il vous plaît.",
+     "meaning": "I want two croissants, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Et les jus d'orange ?",
+     "meaning": "And the orange juices?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je voudrais trois jus d'orange.",
+     "meaning": "I would like three orange juices."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est combien ?",
+     "meaning": "How much is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est dix euros.",
+     "meaning": "It's ten euros."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café waiter",
+    "learnerRole": "A customer",
+    "brief": "You need to order drinks and food. Use numbers to specify how many you want. Ask for the total price.",
+    "goal": "You should successfully use numbers to order."
+   }
+  },
+  {
+   "title": "Polite Conversations",
+   "items": [
+    {
+     "text": "excusez-moi",
+     "meaning": "excuse me",
+     "example": "Excusez-moi, où sont les toilettes ?",
+     "exampleMeaning": "Excuse me, where are the restrooms?"
+    },
+    {
+     "text": "je peux avoir... ?",
+     "meaning": "can I have...?",
+     "example": "Je peux avoir un café ?",
+     "exampleMeaning": "Can I have a coffee?"
+    },
+    {
+     "text": "pouvez-vous m'aider ?",
+     "meaning": "can you help me?",
+     "example": "Pouvez-vous m'aider, s'il vous plaît ?",
+     "exampleMeaning": "Can you help me, please?"
+    },
+    {
+     "text": "c'est possible ?",
+     "meaning": "is it possible?",
+     "example": "C'est possible d'avoir un sandwich ?",
+     "exampleMeaning": "Is it possible to have a sandwich?"
+    },
+    {
+     "text": "bien sûr",
+     "meaning": "of course",
+     "example": "Bien sûr, pas de problème.",
+     "exampleMeaning": "Of course, no problem."
+    },
+    {
+     "text": "je vous en prie",
+     "meaning": "you’re welcome",
+     "example": "Merci ! - Je vous en prie.",
+     "exampleMeaning": "Thank you! - You’re welcome."
+    }
+   ],
+   "tip": "Using polite phrases like 'excusez-moi' and 'je vous en prie' makes conversations smoother. Always be polite!",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Excusez-moi, puis-je vous aider ?",
+     "meaning": "Excuse me, can I help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je peux avoir un café, s'il vous plaît ?",
+     "meaning": "Yes, can I have a coffee, please?"
+    },
+    {
+     "speaker": "A",
+     "text": "Bien sûr, c'est possible.",
+     "meaning": "Of course, it is possible."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci !",
+     "meaning": "Thank you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Je vous en prie.",
+     "meaning": "You’re welcome."
+    },
+    {
+     "speaker": "B",
+     "text": "Pouvez-vous m'aider avec le menu ?",
+     "meaning": "Can you help me with the menu?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café waiter",
+    "learnerRole": "A customer",
+    "brief": "You want to ask for help with the menu. Be polite and ask for a coffee.",
+    "goal": "You should successfully ask for help and order."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 2 Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Bonjour, que désirez-vous ?",
+    "meaning": "Hello, what would you like?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je voudrais un café, s'il vous plaît.",
+    "meaning": "I would like a coffee, please."
+   },
+   {
+    "speaker": "A",
+    "text": "Et un croissant ?",
+    "meaning": "And a croissant?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, un croissant aussi.",
+    "meaning": "Yes, a croissant too."
+   },
+   {
+    "speaker": "A",
+    "text": "Combien ça coûte ?",
+    "meaning": "How much does it cost?"
+   },
+   {
+    "speaker": "B",
+    "text": "C'est cinq euros.",
+    "meaning": "It's five euros."
+   },
+   {
+    "speaker": "A",
+    "text": "Merci beaucoup !",
+    "meaning": "Thank you very much!"
+   },
+   {
+    "speaker": "B",
+    "text": "Je vous en prie.",
+    "meaning": "You’re welcome."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A café waiter",
+   "learnerRole": "A customer",
+   "brief": "You are at the café. Order a coffee and a croissant. Ask for the price and be polite.",
+   "goal": "You should successfully order and thank the waiter."
+  }
+ }
+}

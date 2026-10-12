@@ -6,6 +6,7 @@
  *
  *   node scripts/generate-course.mts --course de --chapter 1
  *   node scripts/generate-course.mts --course fr --chapter 1 --force   # write it again
+ *   node scripts/generate-course.mts --course de --chapter 7 --repair  # replace only repeated items
  *
  * The course is written once, checked, and shipped inside the app — this is
  * the only place a model writes lessons. Two passes per chapter:
@@ -223,7 +224,7 @@ const chapterSchema = object({
   }),
 });
 
-function shapeProblems(chapter: DraftChapter): string[] {
+function shapeProblems(chapter: DraftChapter, taught: ReadonlySet<string> = new Set()): string[] {
   const problems: string[] = [];
   if (chapter.lessons.length !== DAYS - 1) {
     problems.push(`expected ${DAYS - 1} lessons, got ${chapter.lessons.length}`);
@@ -244,6 +245,9 @@ function shapeProblems(chapter: DraftChapter): string[] {
     for (const item of lesson.items) {
       const key = phraseKey(item.text);
       if (seen.has(key)) problems.push(`"${item.text}" twice`);
+      // Asked of the model in the prompt, and enforced here: a word another
+      // chapter teaches is not taught again.
+      else if (taught.has(key)) problems.push(`"${item.text}" is taught in another chapter`);
       seen.add(key);
     }
   }
@@ -287,7 +291,7 @@ async function writeChapter(
     '  goal is one sentence telling the learner what to achieve, addressed as "you".',
     'The review: an English title, a 6–8 line dialogue mixing the whole chapter, and a scenario that combines it.',
     earlierItems.length
-      ? `Do not repeat these items from earlier chapters: ${earlierItems.join('; ')}.`
+      ? `Do not teach any of these items, which other chapters teach already: ${earlierItems.join('; ')}.`
       : 'This is the first chapter.',
   ].join('\n');
 
@@ -301,7 +305,7 @@ async function writeChapter(
       chapter.lessons = chapter.lessons.slice(0, DAYS - 1);
     }
     last = chapter;
-    const problems = shapeProblems(chapter);
+    const problems = shapeProblems(chapter, new Set(earlierItems.map(phraseKey)));
     if (!problems.length) return chapter;
     console.warn(`  off-shape (${problems.join(', ')}), asking again`);
     // Said back plainly, so the next attempt fixes exactly this.
@@ -323,7 +327,11 @@ async function writeChapter(
 
 // --- Pass 2: native editing ---------------------------------------------------------
 
-async function editChapter(course: CourseLanguage, draft: DraftChapter): Promise<DraftChapter> {
+async function editChapter(
+  course: CourseLanguage,
+  draft: DraftChapter,
+  taught: ReadonlySet<string>,
+): Promise<DraftChapter> {
   const language = COURSE_LANGUAGES[course];
   const system = [
     `You are a native ${language} editor and language teacher checking a beginner course for English speakers.`,
@@ -339,7 +347,8 @@ async function editChapter(course: CourseLanguage, draft: DraftChapter): Promise
     chapterSchema,
     0,
   );
-  const problems = shapeProblems(edited);
+  // An edit that turns a word into one another chapter teaches is not kept either.
+  const problems = shapeProblems(edited, taught);
   if (problems.length) {
     console.warn(`  the edit changed the shape (${problems.join(', ')}); keeping the draft`);
     return draft;
@@ -447,10 +456,14 @@ function writeCourseList() {
   writeFileSync(join(COURSE_DIR, 'courses.ts'), lines.join('\n'));
 }
 
-/** Every item already taught in this course, so a new chapter does not teach it again. */
-function earlierItems(course: string, before: number): string[] {
+/**
+ * Every item the course's other chapters teach, so this one does not teach it
+ * again: the earlier ones, and on a rewrite the later ones too.
+ */
+function otherItems(course: string, number: number): string[] {
   const items: string[] = [];
-  for (let n = 1; n < before; n++) {
+  for (let n = 1; n <= SYLLABUS.length; n++) {
+    if (n === number) continue;
     if (!existsSync(workFile(course, n))) continue;
     const chapter = JSON.parse(readFileSync(workFile(course, n), 'utf8')) as DraftChapter;
     for (const lesson of chapter.lessons) items.push(...lesson.items.map((item) => item.text));
@@ -459,6 +472,85 @@ function earlierItems(course: string, before: number): string[] {
 }
 
 // --- Main --------------------------------------------------------------------------------
+
+// --- Repair ------------------------------------------------------------------------------
+
+type DraftItem = DraftLesson['items'][number];
+
+const replacementSchema = object({
+  items: {
+    type: 'array',
+    items: object({ text: string, meaning: string, example: string, exampleMeaning: string }),
+  },
+});
+
+/**
+ * Replaces only the items of a chapter that another chapter already teaches
+ * (or that it teaches twice), leaving everything else as it was.
+ *
+ * For a chapter whose theme keeps pulling the model back to phrases taught
+ * elsewhere — polite requests at the hotel, say — rewriting all five days is
+ * the wrong tool: one or two items need another word, not a new chapter.
+ */
+async function repairChapter(course: CourseLanguage, number: number): Promise<number> {
+  const draft = JSON.parse(readFileSync(workFile(course, number), 'utf8')) as DraftChapter;
+  const taught = new Set(otherItems(course, number).map(phraseKey));
+  const seen = new Set<string>();
+  const bad: { lesson: number; index: number }[] = [];
+  draft.lessons.forEach((lesson, l) =>
+    lesson.items.forEach((item, i) => {
+      const key = phraseKey(item.text);
+      if (taught.has(key) || seen.has(key)) bad.push({ lesson: l, index: i });
+      seen.add(key);
+    }),
+  );
+  if (!bad.length) return 0;
+
+  const language = COURSE_LANGUAGES[course];
+  const plan = SYLLABUS[number - 1]!;
+  const avoid = [...taught, ...seen];
+  const system = [
+    `You write items for a beginner ${language} course (CEFR A1–A2) for English speakers.`,
+    'Each item is a word or short phrase in the language taught, its English meaning,',
+    'a short example sentence using it, and the example in English.',
+    `Chapter theme: ${plan.theme} (${plan.focus}).`,
+  ].join(' ');
+  const user = [
+    `Give exactly ${bad.length} new item(s), one for each lesson below, in this order.`,
+    'Each must suit its lesson and be different from every item in the list to avoid.',
+    ...bad.map(
+      ({ lesson, index }, n) =>
+        `${n + 1}. Lesson "${draft.lessons[lesson]!.title}", replacing "${draft.lessons[lesson]!.items[index]!.text}".`,
+    ),
+    `Avoid (already taught): ${avoid.join('; ')}.`,
+  ].join('\n');
+
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    const reply = await ask<{ items: DraftItem[] }>(
+      system,
+      user,
+      'replacements',
+      replacementSchema,
+      0.8,
+    );
+    const keys = reply.items.map((item) => phraseKey(item.text));
+    const clash =
+      reply.items.length !== bad.length ||
+      new Set(keys).size !== keys.length ||
+      keys.some((key) => taught.has(key) || seen.has(key));
+    if (clash) {
+      console.warn('  the replacements repeated something, asking again');
+      continue;
+    }
+    bad.forEach(({ lesson, index }, n) => {
+      draft.lessons[lesson]!.items[index] = reply.items[n]!;
+    });
+    writeFileSync(workFile(course, number), JSON.stringify(draft, null, 1));
+    writeFileSync(chapterFile(course, number), JSON.stringify(assemble(number, draft), null, 1));
+    return bad.length;
+  }
+  throw new Error('No clean replacements after 4 tries.');
+}
 
 async function main() {
   const args = process.argv.slice(2);
@@ -474,6 +566,13 @@ async function main() {
       `Usage: node scripts/generate-course.mts --course <${Object.keys(COURSE_LANGUAGES).join('|')}> --chapter <1-12> [--force]`,
     );
   }
+  if (args.includes('--repair')) {
+    console.log(`${course} chapter ${number}: replacing repeated items…`);
+    const replaced = await repairChapter(course, number);
+    console.log(replaced ? `Done: replaced ${replaced} item(s)` : 'Done: nothing repeated');
+    return;
+  }
+
   const force = args.includes('--force');
   if (existsSync(chapterFile(course, number)) && !force) {
     console.log(`${course} chapter ${number} exists. Use --force to write it again.`);
@@ -482,9 +581,10 @@ async function main() {
   }
 
   console.log(`${course} chapter ${number}: writing with ${MODEL}…`);
-  const draft = await writeChapter(course, number, earlierItems(course, number));
+  const taught = otherItems(course, number);
+  const draft = await writeChapter(course, number, taught);
   console.log('  editing as a native speaker…');
-  const edited = await editChapter(course, draft);
+  const edited = await editChapter(course, draft, new Set(taught.map(phraseKey)));
   console.log(`  edit: ${changes(draft, edited)} texts corrected`);
 
   mkdirSync(join(WORK_DIR, course), { recursive: true });

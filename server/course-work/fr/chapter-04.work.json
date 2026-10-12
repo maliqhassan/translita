@@ -1,0 +1,376 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is the... ?",
+   "items": [
+    {
+     "text": "où est... ?",
+     "meaning": "where is...?",
+     "example": "Où est la gare ?",
+     "exampleMeaning": "Where is the train station?"
+    },
+    {
+     "text": "la gare",
+     "meaning": "the train station",
+     "example": "La gare est près d'ici.",
+     "exampleMeaning": "The train station is near here."
+    },
+    {
+     "text": "à gauche",
+     "meaning": "to the left",
+     "example": "Tournez à gauche au feu.",
+     "exampleMeaning": "Turn left at the traffic light."
+    },
+    {
+     "text": "à droite",
+     "meaning": "to the right",
+     "example": "La boulangerie est à droite.",
+     "exampleMeaning": "The bakery is on the right."
+    },
+    {
+     "text": "tout droit",
+     "meaning": "straight ahead",
+     "example": "Allez tout droit jusqu'au bout de la rue.",
+     "exampleMeaning": "Go straight ahead to the end of the street."
+    },
+    {
+     "text": "près de",
+     "meaning": "near",
+     "example": "Le parc est près de l'école.",
+     "exampleMeaning": "The park is near the school."
+    }
+   ],
+   "tip": "Use 'où est...' to ask for the location of a place. Remember to use the correct article (la, le) for feminine and masculine nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, où est la gare ?",
+     "meaning": "Hello, where is the train station?"
+    },
+    {
+     "speaker": "B",
+     "text": "La gare est près d'ici.",
+     "meaning": "The train station is near here."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci ! C'est à gauche ou à droite ?",
+     "meaning": "Thank you! Is it to the left or to the right?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est à droite.",
+     "meaning": "It's to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "Et le parc ?",
+     "meaning": "And the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Allez tout droit et le parc est près de l'école.",
+     "meaning": "Go straight ahead and the park is near the school."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person",
+    "learnerRole": "a traveler",
+    "brief": "You are asking a local for directions. Start with 'Où est la gare ?' and ask for more places if needed.",
+    "goal": "You need to find the train station and the park."
+   }
+  },
+  {
+   "title": "Giving Directions",
+   "items": [
+    {
+     "text": "tourner",
+     "meaning": "to turn",
+     "example": "Tournez à gauche au coin.",
+     "exampleMeaning": "Turn left at the corner."
+    },
+    {
+     "text": "aller",
+     "meaning": "to go",
+     "example": "Allez tout droit jusqu'à la rue principale.",
+     "exampleMeaning": "Go straight to the main street."
+    },
+    {
+     "text": "traverser",
+     "meaning": "to cross",
+     "example": "Traversez la rue ici.",
+     "exampleMeaning": "Cross the street here."
+    },
+    {
+     "text": "suivre",
+     "meaning": "to follow",
+     "example": "Suivez cette route.",
+     "exampleMeaning": "Follow this road."
+    },
+    {
+     "text": "continuer",
+     "meaning": "to continue",
+     "example": "Continuez jusqu'à la gare.",
+     "exampleMeaning": "Continue until the train station."
+    },
+    {
+     "text": "arriver",
+     "meaning": "to arrive",
+     "example": "Vous arrivez à la boulangerie.",
+     "exampleMeaning": "You arrive at the bakery."
+    }
+   ],
+   "tip": "When giving directions, use the imperative form of the verb. It is direct and clear.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Comment aller à la boulangerie ?",
+     "meaning": "How to get to the bakery?"
+    },
+    {
+     "speaker": "B",
+     "text": "Suivez cette route et tournez à droite.",
+     "meaning": "Follow this road and turn right."
+    },
+    {
+     "speaker": "A",
+     "text": "Et après ?",
+     "meaning": "And after?"
+    },
+    {
+     "speaker": "B",
+     "text": "Continuez tout droit et traversez la rue.",
+     "meaning": "Continue straight ahead and cross the street."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci beaucoup !",
+     "meaning": "Thank you very much!"
+    },
+    {
+     "speaker": "B",
+     "text": "Vous arriverez à la boulangerie après ça.",
+     "meaning": "You will arrive at the bakery after that."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person",
+    "learnerRole": "a traveler",
+    "brief": "You are asking for directions to the bakery. Use 'Comment aller à la boulangerie ?' and listen to the directions.",
+    "goal": "You need to understand how to get to the bakery."
+   }
+  },
+  {
+   "title": "Finding Places",
+   "items": [
+    {
+     "text": "un restaurant",
+     "meaning": "a restaurant",
+     "example": "Il y a un restaurant près de la gare.",
+     "exampleMeaning": "There is a restaurant near the train station."
+    },
+    {
+     "text": "un musée",
+     "meaning": "a museum",
+     "example": "Le musée est très intéressant.",
+     "exampleMeaning": "The museum is very interesting."
+    },
+    {
+     "text": "une pharmacie",
+     "meaning": "a pharmacy",
+     "example": "La pharmacie est ouverte le dimanche.",
+     "exampleMeaning": "The pharmacy is open on Sundays."
+    },
+    {
+     "text": "un supermarché",
+     "meaning": "a supermarket",
+     "example": "Le supermarché est à côté de la boulangerie.",
+     "exampleMeaning": "The supermarket is next to the bakery."
+    },
+    {
+     "text": "une église",
+     "meaning": "a church",
+     "example": "L'église est au centre du village.",
+     "exampleMeaning": "The church is in the center of the village."
+    },
+    {
+     "text": "un parc",
+     "meaning": "a park",
+     "example": "Le parc est parfait pour se détendre.",
+     "exampleMeaning": "The park is perfect for relaxing."
+    }
+   ],
+   "tip": "When asking about places, use 'Il y a...' to indicate that something exists. This helps you find what you need.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Où est un restaurant ?",
+     "meaning": "Where is a restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il y a un restaurant près de la gare.",
+     "meaning": "There is a restaurant near the train station."
+    },
+    {
+     "speaker": "A",
+     "text": "Et un musée ?",
+     "meaning": "And a museum?"
+    },
+    {
+     "speaker": "B",
+     "text": "Le musée est au centre du village.",
+     "meaning": "The museum is in the center of the village."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci pour votre aide !",
+     "meaning": "Thank you for your help!"
+    },
+    {
+     "speaker": "B",
+     "text": "Je vous en prie, bonne journée !",
+     "meaning": "You’re welcome, have a nice day!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person",
+    "learnerRole": "a traveler",
+    "brief": "You are searching for a restaurant and a museum. Ask about both places.",
+    "goal": "You need to find both a restaurant and a museum."
+   }
+  },
+  {
+   "title": "Using Directions",
+   "items": [
+    {
+     "text": "à côté de",
+     "meaning": "next to",
+     "example": "Le supermarché est à côté de la pharmacie.",
+     "exampleMeaning": "The supermarket is next to the pharmacy."
+    },
+    {
+     "text": "derrière",
+     "meaning": "behind",
+     "example": "Le parc est derrière l'église.",
+     "exampleMeaning": "The park is behind the church."
+    },
+    {
+     "text": "devant",
+     "meaning": "in front of",
+     "example": "La boulangerie est devant le musée.",
+     "exampleMeaning": "The bakery is in front of the museum."
+    },
+    {
+     "text": "entre",
+     "meaning": "between",
+     "example": "La pharmacie est entre le restaurant et le supermarché.",
+     "exampleMeaning": "The pharmacy is between the restaurant and the supermarket."
+    },
+    {
+     "text": "au coin de",
+     "meaning": "at the corner of",
+     "example": "Le café est au coin de la rue.",
+     "exampleMeaning": "The café is at the corner of the street."
+    },
+    {
+     "text": "sur",
+     "meaning": "on",
+     "example": "Le parc est sur la droite.",
+     "exampleMeaning": "The park is on the right."
+    }
+   ],
+   "tip": "Use prepositions like 'à côté de', 'derrière', and 'devant' to describe the position of places. This helps you give clear directions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Où est le parc ?",
+     "meaning": "Where is the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Le parc est derrière l'église.",
+     "meaning": "The park is behind the church."
+    },
+    {
+     "speaker": "A",
+     "text": "Et la boulangerie ?",
+     "meaning": "And the bakery?"
+    },
+    {
+     "speaker": "B",
+     "text": "La boulangerie est devant le musée.",
+     "meaning": "The bakery is in front of the museum."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci, c'est très clair !",
+     "meaning": "Thank you, it's very clear!"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis content d'aider !",
+     "meaning": "I'm happy to help!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person",
+    "learnerRole": "a traveler",
+    "brief": "You are asking for the location of the park and the bakery. Use the new words to ask about their positions.",
+    "goal": "You need to find out where the park and bakery are."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Où est la gare ?",
+    "meaning": "Where is the train station?"
+   },
+   {
+    "speaker": "B",
+    "text": "La gare est près d'ici.",
+    "meaning": "The train station is near here."
+   },
+   {
+    "speaker": "A",
+    "text": "Comment aller au musée ?",
+    "meaning": "How to get to the museum?"
+   },
+   {
+    "speaker": "B",
+    "text": "Allez tout droit et tournez à gauche.",
+    "meaning": "Go straight and turn left."
+   },
+   {
+    "speaker": "A",
+    "text": "Il y a un restaurant à côté de la pharmacie ?",
+    "meaning": "Is there a restaurant next to the pharmacy?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, le restaurant est à côté de la pharmacie.",
+    "meaning": "Yes, the restaurant is next to the pharmacy."
+   },
+   {
+    "speaker": "A",
+    "text": "Où est le parc ?",
+    "meaning": "Where is the park?"
+   },
+   {
+    "speaker": "B",
+    "text": "Le parc est derrière l'église.",
+    "meaning": "The park is behind the church."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a local person",
+   "learnerRole": "a traveler",
+   "brief": "You are asking for directions to various places. Use the phrases you've learned to find the train station, museum, restaurant, and park.",
+   "goal": "You need to find all the places you are looking for."
+  }
+ }
+}

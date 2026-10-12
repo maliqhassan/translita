@@ -1,0 +1,418 @@
+{
+ "id": "c05",
+ "number": 5,
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "id": "c05-d1",
+   "day": 21,
+   "title": "What time is it?",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d1-i1",
+     "text": "¿Qué hora es?",
+     "meaning": "What time is it?",
+     "example": "¿Qué hora es, por favor?",
+     "exampleMeaning": "What time is it, please?"
+    },
+    {
+     "id": "c05-d1-i2",
+     "text": "Es la una.",
+     "meaning": "It's one o'clock.",
+     "example": "Es la una de la tarde.",
+     "exampleMeaning": "It's one o'clock in the afternoon."
+    },
+    {
+     "id": "c05-d1-i3",
+     "text": "Son las dos.",
+     "meaning": "It's two o'clock.",
+     "example": "Son las dos de la mañana.",
+     "exampleMeaning": "It's two o'clock in the morning."
+    },
+    {
+     "id": "c05-d1-i4",
+     "text": "A las tres.",
+     "meaning": "At three o'clock.",
+     "example": "Llegamos a las tres.",
+     "exampleMeaning": "We arrive at three o'clock."
+    },
+    {
+     "id": "c05-d1-i5",
+     "text": "¿A qué hora?",
+     "meaning": "At what time?",
+     "example": "¿A qué hora empieza la película?",
+     "exampleMeaning": "At what time does the movie start?"
+    },
+    {
+     "id": "c05-d1-i6",
+     "text": "Temprano.",
+     "meaning": "Early.",
+     "example": "Llegamos temprano a la estación.",
+     "exampleMeaning": "We arrive early at the station."
+    }
+   ],
+   "tip": "In Spanish, use 'es' for one o'clock and 'son' for all other hours. Remember to use 'de la mañana', 'de la tarde', or 'de la noche' for clarity.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué hora es?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es la una.",
+     "meaning": "It's one o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora empieza el tren?",
+     "meaning": "At what time does the train start?"
+    },
+    {
+     "speaker": "B",
+     "text": "A las dos.",
+     "meaning": "At two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Llegamos temprano?",
+     "meaning": "Do we arrive early?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, llegamos temprano a la estación.",
+     "meaning": "Yes, we arrive early at the station."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend helping B with transport questions.",
+    "learnerRole": "B is learning to ask about the time and schedules.",
+    "brief": "You ask your friend about the time and when the train starts. They will answer your questions.",
+    "goal": "You need to find out what time the train leaves."
+   }
+  },
+  {
+   "id": "c05-d2",
+   "day": 22,
+   "title": "Buying Tickets",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d2-i1",
+     "text": "Quisiera un boleto.",
+     "meaning": "I would like a ticket.",
+     "example": "Quisiera un boleto a la ciudad.",
+     "exampleMeaning": "I would like a ticket to the city."
+    },
+    {
+     "id": "c05-d2-i2",
+     "text": "¿Cuánto cuesta el boleto?",
+     "meaning": "How much is the ticket?",
+     "example": "¿Cuánto cuesta el boleto a Madrid?",
+     "exampleMeaning": "How much is the ticket to Madrid?"
+    },
+    {
+     "id": "c05-d2-i3",
+     "text": "Aquí tiene.",
+     "meaning": "Here you go.",
+     "example": "Aquí tiene su boleto.",
+     "exampleMeaning": "Here you go, your ticket."
+    },
+    {
+     "id": "c05-d2-i4",
+     "text": "¿Dónde lo compro?",
+     "meaning": "Where do I buy it?",
+     "example": "¿Dónde lo compro, en la estación?",
+     "exampleMeaning": "Where do I buy it, at the station?"
+    },
+    {
+     "id": "c05-d2-i5",
+     "text": "Con tarjeta.",
+     "meaning": "With a card.",
+     "example": "Puedo pagar con tarjeta.",
+     "exampleMeaning": "I can pay with a card."
+    },
+    {
+     "id": "c05-d2-i6",
+     "text": "Gracias, muy amable.",
+     "meaning": "Thank you, very kind.",
+     "example": "Gracias, muy amable de su parte.",
+     "exampleMeaning": "Thank you, very kind of you."
+    }
+   ],
+   "tip": "When buying tickets, you can use 'quisiera' to sound polite. Always remember to ask '¿Cuánto cuesta?' to know the price.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuánto cuesta el boleto?",
+     "meaning": "How much is the ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quisiera un boleto a la ciudad.",
+     "meaning": "I would like a ticket to the city."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde lo compro?",
+     "meaning": "Where do I buy it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Aquí tiene su boleto.",
+     "meaning": "Here you go, your ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Puedo pagar con tarjeta?",
+     "meaning": "Can I pay with a card?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, gracias, muy amable.",
+     "meaning": "Yes, thank you, very kind."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a ticket seller at a station.",
+    "learnerRole": "B is buying a ticket.",
+    "brief": "You need to ask about the price and how to pay for a ticket. The seller will help you.",
+    "goal": "You need to buy a ticket to the city."
+   }
+  },
+  {
+   "id": "c05-d3",
+   "day": 23,
+   "title": "Using Common Verbs",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d3-i1",
+     "text": "Voy.",
+     "meaning": "I go.",
+     "example": "Voy a la estación.",
+     "exampleMeaning": "I go to the station."
+    },
+    {
+     "id": "c05-d3-i2",
+     "text": "Vas.",
+     "meaning": "You go.",
+     "example": "Vas al cine.",
+     "exampleMeaning": "You go to the cinema."
+    },
+    {
+     "id": "c05-d3-i3",
+     "text": "Vamos.",
+     "meaning": "We go.",
+     "example": "Vamos al parque.",
+     "exampleMeaning": "We go to the park."
+    },
+    {
+     "id": "c05-d3-i4",
+     "text": "Tomo.",
+     "meaning": "I take.",
+     "example": "Tomo el autobús.",
+     "exampleMeaning": "I take the bus."
+    },
+    {
+     "id": "c05-d3-i5",
+     "text": "Tomas.",
+     "meaning": "You take.",
+     "example": "Tomas un taxi.",
+     "exampleMeaning": "You take a taxi."
+    },
+    {
+     "id": "c05-d3-i6",
+     "text": "Tomamos.",
+     "meaning": "We take.",
+     "example": "Tomamos el tren.",
+     "exampleMeaning": "We take the train."
+    }
+   ],
+   "tip": "The verb 'ir' means 'to go'. Use 'voy' for 'I go', 'vas' for 'you go', and 'vamos' for 'we go'. These are very common in daily conversation.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Vas al cine?",
+     "meaning": "Are you going to the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, voy a la estación.",
+     "meaning": "No, I go to the station."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tomas un taxi?",
+     "meaning": "Do you take a taxi?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, tomo un taxi.",
+     "meaning": "Yes, I take a taxi."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Vamos al parque?",
+     "meaning": "Shall we go to the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, vamos al parque.",
+     "meaning": "Yes, we go to the park."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend discussing plans with B.",
+    "learnerRole": "B is practicing common verbs.",
+    "brief": "You want to talk about going places and taking transport. Your friend will ask you questions.",
+    "goal": "You need to explain where you are going."
+   }
+  },
+  {
+   "id": "c05-d4",
+   "day": 24,
+   "title": "Asking About Schedules",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d4-i1",
+     "text": "¿A qué hora sale?",
+     "meaning": "At what time does it leave?",
+     "example": "¿A qué hora sale el tren?",
+     "exampleMeaning": "At what time does the train leave?"
+    },
+    {
+     "id": "c05-d4-i2",
+     "text": "Sale a las cinco.",
+     "meaning": "It leaves at five o'clock.",
+     "example": "El autobús sale a las cinco.",
+     "exampleMeaning": "The bus leaves at five o'clock."
+    },
+    {
+     "id": "c05-d4-i3",
+     "text": "¿Cuánto tiempo dura?",
+     "meaning": "How long does it take?",
+     "example": "¿Cuánto tiempo dura el viaje?",
+     "exampleMeaning": "How long does the trip take?"
+    },
+    {
+     "id": "c05-d4-i4",
+     "text": "Dura dos horas.",
+     "meaning": "It takes two hours.",
+     "example": "El viaje dura dos horas.",
+     "exampleMeaning": "The trip takes two hours."
+    },
+    {
+     "id": "c05-d4-i5",
+     "text": "Es rápido.",
+     "meaning": "It is fast.",
+     "example": "El tren es rápido.",
+     "exampleMeaning": "The train is fast."
+    },
+    {
+     "id": "c05-d4-i6",
+     "text": "Es cómodo.",
+     "meaning": "It is comfortable.",
+     "example": "El autobús es cómodo.",
+     "exampleMeaning": "The bus is comfortable."
+    }
+   ],
+   "tip": "To ask about schedules, use '¿A qué hora sale?' for departure times. 'Dura' is used to ask about how long something takes.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿A qué hora sale el tren?",
+     "meaning": "At what time does the train leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sale a las cinco.",
+     "meaning": "It leaves at five o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuánto tiempo dura el viaje?",
+     "meaning": "How long does the trip take?"
+    },
+    {
+     "speaker": "B",
+     "text": "Dura dos horas.",
+     "meaning": "It takes two hours."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Es rápido?",
+     "meaning": "Is it fast?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, el tren es rápido y cómodo.",
+     "meaning": "Yes, the train is fast and comfortable."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a travel agent.",
+    "learnerRole": "B is asking about train schedules.",
+    "brief": "You need to inquire about train departure times and travel duration. The agent will provide information.",
+    "goal": "You need to understand the train schedule."
+   }
+  },
+  {
+   "id": "c05-d5",
+   "day": 25,
+   "title": "Chapter 5 Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué hora es?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Son las dos.",
+     "meaning": "It's two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuánto cuesta el boleto?",
+     "meaning": "How much is the ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quisiera un boleto a Madrid.",
+     "meaning": "I would like a ticket to Madrid."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora sale el tren?",
+     "meaning": "At what time does the train leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sale a las cinco.",
+     "meaning": "It leaves at five o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tomas un taxi?",
+     "meaning": "Do you take a taxi?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, voy a la estación.",
+     "meaning": "No, I go to the station."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a travel companion reviewing transport vocabulary.",
+    "learnerRole": "B is practicing how to ask about time and tickets.",
+    "brief": "You will ask and answer questions about time, tickets, and transport.",
+    "goal": "You need to show you can use the vocabulary from the chapter."
+   }
+  }
+ ]
+}

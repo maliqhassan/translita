@@ -1,0 +1,366 @@
+{
+ "title": "At the Hotel",
+ "lessons": [
+  {
+   "title": "There is/There are",
+   "items": [
+    {
+     "text": "Es gibt",
+     "meaning": "There is/There are",
+     "example": "Es gibt ein Zimmer.",
+     "exampleMeaning": "There is a room."
+    },
+    {
+     "text": "ein Zimmer",
+     "meaning": "a room",
+     "example": "Ich möchte ein Zimmer.",
+     "exampleMeaning": "I would like a room."
+    },
+    {
+     "text": "eine Buchung",
+     "meaning": "a reservation",
+     "example": "Haben Sie eine Buchung?",
+     "exampleMeaning": "Do you have a reservation?"
+    },
+    {
+     "text": "das Badezimmer",
+     "meaning": "the bathroom",
+     "example": "Wo ist das Badezimmer?",
+     "exampleMeaning": "Where is the bathroom?"
+    },
+    {
+     "text": "ein Bett",
+     "meaning": "a bed",
+     "example": "Das Zimmer hat ein Bett.",
+     "exampleMeaning": "The room has a bed."
+    },
+    {
+     "text": "eine Aussicht",
+     "meaning": "a view",
+     "example": "Das Zimmer hat eine schöne Aussicht.",
+     "exampleMeaning": "The room has a nice view."
+    }
+   ],
+   "tip": "Use 'Es gibt' to talk about the existence of things. It helps you describe what is available.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Es gibt ein Zimmer mit Balkon.",
+     "meaning": "There is a room with a balcony."
+    },
+    {
+     "speaker": "B",
+     "text": "Haben Sie eine Buchung für mich?",
+     "meaning": "Do you have a reservation for me?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ja, ich habe eine Buchung.",
+     "meaning": "Yes, I have a reservation."
+    },
+    {
+     "speaker": "B",
+     "text": "Wo ist das Badezimmer?",
+     "meaning": "Where is the bathroom?"
+    },
+    {
+     "speaker": "A",
+     "text": "Das Badezimmer ist dort.",
+     "meaning": "The bathroom is over there."
+    },
+    {
+     "speaker": "B",
+     "text": "Das Zimmer hat ein Bett, oder?",
+     "meaning": "The room has a bed, right?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Hotel receptionist",
+    "learnerRole": "Guest",
+    "brief": "You arrive at the hotel and ask about your room and amenities.",
+    "goal": "You want to confirm your reservation and find out about the bathroom."
+   }
+  },
+  {
+   "title": "Polite Requests",
+   "items": [
+    {
+     "text": "Könnte ich bitte...",
+     "meaning": "Could I please...",
+     "example": "Könnte ich bitte ein Zimmer sehen?",
+     "exampleMeaning": "Could I please see a room?"
+    },
+    {
+     "text": "Haben Sie...",
+     "meaning": "Do you have...",
+     "example": "Haben Sie ein Zimmer frei?",
+     "exampleMeaning": "Do you have a room available?"
+    },
+    {
+     "text": "Ich hätte gerne...",
+     "meaning": "I would like...",
+     "example": "Ich hätte gerne ein Zimmer mit Aussicht.",
+     "exampleMeaning": "I would like a room with a view."
+    },
+    {
+     "text": "Entschuldigung, wo ist...",
+     "meaning": "Excuse me, where is...",
+     "example": "Entschuldigung, wo ist das Restaurant?",
+     "exampleMeaning": "Excuse me, where is the restaurant?"
+    },
+    {
+     "text": "Wären Sie so freundlich, mir zu helfen?",
+     "meaning": "Would you be so kind as to help me?",
+     "example": "Wären Sie so freundlich, mir zu helfen?",
+     "exampleMeaning": "Would you be so kind as to help me?"
+    },
+    {
+     "text": "Ich brauche...",
+     "meaning": "I need...",
+     "example": "Ich brauche frische Handtücher.",
+     "exampleMeaning": "I need fresh towels."
+    }
+   ],
+   "tip": "Using 'Könnte ich bitte...' is a polite way to ask for something. It shows respect.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Haben Sie ein Zimmer frei?",
+     "meaning": "Do you have a room available?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich hätte gerne ein Zimmer mit Aussicht.",
+     "meaning": "Yes, I would like a room with a view."
+    },
+    {
+     "speaker": "A",
+     "text": "Könnte ich bitte ein Zimmer sehen?",
+     "meaning": "Could I please see a room?"
+    },
+    {
+     "speaker": "B",
+     "text": "Entschuldigung, wo ist das Restaurant?",
+     "meaning": "Excuse me, where is the restaurant?"
+    },
+    {
+     "speaker": "A",
+     "text": "Könnten Sie mir bitte helfen?",
+     "meaning": "Could you please help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich brauche frische Handtücher.",
+     "meaning": "I need fresh towels."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Hotel staff",
+    "learnerRole": "Guest",
+    "brief": "You ask the hotel staff for help with your room and other services.",
+    "goal": "You want to make polite requests for assistance."
+   }
+  },
+  {
+   "title": "Reporting a Problem",
+   "items": [
+    {
+     "text": "Ich habe ein Problem.",
+     "meaning": "I have a problem.",
+     "example": "Ich habe ein Problem mit meinem Zimmer.",
+     "exampleMeaning": "I have a problem with my room."
+    },
+    {
+     "text": "Es funktioniert nicht.",
+     "meaning": "It does not work.",
+     "example": "Die Klimaanlage funktioniert nicht.",
+     "exampleMeaning": "The air conditioning does not work."
+    },
+    {
+     "text": "Könnte ich bitte einen Techniker bekommen?",
+     "meaning": "Could I please get a technician?",
+     "example": "Könnte ich bitte einen Techniker bekommen?",
+     "exampleMeaning": "Could I please get a technician?"
+    },
+    {
+     "text": "Es ist zu laut.",
+     "meaning": "It is too loud.",
+     "example": "Es ist zu laut in meinem Zimmer.",
+     "exampleMeaning": "It is too loud in my room."
+    },
+    {
+     "text": "Ich bin unzufrieden.",
+     "meaning": "I am dissatisfied.",
+     "example": "Ich bin unzufrieden mit dem Service.",
+     "exampleMeaning": "I am dissatisfied with the service."
+    },
+    {
+     "text": "Könnten Sie das bitte überprüfen?",
+     "meaning": "Could you please check that?",
+     "example": "Könnten Sie das bitte überprüfen?",
+     "exampleMeaning": "Could you please check that?"
+    }
+   ],
+   "tip": "When reporting a problem, start with 'Ich habe ein Problem.' This makes it clear you need assistance.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich habe ein Problem mit meinem Zimmer.",
+     "meaning": "I have a problem with my room."
+    },
+    {
+     "speaker": "B",
+     "text": "Was ist das Problem?",
+     "meaning": "What is the problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "Die Klimaanlage funktioniert nicht.",
+     "meaning": "The air conditioning does not work."
+    },
+    {
+     "speaker": "B",
+     "text": "Es ist zu laut in meinem Zimmer.",
+     "meaning": "It is too loud in my room."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich bin unzufrieden mit dem Service.",
+     "meaning": "I am dissatisfied with the service."
+    },
+    {
+     "speaker": "B",
+     "text": "Könnten Sie das bitte überprüfen?",
+     "meaning": "Could you please check that?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Hotel staff",
+    "learnerRole": "Guest",
+    "brief": "You report issues with your room to the hotel staff.",
+    "goal": "You want to explain your problems clearly and ask for help."
+   }
+  },
+  {
+   "title": "Making Complaints",
+   "items": [
+    {
+     "text": "Ich möchte mich beschweren.",
+     "meaning": "I would like to complain.",
+     "example": "Ich möchte mich über das Zimmer beschweren.",
+     "exampleMeaning": "I would like to complain about the room."
+    },
+    {
+     "text": "Das ist nicht akzeptabel.",
+     "meaning": "That is not acceptable.",
+     "example": "Das ist nicht akzeptabel für mich.",
+     "exampleMeaning": "That is not acceptable for me."
+    },
+    {
+     "text": "Ich erwarte eine Lösung.",
+     "meaning": "I expect a solution.",
+     "example": "Ich erwarte eine Lösung für das Problem.",
+     "exampleMeaning": "I expect a solution for the problem."
+    },
+    {
+     "text": "Ich bin enttäuscht.",
+     "meaning": "I am disappointed.",
+     "example": "Ich bin enttäuscht von dem Service.",
+     "exampleMeaning": "I am disappointed with the service."
+    },
+    {
+     "text": "Könnten Sie mir bitte helfen?",
+     "meaning": "Could you please help me?",
+     "example": "Könnten Sie mir bitte helfen mit dem Problem?",
+     "exampleMeaning": "Could you please help me with the problem?"
+    },
+    {
+     "text": "Ich möchte eine Rückerstattung.",
+     "meaning": "I would like a refund.",
+     "example": "Ich möchte eine Rückerstattung für die Nacht.",
+     "exampleMeaning": "I would like a refund for the night."
+    }
+   ],
+   "tip": "When complaining, use 'Ich möchte mich beschweren.' This clearly states your intention.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich möchte mich über das Zimmer beschweren.",
+     "meaning": "I would like to complain about the room."
+    },
+    {
+     "speaker": "B",
+     "text": "Was ist das Problem?",
+     "meaning": "What is the problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "Das ist nicht akzeptabel für mich.",
+     "meaning": "That is not acceptable for me."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich erwarte eine Lösung.",
+     "meaning": "I expect a solution."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich bin enttäuscht von dem Service.",
+     "meaning": "I am disappointed with the service."
+    },
+    {
+     "speaker": "B",
+     "text": "Könnten Sie mir bitte helfen?",
+     "meaning": "Could you please help me?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Hotel manager",
+    "learnerRole": "Guest",
+    "brief": "You talk to the hotel manager about your issues and express your dissatisfaction.",
+    "goal": "You want to make a formal complaint and seek resolution."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Chapter 7: At the Hotel",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Es gibt ein Zimmer mit Balkon.",
+    "meaning": "There is a room with a balcony."
+   },
+   {
+    "speaker": "B",
+    "text": "Ich hätte gerne ein Zimmer mit Aussicht.",
+    "meaning": "I would like a room with a view."
+   },
+   {
+    "speaker": "A",
+    "text": "Ich habe ein Problem mit meinem Zimmer.",
+    "meaning": "I have a problem with my room."
+   },
+   {
+    "speaker": "B",
+    "text": "Es funktioniert nicht.",
+    "meaning": "It does not work."
+   },
+   {
+    "speaker": "A",
+    "text": "Könnten Sie mir bitte helfen?",
+    "meaning": "Could you please help me?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich möchte mich über den Lärm beschweren.",
+    "meaning": "I would like to complain about the noise."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "Hotel staff",
+   "learnerRole": "Guest",
+   "brief": "You discuss your stay at the hotel, mentioning both positive aspects and issues.",
+   "goal": "You want to express your overall experience and seek resolution for any problems."
+  }
+ }
+}

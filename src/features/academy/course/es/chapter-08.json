@@ -1,0 +1,418 @@
+{
+ "id": "c08",
+ "number": 8,
+ "title": "At Work",
+ "lessons": [
+  {
+   "id": "c08-d1",
+   "day": 36,
+   "title": "Daily Tasks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d1-i1",
+     "text": "trabajo",
+     "meaning": "work",
+     "example": "Hoy tengo mucho trabajo.",
+     "exampleMeaning": "Today I have a lot of work."
+    },
+    {
+     "id": "c08-d1-i2",
+     "text": "reunión",
+     "meaning": "meeting",
+     "example": "La reunión es a las diez.",
+     "exampleMeaning": "The meeting is at ten."
+    },
+    {
+     "id": "c08-d1-i3",
+     "text": "horario",
+     "meaning": "schedule",
+     "example": "Mi horario es flexible.",
+     "exampleMeaning": "My schedule is flexible."
+    },
+    {
+     "id": "c08-d1-i4",
+     "text": "correo electrónico",
+     "meaning": "email",
+     "example": "Voy a enviar un correo electrónico.",
+     "exampleMeaning": "I am going to send an email."
+    },
+    {
+     "id": "c08-d1-i5",
+     "text": "proyecto",
+     "meaning": "project",
+     "example": "Estoy trabajando en un proyecto nuevo.",
+     "exampleMeaning": "I am working on a new project."
+    },
+    {
+     "id": "c08-d1-i6",
+     "text": "tarea",
+     "meaning": "task",
+     "example": "Tengo una tarea importante hoy.",
+     "exampleMeaning": "I have an important task today."
+    }
+   ],
+   "tip": "In Spanish, nouns have gender. 'El' is used for masculine nouns and 'la' for feminine nouns. For example, 'el trabajo' is masculine and 'la reunión' is feminine.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué trabajo tienes hoy?",
+     "meaning": "What work do you have today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Hoy tengo una reunión y una tarea.",
+     "meaning": "Today I have a meeting and a task."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora es la reunión?",
+     "meaning": "What time is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "La reunión es a las diez.",
+     "meaning": "The meeting is at ten."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuál es tu horario?",
+     "meaning": "What is your schedule?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi horario es flexible.",
+     "meaning": "My schedule is flexible."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A colleague who is curious about your work.",
+    "learnerRole": "You, explaining your daily tasks.",
+    "brief": "You are discussing your daily work tasks with a colleague. Ask questions about their schedule and share your tasks.",
+    "goal": "You will explain your tasks and your schedule."
+   }
+  },
+  {
+   "id": "c08-d2",
+   "day": 37,
+   "title": "Office Vocabulary",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d2-i1",
+     "text": "oficina",
+     "meaning": "office",
+     "example": "Trabajo en una oficina grande.",
+     "exampleMeaning": "I work in a big office."
+    },
+    {
+     "id": "c08-d2-i2",
+     "text": "mesa",
+     "meaning": "desk",
+     "example": "Mi mesa está desordenada.",
+     "exampleMeaning": "My desk is messy."
+    },
+    {
+     "id": "c08-d2-i3",
+     "text": "silla",
+     "meaning": "chair",
+     "example": "Necesito una silla nueva.",
+     "exampleMeaning": "I need a new chair."
+    },
+    {
+     "id": "c08-d2-i4",
+     "text": "computadora",
+     "meaning": "computer",
+     "example": "Uso mi computadora para trabajar.",
+     "exampleMeaning": "I use my computer to work."
+    },
+    {
+     "id": "c08-d2-i5",
+     "text": "teléfono",
+     "meaning": "phone",
+     "example": "Mi teléfono suena.",
+     "exampleMeaning": "My phone is ringing."
+    },
+    {
+     "id": "c08-d2-i6",
+     "text": "impresora",
+     "meaning": "printer",
+     "example": "La impresora no funciona.",
+     "exampleMeaning": "The printer is not working."
+    }
+   ],
+   "tip": "Remember that nouns in Spanish have articles. Use 'la' for feminine nouns like 'la oficina' and 'el' for masculine nouns like 'el teléfono'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde está tu oficina?",
+     "meaning": "Where is your office?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi oficina está en el tercer piso.",
+     "meaning": "My office is on the third floor."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes una computadora nueva?",
+     "meaning": "Do you have a new computer?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, mi computadora es rápida.",
+     "meaning": "Yes, my computer is fast."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Funciona la impresora?",
+     "meaning": "Does the printer work?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, la impresora no funciona.",
+     "meaning": "No, the printer is not working."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A coworker interested in your office setup.",
+    "learnerRole": "You, describing your office equipment.",
+    "brief": "You are talking to a coworker about your office. Discuss the location and equipment in your office.",
+    "goal": "You will describe your office and its equipment."
+   }
+  },
+  {
+   "id": "c08-d3",
+   "day": 38,
+   "title": "Meetings and Agendas",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d3-i1",
+     "text": "agenda",
+     "meaning": "agenda",
+     "example": "La agenda está en mi correo electrónico.",
+     "exampleMeaning": "The agenda is in my email."
+    },
+    {
+     "id": "c08-d3-i2",
+     "text": "presentación",
+     "meaning": "presentation",
+     "example": "Tengo una presentación mañana.",
+     "exampleMeaning": "I have a presentation tomorrow."
+    },
+    {
+     "id": "c08-d3-i3",
+     "text": "participante",
+     "meaning": "participant",
+     "example": "Soy un participante en la reunión.",
+     "exampleMeaning": "I am a participant in the meeting."
+    },
+    {
+     "id": "c08-d3-i4",
+     "text": "discutir",
+     "meaning": "to discuss",
+     "example": "Vamos a discutir el proyecto.",
+     "exampleMeaning": "We are going to discuss the project."
+    },
+    {
+     "id": "c08-d3-i5",
+     "text": "notas",
+     "meaning": "notes",
+     "example": "Tomé notas durante la reunión.",
+     "exampleMeaning": "I took notes during the meeting."
+    },
+    {
+     "id": "c08-d3-i6",
+     "text": "pregunta",
+     "meaning": "question",
+     "example": "¿Tienes alguna pregunta?",
+     "exampleMeaning": "Do you have any questions?"
+    }
+   ],
+   "tip": "Use 'la' for feminine nouns like 'la agenda' and 'las notas', and 'el' for masculine nouns like 'el participante' and 'el proyecto'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuál es la agenda de la reunión?",
+     "meaning": "What is the agenda for the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "La agenda está en mi correo electrónico.",
+     "meaning": "The agenda is in my email."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Qué vamos a discutir?",
+     "meaning": "What are we going to discuss?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vamos a discutir el proyecto y la presentación.",
+     "meaning": "We are going to discuss the project and the presentation."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Quiénes son los participantes?",
+     "meaning": "Who are the participants?"
+    },
+    {
+     "speaker": "B",
+     "text": "Soy un participante en la reunión.",
+     "meaning": "I am a participant in the meeting."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A team member preparing for a meeting.",
+    "learnerRole": "You, explaining the agenda and topics.",
+    "brief": "You are preparing for a meeting with a team member. Discuss the agenda and what will be discussed.",
+    "goal": "You will explain the meeting agenda and topics."
+   }
+  },
+  {
+   "id": "c08-d4",
+   "day": 39,
+   "title": "Daily Routines",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d4-i1",
+     "text": "rutina",
+     "meaning": "routine",
+     "example": "Tengo una rutina diaria.",
+     "exampleMeaning": "I have a daily routine."
+    },
+    {
+     "id": "c08-d4-i2",
+     "text": "desayuno",
+     "meaning": "breakfast",
+     "example": "Siempre como desayuno a las ocho.",
+     "exampleMeaning": "I always have breakfast at eight."
+    },
+    {
+     "id": "c08-d4-i3",
+     "text": "trabajar",
+     "meaning": "to work",
+     "example": "Voy a trabajar a las nueve.",
+     "exampleMeaning": "I go to work at nine."
+    },
+    {
+     "id": "c08-d4-i4",
+     "text": "almuerzo",
+     "meaning": "lunch",
+     "example": "El almuerzo es a las doce.",
+     "exampleMeaning": "Lunch is at twelve."
+    },
+    {
+     "id": "c08-d4-i5",
+     "text": "salir",
+     "meaning": "to leave",
+     "example": "Salgo de la oficina a las cinco.",
+     "exampleMeaning": "I leave the office at five."
+    },
+    {
+     "id": "c08-d4-i6",
+     "text": "descansar",
+     "meaning": "to rest",
+     "example": "Me gusta descansar después del trabajo.",
+     "exampleMeaning": "I like to rest after work."
+    }
+   ],
+   "tip": "Use 'el' for masculine nouns like 'el desayuno' and 'el almuerzo', and 'la' for feminine nouns like 'la rutina' and 'la oficina'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuál es tu rutina diaria?",
+     "meaning": "What is your daily routine?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me levanto temprano y desayuno.",
+     "meaning": "I wake up early and have breakfast."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora trabajas?",
+     "meaning": "What time do you work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Voy a trabajar a las nueve.",
+     "meaning": "I go to work at nine."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora sales de la oficina?",
+     "meaning": "What time do you leave the office?"
+    },
+    {
+     "speaker": "B",
+     "text": "Salgo de la oficina a las cinco.",
+     "meaning": "I leave the office at five."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend asking about your daily routine.",
+    "learnerRole": "You, explaining your daily schedule.",
+    "brief": "You are sharing your daily routine with a friend. Talk about your morning, work, and evening activities.",
+    "goal": "You will describe your daily routine."
+   }
+  },
+  {
+   "id": "c08-d5",
+   "day": 40,
+   "title": "Chapter 8 Review: Work Life",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué trabajo tienes hoy?",
+     "meaning": "What work do you have today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Hoy tengo una reunión y una tarea.",
+     "meaning": "Today I have a meeting and a task."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde está tu oficina?",
+     "meaning": "Where is your office?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi oficina está en el tercer piso.",
+     "meaning": "My office is on the third floor."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora es el almuerzo?",
+     "meaning": "What time is lunch?"
+    },
+    {
+     "speaker": "B",
+     "text": "El almuerzo es a las doce.",
+     "meaning": "Lunch is at twelve."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes alguna pregunta sobre la agenda?",
+     "meaning": "Do you have any questions about the agenda?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, todo está claro.",
+     "meaning": "No, everything is clear."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend reviewing your work life.",
+    "learnerRole": "You, answering questions about your job and routine.",
+    "brief": "You are having a conversation with a friend about your work life. Answer their questions about your office, tasks, and daily routine.",
+    "goal": "You will review what you learned about work-related vocabulary."
+   }
+  }
+ ]
+}

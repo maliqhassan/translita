@@ -1,0 +1,418 @@
+{
+ "id": "c11",
+ "number": 11,
+ "title": "Making Plans",
+ "lessons": [
+  {
+   "id": "c11-d1",
+   "day": 51,
+   "title": "Future Plans",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d1-i1",
+     "text": "nächste Woche",
+     "meaning": "next week",
+     "example": "Ich habe nächste Woche Zeit.",
+     "exampleMeaning": "I have time next week."
+    },
+    {
+     "id": "c11-d1-i2",
+     "text": "am Montag",
+     "meaning": "on Monday",
+     "example": "Wir treffen uns am Montag.",
+     "exampleMeaning": "We meet on Monday."
+    },
+    {
+     "id": "c11-d1-i3",
+     "text": "einladen",
+     "meaning": "to invite",
+     "example": "Ich möchte dich einladen.",
+     "exampleMeaning": "I would like to invite you."
+    },
+    {
+     "id": "c11-d1-i4",
+     "text": "vorschlagen",
+     "meaning": "to suggest",
+     "example": "Kann ich einen Film vorschlagen?",
+     "exampleMeaning": "Can I suggest a movie?"
+    },
+    {
+     "id": "c11-d1-i5",
+     "text": "Um wie viel Uhr?",
+     "meaning": "at what time?",
+     "example": "Um wie viel Uhr beginnt das Treffen?",
+     "exampleMeaning": "At what time does the meeting start?"
+    },
+    {
+     "id": "c11-d1-i6",
+     "text": "Ja, gerne!",
+     "meaning": "yes, gladly",
+     "example": "Ja, gerne! Ich komme.",
+     "exampleMeaning": "Yes, gladly! I will come."
+    }
+   ],
+   "tip": "In German, the days of the week are always in the accusative case when you say 'on'. For example, use 'am Montag' (on Monday).",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wann treffen wir uns?",
+     "meaning": "When do we meet?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe nächste Woche Zeit.",
+     "meaning": "I have time next week."
+    },
+    {
+     "speaker": "A",
+     "text": "Wie wäre es am Montag?",
+     "meaning": "How about on Monday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, gerne! Um wie viel Uhr?",
+     "meaning": "Yes, gladly! At what time?"
+    },
+    {
+     "speaker": "A",
+     "text": "Um drei Uhr.",
+     "meaning": "At three o'clock."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich möchte dich einladen.",
+     "meaning": "I would like to invite you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend making plans.",
+    "learnerRole": "You are confirming the meeting.",
+    "brief": "Ask when you will meet and suggest a day. Confirm the time.",
+    "goal": "You should confirm the meeting time."
+   }
+  },
+  {
+   "id": "c11-d2",
+   "day": 52,
+   "title": "Inviting Friends",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d2-i1",
+     "text": "Möchtest du...",
+     "meaning": "Would you like to...",
+     "example": "Möchtest du ins Kino gehen?",
+     "exampleMeaning": "Would you like to go to the cinema?"
+    },
+    {
+     "id": "c11-d2-i2",
+     "text": "Das klingt gut.",
+     "meaning": "That sounds good.",
+     "example": "Das klingt gut für mich.",
+     "exampleMeaning": "That sounds good to me."
+    },
+    {
+     "id": "c11-d2-i3",
+     "text": "Ich bin dabei.",
+     "meaning": "I am in.",
+     "example": "Ich bin dabei, wenn du willst.",
+     "exampleMeaning": "I am in if you want."
+    },
+    {
+     "id": "c11-d2-i4",
+     "text": "Leider nicht.",
+     "meaning": "Unfortunately not.",
+     "example": "Leider nicht, ich habe keine Zeit.",
+     "exampleMeaning": "Unfortunately not, I don't have time."
+    },
+    {
+     "id": "c11-d2-i5",
+     "text": "Was hältst du von...?",
+     "meaning": "What do you think of...?",
+     "example": "Was hältst du von einem Picknick?",
+     "exampleMeaning": "What do you think of a picnic?"
+    },
+    {
+     "id": "c11-d2-i6",
+     "text": "Lass uns...",
+     "meaning": "Let's...",
+     "example": "Lass uns einen Film schauen.",
+     "exampleMeaning": "Let's watch a movie."
+    }
+   ],
+   "tip": "When inviting someone, you can use 'Möchtest du...?' or 'Was hältst du von...?'. Both are friendly ways to ask.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Möchtest du ins Kino gehen?",
+     "meaning": "Would you like to go to the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das klingt gut!",
+     "meaning": "That sounds good!"
+    },
+    {
+     "speaker": "A",
+     "text": "Was hältst du von einem Picknick?",
+     "meaning": "What do you think of a picnic?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich bin dabei!",
+     "meaning": "I am in!"
+    },
+    {
+     "speaker": "A",
+     "text": "Wann können wir gehen?",
+     "meaning": "When can we go?"
+    },
+    {
+     "speaker": "B",
+     "text": "Leider nicht, ich habe keine Zeit.",
+     "meaning": "Unfortunately not, I don't have time."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are inviting a friend to an event.",
+    "learnerRole": "You are responding to the invitation.",
+    "brief": "Ask about the plan and confirm or decline.",
+    "goal": "You should respond to the invitation."
+   }
+  },
+  {
+   "id": "c11-d3",
+   "day": 53,
+   "title": "Making Specific Plans",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d3-i1",
+     "text": "am Samstag",
+     "meaning": "on Saturday",
+     "example": "Wir gehen am Samstag ins Museum.",
+     "exampleMeaning": "We are going to the museum on Saturday."
+    },
+    {
+     "id": "c11-d3-i2",
+     "text": "Wie wäre es mit...?",
+     "meaning": "How about...?",
+     "example": "Wie wäre es mit einem Kaffee?",
+     "exampleMeaning": "How about a coffee?"
+    },
+    {
+     "id": "c11-d3-i3",
+     "text": "Ich habe schon etwas vor.",
+     "meaning": "I already have plans.",
+     "example": "Tut mir leid, ich habe schon etwas vor.",
+     "exampleMeaning": "Sorry, I already have plans."
+    },
+    {
+     "id": "c11-d3-i4",
+     "text": "Könnten wir...",
+     "meaning": "Could we...",
+     "example": "Könnten wir uns später treffen?",
+     "exampleMeaning": "Could we meet later?"
+    },
+    {
+     "id": "c11-d3-i5",
+     "text": "Ich freue mich darauf.",
+     "meaning": "I am looking forward to it.",
+     "example": "Ich freue mich darauf, dich zu sehen.",
+     "exampleMeaning": "I am looking forward to seeing you."
+    },
+    {
+     "id": "c11-d3-i6",
+     "text": "Das passt mir.",
+     "meaning": "That works for me.",
+     "example": "Das passt mir gut.",
+     "exampleMeaning": "That works well for me."
+    }
+   ],
+   "tip": "When making specific plans, use 'am' for days and 'mit' for with. For example, 'am Samstag' (on Saturday) and 'mit Freunden' (with friends).",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie wäre es mit einem Kaffee am Samstag?",
+     "meaning": "How about a coffee on Saturday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das passt mir gut.",
+     "meaning": "That works for me."
+    },
+    {
+     "speaker": "A",
+     "text": "Könnten wir uns um zwei Uhr treffen?",
+     "meaning": "Could we meet at two o'clock?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich freue mich darauf!",
+     "meaning": "I am looking forward to it!"
+    },
+    {
+     "speaker": "A",
+     "text": "Ich habe schon etwas vor.",
+     "meaning": "I already have plans."
+    },
+    {
+     "speaker": "B",
+     "text": "Wie wäre es mit Sonntag?",
+     "meaning": "How about Sunday?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are confirming plans with a friend.",
+    "learnerRole": "You are making suggestions.",
+    "brief": "Suggest a day and time to meet. Confirm or change the plan.",
+    "goal": "You should finalize the meeting details."
+   }
+  },
+  {
+   "id": "c11-d4",
+   "day": 54,
+   "title": "Replying to Invitations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d4-i1",
+     "text": "Danke für die Einladung!",
+     "meaning": "Thank you for the invitation!",
+     "example": "Danke für die Einladung zur Party!",
+     "exampleMeaning": "Thank you for the invitation to the party!"
+    },
+    {
+     "id": "c11-d4-i2",
+     "text": "Ich kann kommen.",
+     "meaning": "I can come.",
+     "example": "Ich kann kommen, wenn es um sechs Uhr ist.",
+     "exampleMeaning": "I can come if it's at six o'clock."
+    },
+    {
+     "id": "c11-d4-i3",
+     "text": "Ich muss leider absagen.",
+     "meaning": "I must unfortunately decline.",
+     "example": "Ich muss leider absagen, ich bin krank.",
+     "exampleMeaning": "I must unfortunately decline, I am sick."
+    },
+    {
+     "id": "c11-d4-i4",
+     "text": "Das klingt fantastisch!",
+     "meaning": "That sounds fantastic!",
+     "example": "Das klingt fantastisch, ich freue mich!",
+     "exampleMeaning": "That sounds fantastic, I am looking forward to it!"
+    },
+    {
+     "id": "c11-d4-i5",
+     "text": "Ich bin mir nicht sicher.",
+     "meaning": "I am not sure.",
+     "example": "Ich bin mir nicht sicher, ob ich kommen kann.",
+     "exampleMeaning": "I am not sure if I can come."
+    },
+    {
+     "id": "c11-d4-i6",
+     "text": "Lass uns das planen!",
+     "meaning": "Let's plan that!",
+     "example": "Lass uns das für nächste Woche planen!",
+     "exampleMeaning": "Let's plan that for next week!"
+    }
+   ],
+   "tip": "When replying to invitations, you can express gratitude with 'Danke für die Einladung!' and confirm with 'Ich kann kommen.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Danke für die Einladung zur Party!",
+     "meaning": "Thank you for the invitation to the party!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich kann kommen, wenn es um sechs Uhr ist.",
+     "meaning": "I can come if it's at six o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Das klingt fantastisch!",
+     "meaning": "That sounds fantastic!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich muss leider absagen, ich bin krank.",
+     "meaning": "I must unfortunately decline, I am sick."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich bin mir nicht sicher, ob ich kommen kann.",
+     "meaning": "I am not sure if I can come."
+    },
+    {
+     "speaker": "B",
+     "text": "Lass uns das für nächste Woche planen!",
+     "meaning": "Let's plan that for next week!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are responding to an invitation.",
+    "learnerRole": "You are either accepting or declining the invitation.",
+    "brief": "Express gratitude and confirm or decline the invitation.",
+    "goal": "You should reply appropriately to the invitation."
+   }
+  },
+  {
+   "id": "c11-d5",
+   "day": 55,
+   "title": "Review of Making Plans",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wann treffen wir uns?",
+     "meaning": "When do we meet?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe nächste Woche Zeit.",
+     "meaning": "I have time next week."
+    },
+    {
+     "speaker": "A",
+     "text": "Wie wäre es am Montag?",
+     "meaning": "How about on Monday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, gerne! Um wie viel Uhr?",
+     "meaning": "Yes, gladly! At what time?"
+    },
+    {
+     "speaker": "A",
+     "text": "Möchtest du ins Kino gehen?",
+     "meaning": "Would you like to go to the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das klingt gut!",
+     "meaning": "That sounds good!"
+    },
+    {
+     "speaker": "A",
+     "text": "Ich muss leider absagen, ich bin krank.",
+     "meaning": "I must unfortunately decline, I am sick."
+    },
+    {
+     "speaker": "B",
+     "text": "Lass uns das für nächste Woche planen!",
+     "meaning": "Let's plan that for next week!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend discussing plans.",
+    "learnerRole": "You are confirming or declining invitations.",
+    "brief": "Ask about meeting times and respond to invitations.",
+    "goal": "You should demonstrate understanding of making plans."
+   }
+  }
+ ]
+}

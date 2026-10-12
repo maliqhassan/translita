@@ -1,0 +1,376 @@
+{
+ "title": "Shopping",
+ "lessons": [
+  {
+   "title": "What’s the Price?",
+   "items": [
+    {
+     "text": "combien ?",
+     "meaning": "how much?",
+     "example": "Combien ça coûte ?",
+     "exampleMeaning": "How much does it cost?"
+    },
+    {
+     "text": "ceci",
+     "meaning": "this (singular)",
+     "example": "Ceci est un livre.",
+     "exampleMeaning": "This is a book."
+    },
+    {
+     "text": "cela",
+     "meaning": "that (singular)",
+     "example": "Cela est très joli.",
+     "exampleMeaning": "That is very pretty."
+    },
+    {
+     "text": "cher/chère",
+     "meaning": "expensive",
+     "example": "C'est trop cher.",
+     "exampleMeaning": "It's too expensive."
+    },
+    {
+     "text": "bon marché",
+     "meaning": "cheap",
+     "example": "C'est bon marché.",
+     "exampleMeaning": "It's cheap."
+    },
+    {
+     "text": "prix",
+     "meaning": "price",
+     "example": "Quel est le prix ?",
+     "exampleMeaning": "What is the price?"
+    }
+   ],
+   "tip": "Use 'ceci' for things close to you and 'cela' for things further away. Remember to match 'cher' or 'chère' with the gender of the noun.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour ! Combien ça coûte ?",
+     "meaning": "Hello! How much does it cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bonjour ! C'est 20 euros.",
+     "meaning": "Hello! It's 20 euros."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est cher !",
+     "meaning": "It's expensive!"
+    },
+    {
+     "speaker": "B",
+     "text": "Non, c'est bon marché.",
+     "meaning": "No, it's cheap."
+    },
+    {
+     "speaker": "A",
+     "text": "Ceci est un livre ?",
+     "meaning": "Is this a book?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, cela est un livre.",
+     "meaning": "Yes, that is a book."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You are in a shop. Ask the assistant how much something costs. Use 'ceci' and 'cela' to refer to items.",
+    "goal": "You need to ask about the price of an item."
+   }
+  },
+  {
+   "title": "Choosing Sizes",
+   "items": [
+    {
+     "text": "petit(e)",
+     "meaning": "small",
+     "example": "Je veux un t-shirt petit.",
+     "exampleMeaning": "I want a small t-shirt."
+    },
+    {
+     "text": "grand(e)",
+     "meaning": "large",
+     "example": "Je cherche un manteau grand.",
+     "exampleMeaning": "I am looking for a large coat."
+    },
+    {
+     "text": "moyen(ne)",
+     "meaning": "medium",
+     "example": "Avez-vous une taille moyenne ?",
+     "exampleMeaning": "Do you have a medium size?"
+    },
+    {
+     "text": "taille",
+     "meaning": "size",
+     "example": "Quelle est votre taille ?",
+     "exampleMeaning": "What is your size?"
+    },
+    {
+     "text": "couleur",
+     "meaning": "color",
+     "example": "Cette couleur est belle.",
+     "exampleMeaning": "This color is beautiful."
+    },
+    {
+     "text": "rouge",
+     "meaning": "red",
+     "example": "Je veux un pull rouge.",
+     "exampleMeaning": "I want a red sweater."
+    }
+   ],
+   "tip": "Use 'petit' for small objects, 'grand' for large ones, and 'moyen' for medium sizes. Remember to match the adjectives with the noun's gender.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quelle est votre taille ?",
+     "meaning": "What is your size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je fais du moyen.",
+     "meaning": "I am a medium."
+    },
+    {
+     "speaker": "A",
+     "text": "Et la couleur ?",
+     "meaning": "And the color?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je veux un t-shirt rouge.",
+     "meaning": "I want a red t-shirt."
+    },
+    {
+     "speaker": "A",
+     "text": "Avez-vous un modèle petit ?",
+     "meaning": "Do you have a small model?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, voici un t-shirt petit.",
+     "meaning": "Yes, here is a small t-shirt."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You are shopping for clothes. Ask the assistant about sizes and colors. Use 'petit', 'grand', and 'moyen'.",
+    "goal": "You need to find your size and a color you like."
+   }
+  },
+  {
+   "title": "Shopping for Colors",
+   "items": [
+    {
+     "text": "bleu(e)",
+     "meaning": "blue",
+     "example": "J'aime la couleur bleue.",
+     "exampleMeaning": "I like the color blue."
+    },
+    {
+     "text": "vert(e)",
+     "meaning": "green",
+     "example": "Le vert est ma couleur préférée.",
+     "exampleMeaning": "Green is my favorite color."
+    },
+    {
+     "text": "jaune",
+     "meaning": "yellow",
+     "example": "Ce sac est jaune.",
+     "exampleMeaning": "This bag is yellow."
+    },
+    {
+     "text": "noir(e)",
+     "meaning": "black",
+     "example": "Je veux une robe noire.",
+     "exampleMeaning": "I want a black dress."
+    },
+    {
+     "text": "blanc(he)",
+     "meaning": "white",
+     "example": "Cette chemise est blanche.",
+     "exampleMeaning": "This shirt is white."
+    },
+    {
+     "text": "gris(e)",
+     "meaning": "gray",
+     "example": "Le chat est gris.",
+     "exampleMeaning": "The cat is gray."
+    }
+   ],
+   "tip": "Colors in French change based on the gender of the noun. Use 'noir' for masculine and 'noire' for feminine.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Avez-vous des t-shirts bleus ?",
+     "meaning": "Do you have blue t-shirts?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, voici un t-shirt bleu.",
+     "meaning": "Yes, here is a blue t-shirt."
+    },
+    {
+     "speaker": "A",
+     "text": "Et en noir ?",
+     "meaning": "And in black?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, voici un t-shirt noir.",
+     "meaning": "Yes, here is a black t-shirt."
+    },
+    {
+     "speaker": "A",
+     "text": "Je préfère le vert.",
+     "meaning": "I prefer green."
+    },
+    {
+     "speaker": "B",
+     "text": "D'accord, voici un t-shirt vert.",
+     "meaning": "Okay, here is a green t-shirt."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You are looking for t-shirts in different colors. Ask the assistant for blue and black options.",
+    "goal": "You need to find t-shirts in your preferred colors."
+   }
+  },
+  {
+   "title": "Finalizing Your Purchase",
+   "items": [
+    {
+     "text": "acheter",
+     "meaning": "to buy",
+     "example": "Je veux acheter ce livre.",
+     "exampleMeaning": "I want to buy this book."
+    },
+    {
+     "text": "payer",
+     "meaning": "to pay",
+     "example": "Où puis-je payer ?",
+     "exampleMeaning": "Where can I pay?"
+    },
+    {
+     "text": "carte",
+     "meaning": "card",
+     "example": "Puis-je payer par carte ?",
+     "exampleMeaning": "Can I pay by card?"
+    },
+    {
+     "text": "espèces",
+     "meaning": "cash",
+     "example": "Je paie en espèces.",
+     "exampleMeaning": "I pay in cash."
+    },
+    {
+     "text": "ticket",
+     "meaning": "receipt",
+     "example": "Avez-vous le ticket ?",
+     "exampleMeaning": "Do you have the receipt?"
+    },
+    {
+     "text": "merci beaucoup",
+     "meaning": "thank you very much",
+     "example": "Merci beaucoup pour votre aide.",
+     "exampleMeaning": "Thank you very much for your help."
+    }
+   ],
+   "tip": "When paying, you can use 'carte' for card payments and 'espèces' for cash. Always ask for a 'ticket' as a proof of purchase.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Je veux acheter ce pull.",
+     "meaning": "I want to buy this sweater."
+    },
+    {
+     "speaker": "B",
+     "text": "Où puis-je payer ?",
+     "meaning": "Where can I pay?"
+    },
+    {
+     "speaker": "A",
+     "text": "Vous pouvez payer ici.",
+     "meaning": "You can pay here."
+    },
+    {
+     "speaker": "B",
+     "text": "Puis-je payer par carte ?",
+     "meaning": "Can I pay by card?"
+    },
+    {
+     "speaker": "A",
+     "text": "Oui, c'est possible.",
+     "meaning": "Yes, it's possible."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci beaucoup !",
+     "meaning": "Thank you very much!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You want to buy a sweater. Ask the assistant where to pay and how you can pay.",
+    "goal": "You need to complete your purchase."
+   }
+  }
+ ],
+ "review": {
+  "title": "Shopping Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Bonjour ! Combien ça coûte ?",
+    "meaning": "Hello! How much does it cost?"
+   },
+   {
+    "speaker": "B",
+    "text": "C'est 20 euros.",
+    "meaning": "It's 20 euros."
+   },
+   {
+    "speaker": "A",
+    "text": "Je veux acheter ce t-shirt rouge.",
+    "meaning": "I want to buy this red t-shirt."
+   },
+   {
+    "speaker": "B",
+    "text": "Quelle est votre taille ?",
+    "meaning": "What is your size?"
+   },
+   {
+    "speaker": "A",
+    "text": "Je fais du moyen.",
+    "meaning": "I am a medium."
+   },
+   {
+    "speaker": "B",
+    "text": "Puis-je payer par carte ?",
+    "meaning": "Can I pay by card?"
+   },
+   {
+    "speaker": "A",
+    "text": "Oui, c'est possible.",
+    "meaning": "Yes, it's possible."
+   },
+   {
+    "speaker": "B",
+    "text": "Merci beaucoup !",
+    "meaning": "Thank you very much!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a shop assistant",
+   "learnerRole": "a customer",
+   "brief": "You are in a shop. Use everything you've learned to ask about prices, sizes, colors, and to finalize your purchase.",
+   "goal": "You need to interact naturally with the shop assistant."
+  }
+ }
+}

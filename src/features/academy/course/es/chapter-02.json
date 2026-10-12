@@ -1,0 +1,418 @@
+{
+ "id": "c02",
+ "number": 2,
+ "title": "At the café",
+ "lessons": [
+  {
+   "id": "c02-d1",
+   "day": 6,
+   "title": "Ordering Drinks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d1-i1",
+     "text": "agua",
+     "meaning": "water",
+     "example": "Quiero un vaso de 'agua'.",
+     "exampleMeaning": "I want a glass of water."
+    },
+    {
+     "id": "c02-d1-i2",
+     "text": "café",
+     "meaning": "coffee",
+     "example": "¿Me trae un 'café', por favor?",
+     "exampleMeaning": "Can you bring me a coffee, please?"
+    },
+    {
+     "id": "c02-d1-i3",
+     "text": "té",
+     "meaning": "tea",
+     "example": "Me gusta el 'té' caliente.",
+     "exampleMeaning": "I like hot tea."
+    },
+    {
+     "id": "c02-d1-i4",
+     "text": "cerveza",
+     "meaning": "beer",
+     "example": "Ella pide una 'cerveza'.",
+     "exampleMeaning": "She orders a beer."
+    },
+    {
+     "id": "c02-d1-i5",
+     "text": "jugo",
+     "meaning": "juice",
+     "example": "¿Tienen 'jugo' de naranja?",
+     "exampleMeaning": "Do you have orange juice?"
+    },
+    {
+     "id": "c02-d1-i6",
+     "text": "por favor",
+     "meaning": "please",
+     "example": "¿Puede ayudarme, 'por favor'?",
+     "exampleMeaning": "Can you help me, please?"
+    }
+   ],
+   "tip": "In Spanish, it's common to use 'por favor' to make your requests polite. Always remember to say 'gracias' after receiving something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué quieres beber?",
+     "meaning": "What do you want to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero un café, por favor.",
+     "meaning": "I want a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Algo más?",
+     "meaning": "Anything else?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, un jugo de naranja.",
+     "meaning": "Yes, an orange juice."
+    },
+    {
+     "speaker": "A",
+     "text": "Aquí tienes tu café y tu jugo.",
+     "meaning": "Here is your coffee and juice."
+    },
+    {
+     "speaker": "B",
+     "text": "Gracias, muy amable.",
+     "meaning": "Thank you, very kind."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member who takes orders.",
+    "learnerRole": "A customer ordering drinks.",
+    "brief": "Ask the customer what they want to drink. Offer options and confirm their order politely.",
+    "goal": "You will order a drink politely."
+   }
+  },
+  {
+   "id": "c02-d2",
+   "day": 7,
+   "title": "Ordering Food",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d2-i1",
+     "text": "pan",
+     "meaning": "bread",
+     "example": "Me gustaría un poco de 'pan'.",
+     "exampleMeaning": "I would like some bread."
+    },
+    {
+     "id": "c02-d2-i2",
+     "text": "ensalada",
+     "meaning": "salad",
+     "example": "La 'ensalada' es fresca.",
+     "exampleMeaning": "The salad is fresh."
+    },
+    {
+     "id": "c02-d2-i3",
+     "text": "sopa",
+     "meaning": "soup",
+     "example": "¿Tienes 'sopa' del día?",
+     "exampleMeaning": "Do you have soup of the day?"
+    },
+    {
+     "id": "c02-d2-i4",
+     "text": "pollo",
+     "meaning": "chicken",
+     "example": "Quiero 'pollo' asado.",
+     "exampleMeaning": "I want roasted chicken."
+    },
+    {
+     "id": "c02-d2-i5",
+     "text": "pescado",
+     "meaning": "fish",
+     "example": "El 'pescado' está delicioso.",
+     "exampleMeaning": "The fish is delicious."
+    },
+    {
+     "id": "c02-d2-i6",
+     "text": "gracias",
+     "meaning": "thank you",
+     "example": "Gracias por la comida.",
+     "exampleMeaning": "Thank you for the food."
+    }
+   ],
+   "tip": "Use 'gracias' to express your gratitude after receiving food or drinks. It's polite and appreciated.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué te gustaría comer?",
+     "meaning": "What would you like to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me gustaría una ensalada, por favor.",
+     "meaning": "I would like a salad, please."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y de plato principal?",
+     "meaning": "And for the main course?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero pollo asado.",
+     "meaning": "I want roasted chicken."
+    },
+    {
+     "speaker": "A",
+     "text": "Aquí está tu ensalada y tu pollo.",
+     "meaning": "Here is your salad and chicken."
+    },
+    {
+     "speaker": "B",
+     "text": "Gracias, se ve delicioso.",
+     "meaning": "Thank you, it looks delicious."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member who takes orders.",
+    "learnerRole": "A customer ordering food.",
+    "brief": "Ask the customer what they would like to eat. Confirm their order and serve them.",
+    "goal": "You will order food politely."
+   }
+  },
+  {
+   "id": "c02-d3",
+   "day": 8,
+   "title": "Using Numbers",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d3-i1",
+     "text": "uno",
+     "meaning": "one",
+     "example": "Quiero uno, por favor.",
+     "exampleMeaning": "I want one, please."
+    },
+    {
+     "id": "c02-d3-i2",
+     "text": "dos",
+     "meaning": "two",
+     "example": "Necesito dos vasos de agua.",
+     "exampleMeaning": "I need two glasses of water."
+    },
+    {
+     "id": "c02-d3-i3",
+     "text": "tres",
+     "meaning": "three",
+     "example": "Tengo tres amigos aquí.",
+     "exampleMeaning": "I have three friends here."
+    },
+    {
+     "id": "c02-d3-i4",
+     "text": "cuatro",
+     "meaning": "four",
+     "example": "Quiero cuatro trozos de pan.",
+     "exampleMeaning": "I want four pieces of bread."
+    },
+    {
+     "id": "c02-d3-i5",
+     "text": "cinco",
+     "meaning": "five",
+     "example": "Hay cinco mesas ocupadas.",
+     "exampleMeaning": "There are five occupied tables."
+    },
+    {
+     "id": "c02-d3-i6",
+     "text": "diez",
+     "meaning": "ten",
+     "example": "Pido diez cervezas.",
+     "exampleMeaning": "I order ten beers."
+    }
+   ],
+   "tip": "Numbers in Spanish are essential for ordering. Practice counting from one to ten to help with your orders.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuántos quieres?",
+     "meaning": "How many do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero dos cervezas, por favor.",
+     "meaning": "I want two beers, please."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y cuántos panes?",
+     "meaning": "And how many loaves of bread?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero cuatro panes.",
+     "meaning": "I want four loaves of bread."
+    },
+    {
+     "speaker": "A",
+     "text": "Aquí tienes tus cervezas y tus panes.",
+     "meaning": "Here are your beers and loaves of bread."
+    },
+    {
+     "speaker": "B",
+     "text": "Gracias, eso es perfecto.",
+     "meaning": "Thank you, that is perfect."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member who takes orders.",
+    "learnerRole": "A customer ordering multiple items.",
+    "brief": "Ask the customer how many items they want. Take their order using numbers.",
+    "goal": "You will order multiple items using numbers."
+   }
+  },
+  {
+   "id": "c02-d4",
+   "day": 9,
+   "title": "Polite Conversations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d4-i1",
+     "text": "¿Cuánto cuesta?",
+     "meaning": "How much does it cost?",
+     "example": "¿Cuánto cuesta el café?",
+     "exampleMeaning": "How much does the coffee cost?"
+    },
+    {
+     "id": "c02-d4-i2",
+     "text": "muy bien",
+     "meaning": "very good",
+     "example": "La comida está muy bien.",
+     "exampleMeaning": "The food is very good."
+    },
+    {
+     "id": "c02-d4-i3",
+     "text": "delicioso",
+     "meaning": "delicious",
+     "example": "El pollo es delicioso.",
+     "exampleMeaning": "The chicken is delicious."
+    },
+    {
+     "id": "c02-d4-i4",
+     "text": "me gusta",
+     "meaning": "I like",
+     "example": "Me gusta el té frío.",
+     "exampleMeaning": "I like cold tea."
+    },
+    {
+     "id": "c02-d4-i5",
+     "text": "¡qué rico!",
+     "meaning": "how tasty!",
+     "example": "¡Qué rico está el postre!",
+     "exampleMeaning": "How tasty is the dessert!"
+    },
+    {
+     "id": "c02-d4-i6",
+     "text": "¡perfecto!",
+     "meaning": "perfect!",
+     "example": "Todo está perfecto.",
+     "exampleMeaning": "Everything is perfect."
+    }
+   ],
+   "tip": "Use polite phrases like '¿Cuánto cuesta?' to ask about prices. It shows respect and interest.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Te gusta el café?",
+     "meaning": "Do you like the coffee?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, es muy bueno.",
+     "meaning": "Yes, it is very good."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuánto cuesta la ensalada?",
+     "meaning": "How much does the salad cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "No sé, pero es delicioso.",
+     "meaning": "I don't know, but it is delicious."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Todo está perfecto?",
+     "meaning": "Is everything perfect?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, ¡qué rico!",
+     "meaning": "Yes, how tasty!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member who engages in friendly conversation.",
+    "learnerRole": "A customer enjoying their meal.",
+    "brief": "Ask the customer how they like their food and drinks. Engage in polite conversation.",
+    "goal": "You will have a polite conversation about your order."
+   }
+  },
+  {
+   "id": "c02-d5",
+   "day": 10,
+   "title": "Chapter 2 Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué quieres beber?",
+     "meaning": "What do you want to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero un café y un jugo, por favor.",
+     "meaning": "I want a coffee and a juice, please."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuántos panes quieres?",
+     "meaning": "How many loaves of bread do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quiero tres panes.",
+     "meaning": "I want three loaves of bread."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuánto cuesta el pollo?",
+     "meaning": "How much does the chicken cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "No sé, pero es delicioso.",
+     "meaning": "I don't know, but it is delicious."
+    },
+    {
+     "speaker": "A",
+     "text": "Aquí tienes tu comida y bebida.",
+     "meaning": "Here is your food and drink."
+    },
+    {
+     "speaker": "B",
+     "text": "Gracias, todo está perfecto.",
+     "meaning": "Thank you, everything is perfect."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member who engages in conversation.",
+    "learnerRole": "A customer ordering drinks and food.",
+    "brief": "Use your knowledge from the chapter to confidently order drinks and food while having a polite conversation.",
+    "goal": "You will demonstrate your ability to order and converse in a café setting."
+   }
+  }
+ ]
+}

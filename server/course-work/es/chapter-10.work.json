@@ -1,0 +1,376 @@
+{
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "title": "Making Polite Requests",
+   "items": [
+    {
+     "text": "¿Podría ayudarme, por favor?",
+     "meaning": "Could you help me, please?",
+     "example": "¿Podría ayudarme, por favor? Estoy perdido.",
+     "exampleMeaning": "Could you help me, please? I am lost."
+    },
+    {
+     "text": "Por favor, ¿me puede decir...?",
+     "meaning": "Please, can you tell me...?",
+     "example": "Por favor, ¿me puede decir su nombre?",
+     "exampleMeaning": "Please, can you tell me your name?"
+    },
+    {
+     "text": "¿Podría darme...?",
+     "meaning": "Could you give me...?",
+     "example": "¿Podría darme su número de teléfono?",
+     "exampleMeaning": "Could you give me your phone number?"
+    },
+    {
+     "text": "Me gustaría saber...",
+     "meaning": "I would like to know...",
+     "example": "Me gustaría saber la hora de la reunión.",
+     "exampleMeaning": "I would like to know the time of the meeting."
+    },
+    {
+     "text": "¿Sería posible...?",
+     "meaning": "Would it be possible...?",
+     "example": "¿Sería posible cambiar la cita?",
+     "exampleMeaning": "Would it be possible to change the appointment?"
+    },
+    {
+     "text": "Aprecio su ayuda.",
+     "meaning": "I appreciate your help.",
+     "example": "Aprecio su ayuda con el informe.",
+     "exampleMeaning": "I appreciate your help with the report."
+    }
+   ],
+   "tip": "Use '¿Puede...?' for polite requests. Remember to say 'por favor' to be more polite.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿puede ayudarme?",
+     "meaning": "Hello, can you help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, claro. ¿Qué necesita?",
+     "meaning": "Yes, of course. What do you need?"
+    },
+    {
+     "speaker": "A",
+     "text": "¿Podría darme su nombre?",
+     "meaning": "Could you give me your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me llamo Ana. ¿Y usted?",
+     "meaning": "My name is Ana. And you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Me gustaría saber su número de teléfono.",
+     "meaning": "I would like to know your phone number."
+    },
+    {
+     "speaker": "B",
+     "text": "Claro, es cinco cinco cinco uno dos tres cuatro.",
+     "meaning": "Sure, it is five five five one two three four."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a customer service representative.",
+    "learnerRole": "B is a customer seeking assistance.",
+    "brief": "You need help with a task. Ask politely for the representative's name and phone number.",
+    "goal": "You will politely ask for information."
+   }
+  },
+  {
+   "title": "Spelling Names",
+   "items": [
+    {
+     "text": "¿Cómo se escribe...?",
+     "meaning": "How do you spell...?",
+     "example": "¿Cómo se escribe su nombre?",
+     "exampleMeaning": "How do you spell your name?"
+    },
+    {
+     "text": "Se escribe...",
+     "meaning": "It is spelled...",
+     "example": "Se escribe A-N-A.",
+     "exampleMeaning": "It is spelled A-N-A."
+    },
+    {
+     "text": "¿Puede repetirlo?",
+     "meaning": "Can you repeat it?",
+     "example": "¿Puede repetirlo, por favor?",
+     "exampleMeaning": "Can you repeat it, please?"
+    },
+    {
+     "text": "Lo siento, no entendí.",
+     "meaning": "I'm sorry, I didn't understand.",
+     "example": "Lo siento, no entendí su nombre.",
+     "exampleMeaning": "I'm sorry, I didn't understand your name."
+    },
+    {
+     "text": "¿Puede hablar más despacio?",
+     "meaning": "Can you speak more slowly?",
+     "example": "¿Puede hablar más despacio, por favor?",
+     "exampleMeaning": "Can you speak more slowly, please?"
+    },
+    {
+     "text": "Es fácil de recordar.",
+     "meaning": "It's easy to remember.",
+     "example": "Su nombre es fácil de recordar.",
+     "exampleMeaning": "Your name is easy to remember."
+    }
+   ],
+   "tip": "When asking for spelling, use '¿Cómo se escribe...?' to get clear information.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿cómo se escribe su nombre?",
+     "meaning": "Hello, how do you spell your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Se escribe J-U-A-N.",
+     "meaning": "It is spelled J-U-A-N."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Puede repetirlo?",
+     "meaning": "Can you repeat it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro, se escribe J-U-A-N.",
+     "meaning": "Sure, it is spelled J-U-A-N."
+    },
+    {
+     "speaker": "A",
+     "text": "Lo siento, no entendí.",
+     "meaning": "I'm sorry, I didn't understand."
+    },
+    {
+     "speaker": "B",
+     "text": "No hay problema. Es fácil de recordar.",
+     "meaning": "No problem. It's easy to remember."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague.",
+    "learnerRole": "B is a new employee.",
+    "brief": "You need to introduce yourself. Ask how to spell your name and repeat it.",
+    "goal": "You will practice spelling your name."
+   }
+  },
+  {
+   "title": "Leaving a Message",
+   "items": [
+    {
+     "text": "¿Puedo dejar un mensaje?",
+     "meaning": "Can I leave a message?",
+     "example": "¿Puedo dejar un mensaje para Ana?",
+     "exampleMeaning": "Can I leave a message for Ana?"
+    },
+    {
+     "text": "Dígale que...",
+     "meaning": "Tell him/her that...",
+     "example": "Dígale que la reunión es a las tres.",
+     "exampleMeaning": "Tell her that the meeting is at three."
+    },
+    {
+     "text": "No está disponible.",
+     "meaning": "He/She is not available.",
+     "example": "Lo siento, no está disponible ahora.",
+     "exampleMeaning": "I'm sorry, he/she is not available now."
+    },
+    {
+     "text": "¿Cuándo puede llamarme?",
+     "meaning": "When can he/she call me?",
+     "example": "¿Cuándo puede llamarme de nuevo?",
+     "exampleMeaning": "When can he/she call me back?"
+    },
+    {
+     "text": "Por favor, llámame.",
+     "meaning": "Please, call me.",
+     "example": "Por favor, llámame más tarde.",
+     "exampleMeaning": "Please, call me later."
+    },
+    {
+     "text": "Gracias por su mensaje.",
+     "meaning": "Thank you for your message.",
+     "example": "Gracias por su mensaje, lo aprecio.",
+     "exampleMeaning": "Thank you for your message, I appreciate it."
+    }
+   ],
+   "tip": "When leaving a message, use '¿Puedo dejar un mensaje?' to ask permission.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿puedo dejar un mensaje?",
+     "meaning": "Hello, can I leave a message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, claro. ¿Para quién?",
+     "meaning": "Yes, of course. For whom?"
+    },
+    {
+     "speaker": "A",
+     "text": "Dígale que la reunión es a las tres.",
+     "meaning": "Tell him/her that the meeting is at three."
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento, no está disponible ahora.",
+     "meaning": "I'm sorry, he/she is not available now."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuándo puede llamarme?",
+     "meaning": "When can he/she call me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Por favor, llámame más tarde.",
+     "meaning": "Please, call me later."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a receptionist.",
+    "learnerRole": "B is a caller.",
+    "brief": "You want to leave a message for someone who is not available. Ask if you can leave a message.",
+    "goal": "You will successfully leave a message."
+   }
+  },
+  {
+   "title": "Taking a Message",
+   "items": [
+    {
+     "text": "¿Qué mensaje debo tomar?",
+     "meaning": "What message should I take?",
+     "example": "¿Qué mensaje debo tomar para Ana?",
+     "exampleMeaning": "What message should I take for Ana?"
+    },
+    {
+     "text": "¿Quién llama?",
+     "meaning": "Who is calling?",
+     "example": "¿Quién llama, por favor?",
+     "exampleMeaning": "Who is calling, please?"
+    },
+    {
+     "text": "¿Cuál es su número?",
+     "meaning": "What is your number?",
+     "example": "¿Cuál es su número de teléfono?",
+     "exampleMeaning": "What is your phone number?"
+    },
+    {
+     "text": "Lo anotaré.",
+     "meaning": "I will write it down.",
+     "example": "Lo anotaré en la agenda.",
+     "exampleMeaning": "I will write it down in the agenda."
+    },
+    {
+     "text": "¿Cuál es la hora?",
+     "meaning": "What time is it?",
+     "example": "¿Cuál es la hora de la reunión?",
+     "exampleMeaning": "What time is the meeting?"
+    },
+    {
+     "text": "Gracias por la información.",
+     "meaning": "Thank you for the information.",
+     "example": "Gracias por la información sobre la reunión.",
+     "exampleMeaning": "Thank you for the information about the meeting."
+    }
+   ],
+   "tip": "When taking a message, ask '¿Qué mensaje debo tomar?' to clarify what to write.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿quién llama?",
+     "meaning": "Hello, who is calling?"
+    },
+    {
+     "speaker": "B",
+     "text": "Soy Juan. ¿Qué mensaje debo tomar?",
+     "meaning": "I am Juan. What message should I take?"
+    },
+    {
+     "speaker": "A",
+     "text": "Dígale que me llame a las cinco.",
+     "meaning": "Tell him/her to call me at five."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Cuál es su número?",
+     "meaning": "What is your number?"
+    },
+    {
+     "speaker": "A",
+     "text": "Es cinco cinco cinco uno dos tres cuatro.",
+     "meaning": "It is five five five one two three four."
+    },
+    {
+     "speaker": "B",
+     "text": "Lo anotaré. Gracias por la información.",
+     "meaning": "I will write it down. Thank you for the information."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague.",
+    "learnerRole": "B is taking a message.",
+    "brief": "You need to take a message for a colleague. Ask who is calling and what message to take.",
+    "goal": "You will successfully take a message."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Phone calls and messages",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Hola, ¿puedo dejar un mensaje?",
+    "meaning": "Hello, can I leave a message?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, claro. ¿Qué mensaje debo tomar?",
+    "meaning": "Yes, of course. What message should I take?"
+   },
+   {
+    "speaker": "A",
+    "text": "Dígale que me llame más tarde.",
+    "meaning": "Tell him/her to call me later."
+   },
+   {
+    "speaker": "B",
+    "text": "¿Quién llama?",
+    "meaning": "Who is calling?"
+   },
+   {
+    "speaker": "A",
+    "text": "Soy Carlos. ¿Cómo se escribe su nombre?",
+    "meaning": "I am Carlos. How do you spell your name?"
+   },
+   {
+    "speaker": "B",
+    "text": "Se escribe C-A-R-L-O-S.",
+    "meaning": "It is spelled C-A-R-L-O-S."
+   },
+   {
+    "speaker": "A",
+    "text": "Gracias por su ayuda.",
+    "meaning": "Thank you for your help."
+   },
+   {
+    "speaker": "B",
+    "text": "De nada, lo anotaré.",
+    "meaning": "You're welcome, I will write it down."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a receptionist.",
+   "learnerRole": "B is a caller.",
+   "brief": "You need to leave a message and confirm the spelling of your name. Ask questions politely and take notes.",
+   "goal": "You will successfully leave a message and provide your name."
+  }
+ }
+}

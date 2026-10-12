@@ -1,0 +1,376 @@
+{
+ "title": "At the Airport",
+ "lessons": [
+  {
+   "title": "What Would You Like?",
+   "items": [
+    {
+     "text": "Ich hätte gerne einen Fensterplatz.",
+     "meaning": "I would like a window seat.",
+     "example": "Ich hätte gerne einen Fensterplatz.",
+     "exampleMeaning": "I would like a window seat."
+    },
+    {
+     "text": "Ich möchte ein Ticket nach Berlin.",
+     "meaning": "I would like a ticket to Berlin.",
+     "example": "Ich möchte ein Ticket nach Berlin.",
+     "exampleMeaning": "I would like a ticket to Berlin."
+    },
+    {
+     "text": "Ich hätte gerne einen Platz am Gang.",
+     "meaning": "I would like an aisle seat.",
+     "example": "Ich hätte gerne einen Platz am Gang.",
+     "exampleMeaning": "I would like an aisle seat."
+    },
+    {
+     "text": "Ich möchte ein Upgrade.",
+     "meaning": "I would like an upgrade.",
+     "example": "Ich möchte ein Upgrade.",
+     "exampleMeaning": "I would like an upgrade."
+    },
+    {
+     "text": "Ich hätte gerne eine Bestätigung.",
+     "meaning": "I would like a confirmation.",
+     "example": "Ich hätte gerne eine Bestätigung.",
+     "exampleMeaning": "I would like a confirmation."
+    },
+    {
+     "text": "Ich möchte die Bordkarte.",
+     "meaning": "I would like the boarding pass.",
+     "example": "Ich möchte die Bordkarte.",
+     "exampleMeaning": "I would like the boarding pass."
+    }
+   ],
+   "tip": "Use 'möchte' to express what you would like. It is a polite way to ask for something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was möchten Sie?",
+     "meaning": "What would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne einen Fensterplatz.",
+     "meaning": "I would like a window seat."
+    },
+    {
+     "speaker": "A",
+     "text": "Möchten Sie ein Upgrade?",
+     "meaning": "Would you like an upgrade?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich möchte ein Upgrade.",
+     "meaning": "Yes, I would like an upgrade."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie die Bordkarte?",
+     "meaning": "Do you have the boarding pass?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich möchte die Bordkarte.",
+     "meaning": "Yes, I would like the boarding pass."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member helping the learner.",
+    "learnerRole": "A passenger at the airport.",
+    "brief": "Ask the passenger what they would like. Offer options like a window seat or an upgrade.",
+    "goal": "You need to express what you would like."
+   }
+  },
+  {
+   "title": "Travel Documents",
+   "items": [
+    {
+     "text": "Haben Sie Ihren Reisepass?",
+     "meaning": "Do you have your passport?",
+     "example": "Haben Sie Ihren Reisepass?",
+     "exampleMeaning": "Do you have your passport?"
+    },
+    {
+     "text": "Ich habe meinen Reisepass dabei.",
+     "meaning": "I have my passport with me.",
+     "example": "Ich habe meinen Reisepass dabei.",
+     "exampleMeaning": "I have my passport with me."
+    },
+    {
+     "text": "Wo ist mein Ticket?",
+     "meaning": "Where is my ticket?",
+     "example": "Wo ist mein Ticket?",
+     "exampleMeaning": "Where is my ticket?"
+    },
+    {
+     "text": "Ich suche meine Bordkarte.",
+     "meaning": "I am looking for my boarding pass.",
+     "example": "Ich suche meine Bordkarte.",
+     "exampleMeaning": "I am looking for my boarding pass."
+    },
+    {
+     "text": "Könnten Sie mir helfen?",
+     "meaning": "Could you help me?",
+     "example": "Könnten Sie mir helfen?",
+     "exampleMeaning": "Could you help me?"
+    },
+    {
+     "text": "Ich habe alles.",
+     "meaning": "I have everything.",
+     "example": "Ich habe alles.",
+     "exampleMeaning": "I have everything."
+    }
+   ],
+   "tip": "Use 'haben' to indicate possession. It is important to show what you have when traveling.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Haben Sie Ihren Reisepass?",
+     "meaning": "Do you have your passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe meinen Reisepass dabei.",
+     "meaning": "Yes, I have my passport with me."
+    },
+    {
+     "speaker": "A",
+     "text": "Wo ist Ihr Ticket?",
+     "meaning": "Where is your ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich suche mein Ticket.",
+     "meaning": "I am looking for my ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "Könnten Sie mir helfen?",
+     "meaning": "Could you help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe alles.",
+     "meaning": "Yes, I have everything."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member checking documents.",
+    "learnerRole": "A passenger checking in.",
+    "brief": "Ask the passenger for their travel documents. Help them if they cannot find something.",
+    "goal": "You need to show your travel documents."
+   }
+  },
+  {
+   "title": "Asking Questions",
+   "items": [
+    {
+     "text": "Wie viel kostet das Ticket nach München?",
+     "meaning": "How much is the ticket to Munich?",
+     "example": "Wie viel kostet das Ticket nach München?",
+     "exampleMeaning": "How much is the ticket to Munich?"
+    },
+    {
+     "text": "Wann fliegt das Flugzeug?",
+     "meaning": "When does the plane leave?",
+     "example": "Wann fliegt das Flugzeug?",
+     "exampleMeaning": "When does the plane leave?"
+    },
+    {
+     "text": "Wo ist das Gate?",
+     "meaning": "Where is the gate?",
+     "example": "Wo ist das Gate?",
+     "exampleMeaning": "Where is the gate?"
+    },
+    {
+     "text": "Könnte ich die Uhrzeit sehen?",
+     "meaning": "Could I see the time?",
+     "example": "Könnte ich die Uhrzeit sehen?",
+     "exampleMeaning": "Could I see the time?"
+    },
+    {
+     "text": "Gibt es einen Direktflug?",
+     "meaning": "Is there a direct flight?",
+     "example": "Gibt es einen Direktflug?",
+     "exampleMeaning": "Is there a direct flight?"
+    },
+    {
+     "text": "Was ist die Flugnummer?",
+     "meaning": "What is the flight number?",
+     "example": "Was ist die Flugnummer?",
+     "exampleMeaning": "What is the flight number?"
+    }
+   ],
+   "tip": "Use 'wie viel', 'wann', 'wo' to ask questions about prices, times, and locations. These words help you get information.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie viel kostet das Ticket nach München?",
+     "meaning": "How much is the ticket to Munich?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das Ticket kostet einhundert Euro.",
+     "meaning": "The ticket costs one hundred euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Wann fliegt das Flugzeug?",
+     "meaning": "When does the plane leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das Flugzeug fliegt um drei Uhr.",
+     "meaning": "The plane leaves at three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Wo ist das Gate?",
+     "meaning": "Where is the gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das Gate ist dort drüben.",
+     "meaning": "The gate is over there."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member answering questions.",
+    "learnerRole": "A passenger with questions.",
+    "brief": "Ask the passenger questions about their flight and ticket. Provide clear answers.",
+    "goal": "You need to ask questions about your flight."
+   }
+  },
+  {
+   "title": "Final Preparation",
+   "items": [
+    {
+     "text": "Ich bin bereit zu fliegen.",
+     "meaning": "I am ready to fly.",
+     "example": "Ich bin bereit zu fliegen.",
+     "exampleMeaning": "I am ready to fly."
+    },
+    {
+     "text": "Haben Sie alles?",
+     "meaning": "Do you have everything?",
+     "example": "Haben Sie alles?",
+     "exampleMeaning": "Do you have everything?"
+    },
+    {
+     "text": "Ich freue mich auf die Reise.",
+     "meaning": "I am looking forward to the trip.",
+     "example": "Ich freue mich auf die Reise.",
+     "exampleMeaning": "I am looking forward to the trip."
+    },
+    {
+     "text": "Ich hoffe, es wird gut.",
+     "meaning": "I hope it will be good.",
+     "example": "Ich hoffe, es wird gut.",
+     "exampleMeaning": "I hope it will be good."
+    },
+    {
+     "text": "Das ist mein erster Flug.",
+     "meaning": "This is my first flight.",
+     "example": "Das ist mein erster Flug.",
+     "exampleMeaning": "This is my first flight."
+    },
+    {
+     "text": "Ich bin ein bisschen nervös.",
+     "meaning": "I am a little nervous.",
+     "example": "Ich bin ein bisschen nervös.",
+     "exampleMeaning": "I am a little nervous."
+    }
+   ],
+   "tip": "Use 'ich bin' to express your state or feelings. It is a basic way to talk about yourself.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Sind Sie bereit zu fliegen?",
+     "meaning": "Are you ready to fly?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich bin bereit zu fliegen.",
+     "meaning": "Yes, I am ready to fly."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie alles?",
+     "meaning": "Do you have everything?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe alles.",
+     "meaning": "Yes, I have everything."
+    },
+    {
+     "speaker": "A",
+     "text": "Freuen Sie sich auf die Reise?",
+     "meaning": "Are you looking forward to the trip?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich freue mich auf die Reise.",
+     "meaning": "Yes, I am looking forward to the trip."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member doing final checks.",
+    "learnerRole": "A passenger preparing to board.",
+    "brief": "Ask the passenger if they are ready and if they have everything. Offer encouragement.",
+    "goal": "You need to confirm that you are ready to fly."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Chapter 6: At the Airport",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Haben Sie alles für den Flug?",
+    "meaning": "Do you have everything for the flight?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, ich habe meinen Reisepass und mein Ticket.",
+    "meaning": "Yes, I have my passport and my ticket."
+   },
+   {
+    "speaker": "A",
+    "text": "Wann fliegt das Flugzeug?",
+    "meaning": "When does the plane leave?"
+   },
+   {
+    "speaker": "B",
+    "text": "Das Flugzeug fliegt um fünf Uhr.",
+    "meaning": "The plane leaves at five o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "Wie viel kostet das Ticket nach Berlin?",
+    "meaning": "How much is the ticket to Berlin?"
+   },
+   {
+    "speaker": "B",
+    "text": "Das Ticket kostet einhundertfünfzig Euro.",
+    "meaning": "The ticket costs one hundred fifty euros."
+   },
+   {
+    "speaker": "A",
+    "text": "Sind Sie bereit zu fliegen?",
+    "meaning": "Are you ready to fly?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, ich bin bereit zu fliegen.",
+    "meaning": "Yes, I am ready to fly."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "An airport staff member checking in passengers.",
+   "learnerRole": "A passenger preparing for their flight.",
+   "brief": "Ask the passenger about their travel documents, flight details, and readiness.",
+   "goal": "You need to show your understanding of airport vocabulary and interact confidently."
+  }
+ }
+}

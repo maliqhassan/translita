@@ -1,0 +1,376 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is…?",
+   "items": [
+    {
+     "text": "dónde está",
+     "meaning": "where is",
+     "example": "¿Dónde está la estación?",
+     "exampleMeaning": "Where is the station?"
+    },
+    {
+     "text": "la calle",
+     "meaning": "the street",
+     "example": "La calle es muy larga.",
+     "exampleMeaning": "The street is very long."
+    },
+    {
+     "text": "la plaza",
+     "meaning": "the square",
+     "example": "La plaza está cerca.",
+     "exampleMeaning": "The square is nearby."
+    },
+    {
+     "text": "el banco",
+     "meaning": "the bank",
+     "example": "El banco está al lado de la tienda.",
+     "exampleMeaning": "The bank is next to the store."
+    },
+    {
+     "text": "a la derecha",
+     "meaning": "to the right",
+     "example": "Gira a la derecha en la esquina.",
+     "exampleMeaning": "Turn to the right at the corner."
+    },
+    {
+     "text": "a la izquierda",
+     "meaning": "to the left",
+     "example": "La tienda está a la izquierda.",
+     "exampleMeaning": "The store is to the left."
+    }
+   ],
+   "tip": "When asking for directions, use '¿Dónde está...?' to find a specific place. Remember to use 'a la derecha' for right and 'a la izquierda' for left.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde está la plaza?",
+     "meaning": "Where is the square?"
+    },
+    {
+     "speaker": "B",
+     "text": "La plaza está cerca.",
+     "meaning": "The square is nearby."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde está el banco?",
+     "meaning": "Where is the bank?"
+    },
+    {
+     "speaker": "B",
+     "text": "El banco está a la derecha.",
+     "meaning": "The bank is to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y la calle?",
+     "meaning": "And the street?"
+    },
+    {
+     "speaker": "B",
+     "text": "La calle está a la izquierda.",
+     "meaning": "The street is to the left."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person giving directions.",
+    "learnerRole": "B is a tourist asking for directions.",
+    "brief": "You ask A where the square and the bank are. A responds with directions to each place.",
+    "goal": "You should ask for the location of two places."
+   }
+  },
+  {
+   "title": "Giving Directions",
+   "items": [
+    {
+     "text": "sigue",
+     "meaning": "follow",
+     "example": "Sigue todo recto.",
+     "exampleMeaning": "Follow straight ahead."
+    },
+    {
+     "text": "gira",
+     "meaning": "turn",
+     "example": "Gira a la derecha.",
+     "exampleMeaning": "Turn to the right."
+    },
+    {
+     "text": "cruza",
+     "meaning": "cross",
+     "example": "Cruza la calle.",
+     "exampleMeaning": "Cross the street."
+    },
+    {
+     "text": "al final de",
+     "meaning": "at the end of",
+     "example": "Al final de la calle, está el banco.",
+     "exampleMeaning": "At the end of the street, there is the bank."
+    },
+    {
+     "text": "delante de",
+     "meaning": "in front of",
+     "example": "El parque está delante de la plaza.",
+     "exampleMeaning": "The park is in front of the square."
+    },
+    {
+     "text": "detrás de",
+     "meaning": "behind",
+     "example": "La tienda está detrás del banco.",
+     "exampleMeaning": "The store is behind the bank."
+    }
+   ],
+   "tip": "When giving directions, use the imperative form. For example, 'Sigue' means 'follow' and is a command.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Sigue todo recto.",
+     "meaning": "Follow straight ahead."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Y después?",
+     "meaning": "And after?"
+    },
+    {
+     "speaker": "A",
+     "text": "Gira a la derecha.",
+     "meaning": "Turn to the right."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Qué hay delante de la plaza?",
+     "meaning": "What is in front of the square?"
+    },
+    {
+     "speaker": "A",
+     "text": "El parque está delante de la plaza.",
+     "meaning": "The park is in front of the square."
+    },
+    {
+     "speaker": "B",
+     "text": "Gracias por la ayuda.",
+     "meaning": "Thank you for the help."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person giving directions.",
+    "learnerRole": "B is a tourist following the directions.",
+    "brief": "You ask A for directions to the bank and the square. A gives you clear instructions on how to get there.",
+    "goal": "You should understand and follow the directions given."
+   }
+  },
+  {
+   "title": "More Places",
+   "items": [
+    {
+     "text": "el restaurante",
+     "meaning": "the restaurant",
+     "example": "El restaurante está abierto.",
+     "exampleMeaning": "The restaurant is open."
+    },
+    {
+     "text": "la tienda",
+     "meaning": "the store",
+     "example": "La tienda está lejos.",
+     "exampleMeaning": "The store is far away."
+    },
+    {
+     "text": "el parque",
+     "meaning": "the park",
+     "example": "El parque es bonito.",
+     "exampleMeaning": "The park is nice."
+    },
+    {
+     "text": "el hotel",
+     "meaning": "the hotel",
+     "example": "El hotel está en la calle principal.",
+     "exampleMeaning": "The hotel is on the main street."
+    },
+    {
+     "text": "la biblioteca",
+     "meaning": "the library",
+     "example": "La biblioteca cierra a las siete.",
+     "exampleMeaning": "The library closes at seven."
+    },
+    {
+     "text": "el cine",
+     "meaning": "the cinema",
+     "example": "El cine está detrás de la tienda.",
+     "exampleMeaning": "The cinema is behind the store."
+    }
+   ],
+   "tip": "Familiarize yourself with common places in your area. Knowing words like 'restaurante' and 'biblioteca' will help you ask for directions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde está el restaurante?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "El restaurante está cerca del parque.",
+     "meaning": "The restaurant is near the park."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y la biblioteca?",
+     "meaning": "And the library?"
+    },
+    {
+     "speaker": "B",
+     "text": "La biblioteca está en la calle principal.",
+     "meaning": "The library is on the main street."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde está el cine?",
+     "meaning": "Where is the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "El cine está detrás de la tienda.",
+     "meaning": "The cinema is behind the store."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person answering questions about places.",
+    "learnerRole": "B is a tourist asking about various locations.",
+    "brief": "You ask A about the location of a restaurant, library, and cinema. A gives you the directions to each place.",
+    "goal": "You should learn the locations of three different places."
+   }
+  },
+  {
+   "title": "Position Words",
+   "items": [
+    {
+     "text": "cerca de",
+     "meaning": "near",
+     "example": "El banco está cerca de la plaza.",
+     "exampleMeaning": "The bank is near the square."
+    },
+    {
+     "text": "lejos de",
+     "meaning": "far from",
+     "example": "El hotel está lejos de la estación.",
+     "exampleMeaning": "The hotel is far from the station."
+    },
+    {
+     "text": "entre",
+     "meaning": "between",
+     "example": "El parque está entre la tienda y el banco.",
+     "exampleMeaning": "The park is between the store and the bank."
+    },
+    {
+     "text": "junto a",
+     "meaning": "next to",
+     "example": "La biblioteca está junto a la plaza.",
+     "exampleMeaning": "The library is next to the square."
+    },
+    {
+     "text": "en frente de",
+     "meaning": "in front of",
+     "example": "El cine está enfrente de la tienda.",
+     "exampleMeaning": "The cinema is in front of the store."
+    },
+    {
+     "text": "dentro de",
+     "meaning": "inside of",
+     "example": "El restaurante está dentro del hotel.",
+     "exampleMeaning": "The restaurant is inside the hotel."
+    }
+   ],
+   "tip": "Use position words to describe where something is. For example, 'cerca de' means 'near' and helps you explain locations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde está el banco?",
+     "meaning": "Where is the bank?"
+    },
+    {
+     "speaker": "B",
+     "text": "Está cerca de la plaza.",
+     "meaning": "It is near the square."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y el cine?",
+     "meaning": "And the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "El cine está enfrente de la tienda.",
+     "meaning": "The cinema is in front of the store."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde está el parque?",
+     "meaning": "Where is the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Está entre la tienda y el banco.",
+     "meaning": "It is between the store and the bank."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person giving detailed directions.",
+    "learnerRole": "B is a tourist asking about locations and distances.",
+    "brief": "You ask A about the locations of the bank, cinema, and park. A gives you directions using position words.",
+    "goal": "You should understand the position of three places in relation to each other."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Dónde está el restaurante?",
+    "meaning": "Where is the restaurant?"
+   },
+   {
+    "speaker": "B",
+    "text": "Está cerca de la plaza.",
+    "meaning": "It is near the square."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Cómo llego al banco?",
+    "meaning": "How do I get to the bank?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sigue todo recto y gira a la izquierda.",
+    "meaning": "Follow straight ahead and turn to the left."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Y el cine?",
+    "meaning": "And the cinema?"
+   },
+   {
+    "speaker": "B",
+    "text": "Está detrás de la tienda.",
+    "meaning": "It is behind the store."
+   },
+   {
+    "speaker": "A",
+    "text": "Gracias por la información.",
+    "meaning": "Thank you for the information."
+   },
+   {
+    "speaker": "B",
+    "text": "De nada, que tengas un buen día.",
+    "meaning": "You're welcome, have a nice day."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a local person providing directions.",
+   "learnerRole": "B is a tourist seeking help with directions.",
+   "brief": "You will ask A about the locations of the restaurant, bank, and cinema. A will give you clear directions.",
+   "goal": "You should practice asking and understanding directions to different places."
+  }
+ }
+}

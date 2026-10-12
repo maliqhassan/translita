@@ -3,12 +3,45 @@
 import type { Course, CourseChapter } from './types';
 
 import de01 from './de/chapter-01.json';
+import de02 from './de/chapter-02.json';
+import de03 from './de/chapter-03.json';
+import de04 from './de/chapter-04.json';
+import de05 from './de/chapter-05.json';
+import de06 from './de/chapter-06.json';
+import de07 from './de/chapter-07.json';
+import de08 from './de/chapter-08.json';
+import de09 from './de/chapter-09.json';
+import de10 from './de/chapter-10.json';
+import de11 from './de/chapter-11.json';
+import de12 from './de/chapter-12.json';
 import fr01 from './fr/chapter-01.json';
+import fr02 from './fr/chapter-02.json';
+import fr03 from './fr/chapter-03.json';
+import fr04 from './fr/chapter-04.json';
+import fr05 from './fr/chapter-05.json';
+import fr06 from './fr/chapter-06.json';
+import fr07 from './fr/chapter-07.json';
+import fr08 from './fr/chapter-08.json';
+import fr09 from './fr/chapter-09.json';
+import fr10 from './fr/chapter-10.json';
+import fr11 from './fr/chapter-11.json';
+import fr12 from './fr/chapter-12.json';
 import es01 from './es/chapter-01.json';
+import es02 from './es/chapter-02.json';
+import es03 from './es/chapter-03.json';
+import es04 from './es/chapter-04.json';
+import es05 from './es/chapter-05.json';
+import es06 from './es/chapter-06.json';
+import es07 from './es/chapter-07.json';
+import es08 from './es/chapter-08.json';
+import es09 from './es/chapter-09.json';
+import es10 from './es/chapter-10.json';
+import es11 from './es/chapter-11.json';
+import es12 from './es/chapter-12.json';
 
 /** Every course that ships, in the order the app lists them, with the chapters written so far. */
 export const COURSES: readonly Course[] = [
-  { id: 'de', chapters: [de01 as unknown as CourseChapter] },
-  { id: 'fr', chapters: [fr01 as unknown as CourseChapter] },
-  { id: 'es', chapters: [es01 as unknown as CourseChapter] },
+  { id: 'de', chapters: [de01 as unknown as CourseChapter, de02 as unknown as CourseChapter, de03 as unknown as CourseChapter, de04 as unknown as CourseChapter, de05 as unknown as CourseChapter, de06 as unknown as CourseChapter, de07 as unknown as CourseChapter, de08 as unknown as CourseChapter, de09 as unknown as CourseChapter, de10 as unknown as CourseChapter, de11 as unknown as CourseChapter, de12 as unknown as CourseChapter] },
+  { id: 'fr', chapters: [fr01 as unknown as CourseChapter, fr02 as unknown as CourseChapter, fr03 as unknown as CourseChapter, fr04 as unknown as CourseChapter, fr05 as unknown as CourseChapter, fr06 as unknown as CourseChapter, fr07 as unknown as CourseChapter, fr08 as unknown as CourseChapter, fr09 as unknown as CourseChapter, fr10 as unknown as CourseChapter, fr11 as unknown as CourseChapter, fr12 as unknown as CourseChapter] },
+  { id: 'es', chapters: [es01 as unknown as CourseChapter, es02 as unknown as CourseChapter, es03 as unknown as CourseChapter, es04 as unknown as CourseChapter, es05 as unknown as CourseChapter, es06 as unknown as CourseChapter, es07 as unknown as CourseChapter, es08 as unknown as CourseChapter, es09 as unknown as CourseChapter, es10 as unknown as CourseChapter, es11 as unknown as CourseChapter, es12 as unknown as CourseChapter] },
 ];

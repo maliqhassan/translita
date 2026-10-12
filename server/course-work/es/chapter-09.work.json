@@ -1,0 +1,366 @@
+{
+ "title": "Health and the Doctor",
+ "lessons": [
+  {
+   "title": "Talking About Pain",
+   "items": [
+    {
+     "text": "la cabeza",
+     "meaning": "the head",
+     "example": "Me duele la cabeza.",
+     "exampleMeaning": "My head hurts."
+    },
+    {
+     "text": "el estómago",
+     "meaning": "the stomach",
+     "example": "Me duele el estómago.",
+     "exampleMeaning": "My stomach hurts."
+    },
+    {
+     "text": "la garganta",
+     "meaning": "the throat",
+     "example": "Me duele la garganta.",
+     "exampleMeaning": "My throat hurts."
+    },
+    {
+     "text": "el brazo",
+     "meaning": "the arm",
+     "example": "Me duele el brazo.",
+     "exampleMeaning": "My arm hurts."
+    },
+    {
+     "text": "la pierna",
+     "meaning": "the leg",
+     "example": "Me duele la pierna.",
+     "exampleMeaning": "My leg hurts."
+    },
+    {
+     "text": "el pecho",
+     "meaning": "the chest",
+     "example": "Me duele el pecho.",
+     "exampleMeaning": "My chest hurts."
+    }
+   ],
+   "tip": "In Spanish, use 'me duele' to say what hurts. Follow it with the part of the body.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué te duele?",
+     "meaning": "What hurts you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me duele la cabeza.",
+     "meaning": "My head hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y qué más?",
+     "meaning": "And what else?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me duele el estómago.",
+     "meaning": "My stomach hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes fiebre?",
+     "meaning": "Do you have a fever?"
+    },
+    {
+     "speaker": "B",
+     "text": "No tengo fiebre.",
+     "meaning": "I do not have a fever."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who is concerned about your health.",
+    "learnerRole": "You, who are feeling unwell.",
+    "brief": "You tell your friend what hurts. They ask questions to understand your symptoms.",
+    "goal": "You need to explain your pain clearly."
+   }
+  },
+  {
+   "title": "At the Pharmacy",
+   "items": [
+    {
+     "text": "la farmacia",
+     "meaning": "the pharmacy",
+     "example": "Voy a la farmacia.",
+     "exampleMeaning": "I am going to the pharmacy."
+    },
+    {
+     "text": "el medicamento",
+     "meaning": "the medicine",
+     "example": "Necesito un medicamento.",
+     "exampleMeaning": "I need a medicine."
+    },
+    {
+     "text": "recetar",
+     "meaning": "to prescribe",
+     "example": "El doctor va a recetar un medicamento.",
+     "exampleMeaning": "The doctor is going to prescribe a medicine."
+    },
+    {
+     "text": "la receta",
+     "meaning": "the prescription",
+     "example": "Tengo la receta del doctor.",
+     "exampleMeaning": "I have the doctor's prescription."
+    },
+    {
+     "text": "comprar",
+     "meaning": "to buy",
+     "example": "Voy a comprar el medicamento.",
+     "exampleMeaning": "I am going to buy the medicine."
+    },
+    {
+     "text": "la consulta",
+     "meaning": "the consultation",
+     "example": "Tengo una consulta con el doctor.",
+     "exampleMeaning": "I have a consultation with the doctor."
+    }
+   ],
+   "tip": "Use 'voy a' to express your intention to go somewhere. It means 'I am going to'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Vas a la farmacia?",
+     "meaning": "Are you going to the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, voy a comprar el medicamento.",
+     "meaning": "Yes, I am going to buy the medicine."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes la receta?",
+     "meaning": "Do you have the prescription?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, tengo la receta del doctor.",
+     "meaning": "Yes, I have the doctor's prescription."
+    },
+    {
+     "speaker": "A",
+     "text": "El doctor te va a recetar algo.",
+     "meaning": "The doctor is going to prescribe something for you."
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, necesito un medicamento.",
+     "meaning": "Yes, I need a medicine."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A pharmacy worker.",
+    "learnerRole": "You, who needs to buy medicine.",
+    "brief": "You visit the pharmacy to buy medicine. You show the prescription and ask for help.",
+    "goal": "You need to successfully buy the medicine."
+   }
+  },
+  {
+   "title": "Giving Advice",
+   "items": [
+    {
+     "text": "deberías",
+     "meaning": "you should",
+     "example": "Deberías descansar.",
+     "exampleMeaning": "You should rest."
+    },
+    {
+     "text": "tomar",
+     "meaning": "to take",
+     "example": "Tienes que tomar el medicamento.",
+     "exampleMeaning": "You have to take the medicine."
+    },
+    {
+     "text": "beber",
+     "meaning": "to drink",
+     "example": "Deberías beber agua.",
+     "exampleMeaning": "You should drink water."
+    },
+    {
+     "text": "ir al doctor",
+     "meaning": "to go to the doctor",
+     "example": "Deberías ir al doctor.",
+     "exampleMeaning": "You should go to the doctor."
+    },
+    {
+     "text": "comer",
+     "meaning": "to eat",
+     "example": "Deberías comer algo ligero.",
+     "exampleMeaning": "You should eat something light."
+    },
+    {
+     "text": "hacer ejercicio",
+     "meaning": "to exercise",
+     "example": "Deberías hacer ejercicio.",
+     "exampleMeaning": "You should exercise."
+    }
+   ],
+   "tip": "Use 'deberías' to give advice. It means 'you should'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué debo hacer?",
+     "meaning": "What should I do?"
+    },
+    {
+     "speaker": "B",
+     "text": "Deberías descansar.",
+     "meaning": "You should rest."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y qué más?",
+     "meaning": "And what else?"
+    },
+    {
+     "speaker": "B",
+     "text": "Deberías beber agua.",
+     "meaning": "You should drink water."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Debo ir al doctor?",
+     "meaning": "Should I go to the doctor?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, deberías ir al doctor.",
+     "meaning": "Yes, you should go to the doctor."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend giving health advice.",
+    "learnerRole": "You, who are asking for advice.",
+    "brief": "You ask your friend for advice about your health. They suggest actions to help you.",
+    "goal": "You need to receive and understand the advice given."
+   }
+  },
+  {
+   "title": "Feeling Better",
+   "items": [
+    {
+     "text": "me siento mejor",
+     "meaning": "I feel better",
+     "example": "Ahora me siento mejor.",
+     "exampleMeaning": "Now I feel better."
+    },
+    {
+     "text": "la salud",
+     "meaning": "the health",
+     "example": "Es importante cuidar la salud.",
+     "exampleMeaning": "It is important to take care of health."
+    },
+    {
+     "text": "la medicina",
+     "meaning": "the medicine",
+     "example": "La medicina ayuda a sanar.",
+     "exampleMeaning": "The medicine helps to heal."
+    },
+    {
+     "text": "el síntoma",
+     "meaning": "the symptom",
+     "example": "El síntoma ha desaparecido.",
+     "exampleMeaning": "The symptom has disappeared."
+    },
+    {
+     "text": "la recuperación",
+     "meaning": "the recovery",
+     "example": "La recuperación es rápida.",
+     "exampleMeaning": "The recovery is fast."
+    },
+    {
+     "text": "sentirse mejor",
+     "meaning": "to feel better",
+     "example": "Es importante descansar para sentirse mejor.",
+     "exampleMeaning": "It is important to rest to feel better."
+    }
+   ],
+   "tip": "Use 'me siento' to express how you feel. It means 'I feel'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cómo te sientes?",
+     "meaning": "How do you feel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ahora me siento mejor.",
+     "meaning": "Now I feel better."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te ayudó la medicina?",
+     "meaning": "Did the medicine help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, la medicina ayuda a sanar.",
+     "meaning": "Yes, the medicine helps to heal."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Ya no tienes síntomas?",
+     "meaning": "Do you no longer have symptoms?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, el síntoma ha desaparecido.",
+     "meaning": "Yes, the symptom has disappeared."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend checking on your health.",
+    "learnerRole": "You, who is recovering from an illness.",
+    "brief": "Your friend asks how you feel after being sick. You explain your current health status.",
+    "goal": "You need to express that you feel better."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Health and the Doctor",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Qué te duele?",
+    "meaning": "What hurts you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Me duele la cabeza.",
+    "meaning": "My head hurts."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Vas a la farmacia?",
+    "meaning": "Are you going to the pharmacy?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, voy a comprar el medicamento.",
+    "meaning": "Yes, I am going to buy the medicine."
+   },
+   {
+    "speaker": "A",
+    "text": "Deberías ir al doctor.",
+    "meaning": "You should go to the doctor."
+   },
+   {
+    "speaker": "B",
+    "text": "Ahora me siento mejor.",
+    "meaning": "Now I feel better."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A concerned friend checking on your health.",
+   "learnerRole": "You, who has been feeling unwell.",
+   "brief": "You explain what hurts, mention going to the pharmacy, and talk about feeling better now.",
+   "goal": "You need to communicate your health situation clearly."
+  }
+ }
+}

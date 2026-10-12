@@ -1,0 +1,376 @@
+{
+ "title": "At Work",
+ "lessons": [
+  {
+   "title": "Daily Work Life",
+   "items": [
+    {
+     "text": "der Arbeitsplatz",
+     "meaning": "the workplace",
+     "example": "Ich gehe jeden Tag zum Arbeitsplatz.",
+     "exampleMeaning": "I go to the workplace every day."
+    },
+    {
+     "text": "der Kollege",
+     "meaning": "the colleague",
+     "example": "Mein Kollege ist sehr nett.",
+     "exampleMeaning": "My colleague is very nice."
+    },
+    {
+     "text": "die Besprechung",
+     "meaning": "the meeting",
+     "example": "Wir haben morgen eine Besprechung.",
+     "exampleMeaning": "We have a meeting tomorrow."
+    },
+    {
+     "text": "der Zeitplan",
+     "meaning": "the schedule",
+     "example": "Ich schaue auf meinen Zeitplan.",
+     "exampleMeaning": "I look at my schedule."
+    },
+    {
+     "text": "arbeiten",
+     "meaning": "to work",
+     "example": "Ich arbeite von neun bis fünf.",
+     "exampleMeaning": "I work from nine to five."
+    },
+    {
+     "text": "der Bericht",
+     "meaning": "the report",
+     "example": "Ich schreibe einen Bericht.",
+     "exampleMeaning": "I am writing a report."
+    }
+   ],
+   "tip": "In German, nouns are always capitalized. Remember to use the correct article: der (masculine), die (feminine), das (neuter).",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo ist dein Arbeitsplatz?",
+     "meaning": "Where is your workplace?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mein Arbeitsplatz ist hier.",
+     "meaning": "My workplace is here."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du einen netten Kollegen?",
+     "meaning": "Do you have a nice colleague?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, mein Kollege ist sehr nett.",
+     "meaning": "Yes, my colleague is very nice."
+    },
+    {
+     "speaker": "A",
+     "text": "Wann ist die nächste Besprechung?",
+     "meaning": "When is the next meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Die Besprechung ist morgen.",
+     "meaning": "The meeting is tomorrow."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague asking about the learner's work.",
+    "learnerRole": "B is the learner sharing information about their job.",
+    "brief": "Ask simple questions about the workplace, colleagues, and meetings. Use the new words from this lesson.",
+    "goal": "You need to talk about your work situation."
+   }
+  },
+  {
+   "title": "Daily Tasks",
+   "items": [
+    {
+     "text": "die Aufgabe",
+     "meaning": "the task",
+     "example": "Ich habe eine neue Aufgabe.",
+     "exampleMeaning": "I have a new task."
+    },
+    {
+     "text": "der Chef",
+     "meaning": "the boss",
+     "example": "Mein Chef ist sehr freundlich.",
+     "exampleMeaning": "My boss is very friendly."
+    },
+    {
+     "text": "der Termin",
+     "meaning": "the appointment",
+     "example": "Ich habe einen Termin um drei Uhr.",
+     "exampleMeaning": "I have an appointment at three o'clock."
+    },
+    {
+     "text": "der Stift",
+     "meaning": "the pen",
+     "example": "Ich brauche einen Stift.",
+     "exampleMeaning": "I need a pen."
+    },
+    {
+     "text": "die E-Mail",
+     "meaning": "the email",
+     "example": "Ich schreibe eine E-Mail.",
+     "exampleMeaning": "I am writing an email."
+    },
+    {
+     "text": "das Meeting",
+     "meaning": "the meeting",
+     "example": "Das Meeting beginnt um zehn Uhr.",
+     "exampleMeaning": "The meeting starts at ten o'clock."
+    }
+   ],
+   "tip": "Remember to use the correct gender for nouns: die for feminine, der for masculine, and das for neuter. This affects articles and adjectives too.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was ist deine Aufgabe heute?",
+     "meaning": "What is your task today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe eine neue Aufgabe.",
+     "meaning": "I have a new task."
+    },
+    {
+     "speaker": "A",
+     "text": "Wann hast du einen Termin?",
+     "meaning": "When do you have an appointment?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe einen Termin um drei Uhr.",
+     "meaning": "I have an appointment at three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Schreibst du eine E-Mail?",
+     "meaning": "Are you writing an email?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich schreibe eine E-Mail.",
+     "meaning": "Yes, I am writing an email."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is asking about the learner's daily tasks.",
+    "learnerRole": "B is the learner explaining their work tasks.",
+    "brief": "Ask questions about tasks, meetings, and appointments. Use the new words from this lesson.",
+    "goal": "You need to describe your daily work activities."
+   }
+  },
+  {
+   "title": "Office Equipment",
+   "items": [
+    {
+     "text": "der Computer",
+     "meaning": "the computer",
+     "example": "Mein Computer ist schnell.",
+     "exampleMeaning": "My computer is fast."
+    },
+    {
+     "text": "das Telefon",
+     "meaning": "the phone",
+     "example": "Ich habe ein neues Telefon.",
+     "exampleMeaning": "I have a new phone."
+    },
+    {
+     "text": "der Drucker",
+     "meaning": "the printer",
+     "example": "Der Drucker funktioniert nicht.",
+     "exampleMeaning": "The printer does not work."
+    },
+    {
+     "text": "die Akte",
+     "meaning": "the file",
+     "example": "Ich suche die Akte.",
+     "exampleMeaning": "I am looking for the file."
+    },
+    {
+     "text": "das Büro",
+     "meaning": "the office",
+     "example": "Mein Büro ist groß.",
+     "exampleMeaning": "My office is big."
+    },
+    {
+     "text": "die Notizen",
+     "meaning": "the notes",
+     "example": "Ich mache Notizen während der Besprechung.",
+     "exampleMeaning": "I take notes during the meeting."
+    }
+   ],
+   "tip": "When describing objects, remember to use the correct article: der for masculine, die for feminine, and das for neuter. This will help with clarity.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was ist dein Lieblingsgerät im Büro?",
+     "meaning": "What is your favorite device in the office?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mein Computer ist schnell.",
+     "meaning": "My computer is fast."
+    },
+    {
+     "speaker": "A",
+     "text": "Funktioniert der Drucker?",
+     "meaning": "Does the printer work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nein, der Drucker funktioniert nicht.",
+     "meaning": "No, the printer does not work."
+    },
+    {
+     "speaker": "A",
+     "text": "Machst du Notizen?",
+     "meaning": "Do you take notes?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich mache Notizen während der Besprechung.",
+     "meaning": "Yes, I take notes during the meeting."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a coworker discussing office equipment.",
+    "learnerRole": "B is the learner talking about their office.",
+    "brief": "Ask about equipment and tasks in the office. Use the new words from this lesson.",
+    "goal": "You need to talk about office equipment and how you use it."
+   }
+  },
+  {
+   "title": "Planning and Meetings",
+   "items": [
+    {
+     "text": "der Plan",
+     "meaning": "the plan",
+     "example": "Wir haben einen Plan für das Projekt.",
+     "exampleMeaning": "We have a plan for the project."
+    },
+    {
+     "text": "die Idee",
+     "meaning": "the idea",
+     "example": "Ich habe eine gute Idee.",
+     "exampleMeaning": "I have a good idea."
+    },
+    {
+     "text": "besprechen",
+     "meaning": "to discuss",
+     "example": "Wir müssen das besprechen.",
+     "exampleMeaning": "We need to discuss that."
+    },
+    {
+     "text": "vorbereiten",
+     "meaning": "to prepare",
+     "example": "Ich bereite die Präsentation vor.",
+     "exampleMeaning": "I prepare the presentation."
+    },
+    {
+     "text": "teilnehmen",
+     "meaning": "to participate",
+     "example": "Ich nehme an der Besprechung teil.",
+     "exampleMeaning": "I participate in the meeting."
+    },
+    {
+     "text": "der Vorschlag",
+     "meaning": "the suggestion",
+     "example": "Ich mache einen Vorschlag.",
+     "exampleMeaning": "I make a suggestion."
+    }
+   ],
+   "tip": "Use the verb 'besprechen' to indicate that you are discussing something. It is a separable verb, so the prefix 'be-' is separated in the sentence.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hast du einen Plan für das Projekt?",
+     "meaning": "Do you have a plan for the project?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, wir haben einen Plan.",
+     "meaning": "Yes, we have a plan."
+    },
+    {
+     "speaker": "A",
+     "text": "Was ist deine Idee?",
+     "meaning": "What is your idea?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe eine gute Idee.",
+     "meaning": "I have a good idea."
+    },
+    {
+     "speaker": "A",
+     "text": "Können wir das besprechen?",
+     "meaning": "Can we discuss that?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich bereite die Präsentation vor.",
+     "meaning": "Yes, I prepare the presentation."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a team member discussing project plans.",
+    "learnerRole": "B is the learner contributing ideas.",
+    "brief": "Ask about plans and ideas for the project. Use the new words from this lesson.",
+    "goal": "You need to share your ideas and plans."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of At Work",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Wie ist dein Arbeitsplatz?",
+    "meaning": "How is your workplace?"
+   },
+   {
+    "speaker": "B",
+    "text": "Mein Arbeitsplatz ist gut. Ich arbeite von neun bis fünf.",
+    "meaning": "My workplace is good. I work from nine to five."
+   },
+   {
+    "speaker": "A",
+    "text": "Hast du einen netten Kollegen?",
+    "meaning": "Do you have a nice colleague?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, mein Kollege ist sehr freundlich.",
+    "meaning": "Yes, my colleague is very friendly."
+   },
+   {
+    "speaker": "A",
+    "text": "Wann ist die nächste Besprechung?",
+    "meaning": "When is the next meeting?"
+   },
+   {
+    "speaker": "B",
+    "text": "Die Besprechung ist morgen um zehn Uhr.",
+    "meaning": "The meeting is tomorrow at ten o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "Was ist dein Plan für das Projekt?",
+    "meaning": "What is your plan for the project?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich habe einen Plan und eine gute Idee.",
+    "meaning": "I have a plan and a good idea."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a colleague checking in on the learner's work.",
+   "learnerRole": "B is the learner sharing their work situation.",
+   "brief": "Discuss your workplace, colleagues, tasks, and plans. Use the vocabulary from the chapter.",
+   "goal": "You need to summarize your work experience."
+  }
+ }
+}

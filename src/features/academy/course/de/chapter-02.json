@@ -1,0 +1,423 @@
+{
+ "id": "c02",
+ "number": 2,
+ "title": "At the café",
+ "lessons": [
+  {
+   "id": "c02-d1",
+   "day": 6,
+   "title": "Ordering Drinks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d1-i1",
+     "text": "Ich hätte gerne einen Kaffee.",
+     "meaning": "I would like a coffee.",
+     "example": "Ich hätte gerne einen Kaffee, bitte.",
+     "exampleMeaning": "I would like a coffee, please."
+    },
+    {
+     "id": "c02-d1-i2",
+     "text": "Ein Wasser, bitte.",
+     "meaning": "A water, please.",
+     "example": "Ich möchte ein Wasser, bitte.",
+     "exampleMeaning": "I would like a water, please."
+    },
+    {
+     "id": "c02-d1-i3",
+     "text": "Haben Sie Tee?",
+     "meaning": "Do you have tea?",
+     "example": "Haben Sie grünen Tee?",
+     "exampleMeaning": "Do you have green tea?"
+    },
+    {
+     "id": "c02-d1-i4",
+     "text": "Ich nehme einen Saft.",
+     "meaning": "I will take a juice.",
+     "example": "Ich nehme einen Apfelsaft.",
+     "exampleMeaning": "I will take an apple juice."
+    },
+    {
+     "id": "c02-d1-i5",
+     "text": "Ich möchte etwas zu trinken.",
+     "meaning": "I would like something to drink.",
+     "example": "Ich möchte etwas zu trinken, bitte.",
+     "exampleMeaning": "I would like something to drink, please."
+    },
+    {
+     "id": "c02-d1-i6",
+     "text": "Was empfehlen Sie?",
+     "meaning": "What do you recommend?",
+     "example": "Was empfehlen Sie hier?",
+     "exampleMeaning": "What do you recommend here?"
+    }
+   ],
+   "tip": "In German, it’s polite to say 'bitte' (please) when ordering. Use 'Danke' (thank you) after receiving your order.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was möchten Sie trinken?",
+     "meaning": "What would you like to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne einen Kaffee, bitte.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie Tee?",
+     "meaning": "Do you have tea?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich hätte gerne einen Tee.",
+     "meaning": "Yes, I would like a tea."
+    },
+    {
+     "speaker": "A",
+     "text": "Möchten Sie etwas zu essen?",
+     "meaning": "Would you like something to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nein, danke. Nur ein Wasser, bitte.",
+     "meaning": "No, thank you. Just a water, please."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Ask for a drink and respond to the staff's questions.",
+    "goal": "You need to order a drink politely."
+   }
+  },
+  {
+   "id": "c02-d2",
+   "day": 7,
+   "title": "Ordering Food",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d2-i1",
+     "text": "Ich hätte gerne ein Sandwich.",
+     "meaning": "I would like a sandwich.",
+     "example": "Ich hätte gerne ein Sandwich mit Käse.",
+     "exampleMeaning": "I would like a sandwich with cheese."
+    },
+    {
+     "id": "c02-d2-i2",
+     "text": "Ein Stück Kuchen, bitte.",
+     "meaning": "A piece of cake, please.",
+     "example": "Ich nehme ein Stück Schokoladenkuchen.",
+     "exampleMeaning": "I will take a piece of chocolate cake."
+    },
+    {
+     "id": "c02-d2-i3",
+     "text": "Haben Sie Brot?",
+     "meaning": "Do you have bread?",
+     "example": "Haben Sie frisches Brot?",
+     "exampleMeaning": "Do you have fresh bread?"
+    },
+    {
+     "id": "c02-d2-i4",
+     "text": "Ich möchte etwas zu essen.",
+     "meaning": "I would like something to eat.",
+     "example": "Ich möchte etwas zu essen, bitte.",
+     "exampleMeaning": "I would like something to eat, please."
+    },
+    {
+     "id": "c02-d2-i5",
+     "text": "Was kostet das?",
+     "meaning": "How much does it cost?",
+     "example": "Was kostet das Sandwich?",
+     "exampleMeaning": "How much does the sandwich cost?"
+    },
+    {
+     "id": "c02-d2-i6",
+     "text": "Ich nehme das.",
+     "meaning": "I will take that.",
+     "example": "Ich nehme das Stück Kuchen.",
+     "exampleMeaning": "I will take that piece of cake."
+    }
+   ],
+   "tip": "When ordering food, you can say 'Ich hätte gerne...' (I would like...) to be polite. Remember to say 'Danke' after you receive your food.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was möchten Sie essen?",
+     "meaning": "What would you like to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne ein Sandwich, bitte.",
+     "meaning": "I would like a sandwich, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie Brot?",
+     "meaning": "Do you have bread?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich hätte gerne frisches Brot.",
+     "meaning": "Yes, I would like fresh bread."
+    },
+    {
+     "speaker": "A",
+     "text": "Was kostet das Stück Kuchen?",
+     "meaning": "How much does the piece of cake cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich nehme das Stück Kuchen, bitte.",
+     "meaning": "I will take that piece of cake, please."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Ask for food and respond to the staff's questions.",
+    "goal": "You need to order food politely."
+   }
+  },
+  {
+   "id": "c02-d3",
+   "day": 8,
+   "title": "Using Numbers 1-20",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d3-i1",
+     "text": "eins",
+     "meaning": "one",
+     "example": "Ich möchte einen Kaffee, bitte.",
+     "exampleMeaning": "I would like one coffee, please."
+    },
+    {
+     "id": "c02-d3-i2",
+     "text": "zwei",
+     "meaning": "two",
+     "example": "Ich nehme zwei Sandwiches.",
+     "exampleMeaning": "I will take two sandwiches."
+    },
+    {
+     "id": "c02-d3-i3",
+     "text": "drei",
+     "meaning": "three",
+     "example": "Ich hätte gerne drei Stück Kuchen.",
+     "exampleMeaning": "I would like three pieces of cake."
+    },
+    {
+     "id": "c02-d3-i4",
+     "text": "vier",
+     "meaning": "four",
+     "example": "Ich bestelle vier Tassen Tee.",
+     "exampleMeaning": "I will order four cups of tea."
+    },
+    {
+     "id": "c02-d3-i5",
+     "text": "fünf",
+     "meaning": "five",
+     "example": "Ich möchte fünf Wasser, bitte.",
+     "exampleMeaning": "I would like five waters, please."
+    },
+    {
+     "id": "c02-d3-i6",
+     "text": "zehn",
+     "meaning": "ten",
+     "example": "Das kostet zehn Euro.",
+     "exampleMeaning": "That costs ten euros."
+    }
+   ],
+   "tip": "Numbers in German are important for ordering. Practice counting from one to twenty for better understanding.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie viele Sandwiches möchten Sie?",
+     "meaning": "How many sandwiches would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich nehme zwei Sandwiches, bitte.",
+     "meaning": "I will take two sandwiches, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Und wie viele Stück Kuchen?",
+     "meaning": "And how many pieces of cake?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne drei Stück Kuchen.",
+     "meaning": "I would like three pieces of cake."
+    },
+    {
+     "speaker": "A",
+     "text": "Das kostet zehn Euro.",
+     "meaning": "That costs ten euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Danke!",
+     "meaning": "Thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Use numbers to order drinks and food.",
+    "goal": "You need to order using numbers politely."
+   }
+  },
+  {
+   "id": "c02-d4",
+   "day": 9,
+   "title": "Polite Expressions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d4-i1",
+     "text": "Danke!",
+     "meaning": "Thank you!",
+     "example": "Danke für den Kaffee!",
+     "exampleMeaning": "Thank you for the coffee!"
+    },
+    {
+     "id": "c02-d4-i2",
+     "text": "Bitte!",
+     "meaning": "Please! / You’re welcome!",
+     "example": "Bitte, kommen Sie wieder!",
+     "exampleMeaning": "Please, come again!"
+    },
+    {
+     "id": "c02-d4-i3",
+     "text": "Entschuldigung!",
+     "meaning": "Excuse me!",
+     "example": "Entschuldigung, wo ist die Toilette?",
+     "exampleMeaning": "Excuse me, where is the bathroom?"
+    },
+    {
+     "id": "c02-d4-i4",
+     "text": "Könnte ich...?",
+     "meaning": "Could I...?",
+     "example": "Könnte ich die Rechnung bekommen?",
+     "exampleMeaning": "Could I get the bill?"
+    },
+    {
+     "id": "c02-d4-i5",
+     "text": "Ich danke Ihnen.",
+     "meaning": "I thank you.",
+     "example": "Ich danke Ihnen für Ihre Hilfe.",
+     "exampleMeaning": "I thank you for your help."
+    },
+    {
+     "id": "c02-d4-i6",
+     "text": "Das ist nett von Ihnen.",
+     "meaning": "That is nice of you.",
+     "example": "Das ist nett von Ihnen, danke!",
+     "exampleMeaning": "That is nice of you, thank you!"
+    }
+   ],
+   "tip": "Using polite expressions like 'Danke' and 'Bitte' is important in German culture. Always be polite when speaking.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Entschuldigung! Haben Sie die Rechnung?",
+     "meaning": "Excuse me! Do you have the bill?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, natürlich. Ich bringe sie sofort.",
+     "meaning": "Yes, of course. I will bring it right away."
+    },
+    {
+     "speaker": "A",
+     "text": "Danke!",
+     "meaning": "Thank you!"
+    },
+    {
+     "speaker": "B",
+     "text": "Bitte! Kommen Sie wieder!",
+     "meaning": "You’re welcome! Please come again!"
+    },
+    {
+     "speaker": "A",
+     "text": "Könnte ich ein Wasser haben?",
+     "meaning": "Could I have a water?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich bringe es Ihnen gleich.",
+     "meaning": "Yes, I will bring it to you right away."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Use polite expressions when ordering and asking for the bill.",
+    "goal": "You need to show politeness in your requests."
+   }
+  },
+  {
+   "id": "c02-d5",
+   "day": 10,
+   "title": "Review of At the café",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Was möchten Sie trinken?",
+     "meaning": "What would you like to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne einen Kaffee, bitte.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie Brot?",
+     "meaning": "Do you have bread?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich hätte gerne frisches Brot.",
+     "meaning": "Yes, I would like fresh bread."
+    },
+    {
+     "speaker": "A",
+     "text": "Wie viele Sandwiches möchten Sie?",
+     "meaning": "How many sandwiches would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich nehme zwei Sandwiches, bitte.",
+     "meaning": "I will take two sandwiches, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Das kostet zehn Euro.",
+     "meaning": "That costs ten euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Danke!",
+     "meaning": "Thank you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Bitte! Kommen Sie wieder!",
+     "meaning": "You’re welcome! Please come again!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café staff member",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Use all the vocabulary from this chapter to order drinks and food politely.",
+    "goal": "You need to communicate effectively and politely."
+   }
+  }
+ ]
+}

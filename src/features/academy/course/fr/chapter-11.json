@@ -1,0 +1,418 @@
+{
+ "id": "c11",
+ "number": 11,
+ "title": "Making Plans",
+ "lessons": [
+  {
+   "id": "c11-d1",
+   "day": 51,
+   "title": "Let's Meet Up!",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d1-i1",
+     "text": "Quand ?",
+     "meaning": "When?",
+     "example": "Quand est-ce que tu es libre ?",
+     "exampleMeaning": "When are you free?"
+    },
+    {
+     "id": "c11-d1-i2",
+     "text": "Samedi",
+     "meaning": "Saturday",
+     "example": "Je vais au cinéma samedi.",
+     "exampleMeaning": "I am going to the cinema on Saturday."
+    },
+    {
+     "id": "c11-d1-i3",
+     "text": "Où se retrouver ?",
+     "meaning": "Where shall we meet?",
+     "example": "Où se retrouver pour le café ?",
+     "exampleMeaning": "Where shall we meet for coffee?"
+    },
+    {
+     "id": "c11-d1-i4",
+     "text": "Je veux inviter...",
+     "meaning": "I want to invite...",
+     "example": "Je veux inviter mes amis.",
+     "exampleMeaning": "I want to invite my friends."
+    },
+    {
+     "id": "c11-d1-i5",
+     "text": "C'est une bonne idée !",
+     "meaning": "It's a good idea!",
+     "example": "C'est une bonne idée d'aller au parc.",
+     "exampleMeaning": "It's a good idea to go to the park."
+    },
+    {
+     "id": "c11-d1-i6",
+     "text": "Peux-tu venir ?",
+     "meaning": "Can you come?",
+     "example": "Peux-tu venir samedi ?",
+     "exampleMeaning": "Can you come on Saturday?"
+    }
+   ],
+   "tip": "Use 'Quand ?' to ask about time, and 'À quelle heure ?' for specific times. Remember to use the correct day in your plans.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quand est-ce que tu es libre ?",
+     "meaning": "When are you free?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis libre samedi.",
+     "meaning": "I am free on Saturday."
+    },
+    {
+     "speaker": "A",
+     "text": "À quelle heure commençons-nous ?",
+     "meaning": "At what time do we start?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est une bonne idée d'aller au parc !",
+     "meaning": "It's a good idea to go to the park!"
+    },
+    {
+     "speaker": "A",
+     "text": "Je veux inviter mes amis.",
+     "meaning": "I want to invite my friends."
+    },
+    {
+     "speaker": "B",
+     "text": "Peux-tu venir samedi ?",
+     "meaning": "Can you come on Saturday?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend making plans.",
+    "learnerRole": "You are the person responding to the invitation.",
+    "brief": "Ask about availability and suggest a time to meet. Use the new words from this lesson.",
+    "goal": "You will confirm your availability for Saturday."
+   }
+  },
+  {
+   "id": "c11-d2",
+   "day": 52,
+   "title": "Setting a Date",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d2-i1",
+     "text": "Dimanche",
+     "meaning": "Sunday",
+     "example": "Nous avons un rendez-vous dimanche.",
+     "exampleMeaning": "We have an appointment on Sunday."
+    },
+    {
+     "id": "c11-d2-i2",
+     "text": "Lundi",
+     "meaning": "Monday",
+     "example": "Lundi, je ne peux pas.",
+     "exampleMeaning": "On Monday, I cannot."
+    },
+    {
+     "id": "c11-d2-i3",
+     "text": "À 10 heures",
+     "meaning": "At 10 o'clock",
+     "example": "Le rendez-vous est à 10 heures.",
+     "exampleMeaning": "The appointment is at 10 o'clock."
+    },
+    {
+     "id": "c11-d2-i4",
+     "text": "Est-ce que ça te va ?",
+     "meaning": "Does that work for you?",
+     "example": "Dimanche à 10 heures, est-ce que ça te va ?",
+     "exampleMeaning": "Sunday at 10 o'clock, does that work for you?"
+    },
+    {
+     "id": "c11-d2-i5",
+     "text": "Je préfère...",
+     "meaning": "I prefer...",
+     "example": "Je préfère lundi.",
+     "exampleMeaning": "I prefer Monday."
+    },
+    {
+     "id": "c11-d2-i6",
+     "text": "D'accord, c'est noté !",
+     "meaning": "Okay, it's noted!",
+     "example": "D'accord, c'est noté pour dimanche.",
+     "exampleMeaning": "Okay, it's noted for Sunday."
+    }
+   ],
+   "tip": "Use 'D'accord' to agree with a plan. If you have a preference, say 'Je préfère...' to express it.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Nous avons un rendez-vous dimanche.",
+     "meaning": "We have an appointment on Sunday."
+    },
+    {
+     "speaker": "B",
+     "text": "À 10 heures ?",
+     "meaning": "At 10 o'clock?"
+    },
+    {
+     "speaker": "A",
+     "text": "Est-ce que ça te va ?",
+     "meaning": "Does that work for you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je préfère lundi.",
+     "meaning": "I prefer Monday."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accord, c'est noté pour dimanche.",
+     "meaning": "Okay, it's noted for Sunday."
+    },
+    {
+     "speaker": "B",
+     "text": "D'accord, c'est noté !",
+     "meaning": "Okay, it's noted!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is confirming the date and time.",
+    "learnerRole": "You are responding to the confirmation.",
+    "brief": "Discuss the appointment and express your preferences.",
+    "goal": "You will agree on the date and time."
+   }
+  },
+  {
+   "id": "c11-d3",
+   "day": 53,
+   "title": "Making Invitations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d3-i1",
+     "text": "Je t'invite à...",
+     "meaning": "I invite you to...",
+     "example": "Je t'invite à ma fête.",
+     "exampleMeaning": "I invite you to my party."
+    },
+    {
+     "id": "c11-d3-i2",
+     "text": "Accepter",
+     "meaning": "To accept",
+     "example": "J'accepte l'invitation.",
+     "exampleMeaning": "I accept the invitation."
+    },
+    {
+     "id": "c11-d3-i3",
+     "text": "Refuser",
+     "meaning": "To decline",
+     "example": "Je refuse l'invitation.",
+     "exampleMeaning": "I decline the invitation."
+    },
+    {
+     "id": "c11-d3-i4",
+     "text": "Peux-tu venir à... ?",
+     "meaning": "Can you come to...?",
+     "example": "Peux-tu venir à ma fête ?",
+     "exampleMeaning": "Can you come to my party?"
+    },
+    {
+     "id": "c11-d3-i5",
+     "text": "Ça me fait plaisir !",
+     "meaning": "That makes me happy!",
+     "example": "Je suis content, ça me fait plaisir !",
+     "exampleMeaning": "I am happy, that makes me happy!"
+    },
+    {
+     "id": "c11-d3-i6",
+     "text": "Merci pour l'invitation !",
+     "meaning": "Thank you for the invitation!",
+     "example": "Merci pour l'invitation à ta fête.",
+     "exampleMeaning": "Thank you for the invitation to your party."
+    }
+   ],
+   "tip": "Use 'Je t'invite à...' to make an invitation. If you accept, say 'J'accepte', and if you decline, say 'Je refuse'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Je t'invite à ma fête.",
+     "meaning": "I invite you to my party."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci pour l'invitation !",
+     "meaning": "Thank you for the invitation!"
+    },
+    {
+     "speaker": "A",
+     "text": "Peux-tu venir samedi ?",
+     "meaning": "Can you come on Saturday?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'accepte l'invitation.",
+     "meaning": "I accept the invitation."
+    },
+    {
+     "speaker": "A",
+     "text": "Ça me fait plaisir !",
+     "meaning": "That makes me happy!"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis content, ça me fait plaisir !",
+     "meaning": "I am happy, that makes me happy!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is inviting you to a party.",
+    "learnerRole": "You are responding to the invitation.",
+    "brief": "Make an invitation and respond to it.",
+    "goal": "You will accept the invitation."
+   }
+  },
+  {
+   "id": "c11-d4",
+   "day": 54,
+   "title": "Confirming Plans",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d4-i1",
+     "text": "C'est bon pour moi.",
+     "meaning": "It's good for me.",
+     "example": "C'est bon pour moi, je viendrai.",
+     "exampleMeaning": "It's good for me, I will come."
+    },
+    {
+     "id": "c11-d4-i2",
+     "text": "On se voit...",
+     "meaning": "We see each other...",
+     "example": "On se voit dimanche ?",
+     "exampleMeaning": "We see each other on Sunday?"
+    },
+    {
+     "id": "c11-d4-i3",
+     "text": "Rappelle-moi !",
+     "meaning": "Call me back!",
+     "example": "Rappelle-moi demain.",
+     "exampleMeaning": "Call me back tomorrow."
+    },
+    {
+     "id": "c11-d4-i4",
+     "text": "Je vais vérifier.",
+     "meaning": "I will check.",
+     "example": "Je vais vérifier mon emploi du temps.",
+     "exampleMeaning": "I will check my schedule."
+    },
+    {
+     "id": "c11-d4-i5",
+     "text": "Tout est prêt ?",
+     "meaning": "Is everything ready?",
+     "example": "Tout est prêt pour la fête ?",
+     "exampleMeaning": "Is everything ready for the party?"
+    },
+    {
+     "id": "c11-d4-i6",
+     "text": "C'est confirmé !",
+     "meaning": "It's confirmed!",
+     "example": "C'est confirmé, nous avons un rendez-vous à 15 heures.",
+     "exampleMeaning": "It's confirmed, we have an appointment at 3 PM."
+    }
+   ],
+   "tip": "Use 'C'est bon pour moi' to confirm plans. You can also ask 'Tout est prêt ?' to check on preparations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "On se voit dimanche ?",
+     "meaning": "We see each other on Sunday?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est bon pour moi.",
+     "meaning": "It's good for me."
+    },
+    {
+     "speaker": "A",
+     "text": "Je vais vérifier mon emploi du temps.",
+     "meaning": "I will check my schedule."
+    },
+    {
+     "speaker": "B",
+     "text": "Tout est prêt pour la fête ?",
+     "meaning": "Is everything ready for the party?"
+    },
+    {
+     "speaker": "A",
+     "text": "Rappelle-moi demain !",
+     "meaning": "Call me back tomorrow!"
+    },
+    {
+     "speaker": "B",
+     "text": "À bientôt, alors !",
+     "meaning": "See you soon, then!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is confirming the plans.",
+    "learnerRole": "You are responding to the confirmation.",
+    "brief": "Confirm the plans and check on preparations.",
+    "goal": "You will confirm your attendance and ask if everything is ready."
+   }
+  },
+  {
+   "id": "c11-d5",
+   "day": 55,
+   "title": "Review of Making Plans",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quand est-ce que tu es libre ?",
+     "meaning": "When are you free?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis libre samedi.",
+     "meaning": "I am free on Saturday."
+    },
+    {
+     "speaker": "A",
+     "text": "Je t'invite à ma fête.",
+     "meaning": "I invite you to my party."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci pour l'invitation !",
+     "meaning": "Thank you for the invitation!"
+    },
+    {
+     "speaker": "A",
+     "text": "Est-ce que ça te va ?",
+     "meaning": "Does that work for you?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est bon pour moi.",
+     "meaning": "It's good for me."
+    },
+    {
+     "speaker": "A",
+     "text": "Tout est prêt pour la fête ?",
+     "meaning": "Is everything ready for the party?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je vais vérifier.",
+     "meaning": "I will check."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is confirming the plans.",
+    "learnerRole": "You are responding to the confirmation.",
+    "brief": "Discuss your plans and confirm details.",
+    "goal": "You will confirm your attendance and check on preparations."
+   }
+  }
+ ]
+}

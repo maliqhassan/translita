@@ -1,0 +1,366 @@
+{
+ "title": "Opinions and Experiences",
+ "lessons": [
+  {
+   "title": "Talking About Likes",
+   "items": [
+    {
+     "text": "Ich mag das.",
+     "meaning": "I like that.",
+     "example": "Ich mag das Wetter.",
+     "exampleMeaning": "I like the weather."
+    },
+    {
+     "text": "Ich liebe es.",
+     "meaning": "I love it.",
+     "example": "Ich liebe die Musik.",
+     "exampleMeaning": "I love the music."
+    },
+    {
+     "text": "Ich finde das gut.",
+     "meaning": "I think that's good.",
+     "example": "Ich finde das Essen gut.",
+     "exampleMeaning": "I think the food is good."
+    },
+    {
+     "text": "Ich mag nicht.",
+     "meaning": "I don't like.",
+     "example": "Ich mag die Kälte nicht.",
+     "exampleMeaning": "I don't like the cold."
+    },
+    {
+     "text": "Ich hasse es.",
+     "meaning": "I hate it.",
+     "example": "Ich hasse den Regen.",
+     "exampleMeaning": "I hate the rain."
+    },
+    {
+     "text": "Was denkst du?",
+     "meaning": "What do you think?",
+     "example": "Was denkst du über das Buch?",
+     "exampleMeaning": "What do you think about the book?"
+    }
+   ],
+   "tip": "In German, 'mögen' is used for likes and dislikes. For stronger feelings, use 'lieben' for love and 'hassen' for hate. Remember to use the correct verb form based on the subject.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich mag das Wetter.",
+     "meaning": "I like the weather."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich liebe es!",
+     "meaning": "I love it!"
+    },
+    {
+     "speaker": "A",
+     "text": "Ich finde das gut.",
+     "meaning": "I think that's good."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich mag die Kälte nicht.",
+     "meaning": "I don't like the cold."
+    },
+    {
+     "speaker": "A",
+     "text": "Was denkst du über den Regen?",
+     "meaning": "What do you think about the rain?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hasse den Regen.",
+     "meaning": "I hate the rain."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who shares opinions about the weather and seasons",
+    "learnerRole": "someone expressing their likes and dislikes",
+    "brief": "Talk about the weather and your feelings about it. Ask questions about your partner's opinions.",
+    "goal": "You should express your likes and dislikes about the weather."
+   }
+  },
+  {
+   "title": "Sharing Experiences",
+   "items": [
+    {
+     "text": "Ich habe gegessen.",
+     "meaning": "I ate.",
+     "example": "Ich habe gestern gegessen.",
+     "exampleMeaning": "I ate yesterday."
+    },
+    {
+     "text": "Ich habe gesehen.",
+     "meaning": "I saw.",
+     "example": "Ich habe einen Film gesehen.",
+     "exampleMeaning": "I saw a movie."
+    },
+    {
+     "text": "Ich habe gemacht.",
+     "meaning": "I did.",
+     "example": "Ich habe meine Hausaufgaben gemacht.",
+     "exampleMeaning": "I did my homework."
+    },
+    {
+     "text": "Ich bin gegangen.",
+     "meaning": "I went.",
+     "example": "Ich bin heute gegangen.",
+     "exampleMeaning": "I went today."
+    },
+    {
+     "text": "Ich habe gelernt.",
+     "meaning": "I learned.",
+     "example": "Ich habe Deutsch gelernt.",
+     "exampleMeaning": "I learned German."
+    },
+    {
+     "text": "Wie war es?",
+     "meaning": "How was it?",
+     "example": "Wie war der Film?",
+     "exampleMeaning": "How was the movie?"
+    }
+   ],
+   "tip": "The past tense in German often uses the auxiliary verbs 'haben' or 'sein' with the past participle. Pay attention to which verb to use with each action.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich habe einen Film gesehen.",
+     "meaning": "I saw a movie."
+    },
+    {
+     "speaker": "B",
+     "text": "Wie war es?",
+     "meaning": "How was it?"
+    },
+    {
+     "speaker": "A",
+     "text": "Es war spannend!",
+     "meaning": "It was exciting!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe auch einen Film gesehen.",
+     "meaning": "I also saw a movie."
+    },
+    {
+     "speaker": "A",
+     "text": "Was hast du gemacht?",
+     "meaning": "What did you do?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe gegessen.",
+     "meaning": "I ate."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who has seen a movie and shared experiences",
+    "learnerRole": "someone sharing their past experiences",
+    "brief": "Discuss what you and your partner have done recently. Ask about their experiences.",
+    "goal": "You should share your past experiences and ask about theirs."
+   }
+  },
+  {
+   "title": "Expressing Opinions",
+   "items": [
+    {
+     "text": "Ich denke, dass...",
+     "meaning": "I think that...",
+     "example": "Ich denke, dass das Wetter schön ist.",
+     "exampleMeaning": "I think that the weather is nice."
+    },
+    {
+     "text": "Meiner Meinung nach...",
+     "meaning": "In my opinion...",
+     "example": "Meiner Meinung nach ist der Film langweilig.",
+     "exampleMeaning": "In my opinion, the movie is boring."
+    },
+    {
+     "text": "Ich finde, dass...",
+     "meaning": "I find that...",
+     "example": "Ich finde, dass das Essen lecker ist.",
+     "exampleMeaning": "I find that the food is delicious."
+    },
+    {
+     "text": "Ich glaube, dass...",
+     "meaning": "I believe that...",
+     "example": "Ich glaube, dass es morgen regnet.",
+     "exampleMeaning": "I believe that it will rain tomorrow."
+    },
+    {
+     "text": "Das ist interessant.",
+     "meaning": "That is interesting.",
+     "example": "Das ist interessant für mich.",
+     "exampleMeaning": "That is interesting to me."
+    },
+    {
+     "text": "Was meinst du?",
+     "meaning": "What do you mean?",
+     "example": "Was meinst du über den Film?",
+     "exampleMeaning": "What do you mean about the movie?"
+    }
+   ],
+   "tip": "Use phrases like 'Ich denke, dass...' to express your opinion. 'Meiner Meinung nach...' is another way to start your opinion.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich finde, dass das Essen lecker ist.",
+     "meaning": "I find that the food is delicious."
+    },
+    {
+     "speaker": "B",
+     "text": "Meiner Meinung nach ist der Film langweilig.",
+     "meaning": "In my opinion, the movie is boring."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich denke, dass das Wetter schön ist.",
+     "meaning": "I think that the weather is nice."
+    },
+    {
+     "speaker": "B",
+     "text": "Was meinst du über das Wetter?",
+     "meaning": "What do you mean about the weather?"
+    },
+    {
+     "speaker": "A",
+     "text": "Das ist interessant.",
+     "meaning": "That is interesting."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich glaube, dass es morgen regnet.",
+     "meaning": "I believe that it will rain tomorrow."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who shares opinions on various topics",
+    "learnerRole": "someone giving their opinion",
+    "brief": "Discuss your opinions about food, movies, and weather.",
+    "goal": "You should express your opinions and ask for theirs."
+   }
+  },
+  {
+   "title": "Likes, Dislikes, and Experiences",
+   "items": [
+    {
+     "text": "Ich mochte das.",
+     "meaning": "I liked that.",
+     "example": "Ich mochte das Buch.",
+     "exampleMeaning": "I liked the book."
+    },
+    {
+     "text": "Ich fand es toll.",
+     "meaning": "I found it great.",
+     "example": "Ich fand es toll, dass du gekommen bist.",
+     "exampleMeaning": "I found it great that you came."
+    },
+    {
+     "text": "Ich habe es genossen.",
+     "meaning": "I enjoyed it.",
+     "example": "Ich habe das Essen genossen.",
+     "exampleMeaning": "I enjoyed the food."
+    },
+    {
+     "text": "Ich habe es nicht gemocht.",
+     "meaning": "I didn't like it.",
+     "example": "Ich habe den Film nicht gemocht.",
+     "exampleMeaning": "I didn't like the movie."
+    },
+    {
+     "text": "Es war nicht gut.",
+     "meaning": "It was not good.",
+     "example": "Es war nicht gut, das zu hören.",
+     "exampleMeaning": "It was not good to hear that."
+    },
+    {
+     "text": "Was hast du gedacht?",
+     "meaning": "What did you think?",
+     "example": "Was hast du über das Konzert gedacht?",
+     "exampleMeaning": "What did you think about the concert?"
+    }
+   ],
+   "tip": "When talking about past experiences, use the past tense forms of verbs. Remember to express your feelings clearly using 'mochte' and 'fand'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich mochte das Buch.",
+     "meaning": "I liked the book."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich fand es toll, dass du gekommen bist.",
+     "meaning": "I found it great that you came."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich habe es genossen.",
+     "meaning": "I enjoyed it."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich habe den Film nicht gemocht.",
+     "meaning": "I didn't like the movie."
+    },
+    {
+     "speaker": "A",
+     "text": "Es war nicht gut, das zu hören.",
+     "meaning": "It was not good to hear that."
+    },
+    {
+     "speaker": "B",
+     "text": "Was hast du über das Konzert gedacht?",
+     "meaning": "What did you think about the concert?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who shares experiences and opinions",
+    "learnerRole": "someone reflecting on experiences and feelings",
+    "brief": "Share your experiences and feelings about books, movies, and concerts.",
+    "goal": "You should express your likes and dislikes and ask for their thoughts."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Opinions and Experiences",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Ich mag die Musik.",
+    "meaning": "I like the music."
+   },
+   {
+    "speaker": "B",
+    "text": "Ich finde, dass sie toll ist.",
+    "meaning": "I think that it is great."
+   },
+   {
+    "speaker": "A",
+    "text": "Ich habe ein gutes Buch gelesen.",
+    "meaning": "I read a good book."
+   },
+   {
+    "speaker": "B",
+    "text": "Wie war es?",
+    "meaning": "How was it?"
+   },
+   {
+    "speaker": "A",
+    "text": "Es war interessant und spannend.",
+    "meaning": "It was interesting and exciting."
+   },
+   {
+    "speaker": "B",
+    "text": "Ich mochte den Film, den ich gesehen habe.",
+    "meaning": "I liked the movie that I saw."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a friend discussing various experiences and opinions",
+   "learnerRole": "someone sharing their thoughts and experiences",
+   "brief": "Discuss your opinions about music, books, and movies. Share your experiences and ask questions.",
+   "goal": "You should express your feelings and ask for their opinions."
+  }
+ }
+}

@@ -1,0 +1,418 @@
+{
+ "id": "c05",
+ "number": 5,
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "id": "c05-d1",
+   "day": 21,
+   "title": "Telling the Time",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d1-i1",
+     "text": "Es ist...",
+     "meaning": "It is...",
+     "example": "Es ist drei Uhr.",
+     "exampleMeaning": "It is three o'clock."
+    },
+    {
+     "id": "c05-d1-i2",
+     "text": "Viertel",
+     "meaning": "quarter",
+     "example": "Es ist Viertel nach zwei.",
+     "exampleMeaning": "It is a quarter past two."
+    },
+    {
+     "id": "c05-d1-i3",
+     "text": "Halb",
+     "meaning": "half",
+     "example": "Es ist halb vier.",
+     "exampleMeaning": "It is half past three."
+    },
+    {
+     "id": "c05-d1-i4",
+     "text": "Uhr",
+     "meaning": "o'clock",
+     "example": "Es ist fünf Uhr.",
+     "exampleMeaning": "It is five o'clock."
+    },
+    {
+     "id": "c05-d1-i5",
+     "text": "Nachmittag",
+     "meaning": "afternoon",
+     "example": "Guten Nachmittag!",
+     "exampleMeaning": "Good afternoon!"
+    },
+    {
+     "id": "c05-d1-i6",
+     "text": "Abend",
+     "meaning": "evening",
+     "example": "Guten Abend!",
+     "exampleMeaning": "Good evening!"
+    }
+   ],
+   "tip": "In German, we say 'Es ist...' to tell the time. Use 'nach' for past and 'halb' for half past.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie spät ist es?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es ist drei Uhr.",
+     "meaning": "It is three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Und wie spät ist es am Nachmittag?",
+     "meaning": "And what time is it in the afternoon?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es ist Viertel nach zwei.",
+     "meaning": "It is a quarter past two."
+    },
+    {
+     "speaker": "A",
+     "text": "Guten Abend!",
+     "meaning": "Good evening!"
+    },
+    {
+     "speaker": "B",
+     "text": "Guten Abend! Es ist halb vier.",
+     "meaning": "Good evening! It is half past three."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A local who can help with directions.",
+    "learnerRole": "You are asking for the time and greeting the local.",
+    "brief": "Ask the local what time it is and greet them. Use the phrases you learned about telling the time.",
+    "goal": "You need to know the time."
+   }
+  },
+  {
+   "id": "c05-d2",
+   "day": 22,
+   "title": "Buying Tickets",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d2-i1",
+     "text": "Ein Ticket, bitte.",
+     "meaning": "A ticket, please.",
+     "example": "Ich möchte ein Ticket nach Berlin.",
+     "exampleMeaning": "I would like a ticket to Berlin."
+    },
+    {
+     "id": "c05-d2-i2",
+     "text": "Wie viel kostet das Ticket?",
+     "meaning": "How much does the ticket cost?",
+     "example": "Wie viel kostet das Ticket nach München?",
+     "exampleMeaning": "How much does the ticket to Munich cost?"
+    },
+    {
+     "id": "c05-d2-i3",
+     "text": "Ich möchte ein Ticket für den Zug.",
+     "meaning": "I would like a ticket for the train.",
+     "example": "Ich möchte ein Ticket für den Zug nach Frankfurt.",
+     "exampleMeaning": "I would like a ticket for the train to Frankfurt."
+    },
+    {
+     "id": "c05-d2-i4",
+     "text": "Fahrkarte",
+     "meaning": "fare ticket",
+     "example": "Haben Sie eine Fahrkarte?",
+     "exampleMeaning": "Do you have a fare ticket?"
+    },
+    {
+     "id": "c05-d2-i5",
+     "text": "Gibt es Ermäßigungen?",
+     "meaning": "Are there discounts?",
+     "example": "Gibt es Ermäßigungen für Studenten?",
+     "exampleMeaning": "Are there discounts for students?"
+    },
+    {
+     "id": "c05-d2-i6",
+     "text": "Der Fahrplan",
+     "meaning": "the timetable",
+     "example": "Wo ist der Fahrplan?",
+     "exampleMeaning": "Where is the timetable?"
+    }
+   ],
+   "tip": "When buying a ticket, use 'Ein Ticket, bitte.' to make a polite request. Asking about prices is important.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Möchten Sie ein Ticket?",
+     "meaning": "Would you like a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ein Ticket, bitte.",
+     "meaning": "Yes, a ticket, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Wie viel kostet das Ticket nach Berlin?",
+     "meaning": "How much does the ticket to Berlin cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich möchte ein Ticket für den Zug.",
+     "meaning": "I would like a ticket for the train."
+    },
+    {
+     "speaker": "A",
+     "text": "Gibt es Ermäßigungen?",
+     "meaning": "Are there discounts?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, für Studenten gibt es Ermäßigungen.",
+     "meaning": "Yes, there are discounts for students."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A ticket seller at a train station.",
+    "learnerRole": "You are buying a ticket.",
+    "brief": "Ask the ticket seller for a ticket and inquire about the price and discounts.",
+    "goal": "You need to buy a ticket."
+   }
+  },
+  {
+   "id": "c05-d3",
+   "day": 23,
+   "title": "Using the Present Tense",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d3-i1",
+     "text": "Ich fahre",
+     "meaning": "I drive/go",
+     "example": "Ich fahre mit dem Bus.",
+     "exampleMeaning": "I go by bus."
+    },
+    {
+     "id": "c05-d3-i2",
+     "text": "Du fährst",
+     "meaning": "You drive/go (informal)",
+     "example": "Du fährst nach Hause.",
+     "exampleMeaning": "You go home."
+    },
+    {
+     "id": "c05-d3-i3",
+     "text": "Er fährt",
+     "meaning": "He drives/goes",
+     "example": "Er fährt zur Arbeit.",
+     "exampleMeaning": "He goes to work."
+    },
+    {
+     "id": "c05-d3-i4",
+     "text": "Wir fahren",
+     "meaning": "We drive/go",
+     "example": "Wir fahren nach Berlin.",
+     "exampleMeaning": "We go to Berlin."
+    },
+    {
+     "id": "c05-d3-i5",
+     "text": "Sie fahren",
+     "meaning": "They drive/go",
+     "example": "Sie fahren mit dem Zug.",
+     "exampleMeaning": "They go by train."
+    },
+    {
+     "id": "c05-d3-i6",
+     "text": "Ich gehe",
+     "meaning": "I walk/go",
+     "example": "Ich gehe ins Kino.",
+     "exampleMeaning": "I go to the cinema."
+    }
+   ],
+   "tip": "In German, the verb changes based on the subject. 'Ich' means 'I', 'Du' means 'you (informal)', 'Er' means 'he', 'Wir' means 'we', and 'Sie' means 'they'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo fährst du hin?",
+     "meaning": "Where are you going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich fahre nach Berlin.",
+     "meaning": "I am going to Berlin."
+    },
+    {
+     "speaker": "A",
+     "text": "Wie fährst du?",
+     "meaning": "How are you going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich fahre mit dem Bus.",
+     "meaning": "I go by bus."
+    },
+    {
+     "speaker": "A",
+     "text": "Wo geht ihr hin?",
+     "meaning": "Where are you going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Wir gehen ins Kino.",
+     "meaning": "We are going to the cinema."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who is curious about your travel plans.",
+    "learnerRole": "You are explaining your travel plans.",
+    "brief": "Tell your friend where you are going and how you will get there.",
+    "goal": "You need to explain your travel plans."
+   }
+  },
+  {
+   "id": "c05-d4",
+   "day": 24,
+   "title": "Combining Everything",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d4-i1",
+     "text": "Wann?",
+     "meaning": "When?",
+     "example": "Wann fährst du nach Berlin?",
+     "exampleMeaning": "When are you going to Berlin?"
+    },
+    {
+     "id": "c05-d4-i2",
+     "text": "Woher?",
+     "meaning": "From where?",
+     "example": "Woher kommst du?",
+     "exampleMeaning": "From where do you come?"
+    },
+    {
+     "id": "c05-d4-i3",
+     "text": "Ich komme um...",
+     "meaning": "I arrive at...",
+     "example": "Ich komme um fünf Uhr an.",
+     "exampleMeaning": "I arrive at five o'clock."
+    },
+    {
+     "id": "c05-d4-i4",
+     "text": "Das ist toll!",
+     "meaning": "That is great!",
+     "example": "Das ist toll, dass du fährst!",
+     "exampleMeaning": "That is great that you are going!"
+    },
+    {
+     "id": "c05-d4-i5",
+     "text": "Ich habe ein Ticket.",
+     "meaning": "I have a ticket.",
+     "example": "Ich habe ein Ticket nach München.",
+     "exampleMeaning": "I have a ticket to Munich."
+    },
+    {
+     "id": "c05-d4-i6",
+     "text": "Ich bin bereit.",
+     "meaning": "I am ready.",
+     "example": "Ich bin bereit zu fahren.",
+     "exampleMeaning": "I am ready to go."
+    }
+   ],
+   "tip": "Asking 'Wann?' means you want to know the time of an event. Use 'Ich habe ein Ticket.' to confirm that you have a ticket.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wann fährst du nach München?",
+     "meaning": "When are you going to Munich?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich komme um fünf Uhr an.",
+     "meaning": "I arrive at five o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du ein Ticket?",
+     "meaning": "Do you have a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe ein Ticket nach München.",
+     "meaning": "Yes, I have a ticket to Munich."
+    },
+    {
+     "speaker": "A",
+     "text": "Das ist toll!",
+     "meaning": "That is great!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich bin bereit zu fahren.",
+     "meaning": "I am ready to go."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who is planning a trip.",
+    "learnerRole": "You are discussing your travel plans.",
+    "brief": "Share your travel details with your friend, including the time and your ticket status.",
+    "goal": "You need to share your travel plans."
+   }
+  },
+  {
+   "id": "c05-d5",
+   "day": 25,
+   "title": "Chapter Review: Getting Around",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie spät ist es?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es ist drei Uhr.",
+     "meaning": "It is three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Hast du ein Ticket?",
+     "meaning": "Do you have a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich habe ein Ticket nach Berlin.",
+     "meaning": "Yes, I have a ticket to Berlin."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich fahre um fünf Uhr.",
+     "meaning": "I am going at five o'clock."
+    },
+    {
+     "speaker": "B",
+     "text": "Wie viel kostet das Ticket?",
+     "meaning": "How much does the ticket cost?"
+    },
+    {
+     "speaker": "A",
+     "text": "Das Ticket kostet zehn Euro.",
+     "meaning": "The ticket costs ten euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Das ist toll!",
+     "meaning": "That is great!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who is curious about your travel plans.",
+    "learnerRole": "You are discussing your travel plans and time with your friend.",
+    "brief": "Ask your friend about the time, ticket status, and travel plans.",
+    "goal": "You need to confirm your travel arrangements."
+   }
+  }
+ ]
+}

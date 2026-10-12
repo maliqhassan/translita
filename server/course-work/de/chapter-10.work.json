@@ -1,0 +1,366 @@
+{
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "title": "Making polite requests",
+   "items": [
+    {
+     "text": "Könnten Sie bitte...",
+     "meaning": "Could you please...",
+     "example": "Könnten Sie bitte langsamer sprechen?",
+     "exampleMeaning": "Could you please speak more slowly?"
+    },
+    {
+     "text": "Ich möchte...",
+     "meaning": "I would like...",
+     "example": "Ich möchte eine Nachricht hinterlassen.",
+     "exampleMeaning": "I would like to leave a message."
+    },
+    {
+     "text": "Dürfte ich bitte...",
+     "meaning": "May I please...",
+     "example": "Dürfte ich bitte einen Moment Ihrer Zeit haben?",
+     "exampleMeaning": "May I please have a moment of your time?"
+    },
+    {
+     "text": "Ich benötige...",
+     "meaning": "I need...",
+     "example": "Ich benötige Ihre Hilfe.",
+     "exampleMeaning": "I need your help."
+    },
+    {
+     "text": "Wäre es möglich, dass...",
+     "meaning": "Would it be possible that...",
+     "example": "Wäre es möglich, dass Sie mir die Unterlagen schicken?",
+     "exampleMeaning": "Would it be possible for you to send me the documents?"
+    },
+    {
+     "text": "Würden Sie bitte...",
+     "meaning": "Would you please...",
+     "example": "Würden Sie bitte wiederholen?",
+     "exampleMeaning": "Would you please repeat?"
+    }
+   ],
+   "tip": "Use 'Könnten Sie bitte...' for polite requests. This is a common way to ask someone to do something politely in German.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Könnten Sie bitte langsamer sprechen?",
+     "meaning": "Could you please speak more slowly?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, kein Problem! Ich möchte eine Nachricht hinterlassen.",
+     "meaning": "Yes, no problem! I would like to leave a message."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie die Telefonnummer?",
+     "meaning": "Do you have the phone number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, ich benötige Ihre Hilfe.",
+     "meaning": "Yes, I need your help."
+    },
+    {
+     "speaker": "A",
+     "text": "Könnte ich mit Herrn Müller sprechen?",
+     "meaning": "Could I speak with Mr. Müller?"
+    },
+    {
+     "speaker": "B",
+     "text": "Würden Sie bitte wiederholen?",
+     "meaning": "Would you please repeat?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a receptionist answering a call.",
+    "learnerRole": "You are the caller trying to leave a message.",
+    "brief": "Ask for the person you want to speak to and leave a message.",
+    "goal": "You need to leave a clear message."
+   }
+  },
+  {
+   "title": "Spelling names",
+   "items": [
+    {
+     "text": "Wie buchstabiert man...?",
+     "meaning": "How do you spell...?",
+     "example": "Wie buchstabiert man Ihren Namen?",
+     "exampleMeaning": "How do you spell your name?"
+    },
+    {
+     "text": "Das ist...",
+     "meaning": "That is...",
+     "example": "Das ist mein Name: Schmidt.",
+     "exampleMeaning": "That is my name: Schmidt."
+    },
+    {
+     "text": "Sprechen Sie bitte...",
+     "meaning": "Please say...",
+     "example": "Sprechen Sie bitte langsam.",
+     "exampleMeaning": "Please say it slowly."
+    },
+    {
+     "text": "Ich schreibe...",
+     "meaning": "I write...",
+     "example": "Ich schreibe es auf.",
+     "exampleMeaning": "I write it down."
+    },
+    {
+     "text": "Könnten Sie wiederholen?",
+     "meaning": "Could you repeat?",
+     "example": "Könnten Sie das bitte wiederholen?",
+     "exampleMeaning": "Could you please repeat that?"
+    },
+    {
+     "text": "Ich verstehe nicht.",
+     "meaning": "I do not understand.",
+     "example": "Es tut mir leid, ich verstehe nicht.",
+     "exampleMeaning": "I'm sorry, I do not understand."
+    }
+   ],
+   "tip": "When spelling names, use 'Wie buchstabiert man...?' to ask how to spell something. This is very helpful in conversations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie buchstabiert man Ihren Namen?",
+     "meaning": "How do you spell your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das ist mein Name: Schmidt.",
+     "meaning": "That is my name: Schmidt."
+    },
+    {
+     "speaker": "A",
+     "text": "Sprechen Sie bitte langsam.",
+     "meaning": "Please say it slowly."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich schreibe es auf.",
+     "meaning": "I write it down."
+    },
+    {
+     "speaker": "A",
+     "text": "Könnten Sie das bitte wiederholen?",
+     "meaning": "Could you please repeat that?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es tut mir leid, ich verstehe nicht.",
+     "meaning": "I'm sorry, I do not understand."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a person on the phone giving your name.",
+    "learnerRole": "You are trying to understand the spelling of the name.",
+    "brief": "Ask how to spell the name and clarify if needed.",
+    "goal": "You need to correctly spell the name."
+   }
+  },
+  {
+   "title": "Leaving messages",
+   "items": [
+    {
+     "text": "Ich möchte eine Nachricht hinterlassen.",
+     "meaning": "I would like to leave a message.",
+     "example": "Ich möchte eine Nachricht für Frau Müller hinterlassen.",
+     "exampleMeaning": "I would like to leave a message for Mrs. Müller."
+    },
+    {
+     "text": "Bitte rufen Sie zurück.",
+     "meaning": "Please call back.",
+     "example": "Bitte rufen Sie mich zurück.",
+     "exampleMeaning": "Please call me back."
+    },
+    {
+     "text": "Ich warte auf Ihren Anruf.",
+     "meaning": "I am waiting for your call.",
+     "example": "Ich warte auf Ihren Anruf.",
+     "exampleMeaning": "I am waiting for your call."
+    },
+    {
+     "text": "Es ist wichtig.",
+     "meaning": "It is important.",
+     "example": "Es ist wichtig, dass Sie anrufen.",
+     "exampleMeaning": "It is important that you call."
+    },
+    {
+     "text": "Wann kann ich Sie erreichen?",
+     "meaning": "When can I reach you?",
+     "example": "Wann kann ich Sie erreichen?",
+     "exampleMeaning": "When can I reach you?"
+    },
+    {
+     "text": "Ich hoffe, Sie haben einen schönen Tag.",
+     "meaning": "I hope you have a nice day.",
+     "example": "Ich hoffe, Sie haben einen schönen Tag.",
+     "exampleMeaning": "I hope you have a nice day."
+    }
+   ],
+   "tip": "When leaving a message, use 'Ich möchte eine Nachricht hinterlassen.' This makes it clear that you want to leave information for someone.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich möchte eine Nachricht für Frau Müller hinterlassen.",
+     "meaning": "I would like to leave a message for Mrs. Müller."
+    },
+    {
+     "speaker": "B",
+     "text": "Bitte rufen Sie mich zurück.",
+     "meaning": "Please call me back."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich warte auf Ihren Anruf.",
+     "meaning": "I am waiting for your call."
+    },
+    {
+     "speaker": "B",
+     "text": "Es ist wichtig, dass Sie anrufen.",
+     "meaning": "It is important that you call."
+    },
+    {
+     "speaker": "A",
+     "text": "Wann kann ich Sie erreichen?",
+     "meaning": "When can I reach you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hoffe, Sie haben einen schönen Tag.",
+     "meaning": "I hope you have a nice day."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are leaving a message for someone.",
+    "learnerRole": "You are the person receiving the message.",
+    "brief": "Ask for details about the message and when to call back.",
+    "goal": "You need to leave a complete message."
+   }
+  },
+  {
+   "title": "Taking messages",
+   "items": [
+    {
+     "text": "Wer spricht dort?",
+     "meaning": "Who is speaking there?",
+     "example": "Wer spricht dort am Telefon?",
+     "exampleMeaning": "Who is speaking there on the phone?"
+    },
+    {
+     "text": "Ich nehme die Nachricht entgegen.",
+     "meaning": "I am taking the message.",
+     "example": "Ich nehme die Nachricht entgegen.",
+     "exampleMeaning": "I am taking the message."
+    },
+    {
+     "text": "Ich werde es weitergeben.",
+     "meaning": "I will pass it on.",
+     "example": "Ich werde es weitergeben.",
+     "exampleMeaning": "I will pass it on."
+    },
+    {
+     "text": "Möchten Sie etwas hinzufügen?",
+     "meaning": "Would you like to add something?",
+     "example": "Möchten Sie etwas zur Nachricht hinzufügen?",
+     "exampleMeaning": "Would you like to add something to the message?"
+    },
+    {
+     "text": "Ich notiere das.",
+     "meaning": "I am noting that down.",
+     "example": "Ich notiere das für Sie.",
+     "exampleMeaning": "I am noting that down for you."
+    },
+    {
+     "text": "Vielen Dank für Ihre Nachricht.",
+     "meaning": "Thank you for your message.",
+     "example": "Vielen Dank für Ihre Nachricht.",
+     "exampleMeaning": "Thank you for your message."
+    }
+   ],
+   "tip": "Use 'Wer spricht dort?' to ask who is on the line. This is a polite way to identify the caller.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wer spricht dort am Telefon?",
+     "meaning": "Who is speaking there on the phone?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich bin es, Anna.",
+     "meaning": "It's me, Anna."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich nehme die Nachricht entgegen.",
+     "meaning": "I am taking the message."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich möchte eine Nachricht für Herrn Schmidt hinterlassen.",
+     "meaning": "I would like to leave a message for Mr. Schmidt."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich werde es weitergeben.",
+     "meaning": "I will pass it on."
+    },
+    {
+     "speaker": "B",
+     "text": "Vielen Dank für Ihre Nachricht.",
+     "meaning": "Thank you for your message."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are taking a message for someone else.",
+    "learnerRole": "You are the caller leaving a message.",
+    "brief": "Ask for the caller's name and message details.",
+    "goal": "You need to leave a clear and complete message."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Phone calls and messages",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Ich hoffe, Sie haben einen schönen Tag.",
+    "meaning": "I hope you have a nice day."
+   },
+   {
+    "speaker": "B",
+    "text": "Ich möchte eine Nachricht hinterlassen.",
+    "meaning": "I would like to leave a message."
+   },
+   {
+    "speaker": "A",
+    "text": "Wer spricht dort am Telefon?",
+    "meaning": "Who is speaking there on the phone?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich bin es, Anna.",
+    "meaning": "It's me, Anna."
+   },
+   {
+    "speaker": "A",
+    "text": "Ich nehme die Nachricht entgegen.",
+    "meaning": "I am taking the message."
+   },
+   {
+    "speaker": "B",
+    "text": "Könnten Sie bitte wiederholen?",
+    "meaning": "Could you please repeat?"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are taking a call and leaving a message.",
+   "learnerRole": "You are the caller trying to leave a message.",
+   "brief": "You will ask for the name and leave a message.",
+   "goal": "You need to practice both roles."
+  }
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "title": "At the airport",
+ "lessons": [
+  {
+   "title": "What Would You Like?",
+   "items": [
+    {
+     "text": "Me gustaría un asiento junto a la ventana.",
+     "meaning": "I would like a window seat.",
+     "example": "Me gustaría un asiento junto a la ventana.",
+     "exampleMeaning": "I would like a window seat."
+    },
+    {
+     "text": "Quisiera un refresco, por favor.",
+     "meaning": "I would like a soft drink, please.",
+     "example": "Quisiera un refresco, por favor.",
+     "exampleMeaning": "I would like a soft drink, please."
+    },
+    {
+     "text": "¿Puedo tener un menú?",
+     "meaning": "Can I have a menu?",
+     "example": "¿Puedo tener un menú?",
+     "exampleMeaning": "Can I have a menu?"
+    },
+    {
+     "text": "Me gustaría cambiar mi vuelo.",
+     "meaning": "I would like to change my flight.",
+     "example": "Me gustaría cambiar mi vuelo.",
+     "exampleMeaning": "I would like to change my flight."
+    },
+    {
+     "text": "Quisiera una almohada, por favor.",
+     "meaning": "I would like a pillow, please.",
+     "example": "Quisiera una almohada, por favor.",
+     "exampleMeaning": "I would like a pillow, please."
+    },
+    {
+     "text": "¿Puedo pedir un taxi?",
+     "meaning": "Can I order a taxi?",
+     "example": "¿Puedo pedir un taxi?",
+     "exampleMeaning": "Can I order a taxi?"
+    }
+   ],
+   "tip": "Use 'me gustaría' or 'quisiera' to express what you would like. Both phrases are polite ways to make requests.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué te gustaría pedir?",
+     "meaning": "What would you like to order?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me gustaría un asiento junto a la ventana.",
+     "meaning": "I would like a window seat."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y para beber?",
+     "meaning": "And to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quisiera un refresco, por favor.",
+     "meaning": "I would like a soft drink, please."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Puedo ofrecerte un menú?",
+     "meaning": "Can I offer you a menu?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, por favor. ¿Puedo tener un menú?",
+     "meaning": "Yes, please. Can I have a menu?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a flight attendant at an airport.",
+    "learnerRole": "You are a passenger ordering items.",
+    "brief": "Ask the passenger what they would like to order. Offer them a menu and take their requests.",
+    "goal": "You need to order a drink and a seat."
+   }
+  },
+  {
+   "title": "Travel Documents",
+   "items": [
+    {
+     "text": "¿Dónde está mi pasaporte?",
+     "meaning": "Where is my passport?",
+     "example": "¿Dónde está mi pasaporte?",
+     "exampleMeaning": "Where is my passport?"
+    },
+    {
+     "text": "Necesito mi tarjeta de embarque.",
+     "meaning": "I need my boarding pass.",
+     "example": "Necesito mi tarjeta de embarque.",
+     "exampleMeaning": "I need my boarding pass."
+    },
+    {
+     "text": "Aquí está mi identificación.",
+     "meaning": "Here is my ID.",
+     "example": "Aquí está mi identificación.",
+     "exampleMeaning": "Here is my ID."
+    },
+    {
+     "text": "¿Tienes tu visa?",
+     "meaning": "Do you have your visa?",
+     "example": "¿Tienes tu visa?",
+     "exampleMeaning": "Do you have your visa?"
+    },
+    {
+     "text": "Mi vuelo sale en una hora.",
+     "meaning": "My flight leaves in an hour.",
+     "example": "Mi vuelo sale en una hora.",
+     "exampleMeaning": "My flight leaves in an hour."
+    },
+    {
+     "text": "¿Dónde puedo imprimir mi tarjeta de embarque?",
+     "meaning": "Where can I print my boarding pass?",
+     "example": "¿Dónde puedo imprimir mi tarjeta de embarque?",
+     "exampleMeaning": "Where can I print my boarding pass?"
+    }
+   ],
+   "tip": "Use '¿Dónde está?' to ask where something is. It's a useful phrase when looking for your things.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Dónde está tu pasaporte?",
+     "meaning": "Where is your passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "No lo sé. ¿Dónde está mi pasaporte?",
+     "meaning": "I don't know. Where is my passport?"
+    },
+    {
+     "speaker": "A",
+     "text": "Necesitas tu tarjeta de embarque.",
+     "meaning": "You need your boarding pass."
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, necesito mi tarjeta de embarque.",
+     "meaning": "Yes, I need my boarding pass."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes tu visa?",
+     "meaning": "Do you have your visa?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, aquí está mi identificación.",
+     "meaning": "Yes, here is my ID."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a customs officer at the airport.",
+    "learnerRole": "You are a traveler showing documents.",
+    "brief": "Ask the traveler for their documents and check if they have everything needed.",
+    "goal": "You need to present your travel documents."
+   }
+  },
+  {
+   "title": "Asking Questions",
+   "items": [
+    {
+     "text": "¿A qué hora sale el vuelo?",
+     "meaning": "What time does the flight leave?",
+     "example": "¿A qué hora sale el vuelo?",
+     "exampleMeaning": "What time does the flight leave?"
+    },
+    {
+     "text": "¿Dónde está la puerta de embarque?",
+     "meaning": "Where is the boarding gate?",
+     "example": "¿Dónde está la puerta de embarque?",
+     "exampleMeaning": "Where is the boarding gate?"
+    },
+    {
+     "text": "¿Cuánto tiempo dura el vuelo?",
+     "meaning": "How long is the flight?",
+     "example": "¿Cuánto tiempo dura el vuelo?",
+     "exampleMeaning": "How long is the flight?"
+    },
+    {
+     "text": "¿Hay un retraso?",
+     "meaning": "Is there a delay?",
+     "example": "¿Hay un retraso?",
+     "exampleMeaning": "Is there a delay?"
+    },
+    {
+     "text": "¿Puedo cambiar mi asiento?",
+     "meaning": "Can I change my seat?",
+     "example": "¿Puedo cambiar mi asiento?",
+     "exampleMeaning": "Can I change my seat?"
+    },
+    {
+     "text": "¿Cuándo es la llegada?",
+     "meaning": "When is the arrival?",
+     "example": "¿Cuándo es la llegada?",
+     "exampleMeaning": "When is the arrival?"
+    }
+   ],
+   "tip": "Questions in Spanish often start with '¿'. Remember to use the correct word order for questions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿A qué hora sale el vuelo?",
+     "meaning": "What time does the flight leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sale a las tres.",
+     "meaning": "It leaves at three."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Dónde está la puerta de embarque?",
+     "meaning": "Where is the boarding gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "La puerta de embarque está a la derecha.",
+     "meaning": "The boarding gate is to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuánto tiempo dura el vuelo?",
+     "meaning": "How long is the flight?"
+    },
+    {
+     "speaker": "B",
+     "text": "Dura cinco horas.",
+     "meaning": "It lasts five hours."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are an airport staff member.",
+    "learnerRole": "You are a passenger asking questions.",
+    "brief": "Ask the passenger questions about their flight and provide information.",
+    "goal": "You need to ask about your flight details."
+   }
+  },
+  {
+   "title": "Confirming Details",
+   "items": [
+    {
+     "text": "Sí, tengo mi pasaporte.",
+     "meaning": "Yes, I have my passport.",
+     "example": "Sí, tengo mi pasaporte.",
+     "exampleMeaning": "Yes, I have my passport."
+    },
+    {
+     "text": "No, no tengo mi visa.",
+     "meaning": "No, I do not have my visa.",
+     "example": "No, no tengo mi visa.",
+     "exampleMeaning": "No, I do not have my visa."
+    },
+    {
+     "text": "Sí, mi vuelo sale en una hora.",
+     "meaning": "Yes, my flight leaves in an hour.",
+     "example": "Sí, mi vuelo sale en una hora.",
+     "exampleMeaning": "Yes, my flight leaves in an hour."
+    },
+    {
+     "text": "Sí, puedo cambiar mi asiento.",
+     "meaning": "Yes, I can change my seat.",
+     "example": "Sí, puedo cambiar mi asiento.",
+     "exampleMeaning": "Yes, I can change my seat."
+    },
+    {
+     "text": "No hay retraso en el vuelo.",
+     "meaning": "There is no delay on the flight.",
+     "example": "No hay retraso en el vuelo.",
+     "exampleMeaning": "There is no delay on the flight."
+    },
+    {
+     "text": "Sí, la puerta de embarque está cerca.",
+     "meaning": "Yes, the boarding gate is nearby.",
+     "example": "Sí, la puerta de embarque está cerca.",
+     "exampleMeaning": "Yes, the boarding gate is nearby."
+    }
+   ],
+   "tip": "Use 'sí' for yes and 'no' for no. These are important for confirming details.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Tienes tu pasaporte?",
+     "meaning": "Do you have your passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, tengo mi pasaporte.",
+     "meaning": "Yes, I have my passport."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Tienes tu visa?",
+     "meaning": "Do you have your visa?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, no tengo mi visa.",
+     "meaning": "No, I do not have my visa."
+    },
+    {
+     "speaker": "A",
+     "text": "¿A qué hora sale tu vuelo?",
+     "meaning": "What time does your flight leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, mi vuelo sale en una hora.",
+     "meaning": "Yes, my flight leaves in an hour."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a travel agent.",
+    "learnerRole": "You are a traveler confirming details.",
+    "brief": "Ask the traveler to confirm their documents and flight details.",
+    "goal": "You need to confirm that you have everything for your flight."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 6 Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Dónde puedo imprimir mi tarjeta de embarque?",
+    "meaning": "Where can I print my boarding pass?"
+   },
+   {
+    "speaker": "B",
+    "text": "Está cerca de la puerta de embarque.",
+    "meaning": "It's near the boarding gate."
+   },
+   {
+    "speaker": "A",
+    "text": "¿A qué hora sale el vuelo?",
+    "meaning": "What time does the flight leave?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sale en una hora.",
+    "meaning": "It leaves in an hour."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Tienes tu visa?",
+    "meaning": "Do you have your visa?"
+   },
+   {
+    "speaker": "B",
+    "text": "No, no tengo mi visa.",
+    "meaning": "No, I do not have my visa."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Puedo cambiar mi asiento?",
+    "meaning": "Can I change my seat?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, puedes cambiar tu asiento.",
+    "meaning": "Yes, you can change your seat."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are an airport staff member.",
+   "learnerRole": "You are a passenger confirming your travel details.",
+   "brief": "Ask the passenger questions about their flight and help them with their requests.",
+   "goal": "You need to confirm your flight details and documents."
+  }
+ }
+}

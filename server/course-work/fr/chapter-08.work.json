@@ -1,0 +1,386 @@
+{
+ "title": "At work",
+ "lessons": [
+  {
+   "title": "Daily Routine",
+   "items": [
+    {
+     "text": "le travail",
+     "meaning": "the work",
+     "example": "Je vais au travail à huit heures.",
+     "exampleMeaning": "I go to work at eight o'clock."
+    },
+    {
+     "text": "le bureau",
+     "meaning": "the office",
+     "example": "Il travaille dans un bureau.",
+     "exampleMeaning": "He works in an office."
+    },
+    {
+     "text": "commencer",
+     "meaning": "to start",
+     "example": "Nous commençons à neuf heures.",
+     "exampleMeaning": "We start at nine o'clock."
+    },
+    {
+     "text": "finir",
+     "meaning": "to finish",
+     "example": "Je finis mon travail à cinq heures.",
+     "exampleMeaning": "I finish my work at five o'clock."
+    },
+    {
+     "text": "une réunion",
+     "meaning": "a meeting",
+     "example": "Il y a une réunion cet après-midi.",
+     "exampleMeaning": "There is a meeting this afternoon."
+    },
+    {
+     "text": "l'heure de déjeuner",
+     "meaning": "lunch time",
+     "example": "L'heure de déjeuner est à midi.",
+     "exampleMeaning": "Lunch time is at noon."
+    }
+   ],
+   "tip": "Remember to use 'le' for masculine nouns and 'la' for feminine nouns. For example, 'le travail' is masculine and 'la réunion' is feminine.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "À quelle heure commences-tu ?",
+     "meaning": "What time do you start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je commence à huit heures.",
+     "meaning": "I start at eight o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Où travailles-tu ?",
+     "meaning": "Where do you work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je travaille dans un bureau.",
+     "meaning": "I work in an office."
+    },
+    {
+     "speaker": "A",
+     "text": "Quand finis-tu ?",
+     "meaning": "When do you finish?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je finis à cinq heures.",
+     "meaning": "I finish at five o'clock."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague asking about your work schedule.",
+    "learnerRole": "You are sharing your daily routine.",
+    "brief": "Ask your colleague about their work schedule and share yours.",
+    "goal": "You should explain your work hours."
+   }
+  },
+  {
+   "title": "Meetings",
+   "items": [
+    {
+     "text": "discuter",
+     "meaning": "to discuss",
+     "example": "Nous allons discuter des projets.",
+     "exampleMeaning": "We are going to discuss the projects."
+    },
+    {
+     "text": "présenter",
+     "meaning": "to present",
+     "example": "Elle va présenter son rapport.",
+     "exampleMeaning": "She is going to present her report."
+    },
+    {
+     "text": "un agenda",
+     "meaning": "an agenda",
+     "example": "As-tu un agenda pour la réunion ?",
+     "exampleMeaning": "Do you have an agenda for the meeting?"
+    },
+    {
+     "text": "poser une question",
+     "meaning": "to ask a question",
+     "example": "Je veux poser une question.",
+     "exampleMeaning": "I want to ask a question."
+    },
+    {
+     "text": "écouter",
+     "meaning": "to listen",
+     "example": "Il faut écouter attentivement.",
+     "exampleMeaning": "You must listen carefully."
+    },
+    {
+     "text": "prendre des notes",
+     "meaning": "to take notes",
+     "example": "Je prends des notes pendant la réunion.",
+     "exampleMeaning": "I take notes during the meeting."
+    }
+   ],
+   "tip": "Use 'écouter' when you want to say 'to listen'. It's an important verb in conversations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Que vas-tu discuter aujourd'hui ?",
+     "meaning": "What are you going to discuss today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je vais discuter des projets.",
+     "meaning": "I am going to discuss the projects."
+    },
+    {
+     "speaker": "A",
+     "text": "As-tu un agenda ?",
+     "meaning": "Do you have an agenda?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai un agenda pour la réunion.",
+     "meaning": "Yes, I have an agenda for the meeting."
+    },
+    {
+     "speaker": "A",
+     "text": "Vas-tu poser une question ?",
+     "meaning": "Are you going to ask a question?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je veux poser une question.",
+     "meaning": "Yes, I want to ask a question."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague in a meeting.",
+    "learnerRole": "You are discussing the agenda and asking questions.",
+    "brief": "Talk about the meeting agenda and share your thoughts.",
+    "goal": "You should participate in the discussion."
+   }
+  },
+  {
+   "title": "Daily Tasks",
+   "items": [
+    {
+     "text": "un projet",
+     "meaning": "a project",
+     "example": "Je travaille sur un projet important.",
+     "exampleMeaning": "I am working on an important project."
+    },
+    {
+     "text": "une tâche",
+     "meaning": "a task",
+     "example": "J'ai une tâche à finir aujourd'hui.",
+     "exampleMeaning": "I have a task to finish today."
+    },
+    {
+     "text": "travailler en équipe",
+     "meaning": "to work in a team",
+     "example": "Nous devons travailler en équipe.",
+     "exampleMeaning": "We must work in a team."
+    },
+    {
+     "text": "respecter les délais",
+     "meaning": "to meet deadlines",
+     "example": "Il est important de respecter les délais.",
+     "exampleMeaning": "It is important to meet deadlines."
+    },
+    {
+     "text": "organiser",
+     "meaning": "to organize",
+     "example": "Je vais organiser le travail.",
+     "exampleMeaning": "I will organize the work."
+    },
+    {
+     "text": "réussir",
+     "meaning": "to succeed",
+     "example": "Nous allons réussir ce projet.",
+     "exampleMeaning": "We will succeed in this project."
+    }
+   ],
+   "tip": "Use 'travailler en équipe' to express the idea of teamwork. It's essential in many jobs.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Sur quel projet travailles-tu ?",
+     "meaning": "What project are you working on?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je travaille sur un projet important.",
+     "meaning": "I am working on an important project."
+    },
+    {
+     "speaker": "A",
+     "text": "As-tu des tâches à finir ?",
+     "meaning": "Do you have tasks to finish?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai une tâche à finir aujourd'hui.",
+     "meaning": "Yes, I have a task to finish today."
+    },
+    {
+     "speaker": "A",
+     "text": "Est-ce que nous devons travailler en équipe ?",
+     "meaning": "Do we have to work in a team?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, nous devons travailler en équipe.",
+     "meaning": "Yes, we must work in a team."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague asking about your tasks.",
+    "learnerRole": "You are explaining your current projects and tasks.",
+    "brief": "Discuss your projects and daily tasks with your colleague.",
+    "goal": "You should describe your work responsibilities."
+   }
+  },
+  {
+   "title": "Scheduling",
+   "items": [
+    {
+     "text": "un rendez-vous",
+     "meaning": "an appointment",
+     "example": "J'ai un rendez-vous à deux heures.",
+     "exampleMeaning": "I have an appointment at two o'clock."
+    },
+    {
+     "text": "la disponibilité",
+     "meaning": "availability",
+     "example": "Quelle est ta disponibilité cette semaine ?",
+     "exampleMeaning": "What is your availability this week?"
+    },
+    {
+     "text": "confirmer",
+     "meaning": "to confirm",
+     "example": "Peux-tu confirmer le rendez-vous ?",
+     "exampleMeaning": "Can you confirm the appointment?"
+    },
+    {
+     "text": "reporter",
+     "meaning": "to postpone",
+     "example": "Nous devons reporter la réunion.",
+     "exampleMeaning": "We need to postpone the meeting."
+    },
+    {
+     "text": "prévoir",
+     "meaning": "to plan",
+     "example": "Je prévois un appel demain.",
+     "exampleMeaning": "I am planning a call tomorrow."
+    },
+    {
+     "text": "un calendrier",
+     "meaning": "a calendar",
+     "example": "As-tu un calendrier pour cette année ?",
+     "exampleMeaning": "Do you have a calendar for this year?"
+    }
+   ],
+   "tip": "Use 'un rendez-vous' for appointments. It's common in work situations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "As-tu un rendez-vous aujourd'hui ?",
+     "meaning": "Do you have an appointment today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai un rendez-vous à deux heures.",
+     "meaning": "Yes, I have an appointment at two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Quelle est ta disponibilité cette semaine ?",
+     "meaning": "What is your availability this week?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis disponible mardi et jeudi.",
+     "meaning": "I am available on Tuesday and Thursday."
+    },
+    {
+     "speaker": "A",
+     "text": "Peux-tu confirmer le rendez-vous ?",
+     "meaning": "Can you confirm the appointment?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je peux confirmer le rendez-vous.",
+     "meaning": "Yes, I can confirm the appointment."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a colleague discussing schedules.",
+    "learnerRole": "You are confirming appointments and discussing availability.",
+    "brief": "Talk about your appointments and availability for the week.",
+    "goal": "You should confirm your schedule."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Chapter 8: At Work",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "À quelle heure commences-tu le travail ?",
+    "meaning": "What time do you start work?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je commence à huit heures.",
+    "meaning": "I start at eight o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "As-tu des réunions aujourd'hui ?",
+    "meaning": "Do you have meetings today?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, j'ai une réunion cet après-midi.",
+    "meaning": "Yes, I have a meeting this afternoon."
+   },
+   {
+    "speaker": "A",
+    "text": "Sur quel projet travailles-tu ?",
+    "meaning": "What project are you working on?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je travaille sur un projet important.",
+    "meaning": "I am working on an important project."
+   },
+   {
+    "speaker": "A",
+    "text": "Quelle est ta disponibilité cette semaine ?",
+    "meaning": "What is your availability this week?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je suis disponible mardi et jeudi.",
+    "meaning": "I am available on Tuesday and Thursday."
+   },
+   {
+    "speaker": "A",
+    "text": "Peux-tu confirmer le rendez-vous ?",
+    "meaning": "Can you confirm the appointment?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, je peux confirmer le rendez-vous.",
+    "meaning": "Yes, I can confirm the appointment."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a colleague reviewing the chapter topics.",
+   "learnerRole": "You are responding to questions about your work routine.",
+   "brief": "Discuss your daily routine, meetings, and projects with your colleague.",
+   "goal": "You should demonstrate your understanding of the chapter."
+  }
+ }
+}

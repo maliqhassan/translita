@@ -1,0 +1,376 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is the... ?",
+   "items": [
+    {
+     "text": "Wo ist der Bahnhof?",
+     "meaning": "Where is the train station?",
+     "example": "Wo ist der Bahnhof?",
+     "exampleMeaning": "Where is the train station?"
+    },
+    {
+     "text": "Überall",
+     "meaning": "Everywhere",
+     "example": "Die Geschäfte sind überall.",
+     "exampleMeaning": "The shops are everywhere."
+    },
+    {
+     "text": "Links",
+     "meaning": "Left",
+     "example": "Gehen Sie links.",
+     "exampleMeaning": "Go left."
+    },
+    {
+     "text": "Rechts",
+     "meaning": "Right",
+     "example": "Die Schule ist rechts.",
+     "exampleMeaning": "The school is on the right."
+    },
+    {
+     "text": "Geradeaus",
+     "meaning": "Straight ahead",
+     "example": "Gehen Sie geradeaus.",
+     "exampleMeaning": "Go straight ahead."
+    },
+    {
+     "text": "In der Nähe",
+     "meaning": "Nearby",
+     "example": "Der Park ist in der Nähe.",
+     "exampleMeaning": "The park is nearby."
+    }
+   ],
+   "tip": "Use 'Wo ist...' to ask for locations. Remember to use the correct article for places, like 'der' for masculine nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Entschuldigung, wo ist der Bahnhof?",
+     "meaning": "Excuse me, where is the train station?"
+    },
+    {
+     "speaker": "B",
+     "text": "Der Bahnhof ist geradeaus.",
+     "meaning": "The train station is straight ahead."
+    },
+    {
+     "speaker": "A",
+     "text": "Danke! Ist er in der Nähe?",
+     "meaning": "Thank you! Is it nearby?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, er ist in der Nähe.",
+     "meaning": "Yes, it is nearby."
+    },
+    {
+     "speaker": "A",
+     "text": "Soll ich links oder rechts gehen?",
+     "meaning": "Should I go left or right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gehen Sie rechts.",
+     "meaning": "Go right."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person who knows the area",
+    "learnerRole": "a tourist asking for directions",
+    "brief": "You want to find the train station. Ask where it is and if it's nearby. The local will help you with directions.",
+    "goal": "You will learn how to ask for directions to a place."
+   }
+  },
+  {
+   "title": "Giving Directions",
+   "items": [
+    {
+     "text": "Gehen Sie...",
+     "meaning": "Go...",
+     "example": "Gehen Sie nach links.",
+     "exampleMeaning": "Go left."
+    },
+    {
+     "text": "Biegen Sie ab",
+     "meaning": "Turn",
+     "example": "Biegen Sie an der Ecke ab.",
+     "exampleMeaning": "Turn at the corner."
+    },
+    {
+     "text": "Kreuzung",
+     "meaning": "Intersection",
+     "example": "An der Kreuzung gehen Sie geradeaus.",
+     "exampleMeaning": "At the intersection, go straight ahead."
+    },
+    {
+     "text": "Halt",
+     "meaning": "Stop",
+     "example": "Halt hier!",
+     "exampleMeaning": "Stop here!"
+    },
+    {
+     "text": "Gegenüber",
+     "meaning": "Opposite",
+     "example": "Die Bank ist gegenüber der Schule.",
+     "exampleMeaning": "The bank is opposite the school."
+    },
+    {
+     "text": "Vorbei",
+     "meaning": "Past",
+     "example": "Gehen Sie vorbei an dem Restaurant.",
+     "exampleMeaning": "Go past the restaurant."
+    }
+   ],
+   "tip": "Use the imperative form to give directions. It's direct and clear, like 'Gehen Sie...' or 'Biegen Sie ab...'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie komme ich zur Bank?",
+     "meaning": "How do I get to the bank?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gehen Sie geradeaus und biegen Sie an der Kreuzung ab.",
+     "meaning": "Go straight ahead and turn at the intersection."
+    },
+    {
+     "speaker": "A",
+     "text": "Ist die Bank gegenüber der Schule?",
+     "meaning": "Is the bank opposite the school?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, genau!",
+     "meaning": "Yes, exactly!"
+    },
+    {
+     "speaker": "A",
+     "text": "Danke für die Hilfe!",
+     "meaning": "Thank you for your help!"
+    },
+    {
+     "speaker": "B",
+     "text": "Gern geschehen!",
+     "meaning": "You're welcome!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person giving directions",
+    "learnerRole": "a tourist asking for directions to the bank",
+    "brief": "You need to find the bank. Ask how to get there and confirm the directions given. The local will guide you.",
+    "goal": "You will practice giving and understanding directions."
+   }
+  },
+  {
+   "title": "Places in the City",
+   "items": [
+    {
+     "text": "Das Restaurant",
+     "meaning": "The restaurant",
+     "example": "Das Restaurant ist teuer.",
+     "exampleMeaning": "The restaurant is expensive."
+    },
+    {
+     "text": "Der Supermarkt",
+     "meaning": "The supermarket",
+     "example": "Der Supermarkt hat frisches Gemüse.",
+     "exampleMeaning": "The supermarket has fresh vegetables."
+    },
+    {
+     "text": "Der Park",
+     "meaning": "The park",
+     "example": "Der Park ist schön im Sommer.",
+     "exampleMeaning": "The park is nice in summer."
+    },
+    {
+     "text": "Die Schule",
+     "meaning": "The school",
+     "example": "Die Schule ist groß.",
+     "exampleMeaning": "The school is big."
+    },
+    {
+     "text": "Das Kino",
+     "meaning": "The cinema",
+     "example": "Das Kino zeigt einen neuen Film.",
+     "exampleMeaning": "The cinema is showing a new movie."
+    },
+    {
+     "text": "Die Apotheke",
+     "meaning": "The pharmacy",
+     "example": "Die Apotheke hat Medikamente.",
+     "exampleMeaning": "The pharmacy has medicine."
+    }
+   ],
+   "tip": "Remember the articles: 'der' for masculine, 'die' for feminine, and 'das' for neuter nouns. It helps to know the gender of places.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo ist das Restaurant?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das Restaurant ist neben dem Supermarkt.",
+     "meaning": "The restaurant is next to the supermarket."
+    },
+    {
+     "speaker": "A",
+     "text": "Und wo ist der Park?",
+     "meaning": "And where is the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Der Park ist hinter der Schule.",
+     "meaning": "The park is behind the school."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich gehe ins Kino.",
+     "meaning": "I am going to the cinema."
+    },
+    {
+     "speaker": "B",
+     "text": "Das Kino ist weit weg.",
+     "meaning": "The cinema is far away."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person who knows the city",
+    "learnerRole": "a tourist asking about places",
+    "brief": "You want to know where different places are in the city. Ask about the restaurant, park, cinema, and other locations.",
+    "goal": "You will learn to ask about and identify places in the city."
+   }
+  },
+  {
+   "title": "Position Words",
+   "items": [
+    {
+     "text": "Neben",
+     "meaning": "Next to",
+     "example": "Die Apotheke ist neben dem Restaurant.",
+     "exampleMeaning": "The pharmacy is next to the restaurant."
+    },
+    {
+     "text": "Hinter",
+     "meaning": "Behind",
+     "example": "Die Schule ist hinter dem Park.",
+     "exampleMeaning": "The school is behind the park."
+    },
+    {
+     "text": "Vor",
+     "meaning": "In front of",
+     "example": "Das Kino ist vor dem Supermarkt.",
+     "exampleMeaning": "The cinema is in front of the supermarket."
+    },
+    {
+     "text": "Zwischen",
+     "meaning": "Between",
+     "example": "Die Bank ist zwischen der Schule und dem Park.",
+     "exampleMeaning": "The bank is between the school and the park."
+    },
+    {
+     "text": "Über",
+     "meaning": "Above",
+     "example": "Der Himmel ist über uns.",
+     "exampleMeaning": "The sky is above us."
+    },
+    {
+     "text": "Unter",
+     "meaning": "Under",
+     "example": "Der Tisch ist unter dem Fenster.",
+     "exampleMeaning": "The table is under the window."
+    }
+   ],
+   "tip": "Use position words to describe where things are. They help you give clearer directions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo ist die Apotheke?",
+     "meaning": "Where is the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "Die Apotheke ist neben dem Restaurant.",
+     "meaning": "The pharmacy is next to the restaurant."
+    },
+    {
+     "speaker": "A",
+     "text": "Und die Schule?",
+     "meaning": "And the school?"
+    },
+    {
+     "speaker": "B",
+     "text": "Die Schule ist hinter dem Park.",
+     "meaning": "The school is behind the park."
+    },
+    {
+     "speaker": "A",
+     "text": "Wo ist das Kino?",
+     "meaning": "Where is the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das Kino ist vor dem Supermarkt.",
+     "meaning": "The cinema is in front of the supermarket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a local person explaining positions",
+    "learnerRole": "a tourist asking about the position of places",
+    "brief": "You want to find the pharmacy, school, and cinema. Ask where they are and their positions relative to other places.",
+    "goal": "You will practice using position words to describe locations."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Chapter 4: Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Entschuldigung, wo ist der Park?",
+    "meaning": "Excuse me, where is the park?"
+   },
+   {
+    "speaker": "B",
+    "text": "Der Park ist hinter der Schule.",
+    "meaning": "The park is behind the school."
+   },
+   {
+    "speaker": "A",
+    "text": "Wo ist die Apotheke?",
+    "meaning": "Where is the pharmacy?"
+   },
+   {
+    "speaker": "B",
+    "text": "Die Apotheke ist neben dem Restaurant.",
+    "meaning": "The pharmacy is next to the restaurant."
+   },
+   {
+    "speaker": "A",
+    "text": "Wie komme ich ins Kino?",
+    "meaning": "How do I get to the cinema?"
+   },
+   {
+    "speaker": "B",
+    "text": "Gehen Sie geradeaus und biegen Sie rechts ab.",
+    "meaning": "Go straight ahead and turn right."
+   },
+   {
+    "speaker": "A",
+    "text": "Danke für die Informationen!",
+    "meaning": "Thank you for the information!"
+   },
+   {
+    "speaker": "B",
+    "text": "Gern geschehen!",
+    "meaning": "You're welcome!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a local person giving directions",
+   "learnerRole": "a tourist asking for directions to various places",
+   "brief": "You want to find the park, pharmacy, and cinema. Ask the local for directions to these places.",
+   "goal": "You will practice asking for directions and understanding responses."
+  }
+ }
+}

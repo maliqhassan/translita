@@ -1,0 +1,386 @@
+{
+ "title": "Opinions and experiences",
+ "lessons": [
+  {
+   "title": "Sharing Opinions",
+   "items": [
+    {
+     "text": "aimer",
+     "meaning": "to like",
+     "example": "J'aime le chocolat.",
+     "exampleMeaning": "I like chocolate."
+    },
+    {
+     "text": "détester",
+     "meaning": "to hate",
+     "example": "Je déteste le bruit.",
+     "exampleMeaning": "I hate noise."
+    },
+    {
+     "text": "penser",
+     "meaning": "to think",
+     "example": "Je pense que c'est une bonne idée.",
+     "exampleMeaning": "I think it's a good idea."
+    },
+    {
+     "text": "préférer",
+     "meaning": "to prefer",
+     "example": "Je préfère le thé au café.",
+     "exampleMeaning": "I prefer tea to coffee."
+    },
+    {
+     "text": "trouver",
+     "meaning": "to find",
+     "example": "Je trouve ce film intéressant.",
+     "exampleMeaning": "I find this movie interesting."
+    },
+    {
+     "text": "adorer",
+     "meaning": "to love",
+     "example": "J'adore voyager.",
+     "exampleMeaning": "I love to travel."
+    }
+   ],
+   "tip": "In French, the verbs 'aimer', 'détester', 'penser', 'préférer', 'trouver', and 'adorer' are often used to express opinions or feelings. Remember to use the correct subject pronoun with each verb.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qu'est-ce que tu penses de ce film ?",
+     "meaning": "What do you think of this movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je pense que c'est intéressant.",
+     "meaning": "I think it's interesting."
+    },
+    {
+     "speaker": "A",
+     "text": "Et la musique ?",
+     "meaning": "And the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'adore la musique !",
+     "meaning": "I love the music!"
+    },
+    {
+     "speaker": "A",
+     "text": "Tu aimes le chocolat ?",
+     "meaning": "Do you like chocolate?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'aime le chocolat, mais je déteste le bruit.",
+     "meaning": "Yes, I like chocolate, but I hate noise."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend discussing a movie and music",
+    "learnerRole": "the person giving their opinion",
+    "brief": "Discuss the movie and music you both experienced. Ask questions about opinions.",
+    "goal": "You need to express your likes and dislikes."
+   }
+  },
+  {
+   "title": "Discussing Experiences",
+   "items": [
+    {
+     "text": "visiter",
+     "meaning": "to visit",
+     "example": "J'ai visité Paris l'année dernière.",
+     "exampleMeaning": "I visited Paris last year."
+    },
+    {
+     "text": "voir",
+     "meaning": "to see",
+     "example": "J'ai vu un bon film.",
+     "exampleMeaning": "I saw a good movie."
+    },
+    {
+     "text": "faire",
+     "meaning": "to do",
+     "example": "J'ai fait un voyage en France.",
+     "exampleMeaning": "I took a trip to France."
+    },
+    {
+     "text": "manger",
+     "meaning": "to eat",
+     "example": "J'ai mangé dans un bon restaurant.",
+     "exampleMeaning": "I ate in a good restaurant."
+    },
+    {
+     "text": "regarder",
+     "meaning": "to watch",
+     "example": "J'ai regardé un film hier soir.",
+     "exampleMeaning": "I watched a movie last night."
+    },
+    {
+     "text": "parler",
+     "meaning": "to talk",
+     "example": "J'ai parlé avec mes amis.",
+     "exampleMeaning": "I talked with my friends."
+    }
+   ],
+   "tip": "The past tense in French is often formed with the auxiliary verbs 'avoir' or 'être'. Remember to match the past participle with the subject when using 'être'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qu'est-ce que tu as fait le week-end dernier ?",
+     "meaning": "What did you do last weekend?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis allé au musée.",
+     "meaning": "I went to the museum."
+    },
+    {
+     "speaker": "A",
+     "text": "Et qu'est-ce que tu as vu ?",
+     "meaning": "And what did you see?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'ai vu un bon film.",
+     "meaning": "I saw a good movie."
+    },
+    {
+     "speaker": "A",
+     "text": "Tu as mangé où ?",
+     "meaning": "Where did you eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'ai mangé dans un bon restaurant.",
+     "meaning": "I ate in a good restaurant."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend sharing experiences",
+    "learnerRole": "the person sharing their past activities",
+    "brief": "Share what you did last weekend and what you saw or did.",
+    "goal": "You need to describe your past experiences."
+   }
+  },
+  {
+   "title": "Likes and Dislikes",
+   "items": [
+    {
+     "text": "aimer mieux",
+     "meaning": "to like better",
+     "example": "J'aime mieux le thé que le café.",
+     "exampleMeaning": "I like tea better than coffee."
+    },
+    {
+     "text": "trouver ça ennuyeux",
+     "meaning": "to find it boring",
+     "example": "Je trouve ça ennuyeux.",
+     "exampleMeaning": "I find it boring."
+    },
+    {
+     "text": "ne pas aimer",
+     "meaning": "to not like",
+     "example": "Je n'aime pas ce film.",
+     "exampleMeaning": "I don't like this movie."
+    },
+    {
+     "text": "adorer mieux",
+     "meaning": "to love better",
+     "example": "J'adore mieux les films comiques.",
+     "exampleMeaning": "I love comedies better."
+    },
+    {
+     "text": "préférer ne pas",
+     "meaning": "to prefer not to",
+     "example": "Je préfère ne pas en parler.",
+     "exampleMeaning": "I prefer not to talk about it."
+    },
+    {
+     "text": "penser que",
+     "meaning": "to think that",
+     "example": "Je pense que c'est ennuyeux.",
+     "exampleMeaning": "I think that it's boring."
+    }
+   ],
+   "tip": "When expressing preferences, you can use 'aimer mieux' or 'adorer mieux' to indicate what you like better. Use 'ne pas aimer' to express dislikes.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quel genre de film aimes-tu ?",
+     "meaning": "What kind of movie do you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'aime mieux les films comiques.",
+     "meaning": "I like comedies better."
+    },
+    {
+     "speaker": "A",
+     "text": "Et ce film, tu l'aimes ?",
+     "meaning": "And this movie, do you like it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non, je ne l'aime pas. Je le trouve ennuyeux.",
+     "meaning": "No, I don't like it. I find it boring."
+    },
+    {
+     "speaker": "A",
+     "text": "Tu préfères ne pas en parler ?",
+     "meaning": "Do you prefer not to talk about it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je préfère ne pas en parler.",
+     "meaning": "Yes, I prefer not to talk about it."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend discussing movie preferences",
+    "learnerRole": "the person sharing their likes and dislikes",
+    "brief": "Discuss your favorite and least favorite movies with your friend.",
+    "goal": "You need to express your preferences clearly."
+   }
+  },
+  {
+   "title": "Reflecting on Experiences",
+   "items": [
+    {
+     "text": "réfléchir à",
+     "meaning": "to reflect on",
+     "example": "Je réfléchis à mon voyage.",
+     "exampleMeaning": "I reflect on my trip."
+    },
+    {
+     "text": "se souvenir de",
+     "meaning": "to remember",
+     "example": "Je me souviens de ce film.",
+     "exampleMeaning": "I remember this movie."
+    },
+    {
+     "text": "parler de",
+     "meaning": "to talk about",
+     "example": "Je veux parler de mes vacances.",
+     "exampleMeaning": "I want to talk about my holidays."
+    },
+    {
+     "text": "écrire",
+     "meaning": "to write",
+     "example": "J'ai écrit un article.",
+     "exampleMeaning": "I wrote an article."
+    },
+    {
+     "text": "discuter de",
+     "meaning": "to discuss",
+     "example": "Nous avons discuté de nos expériences.",
+     "exampleMeaning": "We discussed our experiences."
+    },
+    {
+     "text": "partager",
+     "meaning": "to share",
+     "example": "Je veux partager mes souvenirs.",
+     "exampleMeaning": "I want to share my memories."
+    }
+   ],
+   "tip": "The verbs 'réfléchir à', 'se souvenir de', 'parler de', 'écrire', 'discuter de', and 'partager' can help you express thoughts about past experiences. Use them to elaborate on your feelings.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "À quoi penses-tu en ce moment ?",
+     "meaning": "What are you thinking about right now?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je réfléchis à mon voyage en France.",
+     "meaning": "I am reflecting on my trip to France."
+    },
+    {
+     "speaker": "A",
+     "text": "Tu te souviens de ce film ?",
+     "meaning": "Do you remember this movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je me souviens de ce film.",
+     "meaning": "Yes, I remember this movie."
+    },
+    {
+     "speaker": "A",
+     "text": "Qu'est-ce que tu veux partager ?",
+     "meaning": "What do you want to share?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je veux partager mes souvenirs de vacances.",
+     "meaning": "I want to share my holiday memories."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend reflecting on past experiences",
+    "learnerRole": "the person sharing their reflections",
+    "brief": "Discuss your memories and experiences from your travels and holidays.",
+    "goal": "You need to reflect and share your thoughts."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Opinions and Experiences",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Qu'est-ce que tu penses de ce film ?",
+    "meaning": "What do you think of this movie?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je pense que c'est intéressant.",
+    "meaning": "I think it's interesting."
+   },
+   {
+    "speaker": "A",
+    "text": "Et la musique ?",
+    "meaning": "And the music?"
+   },
+   {
+    "speaker": "B",
+    "text": "J'adore la musique !",
+    "meaning": "I love the music!"
+   },
+   {
+    "speaker": "A",
+    "text": "Quel genre de film aimes-tu ?",
+    "meaning": "What kind of movie do you like?"
+   },
+   {
+    "speaker": "B",
+    "text": "J'aime mieux les films comiques.",
+    "meaning": "I like comedies better."
+   },
+   {
+    "speaker": "A",
+    "text": "Où es-tu allé en vacances ?",
+    "meaning": "Where did you go on holiday?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je suis allé en France et j'ai mangé dans un bon restaurant.",
+    "meaning": "I went to France and ate in a good restaurant."
+   },
+   {
+    "speaker": "A",
+    "text": "Tu te souviens de ce voyage ?",
+    "meaning": "Do you remember that trip?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, c'était une expérience incroyable !",
+    "meaning": "Yes, it was an amazing experience!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a friend discussing various topics",
+   "learnerRole": "the person sharing their opinions and experiences",
+   "brief": "Discuss different topics including movies, music, and travel experiences.",
+   "goal": "You need to use vocabulary from the chapter to express your thoughts."
+  }
+ }
+}

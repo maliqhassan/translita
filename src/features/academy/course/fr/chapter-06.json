@@ -1,0 +1,418 @@
+{
+ "id": "c06",
+ "number": 6,
+ "title": "At the Airport",
+ "lessons": [
+  {
+   "id": "c06-d1",
+   "day": 26,
+   "title": "What Would You Like?",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d1-i1",
+     "text": "Je voudrais...",
+     "meaning": "I would like...",
+     "example": "Je voudrais un billet, s'il vous plaît.",
+     "exampleMeaning": "I would like a ticket, please."
+    },
+    {
+     "id": "c06-d1-i2",
+     "text": "un billet",
+     "meaning": "a ticket",
+     "example": "J'ai besoin d'un billet pour Paris.",
+     "exampleMeaning": "I need a ticket to Paris."
+    },
+    {
+     "id": "c06-d1-i3",
+     "text": "pour",
+     "meaning": "for",
+     "example": "C'est un billet pour Lyon.",
+     "exampleMeaning": "It's a ticket for Lyon."
+    },
+    {
+     "id": "c06-d1-i4",
+     "text": "un aller simple",
+     "meaning": "a one-way ticket",
+     "example": "Je voudrais un aller simple pour Lyon.",
+     "exampleMeaning": "I would like a one-way ticket to Lyon."
+    },
+    {
+     "id": "c06-d1-i5",
+     "text": "retour",
+     "meaning": "return",
+     "example": "Je voudrais un billet aller-retour.",
+     "exampleMeaning": "I would like a return ticket."
+    },
+    {
+     "id": "c06-d1-i6",
+     "text": "la carte d'embarquement",
+     "meaning": "the boarding pass",
+     "example": "Voici ma carte d'embarquement.",
+     "exampleMeaning": "Here is my boarding pass."
+    }
+   ],
+   "tip": "Use 'Je voudrais' to politely express what you want. It shows respect and is commonly used in French.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour ! Que voulez-vous ?",
+     "meaning": "Hello! What would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bonjour ! Je voudrais un billet, s'il vous plaît.",
+     "meaning": "Hello! I would like a ticket, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Pour quelle destination ?",
+     "meaning": "For which destination?"
+    },
+    {
+     "speaker": "B",
+     "text": "Pour Paris.",
+     "meaning": "For Paris."
+    },
+    {
+     "speaker": "A",
+     "text": "Un aller simple ou un aller-retour ?",
+     "meaning": "A one-way or a return?"
+    },
+    {
+     "speaker": "B",
+     "text": "Un aller-retour, s'il vous plaît.",
+     "meaning": "A return, please."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A ticket agent at the airport",
+    "learnerRole": "A traveler",
+    "brief": "You are at the airport. Ask for a ticket to your destination. Be polite and use 's'il vous plaît'.",
+    "goal": "You need to ask for a ticket."
+   }
+  },
+  {
+   "id": "c06-d2",
+   "day": 27,
+   "title": "Travel Documents",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d2-i1",
+     "text": "un passeport",
+     "meaning": "a passport",
+     "example": "J'ai mon passeport ici.",
+     "exampleMeaning": "I have my passport here."
+    },
+    {
+     "id": "c06-d2-i2",
+     "text": "une carte d'identité",
+     "meaning": "an ID card",
+     "example": "Vous avez une carte d'identité ?",
+     "exampleMeaning": "Do you have an ID card?"
+    },
+    {
+     "id": "c06-d2-i3",
+     "text": "les documents",
+     "meaning": "the documents",
+     "example": "Où sont mes documents ?",
+     "exampleMeaning": "Where are my documents?"
+    },
+    {
+     "id": "c06-d2-i4",
+     "text": "vérifier",
+     "meaning": "to check",
+     "example": "Je dois vérifier mes documents.",
+     "exampleMeaning": "I need to check my documents."
+    },
+    {
+     "id": "c06-d2-i5",
+     "text": "ici",
+     "meaning": "here",
+     "example": "Mon passeport est ici.",
+     "exampleMeaning": "My passport is here."
+    },
+    {
+     "id": "c06-d2-i6",
+     "text": "où",
+     "meaning": "where",
+     "example": "Où est le contrôle des passeports ?",
+     "exampleMeaning": "Where is the passport control?"
+    }
+   ],
+   "tip": "In France, it's important to have your 'passeport' or 'carte d'identité' ready when traveling. Always check your documents before your trip.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Avez-vous vos documents ?",
+     "meaning": "Do you have your documents?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai mon passeport.",
+     "meaning": "Yes, I have my passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Et la carte d'identité ?",
+     "meaning": "And the ID card?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je l'ai ici.",
+     "meaning": "I have it here."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci. Je vais vérifier vos documents.",
+     "meaning": "Thank you. I will check your documents."
+    },
+    {
+     "speaker": "B",
+     "text": "D'accord, merci.",
+     "meaning": "Okay, thank you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A border control officer",
+    "learnerRole": "A traveler",
+    "brief": "You are at the border control. Show your travel documents. Make sure to answer questions politely.",
+    "goal": "You need to show your passport and ID."
+   }
+  },
+  {
+   "id": "c06-d3",
+   "day": 28,
+   "title": "Asking Questions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d3-i1",
+     "text": "Comment ça marche ?",
+     "meaning": "How does it work?",
+     "example": "Comment ça marche pour le vol ?",
+     "exampleMeaning": "How does it work for the flight?"
+    },
+    {
+     "id": "c06-d3-i2",
+     "text": "Quel est le numéro de vol ?",
+     "meaning": "What is the flight number?",
+     "example": "Quel est le numéro de vol pour Paris ?",
+     "exampleMeaning": "What is the flight number to Paris?"
+    },
+    {
+     "id": "c06-d3-i3",
+     "text": "À quelle heure ?",
+     "meaning": "At what time?",
+     "example": "À quelle heure part le vol ?",
+     "exampleMeaning": "At what time does the flight leave?"
+    },
+    {
+     "id": "c06-d3-i4",
+     "text": "Où est la porte ?",
+     "meaning": "Where is the gate?",
+     "example": "Où est la porte d'embarquement ?",
+     "exampleMeaning": "Where is the boarding gate?"
+    },
+    {
+     "id": "c06-d3-i5",
+     "text": "C'est combien ?",
+     "meaning": "How much is it?",
+     "example": "C'est combien pour le bagage ?",
+     "exampleMeaning": "How much is it for the luggage?"
+    },
+    {
+     "id": "c06-d3-i6",
+     "text": "Pourquoi ?",
+     "meaning": "Why?",
+     "example": "Pourquoi le vol est-il retardé ?",
+     "exampleMeaning": "Why is the flight delayed?"
+    }
+   ],
+   "tip": "Use these phrases to ask questions at the airport. Starting with 'Quel' or 'Où' helps you get specific information.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quel est le numéro de votre vol ?",
+     "meaning": "What is your flight number?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est le vol 123.",
+     "meaning": "It's flight 123."
+    },
+    {
+     "speaker": "A",
+     "text": "À quelle heure part-il ?",
+     "meaning": "At what time does it leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il part à 15 heures.",
+     "meaning": "It leaves at 3 PM."
+    },
+    {
+     "speaker": "A",
+     "text": "Où est la porte d'embarquement ?",
+     "meaning": "Where is the boarding gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "La porte est à droite.",
+     "meaning": "The gate is on the right."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A flight attendant",
+    "learnerRole": "A passenger",
+    "brief": "You are at the airport. Ask questions about your flight and boarding gate. Use polite language.",
+    "goal": "You need to find out information about your flight."
+   }
+  },
+  {
+   "id": "c06-d4",
+   "day": 29,
+   "title": "Confirming Information",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d4-i1",
+     "text": "D'accord",
+     "meaning": "Okay",
+     "example": "D'accord, merci pour l'information.",
+     "exampleMeaning": "Okay, thank you for the information."
+    },
+    {
+     "id": "c06-d4-i2",
+     "text": "Je comprends",
+     "meaning": "I understand",
+     "example": "Je comprends maintenant.",
+     "exampleMeaning": "I understand now."
+    },
+    {
+     "id": "c06-d4-i3",
+     "text": "C'est bon",
+     "meaning": "It's good",
+     "example": "C'est bon, je suis prêt.",
+     "exampleMeaning": "It's good, I am ready."
+    },
+    {
+     "id": "c06-d4-i4",
+     "text": "Merci pour votre aide",
+     "meaning": "Thank you for your help",
+     "example": "Merci pour votre aide avec les documents.",
+     "exampleMeaning": "Thank you for your help with the documents."
+    },
+    {
+     "id": "c06-d4-i5",
+     "text": "Pas de problème",
+     "meaning": "No problem",
+     "example": "Pas de problème, je peux attendre.",
+     "exampleMeaning": "No problem, I can wait."
+    },
+    {
+     "id": "c06-d4-i6",
+     "text": "Tout est clair",
+     "meaning": "Everything is clear",
+     "example": "Tout est clair maintenant.",
+     "exampleMeaning": "Everything is clear now."
+    }
+   ],
+   "tip": "Use phrases like 'D'accord' or 'Merci pour votre aide' to confirm understanding and show appreciation. It’s polite and helpful.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "D'accord, voici votre passeport.",
+     "meaning": "Okay, here is your passport."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci pour votre aide.",
+     "meaning": "Thank you for your help."
+    },
+    {
+     "speaker": "A",
+     "text": "Tout est clair pour vous ?",
+     "meaning": "Is everything clear for you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je comprends.",
+     "meaning": "Yes, I understand."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est bon, vous pouvez embarquer.",
+     "meaning": "It's good, you can board."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci, à bientôt.",
+     "meaning": "Thank you, see you soon."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A customer service representative",
+    "learnerRole": "A traveler",
+    "brief": "You are at the airport. Confirm details about your flight. Show that you understand and appreciate the help.",
+    "goal": "You need to confirm your flight details."
+   }
+  },
+  {
+   "id": "c06-d5",
+   "day": 30,
+   "title": "Review: At the Airport",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour ! Quel est le numéro de votre vol ?",
+     "meaning": "Hello! What is your flight number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bonjour ! C'est le vol 456.",
+     "meaning": "Hello! It's flight 456."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accord. À quelle heure part-il ?",
+     "meaning": "Okay. At what time does it leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il part à 18 heures.",
+     "meaning": "It leaves at 6 PM."
+    },
+    {
+     "speaker": "A",
+     "text": "Où est la porte d'embarquement ?",
+     "meaning": "Where is the boarding gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "La porte est à gauche.",
+     "meaning": "The gate is on the left."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci pour votre aide !",
+     "meaning": "Thank you for your help!"
+    },
+    {
+     "speaker": "B",
+     "text": "Pas de problème, à bientôt !",
+     "meaning": "No problem, see you soon!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A travel agent",
+    "learnerRole": "A passenger",
+    "brief": "You are at the airport. Confirm your flight details with the agent. Use questions and polite phrases.",
+    "goal": "You need to confirm your flight information and boarding gate."
+   }
+  }
+ ]
+}

@@ -1,0 +1,376 @@
+{
+ "title": "Chapter 3: Shopping",
+ "lessons": [
+  {
+   "title": "What's the Price?",
+   "items": [
+    {
+     "text": "¿Cuánto vale?",
+     "meaning": "How much is it?",
+     "example": "¿Cuánto vale esta camiseta?",
+     "exampleMeaning": "How much is this t-shirt?"
+    },
+    {
+     "text": "es caro",
+     "meaning": "it's expensive",
+     "example": "Este vestido es caro.",
+     "exampleMeaning": "This dress is expensive."
+    },
+    {
+     "text": "es barato",
+     "meaning": "it's cheap",
+     "example": "Los zapatos son baratos.",
+     "exampleMeaning": "The shoes are cheap."
+    },
+    {
+     "text": "esta",
+     "meaning": "this (feminine)",
+     "example": "Me gusta esta bolsa.",
+     "exampleMeaning": "I like this bag."
+    },
+    {
+     "text": "ese",
+     "meaning": "that (masculine)",
+     "example": "Prefiero ese sombrero.",
+     "exampleMeaning": "I prefer that hat."
+    },
+    {
+     "text": "la talla",
+     "meaning": "the size",
+     "example": "¿Cuál es tu talla?",
+     "exampleMeaning": "What is your size?"
+    }
+   ],
+   "tip": "Remember to use 'esta' for feminine nouns and 'ese' for masculine nouns. This helps you describe things correctly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuánto vale esta camiseta?",
+     "meaning": "How much is this t-shirt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vale veinte dólares.",
+     "meaning": "It costs twenty dollars."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Es caro?",
+     "meaning": "Is it expensive?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, es barato.",
+     "meaning": "No, it's cheap."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Cuál es tu talla?",
+     "meaning": "What is your size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi talla es mediana.",
+     "meaning": "My size is medium."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You want to ask about a t-shirt and its price. Ask about the size and whether it is expensive or cheap.",
+    "goal": "You need to find out the price and size of a t-shirt."
+   }
+  },
+  {
+   "title": "Choosing Colors",
+   "items": [
+    {
+     "text": "el color",
+     "meaning": "the color",
+     "example": "¿Cuál es tu color favorito?",
+     "exampleMeaning": "What is your favorite color?"
+    },
+    {
+     "text": "rojo",
+     "meaning": "red",
+     "example": "Me gusta el color rojo.",
+     "exampleMeaning": "I like the color red."
+    },
+    {
+     "text": "azul",
+     "meaning": "blue",
+     "example": "El coche es azul.",
+     "exampleMeaning": "The car is blue."
+    },
+    {
+     "text": "verde",
+     "meaning": "green",
+     "example": "La bolsa es verde.",
+     "exampleMeaning": "The bag is green."
+    },
+    {
+     "text": "amarillo",
+     "meaning": "yellow",
+     "example": "Prefiero el vestido amarillo.",
+     "exampleMeaning": "I prefer the yellow dress."
+    },
+    {
+     "text": "morado",
+     "meaning": "purple",
+     "example": "El libro es morado.",
+     "exampleMeaning": "The book is purple."
+    }
+   ],
+   "tip": "Use 'el color' to talk about colors. You can describe items with their colors.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Cuál es tu color favorito?",
+     "meaning": "What is your favorite color?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me gusta el color azul.",
+     "meaning": "I like the color blue."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Y este vestido?",
+     "meaning": "And this dress?"
+    },
+    {
+     "speaker": "B",
+     "text": "Es amarillo.",
+     "meaning": "It's yellow."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Qué color prefieres?",
+     "meaning": "What color do you prefer?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prefiero el morado.",
+     "meaning": "I prefer purple."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You want to know about colors of clothes. Ask about favorite colors and the colors of specific items.",
+    "goal": "You need to ask about different colors of clothing."
+   }
+  },
+  {
+   "title": "Sizes and Styles",
+   "items": [
+    {
+     "text": "la talla grande",
+     "meaning": "large size",
+     "example": "Busco una talla grande.",
+     "exampleMeaning": "I am looking for a large size."
+    },
+    {
+     "text": "la talla pequeña",
+     "meaning": "small size",
+     "example": "¿Tienes la talla pequeña?",
+     "exampleMeaning": "Do you have the small size?"
+    },
+    {
+     "text": "la talla mediana",
+     "meaning": "medium size",
+     "example": "La talla mediana es perfecta.",
+     "exampleMeaning": "The medium size is perfect."
+    },
+    {
+     "text": "el estilo",
+     "meaning": "the style",
+     "example": "Me gusta este estilo.",
+     "exampleMeaning": "I like this style."
+    },
+    {
+     "text": "moderno",
+     "meaning": "modern",
+     "example": "Ese vestido es moderno.",
+     "exampleMeaning": "That dress is modern."
+    },
+    {
+     "text": "clásico",
+     "meaning": "classic",
+     "example": "Prefiero un estilo clásico.",
+     "exampleMeaning": "I prefer a classic style."
+    }
+   ],
+   "tip": "Use 'la talla' to talk about sizes. You can combine size and style to describe what you want.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Busco una talla grande.",
+     "meaning": "I am looking for a large size."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Qué estilo prefieres?",
+     "meaning": "What style do you prefer?"
+    },
+    {
+     "speaker": "A",
+     "text": "Me gusta el estilo moderno.",
+     "meaning": "I like the modern style."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Tienes la talla pequeña?",
+     "meaning": "Do you have the small size?"
+    },
+    {
+     "speaker": "A",
+     "text": "No, pero tengo la talla mediana.",
+     "meaning": "No, but I have the medium size."
+    },
+    {
+     "speaker": "B",
+     "text": "La talla mediana es perfecta.",
+     "meaning": "The medium size is perfect."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You want to ask about sizes and styles of clothing. Be specific about what you are looking for.",
+    "goal": "You need to find the right size and style."
+   }
+  },
+  {
+   "title": "Final Decisions",
+   "items": [
+    {
+     "text": "me lo llevo",
+     "meaning": "I'll take it",
+     "example": "Me lo llevo, gracias.",
+     "exampleMeaning": "I'll take it, thank you."
+    },
+    {
+     "text": "¿Puedo pagar?",
+     "meaning": "Can I pay?",
+     "example": "¿Puedo pagar con tarjeta?",
+     "exampleMeaning": "Can I pay with a card?"
+    },
+    {
+     "text": "la caja",
+     "meaning": "the cash register",
+     "example": "¿Dónde está la caja?",
+     "exampleMeaning": "Where is the cash register?"
+    },
+    {
+     "text": "la compra",
+     "meaning": "the purchase",
+     "example": "Estoy feliz con mi compra.",
+     "exampleMeaning": "I am happy with my purchase."
+    },
+    {
+     "text": "recibo",
+     "meaning": "receipt",
+     "example": "¿Me puede dar un recibo?",
+     "exampleMeaning": "Can you give me a receipt?"
+    },
+    {
+     "text": "es todo",
+     "meaning": "that's all",
+     "example": "Eso es todo, gracias.",
+     "exampleMeaning": "That's all, thank you."
+    }
+   ],
+   "tip": "When you decide to buy something, you can say 'me lo llevo'. This shows you are ready to make the purchase.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Me lo llevo, gracias.",
+     "meaning": "I'll take it, thank you."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Puedo pagar?",
+     "meaning": "Can I pay?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sí, está en la caja.",
+     "meaning": "Yes, it's at the cash register."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Me puede dar un recibo?",
+     "meaning": "Can you give me a receipt?"
+    },
+    {
+     "speaker": "A",
+     "text": "Claro, aquí tiene.",
+     "meaning": "Of course, here you go."
+    },
+    {
+     "speaker": "B",
+     "text": "Eso es todo, gracias.",
+     "meaning": "That's all, thank you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant",
+    "learnerRole": "a customer",
+    "brief": "You want to finalize your purchase. Ask about paying and receiving a receipt.",
+    "goal": "You need to complete your shopping and ask for a receipt."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 3 Review: Shopping Dialogue",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Cuánto vale este vestido?",
+    "meaning": "How much is this dress?"
+   },
+   {
+    "speaker": "B",
+    "text": "Vale treinta dólares.",
+    "meaning": "It costs thirty dollars."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Es caro?",
+    "meaning": "Is it expensive?"
+   },
+   {
+    "speaker": "B",
+    "text": "No, es barato.",
+    "meaning": "No, it's cheap."
+   },
+   {
+    "speaker": "A",
+    "text": "Me gusta el color azul.",
+    "meaning": "I like the color blue."
+   },
+   {
+    "speaker": "B",
+    "text": "¿Tienes la talla mediana?",
+    "meaning": "Do you have the medium size?"
+   },
+   {
+    "speaker": "A",
+    "text": "Sí, la talla mediana es perfecta.",
+    "meaning": "Yes, the medium size is perfect."
+   },
+   {
+    "speaker": "B",
+    "text": "Me lo llevo, gracias.",
+    "meaning": "I'll take it, thank you."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a shop assistant",
+   "learnerRole": "a customer",
+   "brief": "You are shopping for a dress. Ask about the price, color, and size, then make your purchase.",
+   "goal": "You need to successfully complete your shopping experience."
+  }
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "title": "Making Plans",
+ "lessons": [
+  {
+   "title": "Let’s Talk About Plans",
+   "items": [
+    {
+     "text": "voy a",
+     "meaning": "I am going to",
+     "example": "Voy a ir al cine.",
+     "exampleMeaning": "I am going to the cinema."
+    },
+    {
+     "text": "¿Qué día?",
+     "meaning": "What day?",
+     "example": "¿Qué día es la reunión?",
+     "exampleMeaning": "What day is the meeting?"
+    },
+    {
+     "text": "el próximo",
+     "meaning": "next",
+     "example": "El próximo lunes tengo una cita.",
+     "exampleMeaning": "Next Monday I have an appointment."
+    },
+    {
+     "text": "el fin de semana",
+     "meaning": "the weekend",
+     "example": "El fin de semana voy a descansar.",
+     "exampleMeaning": "This weekend I am going to rest."
+    },
+    {
+     "text": "¿Te gustaría...?",
+     "meaning": "Would you like...?",
+     "example": "¿Te gustaría ir al parque?",
+     "exampleMeaning": "Would you like to go to the park?"
+    },
+    {
+     "text": "está bien",
+     "meaning": "it's okay",
+     "example": "Está bien, vamos juntos.",
+     "exampleMeaning": "It's okay, let's go together."
+    }
+   ],
+   "tip": "Use 'voy a' to express plans you will do in the future. Remember to use the correct day and time.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Qué día vamos al cine?",
+     "meaning": "What day are we going to the cinema?"
+    },
+    {
+     "speaker": "B",
+     "text": "Voy a ir el próximo sábado.",
+     "meaning": "I am going next Saturday."
+    },
+    {
+     "speaker": "A",
+     "text": "Está bien. ¿A qué hora?",
+     "meaning": "Okay. What time?"
+    },
+    {
+     "speaker": "B",
+     "text": "A las cinco de la tarde.",
+     "meaning": "At five in the evening."
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te gustaría comer algo antes?",
+     "meaning": "Would you like to eat something before?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, me gustaría comer una pizza.",
+     "meaning": "Yes, I would like to eat a pizza."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend making plans with you",
+    "learnerRole": "someone confirming their plans",
+    "brief": "You are talking about going to the cinema. Ask about the day and time. Confirm your plans.",
+    "goal": "You need to confirm the day and time for the cinema."
+   }
+  },
+  {
+   "title": "Inviting Friends",
+   "items": [
+    {
+     "text": "te invito a",
+     "meaning": "I invite you to",
+     "example": "Te invito a mi fiesta.",
+     "exampleMeaning": "I invite you to my party."
+    },
+    {
+     "text": "¿Quieres venir?",
+     "meaning": "Do you want to come?",
+     "example": "¿Quieres venir a mi casa?",
+     "exampleMeaning": "Do you want to come to my house?"
+    },
+    {
+     "text": "sería genial",
+     "meaning": "it would be great",
+     "example": "Sería genial vernos este fin de semana.",
+     "exampleMeaning": "It would be great to see each other this weekend."
+    },
+    {
+     "text": "¿Qué te parece?",
+     "meaning": "What do you think?",
+     "example": "¿Qué te parece la idea?",
+     "exampleMeaning": "What do you think of the idea?"
+    },
+    {
+     "text": "me encantaría",
+     "meaning": "I would love to",
+     "example": "Me encantaría ir a la fiesta.",
+     "exampleMeaning": "I would love to go to the party."
+    },
+    {
+     "text": "no puedo",
+     "meaning": "I can't",
+     "example": "Lo siento, no puedo ir.",
+     "exampleMeaning": "I'm sorry, I can't go."
+    }
+   ],
+   "tip": "When inviting someone, use 'te invito a' to make it clear you are inviting them. Be ready for a positive or negative response.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Te invito a mi fiesta el viernes.",
+     "meaning": "I invite you to my party on Friday."
+    },
+    {
+     "speaker": "B",
+     "text": "¡Gracias! ¿Quieres que lleve algo?",
+     "meaning": "Thank you! Do you want me to bring something?"
+    },
+    {
+     "speaker": "A",
+     "text": "No, solo ven. ¿Quieres venir?",
+     "meaning": "No, just come. Do you want to come?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, me encantaría.",
+     "meaning": "Yes, I would love to."
+    },
+    {
+     "speaker": "A",
+     "text": "Sería genial verte.",
+     "meaning": "It would be great to see you."
+    },
+    {
+     "speaker": "B",
+     "text": "Lo siento, no puedo ir.",
+     "meaning": "I'm sorry, I can't go."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend inviting you to a party",
+    "learnerRole": "someone responding to the invitation",
+    "brief": "You are inviting a friend to your party. Ask if they want to bring something and confirm their attendance.",
+    "goal": "You need to invite your friend and get their response."
+   }
+  },
+  {
+   "title": "Making Future Plans",
+   "items": [
+    {
+     "text": "vamos a",
+     "meaning": "we are going to",
+     "example": "Vamos a salir mañana.",
+     "exampleMeaning": "We are going out tomorrow."
+    },
+    {
+     "text": "el martes",
+     "meaning": "Tuesday",
+     "example": "El martes tengo una reunión.",
+     "exampleMeaning": "On Tuesday I have a meeting."
+    },
+    {
+     "text": "¿A qué hora nos encontramos?",
+     "meaning": "What time do we meet?",
+     "example": "¿A qué hora nos encontramos el sábado?",
+     "exampleMeaning": "What time do we meet on Saturday?"
+    },
+    {
+     "text": "puedo a las...",
+     "meaning": "I can at...",
+     "example": "Puedo a las seis.",
+     "exampleMeaning": "I can at six."
+    },
+    {
+     "text": "¿Te parece bien?",
+     "meaning": "Does that sound good to you?",
+     "example": "¿Te parece bien el martes?",
+     "exampleMeaning": "Does Tuesday sound good to you?"
+    },
+    {
+     "text": "estoy ocupado/a",
+     "meaning": "I am busy",
+     "example": "Lo siento, estoy ocupado el miércoles.",
+     "exampleMeaning": "I'm sorry, I am busy on Wednesday."
+    }
+   ],
+   "tip": "Use 'vamos a' to talk about plans you will do together. Be clear about the day and time.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vamos a salir mañana.",
+     "meaning": "We are going out tomorrow."
+    },
+    {
+     "speaker": "B",
+     "text": "¿A qué hora nos encontramos?",
+     "meaning": "What time do we meet?"
+    },
+    {
+     "speaker": "A",
+     "text": "¿Te parece bien a las siete?",
+     "meaning": "Does seven sound good to you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Puedo a las siete, pero estoy ocupado a las ocho.",
+     "meaning": "I can at seven, but I am busy at eight."
+    },
+    {
+     "speaker": "A",
+     "text": "Está bien, nos vemos a las siete.",
+     "meaning": "Okay, we will see each other at seven."
+    },
+    {
+     "speaker": "B",
+     "text": "Perfecto, nos vemos.",
+     "meaning": "Perfect, see you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend making plans with you",
+    "learnerRole": "someone confirming the time and day",
+    "brief": "You are making plans to go out with a friend. Discuss the time and confirm if it works for you.",
+    "goal": "You need to confirm the time and day for going out."
+   }
+  },
+  {
+   "title": "Confirming Plans",
+   "items": [
+    {
+     "text": "sí, claro",
+     "meaning": "yes, of course",
+     "example": "Sí, claro, voy contigo.",
+     "exampleMeaning": "Yes, of course, I will go with you."
+    },
+    {
+     "text": "¿Está confirmado?",
+     "meaning": "Is it confirmed?",
+     "example": "¿Está confirmado para el viernes?",
+     "exampleMeaning": "Is it confirmed for Friday?"
+    },
+    {
+     "text": "me parece bien",
+     "meaning": "that sounds good to me",
+     "example": "Me parece bien la hora.",
+     "exampleMeaning": "The time sounds good to me."
+    },
+    {
+     "text": "no estoy seguro/a",
+     "meaning": "I am not sure",
+     "example": "No estoy seguro si puedo ir.",
+     "exampleMeaning": "I am not sure if I can go."
+    },
+    {
+     "text": "tal vez",
+     "meaning": "maybe",
+     "example": "Tal vez puedo ir el sábado.",
+     "exampleMeaning": "Maybe I can go on Saturday."
+    },
+    {
+     "text": "te aviso",
+     "meaning": "I will let you know",
+     "example": "Te aviso si puedo ir.",
+     "exampleMeaning": "I will let you know if I can go."
+    }
+   ],
+   "tip": "Use 'sí, claro' to confirm plans. If you're unsure, say 'no estoy seguro/a' or 'tal vez'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "¿Está confirmado para el viernes?",
+     "meaning": "Is it confirmed for Friday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, claro, estoy listo.",
+     "meaning": "Yes, of course, I am ready."
+    },
+    {
+     "speaker": "A",
+     "text": "Me parece bien la hora.",
+     "meaning": "The time sounds good to me."
+    },
+    {
+     "speaker": "B",
+     "text": "Tal vez puedo ir más tarde.",
+     "meaning": "Maybe I can go later."
+    },
+    {
+     "speaker": "A",
+     "text": "No estoy seguro si puedo ir.",
+     "meaning": "I am not sure if I can go."
+    },
+    {
+     "speaker": "B",
+     "text": "Te aviso si puedo.",
+     "meaning": "I will let you know if I can."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend confirming plans with you",
+    "learnerRole": "someone responding to the confirmation",
+    "brief": "You are confirming plans with a friend. Ask if everything is set and respond to their questions.",
+    "goal": "You need to confirm the plans and share your availability."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Making Plans",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "¿Qué día vamos al cine?",
+    "meaning": "What day are we going to the cinema?"
+   },
+   {
+    "speaker": "B",
+    "text": "Voy a ir el próximo sábado.",
+    "meaning": "I am going next Saturday."
+   },
+   {
+    "speaker": "A",
+    "text": "Te invito a mi fiesta el viernes.",
+    "meaning": "I invite you to my party on Friday."
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, me encantaría.",
+    "meaning": "Yes, I would love to."
+   },
+   {
+    "speaker": "A",
+    "text": "Vamos a salir mañana. ¿A qué hora?",
+    "meaning": "We are going out tomorrow. What time?"
+   },
+   {
+    "speaker": "B",
+    "text": "Puedo a las seis, pero estoy ocupado a las ocho.",
+    "meaning": "I can at six, but I am busy at eight."
+   },
+   {
+    "speaker": "A",
+    "text": "¿Está confirmado para el viernes?",
+    "meaning": "Is it confirmed for Friday?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sí, claro, te aviso si hay un cambio.",
+    "meaning": "Yes, of course, I will let you know if there is a change."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a friend reviewing plans with you",
+   "learnerRole": "someone confirming the details",
+   "brief": "You are discussing plans for going out and a party. Confirm the days and times together.",
+   "goal": "You need to confirm all the plans discussed."
+  }
+ }
+}

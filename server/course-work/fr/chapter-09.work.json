@@ -1,0 +1,376 @@
+{
+ "title": "Health and the Doctor",
+ "lessons": [
+  {
+   "title": "Body Parts",
+   "items": [
+    {
+     "text": "la tête",
+     "meaning": "the head",
+     "example": "J'ai mal à la tête.",
+     "exampleMeaning": "I have a headache."
+    },
+    {
+     "text": "le ventre",
+     "meaning": "the stomach",
+     "example": "Il a mal au ventre.",
+     "exampleMeaning": "He has a stomachache."
+    },
+    {
+     "text": "le bras",
+     "meaning": "the arm",
+     "example": "Elle se blesse au bras.",
+     "exampleMeaning": "She hurts her arm."
+    },
+    {
+     "text": "la jambe",
+     "meaning": "the leg",
+     "example": "Nous avons mal à la jambe.",
+     "exampleMeaning": "We have leg pain."
+    },
+    {
+     "text": "le dos",
+     "meaning": "the back",
+     "example": "Tu as mal au dos.",
+     "exampleMeaning": "You have back pain."
+    },
+    {
+     "text": "la main",
+     "meaning": "the hand",
+     "example": "Ils ont mal à la main.",
+     "exampleMeaning": "They have hand pain."
+    }
+   ],
+   "tip": "In French, body parts have gender. Use 'au' for masculine parts like 'le bras' and 'à la' for feminine parts like 'la tête'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Où as-tu mal ?",
+     "meaning": "Where does it hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'ai mal à la tête.",
+     "meaning": "I have a headache."
+    },
+    {
+     "speaker": "A",
+     "text": "Et toi, où as-tu mal ?",
+     "meaning": "And you, where does it hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "J'ai mal au ventre.",
+     "meaning": "I have a stomachache."
+    },
+    {
+     "speaker": "A",
+     "text": "Prends un médicament.",
+     "meaning": "Take some medicine."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci, je vais le faire.",
+     "meaning": "Thank you, I will do that."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who is concerned about your health",
+    "learnerRole": "a person who feels unwell",
+    "brief": "Ask about their symptoms and give advice. Use body parts and expressions of pain.",
+    "goal": "You need to explain where it hurts."
+   }
+  },
+  {
+   "title": "At the Pharmacy",
+   "items": [
+    {
+     "text": "la pharmacie",
+     "meaning": "the pharmacy",
+     "example": "Où est la pharmacie ?",
+     "exampleMeaning": "Where is the pharmacy?"
+    },
+    {
+     "text": "un médicament",
+     "meaning": "a medicine",
+     "example": "Je cherche un médicament.",
+     "exampleMeaning": "I am looking for a medicine."
+    },
+    {
+     "text": "un comprimé",
+     "meaning": "a tablet",
+     "example": "Prenez un comprimé par jour.",
+     "exampleMeaning": "Take one tablet a day."
+    },
+    {
+     "text": "la douleur",
+     "meaning": "the pain",
+     "example": "La douleur est forte.",
+     "exampleMeaning": "The pain is strong."
+    },
+    {
+     "text": "la consultation",
+     "meaning": "the consultation",
+     "example": "J'ai besoin d'une consultation.",
+     "exampleMeaning": "I need a consultation."
+    },
+    {
+     "text": "prescrire",
+     "meaning": "to prescribe",
+     "example": "Le docteur va prescrire un médicament.",
+     "exampleMeaning": "The doctor will prescribe a medicine."
+    }
+   ],
+   "tip": "Use 'la' for feminine nouns like 'la pharmacie' and 'le' for masculine nouns like 'le médicament'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Où est la pharmacie ?",
+     "meaning": "Where is the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est près d'ici.",
+     "meaning": "It's near here."
+    },
+    {
+     "speaker": "A",
+     "text": "J'ai besoin d'un médicament.",
+     "meaning": "I need a medicine."
+    },
+    {
+     "speaker": "B",
+     "text": "Quel type de médicament ?",
+     "meaning": "What type of medicine?"
+    },
+    {
+     "speaker": "A",
+     "text": "Pour la douleur.",
+     "meaning": "For the pain."
+    },
+    {
+     "speaker": "B",
+     "text": "Tu peux demander à la pharmacie.",
+     "meaning": "You can ask at the pharmacy."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a pharmacy assistant",
+    "learnerRole": "a customer needing medicine",
+    "brief": "Help the customer find the right medicine for their pain.",
+    "goal": "You need to ask for medicine for your pain."
+   }
+  },
+  {
+   "title": "Describing Pain",
+   "items": [
+    {
+     "text": "avoir mal",
+     "meaning": "to hurt",
+     "example": "J'ai mal au dos.",
+     "exampleMeaning": "I hurt my back."
+    },
+    {
+     "text": "très",
+     "meaning": "very",
+     "example": "C'est très douloureux.",
+     "exampleMeaning": "It's very painful."
+    },
+    {
+     "text": "un peu",
+     "meaning": "a little",
+     "example": "Ça fait un peu mal.",
+     "exampleMeaning": "It hurts a little."
+    },
+    {
+     "text": "souffrir",
+     "meaning": "to suffer",
+     "example": "Je souffre de migraines.",
+     "exampleMeaning": "I suffer from migraines."
+    },
+    {
+     "text": "le traitement",
+     "meaning": "the treatment",
+     "example": "Le traitement est efficace.",
+     "exampleMeaning": "The treatment is effective."
+    },
+    {
+     "text": "se reposer",
+     "meaning": "to rest",
+     "example": "Il faut se reposer.",
+     "exampleMeaning": "You need to rest."
+    }
+   ],
+   "tip": "Use 'avoir mal' to describe pain. It is often followed by 'à' and the body part.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Est-ce que tu as mal ?",
+     "meaning": "Do you hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, j'ai mal au dos.",
+     "meaning": "Yes, I hurt my back."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est très douloureux ?",
+     "meaning": "Is it very painful?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je souffre.",
+     "meaning": "Yes, I am suffering."
+    },
+    {
+     "speaker": "A",
+     "text": "Tu dois te reposer.",
+     "meaning": "You need to rest."
+    },
+    {
+     "speaker": "B",
+     "text": "D'accord, merci.",
+     "meaning": "Okay, thank you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a concerned friend",
+    "learnerRole": "someone in pain",
+    "brief": "Express your pain and ask for advice on what to do.",
+    "goal": "You need to explain your pain and ask for help."
+   }
+  },
+  {
+   "title": "Giving Advice",
+   "items": [
+    {
+     "text": "boire de l'eau",
+     "meaning": "to drink water",
+     "example": "Il faut boire de l'eau.",
+     "exampleMeaning": "You need to drink water."
+    },
+    {
+     "text": "manger léger",
+     "meaning": "to eat light",
+     "example": "Mange léger aujourd'hui.",
+     "exampleMeaning": "Eat light today."
+    },
+    {
+     "text": "prendre du repos",
+     "meaning": "to take rest",
+     "example": "Prends du repos ce soir.",
+     "exampleMeaning": "Take rest tonight."
+    },
+    {
+     "text": "faire attention",
+     "meaning": "to be careful",
+     "example": "Fais attention à ta santé.",
+     "exampleMeaning": "Be careful with your health."
+    },
+    {
+     "text": "voir un docteur",
+     "meaning": "to see a doctor",
+     "example": "Il faut voir un docteur.",
+     "exampleMeaning": "You need to see a doctor."
+    },
+    {
+     "text": "ne pas s'inquiéter",
+     "meaning": "not to worry",
+     "example": "Ne t'inquiète pas.",
+     "exampleMeaning": "Don't worry."
+    }
+   ],
+   "tip": "When giving advice, use 'il faut' to indicate necessity. It means 'you need to' or 'you must'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Que dois-je faire ?",
+     "meaning": "What should I do?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il faut boire de l'eau.",
+     "meaning": "You need to drink water."
+    },
+    {
+     "speaker": "A",
+     "text": "Et pour la douleur ?",
+     "meaning": "And for the pain?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il faut voir un docteur.",
+     "meaning": "You need to see a doctor."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accord, je vais le faire.",
+     "meaning": "Okay, I will do that."
+    },
+    {
+     "speaker": "B",
+     "text": "Ne t'inquiète pas, ça ira mieux.",
+     "meaning": "Don't worry, it will get better."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend giving advice",
+    "learnerRole": "a person feeling unwell",
+    "brief": "Ask for advice on how to feel better and listen to suggestions.",
+    "goal": "You need to ask what to do to feel better."
+   }
+  }
+ ],
+ "review": {
+  "title": "Health and the Doctor Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Où est la pharmacie ?",
+    "meaning": "Where is the pharmacy?"
+   },
+   {
+    "speaker": "B",
+    "text": "C'est près d'ici.",
+    "meaning": "It's near here."
+   },
+   {
+    "speaker": "A",
+    "text": "J'ai mal au ventre.",
+    "meaning": "I have a stomachache."
+   },
+   {
+    "speaker": "B",
+    "text": "Il faut voir un docteur.",
+    "meaning": "You need to see a doctor."
+   },
+   {
+    "speaker": "A",
+    "text": "C'est très douloureux ?",
+    "meaning": "Is it very painful?"
+   },
+   {
+    "speaker": "B",
+    "text": "Oui, je souffre de migraines.",
+    "meaning": "Yes, I suffer from migraines."
+   },
+   {
+    "speaker": "A",
+    "text": "Tu dois te reposer.",
+    "meaning": "You need to rest."
+   },
+   {
+    "speaker": "B",
+    "text": "Merci, je vais le faire.",
+    "meaning": "Thank you, I will do that."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a concerned friend",
+   "learnerRole": "someone in pain",
+   "brief": "Discuss your symptoms and ask for advice on how to feel better.",
+   "goal": "You need to express how you feel and ask for help."
+  }
+ }
+}

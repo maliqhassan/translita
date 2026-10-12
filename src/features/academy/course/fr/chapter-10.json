@@ -1,0 +1,418 @@
+{
+ "id": "c10",
+ "number": 10,
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "id": "c10-d1",
+   "day": 46,
+   "title": "Polite Requests",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d1-i1",
+     "text": "je vous prie",
+     "meaning": "I beg you / I request you",
+     "example": "Je vous prie de bien vouloir m'aider.",
+     "exampleMeaning": "I kindly ask you to help me."
+    },
+    {
+     "id": "c10-d1-i2",
+     "text": "je voudrais parler à...",
+     "meaning": "I would like to speak to...",
+     "example": "Je voudrais parler à Monsieur Dupont.",
+     "exampleMeaning": "I would like to speak to Mr. Dupont."
+    },
+    {
+     "id": "c10-d1-i3",
+     "text": "un instant",
+     "meaning": "a moment",
+     "example": "Un instant, je vous en prie.",
+     "exampleMeaning": "A moment, please."
+    },
+    {
+     "id": "c10-d1-i4",
+     "text": "s'il te plaît",
+     "meaning": "please (informal)",
+     "example": "Donne-moi ton numéro, s'il te plaît.",
+     "exampleMeaning": "Give me your number, please."
+    },
+    {
+     "id": "c10-d1-i5",
+     "text": "je vous remercie pour votre aide",
+     "meaning": "I thank you for your help",
+     "example": "Je vous remercie pour votre aide précieuse.",
+     "exampleMeaning": "I thank you for your valuable help."
+    },
+    {
+     "id": "c10-d1-i6",
+     "text": "je suis désolé(e)",
+     "meaning": "I am sorry",
+     "example": "Je suis désolé, je ne peux pas parler maintenant.",
+     "exampleMeaning": "I am sorry, I cannot talk now."
+    }
+   ],
+   "tip": "Use 'pourriez-vous' for polite requests. It is more formal than 'peux-tu', which is informal.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, comment puis-je vous aider ?",
+     "meaning": "Hello, how can I help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bonjour, pourriez-vous m'aider, s'il vous plaît ?",
+     "meaning": "Hello, could you help me, please?"
+    },
+    {
+     "speaker": "A",
+     "text": "Bien sûr, qui voulez-vous joindre ?",
+     "meaning": "Of course, who do you want to reach?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je voudrais parler à Madame Lefèvre.",
+     "meaning": "I would like to speak to Mrs. Lefèvre."
+    },
+    {
+     "speaker": "A",
+     "text": "Un instant, je vais vérifier.",
+     "meaning": "A moment, I will check."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci de votre aide !",
+     "meaning": "Thank you for your help!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a receptionist at a company.",
+    "learnerRole": "You are calling to speak with someone.",
+    "brief": "Ask politely for help and state who you want to speak to.",
+    "goal": "You need to ask for assistance in reaching a person."
+   }
+  },
+  {
+   "id": "c10-d2",
+   "day": 47,
+   "title": "Spelling Names",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d2-i1",
+     "text": "épeler",
+     "meaning": "to spell",
+     "example": "Pouvez-vous épeler votre nom, s'il vous plaît ?",
+     "exampleMeaning": "Can you spell your name, please?"
+    },
+    {
+     "id": "c10-d2-i2",
+     "text": "mon prénom est...",
+     "meaning": "my first name is...",
+     "example": "Mon prénom est Marie.",
+     "exampleMeaning": "My first name is Marie."
+    },
+    {
+     "id": "c10-d2-i3",
+     "text": "comment ça s'écrit ?",
+     "meaning": "how is it spelled?",
+     "example": "Comment ça s'écrit, votre nom ?",
+     "exampleMeaning": "How is your name spelled?"
+    },
+    {
+     "id": "c10-d2-i4",
+     "text": "avec deux 'a'",
+     "meaning": "with two 'a'",
+     "example": "C'est Sarah, avec deux 'a'.",
+     "exampleMeaning": "It's Sarah, with two 'a'."
+    },
+    {
+     "id": "c10-d2-i5",
+     "text": "un accent",
+     "meaning": "an accent",
+     "example": "Mon nom a un accent.",
+     "exampleMeaning": "My name has an accent."
+    },
+    {
+     "id": "c10-d2-i6",
+     "text": "sans accent",
+     "meaning": "without an accent",
+     "example": "C'est simple, sans accent.",
+     "exampleMeaning": "It's simple, without an accent."
+    }
+   ],
+   "tip": "When spelling names, use 'épeler' to ask someone to spell it. Be clear about accents.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quel est votre nom ?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mon nom est Martin.",
+     "meaning": "My name is Martin."
+    },
+    {
+     "speaker": "A",
+     "text": "Comment ça s'écrit ?",
+     "meaning": "How is it spelled?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est Martin, avec un 'i'.",
+     "meaning": "It's Martin, with an 'i'."
+    },
+    {
+     "speaker": "A",
+     "text": "Y a-t-il un accent ?",
+     "meaning": "Is there an accent?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non, sans accent.",
+     "meaning": "No, without an accent."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a colleague taking a call.",
+    "learnerRole": "You are giving your name over the phone.",
+    "brief": "Provide your name and spell it out clearly.",
+    "goal": "You need to ensure your name is understood correctly."
+   }
+  },
+  {
+   "id": "c10-d3",
+   "day": 48,
+   "title": "Leaving a Message",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d3-i1",
+     "text": "laisser un message",
+     "meaning": "to leave a message",
+     "example": "Je voudrais laisser un message.",
+     "exampleMeaning": "I would like to leave a message."
+    },
+    {
+     "id": "c10-d3-i2",
+     "text": "appeler plus tard",
+     "meaning": "to call back later",
+     "example": "Vous pouvez appeler plus tard.",
+     "exampleMeaning": "You can call back later."
+    },
+    {
+     "id": "c10-d3-i3",
+     "text": "je ne suis pas disponible",
+     "meaning": "I am not available",
+     "example": "Désolé, je ne suis pas disponible maintenant.",
+     "exampleMeaning": "Sorry, I am not available now."
+    },
+    {
+     "id": "c10-d3-i4",
+     "text": "merci de rappeler",
+     "meaning": "thank you for calling back",
+     "example": "Merci de rappeler plus tard.",
+     "exampleMeaning": "Thank you for calling back later."
+    },
+    {
+     "id": "c10-d3-i5",
+     "text": "avez-vous un numéro ?",
+     "meaning": "do you have a number?",
+     "example": "Avez-vous un numéro pour moi ?",
+     "exampleMeaning": "Do you have a number for me?"
+    },
+    {
+     "id": "c10-d3-i6",
+     "text": "je vous rappellerai",
+     "meaning": "I will call you back",
+     "example": "Je vous rappellerai demain.",
+     "exampleMeaning": "I will call you back tomorrow."
+    }
+   ],
+   "tip": "Use 'laisser un message' when you want to leave a message. Be polite and clear.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Puis-je prendre un message ?",
+     "meaning": "Can I take a message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je voudrais laisser un message.",
+     "meaning": "Yes, I would like to leave a message."
+    },
+    {
+     "speaker": "A",
+     "text": "Pour qui est le message ?",
+     "meaning": "For whom is the message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Pour Monsieur Dupont, s'il vous plaît.",
+     "meaning": "For Mr. Dupont, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Quand puis-je rappeler ?",
+     "meaning": "When can I call back?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je ne suis pas disponible maintenant, mais je vous rappellerai.",
+     "meaning": "I am not available now, but I will call you back."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are taking a message for someone.",
+    "learnerRole": "You are leaving a message on the phone.",
+    "brief": "Leave a clear message with the recipient's name.",
+    "goal": "You need to make sure the message is taken correctly."
+   }
+  },
+  {
+   "id": "c10-d4",
+   "day": 49,
+   "title": "Taking a Message",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d4-i1",
+     "text": "prendre un message",
+     "meaning": "to take a message",
+     "example": "Je vais prendre un message.",
+     "exampleMeaning": "I will take a message."
+    },
+    {
+     "id": "c10-d4-i2",
+     "text": "qui appelle ?",
+     "meaning": "who is calling?",
+     "example": "Qui appelle, s'il vous plaît ?",
+     "exampleMeaning": "Who is calling, please?"
+    },
+    {
+     "id": "c10-d4-i3",
+     "text": "quel est le numéro ?",
+     "meaning": "what is the number?",
+     "example": "Quel est le numéro de téléphone ?",
+     "exampleMeaning": "What is the phone number?"
+    },
+    {
+     "id": "c10-d4-i4",
+     "text": "vous pouvez le joindre",
+     "meaning": "you can reach him/her",
+     "example": "Vous pouvez le joindre au bureau.",
+     "exampleMeaning": "You can reach him at the office."
+    },
+    {
+     "id": "c10-d4-i5",
+     "text": "merci pour l'information",
+     "meaning": "thank you for the information",
+     "example": "Merci pour l'information, c'est utile.",
+     "exampleMeaning": "Thank you for the information, it's helpful."
+    },
+    {
+     "id": "c10-d4-i6",
+     "text": "je vais transmettre le message",
+     "meaning": "I will pass on the message",
+     "example": "Je vais transmettre le message à Madame Lefèvre.",
+     "exampleMeaning": "I will pass on the message to Mrs. Lefèvre."
+    }
+   ],
+   "tip": "When taking a message, ask 'qui appelle ?' to know who is calling. It's important to get the details.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, qui appelle ?",
+     "meaning": "Hello, who is calling?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bonjour, c'est Claire.",
+     "meaning": "Hello, it's Claire."
+    },
+    {
+     "speaker": "A",
+     "text": "Quel est le numéro de téléphone ?",
+     "meaning": "What is the phone number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mon numéro est le 01 23 45 67 89.",
+     "meaning": "My number is 01 23 45 67 89."
+    },
+    {
+     "speaker": "A",
+     "text": "Merci, je vais transmettre le message.",
+     "meaning": "Thank you, I will pass on the message."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci pour l'information !",
+     "meaning": "Thank you for the information!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a receptionist taking a call.",
+    "learnerRole": "You are the caller providing your details.",
+    "brief": "Give your name and phone number clearly.",
+    "goal": "You need to ensure your details are recorded accurately."
+   }
+  },
+  {
+   "id": "c10-d5",
+   "day": 50,
+   "title": "Chapter Review: Phone Calls and Messages",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour, qui appelle ?",
+     "meaning": "Hello, who is calling?"
+    },
+    {
+     "speaker": "B",
+     "text": "C'est Martin, je voudrais parler à Madame Lefèvre.",
+     "meaning": "It's Martin, I would like to speak to Mrs. Lefèvre."
+    },
+    {
+     "speaker": "A",
+     "text": "Un instant, je vais vérifier.",
+     "meaning": "A moment, I will check."
+    },
+    {
+     "speaker": "B",
+     "text": "Merci de votre aide !",
+     "meaning": "Thank you for your help!"
+    },
+    {
+     "speaker": "A",
+     "text": "Puis-je prendre un message ?",
+     "meaning": "Can I take a message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Oui, je voudrais laisser un message.",
+     "meaning": "Yes, I would like to leave a message."
+    },
+    {
+     "speaker": "A",
+     "text": "Quel est votre numéro ?",
+     "meaning": "What is your number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mon numéro est le 01 23 45 67 89.",
+     "meaning": "My number is 01 23 45 67 89."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a receptionist.",
+    "learnerRole": "You are a caller leaving a message.",
+    "brief": "Engage in a conversation about reaching someone and leaving a message.",
+    "goal": "You need to ensure that your message and contact details are taken correctly."
+   }
+  }
+ ]
+}

@@ -1,0 +1,366 @@
+{
+ "title": "Shopping",
+ "lessons": [
+  {
+   "title": "Let's Ask for Prices!",
+   "items": [
+    {
+     "text": "Wie viel kostet das?",
+     "meaning": "How much does it cost?",
+     "example": "Wie viel kostet das Hemd?",
+     "exampleMeaning": "How much does the shirt cost?"
+    },
+    {
+     "text": "Das ist teuer.",
+     "meaning": "That is expensive.",
+     "example": "Das ist teuer für ein T-Shirt.",
+     "exampleMeaning": "That is expensive for a T-shirt."
+    },
+    {
+     "text": "Das ist billig.",
+     "meaning": "That is cheap.",
+     "example": "Das ist billig für ein Buch.",
+     "exampleMeaning": "That is cheap for a book."
+    },
+    {
+     "text": "Ich hätte gerne das.",
+     "meaning": "I would like that.",
+     "example": "Ich hätte gerne das blaue Kleid.",
+     "exampleMeaning": "I would like that blue dress."
+    },
+    {
+     "text": "Haben Sie das in einer anderen Größe?",
+     "meaning": "Do you have that in another size?",
+     "example": "Haben Sie das in einer anderen Größe?",
+     "exampleMeaning": "Do you have that in another size?"
+    },
+    {
+     "text": "Ich suche nach einem Preis.",
+     "meaning": "I am looking for a price.",
+     "example": "Ich suche nach einem Preis für die Schuhe.",
+     "exampleMeaning": "I am looking for a price for the shoes."
+    }
+   ],
+   "tip": "When asking for prices, use 'Wie viel kostet das?' to get the price of an item. You can use 'Das ist teuer' or 'Das ist billig' to express your opinion about the price.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie viel kostet das Hemd?",
+     "meaning": "How much does the shirt cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das kostet zwanzig Euro.",
+     "meaning": "That costs twenty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Das ist teuer für ein T-Shirt.",
+     "meaning": "That is expensive for a T-shirt."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich hätte gerne das blaue Kleid.",
+     "meaning": "I would like that blue dress."
+    },
+    {
+     "speaker": "A",
+     "text": "Haben Sie das in einer anderen Größe?",
+     "meaning": "Do you have that in another size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, wir haben es in Größe M.",
+     "meaning": "Yes, we have it in size M."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a shop assistant.",
+    "learnerRole": "B is a customer.",
+    "brief": "You are in a clothing store. Ask about the price of an item and if there are other sizes available.",
+    "goal": "You need to find out the price and size options for a clothing item."
+   }
+  },
+  {
+   "title": "This and That!",
+   "items": [
+    {
+     "text": "dieses",
+     "meaning": "this (neutral)",
+     "example": "Ich möchte dieses Buch.",
+     "exampleMeaning": "I want this book."
+    },
+    {
+     "text": "jene",
+     "meaning": "that (plural)",
+     "example": "Ich mag jene Schuhe.",
+     "exampleMeaning": "I like those shoes."
+    },
+    {
+     "text": "dieser",
+     "meaning": "this (masculine)",
+     "example": "Dieser Pullover ist schön.",
+     "exampleMeaning": "This sweater is nice."
+    },
+    {
+     "text": "diese",
+     "meaning": "this (feminine)",
+     "example": "Diese Jacke ist warm.",
+     "exampleMeaning": "This jacket is warm."
+    },
+    {
+     "text": "Das ist nicht mein Stil.",
+     "meaning": "That is not my style.",
+     "example": "Das ist nicht mein Stil.",
+     "exampleMeaning": "That is not my style."
+    },
+    {
+     "text": "Ich nehme dieses.",
+     "meaning": "I will take this one.",
+     "example": "Ich nehme dieses T-Shirt.",
+     "exampleMeaning": "I will take this T-shirt."
+    }
+   ],
+   "tip": "Use 'dieser' for masculine nouns, 'diese' for feminine nouns, and 'dieses' for neutral nouns. 'Jene' is used for plural nouns that are further away.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Möchten Sie diesen Pullover?",
+     "meaning": "Would you like this sweater?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nein, ich mag diesen nicht.",
+     "meaning": "No, I do not like this one."
+    },
+    {
+     "speaker": "A",
+     "text": "Was ist mit jener Jacke?",
+     "meaning": "What about that jacket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Diese Jacke ist warm.",
+     "meaning": "This jacket is warm."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich habe auch diese Schuhe.",
+     "meaning": "I also have these shoes."
+    },
+    {
+     "speaker": "B",
+     "text": "Ich nehme dieses T-Shirt.",
+     "meaning": "I will take this T-shirt."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a shop assistant.",
+    "learnerRole": "B is a customer.",
+    "brief": "You are looking at clothes. Use 'this' and 'that' to express your preferences.",
+    "goal": "You need to choose items you like."
+   }
+  },
+  {
+   "title": "Let's Count!",
+   "items": [
+    {
+     "text": "sechs",
+     "meaning": "six",
+     "example": "Ich habe sechs Äpfel.",
+     "exampleMeaning": "I have six apples."
+    },
+    {
+     "text": "zwölf",
+     "meaning": "twelve",
+     "example": "Ich möchte zwölf Eier.",
+     "exampleMeaning": "I would like twelve eggs."
+    },
+    {
+     "text": "dreißig",
+     "meaning": "thirty",
+     "example": "Das kostet dreißig Euro.",
+     "exampleMeaning": "That costs thirty euros."
+    },
+    {
+     "text": "fünfzig",
+     "meaning": "fifty",
+     "example": "Ich brauche fünfzig Cent.",
+     "exampleMeaning": "I need fifty cents."
+    },
+    {
+     "text": "achtzig",
+     "meaning": "eighty",
+     "example": "Das Hemd kostet achtzig Euro.",
+     "exampleMeaning": "The shirt costs eighty euros."
+    },
+    {
+     "text": "neunzig",
+     "meaning": "ninety",
+     "example": "Ich habe neunzig Euro.",
+     "exampleMeaning": "I have ninety euros."
+    }
+   ],
+   "tip": "Numbers in German are different from English. Practice counting from one to one hundred to become familiar with them.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wie viel kostet das?",
+     "meaning": "How much does that cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Das kostet dreißig Euro.",
+     "meaning": "That costs thirty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich habe nur zwölf Euro.",
+     "meaning": "I only have twelve euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Das ist nicht genug.",
+     "meaning": "That is not enough."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich möchte sechs Äpfel.",
+     "meaning": "I would like six apples."
+    },
+    {
+     "speaker": "B",
+     "text": "Das macht fünf Euro.",
+     "meaning": "That is five euros."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a shop assistant.",
+    "learnerRole": "B is a customer.",
+    "brief": "You are in a grocery store. Ask about prices and use numbers to express how much you have.",
+    "goal": "You need to buy items without exceeding your budget."
+   }
+  },
+  {
+   "title": "Colors and Sizes!",
+   "items": [
+    {
+     "text": "blau",
+     "meaning": "blue",
+     "example": "Ich mag das blaue Kleid.",
+     "exampleMeaning": "I like the blue dress."
+    },
+    {
+     "text": "rot",
+     "meaning": "red",
+     "example": "Diese Schuhe sind rot.",
+     "exampleMeaning": "These shoes are red."
+    },
+    {
+     "text": "grün",
+     "meaning": "green",
+     "example": "Ich möchte das grüne Hemd.",
+     "exampleMeaning": "I would like the green shirt."
+    },
+    {
+     "text": "klein",
+     "meaning": "small",
+     "example": "Ich brauche eine kleine Größe.",
+     "exampleMeaning": "I need a small size."
+    },
+    {
+     "text": "mittel",
+     "meaning": "medium",
+     "example": "Haben Sie das in Größe M?",
+     "exampleMeaning": "Do you have that in medium?"
+    },
+    {
+     "text": "groß",
+     "meaning": "large",
+     "example": "Ich möchte die große Größe.",
+     "exampleMeaning": "I would like the large size."
+    }
+   ],
+   "tip": "Colors in German come before the noun. For example, 'das blaue Kleid' means 'the blue dress.' Sizes can be small (klein), medium (mittel), and large (groß).",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Haben Sie das in blau?",
+     "meaning": "Do you have that in blue?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, wir haben es in blau und rot.",
+     "meaning": "Yes, we have it in blue and red."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich brauche eine kleine Größe.",
+     "meaning": "I need a small size."
+    },
+    {
+     "speaker": "B",
+     "text": "Wir haben auch mittel und groß.",
+     "meaning": "We also have medium and large."
+    },
+    {
+     "speaker": "A",
+     "text": "Ich möchte das grüne Hemd.",
+     "meaning": "I would like the green shirt."
+    },
+    {
+     "speaker": "B",
+     "text": "Das ist in großer Größe.",
+     "meaning": "That is in large size."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a shop assistant.",
+    "learnerRole": "B is a customer.",
+    "brief": "You are shopping for clothes. Ask about colors and sizes.",
+    "goal": "You need to find your preferred color and size."
+   }
+  }
+ ],
+ "review": {
+  "title": "Shopping Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Wie viel kostet das Hemd?",
+    "meaning": "How much does the shirt cost?"
+   },
+   {
+    "speaker": "B",
+    "text": "Das kostet zwanzig Euro.",
+    "meaning": "That costs twenty euros."
+   },
+   {
+    "speaker": "A",
+    "text": "Ich möchte dieses Kleid.",
+    "meaning": "I would like this dress."
+   },
+   {
+    "speaker": "B",
+    "text": "Haben Sie das in einer anderen Größe?",
+    "meaning": "Do you have that in another size?"
+   },
+   {
+    "speaker": "A",
+    "text": "Ich brauche eine kleine Größe.",
+    "meaning": "I need a small size."
+   },
+   {
+    "speaker": "B",
+    "text": "Ich möchte das grüne Hemd.",
+    "meaning": "I would like the green shirt."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a shop assistant.",
+   "learnerRole": "B is a customer.",
+   "brief": "You are in a clothing store. Use what you learned about prices, colors, and sizes to shop.",
+   "goal": "You need to ask about items and make a purchase."
+  }
+ }
+}
