@@ -24,9 +24,11 @@ import { createId } from '@/utils';
 
 import { CoachAvatar } from '../components/coach-avatar';
 import { Confetti } from '../components/confetti';
-import { CountUp, Pop } from '../components/motion';
+import { Breathing, CountUp, Pop } from '../components/motion';
 import { ProgressRing } from '../components/progress-ring';
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
+import { COURSE_DAYS } from '../course';
+import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
 import { planLesson, SECTIONS, sectionCounts, type LessonStep, type Section } from '../lesson/plan';
@@ -39,6 +41,8 @@ import {
   type SessionState,
 } from '../lesson/session';
 import { LessonStepView, SECTION_LABEL, type SpeechPractice } from '../lesson/steps';
+import { ACADEMY_ELITE } from '../routes';
+import { completedDays, dayStatus } from '../rules';
 
 /** The time of an event, read when it happens. */
 const now = () => Date.now();
@@ -224,6 +228,15 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
       });
     }
     await services.academy.clearPosition(courseId);
+    services.analytics.log({
+      name: 'lesson_complete',
+      params: {
+        course: courseId,
+        day: lesson.day,
+        checkpoint: lesson.checkpoint,
+        passed: result.passed,
+      },
+    });
     setOutcome(result);
   };
 
@@ -440,8 +453,17 @@ function Result({
   onRetry: () => void;
 }) {
   const theme = useTheme();
-  const { progress } = useActiveCourse();
+  const router = useRouter();
+  const { enrollment, progress } = useActiveCourse();
   const daily = useDailyProgress(courseId, progress);
+  const unlocked = useAcademyAccess();
+  // Finishing the last free day: the next one is part of the full course.
+  const nextIsPaid =
+    outcome.passed &&
+    enrollment !== undefined &&
+    lesson.day < COURSE_DAYS &&
+    dayStatus(lesson.day + 1, completedDays(progress), enrollment.startDay, unlocked) ===
+      'paywalled';
   const percent = Math.round(outcome.score * 100);
   const beat = theme.motion.stagger * 4;
 
@@ -560,9 +582,20 @@ function Result({
         {!outcome.passed ? (
           <Button label={t('Try again')} size="lg" fullWidth onPress={onRetry} />
         ) : null}
+        {nextIsPaid ? (
+          <Breathing>
+            <Button
+              label={t('Unlock Day {day} and the full course', { day: lesson.day + 1 })}
+              icon="diamond"
+              size="lg"
+              fullWidth
+              onPress={() => router.replace(ACADEMY_ELITE)}
+            />
+          </Breathing>
+        ) : null}
         <Button
           label={t('Back to the course')}
-          variant={outcome.passed ? 'primary' : 'secondary'}
+          variant={outcome.passed && !nextIsPaid ? 'primary' : 'secondary'}
           size="lg"
           fullWidth
           onPress={onBack}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { t } from '@/i18n';
-import { services, type PurchasePlan } from '@/services';
+import { services, type PurchasePlan, type PurchaseTier } from '@/services';
 import type { AsyncState } from '@/types';
 
 /**
@@ -33,7 +33,10 @@ export type PurchaseState = {
   restore: () => Promise<void>;
 };
 
-export function usePurchase(source: 'onboarding' | 'app' = 'app'): PurchaseState {
+export function usePurchase(
+  source: 'onboarding' | 'app' | 'academy' = 'app',
+  tier: PurchaseTier = 'pro',
+): PurchaseState {
   /*
    * Starts loading rather than idle, because the effect below always runs on
    * mount. Setting it inside the effect would be a second render before the
@@ -46,7 +49,7 @@ export function usePurchase(source: 'onboarding' | 'app' = 'app'): PurchaseState
   useEffect(() => {
     let active = true;
 
-    void services.purchases.plans().then((result) => {
+    void services.purchases.plans(tier).then((result) => {
       if (!active) return;
 
       setPlans(
@@ -59,7 +62,7 @@ export function usePurchase(source: 'onboarding' | 'app' = 'app'): PurchaseState
     return () => {
       active = false;
     };
-  }, []);
+  }, [tier]);
 
   // Counted once per visit to the Pro screen, which is the only place this
   // hook is mounted.
@@ -76,12 +79,20 @@ export function usePurchase(source: 'onboarding' | 'app' = 'app'): PurchaseState
 
       setBusy(false);
 
-      if (result.ok) {
-        const period =
-          plans.status === 'success'
-            ? plans.data.find((plan) => plan.id === planId)?.period
-            : undefined;
-        if (period) services.analytics.log({ name: 'subscription_started', params: { period } });
+      const bought =
+        result.ok && plans.status === 'success'
+          ? plans.data.find((plan) => plan.id === planId)
+          : undefined;
+      switch (bought?.tier) {
+        case 'elite':
+          services.analytics.log({ name: 'elite_started' });
+          break;
+        case 'pro':
+          services.analytics.log({
+            name: 'subscription_started',
+            params: { period: bought.period },
+          });
+          break;
       }
 
       // Backing out of the store sheet is a decision, not a failure. Saying

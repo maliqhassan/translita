@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
 import { courseLessons, findLesson, lessonForDay } from '@/features/academy/course';
+import { planFrom } from '@/services/entitlements';
 
 const code = (file: string) => readFileSync(file, 'utf8');
 const FAB = 'src/features/academy/components/academy-fab.tsx';
@@ -128,5 +129,51 @@ describe('finding lessons', () => {
     }
     assert.equal(findLesson('de', 'c99-d9'), undefined);
     assert.equal(courseLessons('xx').length, 0);
+  });
+});
+
+describe('Translita Elite', () => {
+  const ELITE = 'src/features/academy/screens/elite-screen.tsx';
+  const PURCHASES = 'src/services/entitlements/revenuecat-purchase-service.ts';
+
+  it('reads Elite from its own RevenueCat entitlement, ahead of Pro', () => {
+    assert.equal(planFrom({ elite: {}, pro: {} }), 'elite');
+    assert.equal(planFrom({ elite: {} }), 'elite');
+    assert.equal(planFrom({ pro: {} }), 'pro');
+    assert.equal(planFrom({}), 'free');
+  });
+
+  it('sells Elite from its own offering, replacing a Pro subscription', () => {
+    const service = code(PURCHASES);
+    assert.ok(service.includes("export const ELITE_OFFERING = 'elite';"));
+    assert.ok(service.includes('offerings.all[ELITE_OFFERING]'));
+    assert.ok(service.includes('WITH_TIME_PRORATION'));
+  });
+
+  it('opens the course by the capability, never the plan', () => {
+    assert.ok(
+      code('src/features/academy/hooks/use-academy-access.ts').includes(
+        "useEntitlements().has('academy')",
+      ),
+    );
+  });
+
+  it("shows the store's price, offers a restore, and sells the Elite tier", () => {
+    const screen = code(ELITE);
+    assert.ok(screen.includes("usePurchase('academy', 'elite')"));
+    assert.ok(screen.includes('plan.price'));
+    assert.equal(screen.includes('displayPrice'), false);
+    assert.equal(/\$\d/.test(screen), false, 'a price literal reached the screen');
+    assert.ok(screen.includes('void restore()'));
+  });
+
+  it('is where a paid day, and the end of the free day, lead', () => {
+    assert.equal(
+      code('app/academy/elite.tsx').trim(),
+      "export { EliteScreen as default } from '@/features/academy';",
+    );
+    assert.ok(code('app/_layout.tsx').includes('name="academy/elite"'));
+    assert.ok(code(ACADEMY).includes('router.push(ACADEMY_ELITE)'));
+    assert.ok(code(LESSON).includes('router.replace(ACADEMY_ELITE)'));
   });
 });

@@ -485,8 +485,6 @@ export const fil: Catalog = {
   'Not yet': 'Hindi pa',
   'Finish the day before this one first.': 'Tapusin muna ang araw bago nito.',
   'Unlock the full course': 'I-unlock ang buong course',
-  'Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.':
-    'Libre ang Araw 1. Kasama sa Translita Elite ang buong 60-araw na course na may AI coach.',
   Translator: 'Translator',
   'Day streak': 'Sunod-sunod na araw',
   'Words known': 'Alam na salita',
@@ -614,6 +612,44 @@ export const fil: Catalog = {
   'Score: {percent}%': 'Iskor: {percent}%',
   Score: 'Iskor',
   'Daily goal complete!': 'Tapos ang pang-araw-araw na layunin!',
+  'All 60 days of the course': 'Lahat ng 60 araw ng kurso',
+  'Twelve chapters, from your first words to real conversations.':
+    'Labindalawang kabanata, mula sa unang salita hanggang sa tunay na usapan.',
+  'Live conversations with your AI coach': 'Live na usapan kasama ang iyong AI coach',
+  'Role-play every day, with each mistake corrected and explained.':
+    'Role-play araw-araw, bawat mali ay itinatama at ipinapaliwanag.',
+  'Speaking practice, marked as you talk':
+    'Pagsasanay sa pagsasalita, minamarkahan habang nagsasalita ka',
+  'Say words, sentences and your part of each conversation out loud.':
+    'Sabihin nang malakas ang mga salita, pangungusap at ang bahagi mo sa bawat usapan.',
+  'Final exam, report and certificate': 'Huling pagsusulit, ulat at sertipiko',
+  'Your strong and weak points, and what to practise next.':
+    'Ang iyong kalakasan at kahinaan, at kung ano ang susunod na sasanayin.',
+  'No ads anywhere': 'Walang ads kahit saan',
+  'Elite includes Pro, so the translator is ad-free too.':
+    'Kasama ang Pro sa Elite, kaya walang ads din ang translator.',
+  'Translita Elite': 'Translita Elite',
+  'All {days} days of {language}, with your AI coach.':
+    'Lahat ng {days} araw ng {language}, kasama ang iyong AI coach.',
+  'Learn German, French or Spanish in {days} days, with your AI coach.':
+    'Matuto ng German, French o Spanish sa loob ng {days} araw, kasama ang iyong AI coach.',
+  '{done} done, {left} to go': '{done} tapos, {left} pa',
+  'Welcome to Elite!': 'Maligayang pagdating sa Elite!',
+  'You have Elite': 'Mayroon kang Elite',
+  'Every day of the course is open, and the app is ad-free.':
+    'Bukas ang bawat araw ng kurso, at walang ads ang app.',
+  'Start Elite': 'Simulan ang Elite',
+  'Your Pro subscription is replaced, and the time left on it is credited. You never pay for both.':
+    'Papalitan ang iyong Pro subscription, at ibabawas ang natitira nitong oras. Hindi ka magbabayad para sa dalawa.',
+  'Elite could not be reached on this device. Your progress is saved, and you can try again later.':
+    'Hindi maabot ang Elite sa device na ito. Naka-save ang iyong progreso; subukan muli mamaya.',
+  'Not now': 'Hindi muna',
+  'Unlock Day {day} and the full course': 'I-unlock ang Araw {day} at ang buong kurso',
+  'New: the AI Academy': 'Bago: ang AI Academy',
+  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Matuto ng German, French o Spanish kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
+  Elite: 'Elite',
+  'No ads, and the full AI Academy': 'Walang ads, at ang buong AI Academy',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

@@ -478,8 +478,6 @@ export const pt: Catalog = {
   'Not yet': 'Ainda não',
   'Finish the day before this one first.': 'Primeiro termine o dia anterior.',
   'Unlock the full course': 'Desbloqueie o curso completo',
-  'Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.':
-    'O dia 1 é grátis. O curso completo de 60 dias com o tutor de IA vem com o Translita Elite.',
   Translator: 'Tradutor',
   'Day streak': 'Dias seguidos',
   'Words known': 'Palavras aprendidas',
@@ -605,6 +603,43 @@ export const pt: Catalog = {
   'Score: {percent}%': 'Pontuação: {percent}%',
   Score: 'Pontuação',
   'Daily goal complete!': 'Meta diária cumprida!',
+  'All 60 days of the course': 'Os 60 dias do curso',
+  'Twelve chapters, from your first words to real conversations.':
+    'Doze capítulos, das primeiras palavras a conversas reais.',
+  'Live conversations with your AI coach': 'Conversas ao vivo com seu coach de IA',
+  'Role-play every day, with each mistake corrected and explained.':
+    'Role-play todos os dias, com cada erro corrigido e explicado.',
+  'Speaking practice, marked as you talk': 'Prática de fala, avaliada enquanto você fala',
+  'Say words, sentences and your part of each conversation out loud.':
+    'Diga em voz alta palavras, frases e sua parte de cada conversa.',
+  'Final exam, report and certificate': 'Exame final, relatório e certificado',
+  'Your strong and weak points, and what to practise next.':
+    'Seus pontos fortes e fracos, e o que praticar a seguir.',
+  'No ads anywhere': 'Sem anúncios em lugar nenhum',
+  'Elite includes Pro, so the translator is ad-free too.':
+    'O Elite inclui o Pro, então o tradutor também fica sem anúncios.',
+  'Translita Elite': 'Translita Elite',
+  'All {days} days of {language}, with your AI coach.':
+    'Todos os {days} dias de {language}, com seu coach de IA.',
+  'Learn German, French or Spanish in {days} days, with your AI coach.':
+    'Aprenda alemão, francês ou espanhol em {days} dias, com seu coach de IA.',
+  '{done} done, {left} to go': '{done} feitos, faltam {left}',
+  'Welcome to Elite!': 'Bem-vindo ao Elite!',
+  'You have Elite': 'Você tem o Elite',
+  'Every day of the course is open, and the app is ad-free.':
+    'Todos os dias do curso estão abertos e o app está sem anúncios.',
+  'Start Elite': 'Começar o Elite',
+  'Your Pro subscription is replaced, and the time left on it is credited. You never pay for both.':
+    'Sua assinatura Pro é substituída e o tempo restante é creditado. Você nunca paga pelas duas.',
+  'Elite could not be reached on this device. Your progress is saved, and you can try again later.':
+    'Não foi possível acessar o Elite neste aparelho. Seu progresso está salvo; tente de novo mais tarde.',
+  'Not now': 'Agora não',
+  'Unlock Day {day} and the full course': 'Desbloquear o dia {day} e o curso completo',
+  'New: the AI Academy': 'Novo: a AI Academy',
+  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Aprenda alemão, francês ou espanhol com um coach de IA. O dia 1 é grátis; o Elite libera o curso completo e inclui tudo do Pro.',
+  Elite: 'Elite',
+  'No ads, and the full AI Academy': 'Sem anúncios e com a AI Academy completa',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',

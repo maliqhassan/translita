@@ -12,9 +12,20 @@ import type { Service } from '../types';
  */
 export type AnalyticsEvent =
   /** The Pro screen was opened. */
-  | { name: 'paywall_view'; params: { source: 'onboarding' | 'app' } }
+  | { name: 'paywall_view'; params: { source: 'onboarding' | 'app' | 'academy' } }
   /** A subscription purchase went through. */
   | { name: 'subscription_started'; params: { period: 'month' | 'year' } }
+  /** An Elite purchase went through. */
+  | { name: 'elite_started' }
+  /** The Academy was opened, from the translator or a link back to it. */
+  | { name: 'academy_open' }
+  /** Someone finished the Academy's onboarding and started a course. */
+  | { name: 'academy_onboarding_done'; params: { course: LanguageId; minutes: number } }
+  /** A day of the course was finished. */
+  | {
+      name: 'lesson_complete';
+      params: { course: LanguageId; day: number; checkpoint: boolean; passed: boolean };
+    }
   /** A translation on the home screen came back. */
   | {
       name: 'translation';
@@ -35,7 +46,7 @@ export type AnalyticsEvent =
   /** A phrase was read aloud. */
   | { name: 'phrase_played' };
 
-export type AnalyticsUserProperty = { name: 'plan'; value: 'free' | 'pro' };
+export type AnalyticsUserProperty = { name: 'plan'; value: 'free' | 'pro' | 'elite' };
 
 /**
  * Usage analytics, fire and forget.

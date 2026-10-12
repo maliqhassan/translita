@@ -28,12 +28,20 @@ const log = createLogger('entitlements.revenuecat');
  * bundle.
  */
 
-/** The identifier configured in the RevenueCat dashboard. */
+/** The identifiers configured in the RevenueCat dashboard. */
 export const PRO_ENTITLEMENT = 'pro';
+export const ELITE_ENTITLEMENT = 'elite';
 
-/** Reads the plan out of whatever RevenueCat last said. */
-function planFrom(info: CustomerInfo): Plan {
-  return info.entitlements.active[PRO_ENTITLEMENT] ? 'pro' : 'free';
+/**
+ * Reads the plan out of whatever RevenueCat last said.
+ *
+ * Highest first: someone part-way through moving from Pro to Elite can hold
+ * both for a moment, and must be treated as the plan they paid more for.
+ */
+export function planFrom(active: Readonly<Record<string, unknown>>): Plan {
+  if (active[ELITE_ENTITLEMENT]) return 'elite';
+  if (active[PRO_ENTITLEMENT]) return 'pro';
+  return 'free';
 }
 
 export function createRevenueCatEntitlementsService(
@@ -57,7 +65,8 @@ export function createRevenueCatEntitlementsService(
    * issued after a receipt was validated by somebody other than the phone,
    * which is exactly the distinction that field was reserved for.
    */
-  const apply = (info: CustomerInfo) => publish(entitlementsFor(planFrom(info), 'account'));
+  const apply = (info: CustomerInfo) =>
+    publish(entitlementsFor(planFrom(info.entitlements.active), 'account'));
 
   return {
     id: 'entitlements.revenuecat',

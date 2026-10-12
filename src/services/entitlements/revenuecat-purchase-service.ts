@@ -2,7 +2,12 @@ import Purchases, { PACKAGE_TYPE, type PurchasesPackage } from 'react-native-pur
 
 import { appError, createLogger, err, ok } from '@/utils';
 
-import type { BillingPeriod, PurchasePlan, PurchaseService } from './purchase-service';
+import type {
+  BillingPeriod,
+  PurchasePlan,
+  PurchaseService,
+  PurchaseTier,
+} from './purchase-service';
 import { configureRevenueCat, type RevenueCatOptions } from './revenuecat-client';
 
 const log = createLogger('purchases.revenuecat');
@@ -23,12 +28,23 @@ const PERIODS: Partial<Record<PACKAGE_TYPE, BillingPeriod>> = {
   [PACKAGE_TYPE.ANNUAL]: 'year',
 };
 
+/**
+ * Where each tier is sold. Pro is the offering marked current in the
+ * dashboard, as it always was; Elite has an offering of its own.
+ */
+export const ELITE_OFFERING = 'elite';
+
+/** The entitlement whose subscription an Elite purchase replaces. */
+const REPLACED_ENTITLEMENT = 'pro';
+
 /** Longest period first, so the better-value plan leads. */
 const PERIOD_ORDER: readonly BillingPeriod[] = ['year', 'month'];
 
-function describe(item: PurchasesPackage, period: BillingPeriod): PurchasePlan {
+function describe(item: PurchasesPackage, period: BillingPeriod, tier: PurchaseTier): PurchasePlan {
   return {
-    id: item.identifier,
+    // Prefixed with the tier: both offerings can name a package "$rc_monthly".
+    id: `${tier}:${item.identifier}`,
+    tier,
     productId: item.product.identifier,
     // The store's own localised string. Never parsed, never reformatted.
     price: item.product.priceString,
@@ -51,6 +67,29 @@ function wasCancelled(cause: unknown): boolean {
   );
 }
 
+/**
+ * The Pro subscription an Elite purchase should replace, if there is one.
+ *
+ * Without it Play would sell Elite alongside Pro, and the user would pay for
+ * both. The remaining Pro time is credited towards Elite. Play wants the
+ * subscription's own id, not the base plan RevenueCat may append to it.
+ */
+async function replacing(planId: string) {
+  if (!planId.startsWith('elite:')) return null;
+  try {
+    const info = await Purchases.getCustomerInfo();
+    const pro = info.entitlements.active[REPLACED_ENTITLEMENT];
+    if (!pro || pro.store !== 'PLAY_STORE') return null;
+    return {
+      oldProductIdentifier: pro.productIdentifier.split(':')[0]!,
+      replacementMode: Purchases.STORE_REPLACEMENT_MODE.WITH_TIME_PRORATION,
+    };
+  } catch {
+    // Not knowing is not a reason to refuse the sale.
+    return null;
+  }
+}
+
 export function createRevenueCatPurchaseService(options: RevenueCatOptions): PurchaseService {
   const { apiKey } = options;
 
@@ -71,7 +110,7 @@ export function createRevenueCatPurchaseService(options: RevenueCatOptions): Pur
       return Boolean(apiKey);
     },
 
-    async plans() {
+    async plans(tier: PurchaseTier = 'pro') {
       if (!configureRevenueCat(options)) {
         // Expected in a build configured without billing. Not an error.
         log.debug('no RevenueCat key; nothing is for sale');
@@ -80,7 +119,7 @@ export function createRevenueCatPurchaseService(options: RevenueCatOptions): Pur
 
       try {
         const offerings = await Purchases.getOfferings();
-        const current = offerings.current;
+        const current = tier === 'elite' ? offerings.all[ELITE_OFFERING] : offerings.current;
 
         if (!current) {
           /*
@@ -93,7 +132,9 @@ export function createRevenueCatPurchaseService(options: RevenueCatOptions): Pur
           return ok([]);
         }
 
-        packages.clear();
+        for (const id of [...packages.keys()]) {
+          if (id.startsWith(`${tier}:`)) packages.delete(id);
+        }
 
         const plans: PurchasePlan[] = [];
         for (const item of current.availablePackages) {
@@ -103,8 +144,9 @@ export function createRevenueCatPurchaseService(options: RevenueCatOptions): Pur
           // has no copy for.
           if (!period) continue;
 
-          packages.set(item.identifier, item);
-          plans.push(describe(item, period));
+          const plan = describe(item, period, tier);
+          packages.set(plan.id, item);
+          plans.push(plan);
         }
 
         plans.sort((a, b) => PERIOD_ORDER.indexOf(a.period) - PERIOD_ORDER.indexOf(b.period));
@@ -126,7 +168,7 @@ export function createRevenueCatPurchaseService(options: RevenueCatOptions): Pur
       }
 
       try {
-        await Purchases.purchasePackage(item);
+        await Purchases.purchasePackage(item, null, await replacing(planId));
 
         /*
          * Nothing is returned and nothing is granted. The receipt reaches

@@ -1,5 +1,5 @@
 import { useFocusEffect, useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
@@ -36,6 +36,7 @@ import {
 import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
+import { ACADEMY_ELITE } from '../routes';
 import { completedDays, dayStatus, nextDay, wordsKnown, type DayStatus } from '../rules';
 
 import { AcademyOnboarding } from './academy-onboarding';
@@ -115,6 +116,10 @@ function Dashboard({
   const daily = useDailyProgress(courseId, progress);
   const [known, setKnown] = useState(0);
 
+  useEffect(() => {
+    services.analytics.log({ name: 'academy_open' });
+  }, []);
+
   // Words known change outside this screen, so they are read again each time
   // it comes back into view.
   useFocusEffect(
@@ -144,10 +149,7 @@ function Dashboard({
       return;
     }
     if (status === 'paywalled') {
-      Alert.alert(
-        t('Unlock the full course'),
-        t('Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.'),
-      );
+      router.push(ACADEMY_ELITE);
       return;
     }
     if (lesson) router.push({ pathname: '/academy/lesson/[id]', params: { id: lesson.id } });

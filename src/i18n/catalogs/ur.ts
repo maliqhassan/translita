@@ -473,8 +473,6 @@ export const ur: Catalog = {
   'Not yet': 'ابھی نہیں',
   'Finish the day before this one first.': 'پہلے اس سے پچھلا دن مکمل کریں۔',
   'Unlock the full course': 'پورا کورس کھولیں',
-  'Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.':
-    'پہلا دن مفت ہے۔ AI کوچ کے ساتھ مکمل 60 دن کا کورس Translita Elite کے ساتھ ملتا ہے۔',
   Translator: 'مترجم',
   'Day streak': 'مسلسل دن',
   'Words known': 'معلوم الفاظ',
@@ -599,6 +597,43 @@ export const ur: Catalog = {
   'Score: {percent}%': 'اسکور: {percent}%',
   Score: 'اسکور',
   'Daily goal complete!': 'روزانہ کا ہدف مکمل!',
+  'All 60 days of the course': 'کورس کے تمام 60 دن',
+  'Twelve chapters, from your first words to real conversations.':
+    'بارہ ابواب، پہلے الفاظ سے حقیقی گفتگو تک۔',
+  'Live conversations with your AI coach': 'اپنے AI کوچ کے ساتھ براہِ راست گفتگو',
+  'Role-play every day, with each mistake corrected and explained.':
+    'ہر روز رول پلے، ہر غلطی کی درستی اور وضاحت کے ساتھ۔',
+  'Speaking practice, marked as you talk': 'بولنے کی مشق، بولتے ہی جانچ',
+  'Say words, sentences and your part of each conversation out loud.':
+    'الفاظ، جملے اور ہر گفتگو میں اپنا حصہ بلند آواز میں بولیں۔',
+  'Final exam, report and certificate': 'فائنل امتحان، رپورٹ اور سرٹیفکیٹ',
+  'Your strong and weak points, and what to practise next.':
+    'آپ کی خوبیاں اور کمزوریاں، اور آگے کیا مشق کریں۔',
+  'No ads anywhere': 'کہیں بھی اشتہار نہیں',
+  'Elite includes Pro, so the translator is ad-free too.':
+    'Elite میں Pro شامل ہے، اس لیے مترجم بھی اشتہار سے پاک ہے۔',
+  'Translita Elite': 'Translita Elite',
+  'All {days} days of {language}, with your AI coach.':
+    '{language} کے تمام {days} دن، اپنے AI کوچ کے ساتھ۔',
+  'Learn German, French or Spanish in {days} days, with your AI coach.':
+    '{days} دنوں میں جرمن، فرانسیسی یا ہسپانوی سیکھیں، اپنے AI کوچ کے ساتھ۔',
+  '{done} done, {left} to go': '{done} مکمل، {left} باقی',
+  'Welcome to Elite!': 'Elite میں خوش آمدید!',
+  'You have Elite': 'آپ کے پاس Elite ہے',
+  'Every day of the course is open, and the app is ad-free.':
+    'کورس کا ہر دن کھلا ہے، اور ایپ اشتہار سے پاک ہے۔',
+  'Start Elite': 'Elite شروع کریں',
+  'Your Pro subscription is replaced, and the time left on it is credited. You never pay for both.':
+    'آپ کی Pro سبسکرپشن تبدیل ہو جائے گی، اور اس کا باقی وقت شمار کیا جائے گا۔ آپ کبھی دونوں کی ادائیگی نہیں کریں گے۔',
+  'Elite could not be reached on this device. Your progress is saved, and you can try again later.':
+    'اس ڈیوائس پر Elite تک رسائی نہ ہو سکی۔ آپ کی پیش رفت محفوظ ہے، آپ بعد میں دوبارہ کوشش کر سکتے ہیں۔',
+  'Not now': 'ابھی نہیں',
+  'Unlock Day {day} and the full course': 'دن {day} اور پورا کورس کھولیں',
+  'New: the AI Academy': 'نیا: AI اکیڈمی',
+  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'AI کوچ کے ساتھ جرمن، فرانسیسی یا ہسپانوی سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
+  Elite: 'Elite',
+  'No ads, and the full AI Academy': 'اشتہار نہیں، اور مکمل AI اکیڈمی',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

@@ -58,8 +58,12 @@ const MODE_HINTS: Record<TranslationMode, string> = {
  * the scattered commercial logic the entitlement system exists to avoid, and
  * a table also cannot go half-updated when a tier is added.
  */
-const PLAN_LABELS: Record<Plan, string> = { free: msg('Free'), pro: msg('Pro') };
-const PLAN_TONES: Record<Plan, BadgeTone> = { free: 'neutral', pro: 'primary' };
+const PLAN_LABELS: Record<Plan, string> = {
+  free: msg('Free'),
+  pro: msg('Pro'),
+  elite: msg('Elite'),
+};
+const PLAN_TONES: Record<Plan, BadgeTone> = { free: 'neutral', pro: 'primary', elite: 'primary' };
 /*
  * Every feature is on both plans; Pro removes the ads. The copy says exactly
  * that and nothing more — naming camera scanning or speech-to-text here would
@@ -68,10 +72,11 @@ const PLAN_TONES: Record<Plan, BadgeTone> = { free: 'neutral', pro: 'primary' };
 const PLAN_SUBTITLES: Record<Plan, string> = {
   free: msg('Remove every ad in the app'),
   pro: msg('No ads, anywhere in the app'),
+  elite: msg('No ads, and the full AI Academy'),
 };
 
 /** Cycled by the development switcher, in the same way the theme row cycles. */
-const PLAN_ORDER: readonly Plan[] = ['free', 'pro'];
+const PLAN_ORDER: readonly Plan[] = ['free', 'pro', 'elite'];
 
 /** Slowest first, so one tap always speeds up until it wraps. */
 const RATE_LABELS: Record<SpeechRate, string> = {

@@ -477,8 +477,6 @@ export const id: Catalog = {
   'Not yet': 'Belum',
   'Finish the day before this one first.': 'Selesaikan dulu hari sebelumnya.',
   'Unlock the full course': 'Buka seluruh kursus',
-  'Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.':
-    'Hari 1 gratis. Kursus lengkap 60 hari dengan pelatih AI tersedia dengan Translita Elite.',
   Translator: 'Penerjemah',
   'Day streak': 'Hari beruntun',
   'Words known': 'Kata dikuasai',
@@ -605,6 +603,43 @@ export const id: Catalog = {
   'Score: {percent}%': 'Skor: {percent}%',
   Score: 'Skor',
   'Daily goal complete!': 'Target harian tercapai!',
+  'All 60 days of the course': 'Seluruh 60 hari kursus',
+  'Twelve chapters, from your first words to real conversations.':
+    'Dua belas bab, dari kata pertama hingga percakapan nyata.',
+  'Live conversations with your AI coach': 'Percakapan langsung dengan pelatih AI-mu',
+  'Role-play every day, with each mistake corrected and explained.':
+    'Role-play setiap hari, setiap kesalahan dikoreksi dan dijelaskan.',
+  'Speaking practice, marked as you talk': 'Latihan berbicara, dinilai saat kamu bicara',
+  'Say words, sentences and your part of each conversation out loud.':
+    'Ucapkan kata, kalimat, dan bagianmu di setiap percakapan dengan keras.',
+  'Final exam, report and certificate': 'Ujian akhir, laporan, dan sertifikat',
+  'Your strong and weak points, and what to practise next.':
+    'Kelebihan dan kekuranganmu, serta apa yang perlu dilatih berikutnya.',
+  'No ads anywhere': 'Tanpa iklan di mana pun',
+  'Elite includes Pro, so the translator is ad-free too.':
+    'Elite sudah termasuk Pro, jadi penerjemah juga bebas iklan.',
+  'Translita Elite': 'Translita Elite',
+  'All {days} days of {language}, with your AI coach.':
+    'Seluruh {days} hari {language}, bersama pelatih AI-mu.',
+  'Learn German, French or Spanish in {days} days, with your AI coach.':
+    'Belajar bahasa Jerman, Prancis, atau Spanyol dalam {days} hari, bersama pelatih AI-mu.',
+  '{done} done, {left} to go': '{done} selesai, {left} lagi',
+  'Welcome to Elite!': 'Selamat datang di Elite!',
+  'You have Elite': 'Kamu punya Elite',
+  'Every day of the course is open, and the app is ad-free.':
+    'Setiap hari kursus terbuka, dan aplikasi bebas iklan.',
+  'Start Elite': 'Mulai Elite',
+  'Your Pro subscription is replaced, and the time left on it is credited. You never pay for both.':
+    'Langganan Pro-mu diganti, dan sisa waktunya diperhitungkan. Kamu tidak pernah membayar keduanya.',
+  'Elite could not be reached on this device. Your progress is saved, and you can try again later.':
+    'Elite tidak dapat dijangkau di perangkat ini. Progresmu tersimpan, coba lagi nanti.',
+  'Not now': 'Nanti saja',
+  'Unlock Day {day} and the full course': 'Buka Hari {day} dan seluruh kursus',
+  'New: the AI Academy': 'Baru: AI Academy',
+  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Belajar bahasa Jerman, Prancis, atau Spanyol dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
+  Elite: 'Elite',
+  'No ads, and the full AI Academy': 'Tanpa iklan, dan AI Academy lengkap',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

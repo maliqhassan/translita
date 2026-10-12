@@ -15,6 +15,14 @@ import type { Service, ServiceResult } from '../types';
  * callable without a receipt.
  */
 
+/**
+ * Which subscription is being sold: Pro, or Elite with the Academy.
+ *
+ * Each has its own offering in RevenueCat, because each sells its own monthly
+ * package and an offering can hold only one.
+ */
+export type PurchaseTier = 'pro' | 'elite';
+
 /** How often a plan renews. Only the periods the app actually sells. */
 export type BillingPeriod = 'month' | 'year';
 
@@ -27,8 +35,9 @@ export type BillingPeriod = 'month' | 'year';
  * showing anything else would be quoting a price we cannot charge.
  */
 export type PurchasePlan = {
-  /** The RevenueCat package identifier. What `purchase` takes. */
+  /** Names the package within its offering. What `purchase` takes. */
   readonly id: string;
+  readonly tier: PurchaseTier;
   /** The store product, for matching against configuration. */
   readonly productId: string;
   /** Localised and ready to display. Never parsed. */
@@ -43,7 +52,7 @@ export type PurchaseService = Service & {
    * Empty is a legitimate answer, not a failure: a build without billing
    * configured, or a device with no Play Services, has nothing to sell.
    */
-  plans(): ServiceResult<readonly PurchasePlan[]>;
+  plans(tier?: PurchaseTier): ServiceResult<readonly PurchasePlan[]>;
 
   /**
    * Opens the store's purchase sheet for a plan.
@@ -51,6 +60,9 @@ export type PurchaseService = Service & {
    * Backing out is reported as `cancelled`, which callers are expected to
    * swallow silently — a user who changed their mind has not hit an error and
    * must not be shown one.
+   *
+   * Buying Elite while subscribed to Pro replaces the Pro subscription in the
+   * store, so nobody pays for both.
    */
   purchase(planId: string): ServiceResult<void>;
 

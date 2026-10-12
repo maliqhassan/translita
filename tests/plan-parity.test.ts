@@ -44,9 +44,15 @@ import { ok } from '@/utils';
  */
 const SOLD: readonly Capability[] = ['adFree'];
 
+/**
+ * The Academy: a course, sold by Elite, and not a translation feature either.
+ * Nothing about translating changes with it.
+ */
+const ACADEMY: readonly Capability[] = ['academy'];
+
 /** Everything a user translates with, as opposed to what they pay for. */
 const FEATURE_CAPABILITIES: readonly Capability[] = CAPABILITIES.filter(
-  (capability) => !SOLD.includes(capability),
+  (capability) => !SOLD.includes(capability) && !ACADEMY.includes(capability),
 );
 
 describe('the two plans differ over no translation feature at all', () => {
@@ -54,6 +60,7 @@ describe('the two plans differ over no translation feature at all', () => {
     for (const capability of FEATURE_CAPABILITIES) {
       assert.equal(capabilitiesFor('free').has(capability), true, `free lost ${capability}`);
       assert.equal(capabilitiesFor('pro').has(capability), true, `pro lost ${capability}`);
+      assert.equal(capabilitiesFor('elite').has(capability), true, `elite lost ${capability}`);
     }
   });
 
@@ -82,14 +89,16 @@ describe('the two plans differ over no translation feature at all', () => {
     const table = readFileSync('src/services/entitlements/plan-capabilities.ts', 'utf8');
 
     assert.match(table, /free: FREE_CAPABILITIES/);
-    assert.match(table, /pro: \[\.\.\.FREE_CAPABILITIES, 'adFree'\]/);
+    assert.match(table, /PRO_CAPABILITIES = \[\.\.\.FREE_CAPABILITIES, 'adFree'\]/);
+    assert.match(table, /pro: PRO_CAPABILITIES/);
+    assert.match(table, /elite: \[\.\.\.PRO_CAPABILITIES, 'academy'\]/);
   });
 });
 
 describe('every feature gate answers the same on either plan', () => {
   it('is allowed on both plans wherever the device can do it', () => {
     for (const capability of FEATURE_CAPABILITIES) {
-      for (const plan of ['free', 'pro'] as const) {
+      for (const plan of ['free', 'pro', 'elite'] as const) {
         assert.equal(
           resolveFeatureAccess({
             shipped: true,
@@ -107,7 +116,7 @@ describe('every feature gate answers the same on either plan', () => {
     // `locked` is the answer that leads to the paywall. No feature can reach
     // it any more, because no feature is missing from either plan.
     for (const capability of FEATURE_CAPABILITIES) {
-      for (const plan of ['free', 'pro'] as const) {
+      for (const plan of ['free', 'pro', 'elite'] as const) {
         for (const shipped of [true, false]) {
           for (const supported of [true, false]) {
             assert.notEqual(
@@ -135,7 +144,7 @@ describe('every feature gate answers the same on either plan', () => {
      * paywall ever was: the control would be offered, tapped, and fail.
      */
     for (const capability of FEATURE_CAPABILITIES) {
-      for (const plan of ['free', 'pro'] as const) {
+      for (const plan of ['free', 'pro', 'elite'] as const) {
         const entitled = capabilitiesFor(plan).has(capability);
 
         assert.equal(
@@ -218,7 +227,7 @@ describe('a free user keeps on-device results the cache already holds', () => {
   it('answers a free user exactly as it answers a paying one', async () => {
     const results = [];
 
-    for (const plan of ['free', 'pro'] as const) {
+    for (const plan of ['free', 'pro', 'elite'] as const) {
       publishActiveEntitlements(entitlementsFor(plan, 'local'));
 
       const { router } = countingRouter();
@@ -231,7 +240,7 @@ describe('a free user keeps on-device results the cache already holds', () => {
       results.push(result.ok ? result.value.engine : `error:${result.error.code}`);
     }
 
-    assert.deepEqual(results, ['offline', 'offline']);
+    assert.deepEqual(results, ['offline', 'offline', 'offline']);
   });
 
   it('permits the on-device engine through the live rule, on a free plan', () => {

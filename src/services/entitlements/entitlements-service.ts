@@ -21,7 +21,7 @@ import type { Service, ServiceResult } from '../types';
  */
 
 /** The commercial tier. Only the entitlements module should branch on this. */
-export type Plan = 'free' | 'pro';
+export type Plan = 'free' | 'pro' | 'elite';
 
 /**
  * What code asks about.
@@ -42,7 +42,16 @@ export type Capability =
    * free allowance rather than a hard wall — a taste is worth paying for, an
    * unlimited free tier is not.
    */
-  | 'aiTutor';
+  | 'aiTutor'
+  /**
+   * The AI Academy's full course: every day past the free first one, and the
+   * larger daily allowance of live AI role-play. Sold by Elite alone.
+   *
+   * The server checks this independently — it asks RevenueCat itself before
+   * giving the larger allowance — so a device that claims it gets the lessons
+   * on the phone, never the AI behind them.
+   */
+  | 'academy';
 
 /**
  * Where the current entitlement came from.

@@ -1,4 +1,4 @@
-import { useRouter } from 'expo-router';
+import { useRouter, type Href } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, BackHandler, Pressable, View } from 'react-native';
 
@@ -80,6 +80,7 @@ function UpgradeContent({
   onClose: () => void;
 }) {
   const theme = useTheme();
+  const router = useRouter();
   const { has } = useEntitlements();
   const fromOnboarding = source === 'onboarding';
   const { plans, busy, notice, buy, restore } = usePurchase(source);
@@ -297,6 +298,36 @@ function UpgradeContent({
           accessibilityHint={t('Closes this screen and opens the translator')}
         />
       ) : null}
+
+      {/* Elite is sold inside the Academy, after its free first day. Here it
+          is only pointed to, so the two offers never sit side by side. */}
+      {fromOnboarding ? null : (
+        <Pressable
+          onPress={() => router.push('/academy' as Href)}
+          accessibilityRole="button"
+          style={({ pressed }) => ({
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: theme.spacing.md,
+            padding: theme.spacing.base,
+            borderRadius: theme.radius.lg,
+            borderWidth: theme.layout.borderWidth,
+            borderColor: theme.colors.primaryBorder,
+            backgroundColor: pressed ? theme.colors.primaryBorder : theme.colors.primaryMuted,
+          })}
+        >
+          <Icon name="sparkles" size={22} color="primary" />
+          <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+            <Text variant="rowTitle">{t('New: the AI Academy')}</Text>
+            <Text variant="bodySmall" color="textSecondary">
+              {t(
+                'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.',
+              )}
+            </Text>
+          </View>
+          <Icon name="chevron-forward-outline" size={18} color="textSecondary" />
+        </Pressable>
+      )}
 
       <Text variant="caption" color="textMuted" align="center">
         {t('Translations and settings stay on this device, on either plan.')}

@@ -473,8 +473,6 @@ export const tr: Catalog = {
   'Not yet': 'Henüz değil',
   'Finish the day before this one first.': 'Önce bir önceki günü bitirin.',
   'Unlock the full course': 'Kursun tamamının kilidini açın',
-  'Day 1 is free. The full 60-day course with the AI coach comes with Translita Elite.':
-    '1. gün ücretsiz. Yapay zekâ koçlu 60 günlük kursun tamamı Translita Elite ile gelir.',
   Translator: 'Çevirmen',
   'Day streak': 'Gün serisi',
   'Words known': 'Bilinen kelimeler',
@@ -600,6 +598,43 @@ export const tr: Catalog = {
   'Score: {percent}%': 'Puan: %{percent}',
   Score: 'Puan',
   'Daily goal complete!': 'Günlük hedef tamam!',
+  'All 60 days of the course': 'Kursun 60 günün tamamı',
+  'Twelve chapters, from your first words to real conversations.':
+    'İlk kelimelerinden gerçek konuşmalara on iki bölüm.',
+  'Live conversations with your AI coach': 'Yapay zekâ koçunla canlı konuşmalar',
+  'Role-play every day, with each mistake corrected and explained.':
+    'Her gün canlandırma, her hata düzeltilip açıklanır.',
+  'Speaking practice, marked as you talk': 'Konuşma pratiği, konuşurken değerlendirilir',
+  'Say words, sentences and your part of each conversation out loud.':
+    'Kelimeleri, cümleleri ve her konuşmadaki kendi kısmını sesli söyle.',
+  'Final exam, report and certificate': 'Final sınavı, rapor ve sertifika',
+  'Your strong and weak points, and what to practise next.':
+    'Güçlü ve zayıf yönlerin, sırada neyi çalışacağın.',
+  'No ads anywhere': 'Hiçbir yerde reklam yok',
+  'Elite includes Pro, so the translator is ad-free too.':
+    "Elite, Pro'yu da içerir; çevirmen de reklamsız olur.",
+  'Translita Elite': 'Translita Elite',
+  'All {days} days of {language}, with your AI coach.':
+    '{language} için {days} günün tamamı, yapay zekâ koçunla.',
+  'Learn German, French or Spanish in {days} days, with your AI coach.':
+    '{days} günde Almanca, Fransızca veya İspanyolca öğren, yapay zekâ koçunla.',
+  '{done} done, {left} to go': '{done} bitti, {left} kaldı',
+  'Welcome to Elite!': "Elite'e hoş geldin!",
+  'You have Elite': 'Elite üyesisin',
+  'Every day of the course is open, and the app is ad-free.':
+    'Kursun her günü açık ve uygulama reklamsız.',
+  'Start Elite': "Elite'i başlat",
+  'Your Pro subscription is replaced, and the time left on it is credited. You never pay for both.':
+    'Pro aboneliğin değiştirilir ve kalan süresi hesabına eklenir. İkisi için asla ödeme yapmazsın.',
+  'Elite could not be reached on this device. Your progress is saved, and you can try again later.':
+    "Bu cihazda Elite'e ulaşılamadı. İlerlemen kaydedildi, daha sonra yeniden deneyebilirsin.",
+  'Not now': 'Şimdi değil',
+  'Unlock Day {day} and the full course': "Gün {day}'i ve tüm kursu aç",
+  'New: the AI Academy': 'Yeni: Yapay Zekâ Akademisi',
+  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    "Yapay zekâ koçuyla Almanca, Fransızca veya İspanyolca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
+  Elite: 'Elite',
+  'No ads, and the full AI Academy': "Reklam yok ve Yapay Zekâ Akademisi'nin tamamı",
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

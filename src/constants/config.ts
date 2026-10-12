@@ -111,6 +111,19 @@ export const PRO_PLANS = {
 } as const;
 
 /**
+ * The Academy's subscription. Sold from its own RevenueCat offering, `elite`,
+ * which grants the `elite` entitlement — see the purchase service.
+ *
+ * The price here is what the configuration says, for copy that is not a
+ * price; the paywall shows the store's own localised one.
+ */
+export const ELITE_PLAN = {
+  productId: 'translita_elite_monthly',
+  displayPrice: '$9.99',
+  period: 'month',
+} as const;
+
+/**
  * Free AI practice exchanges, before Pro is required.
  *
  * Dormant, not deleted. `aiTutor` moved into Free's own capability list, which

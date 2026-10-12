@@ -7,6 +7,7 @@ import {
   ENTITLEMENTS_VERSION,
   PLANS,
   PLAN_CAPABILITIES,
+  ELITE_ONLY_CAPABILITIES,
   PRO_ONLY_CAPABILITIES,
   capabilitiesFor,
   createLocalEntitlementsService,
@@ -74,7 +75,7 @@ function failingStorage(): PreferencesStorage {
 
 describe('the plan to capability table', () => {
   it('covers every plan', () => {
-    assert.deepEqual(PLANS, ['free', 'pro']);
+    assert.deepEqual(PLANS, ['free', 'pro', 'elite']);
     for (const plan of PLANS) {
       assert.ok(PLAN_CAPABILITIES[plan], `no entry for ${plan}`);
     }
@@ -89,8 +90,19 @@ describe('the plan to capability table', () => {
     ]);
   });
 
-  it('gives Pro every capability the app knows about', () => {
-    assert.deepEqual([...PLAN_CAPABILITIES.pro].sort(), [...CAPABILITIES].sort());
+  it('gives Elite every capability the app knows about, and Pro all but the Academy', () => {
+    assert.deepEqual([...PLAN_CAPABILITIES.elite].sort(), [...CAPABILITIES].sort());
+    assert.deepEqual(
+      [...PLAN_CAPABILITIES.pro].sort(),
+      CAPABILITIES.filter((capability) => capability !== 'academy').sort(),
+    );
+  });
+
+  it('sells the Academy with Elite alone', () => {
+    assert.deepEqual([...ELITE_ONLY_CAPABILITIES], ['academy']);
+    for (const capability of PLAN_CAPABILITIES.pro) {
+      assert.ok(PLAN_CAPABILITIES.elite.includes(capability), `elite lost ${capability}`);
+    }
   });
 
   it('sells only advertising removal, never a translation feature', () => {
@@ -128,6 +140,7 @@ describe('the plan to capability table', () => {
       'offlineTranslation',
       'adFree',
       'aiTutor',
+      'academy',
     ]);
   });
 
@@ -183,15 +196,24 @@ describe('has(), for every capability on every plan', () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.load();
 
-    const sold = ['adFree'];
+    const sold = ['adFree', 'academy'];
     for (const capability of CAPABILITIES) {
       assert.equal(service.has(capability), !sold.includes(capability), capability);
     }
   });
 
-  it('answers true for all of them on Pro', async () => {
+  it('answers true for all but the Academy on Pro', async () => {
     const service = createLocalEntitlementsService(memoryStorage());
     await service.setPlan('pro');
+
+    for (const capability of CAPABILITIES) {
+      assert.equal(service.has(capability), capability !== 'academy', capability);
+    }
+  });
+
+  it('answers true for all of them on Elite', async () => {
+    const service = createLocalEntitlementsService(memoryStorage());
+    await service.setPlan('elite');
 
     for (const capability of CAPABILITIES) {
       assert.equal(service.has(capability), true, capability);

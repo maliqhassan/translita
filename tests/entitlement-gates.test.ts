@@ -618,7 +618,7 @@ describe('the paywall is a placeholder and says so', () => {
     // from the union, so that comparison no longer type-checks — which is a
     // stronger guarantee than any runtime assertion could be. What is left to
     // check is that no copy anywhere still describes it.
-    assert.equal(CAPABILITIES.length, 5);
+    assert.equal(CAPABILITIES.length, 6);
 
     for (const path of [
       ...sources('src/features/paywall'),

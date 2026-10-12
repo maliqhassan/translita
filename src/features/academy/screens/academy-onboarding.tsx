@@ -6,6 +6,7 @@ import { Button, IconButton, Text } from '@/components';
 import { languageName } from '@/constants';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
+import { services } from '@/services';
 import { useAcademy } from '@/store';
 import type { AddressForm, LearningGoal, LearningLevel } from '@/types';
 
@@ -84,6 +85,10 @@ export function AcademyOnboarding({
     if (step !== 'building' || !courseId || !goal || !level || !minutes) return;
     const timer = setTimeout(() => {
       const at = now();
+      services.analytics.log({
+        name: 'academy_onboarding_done',
+        params: { course: courseId, minutes },
+      });
       void enroll({
         courseId,
         baseLanguage: 'en',

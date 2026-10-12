@@ -8,7 +8,7 @@ import type { Capability, EntitlementSource, Entitlements, Plan } from './entitl
  * one, happens here and nowhere else.
  */
 
-export const PLANS: readonly Plan[] = ['free', 'pro'];
+export const PLANS: readonly Plan[] = ['free', 'pro', 'elite'];
 
 /** Every capability the app knows about, in the order they are presented. */
 export const CAPABILITIES: readonly Capability[] = [
@@ -17,6 +17,7 @@ export const CAPABILITIES: readonly Capability[] = [
   'offlineTranslation',
   'adFree',
   'aiTutor',
+  'academy',
 ];
 
 /**
@@ -61,14 +62,26 @@ const FREE_CAPABILITIES = [
   'aiTutor',
 ] as const;
 
+/**
+ * Elite is Pro plus the Academy, written as an addition for the same reason
+ * Pro is: an Elite subscriber can never end up with less than a Pro one.
+ */
+const PRO_CAPABILITIES = [...FREE_CAPABILITIES, 'adFree'] as const;
+
 export const PLAN_CAPABILITIES: Readonly<Record<Plan, readonly Capability[]>> = {
   free: FREE_CAPABILITIES,
-  pro: [...FREE_CAPABILITIES, 'adFree'],
+  pro: PRO_CAPABILITIES,
+  elite: [...PRO_CAPABILITIES, 'academy'],
 };
 
 /** What Pro adds over Free, derived so a paywall cannot overstate it. */
 export const PRO_ONLY_CAPABILITIES: readonly Capability[] = PLAN_CAPABILITIES.pro.filter(
   (capability) => !PLAN_CAPABILITIES.free.includes(capability),
+);
+
+/** What Elite adds over Pro, derived so the Academy paywall cannot overstate it. */
+export const ELITE_ONLY_CAPABILITIES: readonly Capability[] = PLAN_CAPABILITIES.elite.filter(
+  (capability) => !PLAN_CAPABILITIES.pro.includes(capability),
 );
 
 export function capabilitiesFor(plan: Plan): ReadonlySet<Capability> {
