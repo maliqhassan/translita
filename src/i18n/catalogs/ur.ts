@@ -438,7 +438,6 @@ export const ur: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita اب آپ کی زبان میں دستیاب ہے۔ آپ اسے بعد میں سیٹنگز میں تبدیل کر سکتے ہیں۔',
   'AI Academy': 'AI اکیڈمی',
-  'Day {day} is waiting for you.': 'دن {day} آپ کا انتظار کر رہا ہے۔',
   'Every day is done. Your final exam is ready.':
     'تمام دن مکمل ہو گئے۔ آپ کا فائنل امتحان تیار ہے۔',
   'Continue learning': 'سیکھنا جاری رکھیں',
@@ -573,6 +572,33 @@ export const ur: Catalog = {
   'Say the whole sentence': 'پورا جملہ بولیں',
   'Your turn: say this': 'آپ کی باری: یہ بولیں',
   'Finish the conversation': 'گفتگو ختم کریں',
+  'Your AI language coach': 'آپ کا AI زبان کوچ',
+  "Today's goal: {percent}%": 'آج کا ہدف: {percent}%',
+  '{count}-day streak': '{count} دن کا سلسلہ',
+  '{day}: lesson done': '{day}: سبق مکمل',
+  '{day}: no lesson': '{day}: کوئی سبق نہیں',
+  'The AI partner is writing': 'AI ساتھی لکھ رہا ہے',
+  'Your coach planned today for you.': 'آپ کے کوچ نے آج کا سبق آپ کے لیے تیار کیا ہے۔',
+  'This week': 'اس ہفتے',
+  '{count} of 7 days': '7 میں سے {count} دن',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'آج کا ہدف پورا ہو گیا! اپنا سلسلہ جاری رکھنے کے لیے کل واپس آئیں۔',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'آپ آج کے سبق کا {percent}% مکمل کر چکے ہیں۔ آئیں اسے ختم کریں!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'دن {day} کے ساتھ اپنا {count} دن کا سلسلہ جاری رکھیں۔',
+  'Ready for Day {day}? I have planned it for you.':
+    'دن {day} کے لیے تیار ہیں؟ میں نے اسے آپ کے لیے تیار کیا ہے۔',
+  'Your AI coach': 'آپ کا AI کوچ',
+  Today: 'آج',
+  "Today's goal: one lesson": 'آج کا ہدف: ایک سبق',
+  'Keep going: Day {day}': 'جاری رکھیں: دن {day}',
+  'Start Day {day}': 'دن {day} شروع کریں',
+  Checkpoint: 'جانچ',
+  '{count} right in a row': 'لگاتار {count} درست',
+  'Score: {percent}%': 'اسکور: {percent}%',
+  Score: 'اسکور',
+  'Daily goal complete!': 'روزانہ کا ہدف مکمل!',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

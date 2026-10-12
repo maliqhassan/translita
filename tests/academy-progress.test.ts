@@ -19,7 +19,9 @@ import {
   nextDay,
   starsFor,
   streak,
+  todayProgress,
   weakestItems,
+  weekActivity,
   wordsKnown,
 } from '@/features/academy/rules';
 import type { Enrollment, ItemStat } from '@/types';
@@ -369,5 +371,31 @@ describe('the Academy rules', () => {
     assert.equal(streak([at(1), at(2)], NOW), 2);
     assert.equal(streak([at(2)], NOW), 0);
     assert.equal(streak([], NOW), 0);
+  });
+
+  it("fills today's goal with a lesson finished today, or part of one left today", () => {
+    const place = (step: number, updatedAt = NOW) => ({ step, total: 20, updatedAt });
+    assert.equal(todayProgress([NOW - 60_000], undefined, NOW), 1);
+    assert.equal(todayProgress([NOW - DAY], undefined, NOW), 0);
+    assert.equal(todayProgress([], place(5), NOW), 0.25);
+    // A lesson left yesterday is not today's work.
+    assert.equal(todayProgress([], place(5, NOW - DAY), NOW), 0);
+    // Only a finished lesson fills the ring.
+    assert.ok(todayProgress([], place(20), NOW) < 1);
+    assert.equal(todayProgress([], { step: 3, total: 0, updatedAt: NOW }, NOW), 0);
+  });
+
+  it('shows the last seven days, ending today', () => {
+    const week = weekActivity([NOW, NOW - 2 * DAY, NOW - 9 * DAY], NOW);
+    assert.equal(week.length, 7);
+    assert.deepEqual(
+      week.map((day) => day.done),
+      [false, false, false, false, true, false, true],
+    );
+    assert.deepEqual(
+      week.map((day) => day.today),
+      [false, false, false, false, false, false, true],
+    );
+    assert.ok(week.every((day, index) => index === 0 || day.date > week[index - 1]!.date));
   });
 });

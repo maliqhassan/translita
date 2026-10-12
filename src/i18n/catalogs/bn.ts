@@ -435,7 +435,6 @@ export const bn: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita এখন আপনার ভাষায় পাওয়া যাচ্ছে। পরে সেটিংসে এটি বদলাতে পারবেন।',
   'AI Academy': 'AI একাডেমি',
-  'Day {day} is waiting for you.': 'দিন {day} আপনার জন্য অপেক্ষা করছে।',
   'Every day is done. Your final exam is ready.': 'সব দিন শেষ। আপনার চূড়ান্ত পরীক্ষা প্রস্তুত।',
   'Continue learning': 'শেখা চালিয়ে যান',
   'Start learning': 'শেখা শুরু করুন',
@@ -569,6 +568,33 @@ export const bn: Catalog = {
   'Say the whole sentence': 'পুরো বাক্যটি বলুন',
   'Your turn: say this': 'আপনার পালা: এটি বলুন',
   'Finish the conversation': 'কথোপকথন শেষ করুন',
+  'Your AI language coach': 'আপনার AI ভাষা কোচ',
+  "Today's goal: {percent}%": 'আজকের লক্ষ্য: {percent}%',
+  '{count}-day streak': '{count} দিনের ধারাবাহিকতা',
+  '{day}: lesson done': '{day}: পাঠ সম্পন্ন',
+  '{day}: no lesson': '{day}: কোনো পাঠ নেই',
+  'The AI partner is writing': 'AI সঙ্গী লিখছে',
+  'Your coach planned today for you.': 'আপনার কোচ আজকের পাঠ আপনার জন্য সাজিয়েছে।',
+  'This week': 'এই সপ্তাহ',
+  '{count} of 7 days': '৭ দিনের মধ্যে {count} দিন',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'আজকের লক্ষ্য পূরণ! ধারাবাহিকতা ধরে রাখতে কাল আবার আসুন।',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'আজকের পাঠের {percent}% শেষ হয়েছে। চলুন শেষ করি!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'দিন {day} দিয়ে আপনার {count} দিনের ধারাবাহিকতা ধরে রাখুন।',
+  'Ready for Day {day}? I have planned it for you.':
+    'দিন {day}-এর জন্য প্রস্তুত? আমি এটি আপনার জন্য সাজিয়েছি।',
+  'Your AI coach': 'আপনার AI কোচ',
+  Today: 'আজ',
+  "Today's goal: one lesson": 'আজকের লক্ষ্য: একটি পাঠ',
+  'Keep going: Day {day}': 'চালিয়ে যান: দিন {day}',
+  'Start Day {day}': 'দিন {day} শুরু করুন',
+  Checkpoint: 'চেকপয়েন্ট',
+  '{count} right in a row': 'পরপর {count}টি সঠিক',
+  'Score: {percent}%': 'স্কোর: {percent}%',
+  Score: 'স্কোর',
+  'Daily goal complete!': 'দৈনিক লক্ষ্য পূরণ!',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

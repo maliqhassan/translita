@@ -1,6 +1,16 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StatusBar, View } from 'react-native';
+import Animated, {
+  Easing,
+  FadeInDown,
+  FadeInRight,
+  FadeInUp,
+  ZoomIn,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, EmptyState, Icon, IconButton, LoadingState, Screen, Text } from '@/components';
@@ -12,9 +22,14 @@ import { useAcademy, useIsOffline } from '@/store';
 import type { Enrollment, ItemStat } from '@/types';
 import { createId } from '@/utils';
 
+import { CoachAvatar } from '../components/coach-avatar';
+import { Confetti } from '../components/confetti';
+import { CountUp, Pop } from '../components/motion';
+import { ProgressRing } from '../components/progress-ring';
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
 import { useActiveCourse } from '../hooks/use-active-course';
-import { planLesson, SECTIONS, sectionCounts, type Section } from '../lesson/plan';
+import { useDailyProgress } from '../hooks/use-daily-progress';
+import { planLesson, SECTIONS, sectionCounts, type LessonStep, type Section } from '../lesson/plan';
 import type { CoachConnection } from '../lesson/roleplay-step';
 import {
   isSessionState,
@@ -229,7 +244,8 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
       courseId,
       lessonId: lesson.id,
       step: index,
-      state: { seed: next.seed, reviewIds: next.reviewIds, answers },
+      // The length too, so the dashboard can show how far today's lesson is.
+      state: { seed: next.seed, reviewIds: next.reviewIds, answers, total: steps.length },
       updatedAt: now(),
     });
   };
@@ -239,11 +255,18 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
     router.back();
   };
 
+  // Each step, and the result, starts at the top of the page.
+  const scroll = useRef<ScrollView>(null);
+  useEffect(() => {
+    scroll.current?.scrollTo({ y: 0, animated: false });
+  }, [session?.index, outcome]);
+
   if (!session || !steps.length) return <LoadingState />;
 
   const step = steps[Math.min(session.index, steps.length - 1)]!;
   const progress = Math.min(session.index, steps.length) / steps.length;
   const counts = sectionCounts(steps);
+  const inARow = rightInARow(session.answers);
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
@@ -266,111 +289,274 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
             accessibilityLabel={t('Leave the lesson. Your place is saved.')}
             onPress={leave}
           />
-          <View
-            accessibilityRole="progressbar"
-            accessibilityLabel={t('Step {current} of {total}', {
+          <ProgressBar
+            progress={progress}
+            label={t('Step {current} of {total}', {
               current: Math.min(session.index + 1, steps.length),
               total: steps.length,
             })}
-            style={{
-              flex: 1,
-              height: 10,
-              borderRadius: theme.radius.full,
-              overflow: 'hidden',
-              backgroundColor: theme.colors.primaryMuted,
-            }}
-          >
-            <View
+          />
+          {inARow >= 3 && !outcome ? (
+            <Animated.View
+              key={inARow}
+              entering={ZoomIn.springify()}
+              accessible
+              accessibilityLabel={t('{count} right in a row', { count: inARow })}
               style={{
-                width: `${Math.round(progress * 100)}%`,
-                height: '100%',
-                backgroundColor: theme.colors.primary,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 2,
+                paddingHorizontal: theme.spacing.sm,
+                paddingVertical: theme.spacing.xxs,
+                borderRadius: theme.radius.full,
+                backgroundColor: theme.colors.warningMuted,
               }}
-            />
-          </View>
-          <Text variant="label" color="textSecondary" style={{ paddingRight: theme.spacing.sm }}>
-            {t('Day {day}', { day: lesson.day })}
-          </Text>
+            >
+              <Icon name="flame" size={14} color="flame" />
+              <Text variant="label" color="flame">
+                {String(inARow)}
+              </Text>
+            </Animated.View>
+          ) : (
+            <Text variant="label" color="textSecondary" style={{ paddingRight: theme.spacing.sm }}>
+              {t('Day {day}', { day: lesson.day })}
+            </Text>
+          )}
         </View>
-        {outcome ? null : <SectionBar current={step.section} counts={counts} />}
+        {outcome ? null : <SectionBar steps={steps} index={session.index} />}
 
         <ScrollView
+          ref={scroll}
           style={{ flex: 1 }}
           contentContainerStyle={{ padding: theme.layout.screenPadding, gap: theme.spacing.lg }}
         >
           {outcome ? (
-            <Result lesson={lesson} outcome={outcome} onBack={leave} onRetry={() => void begin()} />
-          ) : (
-            <LessonStepView
-              key={`${session.seed}:${session.index}`}
-              step={step}
+            <Result
+              courseId={courseId}
               lesson={lesson}
-              items={allItems}
-              language={courseId}
-              speak={speak}
-              listen={listen}
-              coach={coach}
-              counts={counts}
-              onDone={onDone}
+              outcome={outcome}
+              onBack={leave}
+              onRetry={() => void begin()}
             />
+          ) : (
+            <Animated.View
+              key={`${session.seed}:${session.index}`}
+              entering={FadeInRight.duration(theme.motion.duration.slow)}
+            >
+              <LessonStepView
+                step={step}
+                lesson={lesson}
+                items={allItems}
+                language={courseId}
+                speak={speak}
+                listen={listen}
+                coach={coach}
+                counts={counts}
+                onDone={onDone}
+              />
+            </Animated.View>
           )}
         </ScrollView>
       </SafeAreaView>
+      {outcome?.passed ? <Confetti /> : null}
+    </View>
+  );
+}
+
+/** Right answers in a row, counting back from the latest. */
+function rightInARow(answers: Session['answers']): number {
+  let count = 0;
+  for (let index = answers.length - 1; index >= 0 && answers[index]!.correct; index--) count++;
+  return count;
+}
+
+/** The lesson's progress, sliding forward with each step. */
+function ProgressBar({ progress, label }: { progress: number; label: string }) {
+  const theme = useTheme();
+  const filled = useSharedValue(progress);
+
+  useEffect(() => {
+    filled.set(
+      withTiming(progress, {
+        duration: theme.motion.duration.slow,
+        easing: Easing.out(Easing.cubic),
+      }),
+    );
+  }, [filled, progress, theme.motion.duration.slow]);
+
+  const style = useAnimatedStyle(() => ({ width: `${filled.get() * 100}%` }));
+
+  return (
+    <View
+      accessibilityRole="progressbar"
+      accessibilityLabel={label}
+      style={{
+        flex: 1,
+        height: 12,
+        borderRadius: theme.radius.full,
+        overflow: 'hidden',
+        backgroundColor: theme.colors.surfaceMuted,
+      }}
+    >
+      <Animated.View
+        style={[
+          {
+            height: '100%',
+            borderRadius: theme.radius.full,
+            backgroundColor: theme.colors.primary,
+            experimental_backgroundImage: `linear-gradient(90deg, ${theme.colors.primary} 0%, ${theme.colors.aiFrom} 100%)`,
+          },
+          style,
+        ]}
+      >
+        {/* A highlight along the top, so the bar reads as filled rather than flat. */}
+        <View
+          style={{
+            position: 'absolute',
+            top: 2,
+            left: theme.spacing.sm,
+            right: theme.spacing.sm,
+            height: 3,
+            borderRadius: theme.radius.full,
+            backgroundColor: theme.colors.aiSurface,
+          }}
+        />
+      </Animated.View>
     </View>
   );
 }
 
 function Result({
+  courseId,
   lesson,
   outcome,
   onBack,
   onRetry,
 }: {
+  courseId: string;
   lesson: CourseLesson;
   outcome: LessonOutcome;
   onBack: () => void;
   onRetry: () => void;
 }) {
   const theme = useTheme();
+  const { progress } = useActiveCourse();
+  const daily = useDailyProgress(courseId, progress);
   const percent = Math.round(outcome.score * 100);
+  const beat = theme.motion.stagger * 4;
+
   return (
-    <View style={{ gap: theme.spacing.lg, alignItems: 'center', paddingTop: theme.spacing.xl }}>
+    <View style={{ gap: theme.spacing.lg, alignItems: 'center', paddingTop: theme.spacing.lg }}>
+      <CoachAvatar size={64} />
+
       <View
         accessible
         accessibilityLabel={t('{count} of 3 stars', { count: outcome.stars })}
-        style={{ flexDirection: 'row', gap: theme.spacing.sm }}
+        style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.sm }}
       >
         {[1, 2, 3].map((star) => (
-          <Icon
+          <Animated.View
             key={star}
-            name={star <= outcome.stars ? 'star' : 'star-outline'}
-            size={44}
-            color={star <= outcome.stars ? 'warning' : 'textMuted'}
-          />
+            entering={ZoomIn.delay(beat + star * beat)
+              .springify()
+              .damping(theme.motion.spring.damping / 2)}
+            style={{ marginBottom: star === 2 ? theme.spacing.md : 0 }}
+          >
+            <Icon
+              name={star <= outcome.stars ? 'star' : 'star-outline'}
+              size={star === 2 ? 60 : 48}
+              color={star <= outcome.stars ? 'flame' : 'textMuted'}
+            />
+          </Animated.View>
         ))}
       </View>
-      <Text variant="h1" align="center">
-        {outcome.passed
-          ? lesson.checkpoint
-            ? t('Checkpoint passed!')
-            : t('Day {day} complete!', { day: lesson.day })
-          : t('Not quite yet')}
-      </Text>
-      <Text variant="bodyLarge" color="textSecondary" align="center">
-        {outcome.total
-          ? t('{correct} of {total} right ({percent}%)', {
-              correct: outcome.correct,
-              total: outcome.total,
-              percent,
-            })
-          : t('Well done.')}
-      </Text>
-      {!outcome.passed ? (
+
+      <Animated.View entering={FadeInDown.delay(beat * 4)} style={{ gap: theme.spacing.xs }}>
+        <Text variant="h1" align="center">
+          {outcome.passed
+            ? lesson.checkpoint
+              ? t('Checkpoint passed!')
+              : t('Day {day} complete!', { day: lesson.day })
+            : t('Not quite yet')}
+        </Text>
+        <Text variant="bodyLarge" color="textSecondary" align="center">
+          {outcome.total
+            ? t('{correct} of {total} right ({percent}%)', {
+                correct: outcome.correct,
+                total: outcome.total,
+                percent,
+              })
+            : t('Well done.')}
+        </Text>
+      </Animated.View>
+
+      {outcome.total ? (
+        <Animated.View entering={ZoomIn.delay(beat * 5).springify()}>
+          <ProgressRing
+            progress={outcome.score}
+            size={132}
+            thickness={12}
+            color={outcome.passed ? theme.colors.success : theme.colors.danger}
+            trackColor={theme.colors.surfaceMuted}
+            accessibilityLabel={t('Score: {percent}%', { percent })}
+          >
+            <CountUp value={percent} suffix="%" variant="h1" />
+            <Text variant="caption" color="textSecondary">
+              {t('Score')}
+            </Text>
+          </ProgressRing>
+        </Animated.View>
+      ) : null}
+
+      {outcome.passed ? (
+        <Animated.View entering={FadeInUp.delay(beat * 6)} style={{ alignSelf: 'stretch' }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: theme.spacing.md,
+              padding: theme.spacing.base,
+              borderRadius: theme.radius.xl,
+              backgroundColor: theme.colors.aiFrom,
+              experimental_backgroundImage: `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`,
+            }}
+          >
+            <ProgressRing
+              progress={daily.today}
+              size={56}
+              thickness={6}
+              color={theme.colors.onAi}
+              trackColor={theme.colors.aiSurface}
+            >
+              <Icon name="checkmark" size={24} color="onAi" />
+            </ProgressRing>
+            <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+              <Text variant="rowTitle" color="onAi">
+                {t('Daily goal complete!')}
+              </Text>
+              {daily.streak > 0 ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+                  <Pop active>
+                    <Icon name="flame" size={18} color="flame" />
+                  </Pop>
+                  <Text variant="label" color="onAi">
+                    {t('{count}-day streak', { count: daily.streak })}
+                  </Text>
+                </View>
+              ) : null}
+            </View>
+          </View>
+        </Animated.View>
+      ) : (
         <Text variant="body" align="center">
           {t('You need 70% to pass the checkpoint. The words you missed will come back in review.')}
         </Text>
-      ) : null}
-      <View style={{ alignSelf: 'stretch', gap: theme.spacing.sm }}>
+      )}
+
+      <Animated.View
+        entering={FadeInUp.delay(beat * 7)}
+        style={{ alignSelf: 'stretch', gap: theme.spacing.sm }}
+      >
         {!outcome.passed ? (
           <Button label={t('Try again')} size="lg" fullWidth onPress={onRetry} />
         ) : null}
@@ -381,22 +567,24 @@ function Result({
           fullWidth
           onPress={onBack}
         />
-      </View>
+      </Animated.View>
     </View>
   );
 }
 
-/** The parts of the lesson, with the one the learner is in marked. */
-function SectionBar({
-  current,
-  counts,
-}: {
-  current: Section;
-  counts: Readonly<Record<Section, number>>;
-}) {
+/**
+ * The parts of the lesson. Each part's bar fills as its steps are done, and
+ * the one the learner is in is named in bold.
+ */
+function SectionBar({ steps, index }: { steps: readonly LessonStep[]; index: number }) {
   const theme = useTheme();
+  const counts = sectionCounts(steps);
   const shown = SECTIONS.filter((section) => counts[section] > 0);
-  const at = shown.indexOf(current);
+  const current = steps[Math.min(index, steps.length - 1)]?.section;
+  const doneIn = (section: Section) =>
+    steps.slice(0, index).filter((step) => step.kind !== 'overview' && step.section === section)
+      .length;
+
   return (
     <View
       style={{
@@ -406,9 +594,8 @@ function SectionBar({
         paddingTop: theme.spacing.sm,
       }}
     >
-      {shown.map((section, index) => {
-        const here = index === at;
-        const done = index < at;
+      {shown.map((section) => {
+        const here = section === current;
         return (
           <View
             key={section}
@@ -416,17 +603,10 @@ function SectionBar({
             accessibilityState={{ selected: here }}
             style={{ flex: 1, alignItems: 'center', gap: theme.spacing.xxs }}
           >
-            <View
-              style={{
-                alignSelf: 'stretch',
-                height: 4,
-                borderRadius: theme.radius.full,
-                backgroundColor: here || done ? theme.colors.primary : theme.colors.border,
-              }}
-            />
+            <SectionFill share={doneIn(section) / counts[section]} here={here} />
             <Text
               variant={here ? 'label' : 'caption'}
-              color={here ? 'primary' : 'textSecondary'}
+              color={here ? 'aiStrong' : 'textSecondary'}
               numberOfLines={1}
             >
               {t(SECTION_LABEL[section])}
@@ -434,6 +614,40 @@ function SectionBar({
           </View>
         );
       })}
+    </View>
+  );
+}
+
+function SectionFill({ share, here }: { share: number; here: boolean }) {
+  const theme = useTheme();
+  const filled = useSharedValue(share);
+
+  useEffect(() => {
+    filled.set(withTiming(share, { duration: theme.motion.duration.slow }));
+  }, [filled, share, theme.motion.duration.slow]);
+
+  const style = useAnimatedStyle(() => ({ width: `${filled.get() * 100}%` }));
+
+  return (
+    <View
+      style={{
+        alignSelf: 'stretch',
+        height: here ? 6 : 4,
+        borderRadius: theme.radius.full,
+        overflow: 'hidden',
+        backgroundColor: here ? theme.colors.aiMuted : theme.colors.border,
+      }}
+    >
+      <Animated.View
+        style={[
+          {
+            height: '100%',
+            borderRadius: theme.radius.full,
+            backgroundColor: share >= 1 ? theme.colors.primary : theme.colors.aiFrom,
+          },
+          style,
+        ]}
+      />
     </View>
   );
 }

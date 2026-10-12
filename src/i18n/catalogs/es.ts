@@ -448,7 +448,6 @@ export const es: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita ya está disponible en tu idioma. Puedes cambiarlo más tarde en Ajustes.',
   'AI Academy': 'Academia IA',
-  'Day {day} is waiting for you.': 'El día {day} te está esperando.',
   'Every day is done. Your final exam is ready.':
     'Has terminado todos los días. Tu examen final está listo.',
   'Continue learning': 'Seguir aprendiendo',
@@ -585,6 +584,33 @@ export const es: Catalog = {
   'Say the whole sentence': 'Di la frase completa',
   'Your turn: say this': 'Tu turno: di esto',
   'Finish the conversation': 'Terminar la conversación',
+  'Your AI language coach': 'Tu coach de idiomas con IA',
+  "Today's goal: {percent}%": 'Meta de hoy: {percent} %',
+  '{count}-day streak': 'Racha de {count} días',
+  '{day}: lesson done': '{day}: lección hecha',
+  '{day}: no lesson': '{day}: sin lección',
+  'The AI partner is writing': 'El compañero de IA está escribiendo',
+  'Your coach planned today for you.': 'Tu coach ha preparado el día de hoy para ti.',
+  'This week': 'Esta semana',
+  '{count} of 7 days': '{count} de 7 días',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    '¡Meta de hoy cumplida! Vuelve mañana para mantener tu racha.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'Llevas el {percent} % de la lección de hoy. ¡Vamos a terminarla!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'Mantén tu racha de {count} días con el día {day}.',
+  'Ready for Day {day}? I have planned it for you.':
+    '¿Listo para el día {day}? Lo he preparado para ti.',
+  'Your AI coach': 'Tu coach de IA',
+  Today: 'Hoy',
+  "Today's goal: one lesson": 'Meta de hoy: una lección',
+  'Keep going: Day {day}': 'Sigue: día {day}',
+  'Start Day {day}': 'Empezar el día {day}',
+  Checkpoint: 'Control',
+  '{count} right in a row': '{count} aciertos seguidos',
+  'Score: {percent}%': 'Puntuación: {percent} %',
+  Score: 'Puntuación',
+  'Daily goal complete!': '¡Meta diaria cumplida!',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Afrikáans',

@@ -73,6 +73,19 @@ export const palette = {
     950: '#0B0C10',
   },
   green: { 100: '#DCF7E3', 500: '#1CA45B', 600: '#15854A' },
-  amber: { 100: '#FDF0D5', 500: '#D98E12', 600: '#B4730B' },
+  amber: { 100: '#FDF0D5', 300: '#F7C35C', 500: '#D98E12', 600: '#B4730B' },
+  /**
+   * Violet — the AI coach's colour, and only its colour. It sets the Academy's
+   * coach apart from the translator's cyan, so the eye finds it.
+   */
+  violet: {
+    50: '#F2EEFF',
+    100: '#E3DBFF',
+    300: '#B3A1FF',
+    500: '#7C5CFF',
+    600: '#6941F2',
+    700: '#5532D1',
+    800: '#3F2699',
+  },
   red: { 100: '#FDE4E4', 500: '#DB4545', 600: '#B93636' },
 } as const;

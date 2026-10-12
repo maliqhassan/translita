@@ -449,7 +449,6 @@ export const fil: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Available na ang Translita sa iyong wika. Mapapalitan mo ito mamaya sa Settings.',
   'AI Academy': 'AI Academy',
-  'Day {day} is waiting for you.': 'Naghihintay sa iyo ang Araw {day}.',
   'Every day is done. Your final exam is ready.':
     'Tapos na ang lahat ng araw. Handa na ang iyong final exam.',
   'Continue learning': 'Ituloy ang pag-aaral',
@@ -588,6 +587,33 @@ export const fil: Catalog = {
   'Say the whole sentence': 'Sabihin ang buong pangungusap',
   'Your turn: say this': 'Ikaw na: sabihin ito',
   'Finish the conversation': 'Tapusin ang usapan',
+  'Your AI language coach': 'Ang iyong AI language coach',
+  "Today's goal: {percent}%": 'Layunin ngayon: {percent}%',
+  '{count}-day streak': '{count} araw na sunod-sunod',
+  '{day}: lesson done': '{day}: tapos ang aralin',
+  '{day}: no lesson': '{day}: walang aralin',
+  'The AI partner is writing': 'Nagsusulat ang AI partner',
+  'Your coach planned today for you.': 'Inihanda ng iyong coach ang araw na ito para sa iyo.',
+  'This week': 'Ngayong linggo',
+  '{count} of 7 days': '{count} sa 7 araw',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'Tapos na ang layunin ngayon! Bumalik bukas para tuloy ang iyong streak.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'Nasa {percent}% ka na ng aralin ngayon. Tapusin na natin!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'Panatilihin ang {count} araw na streak gamit ang Araw {day}.',
+  'Ready for Day {day}? I have planned it for you.':
+    'Handa ka na ba sa Araw {day}? Inihanda ko ito para sa iyo.',
+  'Your AI coach': 'Ang iyong AI coach',
+  Today: 'Ngayon',
+  "Today's goal: one lesson": 'Layunin ngayon: isang aralin',
+  'Keep going: Day {day}': 'Ituloy: Araw {day}',
+  'Start Day {day}': 'Simulan ang Araw {day}',
+  Checkpoint: 'Checkpoint',
+  '{count} right in a row': '{count} sunod-sunod na tama',
+  'Score: {percent}%': 'Iskor: {percent}%',
+  Score: 'Iskor',
+  'Daily goal complete!': 'Tapos ang pang-araw-araw na layunin!',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

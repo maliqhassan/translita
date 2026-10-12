@@ -454,7 +454,6 @@ export const fr: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita est désormais disponible dans votre langue. Vous pourrez la changer plus tard dans les Paramètres.',
   'AI Academy': 'Académie IA',
-  'Day {day} is waiting for you.': 'Le jour {day} vous attend.',
   'Every day is done. Your final exam is ready.':
     'Tous les jours sont terminés. Votre examen final est prêt.',
   'Continue learning': 'Continuer à apprendre',
@@ -592,6 +591,33 @@ export const fr: Catalog = {
   'Say the whole sentence': 'Dites la phrase entière',
   'Your turn: say this': 'À vous : dites ceci',
   'Finish the conversation': 'Terminer la conversation',
+  'Your AI language coach': 'Votre coach de langue IA',
+  "Today's goal: {percent}%": 'Objectif du jour : {percent} %',
+  '{count}-day streak': 'Série de {count} jours',
+  '{day}: lesson done': '{day} : leçon faite',
+  '{day}: no lesson': '{day} : pas de leçon',
+  'The AI partner is writing': 'Le partenaire IA écrit',
+  'Your coach planned today for you.': 'Votre coach a préparé la journée pour vous.',
+  'This week': 'Cette semaine',
+  '{count} of 7 days': '{count} jours sur 7',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'Objectif du jour atteint ! Revenez demain pour garder votre série.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'Vous avez fait {percent} % de la leçon du jour. Terminons-la !',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'Gardez votre série de {count} jours avec le jour {day}.',
+  'Ready for Day {day}? I have planned it for you.':
+    "Prêt pour le jour {day} ? Je l'ai préparé pour vous.",
+  'Your AI coach': 'Votre coach IA',
+  Today: "Aujourd'hui",
+  "Today's goal: one lesson": 'Objectif du jour : une leçon',
+  'Keep going: Day {day}': 'Continuer : jour {day}',
+  'Start Day {day}': 'Commencer le jour {day}',
+  Checkpoint: 'Bilan',
+  '{count} right in a row': "{count} bonnes réponses d'affilée",
+  'Score: {percent}%': 'Score : {percent} %',
+  Score: 'Score',
+  'Daily goal complete!': 'Objectif du jour atteint !',
   // Language names
   'Detect language': 'Détecter la langue',
   Afrikaans: 'Afrikaans',

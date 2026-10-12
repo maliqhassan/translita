@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
+import Animated, { FadeInDown, FadeInLeft, FadeInRight, ZoomIn } from 'react-native-reanimated';
 
-import { Button, Card, Icon, IconButton, Text } from '@/components';
+import { Button, Card, Icon, Text } from '@/components';
 import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
 
+import { CoachAvatar } from '../components/coach-avatar';
+import { Pop, PulseHalo, Shake } from '../components/motion';
 import type { CourseItem, CourseLesson } from '../course';
 
 import {
@@ -165,30 +168,40 @@ function Feedback({
 }) {
   const theme = useTheme();
   return (
-    <View
+    <Animated.View
+      entering={FadeInDown.springify().damping(theme.motion.spring.damping)}
       accessibilityLiveRegion="polite"
-      style={{
-        gap: theme.spacing.sm,
-        padding: theme.spacing.base,
-        borderRadius: theme.radius.lg,
-        backgroundColor: correct ? theme.colors.successMuted : theme.colors.dangerMuted,
-      }}
     >
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
-        <Icon
-          name={correct ? 'checkmark-circle' : 'close-circle'}
-          size={22}
-          color={correct ? 'success' : 'danger'}
-        />
-        <Text variant="rowTitle" color={correct ? 'success' : 'danger'}>
-          {correct ? t('Correct!') : t('Not quite')}
-        </Text>
-      </View>
-      {!correct && answer ? (
-        <Text variant="body">{t('The answer is: {answer}', { answer })}</Text>
-      ) : null}
-      <Button label={t('Continue')} fullWidth onPress={onContinue} />
-    </View>
+      <Shake active={!correct}>
+        <View
+          style={{
+            gap: theme.spacing.sm,
+            padding: theme.spacing.base,
+            borderRadius: theme.radius.lg,
+            borderWidth: theme.layout.borderWidth,
+            borderColor: correct ? theme.colors.success : theme.colors.danger,
+            backgroundColor: correct ? theme.colors.successMuted : theme.colors.dangerMuted,
+          }}
+        >
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+            <Animated.View entering={ZoomIn.delay(theme.motion.stagger).springify().damping(8)}>
+              <Icon
+                name={correct ? 'checkmark-circle' : 'close-circle'}
+                size={30}
+                color={correct ? 'success' : 'danger'}
+              />
+            </Animated.View>
+            <Text variant="h3" color={correct ? 'success' : 'danger'}>
+              {correct ? t('Correct!') : t('Not quite')}
+            </Text>
+          </View>
+          {!correct && answer ? (
+            <Text variant="body">{t('The answer is: {answer}', { answer })}</Text>
+          ) : null}
+          <Button label={t('Continue')} fullWidth onPress={onContinue} />
+        </View>
+      </Shake>
+    </Animated.View>
   );
 }
 
@@ -217,24 +230,43 @@ function OptionButton({
         ? theme.colors.dangerMuted
         : theme.colors.surface;
   return (
-    <Pressable
-      onPress={onPress}
-      disabled={disabled}
-      accessibilityRole="button"
-      accessibilityState={{ disabled, selected: state !== 'idle' }}
-      style={({ pressed }) => ({
-        minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
-        justifyContent: 'center',
-        paddingHorizontal: theme.spacing.base,
-        paddingVertical: theme.spacing.sm,
-        borderRadius: theme.radius.lg,
-        borderWidth: theme.layout.borderWidth,
-        borderColor: border,
-        backgroundColor: pressed && !disabled ? theme.colors.surfaceMuted : fill,
-      })}
-    >
-      <Text variant="body">{label}</Text>
-    </Pressable>
+    <Shake active={state === 'wrong'}>
+      <Pop active={state === 'right'}>
+        <Pressable
+          onPress={onPress}
+          disabled={disabled}
+          accessibilityRole="button"
+          accessibilityState={{ disabled, selected: state !== 'idle' }}
+          style={({ pressed }) => ({
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: theme.spacing.sm,
+            minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
+            paddingHorizontal: theme.spacing.base,
+            paddingVertical: theme.spacing.sm,
+            borderRadius: theme.radius.lg,
+            borderWidth: state === 'idle' ? theme.layout.borderWidth : 2,
+            borderBottomWidth: state === 'idle' ? 3 : 2,
+            borderColor: border,
+            backgroundColor: pressed && !disabled ? theme.colors.surfaceMuted : fill,
+            transform: [{ scale: pressed && !disabled ? theme.motion.scalePressed : 1 }],
+          })}
+        >
+          <Text variant="body" style={{ flex: 1 }}>
+            {label}
+          </Text>
+          {state !== 'idle' ? (
+            <Animated.View entering={ZoomIn.springify()}>
+              <Icon
+                name={state === 'right' ? 'checkmark-circle' : 'close-circle'}
+                size={22}
+                color={state === 'right' ? 'success' : 'danger'}
+              />
+            </Animated.View>
+          ) : null}
+        </Pressable>
+      </Pop>
+    </Shake>
   );
 }
 
@@ -548,36 +580,40 @@ function MatchStep({ itemIds, items, onDone }: StepProps & { itemIds: readonly s
     const active = side === 'left' && selected === id;
     const wrong = side === 'right' && wrongFlash === id;
     return (
-      <Pressable
-        key={`${side}-${id}`}
-        disabled={done}
-        onPress={() => (side === 'left' ? setSelected(id) : pickRight(id))}
-        accessibilityRole="button"
-        accessibilityState={{ disabled: done, selected: active }}
-        style={{
-          minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
-          justifyContent: 'center',
-          padding: theme.spacing.sm,
-          borderRadius: theme.radius.md,
-          borderWidth: theme.layout.borderWidth,
-          borderColor: done
-            ? theme.colors.success
-            : wrong
-              ? theme.colors.danger
-              : active
-                ? theme.colors.primary
-                : theme.colors.border,
-          backgroundColor: done
-            ? theme.colors.successMuted
-            : active
-              ? theme.colors.primaryMuted
-              : theme.colors.surface,
-        }}
-      >
-        <Text variant="body" align="center">
-          {text}
-        </Text>
-      </Pressable>
+      <Shake key={`${side}-${id}`} active={wrong}>
+        <Pop active={done}>
+          <Pressable
+            disabled={done}
+            onPress={() => (side === 'left' ? setSelected(id) : pickRight(id))}
+            accessibilityRole="button"
+            accessibilityState={{ disabled: done, selected: active }}
+            style={{
+              minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
+              justifyContent: 'center',
+              padding: theme.spacing.sm,
+              borderRadius: theme.radius.md,
+              borderWidth: theme.layout.borderWidth,
+              borderColor: done
+                ? theme.colors.success
+                : wrong
+                  ? theme.colors.danger
+                  : active
+                    ? theme.colors.aiFrom
+                    : theme.colors.border,
+              backgroundColor: done
+                ? theme.colors.successMuted
+                : active
+                  ? theme.colors.aiMuted
+                  : theme.colors.surface,
+              borderBottomWidth: 3,
+            }}
+          >
+            <Text variant="body" align="center">
+              {text}
+            </Text>
+          </Pressable>
+        </Pop>
+      </Shake>
     );
   };
 
@@ -646,12 +682,20 @@ function OverviewStep({ lesson, counts, onDone }: StepProps) {
   const shown = SECTIONS.filter((section) => (counts?.[section] ?? 0) > 0 || section === 'learn');
   return (
     <View style={{ gap: theme.spacing.lg }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md }}>
+        <CoachAvatar size={56} />
+        <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+          <Text variant="overline" color="aiStrong">
+            {lesson.checkpoint
+              ? t('Day {day}, checkpoint', { day: lesson.day })
+              : t('Day {day}', { day: lesson.day })}
+          </Text>
+          <Text variant="bodySmall" color="textSecondary">
+            {t('Your coach planned today for you.')}
+          </Text>
+        </View>
+      </View>
       <View style={{ gap: theme.spacing.xs }}>
-        <Text variant="overline" color="primary">
-          {lesson.checkpoint
-            ? t('Day {day}, checkpoint', { day: lesson.day })
-            : t('Day {day}', { day: lesson.day })}
-        </Text>
         <Text variant="h1">{lesson.title}</Text>
         <Text variant="body" color="textSecondary">
           {lesson.scenario.goal}
@@ -659,8 +703,9 @@ function OverviewStep({ lesson, counts, onDone }: StepProps) {
       </View>
       <Card variant="outlined" padding="none">
         {shown.map((section, index) => (
-          <View
+          <Animated.View
             key={section}
+            entering={FadeInRight.delay((index + 1) * theme.motion.stagger * 2).springify()}
             style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -677,10 +722,10 @@ function OverviewStep({ lesson, counts, onDone }: StepProps) {
                 borderRadius: 18,
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: theme.colors.primaryMuted,
+                backgroundColor: theme.colors.aiMuted,
               }}
             >
-              <Icon name={SECTION_ICON[section]} size={18} color="primary" />
+              <Icon name={SECTION_ICON[section]} size={18} color="aiStrong" />
             </View>
             <View style={{ flex: 1 }}>
               <Text variant="rowTitle">{`${index + 1}. ${t(SECTION_LABEL[section])}`}</Text>
@@ -688,7 +733,7 @@ function OverviewStep({ lesson, counts, onDone }: StepProps) {
                 {sectionLine(section, counts?.[section] ?? 0, lesson.checkpoint)}
               </Text>
             </View>
-          </View>
+          </Animated.View>
         ))}
       </Card>
       <Button
@@ -784,14 +829,27 @@ function useSpokenAnswer(expected: string, listen: SpeechPractice | undefined, l
 function MicControl({ listen, onPress }: { listen: SpeechPractice; onPress: () => void }) {
   const theme = useTheme();
   return (
-    <View style={{ alignItems: 'center', gap: theme.spacing.sm }}>
-      <IconButton
-        name={listen.listening ? 'stop-circle' : 'mic'}
-        variant="solid"
-        size={32}
-        accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
-        onPress={onPress}
-      />
+    <View style={{ alignItems: 'center', gap: theme.spacing.md }}>
+      <PulseHalo size={72} color={theme.colors.aiGlow} active={listen.listening}>
+        <Pressable
+          onPress={onPress}
+          accessibilityRole="button"
+          accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
+          style={({ pressed }) => ({
+            width: 72,
+            height: 72,
+            borderRadius: 36,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: theme.colors.aiFrom,
+            experimental_backgroundImage: `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`,
+            transform: [{ scale: pressed ? theme.motion.scalePressed : 1 }],
+            ...theme.shadows.md,
+          })}
+        >
+          <Icon name={listen.listening ? 'stop' : 'mic'} size={32} color="onAi" />
+        </Pressable>
+      </PulseHalo>
       <Text variant="bodySmall" color="textSecondary">
         {listen.listening ? t('Listening…') : t('Tap the microphone and say it')}
       </Text>
@@ -939,8 +997,9 @@ function DialogueStep({ lesson, language, speak, listen, onDone }: StepProps) {
           if (mine && index === current && !answered) return null;
           const result = heard[index];
           return (
-            <View
+            <Animated.View
               key={index}
+              entering={(mine ? FadeInRight : FadeInLeft).springify()}
               style={{
                 alignSelf: mine ? 'flex-end' : 'flex-start',
                 maxWidth: '88%',
@@ -985,7 +1044,7 @@ function DialogueStep({ lesson, language, speak, listen, onDone }: StepProps) {
               <Text variant="bodySmall" color="textSecondary">
                 {entry.meaning}
               </Text>
-            </View>
+            </Animated.View>
           );
         })}
       </View>

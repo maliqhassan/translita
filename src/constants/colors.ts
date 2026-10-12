@@ -92,6 +92,27 @@ export type ColorTokens = {
   skeleton: string;
   shadow: string;
 
+  /**
+   * The AI coach: its gradient, what reads on top of it, and its softer
+   * tints. Violet into the brand's deep teal, so it belongs to the app but is
+   * never mistaken for the translator. White ink reads on both stops.
+   */
+  aiFrom: string;
+  aiTo: string;
+  onAi: string;
+  onAiMuted: string;
+  /** A chip or track sitting on the AI gradient. */
+  aiSurface: string;
+  /** The coach's speech and quiet fills on the page. */
+  aiMuted: string;
+  aiBorder: string;
+  /** The coach's ink on the page: its name, its glyphs. */
+  aiStrong: string;
+  /** The soft pulse behind the coach and the way into it. */
+  aiGlow: string;
+  /** The streak's flame. */
+  flame: string;
+
   tabBar: string;
   tabBarBorder: string;
   tabBarActive: string;
@@ -153,6 +174,17 @@ export const lightColors: ColorTokens = {
   skeleton: palette.neutral[200],
   shadow: '#0B0C10',
 
+  aiFrom: palette.violet[600],
+  aiTo: palette.brand[700],
+  onAi: '#FFFFFF',
+  onAiMuted: 'rgba(255, 255, 255, 0.78)',
+  aiSurface: 'rgba(255, 255, 255, 0.2)',
+  aiMuted: palette.violet[50],
+  aiBorder: palette.violet[100],
+  aiStrong: palette.violet[700],
+  aiGlow: 'rgba(105, 65, 242, 0.32)',
+  flame: palette.amber[500],
+
   tabBar: palette.neutral[0],
   tabBarBorder: palette.sky[200],
   // Cyan, as in the design, at the darkest step that still reads at 3:1 on
@@ -207,6 +239,17 @@ export const darkColors: ColorTokens = {
   glassBorder: palette.neutral[800],
   skeleton: palette.neutral[800],
   shadow: '#000000',
+
+  aiFrom: palette.violet[700],
+  aiTo: palette.brand[800],
+  onAi: '#FFFFFF',
+  onAiMuted: 'rgba(255, 255, 255, 0.74)',
+  aiSurface: 'rgba(255, 255, 255, 0.16)',
+  aiMuted: 'rgba(124, 92, 255, 0.16)',
+  aiBorder: 'rgba(124, 92, 255, 0.34)',
+  aiStrong: palette.violet[300],
+  aiGlow: 'rgba(124, 92, 255, 0.4)',
+  flame: palette.amber[300],
 
   tabBar: palette.neutral[900],
   tabBarBorder: palette.neutral[800],

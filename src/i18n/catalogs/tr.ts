@@ -438,7 +438,6 @@ export const tr: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita artık sizin dilinizde. Bunu daha sonra Ayarlar’dan değiştirebilirsiniz.',
   'AI Academy': 'Yapay Zekâ Akademisi',
-  'Day {day} is waiting for you.': '{day}. gün sizi bekliyor.',
   'Every day is done. Your final exam is ready.': 'Tüm günler tamamlandı. Final sınavınız hazır.',
   'Continue learning': 'Öğrenmeye devam et',
   'Start learning': 'Öğrenmeye başla',
@@ -574,6 +573,33 @@ export const tr: Catalog = {
   'Say the whole sentence': 'Cümlenin tamamını söyle',
   'Your turn: say this': 'Sıra sende: bunu söyle',
   'Finish the conversation': 'Konuşmayı bitir',
+  'Your AI language coach': 'Yapay zekâ dil koçun',
+  "Today's goal: {percent}%": 'Bugünün hedefi: %{percent}',
+  '{count}-day streak': '{count} günlük seri',
+  '{day}: lesson done': '{day}: ders tamam',
+  '{day}: no lesson': '{day}: ders yok',
+  'The AI partner is writing': 'Yapay zekâ partneri yazıyor',
+  'Your coach planned today for you.': 'Koçun bugünü senin için planladı.',
+  'This week': 'Bu hafta',
+  '{count} of 7 days': '7 günün {count} günü',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'Bugünün hedefi tamam! Serini sürdürmek için yarın yine gel.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    "Bugünkü dersin %{percent}'ini bitirdin. Hadi tamamlayalım!",
+  'Keep your {count}-day streak alive with Day {day}.':
+    '{count} günlük serini Gün {day} ile sürdür.',
+  'Ready for Day {day}? I have planned it for you.':
+    'Gün {day} için hazır mısın? Senin için planladım.',
+  'Your AI coach': 'Yapay zekâ koçun',
+  Today: 'Bugün',
+  "Today's goal: one lesson": 'Bugünün hedefi: bir ders',
+  'Keep going: Day {day}': 'Devam: Gün {day}',
+  'Start Day {day}': "Gün {day}'i başlat",
+  Checkpoint: 'Ara sınav',
+  '{count} right in a row': 'Art arda {count} doğru',
+  'Score: {percent}%': 'Puan: %{percent}',
+  Score: 'Puan',
+  'Daily goal complete!': 'Günlük hedef tamam!',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

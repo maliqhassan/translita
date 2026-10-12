@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { View } from 'react-native';
+import Animated, { FadeInDown, FadeInLeft, FadeInRight, ZoomIn } from 'react-native-reanimated';
 
 import { Button, Card, Icon, IconButton, Input, Text } from '@/components';
 import { errorMessage } from '@/constants';
@@ -7,6 +8,9 @@ import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
 import type { CoachAsk, CoachCorrection, CoachReply, ServiceResult } from '@/services';
 import type { AppError } from '@/types';
+
+import { CoachAvatar } from '../components/coach-avatar';
+import { PulseHalo, TypingDots } from '../components/motion';
 
 import type { SpeechPractice, StepProps } from './steps';
 
@@ -100,7 +104,21 @@ export function RoleplayStep({
     return (
       <View style={{ gap: theme.spacing.lg }}>
         <Card variant="glass" style={{ gap: theme.spacing.sm, alignItems: 'center' }}>
-          <Icon name="cloud-offline-outline" size={28} color="textSecondary" />
+          <View>
+            <CoachAvatar size={56} animated={false} />
+            <View
+              style={{
+                position: 'absolute',
+                right: -theme.spacing.xs,
+                bottom: -theme.spacing.xs,
+                padding: theme.spacing.xxs,
+                borderRadius: theme.radius.full,
+                backgroundColor: theme.colors.surface,
+              }}
+            >
+              <Icon name="cloud-offline" size={16} color="textSecondary" />
+            </View>
+          </View>
           <Text variant="rowTitle" align="center">
             {t('Practise with the AI partner')}
           </Text>
@@ -117,59 +135,88 @@ export function RoleplayStep({
 
   return (
     <View style={{ gap: theme.spacing.lg }}>
-      <View style={{ gap: theme.spacing.xs }}>
-        <Text variant="overline" color="textSecondary">
-          {t('Practise with the AI partner')}
-        </Text>
-        <Text variant="body">{lesson.scenario.goal}</Text>
-        <Text variant="bodySmall" color="textSecondary">
-          {t('You are {role}.', { role: lesson.scenario.learnerRole })}
-        </Text>
-      </View>
+      <Animated.View
+        entering={FadeInDown.springify()}
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: theme.spacing.md,
+          padding: theme.spacing.base,
+          borderRadius: theme.radius.xl,
+          backgroundColor: theme.colors.aiFrom,
+          experimental_backgroundImage: `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`,
+        }}
+      >
+        <CoachAvatar size={52} />
+        <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+          <Text variant="overline" color="onAiMuted">
+            {t('Practise with the AI partner')}
+          </Text>
+          <Text variant="rowTitle" color="onAi">
+            {lesson.scenario.goal}
+          </Text>
+          <Text variant="bodySmall" color="onAiMuted">
+            {t('You are {role}.', { role: lesson.scenario.learnerRole })}
+          </Text>
+        </View>
+      </Animated.View>
 
       {lines.map((line, index) =>
         line.role === 'partner' ? (
-          <View
+          <Animated.View
             key={index}
+            entering={FadeInLeft.springify()}
             style={{
-              alignSelf: 'flex-start',
-              maxWidth: '88%',
-              gap: theme.spacing.xxs,
-              padding: theme.spacing.md,
-              borderRadius: theme.radius.lg,
-              backgroundColor: theme.colors.surface,
-              borderWidth: theme.layout.borderWidth,
-              borderColor: theme.colors.border,
+              flexDirection: 'row',
+              alignItems: 'flex-end',
+              gap: theme.spacing.sm,
+              maxWidth: '92%',
             }}
           >
-            <Text variant="caption" color="textSecondary">
-              {lesson.scenario.partnerRole}
-            </Text>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
-              <Text variant="body" style={{ flexShrink: 1 }}>
-                {line.text}
+            <CoachAvatar size={32} animated={false} />
+            <View
+              style={{
+                flexShrink: 1,
+                gap: theme.spacing.xxs,
+                padding: theme.spacing.md,
+                borderRadius: theme.radius.lg,
+                borderBottomLeftRadius: theme.radius.sm,
+                backgroundColor: theme.colors.aiMuted,
+                borderWidth: theme.layout.borderWidth,
+                borderColor: theme.colors.aiBorder,
+              }}
+            >
+              <Text variant="caption" color="aiStrong">
+                {lesson.scenario.partnerRole}
               </Text>
-              <IconButton
-                name={speak.isSpeaking(line.text) ? 'stop' : 'volume-high'}
-                accessibilityLabel={t('Listen')}
-                onPress={() => speak.toggle(line.text, language)}
-              />
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+                <Text variant="body" style={{ flexShrink: 1 }}>
+                  {line.text}
+                </Text>
+                <IconButton
+                  name={speak.isSpeaking(line.text) ? 'stop' : 'volume-high'}
+                  accessibilityLabel={t('Listen')}
+                  onPress={() => speak.toggle(line.text, language)}
+                />
+              </View>
+              {line.meaning ? (
+                <Text variant="bodySmall" color="textSecondary">
+                  {line.meaning}
+                </Text>
+              ) : null}
             </View>
-            {line.meaning ? (
-              <Text variant="bodySmall" color="textSecondary">
-                {line.meaning}
-              </Text>
-            ) : null}
-          </View>
+          </Animated.View>
         ) : (
-          <View
+          <Animated.View
             key={index}
+            entering={FadeInRight.springify()}
             style={{ alignSelf: 'flex-end', maxWidth: '88%', gap: theme.spacing.xs }}
           >
             <View
               style={{
                 padding: theme.spacing.md,
                 borderRadius: theme.radius.lg,
+                borderBottomRightRadius: theme.radius.sm,
                 backgroundColor: theme.colors.primaryMuted,
                 borderWidth: theme.layout.borderWidth,
                 borderColor: theme.colors.primaryBorder,
@@ -181,7 +228,8 @@ export function RoleplayStep({
               <Text variant="body">{line.text}</Text>
             </View>
             {line.correction ? (
-              <View
+              <Animated.View
+                entering={FadeInDown.delay(theme.motion.stagger * 3).springify()}
                 accessibilityLiveRegion="polite"
                 style={{
                   gap: theme.spacing.xxs,
@@ -190,22 +238,40 @@ export function RoleplayStep({
                   backgroundColor: theme.colors.warningMuted,
                 }}
               >
-                <Text variant="label" color="warning">
-                  {t('Better: {better}', { better: line.correction.better })}
-                </Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+                  <Icon name="bulb" size={14} color="warning" />
+                  <Text variant="label" color="warning" style={{ flexShrink: 1 }}>
+                    {t('Better: {better}', { better: line.correction.better })}
+                  </Text>
+                </View>
                 {line.correction.why ? (
                   <Text variant="bodySmall">{line.correction.why}</Text>
                 ) : null}
-              </View>
+              </Animated.View>
             ) : null}
-          </View>
+          </Animated.View>
         ),
       )}
 
       {busy ? (
-        <View style={{ alignItems: 'center' }}>
-          <ActivityIndicator color={theme.colors.primary} />
-        </View>
+        <Animated.View
+          entering={FadeInLeft}
+          accessibilityLabel={t('The AI partner is writing')}
+          style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.sm }}
+        >
+          <CoachAvatar size={32} animated={false} />
+          <View
+            style={{
+              paddingHorizontal: theme.spacing.base,
+              paddingVertical: theme.spacing.md,
+              borderRadius: theme.radius.lg,
+              borderBottomLeftRadius: theme.radius.sm,
+              backgroundColor: theme.colors.aiMuted,
+            }}
+          >
+            <TypingDots color={theme.colors.aiFrom} />
+          </View>
+        </Animated.View>
       ) : null}
 
       {notice ? (
@@ -238,12 +304,25 @@ export function RoleplayStep({
           onPress={() => void send('')}
         />
       ) : done ? (
-        <View style={{ gap: theme.spacing.sm }}>
-          <Text variant="body" color="success" align="center">
-            {t('Well done — you played the whole scene.')}
-          </Text>
+        <Animated.View entering={ZoomIn.springify()} style={{ gap: theme.spacing.sm }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: theme.spacing.sm,
+              padding: theme.spacing.md,
+              borderRadius: theme.radius.lg,
+              backgroundColor: theme.colors.successMuted,
+            }}
+          >
+            <Icon name="trophy" size={22} color="success" />
+            <Text variant="rowTitle" color="success" align="center">
+              {t('Well done — you played the whole scene.')}
+            </Text>
+          </View>
           <Button label={t('Finish lesson')} size="lg" fullWidth onPress={() => onDone(null)} />
-        </View>
+        </Animated.View>
       ) : (
         <View style={{ gap: theme.spacing.sm }}>
           <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.sm }}>
@@ -259,16 +338,19 @@ export function RoleplayStep({
               />
             </View>
             {listen?.available ? (
-              <IconButton
-                name={listen.listening ? 'stop-circle' : 'mic'}
-                variant="soft"
-                accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
-                onPress={() =>
-                  listen.listening
-                    ? listen.stop()
-                    : listen.start(language, (heard) => void send(heard))
-                }
-              />
+              <PulseHalo size={44} color={theme.colors.aiGlow} active={listen.listening}>
+                <IconButton
+                  name={listen.listening ? 'stop-circle' : 'mic'}
+                  variant="soft"
+                  color="aiStrong"
+                  accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
+                  onPress={() =>
+                    listen.listening
+                      ? listen.stop()
+                      : listen.start(language, (heard) => void send(heard))
+                  }
+                />
+              </PulseHalo>
             ) : null}
             <IconButton
               name="send"

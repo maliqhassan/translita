@@ -442,7 +442,6 @@ export const pt: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'O Translita agora está disponível no seu idioma. Você pode mudar isso depois em Configurações.',
   'AI Academy': 'Academia de IA',
-  'Day {day} is waiting for you.': 'O dia {day} está esperando por você.',
   'Every day is done. Your final exam is ready.':
     'Todos os dias foram concluídos. Sua prova final está pronta.',
   'Continue learning': 'Continuar aprendendo',
@@ -579,6 +578,33 @@ export const pt: Catalog = {
   'Say the whole sentence': 'Diga a frase inteira',
   'Your turn: say this': 'Sua vez: diga isto',
   'Finish the conversation': 'Terminar a conversa',
+  'Your AI language coach': 'Seu coach de idiomas com IA',
+  "Today's goal: {percent}%": 'Meta de hoje: {percent}%',
+  '{count}-day streak': 'Sequência de {count} dias',
+  '{day}: lesson done': '{day}: lição feita',
+  '{day}: no lesson': '{day}: sem lição',
+  'The AI partner is writing': 'O parceiro de IA está escrevendo',
+  'Your coach planned today for you.': 'Seu coach planejou o dia de hoje para você.',
+  'This week': 'Esta semana',
+  '{count} of 7 days': '{count} de 7 dias',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'Meta de hoje cumprida! Volte amanhã para manter sua sequência.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'Você já fez {percent}% da lição de hoje. Vamos terminar!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'Mantenha sua sequência de {count} dias com o dia {day}.',
+  'Ready for Day {day}? I have planned it for you.':
+    'Pronto para o dia {day}? Eu o planejei para você.',
+  'Your AI coach': 'Seu coach de IA',
+  Today: 'Hoje',
+  "Today's goal: one lesson": 'Meta de hoje: uma lição',
+  'Keep going: Day {day}': 'Continue: dia {day}',
+  'Start Day {day}': 'Começar o dia {day}',
+  Checkpoint: 'Checkpoint',
+  '{count} right in a row': '{count} acertos seguidos',
+  'Score: {percent}%': 'Pontuação: {percent}%',
+  Score: 'Pontuação',
+  'Daily goal complete!': 'Meta diária cumprida!',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',

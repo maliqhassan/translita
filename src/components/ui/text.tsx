@@ -22,6 +22,12 @@ export type TextColor = Extract<
   | 'onCameraMuted'
   | 'onGradient'
   | 'onGradientMuted'
+  /** On the AI coach's gradient, and its own ink on the page. */
+  | 'onAi'
+  | 'onAiMuted'
+  | 'aiStrong'
+  | 'aiFrom'
+  | 'flame'
   | 'tabBarActive'
   | 'tabBarInactive'
 >;

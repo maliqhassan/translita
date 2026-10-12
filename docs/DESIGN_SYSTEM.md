@@ -62,3 +62,17 @@ written once and is correct in both.
 `ScreenHeader` takes `leading` (a brand mark or back affordance), `actions` and
 `compact`. `Input` takes `inputStyle` for one-off field sizing, and `variant`
 `bare` when it sits inside an existing surface.
+
+## The AI coach (Academy)
+
+The Academy's coach has its own colour, so it is never mistaken for the
+translator: a violet-to-teal gradient (`aiFrom` / `aiTo`, with `onAi` ink),
+softer `aiMuted` / `aiBorder` / `aiStrong` for the page, `aiGlow` for its
+pulse, and `flame` for streaks. Gradients are drawn with
+`experimental_backgroundImage`, like the header.
+
+Its motion lives in `src/features/academy/components/motion.tsx` (pulse,
+float, shake, pop, breathing, count-up, typing dots), timed by
+`motion.loop`, `motion.stagger` and `motion.spring`. All of it runs on
+Reanimated, which follows the phone's reduce-motion setting. Attention-seeking
+loops run only while there is something to do — today's lesson not yet done.

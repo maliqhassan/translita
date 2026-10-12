@@ -1,6 +1,7 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
+import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
 import {
   Button,
@@ -20,6 +21,10 @@ import { services } from '@/services';
 import { useAcademy } from '@/store';
 import type { Enrollment, LessonProgress } from '@/types';
 
+import { CoachAvatar } from '../components/coach-avatar';
+import { Breathing, CountUp, Floating, Pop, PulseHalo } from '../components/motion';
+import { ProgressRing } from '../components/progress-ring';
+import { WeekStrip } from '../components/week-strip';
 import {
   COURSE_DAYS,
   COURSE_SHAPE,
@@ -30,7 +35,8 @@ import {
 } from '../course';
 import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
-import { completedDays, dayStatus, nextDay, streak, wordsKnown, type DayStatus } from '../rules';
+import { useDailyProgress } from '../hooks/use-daily-progress';
+import { completedDays, dayStatus, nextDay, wordsKnown, type DayStatus } from '../rules';
 
 import { AcademyOnboarding } from './academy-onboarding';
 
@@ -106,34 +112,21 @@ function Dashboard({
   const { openCourse } = useAcademy();
   const unlocked = useAcademyAccess();
   const courseId = enrollment.courseId;
+  const daily = useDailyProgress(courseId, progress);
   const [known, setKnown] = useState(0);
-  const [streakDays, setStreakDays] = useState(0);
-  const [resumeLesson, setResumeLesson] = useState<string>();
 
-  // Words known, the streak and an unfinished lesson change outside this
-  // screen, so they are read again each time it comes back into view.
+  // Words known change outside this screen, so they are read again each time
+  // it comes back into view.
   useFocusEffect(
     useCallback(() => {
       let active = true;
-      void Promise.all([
-        services.academy.listItemStats(courseId),
-        services.academy.getPosition(courseId),
-      ]).then(([stats, position]) => {
-        if (!active) return;
-        if (stats.ok) setKnown(wordsKnown(stats.value));
-        setResumeLesson(position.ok ? position.value?.lessonId : undefined);
-        // Read against the clock as the screen appears, not on every render.
-        setStreakDays(
-          streak(
-            progress.map((entry) => entry.completedAt),
-            Date.now(),
-          ),
-        );
+      void services.academy.listItemStats(courseId).then((stats) => {
+        if (active && stats.ok) setKnown(wordsKnown(stats.value));
       });
       return () => {
         active = false;
       };
-    }, [courseId, progress]),
+    }, [courseId]),
   );
 
   const done = completedDays(progress);
@@ -142,6 +135,7 @@ function Dashboard({
   const chapters = courseChapters(courseId);
   const language = languageName(courseId);
   const canAddLanguage = availableCourses().length > enrolled.length;
+  const starsOf = new Map(progress.map((entry) => [entry.day, entry.stars]));
 
   const openDay = (day: number, status: DayStatus) => {
     const lesson = lessonForDay(courseId, day);
@@ -193,40 +187,69 @@ function Dashboard({
         />
       }
     >
+      <CoachHero
+        day={upNext}
+        title={nextLesson?.title}
+        today={daily.today}
+        streakDays={daily.streak}
+        resuming={nextLesson !== undefined && daily.resumeLessonId === nextLesson.id}
+        onStart={() =>
+          upNext && openDay(upNext, dayStatus(upNext, done, enrollment.startDay, unlocked))
+        }
+      />
+
       <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
-        <Stat icon="flame" value={streakDays} label={t('Day streak')} />
-        <Stat icon="book" value={known} label={t('Words known')} />
         <Stat
+          index={0}
+          icon="flame"
+          tint="flame"
+          value={daily.streak}
+          label={t('Day streak')}
+          fill={theme.colors.warningMuted}
+        />
+        <Stat
+          index={1}
+          icon="book"
+          tint="aiStrong"
+          value={known}
+          label={t('Words known')}
+          fill={theme.colors.aiMuted}
+        />
+        <Stat
+          index={2}
           icon="checkmark-done"
+          tint="primary"
           value={done.size}
           label={t('Days of {total}', { total: COURSE_DAYS })}
+          fill={theme.colors.primaryMuted}
+          share={done.size / COURSE_DAYS}
         />
       </View>
 
-      {nextLesson && upNext ? (
-        <Card variant="glass" style={{ gap: theme.spacing.md }}>
-          <View style={{ gap: theme.spacing.xxs }}>
-            <Text variant="overline" color="primary">
-              {resumeLesson === nextLesson.id
-                ? t('Continue Day {day}', { day: upNext })
-                : t('Day {day}', { day: upNext })}
-            </Text>
-            <Text variant="h2">{nextLesson.title}</Text>
-          </View>
-          <Button
-            label={resumeLesson === nextLesson.id ? t('Continue') : t('Start lesson')}
-            icon="arrow-forward"
-            iconPosition="right"
-            fullWidth
-            onPress={() => openDay(upNext, dayStatus(upNext, done, enrollment.startDay, unlocked))}
-          />
-        </Card>
+      {daily.week.length ? (
+        <Animated.View entering={FadeInDown.delay(theme.motion.stagger * 3)}>
+          <Card variant="outlined" style={{ gap: theme.spacing.md }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text variant="rowTitle" style={{ flex: 1 }}>
+                {t('This week')}
+              </Text>
+              <Text variant="label" color="textSecondary">
+                {t('{count} of 7 days', {
+                  count: daily.week.filter((day) => day.done).length,
+                })}
+              </Text>
+            </View>
+            <WeekStrip days={daily.week} />
+          </Card>
+        </Animated.View>
       ) : null}
 
       {chapters.map((chapter) => (
-        <ChapterCard
+        <ChapterPath
           key={chapter.id}
           chapter={chapter}
+          next={upNext}
+          starsOf={starsOf}
           statusOf={(day) => dayStatus(day, done, enrollment.startDay, unlocked)}
           onOpen={openDay}
         />
@@ -242,7 +265,18 @@ function Dashboard({
         variant="outlined"
         style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md }}
       >
-        <Icon name="ribbon-outline" size={28} color="textMuted" />
+        <View
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: theme.colors.warningMuted,
+          }}
+        >
+          <Icon name="ribbon" size={26} color="flame" />
+        </View>
         <View style={{ flex: 1, gap: theme.spacing.xxs }}>
           <Text variant="rowTitle">{t('Final exam')}</Text>
           <Text variant="bodySmall" color="textSecondary">
@@ -311,28 +345,240 @@ function Dashboard({
   );
 }
 
+// --- The coach ------------------------------------------------------------------------
+
+/** What the coach says, from where the learner is today. */
+function coachLine({
+  day,
+  today,
+  streakDays,
+}: {
+  day: number | undefined;
+  today: number;
+  streakDays: number;
+}): string {
+  if (day === undefined) return t('Every day is done. Your final exam is ready.');
+  if (today >= 1) return t("Today's goal is done! Come back tomorrow to keep your streak going.");
+  if (today > 0) {
+    return t("You're {percent}% through today's lesson. Let's finish it!", {
+      percent: Math.round(today * 100),
+    });
+  }
+  if (streakDays > 0) {
+    return t('Keep your {count}-day streak alive with Day {day}.', { count: streakDays, day });
+  }
+  return t('Ready for Day {day}? I have planned it for you.', { day });
+}
+
+function CoachHero({
+  day,
+  title,
+  today,
+  streakDays,
+  resuming,
+  onStart,
+}: {
+  day: number | undefined;
+  title: string | undefined;
+  today: number;
+  streakDays: number;
+  resuming: boolean;
+  onStart: () => void;
+}) {
+  const theme = useTheme();
+  const percent = Math.round(today * 100);
+  return (
+    <Animated.View
+      entering={FadeInDown.springify().damping(theme.motion.spring.damping)}
+      style={{
+        gap: theme.spacing.lg,
+        padding: theme.spacing.lg,
+        borderRadius: theme.radius.xxl,
+        overflow: 'hidden',
+        backgroundColor: theme.colors.aiFrom,
+        experimental_backgroundImage: `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`,
+        ...theme.shadows.md,
+      }}
+    >
+      {/* Two soft discs in the corners, for depth. */}
+      <View
+        pointerEvents="none"
+        style={{
+          position: 'absolute',
+          top: -60,
+          right: -50,
+          width: 180,
+          height: 180,
+          borderRadius: 90,
+          backgroundColor: theme.colors.aiSurface,
+        }}
+      />
+      <View
+        pointerEvents="none"
+        style={{
+          position: 'absolute',
+          bottom: -70,
+          left: -40,
+          width: 160,
+          height: 160,
+          borderRadius: 80,
+          backgroundColor: theme.colors.aiSurface,
+          opacity: 0.6,
+        }}
+      />
+
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md }}>
+        <CoachAvatar size={52} />
+        <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+          <Text variant="overline" color="onAiMuted">
+            {t('Your AI coach')}
+          </Text>
+          <Text variant="rowTitle" color="onAi">
+            {coachLine({ day, today, streakDays })}
+          </Text>
+        </View>
+      </View>
+
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.lg }}>
+        <ProgressRing
+          progress={today}
+          size={96}
+          thickness={9}
+          color={theme.colors.onAi}
+          trackColor={theme.colors.aiSurface}
+          accessibilityLabel={t("Today's goal: {percent}%", { percent })}
+        >
+          <CountUp value={percent} suffix="%" variant="h3" color="onAi" />
+          <Text variant="caption" color="onAiMuted">
+            {t('Today')}
+          </Text>
+        </ProgressRing>
+        <View style={{ flex: 1, gap: theme.spacing.xs }}>
+          {day ? (
+            <Text variant="overline" color="onAiMuted">
+              {t('Day {day}', { day })}
+            </Text>
+          ) : null}
+          {title ? (
+            <Text variant="h3" color="onAi" numberOfLines={2}>
+              {title}
+            </Text>
+          ) : null}
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+            <Icon name="flag" size={14} color="onAiMuted" />
+            <Text variant="bodySmall" color="onAiMuted">
+              {t("Today's goal: one lesson")}
+            </Text>
+          </View>
+        </View>
+      </View>
+
+      {day ? (
+        <Breathing active={today < 1}>
+          <Pressable
+            onPress={onStart}
+            accessibilityRole="button"
+            style={({ pressed }) => ({
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: theme.spacing.sm,
+              minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
+              borderRadius: theme.radius.full,
+              backgroundColor: theme.colors.onAi,
+              opacity: pressed ? theme.motion.opacityPressed : 1,
+              ...theme.shadows.sm,
+            })}
+          >
+            <Icon name={resuming ? 'play-forward' : 'play'} size={20} color="aiFrom" />
+            <Text variant="buttonLarge" color="aiFrom">
+              {resuming
+                ? t('Continue Day {day}', { day })
+                : today >= 1
+                  ? t('Keep going: Day {day}', { day })
+                  : t('Start Day {day}', { day })}
+            </Text>
+          </Pressable>
+        </Breathing>
+      ) : null}
+    </Animated.View>
+  );
+}
+
 function Stat({
+  index,
   icon,
+  tint,
   value,
   label,
+  fill,
+  share,
 }: {
+  index: number;
   icon: 'flame' | 'book' | 'checkmark-done';
+  tint: 'flame' | 'aiStrong' | 'primary';
   value: number;
   label: string;
+  fill: string;
+  /** Shown as a thin bar, for a count out of a total. */
+  share?: number;
 }) {
   const theme = useTheme();
   return (
-    <View style={{ flex: 1 }} accessible accessibilityLabel={`${value} ${label}`}>
-      <Card variant="outlined" style={{ alignItems: 'center', gap: theme.spacing.xxs }}>
-        <Icon name={icon} size={20} color="primary" />
-        <Text variant="h3">{String(value)}</Text>
-        <Text variant="caption" color="textSecondary" align="center">
+    <Animated.View
+      entering={FadeInDown.delay((index + 1) * theme.motion.stagger).springify()}
+      style={{ flex: 1 }}
+      accessible
+      accessibilityLabel={`${value} ${label}`}
+    >
+      <Card variant="outlined" style={{ alignItems: 'center', gap: theme.spacing.xs }}>
+        <View
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: 18,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: fill,
+          }}
+        >
+          {icon === 'flame' && value > 0 ? (
+            <Pop active>
+              <Icon name={icon} size={20} color={tint} />
+            </Pop>
+          ) : (
+            <Icon name={icon} size={20} color={tint} />
+          )}
+        </View>
+        <CountUp value={value} variant="h3" />
+        <Text variant="caption" color="textSecondary" align="center" numberOfLines={1}>
           {label}
         </Text>
+        {share !== undefined ? (
+          <View
+            style={{
+              alignSelf: 'stretch',
+              height: 4,
+              borderRadius: theme.radius.full,
+              overflow: 'hidden',
+              backgroundColor: theme.colors.surfaceMuted,
+            }}
+          >
+            <View
+              style={{
+                width: `${Math.round(Math.min(share, 1) * 100)}%`,
+                height: '100%',
+                backgroundColor: theme.colors.primary,
+              }}
+            />
+          </View>
+        ) : null}
       </Card>
-    </View>
+    </Animated.View>
   );
 }
+
+// --- The path ---------------------------------------------------------------------------
 
 /** How a day's state is read out. */
 const STATUS_LABEL: Record<DayStatus, string> = {
@@ -342,80 +588,207 @@ const STATUS_LABEL: Record<DayStatus, string> = {
   locked: msg('locked'),
 };
 
-const DAY_ICON: Record<DayStatus, 'checkmark' | 'play' | 'lock-closed'> = {
-  done: 'checkmark',
-  open: 'play',
-  paywalled: 'lock-closed',
-  locked: 'lock-closed',
-};
+/** How far each day of a chapter sits from the middle: a gentle wave down the page. */
+const SWAY = [0, 0.95, 0.6, -0.6, -0.95];
+const SWAY_REACH = 64;
 
-function ChapterCard({
+function ChapterPath({
   chapter,
+  next,
+  starsOf,
   statusOf,
   onOpen,
 }: {
   chapter: CourseChapter;
+  next: number | undefined;
+  starsOf: ReadonlyMap<number, number>;
   statusOf: (day: number) => DayStatus;
   onOpen: (day: number, status: DayStatus) => void;
 }) {
   const theme = useTheme();
+  const finished = chapter.lessons.filter((lesson) => statusOf(lesson.day) === 'done').length;
   return (
-    <Card variant="outlined" style={{ gap: theme.spacing.md }}>
-      <View style={{ gap: theme.spacing.xxs }}>
-        <Text variant="overline" color="textSecondary">
-          {t('Chapter {number}', { number: chapter.number })}
+    <View style={{ gap: theme.spacing.lg }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: theme.spacing.md,
+          padding: theme.spacing.md,
+          borderRadius: theme.radius.lg,
+          backgroundColor: theme.colors.surface,
+          borderWidth: theme.layout.borderWidth,
+          borderColor: theme.colors.border,
+        }}
+      >
+        <View
+          style={{
+            paddingHorizontal: theme.spacing.sm,
+            paddingVertical: theme.spacing.xxs,
+            borderRadius: theme.radius.full,
+            backgroundColor: theme.colors.aiMuted,
+          }}
+        >
+          <Text variant="label" color="aiStrong">
+            {t('Chapter {number}', { number: chapter.number })}
+          </Text>
+        </View>
+        <Text variant="rowTitle" style={{ flex: 1 }} numberOfLines={1}>
+          {chapter.title}
         </Text>
-        <Text variant="rowTitle">{chapter.title}</Text>
+        <Text variant="label" color="textSecondary">
+          {`${finished}/${chapter.lessons.length}`}
+        </Text>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        {chapter.lessons.map((lesson) => {
-          const status = statusOf(lesson.day);
-          const done = status === 'done';
-          const open = status === 'open';
-          return (
-            <Pressable
-              key={lesson.id}
-              onPress={() => onOpen(lesson.day, status)}
-              accessibilityRole="button"
-              accessibilityLabel={
-                lesson.checkpoint
-                  ? t('Day {day}, checkpoint, {status}', {
-                      day: lesson.day,
-                      status: t(STATUS_LABEL[status]),
-                    })
-                  : t('Day {day}, {status}', { day: lesson.day, status: t(STATUS_LABEL[status]) })
-              }
-              style={{ alignItems: 'center', gap: theme.spacing.xxs }}
+
+      <View style={{ alignItems: 'center', gap: theme.spacing.lg }}>
+        {chapter.lessons.map((lesson, index) => (
+          <PathNode
+            key={lesson.id}
+            index={index}
+            day={lesson.day}
+            checkpoint={lesson.checkpoint}
+            current={lesson.day === next}
+            stars={starsOf.get(lesson.day) ?? 0}
+            status={statusOf(lesson.day)}
+            onOpen={onOpen}
+          />
+        ))}
+      </View>
+    </View>
+  );
+}
+
+function PathNode({
+  index,
+  day,
+  checkpoint,
+  current,
+  stars,
+  status,
+  onOpen,
+}: {
+  index: number;
+  day: number;
+  checkpoint: boolean;
+  current: boolean;
+  stars: number;
+  status: DayStatus;
+  onOpen: (day: number, status: DayStatus) => void;
+}) {
+  const theme = useTheme();
+  const done = status === 'done';
+  const playable = current && status === 'open';
+  const size = playable ? 72 : 60;
+  const icon = done
+    ? 'checkmark'
+    : status === 'paywalled'
+      ? 'diamond'
+      : status === 'locked'
+        ? 'lock-closed'
+        : checkpoint
+          ? 'trophy'
+          : 'play';
+
+  const face = {
+    width: size,
+    height: size,
+    borderRadius: size / 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 5,
+    borderColor: done
+      ? theme.colors.primaryPressed
+      : playable
+        ? theme.colors.aiTo
+        : status === 'paywalled'
+          ? theme.colors.aiBorder
+          : theme.colors.borderStrong,
+    backgroundColor: done
+      ? theme.colors.primary
+      : playable
+        ? theme.colors.aiFrom
+        : status === 'paywalled'
+          ? theme.colors.aiMuted
+          : theme.colors.surfaceMuted,
+    experimental_backgroundImage: playable
+      ? `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`
+      : undefined,
+  } as const;
+
+  return (
+    // The sway on a plain view: an entering animation sets its own transform.
+    <View style={{ transform: [{ translateX: SWAY[index % SWAY.length]! * SWAY_REACH }] }}>
+      <Animated.View
+        entering={ZoomIn.delay(index * theme.motion.stagger).springify()}
+        style={{ alignItems: 'center', gap: theme.spacing.xs }}
+      >
+        {playable ? (
+          <Floating distance={5}>
+            <View
+              style={{
+                paddingHorizontal: theme.spacing.md,
+                paddingVertical: theme.spacing.xs,
+                borderRadius: theme.radius.full,
+                backgroundColor: theme.colors.surface,
+                borderWidth: 2,
+                borderColor: theme.colors.aiFrom,
+                ...theme.shadows.sm,
+              }}
             >
-              <View
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 22,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderWidth: theme.layout.borderWidth,
-                  borderColor: done || open ? theme.colors.primary : theme.colors.border,
-                  backgroundColor: done
-                    ? theme.colors.primary
-                    : open
-                      ? theme.colors.primaryMuted
-                      : theme.colors.surfaceMuted,
-                }}
-              >
-                <Icon
-                  name={lesson.checkpoint && !done ? 'trophy' : DAY_ICON[status]}
-                  size={18}
-                  color={done ? 'textOnPrimary' : open ? 'primary' : 'textMuted'}
-                />
-              </View>
-              <Text variant="caption" color={open ? 'primary' : 'textSecondary'}>
-                {String(lesson.day)}
+              <Text variant="label" color="aiStrong">
+                {t('Start Day {day}', { day })}
               </Text>
-            </Pressable>
-          );
-        })}
-      </View>
-    </Card>
+            </View>
+          </Floating>
+        ) : null}
+        <Pressable
+          onPress={() => onOpen(day, status)}
+          accessibilityRole="button"
+          accessibilityLabel={
+            checkpoint
+              ? t('Day {day}, checkpoint, {status}', { day, status: t(STATUS_LABEL[status]) })
+              : t('Day {day}, {status}', { day, status: t(STATUS_LABEL[status]) })
+          }
+          style={({ pressed }) => ({
+            transform: [{ scale: pressed ? theme.motion.scalePressed : 1 }],
+          })}
+        >
+          <PulseHalo size={size} color={theme.colors.aiGlow} active={playable}>
+            <View style={face}>
+              <Icon
+                name={icon}
+                size={playable ? 30 : 24}
+                color={
+                  done
+                    ? 'textOnPrimary'
+                    : playable
+                      ? 'onAi'
+                      : status === 'paywalled'
+                        ? 'aiStrong'
+                        : 'textMuted'
+                }
+              />
+            </View>
+          </PulseHalo>
+        </Pressable>
+        {done ? (
+          <View style={{ flexDirection: 'row', gap: 2 }}>
+            {[1, 2, 3].map((star) => (
+              <Icon
+                key={star}
+                name={star <= stars ? 'star' : 'star-outline'}
+                size={12}
+                color={star <= stars ? 'flame' : 'textMuted'}
+              />
+            ))}
+          </View>
+        ) : (
+          <Text variant="caption" color={playable ? 'aiStrong' : 'textSecondary'}>
+            {checkpoint ? t('Checkpoint') : t('Day {day}', { day })}
+          </Text>
+        )}
+      </Animated.View>
+    </View>
   );
 }

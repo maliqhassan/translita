@@ -105,6 +105,8 @@ describe('the lesson player', () => {
     const screen = code(LESSON);
     assert.ok(screen.includes('void services.academy.savePosition({'));
     assert.ok(screen.includes('saved.lessonId === lesson.id && isSessionState(saved.state)'));
+    // With its length, so the dashboard and the way in can show today's progress.
+    assert.ok(screen.includes('total: steps.length'));
   });
 
   it('records the day, the words and the checkpoint at the end, then clears its place', () => {

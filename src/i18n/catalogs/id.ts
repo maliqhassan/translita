@@ -442,7 +442,6 @@ export const id: Catalog = {
   'Translita is now available in your language. You can change it later in Settings.':
     'Translita kini tersedia dalam bahasa Anda. Anda bisa mengubahnya nanti di Pengaturan.',
   'AI Academy': 'Akademi AI',
-  'Day {day} is waiting for you.': 'Hari {day} menunggu Anda.',
   'Every day is done. Your final exam is ready.':
     'Semua hari selesai. Ujian akhir Anda sudah siap.',
   'Continue learning': 'Lanjutkan belajar',
@@ -579,6 +578,33 @@ export const id: Catalog = {
   'Say the whole sentence': 'Ucapkan seluruh kalimat',
   'Your turn: say this': 'Giliranmu: ucapkan ini',
   'Finish the conversation': 'Selesaikan percakapan',
+  'Your AI language coach': 'Pelatih bahasa AI-mu',
+  "Today's goal: {percent}%": 'Target hari ini: {percent}%',
+  '{count}-day streak': 'Runtutan {count} hari',
+  '{day}: lesson done': '{day}: pelajaran selesai',
+  '{day}: no lesson': '{day}: tidak ada pelajaran',
+  'The AI partner is writing': 'Partner AI sedang menulis',
+  'Your coach planned today for you.': 'Pelatihmu sudah menyiapkan hari ini untukmu.',
+  'This week': 'Minggu ini',
+  '{count} of 7 days': '{count} dari 7 hari',
+  "Today's goal is done! Come back tomorrow to keep your streak going.":
+    'Target hari ini tercapai! Kembali besok agar runtutanmu berlanjut.',
+  "You're {percent}% through today's lesson. Let's finish it!":
+    'Kamu sudah {percent}% di pelajaran hari ini. Ayo selesaikan!',
+  'Keep your {count}-day streak alive with Day {day}.':
+    'Jaga runtutan {count} harimu dengan Hari {day}.',
+  'Ready for Day {day}? I have planned it for you.':
+    'Siap untuk Hari {day}? Aku sudah menyiapkannya untukmu.',
+  'Your AI coach': 'Pelatih AI-mu',
+  Today: 'Hari ini',
+  "Today's goal: one lesson": 'Target hari ini: satu pelajaran',
+  'Keep going: Day {day}': 'Lanjut: Hari {day}',
+  'Start Day {day}': 'Mulai Hari {day}',
+  Checkpoint: 'Ujian bab',
+  '{count} right in a row': '{count} benar berturut-turut',
+  'Score: {percent}%': 'Skor: {percent}%',
+  Score: 'Skor',
+  'Daily goal complete!': 'Target harian tercapai!',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

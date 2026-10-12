@@ -162,3 +162,44 @@ export function streak(completions: readonly number[], now: number): number {
   }
   return count;
 }
+
+// --- Today ------------------------------------------------------------------------------
+
+/** Where a lesson was left, as far as today's progress needs it. */
+export type SavedPlace = { step: number; total: number; updatedAt: number };
+
+/**
+ * How much of today's goal — one lesson a day — is done, from 0 to 1.
+ *
+ * A lesson finished today fills it. Otherwise a lesson left part-way today
+ * counts for the share of its steps done; one left on an earlier day does not,
+ * since today's work has not started.
+ */
+export function todayProgress(
+  completions: readonly number[],
+  place: SavedPlace | undefined,
+  now: number,
+): number {
+  const today = localDay(now);
+  if (completions.some((at) => localDay(at) === today)) return 1;
+  if (!place || place.total <= 0 || localDay(place.updatedAt) !== today) return 0;
+  return Math.min(Math.max(place.step / place.total, 0), 0.99);
+}
+
+export type WeekDay = {
+  /** Local noon of the day, for naming it. */
+  date: number;
+  done: boolean;
+  today: boolean;
+};
+
+/** The last seven days, oldest first and ending today, each with whether a lesson was finished. */
+export function weekActivity(completions: readonly number[], now: number): WeekDay[] {
+  const days = new Set(completions.map(localDay));
+  const today = new Date(now);
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 6 + index, 12);
+    const at = date.getTime();
+    return { date: at, done: days.has(localDay(at)), today: index === 6 };
+  });
+}

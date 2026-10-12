@@ -24,7 +24,13 @@ export const layout = {
 } as const;
 
 export const motion = {
-  duration: { instant: 90, fast: 150, normal: 220, slow: 320 },
+  duration: { instant: 90, fast: 150, normal: 220, slow: 320, long: 700 },
+  /** Loops that draw the eye: a pulse, a gentle float, a nudge now and then. */
+  loop: { pulse: 1800, float: 2800, nudgeEvery: 6000 },
+  /** Between items that arrive one after another. */
+  stagger: 70,
+  /** A lively spring that settles without wobbling for long. */
+  spring: { damping: 14, stiffness: 160 },
   /** Kept as plain numbers so both Reanimated and Animated can consume them. */
   scalePressed: 0.97,
   opacityPressed: 0.85,
