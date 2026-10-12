@@ -14,7 +14,7 @@ import { createId } from '@/utils';
 
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
 import { useActiveCourse } from '../hooks/use-active-course';
-import { planLesson } from '../lesson/plan';
+import { planLesson, SECTIONS, sectionCounts, type Section } from '../lesson/plan';
 import type { CoachConnection } from '../lesson/roleplay-step';
 import {
   isSessionState,
@@ -23,7 +23,7 @@ import {
   type LessonOutcome,
   type SessionState,
 } from '../lesson/session';
-import { LessonStepView, type SpeechPractice } from '../lesson/steps';
+import { LessonStepView, SECTION_LABEL, type SpeechPractice } from '../lesson/steps';
 
 /** The time of an event, read when it happens. */
 const now = () => Date.now();
@@ -243,6 +243,7 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
 
   const step = steps[Math.min(session.index, steps.length - 1)]!;
   const progress = Math.min(session.index, steps.length) / steps.length;
+  const counts = sectionCounts(steps);
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
@@ -291,6 +292,7 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
             {t('Day {day}', { day: lesson.day })}
           </Text>
         </View>
+        {outcome ? null : <SectionBar current={step.section} counts={counts} />}
 
         <ScrollView
           style={{ flex: 1 }}
@@ -308,6 +310,7 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
               speak={speak}
               listen={listen}
               coach={coach}
+              counts={counts}
               onDone={onDone}
             />
           )}
@@ -379,6 +382,58 @@ function Result({
           onPress={onBack}
         />
       </View>
+    </View>
+  );
+}
+
+/** The parts of the lesson, with the one the learner is in marked. */
+function SectionBar({
+  current,
+  counts,
+}: {
+  current: Section;
+  counts: Readonly<Record<Section, number>>;
+}) {
+  const theme = useTheme();
+  const shown = SECTIONS.filter((section) => counts[section] > 0);
+  const at = shown.indexOf(current);
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        gap: theme.spacing.xs,
+        paddingHorizontal: theme.layout.screenPadding,
+        paddingTop: theme.spacing.sm,
+      }}
+    >
+      {shown.map((section, index) => {
+        const here = index === at;
+        const done = index < at;
+        return (
+          <View
+            key={section}
+            accessibilityLabel={t(SECTION_LABEL[section])}
+            accessibilityState={{ selected: here }}
+            style={{ flex: 1, alignItems: 'center', gap: theme.spacing.xxs }}
+          >
+            <View
+              style={{
+                alignSelf: 'stretch',
+                height: 4,
+                borderRadius: theme.radius.full,
+                backgroundColor: here || done ? theme.colors.primary : theme.colors.border,
+              }}
+            />
+            <Text
+              variant={here ? 'label' : 'caption'}
+              color={here ? 'primary' : 'textSecondary'}
+              numberOfLines={1}
+            >
+              {t(SECTION_LABEL[section])}
+            </Text>
+          </View>
+        );
+      })}
     </View>
   );
 }

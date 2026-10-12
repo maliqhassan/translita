@@ -1,12 +1,21 @@
 import type { CourseItem, CourseLesson } from '../course';
 
 /**
- * One step of a lesson.
+ * The parts of a lesson, in order, as the learner sees them: shown on the
+ * overview before it starts, and as a bar while it runs.
+ */
+export const SECTIONS = ['learn', 'practise', 'speak', 'review', 'conversation'] as const;
+export type Section = (typeof SECTIONS)[number];
+
+/**
+ * What one step of a lesson does.
  *
  * Exercises are built here, from the items, rather than stored in the course:
  * the content stays small and an exercise can never disagree with its item.
  */
-export type LessonStep =
+export type StepBody =
+  /** What today holds, before it starts. */
+  | { kind: 'overview' }
   /** Meet a new word: the word, its meaning, an example, and its sound. */
   | { kind: 'learn'; itemId: string }
   /** The day's grammar or usage note. */
@@ -19,24 +28,41 @@ export type LessonStep =
   | { kind: 'build'; itemId: string; words: readonly string[] }
   /** Match words to their meanings. */
   | { kind: 'match'; itemIds: readonly string[] }
-  /** Say a word out loud. */
-  | { kind: 'say'; itemId: string }
-  /** Read and listen through the day's conversation. */
+  /** The example sentence with the word left out: pick what goes in the gap. */
+  | { kind: 'fill'; itemId: string; options: readonly string[] }
+  /** Say a word, or a whole example sentence, out loud. */
+  | { kind: 'say'; itemId: string; what: 'word' | 'sentence' }
+  /** The day's conversation: listen to the other person, say your own lines. */
   | { kind: 'dialogue' }
   /** Play the scene with the AI partner, when there is a connection. */
   | { kind: 'roleplay' };
 
-export type GradedKind = 'choose' | 'listen' | 'build' | 'match' | 'say';
+export type LessonStep = StepBody & { section: Section };
 
-/** Whether a step is marked right or wrong, and so counts towards the score. */
+export type GradedKind = 'choose' | 'listen' | 'build' | 'match' | 'fill' | 'say';
+
+/** Whether a step tests particular words, and so updates their review records. */
 export function isGraded(step: LessonStep): step is Extract<LessonStep, { kind: GradedKind }> {
-  return ['choose', 'listen', 'build', 'match', 'say'].includes(step.kind);
+  return ['choose', 'listen', 'build', 'match', 'fill', 'say'].includes(step.kind);
 }
 
 /** The items a graded step tests, for the word records. */
 export function itemsOf(step: LessonStep): readonly string[] {
   if (step.kind === 'match') return step.itemIds;
   return 'itemId' in step ? [step.itemId] : [];
+}
+
+/** How many steps of each section a lesson has, for its overview. */
+export function sectionCounts(steps: readonly LessonStep[]): Record<Section, number> {
+  const counts: Record<Section, number> = {
+    learn: 0,
+    practise: 0,
+    speak: 0,
+    review: 0,
+    conversation: 0,
+  };
+  for (const step of steps) if (step.kind !== 'overview') counts[step.section]++;
+  return counts;
 }
 
 // --- Seeded randomness ------------------------------------------------------------
@@ -81,6 +107,14 @@ const normalize = (text: string) =>
     .replace(/\s+/g, ' ')
     .trim();
 
+/** A phrase without its "…" or closing punctuation: "Ich heiße..." → "Ich heiße". */
+export function coreOf(text: string): string {
+  return text
+    .replace(/(\.{2,}|…)\s*$/u, '')
+    .replace(/[.!?]+$/u, '')
+    .trim();
+}
+
 /**
  * Up to three wrong answers for an item, never one that would also be right:
  * no item with the same text or the same meaning.
@@ -121,14 +155,26 @@ function scrambled(example: string, random: () => number): string[] | undefined 
   return undefined;
 }
 
-type ExerciseKind = 'choose-meaning' | 'listen' | 'choose-word' | 'build' | 'say';
+/**
+ * The example sentence split around the item, for a fill-in-the-gap, or
+ * undefined when the item does not appear in its own example as written.
+ */
+export function blankOf(item: CourseItem): { before: string; after: string } | undefined {
+  const core = coreOf(item.text);
+  if (core.length < 2) return undefined;
+  const at = item.example.toLowerCase().indexOf(core.toLowerCase());
+  if (at < 0) return undefined;
+  return { before: item.example.slice(0, at), after: item.example.slice(at + core.length) };
+}
+
+type ExerciseKind = 'choose-meaning' | 'listen' | 'choose-word' | 'build' | 'fill';
 
 function exercise(
   kind: ExerciseKind,
   item: CourseItem,
   pool: readonly CourseItem[],
   random: () => number,
-): LessonStep | undefined {
+): StepBody | undefined {
   switch (kind) {
     case 'choose-meaning':
       return {
@@ -145,9 +191,25 @@ function exercise(
       const words = scrambled(item.example, random);
       return words ? { kind: 'build', itemId: item.id, words } : undefined;
     }
-    case 'say':
-      return { kind: 'say', itemId: item.id };
+    case 'fill':
+      return blankOf(item)
+        ? { kind: 'fill', itemId: item.id, options: options(item, pool, random) }
+        : undefined;
   }
+}
+
+/** Groups of four for matching, each a different mix, as many as asked for. */
+function matchRounds(items: readonly CourseItem[], rounds: number, random: () => number) {
+  if (items.length < 4) return [];
+  const sets: string[][] = [];
+  for (let round = 0; round < rounds; round++) {
+    sets.push(
+      shuffle(items, random)
+        .slice(0, 4)
+        .map((item) => item.id),
+    );
+  }
+  return sets;
 }
 
 // --- The plan ---------------------------------------------------------------------------
@@ -167,78 +229,112 @@ export type PlanInput = {
 };
 
 /**
- * The steps of one lesson.
+ * The steps of one lesson, in five parts.
  *
- * A learning day: meet each word, read the tip, practise each word in a mix of
- * exercises, match, review earlier words that are due, then the conversation.
- * A serious learner gets a second round of practice, every word said aloud,
- * and more review. A checkpoint teaches nothing: it quizzes the chapter, then
- * runs the review conversation.
+ * - **Learn**: meet each new word, then the tip.
+ * - **Practise**: each word in a mix of exercises — choosing, listening,
+ *   filling the gap, building a sentence — and matching rounds.
+ * - **Speak**: say the words, then whole sentences.
+ * - **Review**: earlier words that are due.
+ * - **Conversation**: the day's dialogue, saying your own lines, then the scene
+ *   with the AI partner.
+ *
+ * A serious learner gets more of everything. A checkpoint teaches nothing: it
+ * quizzes the chapter, has the learner say its sentences, and ends on the
+ * review conversation.
  */
 export function planLesson({ lesson, pool, review, minutesPerDay, seed }: PlanInput): LessonStep[] {
   const random = seededRandom(seed);
   const serious = minutesPerDay >= 15;
   const steps: LessonStep[] = [];
-  const add = (step: LessonStep | undefined) => {
-    if (step) steps.push(step);
+  const add = (section: Section, body: StepBody | undefined) => {
+    if (body) steps.push({ ...body, section });
   };
+  const either = (first: StepBody | undefined, fallback: () => StepBody | undefined) =>
+    first ?? fallback();
+
+  add('learn', { kind: 'overview' });
 
   if (lesson.checkpoint) {
     const quizzed = shuffle(pool, random).slice(0, serious ? 16 : 10);
-    const kinds: ExerciseKind[] = ['choose-meaning', 'listen', 'choose-word', 'build'];
-    quizzed.forEach((item, i) => {
+    const kinds: ExerciseKind[] = ['choose-meaning', 'fill', 'listen', 'choose-word', 'build'];
+    quizzed.forEach((item, i) =>
       add(
-        exercise(kinds[i % kinds.length]!, item, pool, random) ??
+        'practise',
+        either(exercise(kinds[i % kinds.length]!, item, pool, random), () =>
           exercise('choose-meaning', item, pool, random),
-      );
-    });
-    if (quizzed.length >= 4)
-      add({ kind: 'match', itemIds: quizzed.slice(0, 4).map((item) => item.id) });
-    add({ kind: 'dialogue' });
-    add({ kind: 'roleplay' });
+        ),
+      ),
+    );
+    for (const itemIds of matchRounds(pool, 2, random)) add('practise', { kind: 'match', itemIds });
+    for (const item of shuffle(pool, random).slice(0, serious ? 4 : 2)) {
+      add('speak', { kind: 'say', itemId: item.id, what: 'sentence' });
+    }
+    add('conversation', { kind: 'dialogue' });
+    add('conversation', { kind: 'roleplay' });
     return steps;
   }
 
   const items = lesson.items;
-  for (const item of items) add({ kind: 'learn', itemId: item.id });
-  if (lesson.tip) add({ kind: 'tip' });
 
-  // One round of practice for everyone, a second for a serious learner, each
-  // word in a different exercise each round.
+  // Learn.
+  for (const item of items) add('learn', { kind: 'learn', itemId: item.id });
+  if (lesson.tip) add('learn', { kind: 'tip' });
+
+  // Practise: one round for everyone, each word in a different exercise; a
+  // second round for a serious learner; then matching and the gaps.
   const firstRound: ExerciseKind[] = ['choose-meaning', 'listen', 'choose-word'];
-  const secondRound: ExerciseKind[] = ['build', 'choose-word', 'listen'];
   shuffle(items, random).forEach((item, i) =>
-    add(exercise(firstRound[i % firstRound.length]!, item, pool, random)),
+    add('practise', exercise(firstRound[i % firstRound.length]!, item, pool, random)),
   );
-  if (items.length >= 4) {
-    add({
-      kind: 'match',
-      itemIds: shuffle(items, random)
-        .slice(0, 4)
-        .map((item) => item.id),
-    });
+  const matches = matchRounds(items, serious ? 3 : 2, random);
+  add('practise', matches[0] ? { kind: 'match', itemIds: matches[0] } : undefined);
+
+  const fillable = shuffle(items, random).filter((item) => blankOf(item));
+  for (const item of fillable.slice(0, serious ? fillable.length : 3)) {
+    add('practise', exercise('fill', item, pool, random));
   }
   if (serious) {
+    const secondRound: ExerciseKind[] = ['build', 'choose-word', 'listen'];
     shuffle(items, random).forEach((item, i) =>
       add(
-        exercise(secondRound[i % secondRound.length]!, item, pool, random) ??
+        'practise',
+        either(exercise(secondRound[i % secondRound.length]!, item, pool, random), () =>
           exercise('choose-meaning', item, pool, random),
+        ),
       ),
     );
   } else {
     // A casual learner still builds one sentence.
     const buildable = items.find((item) => scrambled(item.example, random));
-    if (buildable) add(exercise('build', buildable, pool, random));
+    if (buildable) add('practise', exercise('build', buildable, pool, random));
   }
-  const spoken = serious ? items : items.slice(0, 2);
-  for (const item of spoken) add({ kind: 'say', itemId: item.id });
+  for (const itemIds of matches.slice(1)) add('practise', { kind: 'match', itemIds });
 
-  for (const item of review.slice(0, serious ? 8 : 3)) {
-    add(exercise('choose-meaning', item, pool, random));
+  // Speak: the words, then whole sentences.
+  for (const item of serious ? items : items.slice(0, 3)) {
+    add('speak', { kind: 'say', itemId: item.id, what: 'word' });
+  }
+  for (const item of shuffle(items, random).slice(0, serious ? 3 : 1)) {
+    add('speak', { kind: 'say', itemId: item.id, what: 'sentence' });
   }
 
-  add({ kind: 'dialogue' });
-  add({ kind: 'roleplay' });
+  // Review: earlier words that are due, in a mix, with a match when there are enough.
+  const due = review.slice(0, serious ? 8 : 3);
+  const reviewKinds: ExerciseKind[] = ['choose-meaning', 'fill', 'listen'];
+  due.forEach((item, i) =>
+    add(
+      'review',
+      either(exercise(reviewKinds[i % reviewKinds.length]!, item, pool, random), () =>
+        exercise('choose-meaning', item, pool, random),
+      ),
+    ),
+  );
+  for (const itemIds of matchRounds(due, 1, random)) add('review', { kind: 'match', itemIds });
+
+  // Conversation.
+  add('conversation', { kind: 'dialogue' });
+  add('conversation', { kind: 'roleplay' });
   return steps;
 }
 
@@ -257,7 +353,7 @@ export function sentenceMatches(answer: readonly string[], example: string): boo
  * to be there, in any order.
  */
 export function speechMatches(heard: string, expected: string): boolean {
-  const want = normalize(expected).split(' ').filter(Boolean);
+  const want = normalize(coreOf(expected)).split(' ').filter(Boolean);
   const got = new Set(normalize(heard).split(' ').filter(Boolean));
   if (!want.length) return false;
   const found = want.filter((word) => got.has(word)).length;

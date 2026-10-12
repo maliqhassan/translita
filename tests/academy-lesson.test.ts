@@ -3,8 +3,13 @@ import { describe, it } from 'node:test';
 
 import { courseChapters, courseLessons, type CourseItem } from '@/features/academy/course';
 import {
+  blankOf,
+  coreOf,
   isGraded,
+  itemsOf,
   planLesson,
+  SECTIONS,
+  sectionCounts,
   seededRandom,
   sentenceMatches,
   shuffle,
@@ -34,15 +39,16 @@ describe('planning a lesson', () => {
     assert.notDeepEqual(plan({ seed: 'a' }), plan({ seed: 'b' }));
   });
 
-  it('meets every word first, then the tip, and ends on the conversation and the role-play', () => {
+  it('shows the day first, meets every word, then the tip, and ends on the conversation', () => {
     const steps = plan();
+    assert.equal(steps[0]?.kind, 'overview');
     const learns = steps.filter((step) => step.kind === 'learn');
     assert.equal(learns.length, dayOne.items.length);
     assert.deepEqual(
-      steps.slice(0, dayOne.items.length).map((step) => step.kind),
+      steps.slice(1, dayOne.items.length + 1).map((step) => step.kind),
       dayOne.items.map(() => 'learn'),
     );
-    assert.equal(steps[dayOne.items.length]?.kind, 'tip');
+    assert.equal(steps[dayOne.items.length + 1]?.kind, 'tip');
     assert.equal(steps.at(-2)?.kind, 'dialogue');
     assert.equal(steps.at(-1)?.kind, 'roleplay');
   });
@@ -51,7 +57,7 @@ describe('planning a lesson', () => {
     const practised = new Set(
       plan()
         .filter(isGraded)
-        .flatMap((step) => (step.kind === 'match' ? step.itemIds : [step.itemId])),
+        .flatMap((step) => itemsOf(step)),
     );
     for (const item of dayOne.items) assert.ok(practised.has(item.id), item.text);
   });
@@ -92,8 +98,12 @@ describe('planning a lesson', () => {
         review,
         minutesPerDay: minutes,
         seed: 's',
-      }).filter((step) => step.kind === 'choose' && review.some((item) => item.id === step.itemId))
-        .length;
+      }).filter(
+        (step) =>
+          step.section === 'review' &&
+          step.kind !== 'match' &&
+          itemsOf(step).some((id) => review.some((item) => item.id === id)),
+      ).length;
     assert.ok(count(5) >= 3);
     assert.ok(count(15) >= count(5));
   });
@@ -107,6 +117,65 @@ describe('planning a lesson', () => {
     assert.ok(steps.filter(isGraded).length >= 10);
     assert.equal(steps.at(-2)?.kind, 'dialogue');
     assert.equal(steps.at(-1)?.kind, 'roleplay');
+  });
+});
+
+describe('the parts of a lesson', () => {
+  it('runs through the sections in order, never going back', () => {
+    for (const lesson of [dayOne, checkpoint]) {
+      const order = plan({ lesson, review: dayOne.items.slice(0, 4) }).map((step) =>
+        SECTIONS.indexOf(step.section),
+      );
+      assert.deepEqual(
+        order,
+        [...order].sort((a, b) => a - b),
+        lesson.title,
+      );
+    }
+  });
+
+  it('counts the steps in each section, all but the overview', () => {
+    const steps = plan();
+    const counts = sectionCounts(steps);
+    assert.equal(
+      SECTIONS.reduce((sum, section) => sum + counts[section], 0),
+      steps.length - 1,
+    );
+    assert.equal(counts.conversation, 2);
+    assert.ok(counts.speak > 0);
+  });
+
+  it('matches pairs more than once, more for a serious learner', () => {
+    const matches = (minutes: number) =>
+      plan({ minutesPerDay: minutes }).filter((step) => step.kind === 'match');
+    assert.ok(matches(5).length >= 2);
+    assert.ok(matches(15).length >= matches(5).length);
+    for (const step of matches(15)) {
+      assert.ok(step.itemIds.length >= 3);
+      assert.equal(new Set(step.itemIds).size, step.itemIds.length);
+    }
+  });
+
+  it('fills gaps that the word really leaves, with one right answer', () => {
+    const fills = plan({ minutesPerDay: 15 }).filter((step) => step.kind === 'fill');
+    assert.ok(fills.length >= 3);
+    for (const step of fills) {
+      if (step.kind !== 'fill') continue;
+      const item = byId.get(step.itemId)!;
+      const gap = blankOf(item);
+      assert.ok(gap, item.text);
+      assert.equal(gap.before + coreOf(item.text) + gap.after, item.example);
+      assert.ok(step.options.includes(step.itemId));
+      const words = step.options.map((id) => coreOf(byId.get(id)!.text).toLowerCase());
+      assert.equal(new Set(words).size, words.length);
+    }
+  });
+
+  it('has the learner say words and whole sentences out loud', () => {
+    const says = plan().filter((step) => step.kind === 'say');
+    assert.ok(says.some((step) => step.kind === 'say' && step.what === 'word'));
+    assert.ok(says.some((step) => step.kind === 'say' && step.what === 'sentence'));
+    assert.ok(says.every((step) => step.section === 'speak'));
   });
 });
 

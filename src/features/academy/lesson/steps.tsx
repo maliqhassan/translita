@@ -3,11 +3,21 @@ import { Pressable, View } from 'react-native';
 
 import { Button, Card, Icon, IconButton, Text } from '@/components';
 import { useTheme } from '@/hooks';
-import { t } from '@/i18n';
+import { msg, t } from '@/i18n';
 
 import type { CourseItem, CourseLesson } from '../course';
 
-import { seededRandom, sentenceMatches, shuffle, speechMatches, type LessonStep } from './plan';
+import {
+  SECTIONS,
+  blankOf,
+  coreOf,
+  seededRandom,
+  sentenceMatches,
+  shuffle,
+  speechMatches,
+  type LessonStep,
+  type Section,
+} from './plan';
 import { RoleplayStep, type CoachConnection } from './roleplay-step';
 
 /**
@@ -35,6 +45,8 @@ export type StepProps = {
   listen?: SpeechPractice;
   /** The AI partner, for the role-play step. */
   coach?: CoachConnection;
+  /** How many steps each part of the lesson has, for the overview. */
+  counts?: Readonly<Record<Section, number>>;
   onDone: (correct: boolean | null) => void;
 };
 
@@ -56,6 +68,8 @@ const unavailable: CoachConnection['roleplay'] = () =>
 export function LessonStepView(props: StepProps) {
   const { step } = props;
   switch (step.kind) {
+    case 'overview':
+      return <OverviewStep {...props} />;
     case 'learn':
       return <LearnStep {...props} itemId={step.itemId} />;
     case 'tip':
@@ -68,8 +82,10 @@ export function LessonStepView(props: StepProps) {
       return <BuildStep {...props} itemId={step.itemId} words={step.words} />;
     case 'match':
       return <MatchStep {...props} itemIds={step.itemIds} />;
+    case 'fill':
+      return <FillStep {...props} itemId={step.itemId} options={step.options} />;
     case 'say':
-      return <SayStep {...props} itemId={step.itemId} />;
+      return <SayStep {...props} itemId={step.itemId} what={step.what} />;
     case 'dialogue':
       return <DialogueStep {...props} />;
     case 'roleplay':
@@ -589,71 +605,250 @@ function MatchStep({ itemIds, items, onDone }: StepProps & { itemIds: readonly s
   );
 }
 
+// --- The overview ---------------------------------------------------------------------------
+
+const SECTION_ICON: Record<Section, 'book' | 'barbell' | 'mic' | 'refresh' | 'chatbubbles'> = {
+  learn: 'book',
+  practise: 'barbell',
+  speak: 'mic',
+  review: 'refresh',
+  conversation: 'chatbubbles',
+};
+
+/** A part of the lesson, by name. */
+export const SECTION_LABEL: Record<Section, string> = {
+  learn: msg('Learn'),
+  practise: msg('Practise'),
+  speak: msg('Speak'),
+  review: msg('Review'),
+  conversation: msg('Conversation'),
+};
+
+function sectionLine(section: Section, count: number, checkpoint: boolean): string {
+  switch (section) {
+    case 'learn':
+      return checkpoint
+        ? t('A quiz on the whole chapter')
+        : t('{count} new words and a tip', { count: Math.max(count - 1, 0) });
+    case 'practise':
+      return t('{count} exercises', { count });
+    case 'speak':
+      return t('{count} things to say out loud', { count });
+    case 'review':
+      return t('{count} exercises on earlier words', { count });
+    case 'conversation':
+      return t('The conversation, then the scene with the AI partner');
+  }
+}
+
+function OverviewStep({ lesson, counts, onDone }: StepProps) {
+  const theme = useTheme();
+  const shown = SECTIONS.filter((section) => (counts?.[section] ?? 0) > 0 || section === 'learn');
+  return (
+    <View style={{ gap: theme.spacing.lg }}>
+      <View style={{ gap: theme.spacing.xs }}>
+        <Text variant="overline" color="primary">
+          {lesson.checkpoint
+            ? t('Day {day}, checkpoint', { day: lesson.day })
+            : t('Day {day}', { day: lesson.day })}
+        </Text>
+        <Text variant="h1">{lesson.title}</Text>
+        <Text variant="body" color="textSecondary">
+          {lesson.scenario.goal}
+        </Text>
+      </View>
+      <Card variant="outlined" padding="none">
+        {shown.map((section, index) => (
+          <View
+            key={section}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: theme.spacing.md,
+              padding: theme.spacing.base,
+              borderTopWidth: index ? theme.layout.borderWidth : 0,
+              borderColor: theme.colors.border,
+            }}
+          >
+            <View
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 18,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: theme.colors.primaryMuted,
+              }}
+            >
+              <Icon name={SECTION_ICON[section]} size={18} color="primary" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text variant="rowTitle">{`${index + 1}. ${t(SECTION_LABEL[section])}`}</Text>
+              <Text variant="bodySmall" color="textSecondary">
+                {sectionLine(section, counts?.[section] ?? 0, lesson.checkpoint)}
+              </Text>
+            </View>
+          </View>
+        ))}
+      </Card>
+      <Button
+        label={t('Start lesson')}
+        icon="arrow-forward"
+        iconPosition="right"
+        size="lg"
+        fullWidth
+        onPress={() => onDone(null)}
+      />
+    </View>
+  );
+}
+
+// --- Filling the gap ---------------------------------------------------------------------------
+
+function FillStep({
+  itemId,
+  options,
+  items,
+  language,
+  speak,
+  onDone,
+}: StepProps & { itemId: string; options: readonly string[] }) {
+  const theme = useTheme();
+  const item = items.get(itemId)!;
+  const gap = blankOf(item) ?? { before: '', after: item.example };
+  const choice = useChoice(itemId);
+
+  return (
+    <View style={{ gap: theme.spacing.lg }}>
+      <Prompt label={t('Fill in the gap')}>
+        <Card variant="glass" style={{ gap: theme.spacing.sm }}>
+          <Text variant="h3">
+            {gap.before}
+            <Text
+              variant="h3"
+              color={choice.picked ? (choice.correct ? 'success' : 'danger') : 'primary'}
+              style={{ textDecorationLine: 'underline' }}
+            >
+              {choice.picked ? coreOf(item.text) : ' _____ '}
+            </Text>
+            {gap.after}
+          </Text>
+          <Text variant="bodySmall" color="textSecondary">
+            {item.exampleMeaning}
+          </Text>
+        </Card>
+      </Prompt>
+      <View style={{ gap: theme.spacing.sm }}>
+        {options.map((id) => (
+          <OptionButton
+            key={id}
+            label={coreOf(items.get(id)!.text)}
+            state={choice.stateOf(id)}
+            disabled={choice.picked !== undefined}
+            onPress={() => {
+              choice.setPicked(id);
+              void speak.say(item.example, language);
+            }}
+          />
+        ))}
+      </View>
+      {choice.picked ? (
+        <Feedback
+          correct={choice.correct}
+          answer={item.example}
+          onContinue={() => onDone(choice.correct)}
+        />
+      ) : null}
+    </View>
+  );
+}
+
 // --- Speaking ---------------------------------------------------------------------------------
+
+/**
+ * Listening for one line, and how it went: what was heard, and whether it
+ * was close enough.
+ */
+function useSpokenAnswer(expected: string, listen: SpeechPractice | undefined, language: string) {
+  const [heard, setHeard] = useState<string>();
+  const result = heard === undefined ? undefined : speechMatches(heard, expected);
+  return {
+    heard,
+    result,
+    reset: () => setHeard(undefined),
+    toggle: () =>
+      listen?.listening ? listen.stop() : listen?.start(language, (text) => setHeard(text)),
+  };
+}
+
+function MicControl({ listen, onPress }: { listen: SpeechPractice; onPress: () => void }) {
+  const theme = useTheme();
+  return (
+    <View style={{ alignItems: 'center', gap: theme.spacing.sm }}>
+      <IconButton
+        name={listen.listening ? 'stop-circle' : 'mic'}
+        variant="solid"
+        size={32}
+        accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
+        onPress={onPress}
+      />
+      <Text variant="bodySmall" color="textSecondary">
+        {listen.listening ? t('Listening…') : t('Tap the microphone and say it')}
+      </Text>
+    </View>
+  );
+}
 
 function SayStep({
   itemId,
+  what,
   items,
   language,
   speak,
   listen,
   onDone,
-}: StepProps & { itemId: string }) {
+}: StepProps & { itemId: string; what: 'word' | 'sentence' }) {
   const theme = useTheme();
   const item = items.get(itemId)!;
-  const [heard, setHeard] = useState<string>();
-  const result = heard === undefined ? undefined : speechMatches(heard, item.text);
+  const text = what === 'word' ? item.text : item.example;
+  const meaning = what === 'word' ? item.meaning : item.exampleMeaning;
+  const spoken = useSpokenAnswer(text, listen, language);
 
   return (
     <View style={{ gap: theme.spacing.lg }}>
-      <Prompt label={t('Say it out loud')}>
+      <Prompt label={what === 'word' ? t('Say it out loud') : t('Say the whole sentence')}>
         <Card variant="glass" style={{ gap: theme.spacing.sm, alignItems: 'center' }}>
-          <Text variant="display" align="center">
-            {item.text}
+          <Text variant={what === 'word' ? 'display' : 'h2'} align="center">
+            {text}
           </Text>
           <Text variant="body" color="textSecondary" align="center">
-            {item.meaning}
+            {meaning}
           </Text>
-          <SpeakButton
-            text={item.text}
-            language={language}
-            speak={speak}
-            label={t('Listen first')}
-          />
+          <SpeakButton text={text} language={language} speak={speak} label={t('Listen first')} />
         </Card>
       </Prompt>
 
       {listen?.available ? (
-        result === undefined ? (
-          <View style={{ alignItems: 'center', gap: theme.spacing.sm }}>
-            <IconButton
-              name={listen.listening ? 'stop-circle' : 'mic'}
-              variant="solid"
-              accessibilityLabel={listen.listening ? t('Stop listening') : t('Speak now')}
-              onPress={() =>
-                listen.listening ? listen.stop() : listen.start(language, (text) => setHeard(text))
-              }
-            />
-            <Text variant="bodySmall" color="textSecondary">
-              {listen.listening ? t('Listening…') : t('Tap the microphone and say it')}
-            </Text>
+        spoken.result === undefined ? (
+          <View style={{ gap: theme.spacing.sm }}>
+            <MicControl listen={listen} onPress={spoken.toggle} />
             <Button label={t('Skip')} variant="ghost" onPress={() => onDone(null)} />
           </View>
         ) : (
           <View style={{ gap: theme.spacing.sm }}>
             <Text variant="body" color="textSecondary" align="center">
-              {t('We heard: {text}', { text: heard || '…' })}
+              {t('We heard: {text}', { text: spoken.heard || '…' })}
             </Text>
-            {result ? (
+            {spoken.result ? (
               <Feedback correct onContinue={() => onDone(true)} />
             ) : (
               <View style={{ gap: theme.spacing.sm }}>
-                <Feedback correct={false} answer={item.text} onContinue={() => onDone(false)} />
+                <Feedback correct={false} answer={text} onContinue={() => onDone(false)} />
                 <Button
                   label={t('Try again')}
                   variant="secondary"
                   fullWidth
-                  onPress={() => setHeard(undefined)}
+                  onPress={spoken.reset}
                 />
               </View>
             )}
@@ -674,19 +869,60 @@ function SayStep({
 
 // --- The conversation ---------------------------------------------------------------------
 
-function DialogueStep({ lesson, language, speak, onDone }: StepProps) {
+/**
+ * The day's conversation, with the learner in it.
+ *
+ * The other person's lines are played as they appear. On each of the
+ * learner's lines it is their turn: they hear it if they like, then say it,
+ * and what was heard goes into the conversation, marked right or not. Where
+ * the phone cannot listen, they say it aloud and carry on. Marked only when
+ * their lines were heard: most of them right passes.
+ */
+function DialogueStep({ lesson, language, speak, listen, onDone }: StepProps) {
   const theme = useTheme();
-  const [shown, setShown] = useState(1);
   const lines = lesson.dialogue;
-  const all = shown >= lines.length;
+  const [shown, setShown] = useState(1);
+  const [heard, setHeard] = useState<Readonly<Record<number, { text: string; ok: boolean }>>>({});
+  const [said, setSaid] = useState<ReadonlySet<number>>(new Set());
 
-  // Each new line is read out as it appears.
+  const current = shown - 1;
+  const line = lines[current];
+  const myTurn = line?.speaker === 'B';
+  const answered =
+    myTurn && (heard[current]?.ok || said.has(current) || heard[current] !== undefined);
+  const last = shown >= lines.length;
+
+  // The other person's lines are read out as they appear.
   useEffect(() => {
-    const line = lines[shown - 1];
-    if (line) void speak.say(line.text, language);
+    if (line && line.speaker === 'A') void speak.say(line.text, language);
     // Once per line.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown]);
+
+  const listenForLine = () => {
+    if (!listen || !line) return;
+    if (listen.listening) {
+      listen.stop();
+      return;
+    }
+    const index = current;
+    listen.start(language, (text) =>
+      setHeard((before) => ({
+        ...before,
+        [index]: { text, ok: speechMatches(text, lines[index]!.text) },
+      })),
+    );
+  };
+
+  const finish = () => {
+    const mine = lines
+      .map((entry, index) => ({ entry, index }))
+      .filter(({ entry }) => entry.speaker === 'B');
+    const marked = mine.filter(({ index }) => heard[index] !== undefined);
+    if (!marked.length) return onDone(null);
+    const right = marked.filter(({ index }) => heard[index]!.ok).length;
+    onDone(right / marked.length >= 0.6);
+  };
 
   return (
     <View style={{ gap: theme.spacing.lg }}>
@@ -695,9 +931,13 @@ function DialogueStep({ lesson, language, speak, onDone }: StepProps) {
           {lesson.scenario.goal}
         </Text>
       </Prompt>
+
       <View style={{ gap: theme.spacing.sm }}>
-        {lines.slice(0, shown).map((line, index) => {
-          const mine = line.speaker === 'B';
+        {lines.slice(0, shown).map((entry, index) => {
+          const mine = entry.speaker === 'B';
+          // The learner's line appears once it is their turn and they have spoken.
+          if (mine && index === current && !answered) return null;
+          const result = heard[index];
           return (
             <View
               key={index}
@@ -715,35 +955,100 @@ function DialogueStep({ lesson, language, speak, onDone }: StepProps) {
               <Text variant="caption" color="textSecondary">
                 {mine ? t('You') : lesson.scenario.partnerRole}
               </Text>
+              {mine && result ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+                  <Icon
+                    name={result.ok ? 'checkmark-circle' : 'close-circle'}
+                    size={16}
+                    color={result.ok ? 'success' : 'danger'}
+                  />
+                  <Text variant="body" style={{ flexShrink: 1 }}>
+                    {result.text || '…'}
+                  </Text>
+                </View>
+              ) : null}
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
-                <Text variant="body" style={{ flexShrink: 1 }}>
-                  {line.text}
+                <Text
+                  variant={mine && result ? 'bodySmall' : 'body'}
+                  color={mine && result ? 'textSecondary' : 'text'}
+                  style={{ flexShrink: 1 }}
+                >
+                  {entry.text}
                 </Text>
                 <SpeakButton
-                  text={line.text}
+                  text={entry.text}
                   language={language}
                   speak={speak}
                   label={t('Listen')}
                 />
               </View>
               <Text variant="bodySmall" color="textSecondary">
-                {line.meaning}
+                {entry.meaning}
               </Text>
             </View>
           );
         })}
       </View>
-      {all ? (
-        <Button label={t('Finish lesson')} size="lg" fullWidth onPress={() => onDone(null)} />
-      ) : (
+
+      {myTurn && !answered && line ? (
+        <Card variant="glass" style={{ gap: theme.spacing.sm }}>
+          <Text variant="overline" color="primary">
+            {t('Your turn: say this')}
+          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+            <Text variant="h3" style={{ flex: 1 }}>
+              {line.text}
+            </Text>
+            <SpeakButton
+              text={line.text}
+              language={language}
+              speak={speak}
+              label={t('Listen first')}
+            />
+          </View>
+          <Text variant="bodySmall" color="textSecondary">
+            {line.meaning}
+          </Text>
+          {listen?.available ? (
+            <MicControl listen={listen} onPress={listenForLine} />
+          ) : (
+            <Button
+              label={t('I said it')}
+              fullWidth
+              onPress={() => setSaid((before) => new Set(before).add(current))}
+            />
+          )}
+        </Card>
+      ) : null}
+
+      {myTurn && answered && heard[current] && !heard[current]!.ok ? (
         <Button
-          label={t('Next line')}
+          label={t('Try again')}
           variant="secondary"
-          size="lg"
           fullWidth
-          onPress={() => setShown(shown + 1)}
+          onPress={() =>
+            setHeard((before) => {
+              const next = { ...before };
+              delete next[current];
+              return next;
+            })
+          }
         />
-      )}
+      ) : null}
+
+      {!myTurn || answered ? (
+        last ? (
+          <Button label={t('Finish the conversation')} size="lg" fullWidth onPress={finish} />
+        ) : (
+          <Button
+            label={t('Next line')}
+            variant="secondary"
+            size="lg"
+            fullWidth
+            onPress={() => setShown(shown + 1)}
+          />
+        )
+      ) : null}
     </View>
   );
 }
