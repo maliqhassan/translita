@@ -65,8 +65,8 @@ written once and is correct in both.
 
 ## The AI coach (Academy)
 
-The Academy's coach has its own colour, so it is never mistaken for the
-translator: a violet-to-teal gradient (`aiFrom` / `aiTo`, with `onAi` ink),
+The Academy's coach uses the brand blue as a deep gradient (`aiFrom` /
+`aiTo`, with `onAi` ink),
 softer `aiMuted` / `aiBorder` / `aiStrong` for the page, `aiGlow` for its
 pulse, and `flame` for streaks. Gradients are drawn with
 `experimental_backgroundImage`, like the header.

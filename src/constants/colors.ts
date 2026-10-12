@@ -94,8 +94,8 @@ export type ColorTokens = {
 
   /**
    * The AI coach: its gradient, what reads on top of it, and its softer
-   * tints. Violet into the brand's deep teal, so it belongs to the app but is
-   * never mistaken for the translator. White ink reads on both stops.
+   * tints. The brand's own blue, from the deeper end of the scale so white
+   * ink reads on both stops of the gradient.
    */
   aiFrom: string;
   aiTo: string;
@@ -174,15 +174,15 @@ export const lightColors: ColorTokens = {
   skeleton: palette.neutral[200],
   shadow: '#0B0C10',
 
-  aiFrom: palette.violet[600],
-  aiTo: palette.brand[700],
+  aiFrom: palette.brand[600],
+  aiTo: palette.brand[800],
   onAi: '#FFFFFF',
   onAiMuted: 'rgba(255, 255, 255, 0.78)',
   aiSurface: 'rgba(255, 255, 255, 0.2)',
-  aiMuted: palette.violet[50],
-  aiBorder: palette.violet[100],
-  aiStrong: palette.violet[700],
-  aiGlow: 'rgba(105, 65, 242, 0.32)',
+  aiMuted: palette.brand[50],
+  aiBorder: palette.brand[200],
+  aiStrong: palette.brand[700],
+  aiGlow: 'rgba(12, 192, 223, 0.35)',
   flame: palette.amber[500],
 
   tabBar: palette.neutral[0],
@@ -240,15 +240,15 @@ export const darkColors: ColorTokens = {
   skeleton: palette.neutral[800],
   shadow: '#000000',
 
-  aiFrom: palette.violet[700],
-  aiTo: palette.brand[800],
+  aiFrom: palette.brand[600],
+  aiTo: palette.brand[900],
   onAi: '#FFFFFF',
   onAiMuted: 'rgba(255, 255, 255, 0.74)',
   aiSurface: 'rgba(255, 255, 255, 0.16)',
-  aiMuted: 'rgba(124, 92, 255, 0.16)',
-  aiBorder: 'rgba(124, 92, 255, 0.34)',
-  aiStrong: palette.violet[300],
-  aiGlow: 'rgba(124, 92, 255, 0.4)',
+  aiMuted: 'rgba(12, 192, 223, 0.14)',
+  aiBorder: 'rgba(12, 192, 223, 0.32)',
+  aiStrong: palette.brand[300],
+  aiGlow: 'rgba(12, 192, 223, 0.4)',
   flame: palette.amber[300],
 
   tabBar: palette.neutral[900],
