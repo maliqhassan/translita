@@ -5,6 +5,7 @@ import Animated, { LinearTransition } from 'react-native-reanimated';
 
 import { Button, Card, IconButton, Screen, Text } from '@/components';
 import { errorMessage } from '@/constants';
+import { AcademyFab } from '@/features/academy';
 import { useInterstitialAds } from '@/features/ads';
 import { TextScanner, consumePendingScan } from '@/features/camera';
 import { RecentTranslations } from '@/features/history';
@@ -219,147 +220,151 @@ export function TranslateScreen() {
   }, [canTranslate, translate, ads]);
 
   return (
-    <Screen
-      scrollable
-      keyboardAvoiding
-      wash
-      header={
-        <HomeHeader
-          offlineReady={readiness?.kind === 'ready'}
-          onOpenUpgrade={() => router.push('/upgrade')}
-          onOpenSettings={() => router.push('/settings')}
-        />
-      }
-    >
-      {/* The banner stays on-device-only. In automatic, a missing pack is not
+    // The Academy button floats over the page, outside its scroll.
+    <View style={{ flex: 1 }}>
+      <Screen
+        scrollable
+        keyboardAvoiding
+        wash
+        header={
+          <HomeHeader
+            offlineReady={readiness?.kind === 'ready'}
+            onOpenUpgrade={() => router.push('/upgrade')}
+            onOpenSettings={() => router.push('/settings')}
+          />
+        }
+      >
+        {/* The banner stays on-device-only. In automatic, a missing pack is not
           something to act on *before* translating — online may well serve it —
           so readiness is used to explain a failure, not to pre-empt one. */}
-      <OfflineReadinessNotice readiness={mode === 'offline' ? readiness : undefined} />
+        <OfflineReadinessNotice readiness={mode === 'offline' ? readiness : undefined} />
 
-      <View style={{ gap: theme.spacing.base }}>
-        <TranslationComposer
-          value={input}
-          onChangeText={setInput}
-          onClear={clearInput}
-          onPaste={paste}
-          sourceLanguage={pair.source}
-          targetLanguage={pair.target}
-          onSelectLanguage={openPicker}
-          canSwap={canSwap}
-          onSwap={swap}
-          editable={!isTranslating}
-          speech={speech}
-          // The Scan button opens the camera after an ad, when one is due.
-          scan={{ ...scan, open: () => ads.openAfterAd(scan.open) }}
-        />
+        <View style={{ gap: theme.spacing.base }}>
+          <TranslationComposer
+            value={input}
+            onChangeText={setInput}
+            onClear={clearInput}
+            onPaste={paste}
+            sourceLanguage={pair.source}
+            targetLanguage={pair.target}
+            onSelectLanguage={openPicker}
+            canSwap={canSwap}
+            onSwap={swap}
+            editable={!isTranslating}
+            speech={speech}
+            // The Scan button opens the camera after an ad, when one is due.
+            scan={{ ...scan, open: () => ads.openAfterAd(scan.open) }}
+          />
 
-        <TranslationResultCard
-          state={state}
-          targetLanguage={pair.target}
-          copy={copy}
-          onClear={reset}
-          onRetry={translate}
-          offlineDetail={offlineDetail}
-          onOpenPacks={() => router.push('/settings/language-packs')}
-          onUpgrade={() => router.push('/upgrade')}
-          speak={speak}
-          phrase={{
-            saved:
-              state.status === 'success' &&
-              phrases.isSaved(
-                state.data.sourceText,
-                state.data.detectedLanguage ?? state.data.sourceLanguage,
-                state.data.targetLanguage,
-              ),
-            toggle: (result) => {
-              const nowSaved = phrases.toggle({
-                text: result.sourceText,
-                translation: result.translatedText,
-                sourceLanguage: result.detectedLanguage ?? result.sourceLanguage,
-                targetLanguage: result.targetLanguage,
-              });
-              if (nowSaved) {
-                services.analytics.log({ name: 'phrase_saved', params: { from: 'translation' } });
-              }
-            },
-          }}
-        />
-
-        {scanMessage ? (
-          <Card variant="outlined">
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
-              <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
-                {scanMessage}
-              </Text>
-              <IconButton
-                name="close-outline"
-                accessibilityLabel={t('Dismiss this message')}
-                onPress={scan.dismissError}
-              />
-            </View>
-          </Card>
-        ) : null}
-
-        {speechMessage ? (
-          <Card variant="outlined">
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
-              <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
-                {speechMessage}
-              </Text>
-              <IconButton
-                name="close-outline"
-                accessibilityLabel={t('Dismiss this message')}
-                onPress={speech.dismissError}
-              />
-            </View>
-          </Card>
-        ) : null}
-
-        {/* Glides to its new place when the result card opens above it,
-            rather than jumping — the one element that moves between the two
-            states, so the move is shown instead of cut. */}
-        <Animated.View layout={LinearTransition.duration(theme.motion.duration.normal)}>
-          <Button
-            label={t('Translate')}
-            icon="arrow-forward"
-            iconPosition="right"
-            size="lg"
-            fullWidth
-            loading={isTranslating}
-            disabled={!canTranslate}
-            onPress={submit}
-            accessibilityHint={t('Translates the text you entered')}
-            style={{
-              borderRadius: theme.radius.full,
-              height: theme.layout.minTouchTarget + theme.spacing.base,
+          <TranslationResultCard
+            state={state}
+            targetLanguage={pair.target}
+            copy={copy}
+            onClear={reset}
+            onRetry={translate}
+            offlineDetail={offlineDetail}
+            onOpenPacks={() => router.push('/settings/language-packs')}
+            onUpgrade={() => router.push('/upgrade')}
+            speak={speak}
+            phrase={{
+              saved:
+                state.status === 'success' &&
+                phrases.isSaved(
+                  state.data.sourceText,
+                  state.data.detectedLanguage ?? state.data.sourceLanguage,
+                  state.data.targetLanguage,
+                ),
+              toggle: (result) => {
+                const nowSaved = phrases.toggle({
+                  text: result.sourceText,
+                  translation: result.translatedText,
+                  sourceLanguage: result.detectedLanguage ?? result.sourceLanguage,
+                  targetLanguage: result.targetLanguage,
+                });
+                if (nowSaved) {
+                  services.analytics.log({ name: 'phrase_saved', params: { from: 'translation' } });
+                }
+              },
             }}
           />
+
+          {scanMessage ? (
+            <Card variant="outlined">
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+                <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
+                  {scanMessage}
+                </Text>
+                <IconButton
+                  name="close-outline"
+                  accessibilityLabel={t('Dismiss this message')}
+                  onPress={scan.dismissError}
+                />
+              </View>
+            </Card>
+          ) : null}
+
+          {speechMessage ? (
+            <Card variant="outlined">
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+                <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
+                  {speechMessage}
+                </Text>
+                <IconButton
+                  name="close-outline"
+                  accessibilityLabel={t('Dismiss this message')}
+                  onPress={speech.dismissError}
+                />
+              </View>
+            </Card>
+          ) : null}
+
+          {/* Glides to its new place when the result card opens above it,
+            rather than jumping — the one element that moves between the two
+            states, so the move is shown instead of cut. */}
+          <Animated.View layout={LinearTransition.duration(theme.motion.duration.normal)}>
+            <Button
+              label={t('Translate')}
+              icon="arrow-forward"
+              iconPosition="right"
+              size="lg"
+              fullWidth
+              loading={isTranslating}
+              disabled={!canTranslate}
+              onPress={submit}
+              accessibilityHint={t('Translates the text you entered')}
+              style={{
+                borderRadius: theme.radius.full,
+                height: theme.layout.minTouchTarget + theme.spacing.base,
+              }}
+            />
+          </Animated.View>
+        </View>
+
+        {/*
+         * One screen, before and after translating.
+         *
+         * The shortcuts and the recent list stay under the Translate button in
+         * both states. When a result opens above them they glide down to make
+         * room rather than disappearing, so the other ways of translating are
+         * always one scroll away — and the translation just made shows up at
+         * the top of Recent.
+         */}
+        <Animated.View
+          layout={LinearTransition.duration(theme.motion.duration.normal)}
+          style={{ gap: theme.spacing.base }}
+        >
+          <FeatureTiles tiles={tiles} />
+          <RecentTranslations />
         </Animated.View>
-      </View>
 
-      {/*
-       * One screen, before and after translating.
-       *
-       * The shortcuts and the recent list stay under the Translate button in
-       * both states. When a result opens above them they glide down to make
-       * room rather than disappearing, so the other ways of translating are
-       * always one scroll away — and the translation just made shows up at
-       * the top of Recent.
-       */}
-      <Animated.View
-        layout={LinearTransition.duration(theme.motion.duration.normal)}
-        style={{ gap: theme.spacing.base }}
-      >
-        <FeatureTiles tiles={tiles} />
-        <RecentTranslations />
-      </Animated.View>
-
-      <TextScanner
-        visible={scan.scanning}
-        busy={scan.busy}
-        onCapture={scan.capture}
-        onClose={scan.close}
-      />
-    </Screen>
+        <TextScanner
+          visible={scan.scanning}
+          busy={scan.busy}
+          onCapture={scan.capture}
+          onClose={scan.close}
+        />
+      </Screen>
+      <AcademyFab />
+    </View>
   );
 }
