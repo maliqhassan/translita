@@ -548,6 +548,17 @@ export const ur: Catalog = {
   'Well done.': 'شاباش۔',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'جانچ پاس کرنے کے لیے 70% درکار ہیں۔ جو الفاظ رہ گئے وہ دہرائی میں دوبارہ آئیں گے۔',
+  'Practise with the AI partner': 'AI ساتھی کے ساتھ مشق کریں',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'AI ساتھی کے لیے کنکشن ضروری ہے۔ اگلی بار آن لائن ہونے پر آپ یہ منظر کھیل سکتے ہیں۔',
+  'You are {role}.': 'آپ {role} ہیں۔',
+  'Better: {better}': 'بہتر: {better}',
+  'Start the conversation': 'گفتگو شروع کریں',
+  'Well done — you played the whole scene.': 'شاباش — آپ نے پورا منظر مکمل کر لیا۔',
+  'Type your answer': 'اپنا جواب لکھیں',
+  'Your answer': 'آپ کا جواب',
+  Send: 'بھیجیں',
+  'End the conversation': 'گفتگو ختم کریں',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

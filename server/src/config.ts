@@ -49,6 +49,23 @@ export type ServerConfig = {
    * deliberately low enough to be felt by a script and not by a learner.
    */
   tutorRateLimit: { max: number; windowMs: number };
+
+  /**
+   * The Academy's AI partner. Served whenever the tutor credential is set.
+   *
+   * The RevenueCat secret key answers whether a user has the Academy. Without
+   * it nobody does, and everyone gets the free allowance — the same as a
+   * user who has not bought it.
+   */
+  revenueCatSecretKey?: string;
+  /** The RevenueCat entitlement that unlocks the Academy. */
+  academyEntitlement: string;
+  /** AI partner turns a day without the Academy: enough for the free first day. */
+  academyFreeDaily: number;
+  /** AI partner turns a day with it. */
+  academyEliteDaily: number;
+  /** Per-device requests, on top of the daily allowance. */
+  academyRateLimit: { max: number; windowMs: number };
 };
 
 function readInt(value: string | undefined, fallback: number): number {
@@ -84,6 +101,14 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     tutorRateLimit: {
       max: readInt(env.TUTOR_RATE_LIMIT_MAX, 20),
       windowMs: readInt(env.TUTOR_RATE_LIMIT_WINDOW_MS, 60 * 60_000),
+    },
+    revenueCatSecretKey: env.REVENUECAT_SECRET_KEY?.trim() || undefined,
+    academyEntitlement: env.ACADEMY_ENTITLEMENT?.trim() || 'elite',
+    academyFreeDaily: readInt(env.ACADEMY_FREE_DAILY, 20),
+    academyEliteDaily: readInt(env.ACADEMY_ELITE_DAILY, 150),
+    academyRateLimit: {
+      max: readInt(env.ACADEMY_RATE_LIMIT_MAX, 120),
+      windowMs: readInt(env.ACADEMY_RATE_LIMIT_WINDOW_MS, 60 * 60_000),
     },
   };
 }

@@ -45,3 +45,15 @@ export function configureRevenueCat(options: RevenueCatOptions): boolean {
 
   return true;
 }
+
+/**
+ * RevenueCat's user id for this install, once the SDK is configured.
+ *
+ * Sent to the app's own server so it can ask RevenueCat — with the secret key
+ * only the server holds — whether this install has the Academy. It identifies
+ * an install and grants nothing on its own.
+ */
+export async function revenueCatUserId(): Promise<string | undefined> {
+  if (!configured) return undefined;
+  return Purchases.getAppUserID();
+}

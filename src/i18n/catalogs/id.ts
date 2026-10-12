@@ -553,6 +553,17 @@ export const id: Catalog = {
   'Well done.': 'Bagus sekali.',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'Anda perlu 70% untuk lulus ujian bab. Kata yang salah akan muncul lagi saat pengulangan.',
+  'Practise with the AI partner': 'Berlatih dengan mitra AI',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'Mitra AI memerlukan koneksi. Anda bisa memainkan adegan ini saat online berikutnya.',
+  'You are {role}.': 'Anda adalah {role}.',
+  'Better: {better}': 'Lebih baik: {better}',
+  'Start the conversation': 'Mulai percakapan',
+  'Well done — you played the whole scene.': 'Bagus sekali — Anda memainkan seluruh adegan.',
+  'Type your answer': 'Ketik jawaban Anda',
+  'Your answer': 'Jawaban Anda',
+  Send: 'Kirim',
+  'End the conversation': 'Akhiri percakapan',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

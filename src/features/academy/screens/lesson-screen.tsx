@@ -8,13 +8,14 @@ import { useSpeak, useSpeechRecognition } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
 import { services } from '@/services';
-import { useAcademy } from '@/store';
+import { useAcademy, useIsOffline } from '@/store';
 import type { Enrollment, ItemStat } from '@/types';
 import { createId } from '@/utils';
 
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { planLesson } from '../lesson/plan';
+import type { CoachConnection } from '../lesson/roleplay-step';
 import {
   isSessionState,
   outcomeOf,
@@ -68,6 +69,24 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
   const { recordLesson } = useAcademy();
   const speak = useSpeak();
   const courseId = enrollment.courseId;
+  const offline = useIsOffline();
+
+  // --- The AI partner: on the server, so only with a backend and a connection.
+  const [coachConfigured, setCoachConfigured] = useState(false);
+  useEffect(() => {
+    let active = true;
+    void services.coach.isAvailable().then((available) => {
+      if (active) setCoachConfigured(available);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+  const coach: CoachConnection = {
+    available: coachConfigured && !offline,
+    roleplay: (ask) => services.coach.roleplay(ask),
+    addressAs: enrollment.addressAs,
+  };
 
   // --- Speaking practice, through the app's one recogniser -----------------------------
   const onHeard = useRef<((text: string) => void) | undefined>(undefined);
@@ -288,6 +307,7 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
               language={courseId}
               speak={speak}
               listen={listen}
+              coach={coach}
               onDone={onDone}
             />
           )}

@@ -22,7 +22,9 @@ export type LessonStep =
   /** Say a word out loud. */
   | { kind: 'say'; itemId: string }
   /** Read and listen through the day's conversation. */
-  | { kind: 'dialogue' };
+  | { kind: 'dialogue' }
+  /** Play the scene with the AI partner, when there is a connection. */
+  | { kind: 'roleplay' };
 
 export type GradedKind = 'choose' | 'listen' | 'build' | 'match' | 'say';
 
@@ -193,6 +195,7 @@ export function planLesson({ lesson, pool, review, minutesPerDay, seed }: PlanIn
     if (quizzed.length >= 4)
       add({ kind: 'match', itemIds: quizzed.slice(0, 4).map((item) => item.id) });
     add({ kind: 'dialogue' });
+    add({ kind: 'roleplay' });
     return steps;
   }
 
@@ -235,6 +238,7 @@ export function planLesson({ lesson, pool, review, minutesPerDay, seed }: PlanIn
   }
 
   add({ kind: 'dialogue' });
+  add({ kind: 'roleplay' });
   return steps;
 }
 

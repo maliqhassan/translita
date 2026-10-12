@@ -34,7 +34,7 @@ describe('planning a lesson', () => {
     assert.notDeepEqual(plan({ seed: 'a' }), plan({ seed: 'b' }));
   });
 
-  it('meets every word first, then the tip, and ends on the conversation', () => {
+  it('meets every word first, then the tip, and ends on the conversation and the role-play', () => {
     const steps = plan();
     const learns = steps.filter((step) => step.kind === 'learn');
     assert.equal(learns.length, dayOne.items.length);
@@ -43,7 +43,8 @@ describe('planning a lesson', () => {
       dayOne.items.map(() => 'learn'),
     );
     assert.equal(steps[dayOne.items.length]?.kind, 'tip');
-    assert.equal(steps.at(-1)?.kind, 'dialogue');
+    assert.equal(steps.at(-2)?.kind, 'dialogue');
+    assert.equal(steps.at(-1)?.kind, 'roleplay');
   });
 
   it('practises every word of the day', () => {
@@ -104,7 +105,8 @@ describe('planning a lesson', () => {
       false,
     );
     assert.ok(steps.filter(isGraded).length >= 10);
-    assert.equal(steps.at(-1)?.kind, 'dialogue');
+    assert.equal(steps.at(-2)?.kind, 'dialogue');
+    assert.equal(steps.at(-1)?.kind, 'roleplay');
   });
 });
 

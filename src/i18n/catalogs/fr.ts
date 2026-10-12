@@ -566,6 +566,17 @@ export const fr: Catalog = {
   'Well done.': 'Bravo.',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     "Il faut 70 % pour réussir le point d'étape. Les mots manqués reviendront en révision.",
+  'Practise with the AI partner': 'Entraînez-vous avec le partenaire IA',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    "Le partenaire IA a besoin d'une connexion. Vous pourrez jouer cette scène la prochaine fois que vous serez en ligne.",
+  'You are {role}.': 'Vous êtes {role}.',
+  'Better: {better}': 'Mieux : {better}',
+  'Start the conversation': 'Commencer la conversation',
+  'Well done — you played the whole scene.': 'Bravo — vous avez joué toute la scène.',
+  'Type your answer': 'Écrivez votre réponse',
+  'Your answer': 'Votre réponse',
+  Send: 'Envoyer',
+  'End the conversation': 'Terminer la conversation',
   // Language names
   'Detect language': 'Détecter la langue',
   Afrikaans: 'Afrikaans',

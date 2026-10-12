@@ -546,6 +546,17 @@ export const hi: Catalog = {
   'Well done.': 'बहुत बढ़िया।',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'जाँच पास करने के लिए 70% चाहिए। जो शब्द छूटे, वे दोहराई में फिर आएँगे।',
+  'Practise with the AI partner': 'AI साथी के साथ अभ्यास करें',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'AI साथी के लिए कनेक्शन ज़रूरी है। अगली बार ऑनलाइन होने पर आप यह दृश्य खेल सकते हैं।',
+  'You are {role}.': 'आप {role} हैं।',
+  'Better: {better}': 'बेहतर: {better}',
+  'Start the conversation': 'बातचीत शुरू करें',
+  'Well done — you played the whole scene.': 'बहुत बढ़िया — आपने पूरा दृश्य पूरा किया।',
+  'Type your answer': 'अपना जवाब लिखें',
+  'Your answer': 'आपका जवाब',
+  Send: 'भेजें',
+  'End the conversation': 'बातचीत खत्म करें',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',

@@ -1,5 +1,7 @@
 import { createServer } from 'node:http';
 
+import type { AcademyProvider } from './academy/contract';
+import { createOpenAiAcademy } from './academy/openai-provider';
 import { describeConfig, loadConfig } from './config';
 import { createRequestHandler } from './server';
 import { createAzureProvider } from './translation/azure-provider';
@@ -57,9 +59,16 @@ function selectTutor(): TutorProvider | undefined {
   });
 }
 
+/** The Academy's AI partner, on the same credential as the tutor. */
+function selectAcademy(): AcademyProvider | undefined {
+  if (!config.tutorApiKey) return undefined;
+  return createOpenAiAcademy({ apiKey: config.tutorApiKey, model: config.tutorModel });
+}
+
 const provider = selectProvider();
 const tutor = selectTutor();
-const handler = createRequestHandler({ config, provider, languages, tutor });
+const academy = selectAcademy();
+const handler = createRequestHandler({ config, provider, languages, tutor, academy });
 
 const server = createServer((request, response) => {
   void handler(request, response).catch(() => {
@@ -80,4 +89,7 @@ server.listen(config.port, () => {
   console.log(`languages: ${languages.supportedIds().length} supported`);
   // Presence only, never the value, and never the model's own key.
   console.log(`tutor: ${tutor ? `enabled (${config.tutorModel})` : 'disabled'}`);
+  console.log(
+    `academy: ${academy ? 'enabled' : 'disabled'}, entitlement check: ${config.revenueCatSecretKey ? 'RevenueCat' : 'off (free allowance for everyone)'}`,
+  );
 });

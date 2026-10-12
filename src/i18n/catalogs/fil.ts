@@ -562,6 +562,17 @@ export const fil: Catalog = {
   'Well done.': 'Magaling.',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'Kailangan mo ng 70% para pumasa sa checkpoint. Babalik sa pag-uulit ang mga salitang namali.',
+  'Practise with the AI partner': 'Magsanay kasama ang AI partner',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'Kailangan ng koneksyon ang AI partner. Puwede mong gawin ang eksenang ito sa susunod na online ka.',
+  'You are {role}.': 'Ikaw ay {role}.',
+  'Better: {better}': 'Mas mabuti: {better}',
+  'Start the conversation': 'Simulan ang usapan',
+  'Well done — you played the whole scene.': 'Magaling — nagawa mo ang buong eksena.',
+  'Type your answer': 'I-type ang iyong sagot',
+  'Your answer': 'Ang iyong sagot',
+  Send: 'Ipadala',
+  'End the conversation': 'Tapusin ang usapan',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

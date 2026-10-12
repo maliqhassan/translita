@@ -8,6 +8,7 @@ import { t } from '@/i18n';
 import type { CourseItem, CourseLesson } from '../course';
 
 import { seededRandom, sentenceMatches, shuffle, speechMatches, type LessonStep } from './plan';
+import { RoleplayStep, type CoachConnection } from './roleplay-step';
 
 /**
  * The screens of a lesson, one per kind of step.
@@ -32,6 +33,8 @@ export type StepProps = {
   };
   /** Speaking practice, when the device can listen. */
   listen?: SpeechPractice;
+  /** The AI partner, for the role-play step. */
+  coach?: CoachConnection;
   onDone: (correct: boolean | null) => void;
 };
 
@@ -42,6 +45,13 @@ export type SpeechPractice = {
   start: (language: string, onHeard: (text: string) => void) => void;
   stop: () => void;
 };
+
+/** Stands in for the AI partner where there is none. */
+const unavailable: CoachConnection['roleplay'] = () =>
+  Promise.resolve({
+    ok: false as const,
+    error: { code: 'service_unavailable' as const, message: 'No AI partner.' },
+  });
 
 export function LessonStepView(props: StepProps) {
   const { step } = props;
@@ -62,6 +72,15 @@ export function LessonStepView(props: StepProps) {
       return <SayStep {...props} itemId={step.itemId} />;
     case 'dialogue':
       return <DialogueStep {...props} />;
+    case 'roleplay':
+      return (
+        <RoleplayStep
+          {...props}
+          coach={
+            props.coach ?? { available: false, roleplay: unavailable, addressAs: 'unspecified' }
+          }
+        />
+      );
   }
 }
 

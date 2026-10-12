@@ -548,6 +548,17 @@ export const tr: Catalog = {
   'Well done.': 'Aferin.',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'Ara sınavı geçmek için %70 gerekir. Kaçırdığınız kelimeler tekrarda yeniden gelecek.',
+  'Practise with the AI partner': 'Yapay zekâ partneriyle pratik yapın',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'Yapay zekâ partneri için bağlantı gerekir. Bu sahneyi bir dahaki çevrimiçi olduğunuzda oynayabilirsiniz.',
+  'You are {role}.': 'Siz {role} rolündesiniz.',
+  'Better: {better}': 'Daha iyisi: {better}',
+  'Start the conversation': 'Sohbete başla',
+  'Well done — you played the whole scene.': 'Aferin — sahnenin tamamını oynadınız.',
+  'Type your answer': 'Cevabınızı yazın',
+  'Your answer': 'Cevabınız',
+  Send: 'Gönder',
+  'End the conversation': 'Sohbeti bitir',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

@@ -538,6 +538,17 @@ export const ar: Catalog = {
   'Well done.': 'أحسنت.',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'تحتاج إلى 70% لاجتياز الاختبار المرحلي. ستعود الكلمات التي أخطأت فيها في المراجعة.',
+  'Practise with the AI partner': 'تدرّب مع شريك الذكاء الاصطناعي',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'يحتاج شريك الذكاء الاصطناعي إلى اتصال. يمكنك أداء هذا المشهد في المرة القادمة التي تكون فيها متصلًا.',
+  'You are {role}.': 'أنت {role}.',
+  'Better: {better}': 'الأفضل: {better}',
+  'Start the conversation': 'ابدأ المحادثة',
+  'Well done — you played the whole scene.': 'أحسنت — أدّيت المشهد كاملًا.',
+  'Type your answer': 'اكتب إجابتك',
+  'Your answer': 'إجابتك',
+  Send: 'إرسال',
+  'End the conversation': 'إنهاء المحادثة',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

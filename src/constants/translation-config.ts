@@ -36,6 +36,8 @@ export const TRANSLATION_CONFIG = {
      * translation one on the server, and neither is ever in this app.
      */
     tutorPath: '/tutor',
+    /** Path for the Academy's AI role-play partner, on the same server. */
+    academyRoleplayPath: '/academy/roleplay',
   },
 
   /**

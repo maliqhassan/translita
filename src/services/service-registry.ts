@@ -8,11 +8,13 @@ import { TranseeMlKit, TranseeOcr } from '@modules/transee-mlkit';
 
 import { createFirebaseAnalyticsService } from './analytics';
 import { expoClipboardService } from './clipboard';
+import { createBackendCoachService } from './coach';
 import { createConversationHistoryService } from './conversation';
 import {
   createLocalEntitlementsService,
   createRevenueCatEntitlementsService,
   createRevenueCatPurchaseService,
+  revenueCatUserId,
   type DevelopmentEntitlementsService,
   type EntitlementsService,
   type PurchaseService,
@@ -252,6 +254,16 @@ export const services = {
     baseUrl: TRANSLATION_CONFIG.backend.baseUrl,
     path: TRANSLATION_CONFIG.backend.tutorPath,
     http,
+  }),
+  /**
+   * The Academy's AI role-play partner. Like the tutor, unavailable in a
+   * build with no backend URL; the server decides each user's daily allowance.
+   */
+  coach: createBackendCoachService({
+    baseUrl: TRANSLATION_CONFIG.backend.baseUrl,
+    path: TRANSLATION_CONFIG.backend.academyRoleplayPath,
+    http,
+    userId: revenueCatUserId,
   }),
   /**
    * The Conversation screen's transcripts, so they survive closing the app.

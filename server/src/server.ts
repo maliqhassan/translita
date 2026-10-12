@@ -1,5 +1,13 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
+import { handleRoleplay, readUserId } from './academy/academy-handler';
+import {
+  createDailyAllowance,
+  createRevenueCatChecker,
+  type DailyAllowance,
+  type EntitlementChecker,
+} from './academy/access';
+import type { AcademyProvider } from './academy/contract';
 import type { ServerConfig } from './config';
 import { apiError, statusFor } from './http/api-error';
 import { readJsonBody, sendError, sendJson } from './http/json';
@@ -20,6 +28,12 @@ export type CreateHandlerOptions = {
   /** Absent when the deployment has no tutor credential. */
   tutor?: TutorProvider;
   tutorRateLimiter?: RateLimiter;
+  /** Absent when the deployment has no OpenAI credential. */
+  academy?: AcademyProvider;
+  academyRateLimiter?: RateLimiter;
+  /** Defaults to RevenueCat, configured from `config`. */
+  entitlements?: EntitlementChecker;
+  allowance?: DailyAllowance;
 };
 
 /**
@@ -49,6 +63,22 @@ export function createRequestHandler(options: CreateHandlerOptions): RequestHand
       max: config.tutorRateLimit.max,
       windowMs: config.tutorRateLimit.windowMs,
     });
+
+  const academyLimiter =
+    options.academyRateLimiter ??
+    createRateLimiter({
+      max: config.academyRateLimit.max,
+      windowMs: config.academyRateLimit.windowMs,
+    });
+  const entitlements =
+    options.entitlements ??
+    createRevenueCatChecker({
+      secretKey: config.revenueCatSecretKey,
+      entitlement: config.academyEntitlement,
+    });
+  const allowance =
+    options.allowance ??
+    createDailyAllowance({ free: config.academyFreeDaily, academy: config.academyEliteDaily });
 
   return async function handle(request, response) {
     const url = new URL(request.url ?? '/', 'http://localhost');
@@ -85,6 +115,33 @@ export function createRequestHandler(options: CreateHandlerOptions): RequestHand
       }
 
       await handleTutor(response, tutor, body.value);
+      return;
+    }
+
+    if (route === 'POST /academy/roleplay') {
+      const caller = clientKey(request);
+      const limit = academyLimiter.check(caller);
+      if (!limit.allowed) {
+        response.setHeader('Retry-After', String(limit.retryAfterSeconds));
+        sendError(response, apiError('rate_limited', 'Too many practice requests.'));
+        return;
+      }
+
+      const body = await readJsonBody(request, config.maxBodyBytes);
+      if (!body.ok) {
+        sendError(response, body.error);
+        return;
+      }
+
+      const userId = readUserId(request.headers['x-app-user-id']);
+      await handleRoleplay(response, body.value, {
+        provider: options.academy,
+        entitlements,
+        allowance,
+        // Without an id, the allowance is per address instead.
+        userKey: userId ? `user:${userId}` : `ip:${caller}`,
+        userId,
+      });
       return;
     }
 

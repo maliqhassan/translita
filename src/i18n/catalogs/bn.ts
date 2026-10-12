@@ -544,6 +544,17 @@ export const bn: Catalog = {
   'Well done.': 'দারুণ।',
   'You need 70% to pass the checkpoint. The words you missed will come back in review.':
     'যাচাই পাস করতে 70% দরকার। যে শব্দগুলো ভুল হয়েছে সেগুলো পুনরাবৃত্তিতে আবার আসবে।',
+  'Practise with the AI partner': 'AI সঙ্গীর সাথে অনুশীলন করুন',
+  'The AI partner needs a connection. You can play this scene next time you are online.':
+    'AI সঙ্গীর জন্য সংযোগ দরকার। পরের বার অনলাইনে থাকলে এই দৃশ্যটি খেলতে পারবেন।',
+  'You are {role}.': 'আপনি {role}।',
+  'Better: {better}': 'আরও ভালো: {better}',
+  'Start the conversation': 'কথোপকথন শুরু করুন',
+  'Well done — you played the whole scene.': 'দারুণ — আপনি পুরো দৃশ্যটি করেছেন।',
+  'Type your answer': 'আপনার উত্তর লিখুন',
+  'Your answer': 'আপনার উত্তর',
+  Send: 'পাঠান',
+  'End the conversation': 'কথোপকথন শেষ করুন',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',
