@@ -8,3 +8,8 @@ ios/
 assets/
 package-lock.json
 expo-env.d.ts
+
+# Generated course content (server/scripts/generate-course.mts)
+server/course-work/
+src/features/academy/course/en/*.json
+src/features/academy/course/en/index.ts
