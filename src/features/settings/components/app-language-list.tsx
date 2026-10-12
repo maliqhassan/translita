@@ -14,19 +14,15 @@ import { APP_LANGUAGES, type AppLanguageCode } from '@/i18n';
 export function AppLanguageList({
   selected,
   onSelect,
-  exclude = [],
 }: {
-  /** Nothing is marked when undefined. */
-  selected: AppLanguageCode | undefined;
+  selected: AppLanguageCode;
   onSelect: (code: AppLanguageCode) => void;
-  /** Languages not to offer here. */
-  exclude?: readonly AppLanguageCode[];
 }) {
   const theme = useTheme();
 
   return (
     <View style={{ gap: theme.spacing.sm }} accessibilityRole="radiogroup">
-      {APP_LANGUAGES.filter((item) => !exclude.includes(item.code)).map((item) => {
+      {APP_LANGUAGES.map((item) => {
         const active = item.code === selected;
         return (
           <Pressable

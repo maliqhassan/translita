@@ -10,6 +10,7 @@ export * from './hooks/use-copy-to-clipboard';
 export * from './hooks/use-language-picker';
 export * from './hooks/use-paste-from-clipboard';
 export * from './hooks/use-speak';
+export * from './hooks/use-speech-recognition';
 export * from './hooks/use-translation';
 export * from './record-translation';
 export * from './server-warmup';

@@ -6,13 +6,14 @@ import {
   Button,
   Card,
   EmptyState,
+  FlagCircle,
   Icon,
   LoadingState,
   Screen,
   ScreenHeader,
   Text,
 } from '@/components';
-import { ACADEMY } from '@/constants';
+import { languageName } from '@/constants';
 import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
 import { services } from '@/services';
@@ -22,26 +23,30 @@ import type { Enrollment, LessonProgress } from '@/types';
 import {
   COURSE_DAYS,
   COURSE_SHAPE,
+  availableCourses,
   courseChapters,
-  inBase,
   lessonForDay,
   type CourseChapter,
 } from '../course';
 import { useAcademyAccess } from '../hooks/use-academy-access';
+import { useActiveCourse } from '../hooks/use-active-course';
 import { completedDays, dayStatus, nextDay, streak, wordsKnown, type DayStatus } from '../rules';
 
 import { AcademyOnboarding } from './academy-onboarding';
 
 /**
- * The Academy: its onboarding the first time, its dashboard after that.
+ * The Academy: its onboarding the first time, the dashboard after that.
  *
  * One route for both, so there is no redirect to flicker through: the screen
  * shows whichever the saved state calls for, and finishing onboarding swaps
- * it for the dashboard in place.
+ * it for the dashboard in place. Adding another language reuses the same
+ * onboarding, without the courses already started.
  */
 export function AcademyScreen() {
   const router = useRouter();
-  const { status, enrollment, progress } = useAcademy();
+  const { status } = useAcademy();
+  const { enrollment, progress, enrolled } = useActiveCourse();
+  const [adding, setAdding] = useState(false);
 
   const backToTranslator = () => {
     if (router.canGoBack()) router.back();
@@ -63,37 +68,60 @@ export function AcademyScreen() {
     );
   }
   if (!enrollment) return <AcademyOnboarding onClose={backToTranslator} />;
+  if (adding) {
+    return (
+      <AcademyOnboarding
+        onClose={() => setAdding(false)}
+        exclude={enrolled.map((course) => course.courseId)}
+      />
+    );
+  }
 
-  return <Dashboard enrollment={enrollment} progress={progress} onBack={backToTranslator} />;
+  return (
+    <Dashboard
+      enrollment={enrollment}
+      progress={progress}
+      enrolled={enrolled}
+      onBack={backToTranslator}
+      onAddLanguage={() => setAdding(true)}
+    />
+  );
 }
 
 function Dashboard({
   enrollment,
   progress,
+  enrolled,
   onBack,
+  onAddLanguage,
 }: {
   enrollment: Enrollment;
   progress: readonly LessonProgress[];
+  enrolled: readonly Enrollment[];
   onBack: () => void;
+  onAddLanguage: () => void;
 }) {
   const theme = useTheme();
   const router = useRouter();
+  const { openCourse } = useAcademy();
   const unlocked = useAcademyAccess();
+  const courseId = enrollment.courseId;
   const [known, setKnown] = useState(0);
   const [streakDays, setStreakDays] = useState(0);
   const [resumeLesson, setResumeLesson] = useState<string>();
 
-  // Words known and an unfinished lesson change outside this screen, so they
-  // are read again each time it comes back into view.
+  // Words known, the streak and an unfinished lesson change outside this
+  // screen, so they are read again each time it comes back into view.
   useFocusEffect(
     useCallback(() => {
       let active = true;
       void Promise.all([
-        services.academy.listItemStats(ACADEMY.courseId),
-        services.academy.getPosition(ACADEMY.courseId),
+        services.academy.listItemStats(courseId),
+        services.academy.getPosition(courseId),
       ]).then(([stats, position]) => {
         if (!active) return;
         if (stats.ok) setKnown(wordsKnown(stats.value));
+        setResumeLesson(position.ok ? position.value?.lessonId : undefined);
         // Read against the clock as the screen appears, not on every render.
         setStreakDays(
           streak(
@@ -101,22 +129,22 @@ function Dashboard({
             Date.now(),
           ),
         );
-        setResumeLesson(position.ok ? position.value?.lessonId : undefined);
       });
       return () => {
         active = false;
       };
-    }, [progress]),
+    }, [courseId, progress]),
   );
 
   const done = completedDays(progress);
   const upNext = nextDay(done, enrollment.startDay);
-  const nextLesson = upNext ? lessonForDay(ACADEMY.courseId, upNext) : undefined;
-  const chapters = courseChapters(ACADEMY.courseId);
-  const base = enrollment.baseLanguage;
+  const nextLesson = upNext ? lessonForDay(courseId, upNext) : undefined;
+  const chapters = courseChapters(courseId);
+  const language = languageName(courseId);
+  const canAddLanguage = availableCourses().length > enrolled.length;
 
   const openDay = (day: number, status: DayStatus) => {
-    const lesson = lessonForDay(ACADEMY.courseId, day);
+    const lesson = lessonForDay(courseId, day);
     if (status === 'locked') {
       Alert.alert(t('Not yet'), t('Finish the day before this one first.'));
       return;
@@ -139,7 +167,7 @@ function Dashboard({
       header={
         <ScreenHeader
           title={t('AI Academy')}
-          subtitle={t('Learn English')}
+          subtitle={t('Learn {language}', { language })}
           leading={
             <Pressable
               onPress={onBack}
@@ -161,6 +189,7 @@ function Dashboard({
               </Text>
             </Pressable>
           }
+          actions={<FlagCircle language={courseId} size={32} />}
         />
       }
     >
@@ -183,9 +212,6 @@ function Dashboard({
                 : t('Day {day}', { day: upNext })}
             </Text>
             <Text variant="h2">{nextLesson.title}</Text>
-            <Text variant="body" color="textSecondary">
-              {inBase(nextLesson.titleMeaning, base, nextLesson.title)}
-            </Text>
           </View>
           <Button
             label={resumeLesson === nextLesson.id ? t('Continue') : t('Start lesson')}
@@ -201,7 +227,6 @@ function Dashboard({
         <ChapterCard
           key={chapter.id}
           chapter={chapter}
-          base={base}
           statusOf={(day) => dayStatus(day, done, enrollment.startDay, unlocked)}
           onOpen={openDay}
         />
@@ -228,6 +253,60 @@ function Dashboard({
         </View>
         <Icon name="lock-closed" size={18} color="textMuted" />
       </Card>
+
+      {enrolled.length > 1 || canAddLanguage ? (
+        <Card variant="outlined" padding="none">
+          <Text
+            variant="label"
+            color="textSecondary"
+            style={{ paddingHorizontal: theme.spacing.base, paddingTop: theme.spacing.base }}
+          >
+            {t('Your courses')}
+          </Text>
+          {enrolled.map((course) => {
+            const current = course.courseId === courseId;
+            const name = languageName(course.courseId);
+            return (
+              <Pressable
+                key={course.courseId}
+                disabled={current}
+                onPress={() => void openCourse(course.courseId)}
+                accessibilityRole="button"
+                accessibilityState={{ selected: current }}
+                accessibilityLabel={
+                  current
+                    ? t('{language}, the course shown', { language: name })
+                    : t('Switch to {language}', { language: name })
+                }
+                style={({ pressed }) => ({
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: theme.spacing.md,
+                  padding: theme.spacing.base,
+                  backgroundColor: pressed ? theme.colors.surfaceMuted : 'transparent',
+                })}
+              >
+                <FlagCircle language={course.courseId} size={28} />
+                <Text variant="body" style={{ flex: 1 }}>
+                  {name}
+                </Text>
+                {current ? <Icon name="checkmark" size={18} color="primary" /> : null}
+              </Pressable>
+            );
+          })}
+          {canAddLanguage ? (
+            <View style={{ padding: theme.spacing.base, paddingTop: 0 }}>
+              <Button
+                label={t('Learn another language')}
+                icon="add"
+                variant="secondary"
+                fullWidth
+                onPress={onAddLanguage}
+              />
+            </View>
+          ) : null}
+        </Card>
+      ) : null}
     </Screen>
   );
 }
@@ -272,12 +351,10 @@ const DAY_ICON: Record<DayStatus, 'checkmark' | 'play' | 'lock-closed'> = {
 
 function ChapterCard({
   chapter,
-  base,
   statusOf,
   onOpen,
 }: {
   chapter: CourseChapter;
-  base: string;
   statusOf: (day: number) => DayStatus;
   onOpen: (day: number, status: DayStatus) => void;
 }) {
@@ -289,9 +366,6 @@ function ChapterCard({
           {t('Chapter {number}', { number: chapter.number })}
         </Text>
         <Text variant="rowTitle">{chapter.title}</Text>
-        <Text variant="bodySmall" color="textSecondary">
-          {inBase(chapter.titleMeaning, base, chapter.title)}
-        </Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         {chapter.lessons.map((lesson) => {

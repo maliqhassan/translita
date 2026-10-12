@@ -5,8 +5,8 @@ import { Pressable, View } from 'react-native';
 import { Button, Icon, IconButton, Text } from '@/components';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
-import { useAcademy } from '@/store';
 
+import { useActiveCourse } from '../hooks/use-active-course';
 import { completedDays, nextDay } from '../rules';
 
 const SIZE = 56;
@@ -28,7 +28,7 @@ const ACADEMY_HOME = '/academy' as Href;
 export function AcademyFab() {
   const theme = useTheme();
   const router = useRouter();
-  const { enrollment, progress } = useAcademy();
+  const { enrollment, progress } = useActiveCourse();
   const [open, setOpen] = useState(false);
 
   const day = enrollment ? nextDay(completedDays(progress), enrollment.startDay) : undefined;
@@ -69,7 +69,9 @@ export function AcademyFab() {
                   ? day
                     ? t('Day {day} is waiting for you.', { day })
                     : t('Every day is done. Your final exam is ready.')
-                  : t('Learn English in 60 days with an AI coach. Day 1 is free.')}
+                  : t(
+                      'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.',
+                    )}
               </Text>
             </View>
             <IconButton
@@ -92,7 +94,7 @@ export function AcademyFab() {
         onPress={() => setOpen((value) => !value)}
         accessibilityRole="button"
         accessibilityLabel={t('AI Academy')}
-        accessibilityHint={t('Shows the English course with an AI coach')}
+        accessibilityHint={t('Shows the language courses with an AI coach')}
         style={({ pressed }) => ({
           width: SIZE,
           height: SIZE,

@@ -13,6 +13,7 @@ export const TABLES = {
   academyItems: 'academy_item_stats',
   academyPosition: 'academy_position',
   academyResults: 'academy_results',
+  academyOpened: 'academy_opened',
 } as const;
 
 export type TableName = (typeof TABLES)[keyof typeof TABLES];

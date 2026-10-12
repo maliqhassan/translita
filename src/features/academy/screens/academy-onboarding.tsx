@@ -3,58 +3,67 @@ import { ActivityIndicator, BackHandler, ScrollView, StatusBar, View } from 'rea
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, IconButton, Text } from '@/components';
-import { ACADEMY } from '@/constants';
-import { AppLanguageList } from '@/features/settings';
+import { languageName } from '@/constants';
 import { useTheme } from '@/hooks';
-import { t, useAppLanguage, type AppLanguageCode } from '@/i18n';
+import { t } from '@/i18n';
 import { useAcademy } from '@/store';
 import type { AddressForm, LearningGoal, LearningLevel } from '@/types';
 
+import { CourseOption } from '../components/course-option';
 import { OptionCard } from '../components/option-card';
-import { isBaseLanguage } from '../course';
+import { availableCourses } from '../course';
 
-type Step = 'goal' | 'language' | 'level' | 'address' | 'time' | 'building';
+type Step = 'course' | 'goal' | 'level' | 'address' | 'time' | 'building';
 
-/** Languages whose verbs and adjectives change with the speaker. */
-const GENDERED: readonly string[] = ['ur', 'hi', 'ar'];
+/** Languages where some words change with the speaker ("je suis prêt / prête"). */
+const GENDERED: readonly string[] = ['de', 'fr', 'es', 'it', 'pt-BR'];
 
 /** Long enough to read, short enough not to be in the way. */
 const BUILDING_MS = 1600;
 
-/**
- * The Academy's first questions, asked once.
- *
- * Why, which language to be taught in, how much they know, how to address
- * them (only where the language needs it), and how long a day should be. Each
- * answer is one tap; the language is prefilled from the app's own. The answers
- * become the enrollment, and the dashboard appears in its place.
- *
- * Every step has a way back, and the cross leaves for the translator without
- * saving anything — nobody is enrolled by half-answering.
- */
-export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
-  const theme = useTheme();
-  const appLanguage = useAppLanguage();
-  const { enroll } = useAcademy();
+/** The time of a choice, read when it happens. */
+const now = () => Date.now();
 
-  const [step, setStep] = useState<Step>('goal');
+/**
+ * The Academy's first questions, asked once per course.
+ *
+ * Which language to learn — taught from English — then why, how much they
+ * know, how to address them (only where the language needs it), and how long
+ * a day should be. Each answer is one tap. The answers become the enrollment,
+ * and the dashboard appears in this screen's place.
+ *
+ * Every step has a way back, and the cross leaves without saving anything —
+ * nobody is enrolled by half-answering. `exclude` hides courses already
+ * started, when this is used to add another language.
+ */
+export function AcademyOnboarding({
+  onClose,
+  exclude = [],
+}: {
+  onClose: () => void;
+  exclude?: readonly string[];
+}) {
+  const theme = useTheme();
+  const { enroll } = useAcademy();
+  const courses = availableCourses().filter((course) => !exclude.includes(course.id));
+
+  const [step, setStep] = useState<Step>('course');
+  const [courseId, setCourseId] = useState<string>();
   const [goal, setGoal] = useState<LearningGoal>();
-  const [base, setBase] = useState<AppLanguageCode | undefined>(
-    isBaseLanguage(appLanguage) ? appLanguage : undefined,
-  );
   const [level, setLevel] = useState<LearningLevel>();
   const [addressAs, setAddressAs] = useState<AddressForm>();
   const [minutes, setMinutes] = useState<number>();
 
-  const asksAddress = base !== undefined && GENDERED.includes(base);
+  const asksAddress = courseId !== undefined && GENDERED.includes(courseId);
   const steps: Step[] = [
+    'course',
     'goal',
-    'language',
     'level',
     ...(asksAddress ? ['address' as const] : []),
     'time',
   ];
   const index = steps.indexOf(step);
+  const language = courseId ? languageName(courseId) : '';
 
   const back = () => {
     if (index > 0) setStep(steps[index - 1]!);
@@ -64,8 +73,7 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
   // Android's back goes one question back, like the arrow.
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      if (step === 'building') return true;
-      back();
+      if (step !== 'building') back();
       return true;
     });
     return () => subscription.remove();
@@ -73,26 +81,28 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
 
   // Building the course: a moment to show the answers did something, then save.
   useEffect(() => {
-    if (step !== 'building' || !goal || !base || !level || !minutes) return;
+    if (step !== 'building' || !courseId || !goal || !level || !minutes) return;
     const timer = setTimeout(() => {
+      const at = now();
       void enroll({
-        courseId: ACADEMY.courseId,
-        baseLanguage: base,
+        courseId,
+        baseLanguage: 'en',
         goal,
         level,
         minutesPerDay: minutes,
         addressAs: asksAddress ? (addressAs ?? 'unspecified') : 'unspecified',
         // Everyone starts at Day 1 for now; the placement quiz moves this on.
         startDay: 1,
-        startedAt: Date.now(),
+        startedAt: at,
+        lastOpenedAt: at,
       });
     }, BUILDING_MS);
     return () => clearTimeout(timer);
-  }, [step, goal, base, level, minutes, addressAs, asksAddress, enroll]);
+  }, [step, courseId, goal, level, minutes, addressAs, asksAddress, enroll]);
 
   const answered: Record<Exclude<Step, 'building'>, boolean> = {
+    course: courseId !== undefined,
     goal: goal !== undefined,
-    language: base !== undefined,
     level: level !== undefined,
     address: addressAs !== undefined,
     time: minutes !== undefined,
@@ -167,13 +177,29 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
 
       <ScrollView
         style={{ flex: 1 }}
-        contentContainerStyle={{
-          padding: theme.layout.screenPadding,
-          gap: theme.spacing.md,
-        }}
+        contentContainerStyle={{ padding: theme.layout.screenPadding, gap: theme.spacing.md }}
       >
+        {step === 'course' ? (
+          <Question
+            title={t('Which language do you want to learn?')}
+            subtitle={t('Every lesson is explained in English.')}
+          >
+            {courses.map((course) => (
+              <CourseOption
+                key={course.id}
+                courseId={course.id}
+                selected={courseId === course.id}
+                onPress={() => setCourseId(course.id)}
+              />
+            ))}
+            <Text variant="caption" color="textMuted" align="center">
+              {t('More languages are coming soon.')}
+            </Text>
+          </Question>
+        ) : null}
+
         {step === 'goal' ? (
-          <Question title={t('Why are you learning English?')}>
+          <Question title={t('Why are you learning {language}?', { language })}>
             <OptionCard
               icon="airplane-outline"
               title={t('Travel')}
@@ -198,20 +224,8 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
           </Question>
         ) : null}
 
-        {step === 'language' ? (
-          <Question
-            title={t('Which language do you speak?')}
-            subtitle={t('Lessons are explained in this language.')}
-          >
-            <AppLanguageList selected={base} onSelect={(code) => setBase(code)} exclude={['en']} />
-            <Text variant="caption" color="textMuted" align="center">
-              {t('Courses for English speakers are coming soon.')}
-            </Text>
-          </Question>
-        ) : null}
-
         {step === 'level' ? (
-          <Question title={t('How much English do you know?')}>
+          <Question title={t('How much {language} do you know?', { language })}>
             <OptionCard
               icon="leaf-outline"
               title={t('I am a beginner')}
@@ -221,7 +235,7 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
             />
             <OptionCard
               icon="trending-up-outline"
-              title={t('I know some English')}
+              title={t('I know some {language}', { language })}
               description={t('Greetings and simple sentences are easy for me')}
               selected={level === 'some'}
               onPress={() => setLevel('some')}
@@ -232,7 +246,7 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
         {step === 'address' ? (
           <Question
             title={t('How should we address you?')}
-            subtitle={t('Your language says some words differently for men and women.')}
+            subtitle={t('Some words in {language} change for men and women.', { language })}
           >
             <OptionCard
               icon="man-outline"

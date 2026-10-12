@@ -1,0 +1,366 @@
+{
+ "title": "Greetings and Introductions",
+ "lessons": [
+  {
+   "title": "Hello and Goodbye",
+   "items": [
+    {
+     "text": "Hallo",
+     "meaning": "Hello",
+     "example": "Hallo, wie geht's?",
+     "exampleMeaning": "Hello, how are you?"
+    },
+    {
+     "text": "Tschüss",
+     "meaning": "Goodbye",
+     "example": "Tschüss, bis später!",
+     "exampleMeaning": "Goodbye, see you later!"
+    },
+    {
+     "text": "Guten Morgen",
+     "meaning": "Good morning",
+     "example": "Guten Morgen, Anna!",
+     "exampleMeaning": "Good morning, Anna!"
+    },
+    {
+     "text": "Guten Abend",
+     "meaning": "Good evening",
+     "example": "Guten Abend, Herr Müller!",
+     "exampleMeaning": "Good evening, Mr. Müller!"
+    },
+    {
+     "text": "Gute Nacht",
+     "meaning": "Good night",
+     "example": "Gute Nacht, schlaf gut!",
+     "exampleMeaning": "Good night, sleep well!"
+    },
+    {
+     "text": "Wie geht's?",
+     "meaning": "How are you?",
+     "example": "Wie geht's, Peter?",
+     "exampleMeaning": "How are you, Peter?"
+    }
+   ],
+   "tip": "Use 'Hallo' for informal greetings. Use 'Guten Morgen' in the morning and 'Guten Abend' in the evening.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hallo!",
+     "meaning": "Hello!"
+    },
+    {
+     "speaker": "B",
+     "text": "Hallo! Wie geht's?",
+     "meaning": "Hello! How are you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Gut, danke! Und dir?",
+     "meaning": "Good, thank you! And you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mir geht's auch gut.",
+     "meaning": "I am also good."
+    },
+    {
+     "speaker": "A",
+     "text": "Guten Morgen!",
+     "meaning": "Good morning!"
+    },
+    {
+     "speaker": "B",
+     "text": "Guten Morgen! Tschüss!",
+     "meaning": "Good morning! Goodbye!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friendly person you meet in the morning.",
+    "learnerRole": "You are meeting this person for the first time.",
+    "brief": "Start with 'Hallo' and ask 'Wie geht's?'. Respond to their answer and say goodbye with 'Tschüss'.",
+    "goal": "You should greet the person and ask how they are."
+   }
+  },
+  {
+   "title": "My Name is...",
+   "items": [
+    {
+     "text": "Ich heiße...",
+     "meaning": "My name is...",
+     "example": "Ich heiße Maria.",
+     "exampleMeaning": "My name is Maria."
+    },
+    {
+     "text": "Und du?",
+     "meaning": "And you?",
+     "example": "Ich heiße Tom. Und du?",
+     "exampleMeaning": "My name is Tom. And you?"
+    },
+    {
+     "text": "Wer bist du?",
+     "meaning": "Who are you?",
+     "example": "Wer bist du, Lisa?",
+     "exampleMeaning": "Who are you, Lisa?"
+    },
+    {
+     "text": "Ich komme aus...",
+     "meaning": "I come from...",
+     "example": "Ich komme aus England.",
+     "exampleMeaning": "I come from England."
+    },
+    {
+     "text": "Woher kommst du?",
+     "meaning": "Where are you from?",
+     "example": "Woher kommst du, Anna?",
+     "exampleMeaning": "Where are you from, Anna?"
+    },
+    {
+     "text": "Freut mich!",
+     "meaning": "Nice to meet you!",
+     "example": "Freut mich, dich kennenzulernen!",
+     "exampleMeaning": "Nice to meet you!"
+    }
+   ],
+   "tip": "Use 'Ich heiße...' to introduce yourself. To ask someone else, say 'Und du?'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich heiße Max. Wer bist du?",
+     "meaning": "My name is Max. Who are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich heiße Anna. Freut mich!",
+     "meaning": "My name is Anna. Nice to meet you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Woher kommst du?",
+     "meaning": "Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich komme aus Deutschland. Und du?",
+     "meaning": "I come from Germany. And you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ich komme aus Frankreich.",
+     "meaning": "I come from France."
+    },
+    {
+     "speaker": "B",
+     "text": "Freut mich, Max!",
+     "meaning": "Nice to meet you, Max!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A person you just met.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Start with 'Ich heiße...' and ask 'Woher kommst du?'. Respond to their answer.",
+    "goal": "You should introduce yourself and ask where they are from."
+   }
+  },
+  {
+   "title": "Using 'to be'",
+   "items": [
+    {
+     "text": "Ich bin...",
+     "meaning": "I am...",
+     "example": "Ich bin Lehrer.",
+     "exampleMeaning": "I am a teacher."
+    },
+    {
+     "text": "Du bist...",
+     "meaning": "You are...",
+     "example": "Du bist mein Freund.",
+     "exampleMeaning": "You are my friend."
+    },
+    {
+     "text": "Er ist...",
+     "meaning": "He is...",
+     "example": "Er ist Arzt.",
+     "exampleMeaning": "He is a doctor."
+    },
+    {
+     "text": "Sie ist...",
+     "meaning": "She is...",
+     "example": "Sie ist Studentin.",
+     "exampleMeaning": "She is a student."
+    },
+    {
+     "text": "Wir sind...",
+     "meaning": "We are...",
+     "example": "Wir sind glücklich.",
+     "exampleMeaning": "We are happy."
+    },
+    {
+     "text": "Sie sind...",
+     "meaning": "They are...",
+     "example": "Sie sind meine Nachbarn.",
+     "exampleMeaning": "They are my neighbors."
+    }
+   ],
+   "tip": "Use 'Ich bin...' to describe yourself. Remember to change the verb 'sein' for different subjects.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ich bin Student. Und du?",
+     "meaning": "I am a student. And you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich bin Lehrer.",
+     "meaning": "I am a teacher."
+    },
+    {
+     "speaker": "A",
+     "text": "Er ist mein Freund.",
+     "meaning": "He is my friend."
+    },
+    {
+     "speaker": "B",
+     "text": "Sie ist meine Schwester.",
+     "meaning": "She is my sister."
+    },
+    {
+     "speaker": "A",
+     "text": "Wir sind zusammen.",
+     "meaning": "We are together."
+    },
+    {
+     "speaker": "B",
+     "text": "Sie sind meine Nachbarn.",
+     "meaning": "They are my neighbors."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A fellow student or colleague.",
+    "learnerRole": "You are talking about yourselves.",
+    "brief": "Start with 'Ich bin...' and ask about the other person. Respond to their answers.",
+    "goal": "You should describe yourself and ask about the other person."
+   }
+  },
+  {
+   "title": "Where Are You From?",
+   "items": [
+    {
+     "text": "Wo bist du?",
+     "meaning": "Where are you?",
+     "example": "Wo bist du, Peter?",
+     "exampleMeaning": "Where are you, Peter?"
+    },
+    {
+     "text": "Ich bin hier.",
+     "meaning": "I am here.",
+     "example": "Ich bin hier in Berlin.",
+     "exampleMeaning": "I am here in Berlin."
+    },
+    {
+     "text": "Wo wohnen Sie?",
+     "meaning": "Where do you live? (formal)",
+     "example": "Wo wohnen Sie, Herr Schmidt?",
+     "exampleMeaning": "Where do you live, Mr. Schmidt?"
+    },
+    {
+     "text": "Ich wohne in...",
+     "meaning": "I live in...",
+     "example": "Ich wohne in Hamburg.",
+     "exampleMeaning": "I live in Hamburg."
+    },
+    {
+     "text": "Was machst du?",
+     "meaning": "What are you doing?",
+     "example": "Was machst du am Wochenende?",
+     "exampleMeaning": "What are you doing on the weekend?"
+    },
+    {
+     "text": "Ich mache...",
+     "meaning": "I am doing...",
+     "example": "Ich mache meine Hausaufgaben.",
+     "exampleMeaning": "I am doing my homework."
+    }
+   ],
+   "tip": "Use 'Wo wohnst du?' to ask someone where they live. Use 'Ich wohne in...' to tell them.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Wo wohnst du?",
+     "meaning": "Where do you live?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich wohne in München.",
+     "meaning": "I live in Munich."
+    },
+    {
+     "speaker": "A",
+     "text": "Wo bist du?",
+     "meaning": "Where are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich bin hier.",
+     "meaning": "I am here."
+    },
+    {
+     "speaker": "A",
+     "text": "Was machst du?",
+     "meaning": "What are you doing?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ich mache meine Hausaufgaben.",
+     "meaning": "I am doing my homework."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A new acquaintance.",
+    "learnerRole": "You are getting to know each other.",
+    "brief": "Ask 'Wo wohnst du?' and respond to their answer. Ask about their activities.",
+    "goal": "You should ask where they live and what they are doing."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Hallo! Wie geht's?",
+    "meaning": "Hello! How are you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich heiße Tom. Ich komme aus England.",
+    "meaning": "My name is Tom. I come from England."
+   },
+   {
+    "speaker": "A",
+    "text": "Ich bin hier in Berlin. Was machst du?",
+    "meaning": "I am here in Berlin. What are you doing?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich mache meine Hausaufgaben. Tschüss!",
+    "meaning": "I am doing my homework. Goodbye!"
+   },
+   {
+    "speaker": "A",
+    "text": "Guten Morgen! Freut mich!",
+    "meaning": "Good morning! Nice to meet you!"
+   },
+   {
+    "speaker": "B",
+    "text": "Ich wohne in München. Und du?",
+    "meaning": "I live in Munich. And you?"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A new acquaintance.",
+   "learnerRole": "You are having a casual conversation.",
+   "brief": "Start with a greeting, introduce yourself, and ask about their activities and where they live.",
+   "goal": "You should use greetings, introduce yourself, and ask questions."
+  }
+ }
+}

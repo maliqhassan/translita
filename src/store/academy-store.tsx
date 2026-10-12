@@ -8,10 +8,8 @@ import {
   type ReactNode,
 } from 'react';
 
-import { ACADEMY } from '@/constants';
 import { services, type ServiceResult } from '@/services';
 import type { AppError, Enrollment, LessonProgress } from '@/types';
-import { ok } from '@/utils';
 
 import { useDatabaseReady } from './database-store';
 
@@ -20,20 +18,31 @@ export type AcademyStatus = 'loading' | 'ready' | 'error';
 type AcademyContextValue = {
   status: AcademyStatus;
   error?: AppError;
-  /** Null until the user finishes the Academy's onboarding. */
-  enrollment: Enrollment | null;
-  /** Finished days, in day order. */
-  progress: readonly LessonProgress[];
+  /** Every course started, the one opened most recently first. */
+  enrollments: readonly Enrollment[];
+  /** Finished days of a course, in day order. */
+  progressOf(courseId: string): readonly LessonProgress[];
   enroll(enrollment: Enrollment): ServiceResult<void>;
-  recordLesson(entry: Omit<LessonProgress, 'attempts' | 'courseId'>): ServiceResult<LessonProgress>;
-  /** Starts the course over: removes the enrollment and all progress. */
-  reset(): ServiceResult<void>;
+  /** Makes a started course the one shown. */
+  openCourse(courseId: string): ServiceResult<void>;
+  recordLesson(
+    courseId: string,
+    entry: Omit<LessonProgress, 'attempts' | 'courseId'>,
+  ): ServiceResult<LessonProgress>;
+  /** Starts a course over: removes its enrollment and all its progress. */
+  reset(courseId: string): ServiceResult<void>;
 };
 
 const AcademyContext = createContext<AcademyContextValue | null>(null);
 
+const NO_PROGRESS: readonly LessonProgress[] = [];
+
+/** The time of a change, read when it happens. */
+const now = () => Date.now();
+
 /**
- * The Academy's progress as React state: the enrollment and finished days.
+ * The Academy's progress as React state: every course started, and its
+ * finished days.
  *
  * Loaded from the database once it is open — history opens it, then this
  * initialises on the same connection — and reloaded whenever the repository
@@ -41,29 +50,33 @@ const AcademyContext = createContext<AcademyContextValue | null>(null);
  * known) is read by the screens that need it, straight from the repository,
  * rather than held here for every screen to redraw on.
  *
- * Like history, it never blocks the app: the translator works whatever the
- * Academy's storage is doing.
+ * It knows nothing about which courses ship: that is the Academy feature's to
+ * decide (`useActiveCourse`). Like history, it never blocks the app.
  */
 export function AcademyProvider({ children }: { children: ReactNode }) {
   const databaseReady = useDatabaseReady();
   const [status, setStatus] = useState<AcademyStatus>('loading');
   const [error, setError] = useState<AppError>();
-  const [enrollment, setEnrollment] = useState<Enrollment | null>(null);
-  const [progress, setProgress] = useState<readonly LessonProgress[]>([]);
+  const [enrollments, setEnrollments] = useState<readonly Enrollment[]>([]);
+  const [progress, setProgress] = useState<Readonly<Record<string, readonly LessonProgress[]>>>({});
 
   const load = useCallback(async () => {
-    const courseId = ACADEMY.courseId;
-    const [enrolled, done] = await Promise.all([
-      services.academy.getEnrollment(courseId),
-      services.academy.listProgress(courseId),
-    ]);
-    if (!enrolled.ok || !done.ok) {
-      setError(!enrolled.ok ? enrolled.error : !done.ok ? done.error : undefined);
+    const enrolled = await services.academy.listEnrollments();
+    if (!enrolled.ok) {
+      setError(enrolled.error);
       setStatus('error');
       return;
     }
-    setEnrollment(enrolled.value);
-    setProgress(done.value);
+    const lists = await Promise.all(
+      enrolled.value.map((enrollment) => services.academy.listProgress(enrollment.courseId)),
+    );
+    const byCourse: Record<string, readonly LessonProgress[]> = {};
+    for (const [index, list] of lists.entries()) {
+      const course = enrolled.value[index]?.courseId;
+      if (course && list.ok) byCourse[course] = list.value;
+    }
+    setEnrollments(enrolled.value);
+    setProgress(byCourse);
     setStatus('ready');
   }, []);
 
@@ -93,17 +106,14 @@ export function AcademyProvider({ children }: { children: ReactNode }) {
     () => ({
       status,
       error,
-      enrollment,
-      progress,
-      enroll: (next) => services.academy.saveEnrollment(next),
-      recordLesson: (entry) =>
-        services.academy.recordLesson({ ...entry, courseId: ACADEMY.courseId }),
-      reset: async () => {
-        const cleared = await services.academy.resetCourse(ACADEMY.courseId);
-        return cleared.ok ? ok(undefined) : cleared;
-      },
+      enrollments,
+      progressOf: (courseId) => progress[courseId] ?? NO_PROGRESS,
+      enroll: (enrollment) => services.academy.saveEnrollment(enrollment),
+      openCourse: (courseId) => services.academy.openCourse(courseId, now()),
+      recordLesson: (courseId, entry) => services.academy.recordLesson({ ...entry, courseId }),
+      reset: (courseId) => services.academy.resetCourse(courseId),
     }),
-    [status, error, enrollment, progress],
+    [status, error, enrollments, progress],
   );
 
   return <AcademyContext.Provider value={value}>{children}</AcademyContext.Provider>;

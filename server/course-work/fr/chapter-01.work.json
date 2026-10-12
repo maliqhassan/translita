@@ -1,0 +1,376 @@
+{
+ "title": "Greetings and Introductions",
+ "lessons": [
+  {
+   "title": "Hello!",
+   "items": [
+    {
+     "text": "Bonjour !",
+     "meaning": "Hello!",
+     "example": "Bonjour ! Je m'appelle Marie.",
+     "exampleMeaning": "Hello! My name is Marie."
+    },
+    {
+     "text": "Salut !",
+     "meaning": "Hi!",
+     "example": "Salut ! Comment ça va ?",
+     "exampleMeaning": "Hi! How are you?"
+    },
+    {
+     "text": "Je suis...",
+     "meaning": "I am...",
+     "example": "Je suis anglais.",
+     "exampleMeaning": "I am English."
+    },
+    {
+     "text": "Et toi ?",
+     "meaning": "And you?",
+     "example": "Je suis de Paris. Et toi ?",
+     "exampleMeaning": "I am from Paris. And you?"
+    },
+    {
+     "text": "Enchanté(e) !",
+     "meaning": "Nice to meet you!",
+     "example": "Enchanté ! Je suis Paul.",
+     "exampleMeaning": "Nice to meet you! I am Paul."
+    },
+    {
+     "text": "D'où viens-tu ?",
+     "meaning": "Where are you from?",
+     "example": "D'où viens-tu ?",
+     "exampleMeaning": "Where are you from?"
+    }
+   ],
+   "tip": "In French, 'je suis' means 'I am'. Use it to introduce yourself. Remember to use 'tu' for informal situations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour !",
+     "meaning": "Hello!"
+    },
+    {
+     "speaker": "B",
+     "text": "Salut ! Je m'appelle Alex.",
+     "meaning": "Hi! My name is Alex."
+    },
+    {
+     "speaker": "A",
+     "text": "Enchanté ! D'où viens-tu ?",
+     "meaning": "Nice to meet you! Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis de Lyon.",
+     "meaning": "I am from Lyon."
+    },
+    {
+     "speaker": "A",
+     "text": "Je suis de Marseille. Et toi ?",
+     "meaning": "I am from Marseille. And you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis anglais.",
+     "meaning": "I am English."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friendly person you just met.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Start with a greeting. Say your name and where you are from. Ask the other person the same.",
+    "goal": "You should introduce yourself and ask about the other person."
+   }
+  },
+  {
+   "title": "Where Are You From?",
+   "items": [
+    {
+     "text": "Je viens de...",
+     "meaning": "I come from...",
+     "example": "Je viens de Londres.",
+     "exampleMeaning": "I come from London."
+    },
+    {
+     "text": "Et vous ?",
+     "meaning": "And you? (formal)",
+     "example": "Je suis de Nice. Et vous ?",
+     "exampleMeaning": "I am from Nice. And you?"
+    },
+    {
+     "text": "C'est un plaisir !",
+     "meaning": "It's a pleasure!",
+     "example": "C'est un plaisir de vous rencontrer.",
+     "exampleMeaning": "It's a pleasure to meet you."
+    },
+    {
+     "text": "Mon nom est...",
+     "meaning": "My name is...",
+     "example": "Mon nom est Sophie.",
+     "exampleMeaning": "My name is Sophie."
+    },
+    {
+     "text": "Comment vous appelez-vous ?",
+     "meaning": "What is your name? (formal)",
+     "example": "Comment vous appelez-vous ?",
+     "exampleMeaning": "What is your name?"
+    },
+    {
+     "text": "Je suis de...",
+     "meaning": "I am from...",
+     "example": "Je suis de Bordeaux.",
+     "exampleMeaning": "I am from Bordeaux."
+    }
+   ],
+   "tip": "Use 'je viens de' to say where you come from. For formal situations, use 'vous' instead of 'tu'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour ! Je suis de Toulouse.",
+     "meaning": "Hello! I am from Toulouse."
+    },
+    {
+     "speaker": "B",
+     "text": "Enchanté ! Je viens de Paris.",
+     "meaning": "Nice to meet you! I come from Paris."
+    },
+    {
+     "speaker": "A",
+     "text": "C'est un plaisir ! Comment vous appelez-vous ?",
+     "meaning": "It's a pleasure! What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mon nom est Julia.",
+     "meaning": "My name is Julia."
+    },
+    {
+     "speaker": "A",
+     "text": "Et vous ?",
+     "meaning": "And you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Je suis de Lyon.",
+     "meaning": "I am from Lyon."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a new acquaintance.",
+    "learnerRole": "You are talking about where you are from.",
+    "brief": "Ask A where they are from and respond with your own place. Use formal language.",
+    "goal": "You should ask about their name and share yours."
+   }
+  },
+  {
+   "title": "Introducing Yourself",
+   "items": [
+    {
+     "text": "Je m'appelle...",
+     "meaning": "My name is...",
+     "example": "Je m'appelle Thomas.",
+     "exampleMeaning": "My name is Thomas."
+    },
+    {
+     "text": "Enchanté(e) de vous rencontrer.",
+     "meaning": "Nice to meet you (formal).",
+     "example": "Enchanté de vous rencontrer, Monsieur.",
+     "exampleMeaning": "Nice to meet you, Sir."
+    },
+    {
+     "text": "Je suis étudiant(e).",
+     "meaning": "I am a student.",
+     "example": "Je suis étudiant à l'université.",
+     "exampleMeaning": "I am a student at the university."
+    },
+    {
+     "text": "Quel âge as-tu ?",
+     "meaning": "How old are you? (informal)",
+     "example": "Quel âge as-tu ?",
+     "exampleMeaning": "How old are you?"
+    },
+    {
+     "text": "J'ai... ans.",
+     "meaning": "I am... years old.",
+     "example": "J'ai vingt ans.",
+     "exampleMeaning": "I am twenty years old."
+    },
+    {
+     "text": "D'où êtes-vous ?",
+     "meaning": "Where are you from? (formal)",
+     "example": "D'où êtes-vous, Madame ?",
+     "exampleMeaning": "Where are you from, Ma'am?"
+    }
+   ],
+   "tip": "Use 'je m'appelle' to introduce your name. To ask someone's age, use 'quel âge as-tu?' for informal situations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Bonjour ! Je suis étudiant.",
+     "meaning": "Hello! I am a student."
+    },
+    {
+     "speaker": "B",
+     "text": "Je m'appelle Clara.",
+     "meaning": "My name is Clara."
+    },
+    {
+     "speaker": "A",
+     "text": "Enchanté de vous rencontrer, Clara.",
+     "meaning": "Nice to meet you, Clara."
+    },
+    {
+     "speaker": "B",
+     "text": "Quel âge as-tu ?",
+     "meaning": "How old are you?"
+    },
+    {
+     "speaker": "A",
+     "text": "J'ai dix-neuf ans.",
+     "meaning": "I am nineteen years old."
+    },
+    {
+     "speaker": "B",
+     "text": "D'où êtes-vous ?",
+     "meaning": "Where are you from?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a fellow student.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Introduce your name and age. Ask A about their age and where they are from.",
+    "goal": "You should share your name and ask about their age."
+   }
+  },
+  {
+   "title": "More Greetings!",
+   "items": [
+    {
+     "text": "Salut tout le monde !",
+     "meaning": "Hi everyone!",
+     "example": "Salut tout le monde !",
+     "exampleMeaning": "Hi everyone!"
+    },
+    {
+     "text": "À bientôt !",
+     "meaning": "See you soon!",
+     "example": "À bientôt, mes amis !",
+     "exampleMeaning": "See you soon, my friends!"
+    },
+    {
+     "text": "Comment ça va ?",
+     "meaning": "How's it going?",
+     "example": "Salut ! Comment ça va ?",
+     "exampleMeaning": "Hi! How's it going?"
+    },
+    {
+     "text": "Ça va bien, merci.",
+     "meaning": "I’m fine, thank you.",
+     "example": "Ça va bien, merci !",
+     "exampleMeaning": "I’m fine, thank you!"
+    },
+    {
+     "text": "Bienvenue !",
+     "meaning": "Welcome!",
+     "example": "Bienvenue à la fête !",
+     "exampleMeaning": "Welcome to the party!"
+    },
+    {
+     "text": "À demain !",
+     "meaning": "See you tomorrow!",
+     "example": "À demain !",
+     "exampleMeaning": "See you tomorrow!"
+    }
+   ],
+   "tip": "'Salut tout le monde' is a friendly way to greet a group. Use 'à bientôt' to say goodbye.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Salut tout le monde !",
+     "meaning": "Hi everyone!"
+    },
+    {
+     "speaker": "B",
+     "text": "Salut ! Comment ça va ?",
+     "meaning": "Hi! How's it going?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ça va bien, merci.",
+     "meaning": "I’m fine, thank you."
+    },
+    {
+     "speaker": "B",
+     "text": "À bientôt !",
+     "meaning": "See you soon!"
+    },
+    {
+     "speaker": "A",
+     "text": "Bienvenue à la fête !",
+     "meaning": "Welcome to the party!"
+    },
+    {
+     "speaker": "B",
+     "text": "À demain !",
+     "meaning": "See you tomorrow!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend at a gathering.",
+    "learnerRole": "You are greeting everyone and saying goodbye.",
+    "brief": "Greet everyone and ask how they are doing. Say goodbye to a friend.",
+    "goal": "You should greet the group and say goodbye."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 1 Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Bonjour ! Je suis de Marseille.",
+    "meaning": "Hello! I am from Marseille."
+   },
+   {
+    "speaker": "B",
+    "text": "Salut ! Je m'appelle Sarah.",
+    "meaning": "Hi! My name is Sarah."
+   },
+   {
+    "speaker": "A",
+    "text": "Enchanté ! D'où viens-tu ?",
+    "meaning": "Nice to meet you! Where are you from?"
+   },
+   {
+    "speaker": "B",
+    "text": "Je viens de Lyon.",
+    "meaning": "I come from Lyon."
+   },
+   {
+    "speaker": "A",
+    "text": "Comment ça va ?",
+    "meaning": "How's it going?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ça va bien, merci !",
+    "meaning": "I’m fine, thank you!"
+   },
+   {
+    "speaker": "A",
+    "text": "À bientôt !",
+    "meaning": "See you soon!"
+   },
+   {
+    "speaker": "B",
+    "text": "À demain !",
+    "meaning": "See you tomorrow!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a new friend you met at an event.",
+   "learnerRole": "You are practicing your greetings and introductions.",
+   "brief": "Engage in a conversation with A, using greetings, introductions, and farewells. Make sure to ask about where they are from.",
+   "goal": "You should confidently introduce yourself and ask questions."
+  }
+ }
+}

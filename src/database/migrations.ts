@@ -8,7 +8,7 @@ export type Migration = {
 };
 
 /** Bump as migrations are appended; the runner compares against `user_version`. */
-export const LATEST_SCHEMA_VERSION = 3;
+export const LATEST_SCHEMA_VERSION = 4;
 
 export const MIGRATIONS: readonly Migration[] = [
   {
@@ -116,6 +116,19 @@ export const MIGRATIONS: readonly Migration[] = [
       );`,
       `CREATE INDEX IF NOT EXISTS idx_academy_results_course
         ON ${TABLES.academyResults} (course_id, kind, created_at DESC);`,
+    ],
+  },
+  {
+    version: 4,
+    name: 'academy_active_course',
+    statements: [
+      // Several courses can be under way; the one opened last is shown. A
+      // table of its own rather than a new column, so the migration can run
+      // again safely: SQLite has no "add column if missing".
+      `CREATE TABLE IF NOT EXISTS ${TABLES.academyOpened} (
+        course_id TEXT PRIMARY KEY NOT NULL,
+        opened_at INTEGER NOT NULL
+      );`,
     ],
   },
 ];

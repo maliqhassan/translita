@@ -99,14 +99,6 @@ export const ADMOB = {
   appOpenAdUnit: 'ca-app-pub-3453858576340434/2315390268',
 } as const;
 
-/**
- * The AI Academy. One course at launch, Learn English; a second course is a
- * new course id with its own content, and its progress is kept apart by it.
- */
-export const ACADEMY = {
-  courseId: 'en',
-} as const;
-
 export const PRO_PLANS = {
   monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.99', period: 'month' },
   yearly: { productId: 'translita_pro_yearly', displayPrice: '$9.99', period: 'year' },

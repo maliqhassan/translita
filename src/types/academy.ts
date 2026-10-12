@@ -14,15 +14,16 @@ export type LearningGoal = 'travel' | 'business' | 'conversation';
 export type LearningLevel = 'beginner' | 'some';
 
 /**
- * How the learner wants to be spoken to, for languages whose verbs change with
- * the speaker (Urdu, Hindi, Arabic). Optional: unspecified uses the course's
- * default form.
+ * How the learner wants to be addressed, for languages where some words change
+ * with the speaker ("je suis prêt" / "je suis prête"). Optional: unspecified
+ * uses forms that work for anyone where the language has them.
  */
 export type AddressForm = 'male' | 'female' | 'unspecified';
 
 export type Enrollment = {
+  /** The language being learned, which is also the course id: `de`, `fr`, `es`. */
   courseId: string;
-  /** The app language the course is explained in. */
+  /** The language the course is taught from. Always English for now. */
   baseLanguage: string;
   goal: LearningGoal;
   level: LearningLevel;
@@ -32,6 +33,8 @@ export type Enrollment = {
   /** The first day of their path: 1, or later after a placement quiz. */
   startDay: number;
   startedAt: number;
+  /** The course shown is the one opened last; switching courses updates this. */
+  lastOpenedAt: number;
   /** Set once the final exam is passed. */
   completedAt?: number;
 };

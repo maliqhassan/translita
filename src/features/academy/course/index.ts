@@ -1,15 +1,21 @@
-import { isAppLanguage } from '@/i18n';
-
-import { ENGLISH_CHAPTERS } from './en';
-import type { BaseLanguage, CourseChapter, CourseLesson, Localized } from './types';
-import { BASE_LANGUAGES } from './validate';
+import { COURSES } from './courses';
+import type { Course, CourseChapter, CourseLesson } from './types';
 
 export * from './types';
-export { BASE_LANGUAGES, COURSE_DAYS, COURSE_SHAPE } from './validate';
+export { COURSE_DAYS, COURSE_SHAPE, validateChapter } from './validate';
+
+/** Every course this build ships, in the order the app lists them. */
+export function availableCourses(): readonly Course[] {
+  return COURSES;
+}
+
+export function findCourse(courseId: string): Course | undefined {
+  return COURSES.find((course) => course.id === courseId);
+}
 
 /** The chapters of a course that ship in this build. */
 export function courseChapters(courseId: string): readonly CourseChapter[] {
-  return courseId === 'en' ? ENGLISH_CHAPTERS : [];
+  return findCourse(courseId)?.chapters ?? [];
 }
 
 /** Every lesson of a course, in day order. */
@@ -23,14 +29,4 @@ export function findLesson(courseId: string, lessonId: string): CourseLesson | u
 
 export function lessonForDay(courseId: string, day: number): CourseLesson | undefined {
   return courseLessons(courseId).find((lesson) => lesson.day === day);
-}
-
-/** Whether a language can be a course's base: an app language other than English. */
-export function isBaseLanguage(code: string): code is BaseLanguage {
-  return isAppLanguage(code) && BASE_LANGUAGES.includes(code as BaseLanguage);
-}
-
-/** A course text in the learner's own language, or the English when it has none. */
-export function inBase(text: Localized, base: string, english: string): string {
-  return isBaseLanguage(base) ? text[base] || english : english;
 }

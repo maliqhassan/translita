@@ -51,12 +51,13 @@ const enrollment = (over: Partial<Enrollment> = {}): Enrollment => ({
   addressAs: 'unspecified',
   startDay: 1,
   startedAt: NOW,
+  lastOpenedAt: NOW,
   ...over,
 });
 
 describe('migration 3: the Academy tables', () => {
   it('is the latest schema version', () => {
-    assert.equal(LATEST_SCHEMA_VERSION, 3);
+    assert.equal(LATEST_SCHEMA_VERSION, 4);
   });
 
   it('creates every Academy table', async () => {
@@ -89,6 +90,18 @@ describe('migration 3: the Academy tables', () => {
 });
 
 describe('the Academy repository', () => {
+  it('lists courses with the one opened last first, and switches between them', async () => {
+    const { repository } = await freshRepository();
+    unwrap(await repository.saveEnrollment(enrollment({ courseId: 'de', lastOpenedAt: NOW })));
+    unwrap(await repository.saveEnrollment(enrollment({ courseId: 'fr', lastOpenedAt: NOW + 1 })));
+    assert.deepEqual(
+      unwrap(await repository.listEnrollments()).map((entry) => entry.courseId),
+      ['fr', 'de'],
+    );
+    unwrap(await repository.openCourse('de', NOW + 2));
+    assert.equal(unwrap(await repository.listEnrollments())[0]?.courseId, 'de');
+  });
+
   it('refuses to read or write before it is initialised', async () => {
     const repository = createAcademyRepository(createNodeSQLiteDatabase());
     const read = await repository.getEnrollment('en');

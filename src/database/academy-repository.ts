@@ -34,7 +34,11 @@ export type AcademyRepository = {
   isReady(): boolean;
 
   getEnrollment(courseId: string): ServiceResult<Enrollment | null>;
+  /** Every course started, the one opened most recently first. */
+  listEnrollments(): ServiceResult<Enrollment[]>;
   saveEnrollment(enrollment: Enrollment): ServiceResult<void>;
+  /** Makes a started course the one shown, by marking it opened now. */
+  openCourse(courseId: string, now: number): ServiceResult<void>;
 
   listProgress(courseId: string): ServiceResult<LessonProgress[]>;
   /**
@@ -99,6 +103,7 @@ function toEnrollment(row: unknown): Enrollment | null {
   const addressAs = oneOf(row.address_as, ADDRESS);
   const startDay = num(row.start_day);
   const startedAt = num(row.started_at);
+  const lastOpenedAt = num(row.last_opened_at) ?? 0;
   if (
     !courseId ||
     !baseLanguage ||
@@ -121,6 +126,7 @@ function toEnrollment(row: unknown): Enrollment | null {
     addressAs,
     startDay,
     startedAt,
+    lastOpenedAt,
     ...(completedAt !== undefined ? { completedAt } : {}),
   };
 }
@@ -212,6 +218,11 @@ function toResult(row: unknown): AcademyResult | null {
   };
 }
 
+/** Enrollments with when each was last opened. */
+const ENROLLMENTS = `SELECT e.*, COALESCE(o.opened_at, 0) AS last_opened_at
+  FROM ${TABLES.academyEnrollment} e
+  LEFT JOIN ${TABLES.academyOpened} o ON o.course_id = e.course_id`;
+
 const mapRows = <T>(rows: readonly unknown[], map: (row: unknown) => T | null): T[] =>
   rows.map(map).filter((value): value is T => value !== null);
 
@@ -268,31 +279,59 @@ export function createAcademyRepository(database: Database): AcademyRepository {
 
     async getEnrollment(courseId) {
       const rows = await read(
-        `SELECT * FROM ${TABLES.academyEnrollment} WHERE course_id = ? LIMIT 1;`,
+        `${ENROLLMENTS} WHERE e.course_id = ? LIMIT 1;`,
         [courseId],
         toEnrollment,
       );
       return rows.ok ? ok(rows.value[0] ?? null) : rows;
     },
 
-    saveEnrollment(enrollment) {
+    listEnrollments() {
+      return read(
+        `${ENROLLMENTS} ORDER BY last_opened_at DESC, e.started_at DESC;`,
+        [],
+        toEnrollment,
+      );
+    },
+
+    openCourse(courseId, now) {
       return write(
-        `INSERT OR REPLACE INTO ${TABLES.academyEnrollment}
+        `INSERT OR REPLACE INTO ${TABLES.academyOpened} (course_id, opened_at) VALUES (?, ?);`,
+        [courseId, now],
+      );
+    },
+
+    async saveEnrollment(enrollment) {
+      const guard = requireReady();
+      if (!guard.ok) return guard;
+      // The enrollment and when it was opened, together or not at all.
+      const saved = await database.transaction(async (tx) => {
+        const opened = await tx.execute(
+          `INSERT OR REPLACE INTO ${TABLES.academyOpened} (course_id, opened_at) VALUES (?, ?);`,
+          [enrollment.courseId, enrollment.lastOpenedAt],
+        );
+        if (!opened.ok) throw opened.error;
+        const written = await tx.execute(
+          `INSERT OR REPLACE INTO ${TABLES.academyEnrollment}
           (course_id, base_language, goal, level, minutes_per_day, address_as,
            start_day, started_at, completed_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`,
-        [
-          enrollment.courseId,
-          enrollment.baseLanguage,
-          enrollment.goal,
-          enrollment.level,
-          enrollment.minutesPerDay,
-          enrollment.addressAs,
-          enrollment.startDay,
-          enrollment.startedAt,
-          enrollment.completedAt ?? null,
-        ],
-      );
+          [
+            enrollment.courseId,
+            enrollment.baseLanguage,
+            enrollment.goal,
+            enrollment.level,
+            enrollment.minutesPerDay,
+            enrollment.addressAs,
+            enrollment.startDay,
+            enrollment.startedAt,
+            enrollment.completedAt ?? null,
+          ],
+        );
+        if (!written.ok) throw written.error;
+      });
+      if (saved.ok) notify();
+      return saved;
     },
 
     listProgress(courseId) {
@@ -470,6 +509,7 @@ export function createAcademyRepository(database: Database): AcademyRepository {
         TABLES.academyItems,
         TABLES.academyPosition,
         TABLES.academyResults,
+        TABLES.academyOpened,
       ];
       const cleared = await database.transaction(async (tx) => {
         for (const table of tables) {
