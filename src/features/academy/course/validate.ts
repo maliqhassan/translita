@@ -10,6 +10,18 @@ export const COURSE_SHAPE = {
 
 export const COURSE_DAYS = COURSE_SHAPE.chapters * COURSE_SHAPE.daysPerChapter;
 
+/**
+ * A phrase as compared for repeats: case, punctuation, quotes and the "…" of
+ * an unfinished phrase ignored, so 'Soy de' and 'Soy de ...' are one phrase.
+ */
+export const phraseKey = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/\.{2,}|…/g, ' ')
+    .replace(/[.,!?¿¡;:"'«»“”‘’()]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 const pad = (n: number) => String(n).padStart(2, '0');
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -83,7 +95,7 @@ export function validateChapter(chapter: unknown, expectedNumber?: number): stri
         text(item.meaning, `${itemAt}.meaning`);
         text(item.example, `${itemAt}.example`);
         text(item.exampleMeaning, `${itemAt}.exampleMeaning`);
-        const key = String(item.text).trim().toLowerCase();
+        const key = phraseKey(String(item.text));
         if (seenItems.has(key)) {
           fail(`${itemAt}.text`, `"${String(item.text)}" twice in the chapter`);
         }

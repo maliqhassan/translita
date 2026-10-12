@@ -1,376 +1,376 @@
 {
- "title": "Greetings and Introductions",
+ "title": "Chapter 1: Greetings and Introductions",
  "lessons": [
   {
    "title": "Hello and Goodbye",
    "items": [
     {
-     "text": "'Hola'",
-     "meaning": "Hello",
-     "example": "'Hola, ¿cómo estás?','Hello, how are you?'",
+     "text": "hola",
+     "meaning": "hello",
+     "example": "Hola, ¿cómo estás?",
      "exampleMeaning": "Hello, how are you?"
     },
     {
-     "text": "'Adiós'",
-     "meaning": "Goodbye",
-     "example": "'Adiós, hasta luego.','Goodbye, see you later.'",
+     "text": "adiós",
+     "meaning": "goodbye",
+     "example": "Adiós, hasta luego.",
      "exampleMeaning": "Goodbye, see you later."
     },
     {
-     "text": "'Buenos días'",
-     "meaning": "Good morning",
-     "example": "'Buenos días, señora.','Good morning, ma'am.'",
-     "exampleMeaning": "Good morning, ma'am."
+     "text": "buenos días",
+     "meaning": "good morning",
+     "example": "Buenos días, ¿qué tal?",
+     "exampleMeaning": "Good morning, how's it going?"
     },
     {
-     "text": "'Buenas tardes'",
-     "meaning": "Good afternoon",
-     "example": "'Buenas tardes, amigos.','Good afternoon, friends.'",
-     "exampleMeaning": "Good afternoon, friends."
+     "text": "buenas tardes",
+     "meaning": "good afternoon",
+     "example": "Buenas tardes, ¿cómo te va?",
+     "exampleMeaning": "Good afternoon, how's it going for you?"
     },
     {
-     "text": "'Buenas noches'",
-     "meaning": "Good evening / Good night",
-     "example": "'Buenas noches, ¿cómo fue tu día?','Good evening, how was your day?'",
-     "exampleMeaning": "Good evening, how was your day?"
+     "text": "buenas noches",
+     "meaning": "good evening/night",
+     "example": "Buenas noches, que descanses.",
+     "exampleMeaning": "Good evening, sleep well."
     },
     {
-     "text": "'¿Cómo estás?'",
-     "meaning": "How are you?",
-     "example": "'¿Cómo estás? Estoy bien.','How are you? I am fine.'",
-     "exampleMeaning": "How are you? I am fine."
+     "text": "¿qué tal?",
+     "meaning": "how's it going?",
+     "example": "Hola, ¿qué tal?",
+     "exampleMeaning": "Hello, how's it going?"
     }
    ],
-   "tip": "Use 'Hola' at any time of day. 'Buenos días' is used in the morning, 'Buenas tardes' in the afternoon, and 'Buenas noches' in the evening.",
+   "tip": "Use 'hola' for friendly greetings. 'Adiós' is for saying goodbye. Remember to use 'buenos días' in the morning, 'buenas tardes' in the afternoon, and 'buenas noches' at night.",
    "dialogue": [
     {
      "speaker": "A",
-     "text": "'Hola, ¿cómo te llamas?'",
-     "meaning": "Hello, what is your name?"
+     "text": "Hola, ¿qué tal?",
+     "meaning": "Hello, how's it going?"
     },
     {
      "speaker": "B",
-     "text": "'Hola, me llamo Alex.'",
-     "meaning": "Hello, my name is Alex."
+     "text": "Hola, estoy bien, gracias.",
+     "meaning": "Hello, I am good, thank you."
     },
     {
      "speaker": "A",
-     "text": "'Mucho gusto, Alex.'",
-     "meaning": "Nice to meet you, Alex."
+     "text": "Buenos días, ¿cómo estás?",
+     "meaning": "Good morning, how are you?"
     },
     {
      "speaker": "B",
-     "text": "'Mucho gusto.'",
-     "meaning": "Nice to meet you."
+     "text": "Buenos días, estoy un poco cansado.",
+     "meaning": "Good morning, I am a little tired."
     },
     {
      "speaker": "A",
-     "text": "'¿De dónde eres?'",
+     "text": "Adiós, hasta luego.",
+     "meaning": "Goodbye, see you later."
+    },
+    {
+     "speaker": "B",
+     "text": "Adiós, que tengas un buen día.",
+     "meaning": "Goodbye, have a good day."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friendly person who greets someone.",
+    "learnerRole": "You are meeting someone new.",
+    "brief": "Saluda a la otra persona y pregúntale cómo está.",
+    "goal": "You need to greet the person and ask how they are."
+   }
+  },
+  {
+   "title": "My Name Is...",
+   "items": [
+    {
+     "text": "me llamo",
+     "meaning": "my name is",
+     "example": "Me llamo Ana.",
+     "exampleMeaning": "My name is Ana."
+    },
+    {
+     "text": "¿cómo te llamas?",
+     "meaning": "what's your name?",
+     "example": "Hola, ¿cómo te llamas?",
+     "exampleMeaning": "Hello, what's your name?"
+    },
+    {
+     "text": "encantado/a",
+     "meaning": "nice to meet you",
+     "example": "Encantado de conocerte.",
+     "exampleMeaning": "Nice to meet you."
+    },
+    {
+     "text": "soy de",
+     "meaning": "I am from",
+     "example": "Soy de México.",
+     "exampleMeaning": "I am from Mexico."
+    },
+    {
+     "text": "¿de dónde eres?",
+     "meaning": "where are you from?",
+     "example": "¿De dónde eres tú?",
+     "exampleMeaning": "Where are you from?"
+    },
+    {
+     "text": "mucho gusto",
+     "meaning": "pleasure to meet you",
+     "example": "Mucho gusto, Ana.",
+     "exampleMeaning": "Pleasure to meet you, Ana."
+    }
+   ],
+   "tip": "Use 'me llamo' to introduce your name. To ask someone their name, use '¿cómo te llamas?'. 'Encantado/a' is a polite way to express that you are pleased to meet someone.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿cómo te llamas?",
+     "meaning": "Hello, what's your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Me llamo Sam.",
+     "meaning": "My name is Sam."
+    },
+    {
+     "speaker": "A",
+     "text": "Encantado de conocerte, Sam.",
+     "meaning": "Nice to meet you, Sam."
+    },
+    {
+     "speaker": "B",
+     "text": "Igualmente, encantado de conocerte.",
+     "meaning": "Likewise, nice to meet you."
+    },
+    {
+     "speaker": "A",
+     "text": "¿De dónde eres?",
      "meaning": "Where are you from?"
     },
     {
      "speaker": "B",
-     "text": "'Soy de México.'",
-     "meaning": "I am from Mexico."
+     "text": "Soy de España.",
+     "meaning": "I am from Spain."
     }
    ],
    "scenario": {
-    "partnerRole": "A is a friendly person meeting you.",
-    "learnerRole": "You are Alex from Mexico.",
-    "brief": "A greets you and asks your name and where you are from. Respond politely.",
-    "goal": "You should introduce yourself and say where you are from."
-   }
-  },
-  {
-   "title": "Using 'To Be'",
-   "items": [
-    {
-     "text": "'Soy'",
-     "meaning": "I am",
-     "example": "'Soy estudiante.','I am a student.'",
-     "exampleMeaning": "I am a student."
-    },
-    {
-     "text": "'Eres'",
-     "meaning": "You are (informal)",
-     "example": "'Eres mi amigo.','You are my friend.'",
-     "exampleMeaning": "You are my friend."
-    },
-    {
-     "text": "'Es'",
-     "meaning": "He/She is / It is",
-     "example": "'Es mi hermana.','She is my sister.'",
-     "exampleMeaning": "She is my sister."
-    },
-    {
-     "text": "'Somos'",
-     "meaning": "We are",
-     "example": "'Somos compañeros.','We are classmates.'",
-     "exampleMeaning": "We are classmates."
-    },
-    {
-     "text": "'Son'",
-     "meaning": "They are / You are (formal)",
-     "example": "'Son mis padres.','They are my parents.'",
-     "exampleMeaning": "They are my parents."
-    },
-    {
-     "text": "'¿Eres de aquí?'",
-     "meaning": "Are you from here?",
-     "example": "'¿Eres de aquí? Soy de México.','Are you from here? I am from Mexico.'",
-     "exampleMeaning": "Are you from here? I am from Mexico."
-    }
-   ],
-   "tip": "Use 'soy' for yourself, 'eres' for friends, and 'es' for others. 'Son' is for plural subjects.",
-   "dialogue": [
-    {
-     "speaker": "A",
-     "text": "'¿Eres de aquí?'",
-     "meaning": "Are you from here?"
-    },
-    {
-     "speaker": "B",
-     "text": "'No, soy de México.'",
-     "meaning": "No, I am from Mexico."
-    },
-    {
-     "speaker": "A",
-     "text": "'¿Eres estudiante?'",
-     "meaning": "Are you a student?"
-    },
-    {
-     "speaker": "B",
-     "text": "'Sí, soy estudiante.'",
-     "meaning": "Yes, I am a student."
-    },
-    {
-     "speaker": "A",
-     "text": "'¿Y tú, de dónde eres?'",
-     "meaning": "And you, where are you from?"
-    },
-    {
-     "speaker": "B",
-     "text": "'Soy de México.'",
-     "meaning": "I am from Mexico."
-    }
-   ],
-   "scenario": {
-    "partnerRole": "A is curious about your background.",
-    "learnerRole": "You are a student from Mexico.",
-    "brief": "A asks you if you are from here and about your studies. Respond with your information.",
-    "goal": "You should explain where you are from and your student status."
-   }
-  },
-  {
-   "title": "Talking About Yourself",
-   "items": [
-    {
-     "text": "'Me llamo'",
-     "meaning": "My name is",
-     "example": "'Me llamo María.','My name is Maria.'",
-     "exampleMeaning": "My name is Maria."
-    },
-    {
-     "text": "'Tengo'",
-     "meaning": "I have",
-     "example": "'Tengo un perro.','I have a dog.'",
-     "exampleMeaning": "I have a dog."
-    },
-    {
-     "text": "'Vivo'",
-     "meaning": "I live",
-     "example": "'Vivo en la ciudad.','I live in the city.'",
-     "exampleMeaning": "I live in the city."
-    },
-    {
-     "text": "'Tengo ... años'",
-     "meaning": "I am ... years old",
-     "example": "'Tengo veinte años.','I am twenty years old.'",
-     "exampleMeaning": "I am twenty years old."
-    },
-    {
-     "text": "'Soy de'",
-     "meaning": "I am from",
-     "example": "'Soy de España.','I am from Spain.'",
-     "exampleMeaning": "I am from Spain."
-    },
-    {
-     "text": "'¿Cuántos años tienes?'",
-     "meaning": "How old are you?",
-     "example": "'¿Cuántos años tienes? Tengo veinte años.','How old are you? I am twenty years old.'",
-     "exampleMeaning": "How old are you? I am twenty years old."
-    }
-   ],
-   "tip": "Use 'Me llamo' to introduce your name. 'Tengo' is used for age and possessions.",
-   "dialogue": [
-    {
-     "speaker": "A",
-     "text": "'¿Cuántos años tienes?'",
-     "meaning": "How old are you?"
-    },
-    {
-     "speaker": "B",
-     "text": "'Tengo veinticinco años.'",
-     "meaning": "I am twenty-five years old."
-    },
-    {
-     "speaker": "A",
-     "text": "'¿Te llamas María?'",
-     "meaning": "Is your name Maria?"
-    },
-    {
-     "speaker": "B",
-     "text": "'No, me llamo Alex.'",
-     "meaning": "No, my name is Alex."
-    },
-    {
-     "speaker": "A",
-     "text": "'¿Dónde vives?'",
-     "meaning": "Where do you live?"
-    },
-    {
-     "speaker": "B",
-     "text": "'Vivo en México.'",
-     "meaning": "I live in Mexico."
-    }
-   ],
-   "scenario": {
-    "partnerRole": "A wants to learn more about you.",
-    "learnerRole": "You are Alex, living in Mexico.",
-    "brief": "A asks about your age, name, and where you live. Respond with your details.",
-    "goal": "You should share your name, age, and where you live."
+    "partnerRole": "You are a friendly person asking for names.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Pregúntale a la otra persona su nombre y di el tuyo.",
+    "goal": "You need to introduce yourself and ask for their name."
    }
   },
   {
    "title": "Where Are You From?",
    "items": [
     {
-     "text": "'¿De dónde eres?'",
-     "meaning": "Where are you from?",
-     "example": "'¿De dónde eres? Soy de Perú.','Where are you from? I am from Peru.'",
-     "exampleMeaning": "Where are you from? I am from Peru."
+     "text": "somos",
+     "meaning": "we are",
+     "example": "Nosotros somos amigos.",
+     "exampleMeaning": "We are friends."
     },
     {
-     "text": "'Soy de ...'",
-     "meaning": "I am from ...",
-     "example": "'Soy de Argentina.','I am from Argentina.'",
-     "exampleMeaning": "I am from Argentina."
+     "text": "eres",
+     "meaning": "you are (informal)",
+     "example": "Tú eres muy amable.",
+     "exampleMeaning": "You are very kind."
     },
     {
-     "text": "'¿Y tú?'",
-     "meaning": "And you?",
-     "example": "'Soy de Brasil. ¿Y tú?','I am from Brazil. And you?'",
-     "exampleMeaning": "I am from Brazil. And you?"
+     "text": "es",
+     "meaning": "he/she/it is",
+     "example": "Ella es doctora.",
+     "exampleMeaning": "She is a doctor."
     },
     {
-     "text": "'¿Eres de ...?'",
-     "meaning": "Are you from ...?",
-     "example": "'¿Eres de Colombia?','Are you from Colombia?'",
-     "exampleMeaning": "Are you from Colombia?"
+     "text": "soy",
+     "meaning": "I am",
+     "example": "Yo soy estudiante.",
+     "exampleMeaning": "I am a student."
     },
     {
-     "text": "'Sí, soy de ...'",
-     "meaning": "Yes, I am from ...",
-     "example": "'Sí, soy de Chile.','Yes, I am from Chile.'",
-     "exampleMeaning": "Yes, I am from Chile."
+     "text": "¿quién es?",
+     "meaning": "who is he/she?",
+     "example": "¿Quién es tu amigo?",
+     "exampleMeaning": "Who is your friend?"
     },
     {
-     "text": "'No, no soy de ...'",
-     "meaning": "No, I am not from ...",
-     "example": "'No, no soy de México.','No, I am not from Mexico.'",
-     "exampleMeaning": "No, I am not from Mexico."
+     "text": "¿son?",
+     "meaning": "are they?",
+     "example": "¿Son tus hermanos?",
+     "exampleMeaning": "Are they your siblings?"
     }
    ],
-   "tip": "Use '¿De dónde eres?' to ask someone where they are from. You can respond with 'Soy de ...'.",
+   "tip": "Use 'soy' to say who you are. 'Eres' is used for informal situations when talking to someone directly. 'Es' is for he, she, or it.",
    "dialogue": [
     {
      "speaker": "A",
-     "text": "'¿De dónde eres?'",
+     "text": "¿De dónde eres tú?",
      "meaning": "Where are you from?"
     },
     {
      "speaker": "B",
-     "text": "'Soy de Colombia.'",
-     "meaning": "I am from Colombia."
+     "text": "Soy de Argentina.",
+     "meaning": "I am from Argentina."
     },
     {
      "speaker": "A",
-     "text": "'¿Eres de aquí?'",
-     "meaning": "Are you from here?"
-    },
-    {
-     "speaker": "B",
-     "text": "'No, no soy de aquí.'",
-     "meaning": "No, I am not from here."
-    },
-    {
-     "speaker": "A",
-     "text": "'¿Y tú, de dónde eres?'",
+     "text": "¿Y tú, de dónde eres?",
      "meaning": "And you, where are you from?"
     },
     {
      "speaker": "B",
-     "text": "'Soy de Perú.'",
+     "text": "Soy de Perú.",
      "meaning": "I am from Peru."
+    },
+    {
+     "speaker": "A",
+     "text": "Nosotros somos amigos, ¿verdad?",
+     "meaning": "We are friends, right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sí, somos amigos.",
+     "meaning": "Yes, we are friends."
     }
    ],
    "scenario": {
-    "partnerRole": "A is curious about your origin.",
-    "learnerRole": "You are from Colombia or Peru.",
-    "brief": "A asks where you are from and if you are from there. Respond with your origin.",
-    "goal": "You should explain where you are from."
+    "partnerRole": "You are asking someone where they are from.",
+    "learnerRole": "You are answering and talking about your origin.",
+    "brief": "Pregúntale a la otra persona de dónde es y di de dónde eres tú.",
+    "goal": "You need to ask where they are from and tell them your origin."
+   }
+  },
+  {
+   "title": "Nice to Meet You!",
+   "items": [
+    {
+     "text": "gusto",
+     "meaning": "pleasure",
+     "example": "Es un gusto conocerte.",
+     "exampleMeaning": "It is a pleasure to meet you."
+    },
+    {
+     "text": "¿cómo estás?",
+     "meaning": "how are you?",
+     "example": "¿Cómo estás hoy?",
+     "exampleMeaning": "How are you today?"
+    },
+    {
+     "text": "bien",
+     "meaning": "well",
+     "example": "Estoy bien, gracias.",
+     "exampleMeaning": "I am well, thank you."
+    },
+    {
+     "text": "mal",
+     "meaning": "badly",
+     "example": "No estoy mal, gracias.",
+     "exampleMeaning": "I am not badly, thank you."
+    },
+    {
+     "text": "regular",
+     "meaning": "okay",
+     "example": "Estoy regular.",
+     "exampleMeaning": "I am okay."
+    },
+    {
+     "text": "¿y tú?",
+     "meaning": "and you?",
+     "example": "Estoy bien, ¿y tú?",
+     "exampleMeaning": "I am well, and you?"
+    }
+   ],
+   "tip": "Use 'gusto' to express pleasure. When asking someone how they are, use '¿cómo estás?'. You can reply with 'bien', 'mal', or 'regular' depending on how you feel.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hola, ¿cómo estás?",
+     "meaning": "Hello, how are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Estoy bien, gracias. ¿Y tú?",
+     "meaning": "I am well, thank you. And you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Estoy regular.",
+     "meaning": "I am okay."
+    },
+    {
+     "speaker": "B",
+     "text": "Es un gusto conocerte.",
+     "meaning": "It is a pleasure to meet you."
+    },
+    {
+     "speaker": "A",
+     "text": "Igualmente, es un gusto conocerte.",
+     "meaning": "Likewise, it is a pleasure to meet you."
+    },
+    {
+     "speaker": "B",
+     "text": "¿Cómo te va?",
+     "meaning": "How is it going for you?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are having a friendly conversation.",
+    "learnerRole": "You are responding to greetings and asking how the other person is.",
+    "brief": "Responde a la otra persona y pregunta cómo le va.",
+    "goal": "You need to respond to their greeting and ask how they are."
    }
   }
  ],
  "review": {
-  "title": "Chapter 1 Review",
+  "title": "Chapter 1 Summary",
   "dialogue": [
    {
     "speaker": "A",
-    "text": "'Hola, ¿cómo estás?'",
-    "meaning": "Hello, how are you?"
+    "text": "Hola, ¿qué tal?",
+    "meaning": "Hello, how's it going?"
    },
    {
     "speaker": "B",
-    "text": "'Estoy bien, gracias. ¿Y tú?'",
-    "meaning": "I am fine, thank you. And you?"
+    "text": "Hola, estoy bien. Me llamo María.",
+    "meaning": "Hello, I am good. My name is María."
    },
    {
     "speaker": "A",
-    "text": "'¿Cómo te llamas?'",
-    "meaning": "What is your name?"
+    "text": "Encantado de conocerte, María. ¿De dónde eres?",
+    "meaning": "Nice to meet you, María. Where are you from?"
    },
    {
     "speaker": "B",
-    "text": "'Me llamo María.'",
-    "meaning": "My name is Maria."
+    "text": "Soy de Perú. ¿Y tú?",
+    "meaning": "I am from Peru. And you?"
    },
    {
     "speaker": "A",
-    "text": "'¿De dónde eres?'",
-    "meaning": "Where are you from?"
+    "text": "Soy de México. ¿Cómo estás?",
+    "meaning": "I am from Mexico. How are you?"
    },
    {
     "speaker": "B",
-    "text": "'Soy de Argentina.'",
-    "meaning": "I am from Argentina."
+    "text": "Estoy regular, gracias. ¿Y tú?",
+    "meaning": "I am okay, thank you. And you?"
    },
    {
     "speaker": "A",
-    "text": "'¿Cuántos años tienes?'",
-    "meaning": "How old are you?"
+    "text": "Estoy bien. Adiós, hasta luego.",
+    "meaning": "I am well. Goodbye, see you later."
    },
    {
     "speaker": "B",
-    "text": "'Tengo veinte años.'",
-    "meaning": "I am twenty years old."
+    "text": "Adiós, que tengas un buen día.",
+    "meaning": "Goodbye, have a good day."
    }
   ],
   "scenario": {
-   "partnerRole": "A is a new friend.",
-   "learnerRole": "You are María from Argentina, twenty years old.",
-   "brief": "A will ask you about your name, where you are from, and your age. Respond with your details.",
-   "goal": "You should introduce yourself and answer all questions."
+   "partnerRole": "You are having a friendly conversation with someone you just met.",
+   "learnerRole": "You are introducing yourself and getting to know the other person.",
+   "brief": "Usa saludos, presenta tu nombre y pregunta sobre su origen y cómo están.",
+   "goal": "You need to greet, introduce your name, and ask about their origin and how they are."
   }
  }
 }

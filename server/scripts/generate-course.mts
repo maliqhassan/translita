@@ -101,6 +101,22 @@ const SYLLABUS = [
 
 const DAYS = 5;
 
+/** As the app compares phrases for repeats (`phraseKey` in the course validator). */
+const phraseKey = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/\.{2,}|…/g, ' ')
+    .replace(/[.,!?¿¡;:"'«»“”‘’()]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+/** Takes off quotes wrapped round a whole text: quotes belong in tips only. */
+const unquote = (text: string) => {
+  const trimmed = text.trim();
+  const match = /^(['"«“‘])([\s\S]*)(['"»”’])$/.exec(trimmed);
+  return match ? match[2]!.trim() : trimmed;
+};
+
 // --- OpenAI ------------------------------------------------------------------
 
 async function ask<T>(
@@ -226,7 +242,7 @@ function shapeProblems(chapter: DraftChapter): string[] {
   const seen = new Set<string>();
   for (const lesson of chapter.lessons) {
     for (const item of lesson.items) {
-      const key = item.text.trim().toLowerCase();
+      const key = phraseKey(item.text);
       if (seen.has(key)) problems.push(`"${item.text}" twice`);
       seen.add(key);
     }
@@ -254,7 +270,7 @@ async function writeChapter(
     '(2) Each example uses the item with exactly the meaning given, and each meaning is the natural English equivalent.',
     '(3) Dialogues sound like real people talking.',
     '(4) Line B is the learner: avoid lines where B must state their own gender (prefer forms that work for anyone).',
-    `(5) In a tip, quote every ${language} word you explain in single quotes, e.g. Use 'Guten Morgen' in the morning.`,
+    `(5) In a tip, quote every ${language} word you explain in single quotes, e.g. Use 'Guten Morgen' in the morning. Never put quotes around items, examples or dialogue lines.`,
     "(6) Respect the language's grammar from the start: articles, gender, formal and informal address where it has them.",
   ].join(' ');
   const user = [
@@ -276,6 +292,7 @@ async function writeChapter(
   ].join('\n');
 
   let feedback = '';
+  let last: DraftChapter | undefined;
   for (let attempt = 1; attempt <= 4; attempt++) {
     const chapter = await ask<DraftChapter>(system, user + feedback, 'chapter', chapterSchema, 0.5);
     // The model sometimes repeats the review as an empty fifth lesson; it
@@ -283,6 +300,7 @@ async function writeChapter(
     if (chapter.lessons.length === DAYS && chapter.lessons[DAYS - 1]?.items.length === 0) {
       chapter.lessons = chapter.lessons.slice(0, DAYS - 1);
     }
+    last = chapter;
     const problems = shapeProblems(chapter);
     if (!problems.length) return chapter;
     console.warn(`  off-shape (${problems.join(', ')}), asking again`);
@@ -294,6 +312,12 @@ async function writeChapter(
       "Use the earlier lessons' items in later dialogues instead of teaching them again.",
     ].join('\n');
   }
+  // Kept for a look at what went wrong.
+  mkdirSync(join(WORK_DIR, course), { recursive: true });
+  writeFileSync(
+    join(WORK_DIR, course, `chapter-${number}.rejected.json`),
+    JSON.stringify(last, null, 1),
+  );
   throw new Error('The chapter did not come back in shape after 4 tries.');
 }
 
@@ -340,6 +364,12 @@ const chapterFile = (course: string, number: number) =>
 const workFile = (course: string, number: number) =>
   join(WORK_DIR, course, `chapter-${pad(number)}.work.json`);
 
+const cleanLine = (line: Line): Line => ({
+  speaker: line.speaker,
+  text: unquote(line.text),
+  meaning: unquote(line.meaning),
+});
+
 function assemble(number: number, chapter: DraftChapter) {
   const id = `c${pad(number)}`;
   const dayOf = (d: number) => (number - 1) * DAYS + d;
@@ -351,9 +381,15 @@ function assemble(number: number, chapter: DraftChapter) {
       day: dayOf(l + 1),
       title: lesson.title,
       checkpoint: false,
-      items: lesson.items.map((item, i) => ({ id: `${lessonId}-i${i + 1}`, ...item })),
+      items: lesson.items.map((item, i) => ({
+        id: `${lessonId}-i${i + 1}`,
+        text: unquote(item.text),
+        meaning: unquote(item.meaning),
+        example: unquote(item.example),
+        exampleMeaning: unquote(item.exampleMeaning),
+      })),
       tip: lesson.tip,
-      dialogue: lesson.dialogue,
+      dialogue: lesson.dialogue.map(cleanLine),
       scenario: lesson.scenario,
     };
   });
@@ -363,7 +399,7 @@ function assemble(number: number, chapter: DraftChapter) {
     title: chapter.review.title,
     checkpoint: true,
     items: [],
-    dialogue: chapter.review.dialogue,
+    dialogue: chapter.review.dialogue.map(cleanLine),
     scenario: chapter.review.scenario,
   });
 

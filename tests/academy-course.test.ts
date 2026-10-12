@@ -9,6 +9,7 @@ import {
   availableCourses,
   validateChapter,
 } from '@/features/academy/course';
+import { phraseKey } from '@/features/academy/course/validate';
 
 const COURSE_DIR = 'src/features/academy/course';
 
@@ -83,6 +84,13 @@ describe('a course chapter', () => {
     const chapter = sampleChapter();
     chapter.lessons[1]!.items[0]!.text = chapter.lessons[0]!.items[0]!.text;
     assert.ok(validateChapter(chapter).some((problem) => problem.includes('twice in the chapter')));
+  });
+
+  it('treats a phrase and its unfinished form as the same, but different phrases as different', () => {
+    assert.equal(phraseKey("'Soy de'"), phraseKey('Soy de ...'));
+    assert.equal(phraseKey('¿De dónde eres?'), 'de dónde eres');
+    assert.notEqual(phraseKey('Hola'), phraseKey('Adiós'));
+    assert.notEqual(phraseKey('Ich bin'), phraseKey('Du bist'));
   });
 
   it('is 12 chapters of 5 days, 60 in all', () => {
