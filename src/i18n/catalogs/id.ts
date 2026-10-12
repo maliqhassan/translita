@@ -544,8 +544,6 @@ export const id: Catalog = {
   'Not quite yet': 'Belum',
   '{correct} of {total} right ({percent}%)': '{correct} dari {total} benar ({percent}%)',
   'Well done.': 'Bagus sekali.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'Anda perlu 70% untuk lulus ujian bab. Kata yang salah akan muncul lagi saat pengulangan.',
   'Practise with the AI partner': 'Berlatih dengan mitra AI',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'Mitra AI memerlukan koneksi. Anda bisa memainkan adegan ini saat online berikutnya.',
@@ -642,6 +640,86 @@ export const id: Catalog = {
   'Reset the AI Academy': 'Atur ulang AI Academy',
   'Deletes your course and progress, to start again or learn another language':
     'Menghapus kursus dan progresmu, untuk mulai lagi atau belajar bahasa lain',
+  Reading: 'Membaca',
+  Vocabulary: 'Kosakata',
+  Listening: 'Menyimak',
+  Grammar: 'Tata bahasa',
+  Fluency: 'Kelancaran',
+  Understanding: 'Pemahaman',
+  'Getting it done': 'Menyelesaikan tugas',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'Kamu menyelesaikan kursus dan lulus kedua bagian ujian akhir: {written}% di tes tertulis dan {spoken}% di percakapan.',
+  '{skill}: {percent}% right': '{skill}: {percent}% benar',
+  '{skill} in conversation: {mark} of 5': '{skill} dalam percakapan: {mark} dari 5',
+  'Review the words below until they come easily.':
+    'Ulangi kata-kata di bawah sampai mudah diingat.',
+  'Keep speaking a little every day, out loud.':
+    'Terus berbicara sedikit setiap hari, dengan suara keras.',
+  'Use the translator to look up things you want to say in your own life.':
+    'Gunakan penerjemah untuk mencari hal yang ingin kamu ucapkan sehari-hari.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'Jaga runtutanmu dengan mengulang, dan gunakan bahasanya kapan pun bisa.',
+  'Send for marking': 'Kirim untuk dinilai',
+  'Course complete': 'Kursus selesai',
+  'See your report, your level and your certificate.': 'Lihat laporan, level, dan sertifikatmu.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'Siap: tes tertulis, lalu percakapan dengan pelatih AI-mu.',
+  'There is no course to finish yet': 'Belum ada kursus untuk diselesaikan',
+  'Say something in the conversation first: there was nothing to mark.':
+    'Ucapkan sesuatu dalam percakapan dulu: tidak ada yang bisa dinilai.',
+  'Part A: written and listening': 'Bagian A: tertulis dan menyimak',
+  'Your coach is marking the conversation…': 'Pelatihmu sedang menilai percakapan…',
+  'Part B: conversation': 'Bagian B: percakapan',
+  'From your coach': 'Dari pelatihmu',
+  'Writing your report…': 'Menulis laporanmu…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'Dua bagian, masing-masing lulus di 70%. Lulus keduanya untuk menyelesaikan kursus {language}-mu.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    '{count} pertanyaan dari seluruh kursus. Sekitar 15 menit, sekaligus.',
+  'Start Part A': 'Mulai Bagian A',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Bicaralah dengan pelatih AI-mu tentang hari jalan-jalanmu. Dinilai dari kosakata, tata bahasa, kelancaran, pemahaman, dan penyelesaian tugas.',
+  'Start Part B': 'Mulai Bagian B',
+  'Part B needs a connection. Your Part A result is saved.':
+    'Bagian B memerlukan koneksi. Hasil Bagian A-mu tersimpan.',
+  'Passed with {percent}%': 'Lulus dengan {percent}%',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'Belum lulus ({percent}%). Ulangi hari ini, lalu coba lagi besok.',
+  'Opens when Part A is passed.': 'Terbuka setelah Bagian A lulus.',
+  'Leave Part A. It starts again next time.': 'Keluar dari Bagian A. Akan dimulai lagi lain kali.',
+  'Passed!': 'Lulus!',
+  'Not passed yet': 'Belum lulus',
+  'Well done. Your result is saved.': 'Kerja bagus. Hasilmu tersimpan.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'Kamu perlu 70%. Ulangi hari ini, dan ikuti bagian ini lagi mulai besok.',
+  'Words to review': 'Kata untuk diulang',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'Kamu perlu 70% untuk lulus ujian bab. Percobaan berikutnya dimulai dengan kata yang salah.',
+  'No report yet': 'Belum ada laporan',
+  'Your report is written when you pass the final exam.':
+    'Laporanmu ditulis setelah kamu lulus ujian akhir.',
+  'My {language} certificate': 'Sertifikat {language}-ku',
+  '{language} course complete': 'Kursus {language} selesai',
+  'Your level': 'Levelmu',
+  'Written test': 'Tes tertulis',
+  'Your skills': 'Keterampilanmu',
+  'Your conversation': 'Percakapanmu',
+  'Strong points': 'Kelebihan',
+  'To work on': 'Perlu diperbaiki',
+  'What to practise': 'Yang perlu dilatih',
+  'Words to keep practising': 'Kata yang perlu terus dilatih',
+  'Words you know well': 'Kata yang kamu kuasai',
+  'What next': 'Selanjutnya',
+  'Your certificate': 'Sertifikatmu',
+  'Name on the certificate': 'Nama di sertifikat',
+  'Your name (optional)': 'Namamu (opsional)',
+  'Share certificate': 'Bagikan sertifikat',
+  'Certificate of completion': 'Sertifikat kelulusan',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    'telah menyelesaikan kursus {language} {days} hari dari {app} AI Academy',
+  'Level {level}': 'Level {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'Tertulis {written}% · Percakapan {spoken}% · {date}',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

@@ -553,8 +553,6 @@ export const fil: Catalog = {
   'Not quite yet': 'Hindi pa',
   '{correct} of {total} right ({percent}%)': '{correct} sa {total} ang tama ({percent}%)',
   'Well done.': 'Magaling.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'Kailangan mo ng 70% para pumasa sa checkpoint. Babalik sa pag-uulit ang mga salitang namali.',
   'Practise with the AI partner': 'Magsanay kasama ang AI partner',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'Kailangan ng koneksyon ang AI partner. Puwede mong gawin ang eksenang ito sa susunod na online ka.',
@@ -652,6 +650,88 @@ export const fil: Catalog = {
   'Reset the AI Academy': 'I-reset ang AI Academy',
   'Deletes your course and progress, to start again or learn another language':
     'Binubura ang iyong kurso at progreso, para magsimulang muli o matuto ng ibang wika',
+  Reading: 'Pagbasa',
+  Vocabulary: 'Bokabularyo',
+  Listening: 'Pakikinig',
+  Grammar: 'Gramatika',
+  Fluency: 'Katatasan',
+  Understanding: 'Pag-unawa',
+  'Getting it done': 'Pagtapos sa gawain',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'Natapos mo ang kurso at pumasa ka sa dalawang bahagi ng huling pagsusulit: {written}% sa nakasulat na pagsusulit at {spoken}% sa usapan.',
+  '{skill}: {percent}% right': '{skill}: {percent}% tama',
+  '{skill} in conversation: {mark} of 5': '{skill} sa usapan: {mark} sa 5',
+  'Review the words below until they come easily.':
+    'Balikan ang mga salita sa ibaba hanggang madali mo na itong maalala.',
+  'Keep speaking a little every day, out loud.':
+    'Magpatuloy sa pagsasalita nang kaunti araw-araw, nang malakas.',
+  'Use the translator to look up things you want to say in your own life.':
+    'Gamitin ang translator para hanapin ang gusto mong sabihin sa sarili mong buhay.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'Panatilihin ang streak sa pamamagitan ng pagbabalik-aral, at gamitin ang wika kapag kaya mo.',
+  'Send for marking': 'Ipadala para markahan',
+  'Course complete': 'Tapos na ang kurso',
+  'See your report, your level and your certificate.':
+    'Tingnan ang iyong ulat, antas at sertipiko.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'Handa na: isang nakasulat na pagsusulit, tapos usapan kasama ang iyong AI coach.',
+  'There is no course to finish yet': 'Wala pang kursong tatapusin',
+  'Say something in the conversation first: there was nothing to mark.':
+    'Magsalita muna sa usapan: walang mamarkahan.',
+  'Part A: written and listening': 'Bahagi A: pagsulat at pakikinig',
+  'Your coach is marking the conversation…': 'Minamarkahan ng iyong coach ang usapan…',
+  'Part B: conversation': 'Bahagi B: usapan',
+  'From your coach': 'Mula sa iyong coach',
+  'Writing your report…': 'Isinusulat ang iyong ulat…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'Dalawang bahagi, bawat isa ay pasado sa 70%. Ipasa ang dalawa para matapos ang iyong kurso sa {language}.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    '{count} tanong mula sa buong kurso. Mga 15 minuto, isang upuan.',
+  'Start Part A': 'Simulan ang Bahagi A',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Makipag-usap sa iyong AI coach tungkol sa iyong araw ng pamamasyal. Minamarkahan ito sa bokabularyo, gramatika, katatasan, pag-unawa at pagtapos sa gawain.',
+  'Start Part B': 'Simulan ang Bahagi B',
+  'Part B needs a connection. Your Part A result is saved.':
+    'Kailangan ng koneksyon ang Bahagi B. Naka-save ang resulta mo sa Bahagi A.',
+  'Passed with {percent}%': 'Pumasa sa {percent}%',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'Hindi pa pumasa ({percent}%). Magbalik-aral ngayon, at subukang muli bukas.',
+  'Opens when Part A is passed.': 'Magbubukas kapag pumasa sa Bahagi A.',
+  'Leave Part A. It starts again next time.':
+    'Umalis sa Bahagi A. Magsisimula itong muli sa susunod.',
+  'Passed!': 'Pumasa!',
+  'Not passed yet': 'Hindi pa pumasa',
+  'Well done. Your result is saved.': 'Magaling. Naka-save ang iyong resulta.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'Kailangan mo ng 70%. Magbalik-aral ngayon, at kunin muli ang bahaging ito simula bukas.',
+  'Words to review': 'Mga salitang babalikan',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'Kailangan mo ng 70% para pumasa sa checkpoint. Magsisimula ang susunod na subok sa mga salitang namali ka.',
+  'No report yet': 'Wala pang ulat',
+  'Your report is written when you pass the final exam.':
+    'Isinusulat ang iyong ulat kapag pumasa ka sa huling pagsusulit.',
+  'My {language} certificate': 'Ang aking sertipiko sa {language}',
+  '{language} course complete': 'Tapos na ang kurso sa {language}',
+  'Your level': 'Iyong antas',
+  'Written test': 'Nakasulat na pagsusulit',
+  'Your skills': 'Iyong mga kasanayan',
+  'Your conversation': 'Iyong usapan',
+  'Strong points': 'Kalakasan',
+  'To work on': 'Dapat pagbutihin',
+  'What to practise': 'Ano ang sasanayin',
+  'Words to keep practising': 'Mga salitang patuloy na sasanayin',
+  'Words you know well': 'Mga salitang alam mong mabuti',
+  'What next': 'Ano ang susunod',
+  'Your certificate': 'Iyong sertipiko',
+  'Name on the certificate': 'Pangalan sa sertipiko',
+  'Your name (optional)': 'Iyong pangalan (opsyonal)',
+  'Share certificate': 'Ibahagi ang sertipiko',
+  'Certificate of completion': 'Sertipiko ng pagtatapos',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    'ay natapos ang {days}-araw na kurso sa {language} ng {app} AI Academy',
+  'Level {level}': 'Antas {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'Nakasulat {written}% · Usapan {spoken}% · {date}',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

@@ -109,7 +109,12 @@ describe('the Academy coach service', () => {
 describe('the role-play in a lesson', () => {
   it('only offers the AI partner with a backend and a connection', () => {
     const player = readFileSync('src/features/academy/screens/lesson-screen.tsx', 'utf8');
-    assert.ok(player.includes('available: coachConfigured && !offline'));
+    assert.ok(player.includes('useCoachConnection(enrollment.addressAs)'));
+    assert.ok(
+      readFileSync('src/features/academy/hooks/use-lesson-tools.ts', 'utf8').includes(
+        'available: configured && !offline',
+      ),
+    );
   });
 
   it('ends the scene after a few lines whatever happens, and lets the learner leave', () => {

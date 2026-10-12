@@ -139,6 +139,8 @@ function RootNavigator() {
           <Stack.Screen name="settings/app-language" options={{ headerShown: false }} />
           <Stack.Screen name="academy/index" options={{ headerShown: false }} />
           <Stack.Screen name="academy/lesson/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="academy/final" options={{ headerShown: false }} />
+          <Stack.Screen name="academy/report" options={{ headerShown: false }} />
           <Stack.Screen
             name="academy/elite"
             options={{ headerShown: false, presentation: 'modal' }}

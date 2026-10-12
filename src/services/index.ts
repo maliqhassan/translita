@@ -1,5 +1,6 @@
 export * from './analytics';
 export * from './clipboard';
+export * from './sharing';
 export * from './conversation';
 export * from './entitlements';
 export * from './http';

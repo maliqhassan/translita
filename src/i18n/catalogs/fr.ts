@@ -557,8 +557,6 @@ export const fr: Catalog = {
   'Not quite yet': 'Pas encore',
   '{correct} of {total} right ({percent}%)': '{correct} sur {total} justes ({percent} %)',
   'Well done.': 'Bravo.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    "Il faut 70 % pour réussir le point d'étape. Les mots manqués reviendront en révision.",
   'Practise with the AI partner': 'Entraînez-vous avec le partenaire IA',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     "Le partenaire IA a besoin d'une connexion. Vous pourrez jouer cette scène la prochaine fois que vous serez en ligne.",
@@ -655,6 +653,88 @@ export const fr: Catalog = {
   'Reset the AI Academy': "Réinitialiser l'AI Academy",
   'Deletes your course and progress, to start again or learn another language':
     'Supprime votre cours et votre progression, pour recommencer ou apprendre une autre langue',
+  Reading: 'Lecture',
+  Vocabulary: 'Vocabulaire',
+  Listening: 'Écoute',
+  Grammar: 'Grammaire',
+  Fluency: 'Aisance',
+  Understanding: 'Compréhension',
+  'Getting it done': 'Réussir la tâche',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    "Vous avez terminé le cours et réussi les deux parties de l'examen final : {written} % à l'écrit et {spoken} % à la conversation.",
+  '{skill}: {percent}% right': '{skill} : {percent} % de bonnes réponses',
+  '{skill} in conversation: {mark} of 5': '{skill} en conversation : {mark} sur 5',
+  'Review the words below until they come easily.':
+    "Révisez les mots ci-dessous jusqu'à ce qu'ils viennent tout seuls.",
+  'Keep speaking a little every day, out loud.':
+    'Continuez à parler un peu chaque jour, à voix haute.',
+  'Use the translator to look up things you want to say in your own life.':
+    'Utilisez le traducteur pour chercher ce que vous voulez dire au quotidien.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'Gardez votre série avec les révisions, et utilisez la langue dès que possible.',
+  'Send for marking': 'Envoyer pour notation',
+  'Course complete': 'Cours terminé',
+  'See your report, your level and your certificate.':
+    'Consultez votre bilan, votre niveau et votre certificat.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'Prêt : un test écrit, puis une conversation avec votre coach IA.',
+  'There is no course to finish yet': "Aucun cours à terminer pour l'instant",
+  'Say something in the conversation first: there was nothing to mark.':
+    "Dites d'abord quelque chose dans la conversation : il n'y avait rien à noter.",
+  'Part A: written and listening': 'Partie A : écrit et écoute',
+  'Your coach is marking the conversation…': 'Votre coach note la conversation…',
+  'Part B: conversation': 'Partie B : conversation',
+  'From your coach': 'De votre coach',
+  'Writing your report…': 'Rédaction de votre bilan…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'Deux parties, chacune réussie à 70 %. Réussissez les deux pour terminer votre cours de {language}.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    "{count} questions sur tout le cours. Environ 15 minutes, d'une traite.",
+  'Start Part A': 'Commencer la partie A',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    "Parlez de votre journée de sortie avec votre coach IA. Sont notés le vocabulaire, la grammaire, l'aisance, la compréhension et la réussite de la tâche.",
+  'Start Part B': 'Commencer la partie B',
+  'Part B needs a connection. Your Part A result is saved.':
+    'La partie B nécessite une connexion. Votre résultat de la partie A est enregistré.',
+  'Passed with {percent}%': 'Réussi avec {percent} %',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    "Pas encore réussi ({percent} %). Révisez aujourd'hui, puis réessayez demain.",
+  'Opens when Part A is passed.': "S'ouvre une fois la partie A réussie.",
+  'Leave Part A. It starts again next time.':
+    'Quitter la partie A. Elle recommencera la prochaine fois.',
+  'Passed!': 'Réussi !',
+  'Not passed yet': 'Pas encore réussi',
+  'Well done. Your result is saved.': 'Bravo. Votre résultat est enregistré.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    "Il faut 70 %. Révisez aujourd'hui, et repassez cette partie dès demain.",
+  'Words to review': 'Mots à réviser',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'Il faut 70 % pour réussir le bilan. Le nouvel essai commence par les mots manqués.',
+  'No report yet': 'Pas encore de bilan',
+  'Your report is written when you pass the final exam.':
+    "Votre bilan est rédigé quand vous réussissez l'examen final.",
+  'My {language} certificate': 'Mon certificat de {language}',
+  '{language} course complete': 'Cours de {language} terminé',
+  'Your level': 'Votre niveau',
+  'Written test': 'Test écrit',
+  'Your skills': 'Vos compétences',
+  'Your conversation': 'Votre conversation',
+  'Strong points': 'Points forts',
+  'To work on': 'À travailler',
+  'What to practise': 'Quoi travailler',
+  'Words to keep practising': 'Mots à continuer de travailler',
+  'Words you know well': 'Mots que vous connaissez bien',
+  'What next': 'Et ensuite',
+  'Your certificate': 'Votre certificat',
+  'Name on the certificate': 'Nom sur le certificat',
+  'Your name (optional)': 'Votre nom (facultatif)',
+  'Share certificate': 'Partager le certificat',
+  'Certificate of completion': 'Certificat de réussite',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    "a terminé le cours de {language} de {days} jours de l'AI Academy {app}",
+  'Level {level}': 'Niveau {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'Écrit {written} % · Conversation {spoken} % · {date}',
   // Language names
   'Detect language': 'Détecter la langue',
   Afrikaans: 'Afrikaans',

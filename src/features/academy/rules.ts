@@ -216,3 +216,86 @@ export const ACADEMY_RETURN_WINDOW_MS = 12 * 60 * 60 * 1000;
 export function shouldReturnToAcademy(leftAt: number, now: number): boolean {
   return leftAt > 0 && now - leftAt < ACADEMY_RETURN_WINDOW_MS;
 }
+
+// --- The final exam ------------------------------------------------------------------------
+
+export const FINAL_RULES = {
+  /** Part A: written and listening questions, drawn from the whole course. */
+  questions: 40,
+  /** Each part passes at the same mark as a checkpoint. */
+  passMark: ACADEMY_RULES.passMark,
+  /** The learner's lines in Part B, the final conversation. */
+  conversationLines: 10,
+} as const;
+
+/** Marks out of 5 on the five speaking criteria. */
+export type Marks = Readonly<Record<string, number>>;
+
+/** The speaking test as a share, 0–1: every mark out of 5, together. */
+export function rubricScore(marks: Marks): number {
+  const values = Object.values(marks);
+  if (!values.length) return 0;
+  return values.reduce((sum, mark) => sum + mark, 0) / (values.length * 5);
+}
+
+/**
+ * The level the course has brought the learner to, decided here, never by
+ * the model: the report explains it. Below the pass mark on either part is
+ * still A1; both passed is A2, and comfortably passed is A2+.
+ */
+export function estimateLevel(written: number, spoken: number): 'A1' | 'A2' | 'A2+' {
+  if (written < FINAL_RULES.passMark || spoken < FINAL_RULES.passMark) return 'A1';
+  return (written + spoken) / 2 >= 0.88 ? 'A2+' : 'A2';
+}
+
+/** A failed part can be taken again from the next day, so the review comes first. */
+export function canRetake(lastAttemptAt: number | undefined, now: number): boolean {
+  return lastAttemptAt === undefined || localDay(lastAttemptAt) !== localDay(now);
+}
+
+/**
+ * Whether the final exam is open.
+ *
+ * Every day of the path finished, of a course that has all its days. A build
+ * still being written can open it once its shipped days are done, so the
+ * exam can be tried before the content is complete.
+ */
+export function finalUnlocked(
+  completed: ReadonlySet<number>,
+  startDay: number,
+  shippedDays: number,
+  allowIncomplete: boolean,
+): boolean {
+  const last = allowIncomplete ? shippedDays : COURSE_DAYS;
+  if (shippedDays < last || last < startDay) return false;
+  for (let day = startDay; day <= last; day++) if (!completed.has(day)) return false;
+  return true;
+}
+
+/** Which skill each kind of question tests, for the report. */
+export type Skill = 'reading' | 'vocabulary' | 'listening' | 'grammar';
+
+/** Accuracy per skill, 0–1, from a part's marked answers. Skills not tested are left out. */
+export function skillAccuracy(
+  answers: readonly { skill: Skill; correct: boolean }[],
+): Partial<Record<Skill, number>> {
+  const tally: Partial<Record<Skill, { right: number; all: number }>> = {};
+  for (const { skill, correct } of answers) {
+    const entry = (tally[skill] ??= { right: 0, all: 0 });
+    entry.all++;
+    if (correct) entry.right++;
+  }
+  const result: Partial<Record<Skill, number>> = {};
+  for (const [skill, entry] of Object.entries(tally) as [Skill, { right: number; all: number }][]) {
+    result[skill] = entry.right / entry.all;
+  }
+  return result;
+}
+
+/** The words known best, most often right first: for the report. */
+export function strongestItems(stats: readonly ItemStat[], limit: number): ItemStat[] {
+  return stats
+    .filter((stat) => stat.correct > 0 && stat.box >= 3)
+    .sort((a, b) => b.box - a.box || b.correct - a.correct)
+    .slice(0, Math.max(0, limit));
+}

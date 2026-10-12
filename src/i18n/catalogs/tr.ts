@@ -539,8 +539,6 @@ export const tr: Catalog = {
   'Not quite yet': 'Henüz değil',
   '{correct} of {total} right ({percent}%)': '{total} sorudan {correct} doğru (%{percent})',
   'Well done.': 'Aferin.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'Ara sınavı geçmek için %70 gerekir. Kaçırdığınız kelimeler tekrarda yeniden gelecek.',
   'Practise with the AI partner': 'Yapay zekâ partneriyle pratik yapın',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'Yapay zekâ partneri için bağlantı gerekir. Bu sahneyi bir dahaki çevrimiçi olduğunuzda oynayabilirsiniz.',
@@ -637,6 +635,85 @@ export const tr: Catalog = {
   'Reset the AI Academy': "Yapay Zekâ Akademisi'ni sıfırla",
   'Deletes your course and progress, to start again or learn another language':
     'Kursunu ve ilerlemeni siler; yeniden başlamak ya da başka bir dil öğrenmek için',
+  Reading: 'Okuma',
+  Vocabulary: 'Kelime bilgisi',
+  Listening: 'Dinleme',
+  Grammar: 'Dil bilgisi',
+  Fluency: 'Akıcılık',
+  Understanding: 'Anlama',
+  'Getting it done': 'Görevi tamamlama',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'Kursu bitirdin ve final sınavının iki bölümünü de geçtin: yazılı sınavda %{written}, konuşmada %{spoken}.',
+  '{skill}: {percent}% right': '{skill}: %{percent} doğru',
+  '{skill} in conversation: {mark} of 5': 'Konuşmada {skill}: 5 üzerinden {mark}',
+  'Review the words below until they come easily.':
+    'Aşağıdaki kelimeleri kolayca aklına gelene kadar tekrar et.',
+  'Keep speaking a little every day, out loud.': 'Her gün biraz, sesli konuşmaya devam et.',
+  'Use the translator to look up things you want to say in your own life.':
+    'Günlük hayatında söylemek istediklerini çevirmenle ara.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'Tekrarlarla serini sürdür ve dili fırsat buldukça kullan.',
+  'Send for marking': 'Değerlendirmeye gönder',
+  'Course complete': 'Kurs tamamlandı',
+  'See your report, your level and your certificate.': 'Raporunu, seviyeni ve sertifikanı gör.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'Hazır: önce yazılı sınav, sonra yapay zekâ koçunla konuşma.',
+  'There is no course to finish yet': 'Henüz bitirilecek bir kurs yok',
+  'Say something in the conversation first: there was nothing to mark.':
+    'Önce konuşmada bir şey söyle: değerlendirilecek bir şey yoktu.',
+  'Part A: written and listening': 'Bölüm A: yazılı ve dinleme',
+  'Your coach is marking the conversation…': 'Koçun konuşmayı değerlendiriyor…',
+  'Part B: conversation': 'Bölüm B: konuşma',
+  'From your coach': 'Koçundan',
+  'Writing your report…': 'Raporun yazılıyor…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'İki bölüm, her biri %70 ile geçilir. {language} kursunu bitirmek için ikisini de geç.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    'Tüm kurstan {count} soru. Yaklaşık 15 dakika, tek seferde.',
+  'Start Part A': "Bölüm A'yı başlat",
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Yapay zekâ koçunla gezi gününü konuş. Kelime bilgisi, dil bilgisi, akıcılık, anlama ve görevi tamamlama değerlendirilir.',
+  'Start Part B': "Bölüm B'yi başlat",
+  'Part B needs a connection. Your Part A result is saved.':
+    'Bölüm B için bağlantı gerekir. Bölüm A sonucun kaydedildi.',
+  'Passed with {percent}%': '%{percent} ile geçti',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'Henüz geçmedi (%{percent}). Bugün tekrar et, yarın yeniden dene.',
+  'Opens when Part A is passed.': 'Bölüm A geçilince açılır.',
+  'Leave Part A. It starts again next time.': "Bölüm A'dan çık. Bir dahaki sefere baştan başlar.",
+  'Passed!': 'Geçtin!',
+  'Not passed yet': 'Henüz geçmedi',
+  'Well done. Your result is saved.': 'Aferin. Sonucun kaydedildi.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    '%70 gerekiyor. Bugün tekrar et, yarından itibaren bu bölüme yeniden gir.',
+  'Words to review': 'Tekrar edilecek kelimeler',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'Ara sınavı geçmek için %70 gerekir. Yeni deneme kaçırdığın kelimelerle başlar.',
+  'No report yet': 'Henüz rapor yok',
+  'Your report is written when you pass the final exam.':
+    'Raporun final sınavını geçtiğinde yazılır.',
+  'My {language} certificate': '{language} sertifikam',
+  '{language} course complete': '{language} kursu tamamlandı',
+  'Your level': 'Seviyen',
+  'Written test': 'Yazılı sınav',
+  'Your skills': 'Becerilerin',
+  'Your conversation': 'Konuşman',
+  'Strong points': 'Güçlü yönler',
+  'To work on': 'Geliştirilecekler',
+  'What to practise': 'Ne çalışmalı',
+  'Words to keep practising': 'Çalışmaya devam edilecek kelimeler',
+  'Words you know well': 'İyi bildiğin kelimeler',
+  'What next': 'Sırada ne var',
+  'Your certificate': 'Sertifikan',
+  'Name on the certificate': 'Sertifikadaki ad',
+  'Your name (optional)': 'Adın (isteğe bağlı)',
+  'Share certificate': 'Sertifikayı paylaş',
+  'Certificate of completion': 'Tamamlama sertifikası',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    "{app} Yapay Zekâ Akademisi'nin {days} günlük {language} kursunu tamamladı",
+  'Level {level}': 'Seviye {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'Yazılı %{written} · Konuşma %{spoken} · {date}',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

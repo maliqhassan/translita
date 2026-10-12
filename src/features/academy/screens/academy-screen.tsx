@@ -31,11 +31,19 @@ import {
   lessonForDay,
   type CourseChapter,
 } from '../course';
+import { shippedDays } from '../course/final';
 import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
-import { ACADEMY_ELITE } from '../routes';
-import { completedDays, dayStatus, nextDay, wordsKnown, type DayStatus } from '../rules';
+import { ACADEMY_ELITE, ACADEMY_FINAL, ACADEMY_REPORT } from '../routes';
+import {
+  completedDays,
+  dayStatus,
+  finalUnlocked,
+  nextDay,
+  wordsKnown,
+  type DayStatus,
+} from '../rules';
 
 import { AcademyOnboarding } from './academy-onboarding';
 
@@ -241,33 +249,87 @@ function Dashboard({
         </Text>
       ) : null}
 
-      <Card
-        variant="outlined"
-        style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md }}
+      <FinalExamCard
+        state={
+          enrollment.completedAt
+            ? 'complete'
+            : // A build still being written opens the exam once its shipped days are done.
+              finalUnlocked(done, enrollment.startDay, shippedDays(courseId), __DEV__)
+              ? 'ready'
+              : 'locked'
+        }
+        onOpen={(state) => router.push(state === 'complete' ? ACADEMY_REPORT : ACADEMY_FINAL)}
+      />
+    </Screen>
+  );
+}
+
+// --- The final exam ------------------------------------------------------------------------
+
+type FinalState = 'locked' | 'ready' | 'complete';
+
+function FinalExamCard({
+  state,
+  onOpen,
+}: {
+  state: FinalState;
+  onOpen: (state: FinalState) => void;
+}) {
+  const theme = useTheme();
+  const open = state !== 'locked';
+  return (
+    <Breathing active={state === 'ready'}>
+      <Pressable
+        disabled={!open}
+        onPress={() => onOpen(state)}
+        accessibilityRole="button"
+        accessibilityState={{ disabled: !open }}
+        style={({ pressed }) => ({
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: theme.spacing.md,
+          padding: theme.spacing.base,
+          borderRadius: theme.radius.lg,
+          borderWidth: theme.layout.borderWidth,
+          borderColor: open ? theme.colors.aiBorder : theme.colors.border,
+          backgroundColor: pressed ? theme.colors.aiMuted : theme.colors.surface,
+        })}
       >
-        <View
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: 24,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: theme.colors.warningMuted,
-          }}
-        >
-          <Icon name="ribbon" size={26} color="flame" />
-        </View>
+        <PulseHalo size={48} color={theme.colors.aiGlow} active={state === 'ready'}>
+          <View
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: theme.colors.warningMuted,
+            }}
+          >
+            <Icon name={state === 'complete' ? 'trophy' : 'ribbon'} size={26} color="flame" />
+          </View>
+        </PulseHalo>
         <View style={{ flex: 1, gap: theme.spacing.xxs }}>
-          <Text variant="rowTitle">{t('Final exam')}</Text>
+          <Text variant="rowTitle">
+            {state === 'complete' ? t('Course complete') : t('Final exam')}
+          </Text>
           <Text variant="bodySmall" color="textSecondary">
-            {t(
-              'Opens when all 60 days are done: a test, a conversation with the AI, and your report.',
-            )}
+            {state === 'complete'
+              ? t('See your report, your level and your certificate.')
+              : state === 'ready'
+                ? t('Ready: a written test, then a conversation with your AI coach.')
+                : t(
+                    'Opens when all 60 days are done: a test, a conversation with the AI, and your report.',
+                  )}
           </Text>
         </View>
-        <Icon name="lock-closed" size={18} color="textMuted" />
-      </Card>
-    </Screen>
+        <Icon
+          name={open ? 'chevron-forward' : 'lock-closed'}
+          size={18}
+          color={open ? 'aiStrong' : 'textMuted'}
+        />
+      </Pressable>
+    </Breathing>
   );
 }
 

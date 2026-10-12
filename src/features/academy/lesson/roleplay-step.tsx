@@ -6,11 +6,12 @@ import { Button, Card, Icon, IconButton, Input, Text } from '@/components';
 import { errorMessage } from '@/constants';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
-import type { CoachAsk, CoachCorrection, CoachReply, ServiceResult } from '@/services';
+import type { CoachAsk, CoachCorrection, CoachReply, CoachTurn, ServiceResult } from '@/services';
 import type { AppError } from '@/types';
 
 import { CoachAvatar } from '../components/coach-avatar';
 import { PulseHalo, TypingDots } from '../components/motion';
+import { FINAL_RULES } from '../rules';
 
 import type { SpeechPractice, StepProps } from './steps';
 
@@ -47,9 +48,15 @@ export function RoleplayStep({
   listen,
   coach,
   onDone,
+  final = false,
+  onFinished,
 }: Pick<StepProps, 'lesson' | 'language' | 'speak' | 'onDone'> & {
   listen?: SpeechPractice;
   coach: CoachConnection;
+  /** The final exam's conversation: longer, and handed back for marking. */
+  final?: boolean;
+  /** Receives the whole conversation when it ends, in place of `onDone`. */
+  onFinished?: (transcript: readonly CoachTurn[]) => void;
 }) {
   const theme = useTheme();
   const [lines, setLines] = useState<readonly Line[]>([]);
@@ -60,6 +67,11 @@ export function RoleplayStep({
   const [done, setDone] = useState(false);
   const started = lines.length > 0;
   const learnerLines = lines.filter((line) => line.role === 'learner').length;
+  const maxLines = final ? FINAL_RULES.conversationLines : MAX_LEARNER_LINES;
+  const finish = () =>
+    onFinished
+      ? onFinished(lines.map((line) => ({ role: line.role, text: line.text })))
+      : onDone(null);
 
   const send = async (heard: string) => {
     const text = heard.trim();
@@ -76,6 +88,7 @@ export function RoleplayStep({
       heard: text,
       history,
       addressAs: coach.addressAs,
+      final,
     });
     setBusy(false);
 
@@ -97,7 +110,7 @@ export function RoleplayStep({
     ]);
     setDraft('');
     void speak.say(reply.reply, language);
-    if (reply.done || learnerLines + said.length >= MAX_LEARNER_LINES) setDone(true);
+    if (reply.done || learnerLines + said.length >= maxLines) setDone(true);
   };
 
   if (!coach.available) {
@@ -321,7 +334,12 @@ export function RoleplayStep({
               {t('Well done — you played the whole scene.')}
             </Text>
           </View>
-          <Button label={t('Finish lesson')} size="lg" fullWidth onPress={() => onDone(null)} />
+          <Button
+            label={final ? t('Send for marking') : t('Finish lesson')}
+            size="lg"
+            fullWidth
+            onPress={finish}
+          />
         </Animated.View>
       ) : (
         <View style={{ gap: theme.spacing.sm }}>
@@ -360,7 +378,7 @@ export function RoleplayStep({
               onPress={() => void send(draft)}
             />
           </View>
-          <Button label={t('End the conversation')} variant="ghost" onPress={() => onDone(null)} />
+          <Button label={t('End the conversation')} variant="ghost" onPress={finish} />
         </View>
       )}
     </View>

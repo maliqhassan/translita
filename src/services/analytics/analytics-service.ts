@@ -21,6 +21,8 @@ export type AnalyticsEvent =
   | { name: 'academy_open' }
   /** Someone finished the Academy's onboarding and started a course. */
   | { name: 'academy_onboarding_done'; params: { course: LanguageId; minutes: number } }
+  /** Both parts of the final exam were passed: the course is complete. */
+  | { name: 'final_passed'; params: { course: LanguageId; level: string } }
   /** A day of the course was finished. */
   | {
       name: 'lesson_complete';

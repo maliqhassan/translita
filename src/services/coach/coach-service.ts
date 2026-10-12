@@ -36,6 +36,8 @@ export type CoachAsk = {
   heard: string;
   history: readonly CoachTurn[];
   addressAs: 'male' | 'female' | 'unspecified';
+  /** The final exam's conversation: longer, across the whole course. */
+  final?: boolean;
 };
 
 export type CoachCorrection = { said: string; better: string; why: string };
@@ -54,14 +56,13 @@ export type CoachReply =
   /** Off topic or abusive. In English. */
   | { kind: 'declined'; message: string };
 
-export type CoachService = Service & {
-  roleplay(ask: CoachAsk): ServiceResult<CoachReply>;
-};
-
 export type BackendCoachOptions = {
   /** Absent in a build with no backend configured. */
   baseUrl?: string;
   path: string;
+  /** Where the final conversation is marked, and the report written. */
+  assessPath?: string;
+  reportPath?: string;
   http: HttpClient;
   /** RevenueCat's user id for this install, when RevenueCat is running. */
   userId: () => Promise<string | undefined>;
@@ -98,9 +99,145 @@ export function toCoachReply(data: unknown): CoachReply | undefined {
   };
 }
 
+// --- The final exam ------------------------------------------------------------------------
+
+/** The final conversation, marked 1–5 on each of five criteria. */
+export type CoachRubric = {
+  vocabulary: number;
+  grammar: number;
+  fluency: number;
+  comprehension: number;
+  task: number;
+};
+
+export const RUBRIC_KEYS: readonly (keyof CoachRubric)[] = [
+  'vocabulary',
+  'grammar',
+  'fluency',
+  'comprehension',
+  'task',
+];
+
+export type CoachAssessAsk = {
+  learning: LanguageId;
+  scene: CoachScene;
+  transcript: readonly CoachTurn[];
+};
+
+export type CoachAssessment = { rubric: CoachRubric; feedback: string };
+
+/** What the report is written from: scores and words, never anything the user typed. */
+export type CoachReportAsk = {
+  learning: LanguageId;
+  level: string;
+  writtenScore: number;
+  rubric: CoachRubric;
+  skills: Readonly<Record<string, number>>;
+  strongWords: readonly string[];
+  weakWords: readonly string[];
+  daysDone: number;
+  wordsKnown: number;
+};
+
+export type CoachReport = {
+  summary: string;
+  strengths: readonly string[];
+  weaknesses: readonly string[];
+  suggestions: readonly string[];
+  next: string;
+};
+
+export type CoachService = Service & {
+  roleplay(ask: CoachAsk): ServiceResult<CoachReply>;
+  /** Marks the final conversation. */
+  assess(ask: CoachAssessAsk): ServiceResult<CoachAssessment>;
+  /** Writes the end-of-course report. */
+  report(ask: CoachReportAsk): ServiceResult<CoachReport>;
+};
+
+/** Reads a marking back, refusing anything that is not five marks from 1 to 5. */
+export function toAssessment(data: unknown): CoachAssessment | undefined {
+  if (typeof data !== 'object' || data === null) return undefined;
+  const value = data as Record<string, unknown>;
+  if (typeof value.rubric !== 'object' || value.rubric === null) return undefined;
+  const marks = value.rubric as Record<string, unknown>;
+  const rubric = {} as CoachRubric;
+  for (const key of RUBRIC_KEYS) {
+    const mark = marks[key];
+    if (typeof mark !== 'number' || !Number.isInteger(mark) || mark < 1 || mark > 5) {
+      return undefined;
+    }
+    rubric[key] = mark;
+  }
+  return { rubric, feedback: typeof value.feedback === 'string' ? value.feedback : '' };
+}
+
+const strings = (value: unknown): string[] =>
+  Array.isArray(value) ? value.filter((line): line is string => typeof line === 'string') : [];
+
+export function toReport(data: unknown): CoachReport | undefined {
+  if (typeof data !== 'object' || data === null) return undefined;
+  const value = data as Record<string, unknown>;
+  if (typeof value.summary !== 'string' || !value.summary) return undefined;
+  return {
+    summary: value.summary,
+    strengths: strings(value.strengths),
+    weaknesses: strings(value.weaknesses),
+    suggestions: strings(value.suggestions),
+    next: typeof value.next === 'string' ? value.next : '',
+  };
+}
+
 export function createBackendCoachService(options: BackendCoachOptions): CoachService {
   const configured = typeof options.baseUrl === 'string' && options.baseUrl.length > 0;
-  const endpoint = () => `${(options.baseUrl ?? '').replace(/\/+$/, '')}${options.path}`;
+  const endpoint = (path: string) => `${(options.baseUrl ?? '').replace(/\/+$/, '')}${path}`;
+
+  /**
+   * One request to the Academy's server, read back by `read`.
+   *
+   * Sends RevenueCat's user id when there is one, so the server can count the
+   * day's allowance per install and give Elite its larger share.
+   */
+  async function post<T>(
+    path: string,
+    body: unknown,
+    read: (data: unknown) => T | undefined,
+  ): ServiceResult<T> {
+    if (!configured) {
+      return err(httpStatusError(503, 'The AI partner needs a connection to Translita.'));
+    }
+
+    let userId: string | undefined;
+    try {
+      userId = await options.userId();
+    } catch {
+      // No id is fine: the server then counts the allowance per connection.
+      userId = undefined;
+    }
+
+    const response = await options.http.send({
+      url: endpoint(path),
+      method: 'POST',
+      headers: userId ? { 'x-app-user-id': userId } : undefined,
+      body,
+    });
+    if (!response.ok) return response;
+
+    const { status, ok: succeeded, data } = response.value;
+    if (!succeeded) {
+      if (status === 429) {
+        return err(
+          appError('rate_limited', "That's all the AI practice for today. It comes back tomorrow."),
+        );
+      }
+      return err(httpStatusError(status, 'The AI partner is unavailable right now.'));
+    }
+
+    const value = read(data);
+    return value !== undefined
+      ? ok(value)
+      : err(appError('invalid_response', 'The AI partner sent something unexpected.'));
+  }
 
   return {
     id: 'coach.backend',
@@ -109,53 +246,34 @@ export function createBackendCoachService(options: BackendCoachOptions): CoachSe
       return configured;
     },
 
-    async roleplay(ask) {
-      if (!configured) {
-        return err(httpStatusError(503, 'The AI partner needs a connection to Translita.'));
-      }
-
-      let userId: string | undefined;
-      try {
-        userId = await options.userId();
-      } catch {
-        // No id is fine: the server then counts the allowance per connection.
-        userId = undefined;
-      }
-
-      const response = await options.http.send({
-        url: endpoint(),
-        method: 'POST',
-        headers: userId ? { 'x-app-user-id': userId } : undefined,
-        body: {
+    roleplay(ask) {
+      return post(
+        options.path,
+        {
           learning: ask.learning,
           scene: ask.scene,
           words: ask.words.slice(0, 12),
           heard: ask.heard,
           // The server is the authority on this too; trimmed here so a long
           // scene is not uploaded in full on every turn.
-          history: ask.history.slice(-12),
+          history: ask.history.slice(ask.final ? -24 : -12),
           addressAs: ask.addressAs,
+          ...(ask.final ? { final: true } : {}),
         },
-      });
-      if (!response.ok) return response;
+        toCoachReply,
+      );
+    },
 
-      const { status, ok: succeeded, data } = response.value;
-      if (!succeeded) {
-        if (status === 429) {
-          return err(
-            appError(
-              'rate_limited',
-              "That's all the AI practice for today. It comes back tomorrow.",
-            ),
-          );
-        }
-        return err(httpStatusError(status, 'The AI partner is unavailable right now.'));
-      }
+    assess(ask) {
+      return post(
+        options.assessPath ?? '/academy/assess',
+        { learning: ask.learning, scene: ask.scene, transcript: ask.transcript.slice(-30) },
+        toAssessment,
+      );
+    },
 
-      const reply = toCoachReply(data);
-      return reply
-        ? ok(reply)
-        : err(appError('invalid_response', 'The AI partner sent something unexpected.'));
+    report(ask) {
+      return post(options.reportPath ?? '/academy/report', ask, toReport);
     },
   };
 }

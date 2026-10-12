@@ -2,14 +2,24 @@ import assert from 'node:assert/strict';
 import { createServer, type Server } from 'node:http';
 import { after, before, describe, it } from 'node:test';
 
-import { parseRoleplayRequest, readUserId } from '../src/academy/academy-handler';
+import {
+  parseAssessRequest,
+  parseReportRequest,
+  parseRoleplayRequest,
+  readUserId,
+} from '../src/academy/academy-handler';
 import {
   createDailyAllowance,
   createRevenueCatChecker,
   type EntitlementChecker,
 } from '../src/academy/access';
-import type { AcademyProvider, RoleplayRequest } from '../src/academy/contract';
-import { createOpenAiAcademy, toRoleplayReply } from '../src/academy/openai-provider';
+import type { AcademyProvider, ReportRequest, RoleplayRequest } from '../src/academy/contract';
+import {
+  createOpenAiAcademy,
+  toAssessReply,
+  toReportReply,
+  toRoleplayReply,
+} from '../src/academy/openai-provider';
 import { loadConfig } from '../src/config';
 import { createRateLimiter } from '../src/rate-limit';
 import { createRequestHandler } from '../src/server';
@@ -39,6 +49,7 @@ let server: Server;
 let baseUrl = '';
 let seen: RoleplayRequest | undefined;
 let calls = 0;
+let seenReport: ReportRequest | undefined;
 
 const fakePartner: AcademyProvider = {
   id: 'fake',
@@ -55,6 +66,19 @@ const fakePartner: AcademyProvider = {
       replyMeaning: 'Sure! Large or small?',
       done: false,
     };
+  },
+  async assess(request) {
+    calls++;
+    void request;
+    return {
+      rubric: { vocabulary: 4, grammar: 3, fluency: 3, comprehension: 4, task: 4 },
+      feedback: 'Good.',
+    };
+  },
+  async report(request) {
+    calls++;
+    seenReport = request;
+    return { summary: 'Well done.', strengths: [], weaknesses: [], suggestions: [], next: '' };
   },
 };
 
@@ -293,5 +317,76 @@ describe('who has the Academy', () => {
     assert.equal(allowance.take('a', false), false);
     now = Date.parse('2026-10-13T01:00:00Z');
     assert.equal(allowance.take('a', false), true);
+  });
+});
+
+describe('the final exam', () => {
+  const transcript = [
+    { role: 'partner', text: 'Hallo! Wie heißt du?' },
+    { role: 'learner', text: 'Ich heiße Anna.' },
+  ];
+  const marks = { vocabulary: 4, grammar: 3, fluency: 3, comprehension: 4, task: 4 };
+  const report = {
+    learning: 'de',
+    level: 'A2',
+    writtenScore: 0.82,
+    rubric: marks,
+    skills: { listening: 0.8, reading: 0.9 },
+    strongWords: ['Hallo'],
+    weakWords: ['Bahnhof'],
+    daysDone: 60,
+    wordsKnown: 240,
+  };
+  const post = (path: string, body: unknown, userId = 'exam-user') =>
+    fetch(`${baseUrl}${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-app-user-id': userId },
+      body: JSON.stringify(body),
+    });
+
+  it('marks the final conversation on the rubric', async () => {
+    const response = await post('/academy/assess', { learning: 'de', scene, transcript });
+    assert.equal(response.status, 200);
+    const body = (await response.json()) as { rubric: Record<string, number> };
+    assert.equal(body.rubric.grammar, 3);
+  });
+
+  it('writes the report from the scores, and nothing the user typed', async () => {
+    const response = await post('/academy/report', report, 'report-user');
+    assert.equal(response.status, 200);
+    assert.deepEqual(seenReport?.weakWords, ['Bahnhof']);
+    assert.equal(seenReport?.level, 'A2');
+  });
+
+  it('refuses an exam with nothing said, or scores out of range, before spending', () => {
+    assert.equal(
+      parseAssessRequest({ learning: 'de', scene, transcript: [transcript[0]] }),
+      undefined,
+    );
+    assert.equal(parseReportRequest({ ...report, rubric: { ...marks, grammar: 9 } }), undefined);
+    assert.equal(parseReportRequest({ ...report, writtenScore: 1.5 }), undefined);
+    assert.equal(parseReportRequest({ ...report, level: 'fluent' }), undefined);
+  });
+
+  it('lets the final conversation keep more of itself', () => {
+    const history = Array.from({ length: 30 }, (_, i) => ({
+      role: i % 2 ? 'partner' : 'learner',
+      text: `line ${i}`,
+    }));
+    assert.equal(parseRoleplayRequest({ ...valid, history })?.history.length, 12);
+    assert.equal(parseRoleplayRequest({ ...valid, history, final: true })?.history.length, 24);
+  });
+
+  it('reads the model back strictly', () => {
+    assert.deepEqual(
+      toAssessReply({ rubric: { ...marks, task: 7 }, feedback: ' Gut. ' }).rubric.task,
+      5,
+    );
+    assert.throws(() => toAssessReply({ rubric: { vocabulary: 3 } }));
+    assert.throws(() => toReportReply({ strengths: ['x'] }));
+    assert.equal(
+      toReportReply({ summary: 'S', strengths: ['a', 'b', 'c', 'd', 'e', 'f'] }).strengths.length,
+      4,
+    );
   });
 });

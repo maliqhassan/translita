@@ -544,8 +544,6 @@ export const pt: Catalog = {
   'Not quite yet': 'Ainda não',
   '{correct} of {total} right ({percent}%)': '{correct} de {total} certas ({percent}%)',
   'Well done.': 'Muito bem.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'Você precisa de 70% para passar na avaliação. As palavras que errou voltarão na revisão.',
   'Practise with the AI partner': 'Pratique com o parceiro de IA',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'O parceiro de IA precisa de conexão. Você pode praticar esta cena na próxima vez que estiver online.',
@@ -642,6 +640,87 @@ export const pt: Catalog = {
   'Reset the AI Academy': 'Redefinir a AI Academy',
   'Deletes your course and progress, to start again or learn another language':
     'Apaga seu curso e progresso, para recomeçar ou aprender outro idioma',
+  Reading: 'Leitura',
+  Vocabulary: 'Vocabulário',
+  Listening: 'Compreensão auditiva',
+  Grammar: 'Gramática',
+  Fluency: 'Fluência',
+  Understanding: 'Compreensão',
+  'Getting it done': 'Cumprir a tarefa',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'Você terminou o curso e passou nas duas partes do exame final: {written}% na prova escrita e {spoken}% na conversa.',
+  '{skill}: {percent}% right': '{skill}: {percent}% de acertos',
+  '{skill} in conversation: {mark} of 5': '{skill} na conversa: {mark} de 5',
+  'Review the words below until they come easily.':
+    'Revise as palavras abaixo até que saiam com facilidade.',
+  'Keep speaking a little every day, out loud.':
+    'Continue falando um pouco todos os dias, em voz alta.',
+  'Use the translator to look up things you want to say in your own life.':
+    'Use o tradutor para procurar o que você quer dizer no seu dia a dia.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'Mantenha sua sequência com revisões e use o idioma sempre que puder.',
+  'Send for marking': 'Enviar para correção',
+  'Course complete': 'Curso concluído',
+  'See your report, your level and your certificate.':
+    'Veja seu relatório, seu nível e seu certificado.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'Pronto: uma prova escrita e depois uma conversa com seu coach de IA.',
+  'There is no course to finish yet': 'Ainda não há curso para concluir',
+  'Say something in the conversation first: there was nothing to mark.':
+    'Diga algo na conversa primeiro: não havia nada para corrigir.',
+  'Part A: written and listening': 'Parte A: escrita e compreensão auditiva',
+  'Your coach is marking the conversation…': 'Seu coach está corrigindo a conversa…',
+  'Part B: conversation': 'Parte B: conversa',
+  'From your coach': 'Do seu coach',
+  'Writing your report…': 'Escrevendo seu relatório…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'Duas partes, cada uma aprovada com 70%. Passe nas duas para concluir seu curso de {language}.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    '{count} perguntas de todo o curso. Cerca de 15 minutos, de uma vez.',
+  'Start Part A': 'Começar a parte A',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Converse com seu coach de IA sobre seu dia de passeio. São avaliados vocabulário, gramática, fluência, compreensão e cumprimento da tarefa.',
+  'Start Part B': 'Começar a parte B',
+  'Part B needs a connection. Your Part A result is saved.':
+    'A parte B precisa de conexão. Seu resultado da parte A está salvo.',
+  'Passed with {percent}%': 'Aprovado com {percent}%',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'Ainda não aprovado ({percent}%). Revise hoje e tente de novo amanhã.',
+  'Opens when Part A is passed.': 'Abre quando a parte A for aprovada.',
+  'Leave Part A. It starts again next time.': 'Sair da parte A. Ela recomeça na próxima vez.',
+  'Passed!': 'Aprovado!',
+  'Not passed yet': 'Ainda não aprovado',
+  'Well done. Your result is saved.': 'Muito bem. Seu resultado está salvo.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'Você precisa de 70%. Revise hoje e refaça esta parte a partir de amanhã.',
+  'Words to review': 'Palavras para revisar',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'Você precisa de 70% para passar no checkpoint. A nova tentativa começa pelas palavras que você errou.',
+  'No report yet': 'Ainda não há relatório',
+  'Your report is written when you pass the final exam.':
+    'Seu relatório é escrito quando você passa no exame final.',
+  'My {language} certificate': 'Meu certificado de {language}',
+  '{language} course complete': 'Curso de {language} concluído',
+  'Your level': 'Seu nível',
+  'Written test': 'Prova escrita',
+  'Your skills': 'Suas habilidades',
+  'Your conversation': 'Sua conversa',
+  'Strong points': 'Pontos fortes',
+  'To work on': 'Para melhorar',
+  'What to practise': 'O que praticar',
+  'Words to keep practising': 'Palavras para continuar praticando',
+  'Words you know well': 'Palavras que você conhece bem',
+  'What next': 'E agora',
+  'Your certificate': 'Seu certificado',
+  'Name on the certificate': 'Nome no certificado',
+  'Your name (optional)': 'Seu nome (opcional)',
+  'Share certificate': 'Compartilhar certificado',
+  'Certificate of completion': 'Certificado de conclusão',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    'concluiu o curso de {language} de {days} dias da AI Academy do {app}',
+  'Level {level}': 'Nível {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'Escrita {written}% · Conversa {spoken}% · {date}',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',

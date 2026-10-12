@@ -7,4 +7,6 @@ export * from './rules';
 export * from './routes';
 export * from './screens/academy-screen';
 export * from './screens/elite-screen';
+export * from './screens/final-exam-screen';
+export * from './screens/report-screen';
 export * from './screens/lesson-screen';

@@ -535,8 +535,6 @@ export const bn: Catalog = {
   'Not quite yet': 'এখনও হয়নি',
   '{correct} of {total} right ({percent}%)': '{total}টির মধ্যে {correct}টি সঠিক ({percent}%)',
   'Well done.': 'দারুণ।',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'যাচাই পাস করতে 70% দরকার। যে শব্দগুলো ভুল হয়েছে সেগুলো পুনরাবৃত্তিতে আবার আসবে।',
   'Practise with the AI partner': 'AI সঙ্গীর সাথে অনুশীলন করুন',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'AI সঙ্গীর জন্য সংযোগ দরকার। পরের বার অনলাইনে থাকলে এই দৃশ্যটি খেলতে পারবেন।',
@@ -632,6 +630,85 @@ export const bn: Catalog = {
   'Reset the AI Academy': 'AI একাডেমি রিসেট করুন',
   'Deletes your course and progress, to start again or learn another language':
     'আপনার কোর্স ও অগ্রগতি মুছে দেয়, আবার শুরু করতে বা অন্য ভাষা শিখতে',
+  Reading: 'পড়া',
+  Vocabulary: 'শব্দভান্ডার',
+  Listening: 'শোনা',
+  Grammar: 'ব্যাকরণ',
+  Fluency: 'সাবলীলতা',
+  Understanding: 'বোঝা',
+  'Getting it done': 'কাজটি সম্পন্ন করা',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'আপনি কোর্স শেষ করেছেন এবং চূড়ান্ত পরীক্ষার দুই অংশেই পাস করেছেন: লিখিত পরীক্ষায় {written}% এবং কথোপকথনে {spoken}%।',
+  '{skill}: {percent}% right': '{skill}: {percent}% সঠিক',
+  '{skill} in conversation: {mark} of 5': 'কথোপকথনে {skill}: ৫-এর মধ্যে {mark}',
+  'Review the words below until they come easily.':
+    'নিচের শব্দগুলো সহজে মনে না আসা পর্যন্ত পুনরালোচনা করুন।',
+  'Keep speaking a little every day, out loud.': 'প্রতিদিন একটু করে জোরে কথা বলতে থাকুন।',
+  'Use the translator to look up things you want to say in your own life.':
+    'নিজের জীবনে যা বলতে চান, অনুবাদকে তা খুঁজে দেখুন।',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'পুনরালোচনা দিয়ে ধারাবাহিকতা বজায় রাখুন, আর যখনই পারেন ভাষাটি ব্যবহার করুন।',
+  'Send for marking': 'মূল্যায়নের জন্য পাঠান',
+  'Course complete': 'কোর্স সম্পন্ন',
+  'See your report, your level and your certificate.': 'আপনার রিপোর্ট, স্তর ও সার্টিফিকেট দেখুন।',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'প্রস্তুত: একটি লিখিত পরীক্ষা, তারপর আপনার AI কোচের সাথে কথোপকথন।',
+  'There is no course to finish yet': 'শেষ করার মতো কোনো কোর্স এখনো নেই',
+  'Say something in the conversation first: there was nothing to mark.':
+    'আগে কথোপকথনে কিছু বলুন: মূল্যায়নের মতো কিছু ছিল না।',
+  'Part A: written and listening': 'অংশ A: লিখিত ও শোনা',
+  'Your coach is marking the conversation…': 'আপনার কোচ কথোপকথন মূল্যায়ন করছে…',
+  'Part B: conversation': 'অংশ B: কথোপকথন',
+  'From your coach': 'আপনার কোচের পক্ষ থেকে',
+  'Writing your report…': 'আপনার রিপোর্ট লেখা হচ্ছে…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'দুটি অংশ, প্রতিটিতে ৭০% পেলে পাস। আপনার {language} কোর্স শেষ করতে দুটিতেই পাস করুন।',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    'পুরো কোর্স থেকে {count}টি প্রশ্ন। প্রায় ১৫ মিনিট, একবারে।',
+  'Start Part A': 'অংশ A শুরু করুন',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'আপনার AI কোচের সাথে আপনার বেড়ানোর দিন নিয়ে কথা বলুন। শব্দভান্ডার, ব্যাকরণ, সাবলীলতা, বোঝা ও কাজ সম্পন্ন করার উপর মূল্যায়ন হয়।',
+  'Start Part B': 'অংশ B শুরু করুন',
+  'Part B needs a connection. Your Part A result is saved.':
+    'অংশ B-এর জন্য সংযোগ প্রয়োজন। আপনার অংশ A-এর ফলাফল সংরক্ষিত আছে।',
+  'Passed with {percent}%': '{percent}% পেয়ে পাস',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'এখনো পাস হয়নি ({percent}%)। আজ পুনরালোচনা করুন, কাল আবার চেষ্টা করুন।',
+  'Opens when Part A is passed.': 'অংশ A পাস হলে খুলবে।',
+  'Leave Part A. It starts again next time.': 'অংশ A ছেড়ে যান। পরের বার এটি আবার শুরু হবে।',
+  'Passed!': 'পাস!',
+  'Not passed yet': 'এখনো পাস হয়নি',
+  'Well done. Your result is saved.': 'দারুণ। আপনার ফলাফল সংরক্ষিত।',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'আপনার ৭০% দরকার। আজ পুনরালোচনা করুন, কাল থেকে এই অংশ আবার দিন।',
+  'Words to review': 'পুনরালোচনার শব্দ',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'চেকপয়েন্ট পাস করতে ৭০% দরকার। পরের চেষ্টা আপনার ভুল হওয়া শব্দগুলো দিয়ে শুরু হবে।',
+  'No report yet': 'এখনো কোনো রিপোর্ট নেই',
+  'Your report is written when you pass the final exam.':
+    'চূড়ান্ত পরীক্ষায় পাস করলে আপনার রিপোর্ট লেখা হয়।',
+  'My {language} certificate': 'আমার {language} সার্টিফিকেট',
+  '{language} course complete': '{language} কোর্স সম্পন্ন',
+  'Your level': 'আপনার স্তর',
+  'Written test': 'লিখিত পরীক্ষা',
+  'Your skills': 'আপনার দক্ষতা',
+  'Your conversation': 'আপনার কথোপকথন',
+  'Strong points': 'শক্তির দিক',
+  'To work on': 'যেগুলোতে কাজ করতে হবে',
+  'What to practise': 'কী অনুশীলন করবেন',
+  'Words to keep practising': 'অনুশীলন চালিয়ে যাওয়ার শব্দ',
+  'Words you know well': 'যে শব্দগুলো আপনি ভালো জানেন',
+  'What next': 'এরপর কী',
+  'Your certificate': 'আপনার সার্টিফিকেট',
+  'Name on the certificate': 'সার্টিফিকেটে নাম',
+  'Your name (optional)': 'আপনার নাম (ঐচ্ছিক)',
+  'Share certificate': 'সার্টিফিকেট শেয়ার করুন',
+  'Certificate of completion': 'সমাপ্তির সার্টিফিকেট',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    '{app} AI একাডেমির {days} দিনের {language} কোর্স সম্পন্ন করেছেন',
+  'Level {level}': 'স্তর {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'লিখিত {written}% · কথোপকথন {spoken}% · {date}',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

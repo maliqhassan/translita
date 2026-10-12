@@ -1,4 +1,15 @@
-import type { AcademyProvider, Correction, RoleplayReply, RoleplayRequest } from './contract';
+import {
+  RUBRIC_KEYS,
+  type AcademyProvider,
+  type AssessReply,
+  type AssessRequest,
+  type Correction,
+  type ReportReply,
+  type ReportRequest,
+  type RoleplayReply,
+  type RoleplayRequest,
+  type Rubric,
+} from './contract';
 
 /**
  * The Academy's role-play partner, over OpenAI's chat completions API.
@@ -35,6 +46,7 @@ export const ROLEPLAY_TURNS = 5;
 function systemPrompt(request: RoleplayRequest): string {
   const language = LANGUAGE_NAMES[request.learning] ?? request.learning;
   const { scene } = request;
+  const turns = request.final ? FINAL_ROLEPLAY_TURNS : ROLEPLAY_TURNS;
   const address =
     request.addressAs === 'unspecified'
       ? 'Where your language has forms that change with the person addressed, use ones that suit anyone.'
@@ -45,6 +57,9 @@ function systemPrompt(request: RoleplayRequest): string {
     `You are ${scene.partnerRole}. The learner is ${scene.learnerRole}.`,
     `The scene: ${scene.brief}`,
     `The learner's goal: ${scene.goal}`,
+    request.final
+      ? 'This is the final test of the whole course: across the conversation, ask about different everyday topics (introductions, food, directions, transport, times, plans) so the learner can show everything they know.'
+      : '',
     request.words.length
       ? `Use some of these words where they fit naturally: ${request.words.join(', ')}.`
       : '',
@@ -58,7 +73,7 @@ function systemPrompt(request: RoleplayRequest): string {
     '   If there is a mistake, give a correction: what they said, the corrected line, and why in one',
     '   short English sentence. Otherwise the correction is null. Ignore punctuation and capital letters.',
     '4. If they answered in English, gently give them the words in the correction and carry on.',
-    `5. Set "done" to true once the learner has reached the goal, or after their ${ROLEPLAY_TURNS}th line,`,
+    `5. Set "done" to true once the learner has reached the goal, or after their ${turns}th line,`,
     '   and then close the scene with a friendly line.',
     `6. ${address}`,
     '7. Only this practice. If asked about anything else, or anything abusive, sexual or hateful,',
@@ -109,43 +124,177 @@ export function toRoleplayReply(raw: unknown): RoleplayReply {
   };
 }
 
+// --- The final exam ------------------------------------------------------------------------
+
+/** The final conversation runs longer than a lesson's scene. */
+export const FINAL_ROLEPLAY_TURNS = 10;
+
+function assessPrompt(request: AssessRequest): string {
+  const language = LANGUAGE_NAMES[request.learning] ?? request.learning;
+  return [
+    `You are a fair, encouraging ${language} examiner marking a beginner's final speaking test (target CEFR A2).`,
+    `The learner played ${request.scene.learnerRole}; the examiner played ${request.scene.partnerRole}.`,
+    `The task: ${request.scene.goal}`,
+    "Mark only the learner's lines, from 1 to 5 on each criterion:",
+    '- vocabulary: range and accuracy of words for everyday topics.',
+    '- grammar: verb forms, articles and endings, word order.',
+    '- fluency: complete, connected sentences rather than single words.',
+    '- comprehension: answers that fit what the examiner asked.',
+    '- task: how much of the task was achieved.',
+    '1 = not yet, 2 = some, 3 = adequate for A2, 4 = good, 5 = confident and accurate.',
+    'Lines in English instead of the target language count against vocabulary and task.',
+    'Then write feedback: two or three short sentences in English, addressed to the learner,',
+    'naming one thing done well and one to improve, with a concrete example from their lines.',
+    'Reply with JSON only:',
+    '{"rubric":{"vocabulary":n,"grammar":n,"fluency":n,"comprehension":n,"task":n},"feedback":"..."}',
+  ].join('\n');
+}
+
+function reportPrompt(request: ReportRequest): string {
+  const language = LANGUAGE_NAMES[request.learning] ?? request.learning;
+  return [
+    `You write the end-of-course report for an adult who has just finished a 60-day beginner ${language} course, taught from English.`,
+    'Write in plain, warm, specific English, addressed to the learner as "you".',
+    'Use only the facts given. Do not invent scores, words or experiences.',
+    'The estimated level is decided already; explain it, never change it.',
+    'Reply with JSON only:',
+    '{"summary":"two or three sentences","strengths":["..."],"weaknesses":["..."],"suggestions":["..."],"next":"one or two sentences"}',
+    'Give 2 to 4 strengths, 2 to 4 weaknesses and 3 to 5 suggestions, each one short sentence.',
+    'Weaknesses are things to work on, said kindly. Suggestions are concrete practice the learner can do,',
+    'naming words from the weak list where useful.',
+  ].join('\n');
+}
+
+/** A whole number from 1 to 5, or undefined. */
+function score(value: unknown): number | undefined {
+  const number = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(number) ? Math.min(5, Math.max(1, Math.round(number))) : undefined;
+}
+
+export function toAssessReply(raw: unknown): AssessReply {
+  if (typeof raw !== 'object' || raw === null)
+    throw new Error('academy: assessment was not an object');
+  const value = raw as Record<string, unknown>;
+  const marks = (
+    typeof value.rubric === 'object' && value.rubric !== null ? value.rubric : {}
+  ) as Record<string, unknown>;
+  const rubric = {} as Rubric;
+  for (const key of RUBRIC_KEYS) {
+    const mark = score(marks[key]);
+    if (mark === undefined) throw new Error(`academy: assessment missed ${key}`);
+    rubric[key] = mark;
+  }
+  const feedback = typeof value.feedback === 'string' ? value.feedback.trim() : '';
+  return { rubric, feedback };
+}
+
+const lines = (value: unknown, max: number): string[] =>
+  Array.isArray(value)
+    ? value
+        .filter((line): line is string => typeof line === 'string')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .slice(0, max)
+    : [];
+
+export function toReportReply(raw: unknown): ReportReply {
+  if (typeof raw !== 'object' || raw === null) throw new Error('academy: report was not an object');
+  const value = raw as Record<string, unknown>;
+  const summary = typeof value.summary === 'string' ? value.summary.trim() : '';
+  if (!summary) throw new Error('academy: report had no summary');
+  return {
+    summary,
+    strengths: lines(value.strengths, 4),
+    weaknesses: lines(value.weaknesses, 4),
+    suggestions: lines(value.suggestions, 5),
+    next: typeof value.next === 'string' ? value.next.trim() : '',
+  };
+}
+
 export function createOpenAiAcademy(options: OpenAiAcademyOptions): AcademyProvider {
   const { apiKey, model = 'gpt-4o-mini', maxTokens = 300, fetchImpl = fetch } = options;
+
+  /** One JSON chat completion. Only the status of a failure travels: the body can quote the request. */
+  async function chat(
+    messages: readonly { role: 'system' | 'user' | 'assistant'; content: string }[],
+    settings: { temperature: number; maxTokens: number },
+  ): Promise<unknown> {
+    const response = await fetchImpl(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model,
+        messages,
+        max_tokens: settings.maxTokens,
+        temperature: settings.temperature,
+        response_format: { type: 'json_object' },
+      }),
+    });
+
+    if (!response.ok) throw new Error(`academy: provider returned ${response.status}`);
+
+    const body = (await response.json()) as { choices?: { message?: { content?: string } }[] };
+    const content = body.choices?.[0]?.message?.content;
+    if (!content) throw new Error('academy: provider returned no content');
+    return JSON.parse(content) as unknown;
+  }
 
   return {
     id: 'openai',
 
     async roleplay(request: RoleplayRequest): Promise<RoleplayReply> {
       const messages = [
-        { role: 'system', content: systemPrompt(request) },
+        { role: 'system' as const, content: systemPrompt(request) },
         ...request.history.map((turn) => ({
           role: turn.role === 'learner' ? ('user' as const) : ('assistant' as const),
           content: turn.text,
         })),
         ...(request.heard ? [{ role: 'user' as const, content: request.heard }] : []),
       ];
+      return toRoleplayReply(await chat(messages, { temperature: 0.6, maxTokens }));
+    },
 
-      const response = await fetchImpl(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify({
-          model,
-          messages,
-          max_tokens: maxTokens,
-          temperature: 0.6,
-          response_format: { type: 'json_object' },
-        }),
-      });
+    async assess(request: AssessRequest): Promise<AssessReply> {
+      // The transcript is data, labelled, never turns the examiner could be steered by.
+      const transcript = request.transcript
+        .map((turn) => `${turn.role === 'learner' ? 'LEARNER' : 'EXAMINER'}: ${turn.text}`)
+        .join('\n');
+      return toAssessReply(
+        await chat(
+          [
+            { role: 'system', content: assessPrompt(request) },
+            { role: 'user', content: `Transcript:\n${transcript}` },
+          ],
+          { temperature: 0.2, maxTokens: 300 },
+        ),
+      );
+    },
 
-      if (!response.ok) {
-        // Only the status travels: the body can quote the request.
-        throw new Error(`academy: provider returned ${response.status}`);
-      }
-
-      const body = (await response.json()) as { choices?: { message?: { content?: string } }[] };
-      const content = body.choices?.[0]?.message?.content;
-      if (!content) throw new Error('academy: provider returned no content');
-      return toRoleplayReply(JSON.parse(content) as unknown);
+    async report(request: ReportRequest): Promise<ReportReply> {
+      const facts = {
+        estimatedLevel: request.level,
+        writtenAndListeningTest: `${Math.round(request.writtenScore * 100)}%`,
+        speakingTestOutOf5: request.rubric,
+        accuracyBySkill: Object.fromEntries(
+          Object.entries(request.skills).map(([skill, share]) => [
+            skill,
+            `${Math.round(share * 100)}%`,
+          ]),
+        ),
+        wordsKnownWell: request.strongWords,
+        wordsToPractise: request.weakWords,
+        daysCompleted: request.daysDone,
+        wordsKnown: request.wordsKnown,
+      };
+      return toReportReply(
+        await chat(
+          [
+            { role: 'system', content: reportPrompt(request) },
+            { role: 'user', content: JSON.stringify(facts) },
+          ],
+          { temperature: 0.5, maxTokens: 700 },
+        ),
+      );
     },
   };
 }

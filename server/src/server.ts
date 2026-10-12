@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
-import { handleRoleplay, readUserId } from './academy/academy-handler';
+import { handleAcademy, readUserId, type AcademyAction } from './academy/academy-handler';
 import {
   createDailyAllowance,
   createRevenueCatChecker,
@@ -34,6 +34,13 @@ export type CreateHandlerOptions = {
   /** Defaults to RevenueCat, configured from `config`. */
   entitlements?: EntitlementChecker;
   allowance?: DailyAllowance;
+};
+
+/** The Academy's endpoints: a lesson's role-play, and the final exam's marking and report. */
+const ACADEMY_ROUTES: Readonly<Record<string, AcademyAction | undefined>> = {
+  'POST /academy/roleplay': 'roleplay',
+  'POST /academy/assess': 'assess',
+  'POST /academy/report': 'report',
 };
 
 /**
@@ -118,7 +125,8 @@ export function createRequestHandler(options: CreateHandlerOptions): RequestHand
       return;
     }
 
-    if (route === 'POST /academy/roleplay') {
+    const academyAction = ACADEMY_ROUTES[route];
+    if (academyAction) {
       const caller = clientKey(request);
       const limit = academyLimiter.check(caller);
       if (!limit.allowed) {
@@ -134,7 +142,7 @@ export function createRequestHandler(options: CreateHandlerOptions): RequestHand
       }
 
       const userId = readUserId(request.headers['x-app-user-id']);
-      await handleRoleplay(response, body.value, {
+      await handleAcademy(academyAction, response, body.value, {
         provider: options.academy,
         entitlements,
         allowance,

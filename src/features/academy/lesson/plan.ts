@@ -256,7 +256,15 @@ export function planLesson({ lesson, pool, review, minutesPerDay, seed }: PlanIn
   add('learn', { kind: 'overview' });
 
   if (lesson.checkpoint) {
-    const quizzed = shuffle(pool, random).slice(0, serious ? 16 : 10);
+    // A retry after a miss starts with the words missed; the rest at random.
+    const focus = new Set(review.map((item) => item.id));
+    const quizzed = [
+      ...pool.filter((item) => focus.has(item.id)),
+      ...shuffle(
+        pool.filter((item) => !focus.has(item.id)),
+        random,
+      ),
+    ].slice(0, serious ? 16 : 10);
     const kinds: ExerciseKind[] = ['choose-meaning', 'fill', 'listen', 'choose-word', 'build'];
     quizzed.forEach((item, i) =>
       add(
@@ -358,4 +366,70 @@ export function speechMatches(heard: string, expected: string): boolean {
   if (!want.length) return false;
   const found = want.filter((word) => got.has(word)).length;
   return found / want.length >= 0.6;
+}
+
+// --- The final exam ------------------------------------------------------------------------
+
+/**
+ * Part A of the final exam: questions across the whole course.
+ *
+ * The same exercises the lessons use — the meaning, the word, listening,
+ * filling the gap, building a sentence — over words drawn from every
+ * chapter, and two matching rounds. Nothing spoken: speaking is Part B.
+ * Seeded like a lesson, so a part-way exam rebuilds the same questions.
+ */
+export function planFinal(items: readonly CourseItem[], count: number, seed: string): LessonStep[] {
+  const random = seededRandom(seed);
+  const steps: LessonStep[] = [];
+  const matches = matchRounds(items, 2, random);
+  const singles = Math.max(0, count - matches.length);
+  const kinds: ExerciseKind[] = [
+    'choose-meaning',
+    'listen',
+    'fill',
+    'choose-word',
+    'build',
+    'listen',
+    'fill',
+    'choose-meaning',
+  ];
+  // Every word once before any twice; a short course goes round again, and the
+  // kinds cycle on, so a word asked twice is asked a different way.
+  const quizzed: CourseItem[] = [];
+  while (items.length && quizzed.length < singles) quizzed.push(...shuffle(items, random));
+  quizzed.length = Math.min(quizzed.length, singles);
+  quizzed.forEach((item, i) => {
+    const body =
+      exercise(kinds[i % kinds.length]!, item, items, random) ??
+      exercise('choose-meaning', item, items, random);
+    if (body) steps.push({ ...body, section: 'practise' });
+  });
+  // The matching rounds a third and two thirds of the way through.
+  matches.forEach((itemIds, i) => {
+    steps.splice(Math.round((steps.length * (i + 1)) / 3), 0, {
+      kind: 'match',
+      itemIds,
+      section: 'practise',
+    });
+  });
+  return steps;
+}
+
+/** The skill a question tests, for the report; undefined for steps that are not questions. */
+export function skillOf(
+  step: LessonStep,
+): 'reading' | 'vocabulary' | 'listening' | 'grammar' | undefined {
+  switch (step.kind) {
+    case 'choose':
+      return step.ask === 'meaning' ? 'reading' : 'vocabulary';
+    case 'match':
+      return 'vocabulary';
+    case 'listen':
+      return 'listening';
+    case 'fill':
+    case 'build':
+      return 'grammar';
+    default:
+      return undefined;
+  }
 }

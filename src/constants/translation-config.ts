@@ -38,6 +38,9 @@ export const TRANSLATION_CONFIG = {
     tutorPath: '/tutor',
     /** Path for the Academy's AI role-play partner, on the same server. */
     academyRoleplayPath: '/academy/roleplay',
+    /** Paths for marking the final exam's conversation, and writing the report. */
+    academyAssessPath: '/academy/assess',
+    academyReportPath: '/academy/report',
   },
 
   /**

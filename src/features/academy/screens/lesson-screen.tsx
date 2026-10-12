@@ -2,7 +2,6 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StatusBar, View } from 'react-native';
 import Animated, {
-  Easing,
   FadeInDown,
   FadeInRight,
   FadeInUp,
@@ -14,25 +13,33 @@ import Animated, {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, EmptyState, Icon, IconButton, LoadingState, Screen, Text } from '@/components';
-import { useSpeak, useSpeechRecognition } from '@/features/translation';
+import { useSpeak } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
 import { services } from '@/services';
-import { useAcademy, useIsOffline } from '@/store';
+import { useAcademy } from '@/store';
 import type { Enrollment, ItemStat } from '@/types';
 import { createId } from '@/utils';
 
 import { CoachAvatar } from '../components/coach-avatar';
 import { Confetti } from '../components/confetti';
 import { Breathing, CountUp, Pop } from '../components/motion';
+import { ProgressBar } from '../components/progress-bar';
 import { ProgressRing } from '../components/progress-ring';
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
 import { COURSE_DAYS } from '../course';
 import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
-import { planLesson, SECTIONS, sectionCounts, type LessonStep, type Section } from '../lesson/plan';
-import type { CoachConnection } from '../lesson/roleplay-step';
+import { useCoachConnection, useSpeechPractice } from '../hooks/use-lesson-tools';
+import {
+  itemsOf,
+  planLesson,
+  SECTIONS,
+  sectionCounts,
+  type LessonStep,
+  type Section,
+} from '../lesson/plan';
 import {
   isSessionState,
   outcomeOf,
@@ -40,7 +47,7 @@ import {
   type LessonOutcome,
   type SessionState,
 } from '../lesson/session';
-import { LessonStepView, SECTION_LABEL, type SpeechPractice } from '../lesson/steps';
+import { LessonStepView, SECTION_LABEL } from '../lesson/steps';
 import { ACADEMY_ELITE } from '../routes';
 import { completedDays, dayStatus } from '../rules';
 
@@ -88,40 +95,9 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
   const { recordLesson } = useAcademy();
   const speak = useSpeak();
   const courseId = enrollment.courseId;
-  const offline = useIsOffline();
 
-  // --- The AI partner: on the server, so only with a backend and a connection.
-  const [coachConfigured, setCoachConfigured] = useState(false);
-  useEffect(() => {
-    let active = true;
-    void services.coach.isAvailable().then((available) => {
-      if (active) setCoachConfigured(available);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
-  const coach: CoachConnection = {
-    available: coachConfigured && !offline,
-    roleplay: (ask) => services.coach.roleplay(ask),
-    addressAs: enrollment.addressAs,
-  };
-
-  // --- Speaking practice, through the app's one recogniser -----------------------------
-  const onHeard = useRef<((text: string) => void) | undefined>(undefined);
-  const speech = useSpeechRecognition({
-    onPartial: () => {},
-    onFinal: (text) => onHeard.current?.(text),
-  });
-  const listen: SpeechPractice = {
-    available: speech.status !== 'unavailable' && speech.status !== 'locked',
-    listening: speech.listening,
-    start: (language, heard) => {
-      onHeard.current = heard;
-      speech.toggle(language);
-    },
-    stop: () => speech.toggle(courseId),
-  };
+  const coach = useCoachConnection(enrollment.addressAs);
+  const listen = useSpeechPractice(courseId);
 
   // --- The course around this lesson -----------------------------------------------------
   const allItems = useMemo(() => {
@@ -148,18 +124,28 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
   // --- Starting or resuming ---------------------------------------------------------------
   const [session, setSession] = useState<Session>();
   const [outcome, setOutcome] = useState<LessonOutcome>();
+  /** The words answered wrong in the attempt just finished. */
+  const [missed, setMissed] = useState<readonly string[]>([]);
 
-  const begin = useCallback(async () => {
-    const due = await services.academy.listDueItems(courseId, now(), 8);
-    const todays = new Set(lesson.items.map((item) => item.id));
-    const reviewIds = due.ok
-      ? due.value
-          .map((stat) => stat.itemId)
-          .filter((itemId) => allItems.has(itemId) && !todays.has(itemId))
-      : [];
-    setOutcome(undefined);
-    setSession({ seed: `${lesson.id}:${now()}`, reviewIds, answers: [], index: 0 });
-  }, [courseId, lesson, allItems]);
+  /**
+   * A fresh attempt. After a missed checkpoint, `focus` is the words it
+   * missed: they lead the retry, so the review is aimed where it is needed.
+   */
+  const begin = useCallback(
+    async (focus: readonly string[] = []) => {
+      const due = await services.academy.listDueItems(courseId, now(), 8);
+      const todays = new Set(lesson.items.map((item) => item.id));
+      const dueIds = due.ok
+        ? due.value
+            .map((stat) => stat.itemId)
+            .filter((itemId) => allItems.has(itemId) && !todays.has(itemId))
+        : [];
+      const reviewIds = [...new Set([...focus, ...dueIds])];
+      setOutcome(undefined);
+      setSession({ seed: `${lesson.id}:${now()}`, reviewIds, answers: [], index: 0 });
+    },
+    [courseId, lesson, allItems],
+  );
 
   useEffect(() => {
     let active = true;
@@ -237,6 +223,9 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
         passed: result.passed,
       },
     });
+    setMissed([
+      ...new Set(answers.filter((a) => !a.correct).flatMap((a) => itemsOf(steps[a.step]!))),
+    ]);
     setOutcome(result);
   };
 
@@ -348,8 +337,11 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
               courseId={courseId}
               lesson={lesson}
               outcome={outcome}
+              missed={missed
+                .map((id) => allItems.get(id))
+                .filter((item): item is CourseItem => Boolean(item))}
               onBack={leave}
-              onRetry={() => void begin()}
+              onRetry={() => void begin(missed)}
             />
           ) : (
             <Animated.View
@@ -383,72 +375,19 @@ function rightInARow(answers: Session['answers']): number {
   return count;
 }
 
-/** The lesson's progress, sliding forward with each step. */
-function ProgressBar({ progress, label }: { progress: number; label: string }) {
-  const theme = useTheme();
-  const filled = useSharedValue(progress);
-
-  useEffect(() => {
-    filled.set(
-      withTiming(progress, {
-        duration: theme.motion.duration.slow,
-        easing: Easing.out(Easing.cubic),
-      }),
-    );
-  }, [filled, progress, theme.motion.duration.slow]);
-
-  const style = useAnimatedStyle(() => ({ width: `${filled.get() * 100}%` }));
-
-  return (
-    <View
-      accessibilityRole="progressbar"
-      accessibilityLabel={label}
-      style={{
-        flex: 1,
-        height: 12,
-        borderRadius: theme.radius.full,
-        overflow: 'hidden',
-        backgroundColor: theme.colors.surfaceMuted,
-      }}
-    >
-      <Animated.View
-        style={[
-          {
-            height: '100%',
-            borderRadius: theme.radius.full,
-            backgroundColor: theme.colors.primary,
-            experimental_backgroundImage: `linear-gradient(90deg, ${theme.colors.primary} 0%, ${theme.colors.aiFrom} 100%)`,
-          },
-          style,
-        ]}
-      >
-        {/* A highlight along the top, so the bar reads as filled rather than flat. */}
-        <View
-          style={{
-            position: 'absolute',
-            top: 2,
-            left: theme.spacing.sm,
-            right: theme.spacing.sm,
-            height: 3,
-            borderRadius: theme.radius.full,
-            backgroundColor: theme.colors.aiSurface,
-          }}
-        />
-      </Animated.View>
-    </View>
-  );
-}
-
 function Result({
   courseId,
   lesson,
   outcome,
+  missed,
   onBack,
   onRetry,
 }: {
   courseId: string;
   lesson: CourseLesson;
   outcome: LessonOutcome;
+  /** Shown after a missed checkpoint: what the retry will start with. */
+  missed: readonly CourseItem[];
   onBack: () => void;
   onRetry: () => void;
 }) {
@@ -570,9 +509,31 @@ function Result({
           </View>
         </Animated.View>
       ) : (
-        <Text variant="body" align="center">
-          {t('You need 70% to pass the checkpoint. The words you missed will come back in review.')}
-        </Text>
+        <View style={{ alignSelf: 'stretch', gap: theme.spacing.sm }}>
+          <Text variant="body" align="center">
+            {t('You need 70% to pass the checkpoint. The retry starts with the words you missed.')}
+          </Text>
+          {missed.length ? (
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing.xs }}>
+              {missed.slice(0, 12).map((item) => (
+                <View
+                  key={item.id}
+                  style={{
+                    paddingHorizontal: theme.spacing.md,
+                    paddingVertical: theme.spacing.xs,
+                    borderRadius: theme.radius.md,
+                    backgroundColor: theme.colors.warningMuted,
+                  }}
+                >
+                  <Text variant="label">{item.text}</Text>
+                  <Text variant="caption" color="textSecondary">
+                    {item.meaning}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          ) : null}
+        </View>
       )}
 
       <Animated.View

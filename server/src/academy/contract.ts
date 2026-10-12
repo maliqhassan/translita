@@ -40,6 +40,8 @@ export type RoleplayRequest = {
   history: readonly RoleplayTurn[];
   /** For languages where some words change with the person addressed. */
   addressAs: 'male' | 'female' | 'unspecified';
+  /** The final exam's conversation: longer, and across the whole course. */
+  final?: boolean;
 };
 
 /** A mistake in what the learner said, and how to say it better. */
@@ -69,4 +71,69 @@ export type AcademyProvider = {
   /** The provider's own name, for `/health`. Never a credential. */
   readonly id: string;
   roleplay(request: RoleplayRequest): Promise<RoleplayReply>;
+  assess(request: AssessRequest): Promise<AssessReply>;
+  report(request: ReportRequest): Promise<ReportReply>;
+};
+
+// --- The final exam ------------------------------------------------------------------------
+
+/**
+ * How the final conversation went, 1 (not yet) to 5 (confidently), on five
+ * fixed criteria. Marked by the model against the transcript; whether that
+ * passes is the app's rule, not the model's.
+ */
+export type Rubric = {
+  vocabulary: number;
+  grammar: number;
+  fluency: number;
+  comprehension: number;
+  task: number;
+};
+
+export const RUBRIC_KEYS: readonly (keyof Rubric)[] = [
+  'vocabulary',
+  'grammar',
+  'fluency',
+  'comprehension',
+  'task',
+];
+
+export type AssessRequest = {
+  learning: string;
+  scene: RoleplayScene;
+  /** The whole conversation, oldest first. */
+  transcript: readonly RoleplayTurn[];
+};
+
+export type AssessReply = {
+  rubric: Rubric;
+  /** Two or three sentences to the learner, in English. */
+  feedback: string;
+};
+
+/** What the report is written from. Numbers and words only — never anything the user typed. */
+export type ReportRequest = {
+  learning: string;
+  /** The level the app estimated: the report explains it, it does not change it. */
+  level: string;
+  /** 0–1. */
+  writtenScore: number;
+  rubric: Rubric;
+  /** Accuracy per skill, 0–1, where measured: listening, reading, grammar… */
+  skills: Readonly<Record<string, number>>;
+  /** In the language learned. */
+  strongWords: readonly string[];
+  weakWords: readonly string[];
+  daysDone: number;
+  wordsKnown: number;
+};
+
+export type ReportReply = {
+  /** Two or three sentences, in English, addressed to the learner. */
+  summary: string;
+  strengths: readonly string[];
+  weaknesses: readonly string[];
+  suggestions: readonly string[];
+  /** What to do next, in one or two sentences. */
+  next: string;
 };

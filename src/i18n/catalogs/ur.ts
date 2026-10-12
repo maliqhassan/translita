@@ -539,8 +539,6 @@ export const ur: Catalog = {
   'Not quite yet': 'ابھی نہیں',
   '{correct} of {total} right ({percent}%)': '{total} میں سے {correct} درست ({percent}%)',
   'Well done.': 'شاباش۔',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'جانچ پاس کرنے کے لیے 70% درکار ہیں۔ جو الفاظ رہ گئے وہ دہرائی میں دوبارہ آئیں گے۔',
   'Practise with the AI partner': 'AI ساتھی کے ساتھ مشق کریں',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'AI ساتھی کے لیے کنکشن ضروری ہے۔ اگلی بار آن لائن ہونے پر آپ یہ منظر کھیل سکتے ہیں۔',
@@ -636,6 +634,85 @@ export const ur: Catalog = {
   'Reset the AI Academy': 'AI اکیڈمی ری سیٹ کریں',
   'Deletes your course and progress, to start again or learn another language':
     'آپ کا کورس اور پیش رفت حذف کرتا ہے، دوبارہ شروع کرنے یا دوسری زبان سیکھنے کے لیے',
+  Reading: 'پڑھنا',
+  Vocabulary: 'ذخیرۂ الفاظ',
+  Listening: 'سننا',
+  Grammar: 'گرامر',
+  Fluency: 'روانی',
+  Understanding: 'سمجھ',
+  'Getting it done': 'کام مکمل کرنا',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'آپ نے کورس مکمل کیا اور فائنل امتحان کے دونوں حصے پاس کیے: تحریری امتحان میں {written}% اور گفتگو میں {spoken}%۔',
+  '{skill}: {percent}% right': '{skill}: {percent}% درست',
+  '{skill} in conversation: {mark} of 5': 'گفتگو میں {skill}: 5 میں سے {mark}',
+  'Review the words below until they come easily.':
+    'نیچے دیے گئے الفاظ دہراتے رہیں یہاں تک کہ آسانی سے یاد آئیں۔',
+  'Keep speaking a little every day, out loud.': 'ہر روز تھوڑا سا بلند آواز میں بولتے رہیں۔',
+  'Use the translator to look up things you want to say in your own life.':
+    'اپنی زندگی میں جو کہنا چاہتے ہیں، اسے مترجم میں تلاش کریں۔',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'دہرائی سے اپنا سلسلہ جاری رکھیں، اور جب بھی ممکن ہو زبان استعمال کریں۔',
+  'Send for marking': 'جانچ کے لیے بھیجیں',
+  'Course complete': 'کورس مکمل',
+  'See your report, your level and your certificate.': 'اپنی رپورٹ، سطح اور سرٹیفکیٹ دیکھیں۔',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'تیار: ایک تحریری امتحان، پھر اپنے AI کوچ کے ساتھ گفتگو۔',
+  'There is no course to finish yet': 'ابھی مکمل کرنے کے لیے کوئی کورس نہیں',
+  'Say something in the conversation first: there was nothing to mark.':
+    'پہلے گفتگو میں کچھ کہیں: جانچنے کے لیے کچھ نہیں تھا۔',
+  'Part A: written and listening': 'حصہ A: تحریری اور سننا',
+  'Your coach is marking the conversation…': 'آپ کا کوچ گفتگو کی جانچ کر رہا ہے…',
+  'Part B: conversation': 'حصہ B: گفتگو',
+  'From your coach': 'آپ کے کوچ کی طرف سے',
+  'Writing your report…': 'آپ کی رپورٹ لکھی جا رہی ہے…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'دو حصے، ہر ایک 70% پر پاس۔ اپنا {language} کورس مکمل کرنے کے لیے دونوں پاس کریں۔',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    'پورے کورس سے {count} سوالات۔ تقریباً 15 منٹ، ایک ہی بار میں۔',
+  'Start Part A': 'حصہ A شروع کریں',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'اپنے AI کوچ سے اپنے باہر گھومنے کے دن کے بارے میں بات کریں۔ اس کی جانچ ذخیرۂ الفاظ، گرامر، روانی، سمجھ اور کام مکمل کرنے پر ہوتی ہے۔',
+  'Start Part B': 'حصہ B شروع کریں',
+  'Part B needs a connection. Your Part A result is saved.':
+    'حصہ B کے لیے انٹرنیٹ ضروری ہے۔ آپ کا حصہ A کا نتیجہ محفوظ ہے۔',
+  'Passed with {percent}%': '{percent}% کے ساتھ پاس',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'ابھی پاس نہیں ({percent}%)۔ آج دہرائی کریں، پھر کل دوبارہ کوشش کریں۔',
+  'Opens when Part A is passed.': 'حصہ A پاس ہونے پر کھلے گا۔',
+  'Leave Part A. It starts again next time.': 'حصہ A چھوڑیں۔ اگلی بار یہ دوبارہ شروع ہوگا۔',
+  'Passed!': 'پاس!',
+  'Not passed yet': 'ابھی پاس نہیں',
+  'Well done. Your result is saved.': 'شاباش۔ آپ کا نتیجہ محفوظ ہے۔',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'آپ کو 70% چاہیے۔ آج دہرائی کریں، اور کل سے یہ حصہ دوبارہ دیں۔',
+  'Words to review': 'دہرانے کے لیے الفاظ',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'جانچ پاس کرنے کے لیے 70% چاہیے۔ دوبارہ کوشش ان الفاظ سے شروع ہوگی جو آپ سے رہ گئے۔',
+  'No report yet': 'ابھی کوئی رپورٹ نہیں',
+  'Your report is written when you pass the final exam.':
+    'آپ کی رپورٹ فائنل امتحان پاس کرنے پر لکھی جاتی ہے۔',
+  'My {language} certificate': 'میرا {language} سرٹیفکیٹ',
+  '{language} course complete': '{language} کورس مکمل',
+  'Your level': 'آپ کی سطح',
+  'Written test': 'تحریری امتحان',
+  'Your skills': 'آپ کی مہارتیں',
+  'Your conversation': 'آپ کی گفتگو',
+  'Strong points': 'خوبیاں',
+  'To work on': 'جن پر کام کرنا ہے',
+  'What to practise': 'کس کی مشق کریں',
+  'Words to keep practising': 'مشق جاری رکھنے کے الفاظ',
+  'Words you know well': 'وہ الفاظ جو آپ اچھی طرح جانتے ہیں',
+  'What next': 'آگے کیا',
+  'Your certificate': 'آپ کا سرٹیفکیٹ',
+  'Name on the certificate': 'سرٹیفکیٹ پر نام',
+  'Your name (optional)': 'آپ کا نام (اختیاری)',
+  'Share certificate': 'سرٹیفکیٹ شیئر کریں',
+  'Certificate of completion': 'تکمیل کا سرٹیفکیٹ',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    'نے {app} AI اکیڈمی کا {days} دن کا {language} کورس مکمل کیا',
+  'Level {level}': 'سطح {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'تحریری {written}% · گفتگو {spoken}% · {date}',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

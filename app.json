@@ -54,7 +54,8 @@
           "androidSdk": "classic"
         }
       ],
-      "@react-native-firebase/app"
+      "@react-native-firebase/app",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true,

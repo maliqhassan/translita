@@ -529,8 +529,6 @@ export const ar: Catalog = {
   'Not quite yet': 'ليس بعد',
   '{correct} of {total} right ({percent}%)': '{correct} من {total} صحيحة ({percent}%)',
   'Well done.': 'أحسنت.',
-  'You need 70% to pass the checkpoint. The words you missed will come back in review.':
-    'تحتاج إلى 70% لاجتياز الاختبار المرحلي. ستعود الكلمات التي أخطأت فيها في المراجعة.',
   'Practise with the AI partner': 'تدرّب مع شريك الذكاء الاصطناعي',
   'The AI partner needs a connection. You can play this scene next time you are online.':
     'يحتاج شريك الذكاء الاصطناعي إلى اتصال. يمكنك أداء هذا المشهد في المرة القادمة التي تكون فيها متصلًا.',
@@ -626,6 +624,84 @@ export const ar: Catalog = {
   'Reset the AI Academy': 'إعادة تعيين أكاديمية الذكاء الاصطناعي',
   'Deletes your course and progress, to start again or learn another language':
     'يحذف دورتك وتقدمك، لتبدأ من جديد أو تتعلم لغة أخرى',
+  Reading: 'القراءة',
+  Vocabulary: 'المفردات',
+  Listening: 'الاستماع',
+  Grammar: 'القواعد',
+  Fluency: 'الطلاقة',
+  Understanding: 'الفهم',
+  'Getting it done': 'إنجاز المهمة',
+  'You finished the course and passed both parts of the final exam: {written}% on the written test and {spoken}% on the conversation.':
+    'أنهيت الدورة ونجحت في جزأي الاختبار النهائي: {written}% في الاختبار الكتابي و{spoken}% في المحادثة.',
+  '{skill}: {percent}% right': '{skill}: {percent}% صحيح',
+  '{skill} in conversation: {mark} of 5': '{skill} في المحادثة: {mark} من 5',
+  'Review the words below until they come easily.': 'راجع الكلمات أدناه حتى تتذكرها بسهولة.',
+  'Keep speaking a little every day, out loud.': 'استمر في التحدث قليلًا كل يوم بصوت عالٍ.',
+  'Use the translator to look up things you want to say in your own life.':
+    'استخدم المترجم لتبحث عما تريد قوله في حياتك.',
+  'Keep your streak going with review, and use the language whenever you can.':
+    'حافظ على سلسلتك بالمراجعة، واستخدم اللغة كلما استطعت.',
+  'Send for marking': 'أرسل للتقييم',
+  'Course complete': 'اكتملت الدورة',
+  'See your report, your level and your certificate.': 'اطّلع على تقريرك ومستواك وشهادتك.',
+  'Ready: a written test, then a conversation with your AI coach.':
+    'جاهز: اختبار كتابي، ثم محادثة مع مدربك الذكي.',
+  'There is no course to finish yet': 'لا توجد دورة لإنهائها بعد',
+  'Say something in the conversation first: there was nothing to mark.':
+    'قل شيئًا في المحادثة أولًا: لم يكن هناك ما يُقيَّم.',
+  'Part A: written and listening': 'الجزء A: كتابة واستماع',
+  'Your coach is marking the conversation…': 'مدربك يقيّم المحادثة…',
+  'Part B: conversation': 'الجزء B: المحادثة',
+  'From your coach': 'من مدربك',
+  'Writing your report…': 'جارٍ كتابة تقريرك…',
+  'Two parts, each passed at 70%. Pass both to finish your {language} course.':
+    'جزآن، يُجتاز كل منهما بنسبة 70%. اجتز الاثنين لتُنهي دورة {language}.',
+  '{count} questions from the whole course. About 15 minutes, in one go.':
+    '{count} سؤالًا من الدورة كلها. نحو 15 دقيقة، دفعة واحدة.',
+  'Start Part A': 'ابدأ الجزء A',
+  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'تحدّث مع مدربك الذكي عن يوم خروجك. يُقيَّم على المفردات والقواعد والطلاقة والفهم وإنجاز المهمة.',
+  'Start Part B': 'ابدأ الجزء B',
+  'Part B needs a connection. Your Part A result is saved.':
+    'يحتاج الجزء B إلى اتصال. نتيجة الجزء A محفوظة.',
+  'Passed with {percent}%': 'ناجح بنسبة {percent}%',
+  'Not passed yet ({percent}%). Review today, then try again tomorrow.':
+    'لم تنجح بعد ({percent}%). راجع اليوم، ثم حاول غدًا.',
+  'Opens when Part A is passed.': 'يُفتح عند اجتياز الجزء A.',
+  'Leave Part A. It starts again next time.': 'غادر الجزء A. سيبدأ من جديد في المرة القادمة.',
+  'Passed!': 'نجحت!',
+  'Not passed yet': 'لم تنجح بعد',
+  'Well done. Your result is saved.': 'أحسنت. نتيجتك محفوظة.',
+  'You need 70%. Review today, and take this part again from tomorrow.':
+    'تحتاج إلى 70%. راجع اليوم، وأعد هذا الجزء بدءًا من الغد.',
+  'Words to review': 'كلمات للمراجعة',
+  'You need 70% to pass the checkpoint. The retry starts with the words you missed.':
+    'تحتاج إلى 70% لاجتياز نقطة التقييم. تبدأ المحاولة التالية بالكلمات التي أخطأت فيها.',
+  'No report yet': 'لا يوجد تقرير بعد',
+  'Your report is written when you pass the final exam.':
+    'يُكتب تقريرك عند اجتيازك الاختبار النهائي.',
+  'My {language} certificate': 'شهادتي في {language}',
+  '{language} course complete': 'اكتملت دورة {language}',
+  'Your level': 'مستواك',
+  'Written test': 'الاختبار الكتابي',
+  'Your skills': 'مهاراتك',
+  'Your conversation': 'محادثتك',
+  'Strong points': 'نقاط القوة',
+  'To work on': 'ما يحتاج إلى تحسين',
+  'What to practise': 'ما الذي تتدرب عليه',
+  'Words to keep practising': 'كلمات واصل التدرب عليها',
+  'Words you know well': 'كلمات تعرفها جيدًا',
+  'What next': 'ماذا بعد',
+  'Your certificate': 'شهادتك',
+  'Name on the certificate': 'الاسم على الشهادة',
+  'Your name (optional)': 'اسمك (اختياري)',
+  'Share certificate': 'شارك الشهادة',
+  'Certificate of completion': 'شهادة إتمام',
+  'completed the {days}-day {language} course of the {app} AI Academy':
+    'أتمّ دورة {language} لمدة {days} يومًا في أكاديمية {app} للذكاء الاصطناعي',
+  'Level {level}': 'المستوى {level}',
+  'Written {written}% · Conversation {spoken}% · {date}':
+    'كتابي {written}% · محادثة {spoken}% · {date}',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

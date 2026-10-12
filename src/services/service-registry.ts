@@ -28,6 +28,7 @@ import {
   createPreferencesService,
   getActiveTranslationMode,
 } from './preferences';
+import { expoShareService } from './sharing';
 import { expoSpeechRecognitionService, expoTTSService } from './speech';
 import {
   createBackendTranslationProvider,
@@ -262,6 +263,8 @@ export const services = {
   coach: createBackendCoachService({
     baseUrl: TRANSLATION_CONFIG.backend.baseUrl,
     path: TRANSLATION_CONFIG.backend.academyRoleplayPath,
+    assessPath: TRANSLATION_CONFIG.backend.academyAssessPath,
+    reportPath: TRANSLATION_CONFIG.backend.academyReportPath,
     http,
     userId: revenueCatUserId,
   }),
@@ -301,6 +304,8 @@ export const services = {
   ),
   network: expoNetworkService,
   clipboard: expoClipboardService,
+  /** The Academy certificate, as a picture, through the share sheet. */
+  sharing: expoShareService,
   ocr: ocrRecognizer,
   speech: expoSpeechRecognitionService,
   tts: expoTTSService,

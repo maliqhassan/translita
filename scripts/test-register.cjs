@@ -55,6 +55,18 @@ const STUBS = {
    * with an injected fake; this stub exists for the module-level import in
    * the camera component.
    */
+  /** The certificate's capture and share sheet: native only, never reached under Node. */
+  'react-native-view-shot': {
+    captureRef: async () => {
+      throw new Error('react-native-view-shot is unavailable under Node.');
+    },
+  },
+  'expo-sharing': {
+    isAvailableAsync: async () => false,
+    shareAsync: async () => {
+      throw new Error('expo-sharing is unavailable under Node.');
+    },
+  },
   'expo-camera': {
     CameraView: function CameraView() {
       throw new Error('expo-camera is unavailable under Node.');
