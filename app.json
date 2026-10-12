@@ -2,14 +2,14 @@
   "expo": {
     "name": "Translita",
     "slug": "transee",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "translita",
     "userInterfaceStyle": "automatic",
     "android": {
       "package": "com.translita.app",
-      "versionCode": 21,
+      "versionCode": 22,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

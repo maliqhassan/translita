@@ -846,3 +846,37 @@ money.
 - **The exposed Azure key** has still not been regenerated.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
+
+## 0.4.0 (22) -- The AI Academy
+
+A 60-day course in German, French or Spanish, taught from English, beside the
+translator. Built in steps, each committed on its own.
+
+- **Course**: 12 chapters × 5 days, beginner to A2, written once by
+  `server/scripts/generate-course.mts` (writer pass, native-editor pass) and
+  shipped as JSON in `src/features/academy/course/`. Every chapter is checked
+  by `validateChapter` in the tests. Day 5 of each chapter is a checkpoint
+  (70%); a missed checkpoint's retry starts with the words it missed.
+- **Lessons**: overview, Learn, Practise (choose, listen, fill the gap, build,
+  match), Speak (marked by speech recognition), Review (spaced repetition,
+  Leitner boxes), Conversation (the learner speaks their lines), then a live
+  role-play with the AI partner. Progress is saved after every step.
+- **Final exam**: Part A, 40 written and listening questions; Part B, a
+  conversation marked by the server on a fixed rubric. The level is the app's
+  own rule; the server writes the report's prose. A certificate is shared as
+  an image.
+- **Elite**: Pro plus the `academy` capability, from the `elite` entitlement
+  and its own `elite` offering. Day 1 is free. The server checks Elite with
+  RevenueCat for the larger daily AI allowance.
+- **Navigation**: the footer tab bar is gone; Camera, History and Settings open
+  over Home, with the banner in the same footer slot. An app closed in the
+  Academy reopens in it within 12 hours. One course at a time; "Reset the AI
+  Academy" in Settings starts again, in any language.
+
+### Still to do before release
+
+- Play Console product `translita_elite_monthly`, the RevenueCat `elite`
+  entitlement and offering, and `REVENUECAT_SECRET_KEY` on Render.
+- Deploy the server (the exam endpoints are new) and test purchases on a
+  development build with a Play test account.
+- A native speaker's read of a sample of each course.

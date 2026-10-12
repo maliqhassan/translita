@@ -1,0 +1,108 @@
+<en-US>
+New: the AI Academy 🎓
+• Learn German, French or Spanish from English in 60 days
+• Daily lessons: new words, exercises, speaking practice and review
+• Live conversations with your AI coach, with every mistake explained
+• Final exam, a personal report and a certificate to share
+• Day 1 is free; Translita Elite opens the full course and removes ads
+Also: a cleaner home screen without the bottom bar
+</en-US>
+<ur>
+نیا: AI اکیڈمی 🎓
+• انگریزی کے ذریعے 60 دن میں جرمن، فرانسیسی یا ہسپانوی سیکھیں
+• روزانہ اسباق: نئے الفاظ، مشقیں، بولنے کی مشق اور دہرائی
+• اپنے AI کوچ سے براہِ راست گفتگو، ہر غلطی کی وضاحت کے ساتھ
+• فائنل امتحان، ذاتی رپورٹ اور شیئر کرنے کے لیے سرٹیفکیٹ
+• پہلا دن مفت؛ Translita Elite پورا کورس کھولتا ہے اور اشتہار ہٹاتا ہے
+مزید: نیچے والی بار کے بغیر صاف ہوم اسکرین
+</ur>
+<hi-IN>
+नया: AI अकादमी 🎓
+• अंग्रेज़ी से 60 दिनों में जर्मन, फ़्रेंच या स्पेनिश सीखें
+• रोज़ के पाठ: नए शब्द, अभ्यास, बोलने का अभ्यास और दोहराई
+• अपने AI कोच से लाइव बातचीत, हर गलती की व्याख्या के साथ
+• अंतिम परीक्षा, निजी रिपोर्ट और साझा करने लायक प्रमाणपत्र
+• पहला दिन मुफ़्त; Translita Elite पूरा कोर्स खोलता है और विज्ञापन हटाता है
+साथ ही: नीचे की बार के बिना साफ़ होम स्क्रीन
+</hi-IN>
+<ar>
+جديد: أكاديمية الذكاء الاصطناعي 🎓
+• تعلّم الألمانية أو الفرنسية أو الإسبانية من الإنجليزية في 60 يومًا
+• دروس يومية: كلمات جديدة وتمارين وتدريب على التحدث ومراجعة
+• محادثات مباشرة مع مدربك الذكي، مع شرح كل خطأ
+• اختبار نهائي وتقرير شخصي وشهادة للمشاركة
+• اليوم الأول مجاني؛ Translita Elite يفتح الدورة كاملة ويزيل الإعلانات
+أيضًا: شاشة رئيسية أنظف بدون الشريط السفلي
+</ar>
+<bn-BD>
+নতুন: AI একাডেমি 🎓
+• ইংরেজি থেকে ৬০ দিনে জার্মান, ফরাসি বা স্প্যানিশ শিখুন
+• প্রতিদিনের পাঠ: নতুন শব্দ, অনুশীলন, কথা বলার অনুশীলন ও পুনরালোচনা
+• আপনার AI কোচের সাথে সরাসরি কথোপকথন, প্রতিটি ভুলের ব্যাখ্যাসহ
+• চূড়ান্ত পরীক্ষা, ব্যক্তিগত রিপোর্ট ও শেয়ার করার সার্টিফিকেট
+• প্রথম দিন বিনামূল্যে; Translita Elite পুরো কোর্স খোলে ও বিজ্ঞাপন সরায়
+এছাড়া: নিচের বার ছাড়া আরও পরিচ্ছন্ন হোম স্ক্রিন
+</bn-BD>
+<es-ES>
+Novedad: la AI Academy 🎓
+• Aprende alemán, francés o español desde el inglés en 60 días
+• Lecciones diarias: palabras nuevas, ejercicios, práctica oral y repaso
+• Conversaciones en vivo con tu coach de IA, con cada error explicado
+• Examen final, informe personal y certificado para compartir
+• El día 1 es gratis; Translita Elite abre el curso completo y quita los anuncios
+Además: una pantalla de inicio más limpia, sin la barra inferior
+</es-ES>
+<fr-FR>
+Nouveau : l'AI Academy 🎓
+• Apprenez l'allemand, le français ou l'espagnol depuis l'anglais en 60 jours
+• Leçons quotidiennes : nouveaux mots, exercices, oral et révisions
+• Conversations en direct avec votre coach IA, chaque erreur expliquée
+• Examen final, bilan personnel et certificat à partager
+• Jour 1 gratuit ; Translita Elite ouvre tout le cours et retire les publicités
+Aussi : un écran d'accueil plus épuré, sans la barre du bas
+</fr-FR>
+<de-DE>
+Neu: die KI-Akademie 🎓
+• Lerne Deutsch, Französisch oder Spanisch auf Englisch in 60 Tagen
+• Tägliche Lektionen: neue Wörter, Übungen, Sprechen und Wiederholung
+• Live-Gespräche mit deinem KI-Coach, jeder Fehler wird erklärt
+• Abschlussprüfung, persönlicher Bericht und ein Zertifikat zum Teilen
+• Tag 1 ist kostenlos; Translita Elite öffnet den ganzen Kurs und entfernt Werbung
+Außerdem: ein aufgeräumter Startbildschirm ohne untere Leiste
+</de-DE>
+<pt-BR>
+Novo: a AI Academy 🎓
+• Aprenda alemão, francês ou espanhol a partir do inglês em 60 dias
+• Lições diárias: palavras novas, exercícios, prática de fala e revisão
+• Conversas ao vivo com seu coach de IA, com cada erro explicado
+• Exame final, relatório pessoal e certificado para compartilhar
+• O dia 1 é grátis; o Translita Elite libera o curso completo e remove anúncios
+Também: uma tela inicial mais limpa, sem a barra inferior
+</pt-BR>
+<id>
+Baru: AI Academy 🎓
+• Belajar bahasa Jerman, Prancis, atau Spanyol dari bahasa Inggris dalam 60 hari
+• Pelajaran harian: kata baru, latihan, berbicara, dan pengulangan
+• Percakapan langsung dengan pelatih AI, setiap kesalahan dijelaskan
+• Ujian akhir, laporan pribadi, dan sertifikat untuk dibagikan
+• Hari 1 gratis; Translita Elite membuka seluruh kursus dan menghapus iklan
+Juga: layar beranda lebih rapi tanpa bilah bawah
+</id>
+<tr-TR>
+Yeni: Yapay Zekâ Akademisi 🎓
+• İngilizce üzerinden 60 günde Almanca, Fransızca veya İspanyolca öğren
+• Günlük dersler: yeni kelimeler, alıştırmalar, konuşma pratiği ve tekrar
+• Yapay zekâ koçunla canlı konuşmalar, her hata açıklanır
+• Final sınavı, kişisel rapor ve paylaşılabilir sertifika
+• 1. gün ücretsiz; Translita Elite tüm kursu açar ve reklamları kaldırır
+Ayrıca: alt çubuğu olmayan daha sade bir ana ekran
+</tr-TR>
+<fil>
+Bago: ang AI Academy 🎓
+• Matuto ng German, French o Spanish mula sa English sa loob ng 60 araw
+• Araw-araw na aralin: bagong salita, pagsasanay, pagsasalita at balik-aral
+• Live na usapan kasama ang iyong AI coach, bawat mali ay ipinapaliwanag
+• Huling pagsusulit, personal na ulat at sertipikong maibabahagi
+• Libre ang Araw 1; binubuksan ng Translita Elite ang buong kurso at tinatanggal ang ads
+Gayundin: mas malinis na home screen, wala nang bottom bar
+</fil>
