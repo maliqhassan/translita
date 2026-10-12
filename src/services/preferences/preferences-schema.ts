@@ -50,6 +50,9 @@ export const DEFAULT_PREFERENCES: Preferences = {
   onboardingComplete: false,
   // The full free allowance, unspent.
   aiTurnsUsed: 0,
+  // Not in the Academy: a first launch, and every install before it, opens
+  // on the translator.
+  academyLeftAt: 0,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -209,6 +212,7 @@ export function parsePreferences(payload: unknown): Preferences {
       DEFAULT_PREFERENCES.onboardingComplete,
     ),
     aiTurnsUsed: readCount(record.aiTurnsUsed, DEFAULT_PREFERENCES.aiTurnsUsed),
+    academyLeftAt: readCount(record.academyLeftAt, DEFAULT_PREFERENCES.academyLeftAt),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

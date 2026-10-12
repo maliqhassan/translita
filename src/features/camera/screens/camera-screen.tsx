@@ -15,10 +15,11 @@ import {
   SectionHeader,
   Text,
   type IconName,
+  IconButton,
 } from '@/components';
 import { errorMessage } from '@/constants';
 import { useInterstitialAds } from '@/features/ads';
-import { BrandMark, useCameraOcr } from '@/features/translation';
+import { useCameraOcr } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
 
@@ -92,7 +93,19 @@ export function CameraScreen() {
     <Screen
       wash
       scrollable
-      header={<ScreenHeader compact title={t('Camera')} leading={<BrandMark />} />}
+      header={
+        <ScreenHeader
+          compact
+          title={t('Camera')}
+          leading={
+            <IconButton
+              name="chevron-back-outline"
+              accessibilityLabel={t('Go back')}
+              onPress={() => router.back()}
+            />
+          }
+        />
+      }
     >
       {unavailable ? (
         <EmptyState

@@ -531,10 +531,6 @@ export const tr: Catalog = {
   'Some words in {language} change for men and women.':
     '{language} dilinde bazı kelimeler erkekler ve kadınlar için değişir.',
   'Learn {language}': '{language} öğrenin',
-  'Your courses': 'Kurslarınız',
-  '{language}, the course shown': '{language}, gösterilen kurs',
-  'Switch to {language}': '{language} kursuna geç',
-  'Learn another language': 'Başka bir dil öğren',
   'Leave the lesson. Your place is saved.': 'Dersten çık. Kaldığınız yer kaydedildi.',
   'Step {current} of {total}': 'Adım {current} / {total}',
   '{count} of 3 stars': '3 yıldızdan {count}',
@@ -635,6 +631,12 @@ export const tr: Catalog = {
     "Yapay zekâ koçuyla Almanca, Fransızca veya İspanyolca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   Elite: 'Elite',
   'No ads, and the full AI Academy': "Reklam yok ve Yapay Zekâ Akademisi'nin tamamı",
+  'Reset the AI Academy?': 'Yapay Zekâ Akademisi sıfırlansın mı?',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'Bu işlem kursunu, ilerlemeni, serini ve öğrendiğin kelimeleri siler. Aboneliğin etkilenmez ve istediğin dille yeniden başlayabilirsin.',
+  'Reset the AI Academy': "Yapay Zekâ Akademisi'ni sıfırla",
+  'Deletes your course and progress, to start again or learn another language':
+    'Kursunu ve ilerlemeni siler; yeniden başlamak ya da başka bir dil öğrenmek için',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

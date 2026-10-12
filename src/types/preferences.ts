@@ -109,6 +109,12 @@ export type Preferences = {
    * no-sign-in promise.
    */
   aiTurnsUsed: number;
+  /**
+   * When the app was last put away while the AI Academy was open, or 0 when
+   * it was put away anywhere else. Lets a learner who closes the app mid-study
+   * come back to the Academy rather than the translator, for a while.
+   */
+  academyLeftAt: number;
 };
 
 /**

@@ -4,7 +4,6 @@ import { Alert, Pressable, View } from 'react-native';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
 import {
-  Button,
   Card,
   EmptyState,
   FlagCircle,
@@ -28,7 +27,6 @@ import { WeekStrip } from '../components/week-strip';
 import {
   COURSE_DAYS,
   COURSE_SHAPE,
-  availableCourses,
   courseChapters,
   lessonForDay,
   type CourseChapter,
@@ -46,14 +44,16 @@ import { AcademyOnboarding } from './academy-onboarding';
  *
  * One route for both, so there is no redirect to flicker through: the screen
  * shows whichever the saved state calls for, and finishing onboarding swaps
- * it for the dashboard in place. Adding another language reuses the same
- * onboarding, without the courses already started.
+ * it for the dashboard in place.
+ *
+ * One course at a time. A second language half-started beside the first
+ * splits the streak, the daily goal and the attention a beginner needs; to
+ * change language, the Academy is reset in Settings and starts again here.
  */
 export function AcademyScreen() {
   const router = useRouter();
   const { status } = useAcademy();
-  const { enrollment, progress, enrolled } = useActiveCourse();
-  const [adding, setAdding] = useState(false);
+  const { enrollment, progress } = useActiveCourse();
 
   const backToTranslator = () => {
     if (router.canGoBack()) router.back();
@@ -75,42 +75,21 @@ export function AcademyScreen() {
     );
   }
   if (!enrollment) return <AcademyOnboarding onClose={backToTranslator} />;
-  if (adding) {
-    return (
-      <AcademyOnboarding
-        onClose={() => setAdding(false)}
-        exclude={enrolled.map((course) => course.courseId)}
-      />
-    );
-  }
 
-  return (
-    <Dashboard
-      enrollment={enrollment}
-      progress={progress}
-      enrolled={enrolled}
-      onBack={backToTranslator}
-      onAddLanguage={() => setAdding(true)}
-    />
-  );
+  return <Dashboard enrollment={enrollment} progress={progress} onBack={backToTranslator} />;
 }
 
 function Dashboard({
   enrollment,
   progress,
-  enrolled,
   onBack,
-  onAddLanguage,
 }: {
   enrollment: Enrollment;
   progress: readonly LessonProgress[];
-  enrolled: readonly Enrollment[];
   onBack: () => void;
-  onAddLanguage: () => void;
 }) {
   const theme = useTheme();
   const router = useRouter();
-  const { openCourse } = useAcademy();
   const unlocked = useAcademyAccess();
   const courseId = enrollment.courseId;
   const daily = useDailyProgress(courseId, progress);
@@ -139,7 +118,6 @@ function Dashboard({
   const nextLesson = upNext ? lessonForDay(courseId, upNext) : undefined;
   const chapters = courseChapters(courseId);
   const language = languageName(courseId);
-  const canAddLanguage = availableCourses().length > enrolled.length;
   const starsOf = new Map(progress.map((entry) => [entry.day, entry.stars]));
 
   const openDay = (day: number, status: DayStatus) => {
@@ -289,60 +267,6 @@ function Dashboard({
         </View>
         <Icon name="lock-closed" size={18} color="textMuted" />
       </Card>
-
-      {enrolled.length > 1 || canAddLanguage ? (
-        <Card variant="outlined" padding="none">
-          <Text
-            variant="label"
-            color="textSecondary"
-            style={{ paddingHorizontal: theme.spacing.base, paddingTop: theme.spacing.base }}
-          >
-            {t('Your courses')}
-          </Text>
-          {enrolled.map((course) => {
-            const current = course.courseId === courseId;
-            const name = languageName(course.courseId);
-            return (
-              <Pressable
-                key={course.courseId}
-                disabled={current}
-                onPress={() => void openCourse(course.courseId)}
-                accessibilityRole="button"
-                accessibilityState={{ selected: current }}
-                accessibilityLabel={
-                  current
-                    ? t('{language}, the course shown', { language: name })
-                    : t('Switch to {language}', { language: name })
-                }
-                style={({ pressed }) => ({
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  gap: theme.spacing.md,
-                  padding: theme.spacing.base,
-                  backgroundColor: pressed ? theme.colors.surfaceMuted : 'transparent',
-                })}
-              >
-                <FlagCircle language={course.courseId} size={28} />
-                <Text variant="body" style={{ flex: 1 }}>
-                  {name}
-                </Text>
-                {current ? <Icon name="checkmark" size={18} color="primary" /> : null}
-              </Pressable>
-            );
-          })}
-          {canAddLanguage ? (
-            <View style={{ padding: theme.spacing.base, paddingTop: 0 }}>
-              <Button
-                label={t('Learn another language')}
-                icon="add"
-                variant="secondary"
-                fullWidth
-                onPress={onAddLanguage}
-              />
-            </View>
-          ) : null}
-        </Card>
-      ) : null}
     </Screen>
   );
 }

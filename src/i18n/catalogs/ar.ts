@@ -521,10 +521,6 @@ export const ar: Catalog = {
   'Some words in {language} change for men and women.':
     'تتغيّر بعض الكلمات في {language} بين الرجال والنساء.',
   'Learn {language}': 'تعلّم {language}',
-  'Your courses': 'دوراتك',
-  '{language}, the course shown': '{language}، الدورة المعروضة',
-  'Switch to {language}': 'التبديل إلى {language}',
-  'Learn another language': 'تعلّم لغة أخرى',
   'Leave the lesson. Your place is saved.': 'غادر الدرس. تم حفظ موضعك.',
   'Step {current} of {total}': 'الخطوة {current} من {total}',
   '{count} of 3 stars': '{count} من 3 نجوم',
@@ -624,6 +620,12 @@ export const ar: Catalog = {
     'تعلّم الألمانية أو الفرنسية أو الإسبانية مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'بلا إعلانات، مع أكاديمية الذكاء الاصطناعي كاملة',
+  'Reset the AI Academy?': 'إعادة تعيين أكاديمية الذكاء الاصطناعي؟',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'سيحذف هذا دورتك وتقدمك وسلسلتك والكلمات التي تعلمتها. لن يتأثر اشتراكك، ويمكنك البدء من جديد بأي لغة.',
+  'Reset the AI Academy': 'إعادة تعيين أكاديمية الذكاء الاصطناعي',
+  'Deletes your course and progress, to start again or learn another language':
+    'يحذف دورتك وتقدمك، لتبدأ من جديد أو تتعلم لغة أخرى',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

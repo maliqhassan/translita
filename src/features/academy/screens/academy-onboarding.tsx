@@ -34,19 +34,12 @@ const now = () => Date.now();
  * and the dashboard appears in this screen's place.
  *
  * Every step has a way back, and the cross leaves without saving anything —
- * nobody is enrolled by half-answering. `exclude` hides courses already
- * started, when this is used to add another language.
+ * nobody is enrolled by half-answering.
  */
-export function AcademyOnboarding({
-  onClose,
-  exclude = [],
-}: {
-  onClose: () => void;
-  exclude?: readonly string[];
-}) {
+export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
   const theme = useTheme();
   const { enroll } = useAcademy();
-  const courses = availableCourses().filter((course) => !exclude.includes(course.id));
+  const courses = availableCourses();
 
   const [step, setStep] = useState<Step>('course');
   const [courseId, setCourseId] = useState<string>();

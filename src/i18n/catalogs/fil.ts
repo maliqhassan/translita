@@ -545,10 +545,6 @@ export const fil: Catalog = {
   'Some words in {language} change for men and women.':
     'Sa {language}, nag-iiba ang ilang salita para sa lalaki at babae.',
   'Learn {language}': 'Matuto ng {language}',
-  'Your courses': 'Ang iyong mga course',
-  '{language}, the course shown': '{language}, ang course na ipinapakita',
-  'Switch to {language}': 'Lumipat sa {language}',
-  'Learn another language': 'Matuto ng ibang wika',
   'Leave the lesson. Your place is saved.': 'Umalis sa aralin. Naka-save ang iyong puwesto.',
   'Step {current} of {total}': 'Hakbang {current} ng {total}',
   '{count} of 3 stars': '{count} sa 3 bituin',
@@ -650,6 +646,12 @@ export const fil: Catalog = {
     'Matuto ng German, French o Spanish kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'Walang ads, at ang buong AI Academy',
+  'Reset the AI Academy?': 'I-reset ang AI Academy?',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'Buburahin nito ang iyong kurso, progreso, streak at mga natutunang salita. Hindi maaapektuhan ang iyong subscription, at maaari kang magsimulang muli sa anumang wika.',
+  'Reset the AI Academy': 'I-reset ang AI Academy',
+  'Deletes your course and progress, to start again or learn another language':
+    'Binubura ang iyong kurso at progreso, para magsimulang muli o matuto ng ibang wika',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

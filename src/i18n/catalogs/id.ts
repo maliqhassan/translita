@@ -536,10 +536,6 @@ export const id: Catalog = {
   'Some words in {language} change for men and women.':
     'Dalam bahasa {language}, beberapa kata berubah untuk pria dan wanita.',
   'Learn {language}': 'Belajar bahasa {language}',
-  'Your courses': 'Kursus Anda',
-  '{language}, the course shown': '{language}, kursus yang ditampilkan',
-  'Switch to {language}': 'Beralih ke {language}',
-  'Learn another language': 'Pelajari bahasa lain',
   'Leave the lesson. Your place is saved.': 'Tinggalkan pelajaran. Posisi Anda tersimpan.',
   'Step {current} of {total}': 'Langkah {current} dari {total}',
   '{count} of 3 stars': '{count} dari 3 bintang',
@@ -640,6 +636,12 @@ export const id: Catalog = {
     'Belajar bahasa Jerman, Prancis, atau Spanyol dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'Tanpa iklan, dan AI Academy lengkap',
+  'Reset the AI Academy?': 'Atur ulang AI Academy?',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'Ini menghapus kursus, progres, runtutan, dan kata yang sudah dipelajari. Langgananmu tidak terpengaruh, dan kamu bisa mulai lagi dengan bahasa apa pun.',
+  'Reset the AI Academy': 'Atur ulang AI Academy',
+  'Deletes your course and progress, to start again or learn another language':
+    'Menghapus kursus dan progresmu, untuk mulai lagi atau belajar bahasa lain',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

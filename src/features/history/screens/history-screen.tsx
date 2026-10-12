@@ -11,7 +11,6 @@ import {
   SearchField,
   SegmentedControl,
 } from '@/components';
-import { BrandMark } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
 import type { HistoryEntry } from '@/types';
@@ -178,7 +177,13 @@ export function HistoryScreen() {
           <ScreenHeader
             compact
             title={t('History')}
-            leading={<BrandMark />}
+            leading={
+              <IconButton
+                name="chevron-back-outline"
+                accessibilityLabel={t('Go back')}
+                onPress={() => router.back()}
+              />
+            }
             actions={
               <IconButton
                 name="trash-outline"

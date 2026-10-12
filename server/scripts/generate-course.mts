@@ -403,7 +403,9 @@ function assemble(number: number, chapter: DraftChapter) {
     scenario: chapter.review.scenario,
   });
 
-  return { id, number, title: chapter.title, lessons };
+  // The app names the chapter itself ("Chapter 3"); a title that repeats it would read twice.
+  const title = chapter.title.replace(/^chapter\s*\d+\s*[:.\-–—]?\s*/i, '').trim();
+  return { id, number, title: title || chapter.title, lessons };
 }
 
 /** Rewrites the list of courses the app imports, from the chapter files on disk. */

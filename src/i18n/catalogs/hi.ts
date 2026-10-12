@@ -529,10 +529,6 @@ export const hi: Catalog = {
   'Some words in {language} change for men and women.':
     '{language} में कुछ शब्द पुरुषों और महिलाओं के लिए बदल जाते हैं।',
   'Learn {language}': '{language} सीखें',
-  'Your courses': 'आपके कोर्स',
-  '{language}, the course shown': '{language}, दिखाया गया कोर्स',
-  'Switch to {language}': '{language} पर जाएँ',
-  'Learn another language': 'एक और भाषा सीखें',
   'Leave the lesson. Your place is saved.': 'पाठ छोड़ें। आपकी जगह सेव है।',
   'Step {current} of {total}': 'चरण {current} / {total}',
   '{count} of 3 stars': '3 में से {count} सितारे',
@@ -632,6 +628,12 @@ export const hi: Catalog = {
     'AI कोच के साथ जर्मन, फ़्रेंच या स्पेनिश सीखें। पहला दिन मुफ़्त है; Elite पूरा कोर्स खोलता है और उसमें Pro की हर सुविधा शामिल है।',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'कोई विज्ञापन नहीं, और पूरी AI अकादमी',
+  'Reset the AI Academy?': 'AI अकादमी रीसेट करें?',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'इससे आपका कोर्स, प्रगति, लगातार पढ़ाई और सीखे गए शब्द मिट जाएँगे। आपकी सदस्यता पर असर नहीं पड़ेगा, और आप किसी भी भाषा से फिर शुरू कर सकते हैं।',
+  'Reset the AI Academy': 'AI अकादमी रीसेट करें',
+  'Deletes your course and progress, to start again or learn another language':
+    'आपका कोर्स और प्रगति मिटाता है, फिर से शुरू करने या दूसरी भाषा सीखने के लिए',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',

@@ -12,15 +12,16 @@ import {
   SectionHeader,
   Text,
   type BadgeTone,
+  IconButton,
 } from '@/components';
 import { APP, isAutoDetect, languageName } from '@/constants';
 import { useHistoryActions } from '@/features/history';
 import { useOfflineTranslationPermitted } from '@/features/offline';
-import { BrandMark } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { appLanguage, isAppLanguage, msg, t } from '@/i18n';
 import { voiceMatchesLanguage, type Plan } from '@/services';
 import {
+  useAcademy,
   useDevelopmentPlanSwitcher,
   useEntitlements,
   useLanguagePair,
@@ -99,6 +100,7 @@ export function SettingsScreen() {
   const { pair } = useLanguagePair();
   const { clear } = useHistoryActions();
   const { plan } = useEntitlements();
+  const academy = useAcademy();
   /**
    * Undefined in a release build, so the section below it never renders and
    * the switcher cannot ship. Nothing here can change a plan in production.
@@ -154,6 +156,30 @@ export function SettingsScreen() {
     );
   }, [reset]);
 
+  /*
+   * The AI Academy is reset on its own, never by "Reset settings": weeks of
+   * learning should not vanish with a theme. It is also how someone changes
+   * language — the Academy starts again at its first question.
+   */
+  const confirmResetAcademy = useCallback(() => {
+    Alert.alert(
+      t('Reset the AI Academy?'),
+      t(
+        'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.',
+      ),
+      [
+        { text: t('Cancel'), style: 'cancel' },
+        {
+          text: t('Reset'),
+          style: 'destructive',
+          onPress: () => {
+            for (const enrollment of academy.enrollments) void academy.reset(enrollment.courseId);
+          },
+        },
+      ],
+    );
+  }, [academy]);
+
   const confirmClearHistory = useCallback(() => {
     Alert.alert(
       t('Clear translation history?'),
@@ -179,7 +205,19 @@ export function SettingsScreen() {
     <Screen
       scrollable
       wash
-      header={<ScreenHeader compact title={t('Settings')} leading={<BrandMark />} />}
+      header={
+        <ScreenHeader
+          compact
+          title={t('Settings')}
+          leading={
+            <IconButton
+              name="chevron-back-outline"
+              accessibilityLabel={t('Go back')}
+              onPress={() => router.back()}
+            />
+          }
+        />
+      }
     >
       {saveError ? (
         <Card variant="outlined">
@@ -347,6 +385,20 @@ export function SettingsScreen() {
             onPress={confirmClearHistory}
             destructive
           />
+          {academy.enrollments.length ? (
+            <>
+              <Divider inset={theme.spacing.base} />
+              <ListItem
+                icon="school-outline"
+                title={t('Reset the AI Academy')}
+                subtitle={t(
+                  'Deletes your course and progress, to start again or learn another language',
+                )}
+                onPress={confirmResetAcademy}
+                destructive
+              />
+            </>
+          ) : null}
         </Card>
       </View>
 

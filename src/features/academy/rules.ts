@@ -203,3 +203,16 @@ export function weekActivity(completions: readonly number[], now: number): WeekD
     return { date: at, done: days.has(localDay(at)), today: index === 6 };
   });
 }
+
+// --- Coming back ---------------------------------------------------------------------
+
+/** How long after leaving the Academy the app still reopens in it. */
+export const ACADEMY_RETURN_WINDOW_MS = 12 * 60 * 60 * 1000;
+
+/**
+ * Whether a launch should reopen the Academy, given when the app was last put
+ * away in it (0 when it was put away anywhere else).
+ */
+export function shouldReturnToAcademy(leftAt: number, now: number): boolean {
+  return leftAt > 0 && now - leftAt < ACADEMY_RETURN_WINDOW_MS;
+}

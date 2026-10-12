@@ -1,4 +1,5 @@
 export * from './components/academy-fab';
+export * from './components/return-to-academy';
 export * from './course';
 export * from './hooks/use-academy-access';
 export * from './hooks/use-active-course';

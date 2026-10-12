@@ -377,7 +377,7 @@ the swap-on-collision rule can be tested without React.
 
 ## Why routes are one-liners
 
-`app/(tabs)/index.tsx` is a single re-export. Routing then stays a map of URLs
+`app/(main)/index.tsx` is a single re-export. Routing then stays a map of URLs
 to screens, and screens stay testable without a router. Adding a screen is:
 
 1. Write it in `src/features/<feature>/screens/`.

@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
 import { courseLessons, findLesson, lessonForDay } from '@/features/academy/course';
+import { ACADEMY_RETURN_WINDOW_MS, shouldReturnToAcademy } from '@/features/academy/rules';
 import { planFrom } from '@/services/entitlements';
 
 const code = (file: string) => readFileSync(file, 'utf8');
@@ -94,10 +95,16 @@ describe('the Academy dashboard', () => {
     assert.ok(screen.includes("if (status === 'locked')"));
   });
 
-  it('switches between courses and adds another language', () => {
+  it('teaches one course at a time; another language starts with a reset', () => {
     const screen = code(ACADEMY);
-    assert.ok(screen.includes('onPress={() => void openCourse(course.courseId)}'));
-    assert.ok(screen.includes('exclude={enrolled.map((course) => course.courseId)}'));
+    assert.equal(screen.includes('openCourse('), false);
+    assert.equal(screen.includes("t('Learn another language')"), false);
+
+    const settings = code('src/features/settings/screens/settings-screen.tsx');
+    assert.ok(settings.includes("t('Reset the AI Academy')"));
+    assert.ok(settings.includes('void academy.reset(enrollment.courseId)'));
+    // Resetting settings leaves the Academy alone.
+    assert.ok(settings.includes("{ text: t('Reset'), style: 'destructive', onPress: reset }"));
   });
 });
 
@@ -175,5 +182,25 @@ describe('Translita Elite', () => {
     assert.ok(code('app/_layout.tsx').includes('name="academy/elite"'));
     assert.ok(code(ACADEMY).includes('router.push(ACADEMY_ELITE)'));
     assert.ok(code(LESSON).includes('router.replace(ACADEMY_ELITE)'));
+  });
+});
+
+describe('coming back to the Academy', () => {
+  it('reopens the Academy only for someone who left the app in it, the same day', () => {
+    const now = Date.UTC(2026, 9, 13, 12);
+    const hour = 60 * 60 * 1000;
+    assert.equal(shouldReturnToAcademy(now - hour, now), true);
+    assert.equal(shouldReturnToAcademy(now - 11 * hour, now), true);
+    assert.equal(shouldReturnToAcademy(now - 13 * hour, now), false);
+    // Left anywhere else: the translator, as always.
+    assert.equal(shouldReturnToAcademy(0, now), false);
+    assert.equal(ACADEMY_RETURN_WINDOW_MS, 12 * hour);
+  });
+
+  it('opens it over the translator, from the root layout', () => {
+    assert.ok(code('app/_layout.tsx').includes('<ReturnToAcademy />'));
+    const component = code('src/features/academy/components/return-to-academy.tsx');
+    assert.ok(component.includes('router.push(ACADEMY_HOME)'));
+    assert.ok(component.includes("where.current.startsWith('/academy')"));
   });
 });

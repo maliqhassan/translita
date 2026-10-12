@@ -542,10 +542,6 @@ export const es: Catalog = {
   'Some words in {language} change for men and women.':
     'En {language}, algunas palabras cambian para hombres y mujeres.',
   'Learn {language}': 'Aprende {language}',
-  'Your courses': 'Tus cursos',
-  '{language}, the course shown': '{language}, el curso que se muestra',
-  'Switch to {language}': 'Cambiar a {language}',
-  'Learn another language': 'Aprender otro idioma',
   'Leave the lesson. Your place is saved.': 'Salir de la lección. Tu progreso queda guardado.',
   'Step {current} of {total}': 'Paso {current} de {total}',
   '{count} of 3 stars': '{count} de 3 estrellas',
@@ -646,6 +642,12 @@ export const es: Catalog = {
     'Aprende alemán, francés o español con un coach de IA. El día 1 es gratis; Elite abre el curso completo e incluye todo lo de Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'Sin anuncios y con toda la AI Academy',
+  'Reset the AI Academy?': '¿Restablecer la AI Academy?',
+  'This deletes your course, progress, streak and words learned. Your subscription is not affected, and you can start again with any language.':
+    'Se borrarán tu curso, tu progreso, tu racha y las palabras aprendidas. Tu suscripción no cambia y puedes empezar de nuevo con cualquier idioma.',
+  'Reset the AI Academy': 'Restablecer la AI Academy',
+  'Deletes your course and progress, to start again or learn another language':
+    'Borra tu curso y tu progreso, para empezar de nuevo o aprender otro idioma',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Afrikáans',

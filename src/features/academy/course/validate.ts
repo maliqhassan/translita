@@ -57,6 +57,10 @@ export function validateChapter(chapter: unknown, expectedNumber?: number): stri
   const chapterId = `c${pad(number)}`;
   if (chapter.id !== chapterId) fail('id', `expected ${chapterId}`);
   text(chapter.title, 'title');
+  // The app names the chapter itself; "Chapter 1: …" would read it twice.
+  if (isText(chapter.title) && /^chapter\s*\d/i.test(chapter.title)) {
+    fail('title', 'repeats the chapter number');
+  }
 
   const lessons = chapter.lessons;
   if (!Array.isArray(lessons) || lessons.length !== COURSE_SHAPE.daysPerChapter) {

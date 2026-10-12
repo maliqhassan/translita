@@ -11,6 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { Theme } from '@/constants';
+import { ReturnToAcademy } from '@/features/academy';
 import { AppOpenAdController } from '@/features/ads';
 import { LanguagePrompt, OnboardingFlow } from '@/features/onboarding';
 import { ReturnToSettingsOnLanguageChange } from '@/features/settings';
@@ -112,6 +113,8 @@ function RootNavigator() {
         <AppOpenAdController showOnLaunch={onboardedAtLaunch} />
         {/* The navigator below starts again on Home; this returns to Settings. */}
         <ReturnToSettingsOnLanguageChange />
+        {/* A learner who left the app in the Academy comes back to it. */}
+        <ReturnToAcademy />
         {/* Keyed by language: changing it in Settings redraws every screen in
           the new language. Only the navigator is keyed, so the advert
           controller above keeps its state and does not fire again. */}
@@ -122,7 +125,7 @@ function RootNavigator() {
             contentStyle: { backgroundColor: theme.colors.background },
           }}
         >
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(main)" options={{ headerShown: false }} />
           <Stack.Screen
             name="translate/language-picker"
             options={{ headerShown: false, presentation: 'modal' }}

@@ -30,7 +30,7 @@ const TRANSLATE = 'src/features/translation/screens/translate-screen.tsx';
 const ACTIONS = 'src/features/translation/components/home-actions.tsx';
 const TILES = 'src/features/translation/components/feature-tiles.tsx';
 const BANNER = 'src/features/ads/components/banner-ad.tsx';
-const TABS_LAYOUT = 'app/(tabs)/_layout.tsx';
+const TABS_LAYOUT = 'app/(main)/_layout.tsx';
 
 describe('the home screen header', () => {
   it('leads to the upgrade screen and to settings, both of which exist', () => {
@@ -41,7 +41,7 @@ describe('the home screen header', () => {
     assert.match(screen, /onOpenSettings=\{\(\) => router\.push\('\/settings'\)\}/);
 
     assert.ok(existsSync('app/upgrade.tsx'));
-    assert.ok(existsSync('app/(tabs)/settings.tsx'));
+    assert.ok(existsSync('app/(main)/settings.tsx'));
 
     assert.match(actions, /accessibilityLabel=\{t\('Translita Pro'\)\}/);
   });
@@ -53,7 +53,7 @@ describe('the home screen header', () => {
     assert.equal(existsSync('app/help.tsx'), false);
   });
 
-  it('puts the logo and title on one line, identical on every tab', () => {
+  it('puts the logo and title on one line, and a way back on the screens Home opens', () => {
     // Home used to draw its own header, with a status line under the name
     // that lifted it off the logo's line, and the row took the height of its
     // tallest control — so the logo sat at a different height on each tab.
@@ -70,9 +70,10 @@ describe('the home screen header', () => {
       'src/features/history/screens/history-screen.tsx',
       'src/features/settings/screens/settings-screen.tsx',
     ]) {
+      // No tab bar to return by: each has a back button where the logo was.
       assert.match(
         code(screen),
-        /<ScreenHeader\s+compact[\s\S]{0,80}leading=\{<BrandMark \/>\}/,
+        /<ScreenHeader\s+compact[\s\S]{0,80}leading=\{\s*<IconButton\s+name="chevron-back-outline"/,
         screen,
       );
     }
@@ -94,7 +95,7 @@ describe('the feature shortcuts', () => {
     const screen = code(TRANSLATE);
     // History is its own tab, so it is not repeated here.
     const routes: [string, string][] = [
-      ["router.push('/camera')", 'app/(tabs)/camera.tsx'],
+      ["router.push('/camera')", 'app/(main)/camera.tsx'],
       ["router.push('/conversation')", 'app/conversation.tsx'],
       ["router.push('/settings/language-packs')", 'app/settings/language-packs.tsx'],
     ];
@@ -235,7 +236,7 @@ describe('the AdMob spike banner', () => {
    * the spike cannot quietly become a real placement.
    */
 
-  it('lives in the tab bar slot, not inside any screen', () => {
+  it('lives under the main stack, not inside any screen', () => {
     /*
      * The placement rule, and the reason it is stronger than the previous one.
      *
@@ -246,9 +247,13 @@ describe('the AdMob spike banner', () => {
      */
     assert.match(code(TABS_LAYOUT), /<PlanBannerAd \/>/);
     assert.ok(
-      code(TABS_LAYOUT).indexOf('<PlanBannerAd') < code(TABS_LAYOUT).indexOf('<AppTabBar'),
-      'the banner must sit above the bar, not below it',
+      code(TABS_LAYOUT).indexOf('<Stack') < code(TABS_LAYOUT).indexOf('<PlanBannerAd'),
+      'the banner must sit below the screens, in the footer slot',
     );
+    // Clear of the system's own buttons, as the tab bar kept it.
+    assert.match(code(TABS_LAYOUT), /Math\.max\(insets\.bottom, theme\.layout\.tabBarFloorInset\)/);
+    // The footer bar is gone: Home has its own buttons for every screen.
+    assert.equal(code(TABS_LAYOUT).includes('AppTabBar'), false);
   });
 
   it('is absent from the translator screen entirely', () => {

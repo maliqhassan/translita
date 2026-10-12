@@ -97,6 +97,8 @@ describe('default preferences', () => {
       onboardingComplete: false,
       // The full free AI practice allowance, unspent.
       aiTurnsUsed: 0,
+      // Not left in the Academy: a first launch opens on the translator.
+      academyLeftAt: 0,
     });
   });
 
@@ -134,6 +136,8 @@ describe('parsing stored preferences', () => {
       // Not English, so the app language is proven to survive parsing.
       appLanguage: 'ur',
       appLanguageChosen: true,
+      // A real time, so leaving the app in the Academy is proven to survive parsing.
+      academyLeftAt: 1_760_000_000_000,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -242,6 +246,7 @@ describe('preferences service', () => {
       aiTurnsUsed: 0,
       appLanguage: 'es',
       appLanguageChosen: true,
+      academyLeftAt: 0,
     };
 
     assert.equal((await service.save(saved)).ok, true);
