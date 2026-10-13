@@ -1,6 +1,6 @@
 import { useRouter, type Href } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Image, Pressable, View } from 'react-native';
 import Animated, {
   Easing,
   FadeInDown,
@@ -19,6 +19,7 @@ import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
 
 import { lessonForDay } from '../course';
+import { FABALITA } from '../fabalita';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
 import { completedDays, nextDay } from '../rules';
@@ -101,10 +102,10 @@ export function AcademyFab() {
             <CoachAvatar size={40} />
             <View style={{ flex: 1 }}>
               <Text variant="rowTitle" color="onAi">
-                {t('AI Academy')}
+                {t('Learn with {name}', { name: FABALITA.name })}
               </Text>
               <Text variant="caption" color="onAiMuted">
-                {t('Your AI language coach')}
+                {t(FABALITA.tagline)}
               </Text>
             </View>
             <IconButton
@@ -187,7 +188,7 @@ export function AcademyFab() {
       <Pressable
         onPress={() => setOpen((value) => !value)}
         accessibilityRole="button"
-        accessibilityLabel={t('AI Academy')}
+        accessibilityLabel={t('Learn with {name}', { name: FABALITA.name })}
         accessibilityHint={t('Shows the language courses with an AI coach')}
         style={({ pressed }) => ({
           transform: [{ scale: pressed ? theme.motion.scalePressed : 1 }],
@@ -278,6 +279,7 @@ function Orb({ open, nudge }: { open: boolean; nudge: boolean }) {
           borderRadius: ORB / 2,
           alignItems: 'center',
           justifyContent: 'center',
+          overflow: 'hidden',
           backgroundColor: theme.colors.aiFrom,
           experimental_backgroundImage: `linear-gradient(135deg, ${theme.colors.aiFrom} 0%, ${theme.colors.aiTo} 100%)`,
           ...theme.shadows.md,
@@ -285,7 +287,15 @@ function Orb({ open, nudge }: { open: boolean; nudge: boolean }) {
         style,
       ]}
     >
-      <Icon name={open ? 'close' : 'sparkles'} size={24} color="onAi" />
+      {open ? (
+        <Icon name="close" size={24} color="onAi" />
+      ) : (
+        <Image
+          source={FABALITA.image}
+          resizeMode="contain"
+          style={{ width: ORB * 0.84, height: ORB * 0.84, marginTop: ORB * 0.06 }}
+        />
+      )}
     </Animated.View>
   );
 }

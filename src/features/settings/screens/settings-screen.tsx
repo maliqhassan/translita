@@ -15,11 +15,12 @@ import {
   IconButton,
 } from '@/components';
 import { APP, isAutoDetect, languageName } from '@/constants';
+import { REMINDER_HOURS, reminderTimeLabel } from '@/features/academy';
 import { useHistoryActions } from '@/features/history';
 import { useOfflineTranslationPermitted } from '@/features/offline';
 import { useTheme } from '@/hooks';
-import { appLanguage, isAppLanguage, msg, t } from '@/i18n';
-import { voiceMatchesLanguage, type Plan } from '@/services';
+import { appLanguage, currentAppLanguage, isAppLanguage, msg, t } from '@/i18n';
+import { services, voiceMatchesLanguage, type Plan } from '@/services';
 import {
   useAcademy,
   useDevelopmentPlanSwitcher,
@@ -161,6 +162,24 @@ export function SettingsScreen() {
    * learning should not vanish with a theme. It is also how someone changes
    * language — the Academy starts again at its first question.
    */
+  const reminderTime = reminderTimeLabel(preferences.reminderHour, currentAppLanguage());
+
+  /** On asks the phone first; a refusal is explained rather than silently ignored. */
+  const switchReminders = async (on: boolean) => {
+    if (!on) {
+      await update({ reminders: false, remindersAsked: true });
+      return;
+    }
+    const granted = await services.notifications.requestPermission();
+    await update({ reminders: granted, remindersAsked: true });
+    if (!granted) {
+      Alert.alert(
+        t('Notifications are blocked'),
+        t('Allow notifications for Translita in your phone settings to turn them on.'),
+      );
+    }
+  };
+
   const confirmResetAcademy = useCallback(() => {
     Alert.alert(
       t('Reset the AI Academy?'),
@@ -367,6 +386,48 @@ export function SettingsScreen() {
           />
         </Card>
       </View>
+
+      {academy.enrollments.length ? (
+        <View>
+          <SectionHeader title={t('AI Academy')} />
+          <Card variant="glass" padding="none">
+            <ListItem
+              icon="notifications-outline"
+              title={t('Daily reminder from {name}', { name: 'Fabalita' })}
+              subtitle={
+                preferences.reminders
+                  ? t('Every day at {time}, unless you have practised', { time: reminderTime })
+                  : t('Off')
+              }
+              trailing={
+                <Switch
+                  value={preferences.reminders}
+                  onValueChange={(on) => void switchReminders(on)}
+                  accessibilityLabel={t('Daily reminder from {name}', { name: 'Fabalita' })}
+                  trackColor={{ true: theme.colors.primary, false: theme.colors.borderStrong }}
+                  thumbColor={theme.colors.surface}
+                />
+              }
+            />
+            {preferences.reminders ? (
+              <>
+                <Divider inset={theme.spacing.base} />
+                <ListItem
+                  icon="time-outline"
+                  title={t('Reminder time')}
+                  subtitle={reminderTime}
+                  onPress={() =>
+                    update({
+                      reminderHour: next<number>(REMINDER_HOURS, preferences.reminderHour, 19),
+                    })
+                  }
+                  accessibilityLabel={t('Reminder time, currently {time}', { time: reminderTime })}
+                />
+              </>
+            ) : null}
+          </Card>
+        </View>
+      ) : null}
 
       <View>
         <SectionHeader title={t('Data')} description={t('Everything stays on this device.')} />

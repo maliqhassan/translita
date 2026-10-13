@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, BackHandler, ScrollView, StatusBar, View } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, IconButton, Text } from '@/components';
@@ -10,9 +11,11 @@ import { services } from '@/services';
 import { useAcademy } from '@/store';
 import type { AddressForm, LearningGoal, LearningLevel } from '@/types';
 
+import { CoachAvatar } from '../components/coach-avatar';
 import { CourseOption } from '../components/course-option';
 import { OptionCard } from '../components/option-card';
 import { availableCourses } from '../course';
+import { FABALITA } from '../fabalita';
 
 type Step = 'course' | 'goal' | 'level' | 'address' | 'time' | 'building';
 
@@ -123,9 +126,10 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
             padding: theme.layout.screenPadding,
           }}
         >
-          <ActivityIndicator size="large" color={theme.colors.primary} />
+          <CoachAvatar size={96} />
+          <ActivityIndicator color={theme.colors.aiFrom} />
           <Text variant="h2" align="center">
-            {t('Building your course…')}
+            {t('{name} is building your course…', { name: FABALITA.name })}
           </Text>
           <Text variant="body" color="textSecondary" align="center">
             {t('60 days, from your first words to real conversations.')}
@@ -177,6 +181,8 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
         style={{ flex: 1 }}
         contentContainerStyle={{ padding: theme.layout.screenPadding, gap: theme.spacing.md }}
       >
+        {step === 'course' ? <FabalitaHello /> : null}
+
         {step === 'course' ? (
           <Question
             title={t('Which language do you want to learn?')}
@@ -348,5 +354,39 @@ function Question({
       </View>
       <View style={{ gap: theme.spacing.sm }}>{children}</View>
     </View>
+  );
+}
+
+/** Fabalita, saying hello: who she is, in a speech bubble beside her. */
+function FabalitaHello() {
+  const theme = useTheme();
+  return (
+    <Animated.View
+      entering={FadeInDown.springify()}
+      style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.md }}
+    >
+      <CoachAvatar size={64} />
+      <View
+        style={{
+          flex: 1,
+          gap: theme.spacing.xxs,
+          padding: theme.spacing.md,
+          borderRadius: theme.radius.lg,
+          borderBottomLeftRadius: theme.radius.sm,
+          backgroundColor: theme.colors.aiMuted,
+          borderWidth: theme.layout.borderWidth,
+          borderColor: theme.colors.aiBorder,
+        }}
+      >
+        <Text variant="rowTitle" color="aiStrong">
+          {t("Hi! I'm {name}", { name: FABALITA.name })}
+        </Text>
+        <Text variant="body">
+          {t(
+            "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.",
+          )}
+        </Text>
+      </View>
+    </Animated.View>
   );
 }

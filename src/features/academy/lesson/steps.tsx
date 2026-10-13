@@ -9,6 +9,7 @@ import { msg, t } from '@/i18n';
 import { CoachAvatar } from '../components/coach-avatar';
 import { Pop, PulseHalo, Shake } from '../components/motion';
 import type { CourseItem, CourseLesson } from '../course';
+import { FABALITA } from '../fabalita';
 
 import {
   SECTIONS,
@@ -691,7 +692,7 @@ function OverviewStep({ lesson, counts, onDone }: StepProps) {
               : t('Day {day}', { day: lesson.day })}
           </Text>
           <Text variant="bodySmall" color="textSecondary">
-            {t('Your coach planned today for you.')}
+            {t('{name} planned today for you.', { name: FABALITA.name })}
           </Text>
         </View>
       </View>

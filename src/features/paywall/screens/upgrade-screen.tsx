@@ -318,7 +318,9 @@ function UpgradeContent({
         >
           <Icon name="sparkles" size={22} color="primary" />
           <View style={{ flex: 1, gap: theme.spacing.xxs }}>
-            <Text variant="rowTitle">{t('New: the AI Academy')}</Text>
+            <Text variant="rowTitle">
+              {t('New: learn a language with {name}', { name: 'Fabalita' })}
+            </Text>
             <Text variant="bodySmall" color="textSecondary">
               {t(
                 'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.',

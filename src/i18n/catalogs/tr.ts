@@ -441,7 +441,6 @@ export const tr: Catalog = {
   'Every day is done. Your final exam is ready.': 'Tüm günler tamamlandı. Final sınavınız hazır.',
   'Continue learning': 'Öğrenmeye devam et',
   'Start learning': 'Öğrenmeye başla',
-  'Building your course…': 'Kursunuz hazırlanıyor…',
   '60 days, from your first words to real conversations.':
     'İlk kelimelerinizden gerçek sohbetlere 60 gün.',
   'Previous question': 'Önceki soru',
@@ -565,13 +564,11 @@ export const tr: Catalog = {
   'Say the whole sentence': 'Cümlenin tamamını söyle',
   'Your turn: say this': 'Sıra sende: bunu söyle',
   'Finish the conversation': 'Konuşmayı bitir',
-  'Your AI language coach': 'Yapay zekâ dil koçun',
   "Today's goal: {percent}%": 'Bugünün hedefi: %{percent}',
   '{count}-day streak': '{count} günlük seri',
   '{day}: lesson done': '{day}: ders tamam',
   '{day}: no lesson': '{day}: ders yok',
   'The AI partner is writing': 'Yapay zekâ partneri yazıyor',
-  'Your coach planned today for you.': 'Koçun bugünü senin için planladı.',
   'This week': 'Bu hafta',
   '{count} of 7 days': '7 günün {count} günü',
   "Today's goal is done! Come back tomorrow to keep your streak going.":
@@ -582,7 +579,6 @@ export const tr: Catalog = {
     '{count} günlük serini Gün {day} ile sürdür.',
   'Ready for Day {day}? I have planned it for you.':
     'Gün {day} için hazır mısın? Senin için planladım.',
-  'Your AI coach': 'Yapay zekâ koçun',
   Today: 'Bugün',
   "Today's goal: one lesson": 'Bugünün hedefi: bir ders',
   'Keep going: Day {day}': 'Devam: Gün {day}',
@@ -608,10 +604,6 @@ export const tr: Catalog = {
   'Elite includes Pro, so the translator is ad-free too.':
     "Elite, Pro'yu da içerir; çevirmen de reklamsız olur.",
   'Translita Elite': 'Translita Elite',
-  'All {days} days of {language}, with your AI coach.':
-    '{language} için {days} günün tamamı, yapay zekâ koçunla.',
-  'Learn German, French or Spanish in {days} days, with your AI coach.':
-    '{days} günde Almanca, Fransızca veya İspanyolca öğren, yapay zekâ koçunla.',
   '{done} done, {left} to go': '{done} bitti, {left} kaldı',
   'Welcome to Elite!': "Elite'e hoş geldin!",
   'You have Elite': 'Elite üyesisin',
@@ -624,7 +616,6 @@ export const tr: Catalog = {
     "Bu cihazda Elite'e ulaşılamadı. İlerlemen kaydedildi, daha sonra yeniden deneyebilirsin.",
   'Not now': 'Şimdi değil',
   'Unlock Day {day} and the full course': "Gün {day}'i ve tüm kursu aç",
-  'New: the AI Academy': 'Yeni: Yapay Zekâ Akademisi',
   'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     "Yapay zekâ koçuyla Almanca, Fransızca veya İspanyolca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   Elite: 'Elite',
@@ -656,23 +647,17 @@ export const tr: Catalog = {
   'Send for marking': 'Değerlendirmeye gönder',
   'Course complete': 'Kurs tamamlandı',
   'See your report, your level and your certificate.': 'Raporunu, seviyeni ve sertifikanı gör.',
-  'Ready: a written test, then a conversation with your AI coach.':
-    'Hazır: önce yazılı sınav, sonra yapay zekâ koçunla konuşma.',
   'There is no course to finish yet': 'Henüz bitirilecek bir kurs yok',
   'Say something in the conversation first: there was nothing to mark.':
     'Önce konuşmada bir şey söyle: değerlendirilecek bir şey yoktu.',
   'Part A: written and listening': 'Bölüm A: yazılı ve dinleme',
-  'Your coach is marking the conversation…': 'Koçun konuşmayı değerlendiriyor…',
   'Part B: conversation': 'Bölüm B: konuşma',
-  'From your coach': 'Koçundan',
   'Writing your report…': 'Raporun yazılıyor…',
   'Two parts, each passed at 70%. Pass both to finish your {language} course.':
     'İki bölüm, her biri %70 ile geçilir. {language} kursunu bitirmek için ikisini de geç.',
   '{count} questions from the whole course. About 15 minutes, in one go.':
     'Tüm kurstan {count} soru. Yaklaşık 15 dakika, tek seferde.',
   'Start Part A': "Bölüm A'yı başlat",
-  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
-    'Yapay zekâ koçunla gezi gününü konuş. Kelime bilgisi, dil bilgisi, akıcılık, anlama ve görevi tamamlama değerlendirilir.',
   'Start Part B': "Bölüm B'yi başlat",
   'Part B needs a connection. Your Part A result is saved.':
     'Bölüm B için bağlantı gerekir. Bölüm A sonucun kaydedildi.',
@@ -714,6 +699,92 @@ export const tr: Catalog = {
   'Level {level}': 'Seviye {level}',
   'Written {written}% · Conversation {spoken}% · {date}':
     'Yazılı %{written} · Konuşma %{spoken} · {date}',
+  'Learn with {name}': '{name} ile öğren',
+  "Hi! I'm {name}": 'Merhaba! Ben {name}',
+  "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.":
+    "Translita'nın dünyayı gezmiş kız kardeşi ve yerel biri gibi konuşman için cep rehberin. Hadi dilini seçelim.",
+  'Your pocket guide to speaking like a true local': 'Yerel biri gibi konuşman için cep rehberin',
+  'First steps': 'İlk adımlar',
+  'Finish your first day': 'İlk gününü bitir',
+  'On a roll': 'Hız kazandın',
+  'Learn 3 days in a row': 'Art arda 3 gün öğren',
+  'Week warrior': 'Haftanın savaşçısı',
+  'Learn 7 days in a row': 'Art arda 7 gün öğren',
+  Unstoppable: 'Durdurulamaz',
+  'Learn 30 days in a row': 'Art arda 30 gün öğren',
+  'Perfect day': 'Mükemmel gün',
+  'Earn 3 stars on a day': 'Bir günde 3 yıldız kazan',
+  'Chapter champion': 'Bölüm şampiyonu',
+  'Pass a checkpoint': 'Bir ara sınavı geç',
+  'Halfway there': 'Yolun yarısı',
+  'Finish 30 days': '30 günü bitir',
+  'Word collector': 'Kelime koleksiyoncusu',
+  'Know 50 words': '50 kelime bil',
+  'Word master': 'Kelime ustası',
+  'Know 150 words': '150 kelime bil',
+  Graduate: 'Mezun',
+  'Pass the final exam': 'Final sınavını geç',
+  '{badge}, earned': '{badge}, kazanıldı',
+  '{badge}: {how}': '{badge}: {how}',
+  'Your badges': 'Rozetlerin',
+  '{count} of {total}': '{total} içinden {count}',
+  'New badge!': 'Yeni rozet!',
+  'See you tomorrow at {time}!': "Yarın {time}'de görüşürüz!",
+  'Reminders are off': 'Hatırlatıcılar kapalı',
+  'Want a daily nudge from {name}?': "{name}'dan günlük bir hatırlatma ister misin?",
+  'You can change the time in Settings.': "Saati Ayarlar'dan değiştirebilirsin.",
+  'Allow notifications for Translita in your phone settings to turn them on.':
+    'Açmak için telefon ayarlarından Translita bildirimlerine izin ver.',
+  'One reminder at {time}, only on days you have not practised. Change it any time in Settings.':
+    "{time}'de tek bir hatırlatma, sadece çalışmadığın günlerde. İstediğin zaman Ayarlar'dan değiştir.",
+  'Remind me': 'Bana hatırlat',
+  'Beginner: understands and uses familiar everyday phrases':
+    'Başlangıç: tanıdık günlük ifadeleri anlar ve kullanır',
+  'Elementary: handles simple, everyday conversations': 'Temel: basit günlük konuşmaları yürütür',
+  'Strong elementary: confident in everyday situations':
+    'İleri temel: günlük durumlarda kendinden emin',
+  '{name} planned today for you.': '{name} bugünü senin için planladı.',
+  'Day {day} is ready. Five minutes is all it takes!': 'Gün {day} hazır. Sadece beş dakika yeter!',
+  'A new conversation is waiting for you. Shall we?':
+    'Yeni bir konuşma seni bekliyor. Başlayalım mı?',
+  'A few minutes today keeps your words fresh.': 'Bugün birkaç dakika, kelimelerini taze tutar.',
+  '{name} misses you! Pick up where you left off.': '{name} seni özledi! Kaldığın yerden devam et.',
+  '{name} is building your course…': '{name} kursunu hazırlıyor…',
+  'Practise your mistakes': 'Hatalarını çalış',
+  '{count} words and phrases to get right': 'Doğru öğrenilecek {count} kelime ve ifade',
+  'Ready: a written test, then a conversation with {name}.':
+    'Hazır: önce yazılı sınav, sonra {name} ile konuşma.',
+  'All {days} days of {language}, with {name}.': '{language} için {days} günün tamamı, {name} ile.',
+  'Learn German, French or Spanish in {days} days, with {name}.':
+    '{days} günde Almanca, Fransızca veya İspanyolca öğren, {name} ile.',
+  '{name} is marking the conversation…': '{name} konuşmayı değerlendiriyor…',
+  'From {name}': "{name}'dan",
+  'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    '{name} ile gezi gününü konuş. Kelime bilgisi, dil bilgisi, akıcılık, anlama ve görevi tamamlama değerlendirilir.',
+  'Redo Day {day}': "Gün {day}'i tekrarla",
+  'Practise your {count} mistakes': '{count} hatanı çalış',
+  'Start a course first': 'Önce bir kurs başlat',
+  Back: 'Geri',
+  'No mistakes to practise': 'Çalışılacak hata yok',
+  'Every word you got wrong is now well learned. Nice work!':
+    'Yanlış yaptığın her kelimeyi artık iyi öğrendin. Harika!',
+  '{correct} of {total} right': '{total} içinden {correct} doğru',
+  'Getting there!': 'Az kaldı!',
+  'All of them right!': 'Hepsi doğru!',
+  '{name} will bring these back in review until they stick.':
+    '{name} bunları akılda kalana kadar tekrarlarda geri getirecek.',
+  'These words are moving up in your review.': 'Bu kelimeler tekrarlarında ilerliyor.',
+  'Still tricky': 'Hâlâ zor',
+  'Practise these again': 'Bunları tekrar çalış',
+  'Stop practising': 'Çalışmayı bırak',
+  'Signed: {name}, your AI coach': 'İmza: {name}, yapay zekâ koçun',
+  'New: learn a language with {name}': 'Yeni: {name} ile dil öğren',
+  'Notifications are blocked': 'Bildirimler engelli',
+  'Daily reminder from {name}': "{name}'dan günlük hatırlatma",
+  'Every day at {time}, unless you have practised': "Her gün {time}'de, çalışmadıysan",
+  Off: 'Kapalı',
+  'Reminder time': 'Hatırlatma saati',
+  'Reminder time, currently {time}': 'Hatırlatma saati, şu an {time}',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

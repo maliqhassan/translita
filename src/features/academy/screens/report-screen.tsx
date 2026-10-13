@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Image, View } from 'react-native';
 import Animated, { FadeInDown, FadeInUp, ZoomIn } from 'react-native-reanimated';
 
 import { Button, Card, EmptyState, Icon, IconButton, Input, Screen, Text } from '@/components';
@@ -14,7 +14,14 @@ import { Confetti } from '../components/confetti';
 import { CountUp, Pop } from '../components/motion';
 import { ProgressRing } from '../components/progress-ring';
 import { COURSE_DAYS } from '../course';
-import { SKILL_LABEL, isFinalReport, localReport, type FinalReport } from '../final-report';
+import { FABALITA } from '../fabalita';
+import {
+  LEVEL_MEANING,
+  SKILL_LABEL,
+  isFinalReport,
+  localReport,
+  type FinalReport,
+} from '../final-report';
 import { useActiveCourse } from '../hooks/use-active-course';
 import type { Skill } from '../rules';
 
@@ -140,6 +147,11 @@ export function ReportScreen() {
               <Text variant="display" color="onAi">
                 {report.level}
               </Text>
+              {LEVEL_MEANING[report.level] ? (
+                <Text variant="caption" color="onAi" align="center">
+                  {t(LEVEL_MEANING[report.level]!)}
+                </Text>
+              ) : null}
             </View>
           </Pop>
           <Text variant="body" color="onAi" align="center">
@@ -394,7 +406,11 @@ function Certificate({
           borderColor: theme.colors.aiBorder,
         }}
       >
-        <CoachAvatar size={56} animated={false} />
+        <Image
+          source={FABALITA.icon}
+          accessibilityIgnoresInvertColors
+          style={{ width: 64, height: 64, borderRadius: theme.radius.lg }}
+        />
         <Text variant="overline" color="aiStrong">
           {t('Certificate of completion')}
         </Text>
@@ -426,6 +442,14 @@ function Certificate({
             {t('Level {level}', { level: report.level })}
           </Text>
         </View>
+        {LEVEL_MEANING[report.level] ? (
+          <Text variant="bodySmall" color="textSecondary" align="center">
+            {t(LEVEL_MEANING[report.level]!)}
+          </Text>
+        ) : null}
+        <Text variant="label" color="aiStrong" align="center">
+          {t('Signed: {name}, your AI coach', { name: FABALITA.name })}
+        </Text>
         <Text variant="caption" color="textMuted" align="center">
           {t('Written {written}% · Conversation {spoken}% · {date}', {
             written: Math.round(report.writtenScore * 100),

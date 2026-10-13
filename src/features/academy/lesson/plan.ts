@@ -433,3 +433,38 @@ export function skillOf(
       return undefined;
   }
 }
+
+// --- Practising mistakes ---------------------------------------------------------------------
+
+/**
+ * A practice session on the words got wrong: each asked twice, in two
+ * different ways, shuffled together, with a matching round when there are
+ * enough. Wrong answers draw on the wider `pool`, so the choices are new.
+ */
+export function planPractice(
+  items: readonly CourseItem[],
+  pool: readonly CourseItem[],
+  seed: string,
+): LessonStep[] {
+  const random = seededRandom(seed);
+  const first: ExerciseKind[] = ['choose-meaning', 'listen', 'fill'];
+  const second: ExerciseKind[] = ['choose-word', 'build', 'listen', 'fill'];
+  const steps: LessonStep[] = [];
+  items.forEach((item, i) => {
+    for (const kinds of [first, second]) {
+      const kind = kinds[(i + (kinds === second ? 1 : 0)) % kinds.length]!;
+      const body =
+        exercise(kind, item, pool, random) ?? exercise('choose-meaning', item, pool, random);
+      if (body) steps.push({ ...body, section: 'review' });
+    }
+  });
+  const shuffled = shuffle(steps, random);
+  for (const itemIds of matchRounds(items, 1, random)) {
+    shuffled.splice(Math.floor(shuffled.length / 2), 0, {
+      kind: 'match',
+      itemIds,
+      section: 'review',
+    });
+  }
+  return shuffled;
+}

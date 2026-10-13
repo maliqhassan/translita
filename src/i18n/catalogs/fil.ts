@@ -453,7 +453,6 @@ export const fil: Catalog = {
     'Tapos na ang lahat ng araw. Handa na ang iyong final exam.',
   'Continue learning': 'Ituloy ang pag-aaral',
   'Start learning': 'Simulan ang pag-aaral',
-  'Building your course…': 'Binubuo ang iyong course…',
   '60 days, from your first words to real conversations.':
     '60 araw, mula sa unang mga salita hanggang sa totoong usapan.',
   'Previous question': 'Nakaraang tanong',
@@ -579,13 +578,11 @@ export const fil: Catalog = {
   'Say the whole sentence': 'Sabihin ang buong pangungusap',
   'Your turn: say this': 'Ikaw na: sabihin ito',
   'Finish the conversation': 'Tapusin ang usapan',
-  'Your AI language coach': 'Ang iyong AI language coach',
   "Today's goal: {percent}%": 'Layunin ngayon: {percent}%',
   '{count}-day streak': '{count} araw na sunod-sunod',
   '{day}: lesson done': '{day}: tapos ang aralin',
   '{day}: no lesson': '{day}: walang aralin',
   'The AI partner is writing': 'Nagsusulat ang AI partner',
-  'Your coach planned today for you.': 'Inihanda ng iyong coach ang araw na ito para sa iyo.',
   'This week': 'Ngayong linggo',
   '{count} of 7 days': '{count} sa 7 araw',
   "Today's goal is done! Come back tomorrow to keep your streak going.":
@@ -596,7 +593,6 @@ export const fil: Catalog = {
     'Panatilihin ang {count} araw na streak gamit ang Araw {day}.',
   'Ready for Day {day}? I have planned it for you.':
     'Handa ka na ba sa Araw {day}? Inihanda ko ito para sa iyo.',
-  'Your AI coach': 'Ang iyong AI coach',
   Today: 'Ngayon',
   "Today's goal: one lesson": 'Layunin ngayon: isang aralin',
   'Keep going: Day {day}': 'Ituloy: Araw {day}',
@@ -623,10 +619,6 @@ export const fil: Catalog = {
   'Elite includes Pro, so the translator is ad-free too.':
     'Kasama ang Pro sa Elite, kaya walang ads din ang translator.',
   'Translita Elite': 'Translita Elite',
-  'All {days} days of {language}, with your AI coach.':
-    'Lahat ng {days} araw ng {language}, kasama ang iyong AI coach.',
-  'Learn German, French or Spanish in {days} days, with your AI coach.':
-    'Matuto ng German, French o Spanish sa loob ng {days} araw, kasama ang iyong AI coach.',
   '{done} done, {left} to go': '{done} tapos, {left} pa',
   'Welcome to Elite!': 'Maligayang pagdating sa Elite!',
   'You have Elite': 'Mayroon kang Elite',
@@ -639,7 +631,6 @@ export const fil: Catalog = {
     'Hindi maabot ang Elite sa device na ito. Naka-save ang iyong progreso; subukan muli mamaya.',
   'Not now': 'Hindi muna',
   'Unlock Day {day} and the full course': 'I-unlock ang Araw {day} at ang buong kurso',
-  'New: the AI Academy': 'Bago: ang AI Academy',
   'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Matuto ng German, French o Spanish kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   Elite: 'Elite',
@@ -673,23 +664,17 @@ export const fil: Catalog = {
   'Course complete': 'Tapos na ang kurso',
   'See your report, your level and your certificate.':
     'Tingnan ang iyong ulat, antas at sertipiko.',
-  'Ready: a written test, then a conversation with your AI coach.':
-    'Handa na: isang nakasulat na pagsusulit, tapos usapan kasama ang iyong AI coach.',
   'There is no course to finish yet': 'Wala pang kursong tatapusin',
   'Say something in the conversation first: there was nothing to mark.':
     'Magsalita muna sa usapan: walang mamarkahan.',
   'Part A: written and listening': 'Bahagi A: pagsulat at pakikinig',
-  'Your coach is marking the conversation…': 'Minamarkahan ng iyong coach ang usapan…',
   'Part B: conversation': 'Bahagi B: usapan',
-  'From your coach': 'Mula sa iyong coach',
   'Writing your report…': 'Isinusulat ang iyong ulat…',
   'Two parts, each passed at 70%. Pass both to finish your {language} course.':
     'Dalawang bahagi, bawat isa ay pasado sa 70%. Ipasa ang dalawa para matapos ang iyong kurso sa {language}.',
   '{count} questions from the whole course. About 15 minutes, in one go.':
     '{count} tanong mula sa buong kurso. Mga 15 minuto, isang upuan.',
   'Start Part A': 'Simulan ang Bahagi A',
-  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
-    'Makipag-usap sa iyong AI coach tungkol sa iyong araw ng pamamasyal. Minamarkahan ito sa bokabularyo, gramatika, katatasan, pag-unawa at pagtapos sa gawain.',
   'Start Part B': 'Simulan ang Bahagi B',
   'Part B needs a connection. Your Part A result is saved.':
     'Kailangan ng koneksyon ang Bahagi B. Naka-save ang resulta mo sa Bahagi A.',
@@ -732,6 +717,99 @@ export const fil: Catalog = {
   'Level {level}': 'Antas {level}',
   'Written {written}% · Conversation {spoken}% · {date}':
     'Nakasulat {written}% · Usapan {spoken}% · {date}',
+  'Learn with {name}': 'Matuto kasama si {name}',
+  "Hi! I'm {name}": 'Hi! Ako si {name}',
+  "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.":
+    'Ang kapatid ni Translita na palaboy sa mundo, at ang iyong pocket guide para magsalita na parang tunay na lokal. Pumili tayo ng wika mo.',
+  'Your pocket guide to speaking like a true local':
+    'Ang iyong pocket guide para magsalita na parang tunay na lokal',
+  'First steps': 'Unang hakbang',
+  'Finish your first day': 'Tapusin ang iyong unang araw',
+  'On a roll': 'Tuloy-tuloy',
+  'Learn 3 days in a row': 'Mag-aral nang 3 araw nang sunod-sunod',
+  'Week warrior': 'Mandirigma ng linggo',
+  'Learn 7 days in a row': 'Mag-aral nang 7 araw nang sunod-sunod',
+  Unstoppable: 'Hindi mapigilan',
+  'Learn 30 days in a row': 'Mag-aral nang 30 araw nang sunod-sunod',
+  'Perfect day': 'Perpektong araw',
+  'Earn 3 stars on a day': 'Makakuha ng 3 bituin sa isang araw',
+  'Chapter champion': 'Kampeon ng kabanata',
+  'Pass a checkpoint': 'Pumasa sa isang checkpoint',
+  'Halfway there': 'Kalahati na',
+  'Finish 30 days': 'Tapusin ang 30 araw',
+  'Word collector': 'Tagaipon ng salita',
+  'Know 50 words': 'Alamin ang 50 salita',
+  'Word master': 'Dalubhasa sa salita',
+  'Know 150 words': 'Alamin ang 150 salita',
+  Graduate: 'Nagtapos',
+  'Pass the final exam': 'Pumasa sa huling pagsusulit',
+  '{badge}, earned': '{badge}, nakamit',
+  '{badge}: {how}': '{badge}: {how}',
+  'Your badges': 'Iyong mga badge',
+  '{count} of {total}': '{count} sa {total}',
+  'New badge!': 'Bagong badge!',
+  'See you tomorrow at {time}!': 'Kita tayo bukas nang {time}!',
+  'Reminders are off': 'Naka-off ang mga paalala',
+  'Want a daily nudge from {name}?': 'Gusto mo ba ng araw-araw na paalala mula kay {name}?',
+  'You can change the time in Settings.': 'Mababago mo ang oras sa Settings.',
+  'Allow notifications for Translita in your phone settings to turn them on.':
+    'Payagan ang notifications para sa Translita sa settings ng phone mo para i-on ito.',
+  'One reminder at {time}, only on days you have not practised. Change it any time in Settings.':
+    'Isang paalala nang {time}, sa mga araw lang na hindi ka nag-practice. Baguhin anumang oras sa Settings.',
+  'Remind me': 'Paalalahanan ako',
+  'Beginner: understands and uses familiar everyday phrases':
+    'Baguhan: nauunawaan at gumagamit ng karaniwang pang-araw-araw na pahayag',
+  'Elementary: handles simple, everyday conversations':
+    'Elementarya: kaya ang simpleng pang-araw-araw na usapan',
+  'Strong elementary: confident in everyday situations':
+    'Malakas na elementarya: may kumpiyansa sa araw-araw na sitwasyon',
+  '{name} planned today for you.': 'Inihanda ni {name} ang araw na ito para sa iyo.',
+  'Day {day} is ready. Five minutes is all it takes!':
+    'Handa na ang Araw {day}. Limang minuto lang!',
+  'A new conversation is waiting for you. Shall we?':
+    'May bagong usapan na naghihintay sa iyo. Tara?',
+  'A few minutes today keeps your words fresh.':
+    'Ilang minuto lang ngayon para manatiling sariwa ang iyong mga salita.',
+  '{name} misses you! Pick up where you left off.':
+    'Nami-miss ka ni {name}! Ituloy kung saan ka huminto.',
+  '{name} is building your course…': 'Binubuo ni {name} ang iyong kurso…',
+  'Practise your mistakes': 'Sanayin ang mga mali mo',
+  '{count} words and phrases to get right': '{count} salita at parirala na dapat maitama',
+  'Ready: a written test, then a conversation with {name}.':
+    'Handa na: isang nakasulat na pagsusulit, tapos usapan kasama si {name}.',
+  'All {days} days of {language}, with {name}.':
+    'Lahat ng {days} araw ng {language}, kasama si {name}.',
+  'Learn German, French or Spanish in {days} days, with {name}.':
+    'Matuto ng German, French o Spanish sa loob ng {days} araw, kasama si {name}.',
+  '{name} is marking the conversation…': 'Minamarkahan ni {name} ang usapan…',
+  'From {name}': 'Mula kay {name}',
+  'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Makipag-usap kay {name} tungkol sa iyong araw ng pamamasyal. Minamarkahan ito sa bokabularyo, gramatika, katatasan, pag-unawa at pagtapos sa gawain.',
+  'Redo Day {day}': 'Ulitin ang Araw {day}',
+  'Practise your {count} mistakes': 'Sanayin ang {count} mali mo',
+  'Start a course first': 'Magsimula muna ng kurso',
+  Back: 'Bumalik',
+  'No mistakes to practise': 'Walang maling sasanayin',
+  'Every word you got wrong is now well learned. Nice work!':
+    'Lahat ng salitang namali mo ay natutunan mo na nang mabuti. Magaling!',
+  '{correct} of {total} right': '{correct} sa {total} ang tama',
+  'Getting there!': 'Malapit na!',
+  'All of them right!': 'Lahat tama!',
+  '{name} will bring these back in review until they stick.':
+    'Ibabalik ni {name} ang mga ito sa balik-aral hanggang tumatak.',
+  'These words are moving up in your review.': 'Umaangat ang mga salitang ito sa iyong balik-aral.',
+  'Still tricky': 'Mahirap pa rin',
+  'Practise these again': 'Sanayin muli ang mga ito',
+  'Stop practising': 'Itigil ang pagsasanay',
+  'Signed: {name}, your AI coach': 'Nilagdaan: {name}, ang iyong AI coach',
+  'New: learn a language with {name}': 'Bago: matuto ng wika kasama si {name}',
+  'Notifications are blocked': 'Naka-block ang notifications',
+  'Daily reminder from {name}': 'Araw-araw na paalala mula kay {name}',
+  'Every day at {time}, unless you have practised':
+    'Araw-araw nang {time}, maliban kung nag-practice ka na',
+  Off: 'Naka-off',
+  'Reminder time': 'Oras ng paalala',
+  'Reminder time, currently {time}': 'Oras ng paalala, kasalukuyang {time}',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

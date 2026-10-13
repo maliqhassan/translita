@@ -452,7 +452,6 @@ export const de: Catalog = {
     'Alle Tage sind geschafft. Deine Abschlussprüfung ist bereit.',
   'Continue learning': 'Weiterlernen',
   'Start learning': 'Jetzt lernen',
-  'Building your course…': 'Dein Kurs wird erstellt…',
   '60 days, from your first words to real conversations.':
     '60 Tage, von den ersten Wörtern bis zu echten Gesprächen.',
   'Previous question': 'Vorherige Frage',
@@ -576,13 +575,11 @@ export const de: Catalog = {
   'Say the whole sentence': 'Sag den ganzen Satz',
   'Your turn: say this': 'Du bist dran: Sag das',
   'Finish the conversation': 'Gespräch beenden',
-  'Your AI language coach': 'Dein KI-Sprachcoach',
   "Today's goal: {percent}%": 'Tagesziel: {percent} %',
   '{count}-day streak': '{count}-Tage-Serie',
   '{day}: lesson done': '{day}: Lektion erledigt',
   '{day}: no lesson': '{day}: keine Lektion',
   'The AI partner is writing': 'Der KI-Partner schreibt',
-  'Your coach planned today for you.': 'Dein Coach hat den heutigen Tag für dich geplant.',
   'This week': 'Diese Woche',
   '{count} of 7 days': '{count} von 7 Tagen',
   "Today's goal is done! Come back tomorrow to keep your streak going.":
@@ -593,7 +590,6 @@ export const de: Catalog = {
     'Halte deine {count}-Tage-Serie mit Tag {day} am Leben.',
   'Ready for Day {day}? I have planned it for you.':
     'Bereit für Tag {day}? Ich habe ihn für dich geplant.',
-  'Your AI coach': 'Dein KI-Coach',
   Today: 'Heute',
   "Today's goal: one lesson": 'Tagesziel: eine Lektion',
   'Keep going: Day {day}': 'Weiter: Tag {day}',
@@ -619,10 +615,6 @@ export const de: Catalog = {
   'Elite includes Pro, so the translator is ad-free too.':
     'Elite enthält Pro, also ist auch der Übersetzer werbefrei.',
   'Translita Elite': 'Translita Elite',
-  'All {days} days of {language}, with your AI coach.':
-    'Alle {days} Tage {language}, mit deinem KI-Coach.',
-  'Learn German, French or Spanish in {days} days, with your AI coach.':
-    'Lerne Deutsch, Französisch oder Spanisch in {days} Tagen, mit deinem KI-Coach.',
   '{done} done, {left} to go': '{done} geschafft, {left} vor dir',
   'Welcome to Elite!': 'Willkommen bei Elite!',
   'You have Elite': 'Du hast Elite',
@@ -635,7 +627,6 @@ export const de: Catalog = {
     'Elite war auf diesem Gerät nicht erreichbar. Dein Fortschritt ist gespeichert; versuch es später noch einmal.',
   'Not now': 'Jetzt nicht',
   'Unlock Day {day} and the full course': 'Tag {day} und den ganzen Kurs freischalten',
-  'New: the AI Academy': 'Neu: die KI-Akademie',
   'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Lerne Deutsch, Französisch oder Spanisch mit einem KI-Coach. Tag 1 ist kostenlos; Elite öffnet den ganzen Kurs und enthält alles aus Pro.',
   Elite: 'Elite',
@@ -668,23 +659,17 @@ export const de: Catalog = {
   'Course complete': 'Kurs abgeschlossen',
   'See your report, your level and your certificate.':
     'Sieh dir deinen Bericht, dein Niveau und dein Zertifikat an.',
-  'Ready: a written test, then a conversation with your AI coach.':
-    'Bereit: ein schriftlicher Test, dann ein Gespräch mit deinem KI-Coach.',
   'There is no course to finish yet': 'Noch kein Kurs zum Abschließen',
   'Say something in the conversation first: there was nothing to mark.':
     'Sag zuerst etwas im Gespräch: Es gab nichts zu bewerten.',
   'Part A: written and listening': 'Teil A: Schreiben und Hören',
-  'Your coach is marking the conversation…': 'Dein Coach bewertet das Gespräch …',
   'Part B: conversation': 'Teil B: Gespräch',
-  'From your coach': 'Von deinem Coach',
   'Writing your report…': 'Dein Bericht wird geschrieben …',
   'Two parts, each passed at 70%. Pass both to finish your {language} course.':
     'Zwei Teile, jeweils mit 70 % bestanden. Bestehe beide, um deinen {language}-Kurs abzuschließen.',
   '{count} questions from the whole course. About 15 minutes, in one go.':
     '{count} Fragen aus dem ganzen Kurs. Etwa 15 Minuten, am Stück.',
   'Start Part A': 'Teil A starten',
-  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
-    'Sprich mit deinem KI-Coach über deinen Ausflugstag. Bewertet werden Wortschatz, Grammatik, Sprachfluss, Verstehen und ob die Aufgabe erfüllt ist.',
   'Start Part B': 'Teil B starten',
   'Part B needs a connection. Your Part A result is saved.':
     'Teil B braucht eine Verbindung. Dein Ergebnis aus Teil A ist gespeichert.',
@@ -727,6 +712,98 @@ export const de: Catalog = {
   'Level {level}': 'Niveau {level}',
   'Written {written}% · Conversation {spoken}% · {date}':
     'Schriftlich {written} % · Gespräch {spoken} % · {date}',
+  'Learn with {name}': 'Lerne mit {name}',
+  "Hi! I'm {name}": 'Hallo! Ich bin {name}',
+  "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.":
+    'Die weitgereiste Schwester von Translita und dein Taschenguide, um wie ein echter Einheimischer zu sprechen. Lass uns deine Sprache wählen.',
+  'Your pocket guide to speaking like a true local':
+    'Dein Taschenguide, um wie ein echter Einheimischer zu sprechen',
+  'First steps': 'Erste Schritte',
+  'Finish your first day': 'Schließe deinen ersten Tag ab',
+  'On a roll': 'Gut im Lauf',
+  'Learn 3 days in a row': 'Lerne 3 Tage in Folge',
+  'Week warrior': 'Wochen-Held',
+  'Learn 7 days in a row': 'Lerne 7 Tage in Folge',
+  Unstoppable: 'Unaufhaltsam',
+  'Learn 30 days in a row': 'Lerne 30 Tage in Folge',
+  'Perfect day': 'Perfekter Tag',
+  'Earn 3 stars on a day': 'Hol dir 3 Sterne an einem Tag',
+  'Chapter champion': 'Kapitel-Champion',
+  'Pass a checkpoint': 'Bestehe einen Zwischentest',
+  'Halfway there': 'Halbzeit',
+  'Finish 30 days': 'Schließe 30 Tage ab',
+  'Word collector': 'Wörtersammler',
+  'Know 50 words': 'Kenne 50 Wörter',
+  'Word master': 'Wörtermeister',
+  'Know 150 words': 'Kenne 150 Wörter',
+  Graduate: 'Absolvent',
+  'Pass the final exam': 'Bestehe die Abschlussprüfung',
+  '{badge}, earned': '{badge}, erreicht',
+  '{badge}: {how}': '{badge}: {how}',
+  'Your badges': 'Deine Abzeichen',
+  '{count} of {total}': '{count} von {total}',
+  'New badge!': 'Neues Abzeichen!',
+  'See you tomorrow at {time}!': 'Bis morgen um {time}!',
+  'Reminders are off': 'Erinnerungen sind aus',
+  'Want a daily nudge from {name}?': 'Möchtest du jeden Tag einen kleinen Anstoß von {name}?',
+  'You can change the time in Settings.': 'Die Uhrzeit kannst du in den Einstellungen ändern.',
+  'Allow notifications for Translita in your phone settings to turn them on.':
+    'Erlaube Mitteilungen für Translita in den Einstellungen deines Handys, um sie einzuschalten.',
+  'One reminder at {time}, only on days you have not practised. Change it any time in Settings.':
+    'Eine Erinnerung um {time}, nur an Tagen ohne Übung. Jederzeit in den Einstellungen änderbar.',
+  'Remind me': 'Erinnere mich',
+  'Beginner: understands and uses familiar everyday phrases':
+    'Anfänger: versteht und verwendet vertraute Alltagsausdrücke',
+  'Elementary: handles simple, everyday conversations':
+    'Grundlegend: meistert einfache Alltagsgespräche',
+  'Strong elementary: confident in everyday situations':
+    'Fortgeschrittene Grundstufe: sicher im Alltag',
+  '{name} planned today for you.': '{name} hat den heutigen Tag für dich geplant.',
+  'Day {day} is ready. Five minutes is all it takes!':
+    'Tag {day} ist bereit. Fünf Minuten reichen!',
+  'A new conversation is waiting for you. Shall we?':
+    "Ein neues Gespräch wartet auf dich. Los geht's?",
+  'A few minutes today keeps your words fresh.':
+    'Ein paar Minuten heute halten deine Wörter frisch.',
+  '{name} misses you! Pick up where you left off.':
+    '{name} vermisst dich! Mach da weiter, wo du aufgehört hast.',
+  '{name} is building your course…': '{name} stellt deinen Kurs zusammen …',
+  'Practise your mistakes': 'Übe deine Fehler',
+  '{count} words and phrases to get right': '{count} Wörter und Wendungen zum Festigen',
+  'Ready: a written test, then a conversation with {name}.':
+    'Bereit: ein schriftlicher Test, dann ein Gespräch mit {name}.',
+  'All {days} days of {language}, with {name}.': 'Alle {days} Tage {language}, mit {name}.',
+  'Learn German, French or Spanish in {days} days, with {name}.':
+    'Lerne Deutsch, Französisch oder Spanisch in {days} Tagen, mit {name}.',
+  '{name} is marking the conversation…': '{name} bewertet das Gespräch …',
+  'From {name}': 'Von {name}',
+  'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Sprich mit {name} über deinen Ausflugstag. Bewertet werden Wortschatz, Grammatik, Sprachfluss, Verstehen und ob die Aufgabe erfüllt ist.',
+  'Redo Day {day}': 'Tag {day} wiederholen',
+  'Practise your {count} mistakes': 'Übe deine {count} Fehler',
+  'Start a course first': 'Starte zuerst einen Kurs',
+  Back: 'Zurück',
+  'No mistakes to practise': 'Keine Fehler zum Üben',
+  'Every word you got wrong is now well learned. Nice work!':
+    'Jedes Wort, bei dem du falsch lagst, sitzt jetzt. Gut gemacht!',
+  '{correct} of {total} right': '{correct} von {total} richtig',
+  'Getting there!': 'Du bist auf dem Weg!',
+  'All of them right!': 'Alles richtig!',
+  '{name} will bring these back in review until they stick.':
+    '{name} bringt sie in der Wiederholung zurück, bis sie sitzen.',
+  'These words are moving up in your review.': 'Diese Wörter steigen in deiner Wiederholung auf.',
+  'Still tricky': 'Noch knifflig',
+  'Practise these again': 'Diese nochmal üben',
+  'Stop practising': 'Üben beenden',
+  'Signed: {name}, your AI coach': 'Gezeichnet: {name}, dein KI-Coach',
+  'New: learn a language with {name}': 'Neu: Lerne eine Sprache mit {name}',
+  'Notifications are blocked': 'Mitteilungen sind blockiert',
+  'Daily reminder from {name}': 'Tägliche Erinnerung von {name}',
+  'Every day at {time}, unless you have practised':
+    'Jeden Tag um {time}, außer du hast schon geübt',
+  Off: 'Aus',
+  'Reminder time': 'Uhrzeit der Erinnerung',
+  'Reminder time, currently {time}': 'Uhrzeit der Erinnerung, derzeit {time}',
   // Language names
   'Detect language': 'Sprache erkennen',
   Afrikaans: 'Afrikaans',

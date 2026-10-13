@@ -55,7 +55,14 @@
         }
       ],
       "@react-native-firebase/app",
-      "expo-sharing"
+      "expo-sharing",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/android-icon-monochrome.png",
+          "color": "#0CC0DF"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

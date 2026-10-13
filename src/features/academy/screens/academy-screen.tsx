@@ -18,8 +18,9 @@ import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
 import { services } from '@/services';
 import { useAcademy } from '@/store';
-import type { Enrollment, LessonProgress } from '@/types';
+import type { Enrollment, ItemStat, LessonProgress } from '@/types';
 
+import { BadgeShelf } from '../components/badges';
 import { CoachAvatar } from '../components/coach-avatar';
 import { Breathing, CountUp, Floating, Pop, PulseHalo } from '../components/motion';
 import { ProgressRing } from '../components/progress-ring';
@@ -32,14 +33,17 @@ import {
   type CourseChapter,
 } from '../course';
 import { shippedDays } from '../course/final';
+import { FABALITA } from '../fabalita';
 import { useAcademyAccess } from '../hooks/use-academy-access';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useDailyProgress } from '../hooks/use-daily-progress';
-import { ACADEMY_ELITE, ACADEMY_FINAL, ACADEMY_REPORT } from '../routes';
+import { ACADEMY_ELITE, ACADEMY_FINAL, ACADEMY_PRACTICE, ACADEMY_REPORT } from '../routes';
 import {
   completedDays,
   dayStatus,
+  earnedBadges,
   finalUnlocked,
+  mistakeItems,
   nextDay,
   wordsKnown,
   type DayStatus,
@@ -101,7 +105,14 @@ function Dashboard({
   const unlocked = useAcademyAccess();
   const courseId = enrollment.courseId;
   const daily = useDailyProgress(courseId, progress);
-  const [known, setKnown] = useState(0);
+  const [stats, setStats] = useState<readonly ItemStat[]>([]);
+  const known = wordsKnown(stats);
+  const mistakes = mistakeItems(stats).length;
+  const badges = earnedBadges({
+    progress,
+    wordsKnown: known,
+    graduated: enrollment.completedAt !== undefined,
+  });
 
   useEffect(() => {
     services.analytics.log({ name: 'academy_open' });
@@ -113,7 +124,7 @@ function Dashboard({
     useCallback(() => {
       let active = true;
       void services.academy.listItemStats(courseId).then((stats) => {
-        if (active && stats.ok) setKnown(wordsKnown(stats.value));
+        if (active && stats.ok) setStats(stats.value);
       });
       return () => {
         active = false;
@@ -148,7 +159,7 @@ function Dashboard({
       edges={['top', 'bottom']}
       header={
         <ScreenHeader
-          title={t('AI Academy')}
+          title={FABALITA.name}
           subtitle={t('Learn {language}', { language })}
           leading={
             <Pressable
@@ -214,6 +225,45 @@ function Dashboard({
         />
       </View>
 
+      {mistakes ? (
+        <Animated.View entering={FadeInDown.delay(theme.motion.stagger * 3)}>
+          <Pressable
+            onPress={() => router.push(ACADEMY_PRACTICE)}
+            accessibilityRole="button"
+            style={({ pressed }) => ({
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: theme.spacing.md,
+              padding: theme.spacing.base,
+              borderRadius: theme.radius.lg,
+              borderWidth: theme.layout.borderWidth,
+              borderColor: theme.colors.aiBorder,
+              backgroundColor: pressed ? theme.colors.aiMuted : theme.colors.surface,
+            })}
+          >
+            <View
+              style={{
+                width: 44,
+                height: 44,
+                borderRadius: 22,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: theme.colors.aiMuted,
+              }}
+            >
+              <Icon name="barbell" size={22} color="aiStrong" />
+            </View>
+            <View style={{ flex: 1, gap: theme.spacing.xxs }}>
+              <Text variant="rowTitle">{t('Practise your mistakes')}</Text>
+              <Text variant="bodySmall" color="textSecondary">
+                {t('{count} words and phrases to get right', { count: mistakes })}
+              </Text>
+            </View>
+            <Icon name="chevron-forward" size={18} color="aiStrong" />
+          </Pressable>
+        </Animated.View>
+      ) : null}
+
       {daily.week.length ? (
         <Animated.View entering={FadeInDown.delay(theme.motion.stagger * 3)}>
           <Card variant="outlined" style={{ gap: theme.spacing.md }}>
@@ -231,6 +281,8 @@ function Dashboard({
           </Card>
         </Animated.View>
       ) : null}
+
+      <BadgeShelf earned={badges} />
 
       {chapters.map((chapter) => (
         <ChapterPath
@@ -317,7 +369,9 @@ function FinalExamCard({
             {state === 'complete'
               ? t('See your report, your level and your certificate.')
               : state === 'ready'
-                ? t('Ready: a written test, then a conversation with your AI coach.')
+                ? t('Ready: a written test, then a conversation with {name}.', {
+                    name: FABALITA.name,
+                  })
                 : t(
                     'Opens when all 60 days are done: a test, a conversation with the AI, and your report.',
                   )}
@@ -419,7 +473,7 @@ function CoachHero({
         <CoachAvatar size={52} />
         <View style={{ flex: 1, gap: theme.spacing.xxs }}>
           <Text variant="overline" color="onAiMuted">
-            {t('Your AI coach')}
+            {FABALITA.name}
           </Text>
           <Text variant="rowTitle" color="onAi">
             {coachLine({ day, today, streakDays })}

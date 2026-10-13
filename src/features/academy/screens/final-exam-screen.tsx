@@ -16,17 +16,17 @@ import { createId } from '@/utils';
 
 import { CoachAvatar } from '../components/coach-avatar';
 import { CountUp } from '../components/motion';
-import { ProgressBar } from '../components/progress-bar';
 import { ProgressRing } from '../components/progress-ring';
+import { QuizPlayer } from '../components/quiz-player';
 import type { CourseItem } from '../course';
 import { FINAL_SCENE, courseItems, finalLesson } from '../course/final';
+import { FABALITA } from '../fabalita';
 import { RUBRIC_LABEL, type FinalReport } from '../final-report';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { useCoachConnection, useSpeechPractice } from '../hooks/use-lesson-tools';
 import { itemsOf, planFinal, skillOf } from '../lesson/plan';
 import { RoleplayStep } from '../lesson/roleplay-step';
 import { updatedStats, type StepAnswer } from '../lesson/session';
-import { LessonStepView } from '../lesson/steps';
 import { ACADEMY_REPORT } from '../routes';
 import {
   FINAL_RULES,
@@ -374,7 +374,7 @@ function FinalExam({ enrollment }: { enrollment: Enrollment }) {
                     </>
                   ) : (
                     <Text variant="h3" align="center">
-                      {t('Your coach is marking the conversation…')}
+                      {t('{name} is marking the conversation…', { name: FABALITA.name })}
                     </Text>
                   )}
                 </View>
@@ -391,7 +391,7 @@ function FinalExam({ enrollment }: { enrollment: Enrollment }) {
                   {stage.assessment.feedback ? (
                     <Card variant="outlined" style={{ gap: theme.spacing.xs }}>
                       <Text variant="label" color="aiStrong">
-                        {t('From your coach')}
+                        {t('From {name}', { name: FABALITA.name })}
                       </Text>
                       <Text variant="body">{stage.assessment.feedback}</Text>
                     </Card>
@@ -482,7 +482,8 @@ function Intro({
         icon="chatbubbles"
         title={t('Part B: conversation')}
         description={t(
-          'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.',
+          'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.',
+          { name: FABALITA.name },
         )}
         state={spoken}
         score={parts.spoken?.score}
@@ -589,6 +590,7 @@ function PartCard({
   );
 }
 
+/** Part A: the exam's questions, through the shared quiz player. */
 function WrittenPart({
   seed,
   items,
@@ -604,70 +606,22 @@ function WrittenPart({
   onLeave: () => void;
   onFinish: (steps: ReturnType<typeof planFinal>, answers: StepAnswer[]) => void;
 }) {
-  const theme = useTheme();
   const steps = useMemo(
     () => planFinal([...items.values()], FINAL_RULES.questions, seed),
     [items, seed],
   );
   const lesson = useMemo(() => finalLesson(courseId, seed), [courseId, seed]);
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<StepAnswer[]>([]);
-  const scroll = useRef<ScrollView>(null);
-
-  useEffect(() => {
-    scroll.current?.scrollTo({ y: 0, animated: false });
-  }, [index]);
-
-  const step = steps[Math.min(index, steps.length - 1)];
-  if (!step) return null;
-
-  const onDone = (correct: boolean | null) => {
-    const next = correct === null ? answers : [...answers, { step: index, correct }];
-    setAnswers(next);
-    if (index + 1 >= steps.length) onFinish(steps, next);
-    else setIndex(index + 1);
-  };
-
   return (
-    <>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: theme.spacing.sm,
-          paddingHorizontal: theme.spacing.sm,
-          paddingTop: theme.spacing.sm,
-        }}
-      >
-        <IconButton
-          name="close"
-          accessibilityLabel={t('Leave Part A. It starts again next time.')}
-          onPress={onLeave}
-        />
-        <ProgressBar
-          progress={index / steps.length}
-          label={t('Question {current} of {total}', { current: index + 1, total: steps.length })}
-        />
-        <Text variant="label" color="textSecondary" style={{ paddingRight: theme.spacing.sm }}>
-          {`${index + 1}/${steps.length}`}
-        </Text>
-      </View>
-      <ScrollView
-        ref={scroll}
-        contentContainerStyle={{ padding: theme.layout.screenPadding, gap: theme.spacing.lg }}
-      >
-        <Animated.View key={index} entering={FadeInRight.duration(theme.motion.duration.slow)}>
-          <LessonStepView
-            step={step}
-            lesson={lesson}
-            items={items}
-            language={courseId}
-            speak={speak}
-            onDone={onDone}
-          />
-        </Animated.View>
-      </ScrollView>
-    </>
+    <QuizPlayer
+      steps={steps}
+      lesson={lesson}
+      items={items}
+      language={courseId}
+      speak={speak}
+      leaveLabel={t('Leave Part A. It starts again next time.')}
+      onLeave={onLeave}
+      onFinish={(answers) => onFinish(steps, answers)}
+    />
   );
 }
 

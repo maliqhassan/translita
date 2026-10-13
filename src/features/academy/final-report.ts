@@ -111,3 +111,10 @@ export function localReport(report: FinalReport): CoachReport {
     next: t('Keep your streak going with review, and use the language whenever you can.'),
   };
 }
+
+/** What each level the course can reach means, on the European (CEFR) scale. */
+export const LEVEL_MEANING: Record<string, string> = {
+  A1: msg('Beginner: understands and uses familiar everyday phrases'),
+  A2: msg('Elementary: handles simple, everyday conversations'),
+  'A2+': msg('Strong elementary: confident in everyday situations'),
+};

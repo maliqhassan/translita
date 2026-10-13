@@ -99,6 +99,10 @@ describe('default preferences', () => {
       aiTurnsUsed: 0,
       // Not left in the Academy: a first launch opens on the translator.
       academyLeftAt: 0,
+      // No reminders until the learner says yes, offered after the first lesson.
+      reminders: false,
+      reminderHour: 19,
+      remindersAsked: false,
     });
   });
 
@@ -138,6 +142,9 @@ describe('parsing stored preferences', () => {
       appLanguageChosen: true,
       // A real time, so leaving the app in the Academy is proven to survive parsing.
       academyLeftAt: 1_760_000_000_000,
+      reminders: true,
+      reminderHour: 8,
+      remindersAsked: true,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -247,6 +254,9 @@ describe('preferences service', () => {
       appLanguage: 'es',
       appLanguageChosen: true,
       academyLeftAt: 0,
+      reminders: false,
+      reminderHour: 19,
+      remindersAsked: false,
     };
 
     assert.equal((await service.save(saved)).ok, true);

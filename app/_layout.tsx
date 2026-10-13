@@ -11,7 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { Theme } from '@/constants';
-import { ReturnToAcademy } from '@/features/academy';
+import { ReminderScheduler, ReturnToAcademy } from '@/features/academy';
 import { AppOpenAdController } from '@/features/ads';
 import { LanguagePrompt, OnboardingFlow } from '@/features/onboarding';
 import { ReturnToSettingsOnLanguageChange } from '@/features/settings';
@@ -115,6 +115,8 @@ function RootNavigator() {
         <ReturnToSettingsOnLanguageChange />
         {/* A learner who left the app in the Academy comes back to it. */}
         <ReturnToAcademy />
+        {/* The Academy's daily reminders, kept up to date; none unless the learner said yes. */}
+        <ReminderScheduler />
         {/* Keyed by language: changing it in Settings redraws every screen in
           the new language. Only the navigator is keyed, so the advert
           controller above keeps its state and does not fire again. */}
@@ -141,6 +143,7 @@ function RootNavigator() {
           <Stack.Screen name="academy/lesson/[id]" options={{ headerShown: false }} />
           <Stack.Screen name="academy/final" options={{ headerShown: false }} />
           <Stack.Screen name="academy/report" options={{ headerShown: false }} />
+          <Stack.Screen name="academy/practice" options={{ headerShown: false }} />
           <Stack.Screen
             name="academy/elite"
             options={{ headerShown: false, presentation: 'modal' }}

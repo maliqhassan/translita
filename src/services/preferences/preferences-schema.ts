@@ -53,6 +53,10 @@ export const DEFAULT_PREFERENCES: Preferences = {
   // Not in the Academy: a first launch, and every install before it, opens
   // on the translator.
   academyLeftAt: 0,
+  // Off until asked, and asked once: after the first lesson, never at launch.
+  reminders: false,
+  reminderHour: 19,
+  remindersAsked: false,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -213,6 +217,12 @@ export function parsePreferences(payload: unknown): Preferences {
     ),
     aiTurnsUsed: readCount(record.aiTurnsUsed, DEFAULT_PREFERENCES.aiTurnsUsed),
     academyLeftAt: readCount(record.academyLeftAt, DEFAULT_PREFERENCES.academyLeftAt),
+    reminders: readBoolean(record.reminders, DEFAULT_PREFERENCES.reminders),
+    reminderHour:
+      readCount(record.reminderHour, DEFAULT_PREFERENCES.reminderHour) <= 23
+        ? readCount(record.reminderHour, DEFAULT_PREFERENCES.reminderHour)
+        : DEFAULT_PREFERENCES.reminderHour,
+    remindersAsked: readBoolean(record.remindersAsked, DEFAULT_PREFERENCES.remindersAsked),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

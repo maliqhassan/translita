@@ -1,108 +1,108 @@
 <en-US>
-New: the AI Academy 🎓
-• Learn German, French or Spanish from English in 60 days
-• Daily lessons: new words, exercises, speaking practice and review
-• Live conversations with your AI coach, with every mistake explained
-• Final exam, a personal report and a certificate to share
-• Day 1 is free; Translita Elite opens the full course and removes ads
+New: learn with Fabalita 🌱 — Translita's worldly sister
+• German, French or Spanish from English in 60 days
+• Daily lessons, speaking practice and live chats with your AI coach
+• Practise your mistakes, earn badges, keep your streak
+• Final exam, personal report and a certificate with your level
+• Day 1 free; Translita Elite opens the full course and removes ads
 Also: a cleaner home screen without the bottom bar
 </en-US>
 <ur>
-نیا: AI اکیڈمی 🎓
-• انگریزی کے ذریعے 60 دن میں جرمن، فرانسیسی یا ہسپانوی سیکھیں
-• روزانہ اسباق: نئے الفاظ، مشقیں، بولنے کی مشق اور دہرائی
-• اپنے AI کوچ سے براہِ راست گفتگو، ہر غلطی کی وضاحت کے ساتھ
-• فائنل امتحان، ذاتی رپورٹ اور شیئر کرنے کے لیے سرٹیفکیٹ
+نیا: Fabalita کے ساتھ سیکھیں 🌱 — Translita کی دنیا دیکھی بہن
+• انگریزی کے ذریعے 60 دن میں جرمن، فرانسیسی یا ہسپانوی
+• روزانہ اسباق، بولنے کی مشق اور AI کوچ سے براہِ راست گفتگو
+• اپنی غلطیوں کی مشق، بیجز اور روزانہ کا سلسلہ
+• فائنل امتحان، ذاتی رپورٹ اور آپ کی سطح کا سرٹیفکیٹ
 • پہلا دن مفت؛ Translita Elite پورا کورس کھولتا ہے اور اشتہار ہٹاتا ہے
 مزید: نیچے والی بار کے بغیر صاف ہوم اسکرین
 </ur>
 <hi-IN>
-नया: AI अकादमी 🎓
-• अंग्रेज़ी से 60 दिनों में जर्मन, फ़्रेंच या स्पेनिश सीखें
-• रोज़ के पाठ: नए शब्द, अभ्यास, बोलने का अभ्यास और दोहराई
-• अपने AI कोच से लाइव बातचीत, हर गलती की व्याख्या के साथ
-• अंतिम परीक्षा, निजी रिपोर्ट और साझा करने लायक प्रमाणपत्र
+नया: Fabalita के साथ सीखें 🌱 — Translita की दुनिया घूमी बहन
+• अंग्रेज़ी से 60 दिनों में जर्मन, फ़्रेंच या स्पेनिश
+• रोज़ के पाठ, बोलने का अभ्यास और AI कोच से लाइव बातचीत
+• अपनी गलतियों का अभ्यास, बैज और रोज़ की लगातार पढ़ाई
+• अंतिम परीक्षा, निजी रिपोर्ट और आपके स्तर वाला प्रमाणपत्र
 • पहला दिन मुफ़्त; Translita Elite पूरा कोर्स खोलता है और विज्ञापन हटाता है
 साथ ही: नीचे की बार के बिना साफ़ होम स्क्रीन
 </hi-IN>
 <ar>
-جديد: أكاديمية الذكاء الاصطناعي 🎓
-• تعلّم الألمانية أو الفرنسية أو الإسبانية من الإنجليزية في 60 يومًا
-• دروس يومية: كلمات جديدة وتمارين وتدريب على التحدث ومراجعة
-• محادثات مباشرة مع مدربك الذكي، مع شرح كل خطأ
-• اختبار نهائي وتقرير شخصي وشهادة للمشاركة
+جديد: تعلّم مع Fabalita 🌱 — أخت Translita الجوّالة في العالم
+• الألمانية أو الفرنسية أو الإسبانية من الإنجليزية في 60 يومًا
+• دروس يومية وتدريب على التحدث ومحادثات مباشرة مع مدربتك الذكية
+• تدرّب على أخطائك واجمع الشارات وحافظ على سلسلتك
+• اختبار نهائي وتقرير شخصي وشهادة بمستواك
 • اليوم الأول مجاني؛ Translita Elite يفتح الدورة كاملة ويزيل الإعلانات
 أيضًا: شاشة رئيسية أنظف بدون الشريط السفلي
 </ar>
 <bn-BD>
-নতুন: AI একাডেমি 🎓
-• ইংরেজি থেকে ৬০ দিনে জার্মান, ফরাসি বা স্প্যানিশ শিখুন
-• প্রতিদিনের পাঠ: নতুন শব্দ, অনুশীলন, কথা বলার অনুশীলন ও পুনরালোচনা
-• আপনার AI কোচের সাথে সরাসরি কথোপকথন, প্রতিটি ভুলের ব্যাখ্যাসহ
-• চূড়ান্ত পরীক্ষা, ব্যক্তিগত রিপোর্ট ও শেয়ার করার সার্টিফিকেট
+নতুন: Fabalita-র সাথে শিখুন 🌱 — Translita-র বিশ্ব-ঘোরা বোন
+• ইংরেজি থেকে ৬০ দিনে জার্মান, ফরাসি বা স্প্যানিশ
+• প্রতিদিনের পাঠ, কথা বলার অনুশীলন ও AI কোচের সাথে সরাসরি কথা
+• ভুলগুলো অনুশীলন করুন, ব্যাজ জিতুন, ধারাবাহিকতা রাখুন
+• চূড়ান্ত পরীক্ষা, ব্যক্তিগত রিপোর্ট ও আপনার স্তরের সার্টিফিকেট
 • প্রথম দিন বিনামূল্যে; Translita Elite পুরো কোর্স খোলে ও বিজ্ঞাপন সরায়
-এছাড়া: নিচের বার ছাড়া আরও পরিচ্ছন্ন হোম স্ক্রিন
+এছাড়া: নিচের বার ছাড়া পরিচ্ছন্ন হোম স্ক্রিন
 </bn-BD>
 <es-ES>
-Novedad: la AI Academy 🎓
-• Aprende alemán, francés o español desde el inglés en 60 días
-• Lecciones diarias: palabras nuevas, ejercicios, práctica oral y repaso
-• Conversaciones en vivo con tu coach de IA, con cada error explicado
-• Examen final, informe personal y certificado para compartir
+Novedad: aprende con Fabalita 🌱, la hermana viajera de Translita
+• Alemán, francés o español desde el inglés en 60 días
+• Lecciones diarias, práctica oral y charlas en vivo con tu coach de IA
+• Practica tus errores, gana insignias y mantén tu racha
+• Examen final, informe personal y certificado con tu nivel
 • El día 1 es gratis; Translita Elite abre el curso completo y quita los anuncios
-Además: una pantalla de inicio más limpia, sin la barra inferior
+Además: inicio más limpio, sin la barra inferior
 </es-ES>
 <fr-FR>
-Nouveau : l'AI Academy 🎓
-• Apprenez l'allemand, le français ou l'espagnol depuis l'anglais en 60 jours
-• Leçons quotidiennes : nouveaux mots, exercices, oral et révisions
-• Conversations en direct avec votre coach IA, chaque erreur expliquée
-• Examen final, bilan personnel et certificat à partager
+Nouveau : apprenez avec Fabalita 🌱, la sœur globe-trotteuse de Translita
+• Allemand, français ou espagnol depuis l'anglais en 60 jours
+• Leçons quotidiennes, oral et conversations en direct avec votre coach IA
+• Travaillez vos erreurs, gagnez des badges, gardez votre série
+• Examen final, bilan personnel et certificat de niveau
 • Jour 1 gratuit ; Translita Elite ouvre tout le cours et retire les publicités
-Aussi : un écran d'accueil plus épuré, sans la barre du bas
+Aussi : un accueil plus épuré, sans la barre du bas
 </fr-FR>
 <de-DE>
-Neu: die KI-Akademie 🎓
-• Lerne Deutsch, Französisch oder Spanisch auf Englisch in 60 Tagen
-• Tägliche Lektionen: neue Wörter, Übungen, Sprechen und Wiederholung
-• Live-Gespräche mit deinem KI-Coach, jeder Fehler wird erklärt
-• Abschlussprüfung, persönlicher Bericht und ein Zertifikat zum Teilen
-• Tag 1 ist kostenlos; Translita Elite öffnet den ganzen Kurs und entfernt Werbung
-Außerdem: ein aufgeräumter Startbildschirm ohne untere Leiste
+Neu: Lerne mit Fabalita 🌱, der weitgereisten Schwester von Translita
+• Deutsch, Französisch oder Spanisch auf Englisch in 60 Tagen
+• Tägliche Lektionen, Sprechübungen und Live-Gespräche mit deinem KI-Coach
+• Übe deine Fehler, sammle Abzeichen, halte deine Serie
+• Abschlussprüfung, persönlicher Bericht und Zertifikat mit deinem Niveau
+• Tag 1 ist kostenlos; Translita Elite öffnet den ganzen Kurs ohne Werbung
+Außerdem: Startbildschirm ohne untere Leiste
 </de-DE>
 <pt-BR>
-Novo: a AI Academy 🎓
-• Aprenda alemão, francês ou espanhol a partir do inglês em 60 dias
-• Lições diárias: palavras novas, exercícios, prática de fala e revisão
-• Conversas ao vivo com seu coach de IA, com cada erro explicado
-• Exame final, relatório pessoal e certificado para compartilhar
+Novo: aprenda com a Fabalita 🌱, a irmã viajada da Translita
+• Alemão, francês ou espanhol a partir do inglês em 60 dias
+• Lições diárias, prática de fala e conversas ao vivo com sua coach de IA
+• Pratique seus erros, ganhe medalhas e mantenha sua sequência
+• Exame final, relatório pessoal e certificado com seu nível
 • O dia 1 é grátis; o Translita Elite libera o curso completo e remove anúncios
-Também: uma tela inicial mais limpa, sem a barra inferior
+Também: tela inicial mais limpa, sem a barra inferior
 </pt-BR>
 <id>
-Baru: AI Academy 🎓
-• Belajar bahasa Jerman, Prancis, atau Spanyol dari bahasa Inggris dalam 60 hari
-• Pelajaran harian: kata baru, latihan, berbicara, dan pengulangan
-• Percakapan langsung dengan pelatih AI, setiap kesalahan dijelaskan
-• Ujian akhir, laporan pribadi, dan sertifikat untuk dibagikan
+Baru: belajar bersama Fabalita 🌱, saudari Translita yang suka menjelajah
+• Bahasa Jerman, Prancis, atau Spanyol dari bahasa Inggris dalam 60 hari
+• Pelajaran harian, latihan bicara, dan obrolan langsung dengan pelatih AI
+• Latih kesalahanmu, kumpulkan lencana, jaga runtutanmu
+• Ujian akhir, laporan pribadi, dan sertifikat dengan levelmu
 • Hari 1 gratis; Translita Elite membuka seluruh kursus dan menghapus iklan
-Juga: layar beranda lebih rapi tanpa bilah bawah
+Juga: beranda lebih rapi tanpa bilah bawah
 </id>
 <tr-TR>
-Yeni: Yapay Zekâ Akademisi 🎓
-• İngilizce üzerinden 60 günde Almanca, Fransızca veya İspanyolca öğren
-• Günlük dersler: yeni kelimeler, alıştırmalar, konuşma pratiği ve tekrar
-• Yapay zekâ koçunla canlı konuşmalar, her hata açıklanır
-• Final sınavı, kişisel rapor ve paylaşılabilir sertifika
+Yeni: Fabalita ile öğren 🌱 — Translita'nın dünyayı gezmiş kız kardeşi
+• İngilizce üzerinden 60 günde Almanca, Fransızca veya İspanyolca
+• Günlük dersler, konuşma pratiği ve yapay zekâ koçunla canlı sohbetler
+• Hatalarını çalış, rozet kazan, serini koru
+• Final sınavı, kişisel rapor ve seviyeni gösteren sertifika
 • 1. gün ücretsiz; Translita Elite tüm kursu açar ve reklamları kaldırır
-Ayrıca: alt çubuğu olmayan daha sade bir ana ekran
+Ayrıca: alt çubuğu olmayan sade ana ekran
 </tr-TR>
 <fil>
-Bago: ang AI Academy 🎓
-• Matuto ng German, French o Spanish mula sa English sa loob ng 60 araw
-• Araw-araw na aralin: bagong salita, pagsasanay, pagsasalita at balik-aral
-• Live na usapan kasama ang iyong AI coach, bawat mali ay ipinapaliwanag
-• Huling pagsusulit, personal na ulat at sertipikong maibabahagi
-• Libre ang Araw 1; binubuksan ng Translita Elite ang buong kurso at tinatanggal ang ads
-Gayundin: mas malinis na home screen, wala nang bottom bar
+Bago: matuto kasama si Fabalita 🌱, ang palabiyaheng kapatid ni Translita
+• German, French o Spanish mula sa English sa loob ng 60 araw
+• Araw-araw na aralin, pagsasalita at live na usapan kasama ang AI coach
+• Sanayin ang mga mali, mangolekta ng badge, panatilihin ang streak
+• Huling pagsusulit, personal na ulat at sertipiko ng iyong antas
+• Libre ang Araw 1; binubuksan ng Translita Elite ang buong kurso, walang ads
+Gayundin: mas malinis na home screen
 </fil>

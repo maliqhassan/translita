@@ -21,6 +21,7 @@ import {
 } from './entitlements';
 import { createFetchHttpClient } from './http';
 import { expoNetworkService } from './network';
+import { expoNotificationService } from './notifications';
 import { createMlKitOcrService } from './ocr';
 import { createSavedPhrasesService } from './phrases';
 import {
@@ -306,6 +307,8 @@ export const services = {
   clipboard: expoClipboardService,
   /** The Academy certificate, as a picture, through the share sheet. */
   sharing: expoShareService,
+  /** The Academy's daily reminders, scheduled on the phone, only after a yes. */
+  notifications: expoNotificationService,
   ocr: ocrRecognizer,
   speech: expoSpeechRecognitionService,
   tts: expoTTSService,

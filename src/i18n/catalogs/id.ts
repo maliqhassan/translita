@@ -446,7 +446,6 @@ export const id: Catalog = {
     'Semua hari selesai. Ujian akhir Anda sudah siap.',
   'Continue learning': 'Lanjutkan belajar',
   'Start learning': 'Mulai belajar',
-  'Building your course…': 'Menyusun kursus Anda…',
   '60 days, from your first words to real conversations.':
     '60 hari, dari kata pertama hingga percakapan nyata.',
   'Previous question': 'Pertanyaan sebelumnya',
@@ -570,13 +569,11 @@ export const id: Catalog = {
   'Say the whole sentence': 'Ucapkan seluruh kalimat',
   'Your turn: say this': 'Giliranmu: ucapkan ini',
   'Finish the conversation': 'Selesaikan percakapan',
-  'Your AI language coach': 'Pelatih bahasa AI-mu',
   "Today's goal: {percent}%": 'Target hari ini: {percent}%',
   '{count}-day streak': 'Runtutan {count} hari',
   '{day}: lesson done': '{day}: pelajaran selesai',
   '{day}: no lesson': '{day}: tidak ada pelajaran',
   'The AI partner is writing': 'Partner AI sedang menulis',
-  'Your coach planned today for you.': 'Pelatihmu sudah menyiapkan hari ini untukmu.',
   'This week': 'Minggu ini',
   '{count} of 7 days': '{count} dari 7 hari',
   "Today's goal is done! Come back tomorrow to keep your streak going.":
@@ -587,7 +584,6 @@ export const id: Catalog = {
     'Jaga runtutan {count} harimu dengan Hari {day}.',
   'Ready for Day {day}? I have planned it for you.':
     'Siap untuk Hari {day}? Aku sudah menyiapkannya untukmu.',
-  'Your AI coach': 'Pelatih AI-mu',
   Today: 'Hari ini',
   "Today's goal: one lesson": 'Target hari ini: satu pelajaran',
   'Keep going: Day {day}': 'Lanjut: Hari {day}',
@@ -613,10 +609,6 @@ export const id: Catalog = {
   'Elite includes Pro, so the translator is ad-free too.':
     'Elite sudah termasuk Pro, jadi penerjemah juga bebas iklan.',
   'Translita Elite': 'Translita Elite',
-  'All {days} days of {language}, with your AI coach.':
-    'Seluruh {days} hari {language}, bersama pelatih AI-mu.',
-  'Learn German, French or Spanish in {days} days, with your AI coach.':
-    'Belajar bahasa Jerman, Prancis, atau Spanyol dalam {days} hari, bersama pelatih AI-mu.',
   '{done} done, {left} to go': '{done} selesai, {left} lagi',
   'Welcome to Elite!': 'Selamat datang di Elite!',
   'You have Elite': 'Kamu punya Elite',
@@ -629,7 +621,6 @@ export const id: Catalog = {
     'Elite tidak dapat dijangkau di perangkat ini. Progresmu tersimpan, coba lagi nanti.',
   'Not now': 'Nanti saja',
   'Unlock Day {day} and the full course': 'Buka Hari {day} dan seluruh kursus',
-  'New: the AI Academy': 'Baru: AI Academy',
   'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Belajar bahasa Jerman, Prancis, atau Spanyol dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   Elite: 'Elite',
@@ -662,23 +653,17 @@ export const id: Catalog = {
   'Send for marking': 'Kirim untuk dinilai',
   'Course complete': 'Kursus selesai',
   'See your report, your level and your certificate.': 'Lihat laporan, level, dan sertifikatmu.',
-  'Ready: a written test, then a conversation with your AI coach.':
-    'Siap: tes tertulis, lalu percakapan dengan pelatih AI-mu.',
   'There is no course to finish yet': 'Belum ada kursus untuk diselesaikan',
   'Say something in the conversation first: there was nothing to mark.':
     'Ucapkan sesuatu dalam percakapan dulu: tidak ada yang bisa dinilai.',
   'Part A: written and listening': 'Bagian A: tertulis dan menyimak',
-  'Your coach is marking the conversation…': 'Pelatihmu sedang menilai percakapan…',
   'Part B: conversation': 'Bagian B: percakapan',
-  'From your coach': 'Dari pelatihmu',
   'Writing your report…': 'Menulis laporanmu…',
   'Two parts, each passed at 70%. Pass both to finish your {language} course.':
     'Dua bagian, masing-masing lulus di 70%. Lulus keduanya untuk menyelesaikan kursus {language}-mu.',
   '{count} questions from the whole course. About 15 minutes, in one go.':
     '{count} pertanyaan dari seluruh kursus. Sekitar 15 menit, sekaligus.',
   'Start Part A': 'Mulai Bagian A',
-  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
-    'Bicaralah dengan pelatih AI-mu tentang hari jalan-jalanmu. Dinilai dari kosakata, tata bahasa, kelancaran, pemahaman, dan penyelesaian tugas.',
   'Start Part B': 'Mulai Bagian B',
   'Part B needs a connection. Your Part A result is saved.':
     'Bagian B memerlukan koneksi. Hasil Bagian A-mu tersimpan.',
@@ -720,6 +705,96 @@ export const id: Catalog = {
   'Level {level}': 'Level {level}',
   'Written {written}% · Conversation {spoken}% · {date}':
     'Tertulis {written}% · Percakapan {spoken}% · {date}',
+  'Learn with {name}': 'Belajar bersama {name}',
+  "Hi! I'm {name}": 'Hai! Aku {name}',
+  "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.":
+    'Saudari Translita yang suka menjelajah dunia, pemandu sakumu untuk bicara seperti warga lokal. Ayo pilih bahasamu.',
+  'Your pocket guide to speaking like a true local':
+    'Pemandu sakumu untuk bicara seperti warga lokal',
+  'First steps': 'Langkah pertama',
+  'Finish your first day': 'Selesaikan hari pertamamu',
+  'On a roll': 'Lagi semangat',
+  'Learn 3 days in a row': 'Belajar 3 hari berturut-turut',
+  'Week warrior': 'Pejuang seminggu',
+  'Learn 7 days in a row': 'Belajar 7 hari berturut-turut',
+  Unstoppable: 'Tak terhentikan',
+  'Learn 30 days in a row': 'Belajar 30 hari berturut-turut',
+  'Perfect day': 'Hari sempurna',
+  'Earn 3 stars on a day': 'Dapatkan 3 bintang dalam sehari',
+  'Chapter champion': 'Juara bab',
+  'Pass a checkpoint': 'Lulus satu ujian bab',
+  'Halfway there': 'Sudah setengah jalan',
+  'Finish 30 days': 'Selesaikan 30 hari',
+  'Word collector': 'Pengumpul kata',
+  'Know 50 words': 'Kuasai 50 kata',
+  'Word master': 'Ahli kata',
+  'Know 150 words': 'Kuasai 150 kata',
+  Graduate: 'Lulusan',
+  'Pass the final exam': 'Lulus ujian akhir',
+  '{badge}, earned': '{badge}, diraih',
+  '{badge}: {how}': '{badge}: {how}',
+  'Your badges': 'Lencanamu',
+  '{count} of {total}': '{count} dari {total}',
+  'New badge!': 'Lencana baru!',
+  'See you tomorrow at {time}!': 'Sampai besok pukul {time}!',
+  'Reminders are off': 'Pengingat nonaktif',
+  'Want a daily nudge from {name}?': 'Mau diingatkan setiap hari oleh {name}?',
+  'You can change the time in Settings.': 'Kamu bisa mengubah waktunya di Pengaturan.',
+  'Allow notifications for Translita in your phone settings to turn them on.':
+    'Izinkan notifikasi Translita di pengaturan ponsel untuk mengaktifkannya.',
+  'One reminder at {time}, only on days you have not practised. Change it any time in Settings.':
+    'Satu pengingat pukul {time}, hanya di hari kamu belum berlatih. Ubah kapan saja di Pengaturan.',
+  'Remind me': 'Ingatkan aku',
+  'Beginner: understands and uses familiar everyday phrases':
+    'Pemula: memahami dan memakai ungkapan sehari-hari',
+  'Elementary: handles simple, everyday conversations':
+    'Dasar: mampu bercakap sederhana sehari-hari',
+  'Strong elementary: confident in everyday situations':
+    'Dasar lanjut: percaya diri dalam situasi sehari-hari',
+  '{name} planned today for you.': '{name} sudah menyiapkan hari ini untukmu.',
+  'Day {day} is ready. Five minutes is all it takes!': 'Hari {day} sudah siap. Cukup lima menit!',
+  'A new conversation is waiting for you. Shall we?': 'Percakapan baru menunggumu. Mulai?',
+  'A few minutes today keeps your words fresh.':
+    'Beberapa menit hari ini menjaga kosakatamu tetap segar.',
+  '{name} misses you! Pick up where you left off.':
+    '{name} rindu kamu! Lanjutkan dari terakhir kali.',
+  '{name} is building your course…': '{name} sedang menyusun kursusmu…',
+  'Practise your mistakes': 'Latih kesalahanmu',
+  '{count} words and phrases to get right': '{count} kata dan frasa untuk dikuasai',
+  'Ready: a written test, then a conversation with {name}.':
+    'Siap: tes tertulis, lalu percakapan dengan {name}.',
+  'All {days} days of {language}, with {name}.': 'Seluruh {days} hari {language}, bersama {name}.',
+  'Learn German, French or Spanish in {days} days, with {name}.':
+    'Belajar bahasa Jerman, Prancis, atau Spanyol dalam {days} hari, bersama {name}.',
+  '{name} is marking the conversation…': '{name} sedang menilai percakapan…',
+  'From {name}': 'Dari {name}',
+  'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    'Bicaralah dengan {name} tentang hari jalan-jalanmu. Dinilai dari kosakata, tata bahasa, kelancaran, pemahaman, dan penyelesaian tugas.',
+  'Redo Day {day}': 'Ulangi Hari {day}',
+  'Practise your {count} mistakes': 'Latih {count} kesalahanmu',
+  'Start a course first': 'Mulai kursus dulu',
+  Back: 'Kembali',
+  'No mistakes to practise': 'Tidak ada kesalahan untuk dilatih',
+  'Every word you got wrong is now well learned. Nice work!':
+    'Semua kata yang pernah salah kini sudah dikuasai. Hebat!',
+  '{correct} of {total} right': '{correct} dari {total} benar',
+  'Getting there!': 'Hampir sampai!',
+  'All of them right!': 'Semuanya benar!',
+  '{name} will bring these back in review until they stick.':
+    '{name} akan memunculkannya lagi di latihan ulang sampai melekat.',
+  'These words are moving up in your review.': 'Kata-kata ini naik level di latihan ulangmu.',
+  'Still tricky': 'Masih sulit',
+  'Practise these again': 'Latih lagi',
+  'Stop practising': 'Berhenti berlatih',
+  'Signed: {name}, your AI coach': 'Ditandatangani: {name}, pelatih AI-mu',
+  'New: learn a language with {name}': 'Baru: belajar bahasa bersama {name}',
+  'Notifications are blocked': 'Notifikasi diblokir',
+  'Daily reminder from {name}': 'Pengingat harian dari {name}',
+  'Every day at {time}, unless you have practised':
+    'Setiap hari pukul {time}, kecuali kamu sudah berlatih',
+  Off: 'Nonaktif',
+  'Reminder time': 'Waktu pengingat',
+  'Reminder time, currently {time}': 'Waktu pengingat, saat ini {time}',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

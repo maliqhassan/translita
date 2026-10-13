@@ -115,6 +115,12 @@ export type Preferences = {
    * come back to the Academy rather than the translator, for a while.
    */
   academyLeftAt: number;
+  /** The AI Academy's daily reminder, on only after the learner said yes. */
+  reminders: boolean;
+  /** The hour of the reminder, 0–23, on the phone's clock. */
+  reminderHour: number;
+  /** Whether the learner has been offered the reminder, so it is offered once. */
+  remindersAsked: boolean;
 };
 
 /**

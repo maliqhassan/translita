@@ -299,3 +299,110 @@ export function strongestItems(stats: readonly ItemStat[], limit: number): ItemS
     .sort((a, b) => b.box - a.box || b.correct - a.correct)
     .slice(0, Math.max(0, limit));
 }
+
+// --- Mistakes -------------------------------------------------------------------------------
+
+/** How many mistakes one practice session takes on. */
+export const PRACTICE_SIZE = 10;
+
+/**
+ * Words and phrases the learner has got wrong and not yet mastered, most
+ * recently seen first: what "Practise your mistakes" draws on. A word leaves
+ * the list once it climbs past the first boxes of review.
+ */
+export function mistakeItems(stats: readonly ItemStat[]): ItemStat[] {
+  return stats
+    .filter((stat) => stat.wrong > 0 && stat.box <= 2)
+    .sort((a, b) => b.lastSeenAt - a.lastSeenAt);
+}
+
+/** Whether a finished lesson went badly enough to suggest doing it again. */
+export function shouldRedo(correct: number, total: number): boolean {
+  return total > 0 && correct / total < 0.6;
+}
+
+// --- Badges -------------------------------------------------------------------------------
+
+/** The longest run of consecutive days with a finished lesson, ever. */
+export function longestStreak(completions: readonly number[]): number {
+  const days = [...new Set(completions.map(localDay))].sort((a, b) => a - b);
+  let best = 0;
+  let run = 0;
+  days.forEach((day, i) => {
+    run = i > 0 && day === days[i - 1]! + 1 ? run + 1 : 1;
+    best = Math.max(best, run);
+  });
+  return best;
+}
+
+export const BADGES = [
+  'first-day',
+  'streak-3',
+  'streak-7',
+  'streak-30',
+  'perfect',
+  'chapter',
+  'halfway',
+  'words-50',
+  'words-150',
+  'graduate',
+] as const;
+
+export type BadgeId = (typeof BADGES)[number];
+
+/** What badges are earned from. All of it is already saved; nothing about badges is. */
+export type BadgeFacts = {
+  progress: readonly LessonProgress[];
+  wordsKnown: number;
+  /** The final exam passed. */
+  graduated: boolean;
+};
+
+const CHECKPOINT_EVERY = 5;
+
+/**
+ * The badges earned, in the order they are shown. Worked out from progress
+ * every time, so they can never disagree with it, and a reset course starts
+ * them again.
+ */
+export function earnedBadges({ progress, wordsKnown: known, graduated }: BadgeFacts): BadgeId[] {
+  const streakBest = longestStreak(progress.map((entry) => entry.completedAt));
+  const earned: Record<BadgeId, boolean> = {
+    'first-day': progress.length >= 1,
+    'streak-3': streakBest >= 3,
+    'streak-7': streakBest >= 7,
+    'streak-30': streakBest >= 30,
+    perfect: progress.some((entry) => entry.stars >= 3),
+    chapter: progress.some((entry) => entry.day % CHECKPOINT_EVERY === 0),
+    halfway: progress.length >= COURSE_DAYS / 2,
+    'words-50': known >= 50,
+    'words-150': known >= 150,
+    graduate: graduated,
+  };
+  return BADGES.filter((badge) => earned[badge]);
+}
+
+// --- Reminders ------------------------------------------------------------------------------
+
+/** Reminders are planned a week ahead, and planned again each time the app opens. */
+export const REMINDER_DAYS = 7;
+
+/**
+ * When the next daily reminders go off: at the chosen hour on each of the
+ * coming days, but not today once today's lesson is done, or its hour passed.
+ */
+export function reminderTimes(now: number, hour: number, doneToday: boolean): number[] {
+  const today = new Date(now);
+  const times: number[] = [];
+  for (let offset = 0; times.length < REMINDER_DAYS; offset++) {
+    const at = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() + offset,
+      hour,
+    ).getTime();
+    if (offset === 0 && (doneToday || at <= now)) continue;
+    times.push(at);
+  }
+  return times;
+}

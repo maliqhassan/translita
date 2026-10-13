@@ -16,6 +16,7 @@ import { Confetti } from '../components/confetti';
 import { Breathing, Pop } from '../components/motion';
 import { COURSE_DAYS } from '../course';
 import { ELITE_BENEFITS } from '../elite-benefits';
+import { FABALITA } from '../fabalita';
 import { useActiveCourse } from '../hooks/use-active-course';
 import { completedDays } from '../rules';
 
@@ -108,12 +109,14 @@ export function EliteScreen() {
           </Text>
           <Text variant="bodyLarge" color="onAiMuted" align="center">
             {language
-              ? t('All {days} days of {language}, with your AI coach.', {
+              ? t('All {days} days of {language}, with {name}.', {
                   days: COURSE_DAYS,
                   language,
+                  name: FABALITA.name,
                 })
-              : t('Learn German, French or Spanish in {days} days, with your AI coach.', {
+              : t('Learn German, French or Spanish in {days} days, with {name}.', {
                   days: COURSE_DAYS,
+                  name: FABALITA.name,
                 })}
           </Text>
           {done > 0 ? (

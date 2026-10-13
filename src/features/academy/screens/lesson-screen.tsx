@@ -1,4 +1,4 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter, type Href } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StatusBar, View } from 'react-native';
 import Animated, {
@@ -21,11 +21,13 @@ import { useAcademy } from '@/store';
 import type { Enrollment, ItemStat } from '@/types';
 import { createId } from '@/utils';
 
+import { NewBadges } from '../components/badges';
 import { CoachAvatar } from '../components/coach-avatar';
 import { Confetti } from '../components/confetti';
 import { Breathing, CountUp, Pop } from '../components/motion';
 import { ProgressBar } from '../components/progress-bar';
 import { ProgressRing } from '../components/progress-ring';
+import { ReminderOffer } from '../components/reminder-offer';
 import { courseChapters, courseLessons, type CourseItem, type CourseLesson } from '../course';
 import { COURSE_DAYS } from '../course';
 import { useAcademyAccess } from '../hooks/use-academy-access';
@@ -48,8 +50,15 @@ import {
   type SessionState,
 } from '../lesson/session';
 import { LessonStepView, SECTION_LABEL } from '../lesson/steps';
-import { ACADEMY_ELITE } from '../routes';
-import { completedDays, dayStatus } from '../rules';
+import { ACADEMY_ELITE, ACADEMY_PRACTICE } from '../routes';
+import {
+  completedDays,
+  dayStatus,
+  earnedBadges,
+  shouldRedo,
+  wordsKnown,
+  type BadgeId,
+} from '../rules';
 
 /** The time of an event, read when it happens. */
 const now = () => Date.now();
@@ -92,7 +101,7 @@ type Session = SessionState & { index: number };
 function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: CourseLesson }) {
   const theme = useTheme();
   const router = useRouter();
-  const { recordLesson } = useAcademy();
+  const { recordLesson, progressOf } = useAcademy();
   const speak = useSpeak();
   const courseId = enrollment.courseId;
 
@@ -126,6 +135,8 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
   const [outcome, setOutcome] = useState<LessonOutcome>();
   /** The words answered wrong in the attempt just finished. */
   const [missed, setMissed] = useState<readonly string[]>([]);
+  /** Badges this lesson earned, for its result. */
+  const [newBadges, setNewBadges] = useState<readonly BadgeId[]>([]);
 
   /**
    * A fresh attempt. After a missed checkpoint, `focus` is the words it
@@ -191,7 +202,38 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
     const previous = new Map<string, ItemStat>(
       stats.ok ? stats.value.map((stat) => [stat.itemId, stat]) : [],
     );
-    await services.academy.saveItemStats(updatedStats(courseId, steps, answers, previous, at));
+    const updated = updatedStats(courseId, steps, answers, previous, at);
+    await services.academy.saveItemStats(updated);
+
+    // Badges, before this lesson and after it: the difference was just earned.
+    const progressBefore = progressOf(courseId);
+    const graduated = enrollment.completedAt !== undefined;
+    const badgesBefore = earnedBadges({
+      progress: progressBefore,
+      wordsKnown: wordsKnown([...previous.values()]),
+      graduated,
+    });
+    const statsAfter = new Map(previous);
+    for (const stat of updated) statsAfter.set(stat.itemId, stat);
+    const badgesAfter = earnedBadges({
+      progress: result.passed
+        ? [
+            ...progressBefore,
+            {
+              courseId,
+              lessonId: lesson.id,
+              day: lesson.day,
+              score: result.score,
+              stars: result.stars,
+              attempts: 1,
+              completedAt: at,
+            },
+          ]
+        : progressBefore,
+      wordsKnown: wordsKnown([...statsAfter.values()]),
+      graduated,
+    });
+    setNewBadges(badgesAfter.filter((badge) => !badgesBefore.includes(badge)));
 
     if (result.passed) {
       await recordLesson(courseId, {
@@ -337,6 +379,7 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
               courseId={courseId}
               lesson={lesson}
               outcome={outcome}
+              newBadges={newBadges}
               missed={missed
                 .map((id) => allItems.get(id))
                 .filter((item): item is CourseItem => Boolean(item))}
@@ -380,6 +423,7 @@ function Result({
   lesson,
   outcome,
   missed,
+  newBadges,
   onBack,
   onRetry,
 }: {
@@ -388,6 +432,7 @@ function Result({
   outcome: LessonOutcome;
   /** Shown after a missed checkpoint: what the retry will start with. */
   missed: readonly CourseItem[];
+  newBadges: readonly BadgeId[];
   onBack: () => void;
   onRetry: () => void;
 }) {
@@ -469,6 +514,10 @@ function Result({
         </Animated.View>
       ) : null}
 
+      <NewBadges badges={newBadges} />
+      {/* Offered once, after a finished lesson. */}
+      {outcome.passed ? <ReminderOffer /> : null}
+
       {outcome.passed ? (
         <Animated.View entering={FadeInUp.delay(beat * 6)} style={{ alignSelf: 'stretch' }}>
           <View
@@ -542,6 +591,32 @@ function Result({
       >
         {!outcome.passed ? (
           <Button label={t('Try again')} size="lg" fullWidth onPress={onRetry} />
+        ) : null}
+        {/* Most answers wrong on a learning day: the day again, from the start. */}
+        {outcome.passed && !lesson.checkpoint && shouldRedo(outcome.correct, outcome.total) ? (
+          <Button
+            label={t('Redo Day {day}', { day: lesson.day })}
+            icon="refresh"
+            variant="secondary"
+            size="lg"
+            fullWidth
+            onPress={onRetry}
+          />
+        ) : null}
+        {/* The words got wrong, asked again in other ways. */}
+        {missed.length ? (
+          <Button
+            label={t('Practise your {count} mistakes', { count: missed.length })}
+            icon="barbell"
+            variant="secondary"
+            size="lg"
+            fullWidth
+            onPress={() =>
+              router.push(
+                `${ACADEMY_PRACTICE as string}?ids=${missed.map((item) => item.id).join(',')}` as Href,
+              )
+            }
+          />
         ) : null}
         {nextIsPaid ? (
           <Breathing>

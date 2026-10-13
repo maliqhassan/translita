@@ -9,3 +9,4 @@ import type { Href } from 'expo-router';
 export const ACADEMY_ELITE = '/academy/elite' as Href;
 export const ACADEMY_FINAL = '/academy/final' as Href;
 export const ACADEMY_REPORT = '/academy/report' as Href;
+export const ACADEMY_PRACTICE = '/academy/practice' as Href;

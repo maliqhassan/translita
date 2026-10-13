@@ -56,6 +56,12 @@ const STUBS = {
    * the camera component.
    */
   /** The certificate's capture and share sheet: native only, never reached under Node. */
+  /** Reminders: native only. The handler is set at import, so that much must exist. */
+  'expo-notifications': {
+    setNotificationHandler: () => {},
+    AndroidImportance: { DEFAULT: 3 },
+    SchedulableTriggerInputTypes: { DATE: 'date' },
+  },
   'react-native-view-shot': {
     captureRef: async () => {
       throw new Error('react-native-view-shot is unavailable under Node.');
@@ -169,6 +175,14 @@ const STUBS = {
   },
 };
 
+// An image is a number to the app (Metro's asset id); under Node every one is the same placeholder.
+require.cache['stub:image'] = {
+  id: 'stub:image',
+  filename: 'stub:image',
+  loaded: true,
+  exports: 1,
+};
+
 for (const [name, exports] of Object.entries(STUBS)) {
   const id = `stub:${name}`;
   require.cache[id] = { id, filename: id, loaded: true, exports };
@@ -177,6 +191,7 @@ for (const [name, exports] of Object.entries(STUBS)) {
 const originalResolve = Module._resolveFilename;
 Module._resolveFilename = function (request, ...rest) {
   if (Object.prototype.hasOwnProperty.call(STUBS, request)) return `stub:${request}`;
+  if (/\.(png|jpe?g)$/.test(request)) return 'stub:image';
   if (request.startsWith('@modules/')) {
     return originalResolve.call(
       this,

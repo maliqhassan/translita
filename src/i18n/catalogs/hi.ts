@@ -441,7 +441,6 @@ export const hi: Catalog = {
     'सभी दिन पूरे हो गए। आपकी अंतिम परीक्षा तैयार है।',
   'Continue learning': 'सीखना जारी रखें',
   'Start learning': 'सीखना शुरू करें',
-  'Building your course…': 'आपका कोर्स तैयार हो रहा है…',
   '60 days, from your first words to real conversations.': '60 दिन, पहले शब्दों से असली बातचीत तक।',
   'Previous question': 'पिछला सवाल',
   'Back to Translator': 'अनुवादक पर वापस',
@@ -562,13 +561,11 @@ export const hi: Catalog = {
   'Say the whole sentence': 'पूरा वाक्य बोलें',
   'Your turn: say this': 'आपकी बारी: यह बोलें',
   'Finish the conversation': 'बातचीत पूरी करें',
-  'Your AI language coach': 'आपका AI भाषा कोच',
   "Today's goal: {percent}%": 'आज का लक्ष्य: {percent}%',
   '{count}-day streak': '{count} दिन की लगातार पढ़ाई',
   '{day}: lesson done': '{day}: पाठ पूरा',
   '{day}: no lesson': '{day}: कोई पाठ नहीं',
   'The AI partner is writing': 'AI साथी लिख रहा है',
-  'Your coach planned today for you.': 'आपके कोच ने आज का पाठ आपके लिए तैयार किया है।',
   'This week': 'इस हफ़्ते',
   '{count} of 7 days': '7 में से {count} दिन',
   "Today's goal is done! Come back tomorrow to keep your streak going.":
@@ -579,7 +576,6 @@ export const hi: Catalog = {
     'दिन {day} के साथ अपनी {count} दिन की लगातार पढ़ाई जारी रखें।',
   'Ready for Day {day}? I have planned it for you.':
     'दिन {day} के लिए तैयार हैं? मैंने इसे आपके लिए तैयार किया है।',
-  'Your AI coach': 'आपका AI कोच',
   Today: 'आज',
   "Today's goal: one lesson": 'आज का लक्ष्य: एक पाठ',
   'Keep going: Day {day}': 'जारी रखें: दिन {day}',
@@ -605,10 +601,6 @@ export const hi: Catalog = {
   'Elite includes Pro, so the translator is ad-free too.':
     'Elite में Pro शामिल है, इसलिए अनुवादक भी विज्ञापन-मुक्त है।',
   'Translita Elite': 'Translita Elite',
-  'All {days} days of {language}, with your AI coach.':
-    '{language} के सभी {days} दिन, अपने AI कोच के साथ।',
-  'Learn German, French or Spanish in {days} days, with your AI coach.':
-    '{days} दिनों में जर्मन, फ़्रेंच या स्पेनिश सीखें, अपने AI कोच के साथ।',
   '{done} done, {left} to go': '{done} पूरे, {left} बाकी',
   'Welcome to Elite!': 'Elite में आपका स्वागत है!',
   'You have Elite': 'आपके पास Elite है',
@@ -621,7 +613,6 @@ export const hi: Catalog = {
     'इस डिवाइस पर Elite तक नहीं पहुँचा जा सका। आपकी प्रगति सहेजी गई है, आप बाद में फिर कोशिश कर सकते हैं।',
   'Not now': 'अभी नहीं',
   'Unlock Day {day} and the full course': 'दिन {day} और पूरा कोर्स खोलें',
-  'New: the AI Academy': 'नया: AI अकादमी',
   'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'AI कोच के साथ जर्मन, फ़्रेंच या स्पेनिश सीखें। पहला दिन मुफ़्त है; Elite पूरा कोर्स खोलता है और उसमें Pro की हर सुविधा शामिल है।',
   Elite: 'Elite',
@@ -653,23 +644,17 @@ export const hi: Catalog = {
   'Send for marking': 'जाँच के लिए भेजें',
   'Course complete': 'कोर्स पूरा',
   'See your report, your level and your certificate.': 'अपनी रिपोर्ट, स्तर और प्रमाणपत्र देखें।',
-  'Ready: a written test, then a conversation with your AI coach.':
-    'तैयार: एक लिखित परीक्षा, फिर अपने AI कोच के साथ बातचीत।',
   'There is no course to finish yet': 'अभी पूरा करने के लिए कोई कोर्स नहीं है',
   'Say something in the conversation first: there was nothing to mark.':
     'पहले बातचीत में कुछ कहें: जाँचने के लिए कुछ नहीं था।',
   'Part A: written and listening': 'भाग A: लिखित और सुनना',
-  'Your coach is marking the conversation…': 'आपका कोच बातचीत की जाँच कर रहा है…',
   'Part B: conversation': 'भाग B: बातचीत',
-  'From your coach': 'आपके कोच की ओर से',
   'Writing your report…': 'आपकी रिपोर्ट लिखी जा रही है…',
   'Two parts, each passed at 70%. Pass both to finish your {language} course.':
     'दो भाग, हर एक 70% पर पास। अपना {language} कोर्स पूरा करने के लिए दोनों पास करें।',
   '{count} questions from the whole course. About 15 minutes, in one go.':
     'पूरे कोर्स से {count} सवाल। लगभग 15 मिनट, एक बार में।',
   'Start Part A': 'भाग A शुरू करें',
-  'Talk with your AI coach about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
-    'अपने AI कोच से अपने घूमने के दिन के बारे में बात करें। इसकी जाँच शब्दावली, व्याकरण, प्रवाह, समझ और काम पूरा करने पर होती है।',
   'Start Part B': 'भाग B शुरू करें',
   'Part B needs a connection. Your Part A result is saved.':
     'भाग B के लिए इंटरनेट चाहिए। आपका भाग A का परिणाम सहेजा गया है।',
@@ -711,6 +696,95 @@ export const hi: Catalog = {
   'Level {level}': 'स्तर {level}',
   'Written {written}% · Conversation {spoken}% · {date}':
     'लिखित {written}% · बातचीत {spoken}% · {date}',
+  'Learn with {name}': '{name} के साथ सीखें',
+  "Hi! I'm {name}": 'नमस्ते! मैं {name} हूँ',
+  "Translita's worldly sister, and your pocket guide to speaking like a true local. Let's pick your language.":
+    'Translita की दुनिया घूमी बहन, और स्थानीय लोगों की तरह बोलने के लिए आपकी जेब वाली गाइड। चलिए अपनी भाषा चुनें।',
+  'Your pocket guide to speaking like a true local':
+    'स्थानीय लोगों की तरह बोलने के लिए आपकी जेब वाली गाइड',
+  'First steps': 'पहले कदम',
+  'Finish your first day': 'अपना पहला दिन पूरा करें',
+  'On a roll': 'शानदार रफ़्तार',
+  'Learn 3 days in a row': 'लगातार 3 दिन सीखें',
+  'Week warrior': 'हफ़्ते का योद्धा',
+  'Learn 7 days in a row': 'लगातार 7 दिन सीखें',
+  Unstoppable: 'अजेय',
+  'Learn 30 days in a row': 'लगातार 30 दिन सीखें',
+  'Perfect day': 'परफ़ेक्ट दिन',
+  'Earn 3 stars on a day': 'किसी दिन 3 सितारे पाएँ',
+  'Chapter champion': 'अध्याय चैंपियन',
+  'Pass a checkpoint': 'एक चेकपॉइंट पास करें',
+  'Halfway there': 'आधा रास्ता पूरा',
+  'Finish 30 days': '30 दिन पूरे करें',
+  'Word collector': 'शब्द संग्रहकर्ता',
+  'Know 50 words': '50 शब्द जानें',
+  'Word master': 'शब्दों का उस्ताद',
+  'Know 150 words': '150 शब्द जानें',
+  Graduate: 'स्नातक',
+  'Pass the final exam': 'अंतिम परीक्षा पास करें',
+  '{badge}, earned': '{badge}, हासिल',
+  '{badge}: {how}': '{badge}: {how}',
+  'Your badges': 'आपके बैज',
+  '{count} of {total}': '{total} में से {count}',
+  'New badge!': 'नया बैज!',
+  'See you tomorrow at {time}!': 'कल {time} बजे मिलते हैं!',
+  'Reminders are off': 'रिमाइंडर बंद हैं',
+  'Want a daily nudge from {name}?': 'क्या आप {name} से रोज़ एक रिमाइंडर चाहते हैं?',
+  'You can change the time in Settings.': 'आप सेटिंग में समय बदल सकते हैं।',
+  'Allow notifications for Translita in your phone settings to turn them on.':
+    'इन्हें चालू करने के लिए फ़ोन की सेटिंग में Translita के लिए सूचनाओं की अनुमति दें।',
+  'One reminder at {time}, only on days you have not practised. Change it any time in Settings.':
+    '{time} पर एक रिमाइंडर, सिर्फ़ उन दिनों जब आपने अभ्यास न किया हो। इसे कभी भी सेटिंग में बदलें।',
+  'Remind me': 'याद दिलाएँ',
+  'Beginner: understands and uses familiar everyday phrases':
+    'शुरुआती: रोज़मर्रा के जाने-पहचाने वाक्य समझता और इस्तेमाल करता है',
+  'Elementary: handles simple, everyday conversations':
+    'प्रारंभिक: सरल, रोज़मर्रा की बातचीत संभाल लेता है',
+  'Strong elementary: confident in everyday situations':
+    'मज़बूत प्रारंभिक: रोज़मर्रा की स्थितियों में आत्मविश्वासी',
+  '{name} planned today for you.': '{name} ने आज का पाठ आपके लिए तैयार किया है।',
+  'Day {day} is ready. Five minutes is all it takes!': 'दिन {day} तैयार है। बस पाँच मिनट लगते हैं!',
+  'A new conversation is waiting for you. Shall we?':
+    'एक नई बातचीत आपका इंतज़ार कर रही है। शुरू करें?',
+  'A few minutes today keeps your words fresh.': 'आज के कुछ मिनट आपके शब्दों को ताज़ा रखते हैं।',
+  '{name} misses you! Pick up where you left off.':
+    '{name} आपको याद कर रही है! जहाँ छोड़ा था वहीं से शुरू करें।',
+  '{name} is building your course…': '{name} आपका कोर्स तैयार कर रही है…',
+  'Practise your mistakes': 'अपनी गलतियों का अभ्यास करें',
+  '{count} words and phrases to get right': 'सही करने के लिए {count} शब्द और वाक्यांश',
+  'Ready: a written test, then a conversation with {name}.':
+    'तैयार: एक लिखित परीक्षा, फिर {name} के साथ बातचीत।',
+  'All {days} days of {language}, with {name}.': '{language} के सभी {days} दिन, {name} के साथ।',
+  'Learn German, French or Spanish in {days} days, with {name}.':
+    '{days} दिनों में जर्मन, फ़्रेंच या स्पेनिश सीखें, {name} के साथ।',
+  '{name} is marking the conversation…': '{name} बातचीत की जाँच कर रही है…',
+  'From {name}': '{name} की ओर से',
+  'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
+    '{name} से अपने घूमने के दिन के बारे में बात करें। इसकी जाँच शब्दावली, व्याकरण, प्रवाह, समझ और काम पूरा करने पर होती है।',
+  'Redo Day {day}': 'दिन {day} दोबारा करें',
+  'Practise your {count} mistakes': 'अपनी {count} गलतियों का अभ्यास करें',
+  'Start a course first': 'पहले कोर्स शुरू करें',
+  Back: 'वापस',
+  'No mistakes to practise': 'अभ्यास के लिए कोई गलती नहीं',
+  'Every word you got wrong is now well learned. Nice work!':
+    'जो भी शब्द आपने गलत किया था, वह अब अच्छी तरह सीख लिया गया है। बहुत बढ़िया!',
+  '{correct} of {total} right': '{total} में से {correct} सही',
+  'Getting there!': 'आप करीब पहुँच रहे हैं!',
+  'All of them right!': 'सब सही!',
+  '{name} will bring these back in review until they stick.':
+    '{name} इन्हें दोहराई में तब तक लाती रहेगी जब तक ये याद न हो जाएँ।',
+  'These words are moving up in your review.': 'ये शब्द आपकी दोहराई में आगे बढ़ रहे हैं।',
+  'Still tricky': 'अभी भी मुश्किल',
+  'Practise these again': 'इनका फिर अभ्यास करें',
+  'Stop practising': 'अभ्यास रोकें',
+  'Signed: {name}, your AI coach': 'हस्ताक्षर: {name}, आपकी AI कोच',
+  'New: learn a language with {name}': 'नया: {name} के साथ भाषा सीखें',
+  'Notifications are blocked': 'सूचनाएँ बंद हैं',
+  'Daily reminder from {name}': '{name} का रोज़ का रिमाइंडर',
+  'Every day at {time}, unless you have practised': 'हर दिन {time} बजे, अगर आपने अभ्यास न किया हो',
+  Off: 'बंद',
+  'Reminder time': 'रिमाइंडर का समय',
+  'Reminder time, currently {time}': 'रिमाइंडर का समय, अभी {time}',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',
