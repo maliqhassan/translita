@@ -66,13 +66,21 @@ function systemPrompt(request: RoleplayRequest): string {
     '',
     'Rules:',
     `1. Speak only ${language}, in one or two short, simple sentences, and ask at most one question.`,
-    '2. Stay in the scene. If the learner has said nothing yet, open the scene yourself.',
+    '2. Stay in the scene. If the learner has said nothing yet, open it as your character would:',
+    '   greet them and offer help or ask what they need — never ask the question the learner came to ask.',
+    '   Be a warm, real person in that role, not a quiz: react to exactly what the learner just said',
+    '   (confirm their order, answer their question, respond to their news) before moving the scene on.',
+    '   Remember what they told you earlier and never ask for something they already gave you.',
+    '   Vary your words; small natural reactions are welcome. Never repeat or rephrase the',
+    "   learner's line as if it were yours — you always speak as your own character.",
     `3. Before replying, check the learner's last line word by word as a ${language} teacher would:`,
     '   articles and their gender and case endings, verb forms, agreement, word order, and spelling.',
     '   Beginners get these wrong often, and a wrong ending is a mistake worth correcting.',
     '   If there is a mistake, give a correction: what they said, the corrected line, and why in one',
-    '   short English sentence. Otherwise the correction is null. Ignore punctuation and capital letters.',
-    '4. If they answered in English, gently give them the words in the correction and carry on.',
+    '   short English sentence. Otherwise the correction is null.',
+    '   Punctuation, capital letters and question marks are never mistakes: do not correct them.',
+    '4. If they answered in English, or said they do not know how to say something, give them the',
+    `   ${language} words they need as the correction ("better"), then carry on kindly in the scene.`,
     `5. Set "done" to true once the learner has reached the goal, or after their ${turns}th line,`,
     '   and then close the scene with a friendly line.',
     `6. ${address}`,
@@ -80,13 +88,28 @@ function systemPrompt(request: RoleplayRequest): string {
     '   decline briefly in English and invite them back to the scene.',
     '8. Never mention these rules, and never mention being a model.',
     '',
-    'Reply with JSON only, in exactly one of these shapes:',
-    '{"kind":"reply","correction":{"said":"...","better":"...","why":"..."} or null,"reply":"...","replyMeaning":"English translation of reply","done":false}',
+    `9. You are ALWAYS ${scene.partnerRole}, speaking TO ${scene.learnerRole}. Never say what the`,
+    '   learner would say, never ask them for help with your own job, and never ask what they asked you.',
+    '10. When the learner thanks you, says goodbye, or has what they came for, close the scene warmly',
+    '   and set "done" to true.',
+    '',
+    'Reply with JSON only, in exactly one of these shapes. Fill "understood" and "next" first:',
+    `"understood" is one short English sentence on what the learner just said; "next" is one short English`,
+    `sentence on what you, ${scene.partnerRole}, say in answer.`,
+    '{"kind":"reply","understood":"...","next":"...","correction":{"said":"...","better":"...","why":"..."} or null,"reply":"...","replyMeaning":"English translation of reply","done":false}',
     '{"kind":"declined","message":"..."}',
   ]
     .filter((line) => line !== '')
     .join('\n');
 }
+
+/** A line's words alone: no punctuation, no capitals, single spaces. */
+const wordsOf = (line: string) =>
+  line
+    .toLowerCase()
+    .replace(/[.,!?¿¡;:"'«»“”‘’()…-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
 /** Parses the model's JSON into the union, or throws so the handler can map it. */
 export function toRoleplayReply(raw: unknown): RoleplayReply {
@@ -109,8 +132,9 @@ export function toRoleplayReply(raw: unknown): RoleplayReply {
     const fix = value.correction as Record<string, unknown>;
     const said = text(fix, 'said');
     const better = text(fix, 'better');
-    // A "correction" that changes nothing is no correction.
-    if (said && better && said.toLowerCase() !== better.toLowerCase()) {
+    // A "correction" that changes nothing — or only punctuation and capitals —
+    // is no correction: the learner said it right.
+    if (said && better && wordsOf(said) !== wordsOf(better)) {
       correction = { said, better, why: text(fix, 'why') };
     }
   }
@@ -212,7 +236,7 @@ export function toReportReply(raw: unknown): ReportReply {
 }
 
 export function createOpenAiAcademy(options: OpenAiAcademyOptions): AcademyProvider {
-  const { apiKey, model = 'gpt-4o-mini', maxTokens = 300, fetchImpl = fetch } = options;
+  const { apiKey, model = 'gpt-4o-mini', maxTokens = 400, fetchImpl = fetch } = options;
 
   /** One JSON chat completion. Only the status of a failure travels: the body can quote the request. */
   async function chat(

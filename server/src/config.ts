@@ -40,6 +40,12 @@ export type ServerConfig = {
    */
   tutorApiKey?: string;
   tutorModel: string;
+  /**
+   * The Academy's model: role-play, exam marking and the report. Its own
+   * setting, because staying in character and catching a learner's mistakes
+   * needs a stronger model than the tutor's small talk.
+   */
+  academyModel: string;
   tutorMaxTokens: number;
   /**
    * A much tighter limit than translation's.
@@ -97,6 +103,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     },
     tutorApiKey: env.OPENAI_API_KEY?.trim() || undefined,
     tutorModel: env.TUTOR_MODEL?.trim() || 'gpt-4o-mini',
+    academyModel: env.ACADEMY_MODEL?.trim() || 'gpt-4.1-mini',
     tutorMaxTokens: readInt(env.TUTOR_MAX_TOKENS, 320),
     tutorRateLimit: {
       max: readInt(env.TUTOR_RATE_LIMIT_MAX, 20),

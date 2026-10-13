@@ -62,7 +62,7 @@ function selectTutor(): TutorProvider | undefined {
 /** The Academy's AI partner, on the same credential as the tutor. */
 function selectAcademy(): AcademyProvider | undefined {
   if (!config.tutorApiKey) return undefined;
-  return createOpenAiAcademy({ apiKey: config.tutorApiKey, model: config.tutorModel });
+  return createOpenAiAcademy({ apiKey: config.tutorApiKey, model: config.academyModel });
 }
 
 const provider = selectProvider();
@@ -90,6 +90,6 @@ server.listen(config.port, () => {
   // Presence only, never the value, and never the model's own key.
   console.log(`tutor: ${tutor ? `enabled (${config.tutorModel})` : 'disabled'}`);
   console.log(
-    `academy: ${academy ? 'enabled' : 'disabled'}, entitlement check: ${config.revenueCatSecretKey ? 'RevenueCat' : 'off (free allowance for everyone)'}`,
+    `academy: ${academy ? `enabled (${config.academyModel})` : 'disabled'}, entitlement check: ${config.revenueCatSecretKey ? 'RevenueCat' : 'off (free allowance for everyone)'}`,
   );
 });
