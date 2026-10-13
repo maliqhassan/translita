@@ -468,3 +468,29 @@ export function planPractice(
   }
   return shuffled;
 }
+
+// --- Placement --------------------------------------------------------------------------------
+
+/**
+ * A placement check: one question from each chapter, easiest chapter first,
+ * in turns of reading the meaning, choosing the word and filling the gap.
+ * Not shuffled — the order is the point, from first words to opinions.
+ */
+export function planPlacement(
+  chapters: readonly { number: number; items: readonly CourseItem[] }[],
+  seed: string,
+): LessonStep[] {
+  const random = seededRandom(seed);
+  const pool = chapters.flatMap((chapter) => chapter.items);
+  const kinds: ExerciseKind[] = ['choose-meaning', 'choose-word', 'fill'];
+  const steps: LessonStep[] = [];
+  chapters.forEach((chapter, i) => {
+    const item = shuffle(chapter.items, random)[0];
+    if (!item) return;
+    const body =
+      exercise(kinds[i % kinds.length]!, item, pool, random) ??
+      exercise('choose-meaning', item, pool, random);
+    if (body) steps.push({ ...body, section: 'review' });
+  });
+  return steps;
+}

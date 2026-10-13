@@ -785,6 +785,22 @@ export const tr: Catalog = {
   Off: 'Kapalı',
   'Reminder time': 'Hatırlatma saati',
   'Reminder time, currently {time}': 'Hatırlatma saati, şu an {time}',
+  'Stop the check': 'Testi durdur',
+  'Let’s find your level': 'Hadi seviyeni bulalım',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    'İlk kelimelerden zor olanlara {count} kısa soru. Yaklaşık 3 dakika. {name} nereden başlayacağını önerecek.',
+  'Start the check': 'Testi başlat',
+  'Skip, start from Day 1': 'Atla, 1. günden başla',
+  'You already know a lot!': 'Zaten çok şey biliyorsun!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name}, {number}. bölümden başlamanı öneriyor.',
+  'Days 1 to {day} count as done. {left} days to go.':
+    "1'den {day}. güne kadar tamamlanmış sayılır. {left} gün kaldı.",
+  'Start at Chapter {number}': '{number}. bölümden başla',
+  'Start from Day 1 instead': 'Bunun yerine 1. günden başla',
+  'Let’s start from the beginning': 'Baştan başlayalım',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'Bildiğin kısımlardan hızla geçecek, eksikleri tamamlayacaksın.',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

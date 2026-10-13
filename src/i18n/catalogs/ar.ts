@@ -772,6 +772,21 @@ export const ar: Catalog = {
   Off: 'متوقف',
   'Reminder time': 'وقت التذكير',
   'Reminder time, currently {time}': 'وقت التذكير، حاليًا {time}',
+  'Stop the check': 'أوقف الاختبار',
+  'Let’s find your level': 'لنحدد مستواك',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} أسئلة سريعة، من الكلمات الأولى إلى الأصعب. نحو 3 دقائق. ستقترح {name} من أين تبدأ.',
+  'Start the check': 'ابدأ الاختبار',
+  'Skip, start from Day 1': 'تخطَّ، وابدأ من اليوم 1',
+  'You already know a lot!': 'أنت تعرف الكثير بالفعل!',
+  '{name} suggests you start at Chapter {number}.': 'تقترح {name} أن تبدأ من الفصل {number}.',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'تُحتسب الأيام من 1 إلى {day} منجزة. بقي {left} يومًا.',
+  'Start at Chapter {number}': 'ابدأ من الفصل {number}',
+  'Start from Day 1 instead': 'ابدأ من اليوم 1 بدلًا من ذلك',
+  'Let’s start from the beginning': 'لنبدأ من البداية',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'ستمر سريعًا على ما تعرفه وتسد الثغرات.',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

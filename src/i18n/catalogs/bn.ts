@@ -784,6 +784,22 @@ export const bn: Catalog = {
   Off: 'বন্ধ',
   'Reminder time': 'রিমাইন্ডারের সময়',
   'Reminder time, currently {time}': 'রিমাইন্ডারের সময়, এখন {time}',
+  'Stop the check': 'যাচাই বন্ধ করুন',
+  'Let’s find your level': 'চলুন আপনার স্তর খুঁজি',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count}টি দ্রুত প্রশ্ন, প্রথম শব্দ থেকে কঠিন পর্যন্ত। প্রায় ৩ মিনিট। {name} বলে দেবে কোথা থেকে শুরু করবেন।',
+  'Start the check': 'যাচাই শুরু করুন',
+  'Skip, start from Day 1': 'বাদ দিন, দিন ১ থেকে শুরু করুন',
+  'You already know a lot!': 'আপনি আগে থেকেই অনেক কিছু জানেন!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name} পরামর্শ দেয় অধ্যায় {number} থেকে শুরু করতে।',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'দিন ১ থেকে {day} সম্পন্ন হিসেবে গণ্য। আর {left} দিন বাকি।',
+  'Start at Chapter {number}': 'অধ্যায় {number} থেকে শুরু করুন',
+  'Start from Day 1 instead': 'তার বদলে দিন ১ থেকে শুরু করুন',
+  'Let’s start from the beginning': 'চলুন শুরু থেকে শুরু করি',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'যা জানেন তা দ্রুত পার হবেন, আর ফাঁকগুলো পূরণ হবে।',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

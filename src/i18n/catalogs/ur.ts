@@ -787,6 +787,22 @@ export const ur: Catalog = {
   Off: 'بند',
   'Reminder time': 'یاد دہانی کا وقت',
   'Reminder time, currently {time}': 'یاد دہانی کا وقت، فی الحال {time}',
+  'Stop the check': 'جانچ روکیں',
+  'Let’s find your level': 'آئیں آپ کی سطح معلوم کریں',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} مختصر سوالات، پہلے الفاظ سے مشکل تک۔ تقریباً 3 منٹ۔ {name} بتائے گی کہاں سے شروع کریں۔',
+  'Start the check': 'جانچ شروع کریں',
+  'Skip, start from Day 1': 'چھوڑیں، دن 1 سے شروع کریں',
+  'You already know a lot!': 'آپ پہلے ہی بہت کچھ جانتے ہیں!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name} تجویز کرتی ہے کہ آپ باب {number} سے شروع کریں۔',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'دن 1 سے {day} تک مکمل شمار ہوں گے۔ {left} دن باقی۔',
+  'Start at Chapter {number}': 'باب {number} سے شروع کریں',
+  'Start from Day 1 instead': 'اس کے بجائے دن 1 سے شروع کریں',
+  'Let’s start from the beginning': 'آئیں شروع سے آغاز کریں',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'جو آپ جانتے ہیں وہ جلدی گزر جائے گا، اور کمیاں پوری ہو جائیں گی۔',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

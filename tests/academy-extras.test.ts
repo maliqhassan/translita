@@ -2,15 +2,18 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { courseChapters } from '@/features/academy/course';
 import { courseItems } from '@/features/academy/course/final';
-import { itemsOf, planPractice } from '@/features/academy/lesson/plan';
+import { itemsOf, planPlacement, planPractice } from '@/features/academy/lesson/plan';
 import { buildReminders } from '@/features/academy/reminders';
 import {
   BADGES,
+  chapterOfItem,
   REMINDER_DAYS,
   earnedBadges,
   longestStreak,
   mistakeItems,
+  placementStart,
   reminderTimes,
   shouldRedo,
 } from '@/features/academy/rules';
@@ -183,5 +186,42 @@ describe('the practice screen', () => {
     assert.ok(
       code('src/features/academy/screens/lesson-screen.tsx').includes('ACADEMY_PRACTICE as string'),
     );
+  });
+});
+
+describe('the placement check', () => {
+  const pass = (chapters: number[]) =>
+    Array.from({ length: 12 }, (_, i) => ({ chapter: i + 1, correct: chapters.includes(i + 1) }));
+
+  it('skips each pair of chapters answered entirely right, in order', () => {
+    assert.equal(placementStart(pass([])), 1);
+    assert.equal(placementStart(pass([1])), 1);
+    assert.equal(placementStart(pass([1, 2])), 11);
+    assert.equal(placementStart(pass([1, 2, 3, 4])), 21);
+    // A pair missed stops the climb, whatever comes after.
+    assert.equal(placementStart(pass([1, 2, 4, 5, 6])), 11);
+  });
+
+  it('never starts anyone past chapter 9, so the course still has work in it', () => {
+    assert.equal(placementStart(pass([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])), 41);
+  });
+
+  it('asks one question per chapter, easiest chapter first', () => {
+    const chapters = courseChapters('de').map((chapter) => ({
+      number: chapter.number,
+      items: chapter.lessons.flatMap((lesson) => lesson.items),
+    }));
+    const steps = planPlacement(chapters, 'seed');
+    assert.equal(steps.length, 12);
+    assert.deepEqual(
+      steps.map((step) => chapterOfItem(itemsOf(step)[0]!)),
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    );
+  });
+
+  it('is offered in onboarding only to someone who knows some of the language', () => {
+    const onboarding = code('src/features/academy/screens/academy-onboarding.tsx');
+    assert.ok(onboarding.includes("...(level === 'some' ? ['placement' as const] : [])"));
+    assert.ok(onboarding.includes("startDay: level === 'some' ? (startDay ?? 1) : 1"));
   });
 });

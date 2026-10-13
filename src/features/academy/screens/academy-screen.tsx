@@ -691,7 +691,7 @@ function ChapterPath({
             day={lesson.day}
             checkpoint={lesson.checkpoint}
             current={lesson.day === next}
-            stars={starsOf.get(lesson.day) ?? 0}
+            stars={starsOf.get(lesson.day)}
             status={statusOf(lesson.day)}
             onOpen={onOpen}
           />
@@ -714,7 +714,8 @@ function PathNode({
   day: number;
   checkpoint: boolean;
   current: boolean;
-  stars: number;
+  /** Undefined for a day placed out of, which has no score. */
+  stars: number | undefined;
   status: DayStatus;
   onOpen: (day: number, status: DayStatus) => void;
 }) {
@@ -814,7 +815,7 @@ function PathNode({
             </View>
           </PulseHalo>
         </Pressable>
-        {done ? (
+        {done && stars !== undefined ? (
           <View style={{ flexDirection: 'row', gap: 2 }}>
             {[1, 2, 3].map((star) => (
               <Icon

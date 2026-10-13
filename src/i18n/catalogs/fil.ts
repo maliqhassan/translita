@@ -810,6 +810,22 @@ export const fil: Catalog = {
   Off: 'Naka-off',
   'Reminder time': 'Oras ng paalala',
   'Reminder time, currently {time}': 'Oras ng paalala, kasalukuyang {time}',
+  'Stop the check': 'Itigil ang pagsusuri',
+  'Let’s find your level': 'Alamin natin ang iyong antas',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} mabilis na tanong, mula sa unang salita hanggang sa mas mahirap. Mga 3 minuto. Imumungkahi ni {name} kung saan ka magsisimula.',
+  'Start the check': 'Simulan ang pagsusuri',
+  'Skip, start from Day 1': 'Laktawan, magsimula sa Araw 1',
+  'You already know a lot!': 'Marami ka nang alam!',
+  '{name} suggests you start at Chapter {number}.':
+    'Iminumungkahi ni {name} na magsimula ka sa Kabanata {number}.',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'Ang Araw 1 hanggang {day} ay bilang na tapos. {left} araw pa.',
+  'Start at Chapter {number}': 'Magsimula sa Kabanata {number}',
+  'Start from Day 1 instead': 'Sa Araw 1 na lang magsimula',
+  'Let’s start from the beginning': 'Magsimula tayo sa umpisa',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'Mabilis mong malalampasan ang alam mo na, at mapupunan ang kulang.',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

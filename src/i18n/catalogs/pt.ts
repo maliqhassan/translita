@@ -798,6 +798,22 @@ export const pt: Catalog = {
   Off: 'Desligado',
   'Reminder time': 'Horário do lembrete',
   'Reminder time, currently {time}': 'Horário do lembrete, atualmente {time}',
+  'Stop the check': 'Parar o teste',
+  'Let’s find your level': 'Vamos descobrir seu nível',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} perguntas rápidas, das primeiras palavras às mais difíceis. Cerca de 3 minutos. {name} vai sugerir por onde começar.',
+  'Start the check': 'Começar o teste',
+  'Skip, start from Day 1': 'Pular e começar no dia 1',
+  'You already know a lot!': 'Você já sabe bastante!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name} sugere que você comece no capítulo {number}.',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'Os dias 1 a {day} contam como feitos. Faltam {left} dias.',
+  'Start at Chapter {number}': 'Começar no capítulo {number}',
+  'Start from Day 1 instead': 'Começar no dia 1 em vez disso',
+  'Let’s start from the beginning': 'Vamos começar do início',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'Você vai passar rápido pelo que já sabe e preencher as lacunas.',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',

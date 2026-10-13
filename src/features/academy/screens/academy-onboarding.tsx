@@ -14,10 +14,11 @@ import type { AddressForm, LearningGoal, LearningLevel } from '@/types';
 import { CoachAvatar } from '../components/coach-avatar';
 import { CourseOption } from '../components/course-option';
 import { OptionCard } from '../components/option-card';
+import { PlacementCheck } from '../components/placement-check';
 import { availableCourses } from '../course';
 import { FABALITA } from '../fabalita';
 
-type Step = 'course' | 'goal' | 'level' | 'address' | 'time' | 'building';
+type Step = 'course' | 'goal' | 'level' | 'placement' | 'address' | 'time' | 'building';
 
 /** Languages where some words change with the speaker ("je suis prêt / prête"). */
 const GENDERED: readonly string[] = ['de', 'fr', 'es', 'it', 'pt-BR'];
@@ -50,12 +51,16 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
   const [level, setLevel] = useState<LearningLevel>();
   const [addressAs, setAddressAs] = useState<AddressForm>();
   const [minutes, setMinutes] = useState<number>();
+  /** Where the placement check put them; Day 1 without one. */
+  const [startDay, setStartDay] = useState<number>();
 
   const asksAddress = courseId !== undefined && GENDERED.includes(courseId);
   const steps: Step[] = [
     'course',
     'goal',
     'level',
+    // Only someone who knows some of the language is checked.
+    ...(level === 'some' ? ['placement' as const] : []),
     ...(asksAddress ? ['address' as const] : []),
     'time',
   ];
@@ -92,19 +97,20 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
         level,
         minutesPerDay: minutes,
         addressAs: asksAddress ? (addressAs ?? 'unspecified') : 'unspecified',
-        // Everyone starts at Day 1 for now; the placement quiz moves this on.
-        startDay: 1,
+        // Day 1, or where the placement check put them.
+        startDay: level === 'some' ? (startDay ?? 1) : 1,
         startedAt: at,
         lastOpenedAt: at,
       });
     }, BUILDING_MS);
     return () => clearTimeout(timer);
-  }, [step, courseId, goal, level, minutes, addressAs, asksAddress, enroll]);
+  }, [step, courseId, goal, level, minutes, addressAs, asksAddress, startDay, enroll]);
 
   const answered: Record<Exclude<Step, 'building'>, boolean> = {
     course: courseId !== undefined,
     goal: goal !== undefined,
     level: level !== undefined,
+    placement: startDay !== undefined,
     address: addressAs !== undefined,
     time: minutes !== undefined,
   };
@@ -113,6 +119,22 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
     if (step === 'building') return;
     setStep(index < steps.length - 1 ? steps[index + 1]! : 'building');
   };
+
+  // The check takes the whole screen, and moves on by itself once a start is chosen.
+  if (step === 'placement' && courseId) {
+    return (
+      <Frame>
+        <PlacementCheck
+          courseId={courseId}
+          onBack={back}
+          onDone={(day) => {
+            setStartDay(day);
+            setStep(steps[index + 1] ?? 'building');
+          }}
+        />
+      </Frame>
+    );
+  }
 
   if (step === 'building') {
     return (

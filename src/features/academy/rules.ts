@@ -1,6 +1,6 @@
 import type { ItemStat, LessonProgress } from '@/types';
 
-import { COURSE_DAYS } from './course/validate';
+import { COURSE_DAYS, COURSE_SHAPE } from './course/validate';
 
 /**
  * The Academy's rules, as pure functions.
@@ -405,4 +405,41 @@ export function reminderTimes(now: number, hour: number, doneToday: boolean): nu
     times.push(at);
   }
   return times;
+}
+
+// --- Placement --------------------------------------------------------------------------------
+
+export const PLACEMENT = {
+  /** Chapters are checked in pairs, easiest first: 1–2, 3–4 … 11–12. */
+  chaptersPerBlock: 2,
+  /** Questions per chapter checked. */
+  perChapter: 1,
+  /**
+   * The latest chapter a check can start someone at, so there is always
+   * real coursework — and its checkpoints — before the final exam.
+   */
+  latestStart: 9,
+} as const;
+
+/** The chapter an item belongs to, from its id: `c03-d2-i1` is chapter 3. */
+export const chapterOfItem = (itemId: string): number => Number(itemId.slice(1, 3));
+
+/**
+ * The day a placement check starts someone on.
+ *
+ * Each pair of chapters answered entirely right is skipped, in order; the
+ * first pair with a mistake is where they start. Days before it count as done.
+ */
+export function placementStart(results: readonly { chapter: number; correct: boolean }[]): number {
+  const blocks = COURSE_SHAPE.chapters / PLACEMENT.chaptersPerBlock;
+  let chapter = 1;
+  for (let block = 0; block < blocks; block++) {
+    const first = block * PLACEMENT.chaptersPerBlock + 1;
+    const asked = results.filter(
+      (result) => result.chapter >= first && result.chapter < first + PLACEMENT.chaptersPerBlock,
+    );
+    if (!asked.length || !asked.every((result) => result.correct)) break;
+    chapter = first + PLACEMENT.chaptersPerBlock;
+  }
+  return (Math.min(chapter, PLACEMENT.latestStart) - 1) * COURSE_SHAPE.daysPerChapter + 1;
 }

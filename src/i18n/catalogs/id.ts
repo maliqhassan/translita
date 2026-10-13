@@ -795,6 +795,22 @@ export const id: Catalog = {
   Off: 'Nonaktif',
   'Reminder time': 'Waktu pengingat',
   'Reminder time, currently {time}': 'Waktu pengingat, saat ini {time}',
+  'Stop the check': 'Hentikan tes',
+  'Let’s find your level': 'Ayo cari tahu levelmu',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} pertanyaan singkat, dari kata pertama hingga yang lebih sulit. Sekitar 3 menit. {name} akan menyarankan titik mulaimu.',
+  'Start the check': 'Mulai tes',
+  'Skip, start from Day 1': 'Lewati, mulai dari Hari 1',
+  'You already know a lot!': 'Kamu sudah tahu banyak!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name} menyarankan kamu mulai di Bab {number}.',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'Hari 1 sampai {day} dihitung selesai. Tinggal {left} hari.',
+  'Start at Chapter {number}': 'Mulai di Bab {number}',
+  'Start from Day 1 instead': 'Mulai dari Hari 1 saja',
+  'Let’s start from the beginning': 'Ayo mulai dari awal',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'Kamu akan cepat melewati bagian yang sudah dikuasai dan mengisi yang kurang.',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

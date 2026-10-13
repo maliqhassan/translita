@@ -785,6 +785,22 @@ export const hi: Catalog = {
   Off: 'बंद',
   'Reminder time': 'रिमाइंडर का समय',
   'Reminder time, currently {time}': 'रिमाइंडर का समय, अभी {time}',
+  'Stop the check': 'जाँच रोकें',
+  'Let’s find your level': 'चलिए आपका स्तर जानें',
+  '{count} quick questions, from first words to harder ones. About 3 minutes. {name} will suggest where to start.':
+    '{count} छोटे सवाल, पहले शब्दों से कठिन तक। लगभग 3 मिनट। {name} बताएगी कहाँ से शुरू करें।',
+  'Start the check': 'जाँच शुरू करें',
+  'Skip, start from Day 1': 'छोड़ें, दिन 1 से शुरू करें',
+  'You already know a lot!': 'आप पहले से बहुत कुछ जानते हैं!',
+  '{name} suggests you start at Chapter {number}.':
+    '{name} सुझाव देती है कि आप अध्याय {number} से शुरू करें।',
+  'Days 1 to {day} count as done. {left} days to go.':
+    'दिन 1 से {day} तक पूरे माने जाएँगे। {left} दिन बाकी।',
+  'Start at Chapter {number}': 'अध्याय {number} से शुरू करें',
+  'Start from Day 1 instead': 'इसके बजाय दिन 1 से शुरू करें',
+  'Let’s start from the beginning': 'चलिए शुरुआत से शुरू करें',
+  'You will fly through the parts you know, and fill in the gaps.':
+    'जो आप जानते हैं वह तेज़ी से निकल जाएगा, और कमियाँ भर जाएँगी।',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',
