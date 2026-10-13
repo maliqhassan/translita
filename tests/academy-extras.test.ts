@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { ELITE_PLAN } from '@/constants';
 import { courseChapters } from '@/features/academy/course';
 import { courseItems } from '@/features/academy/course/final';
 import { itemsOf, planPlacement, planPractice } from '@/features/academy/lesson/plan';
@@ -17,6 +18,7 @@ import {
   reminderTimes,
   shouldRedo,
 } from '@/features/academy/rules';
+import { capabilitiesFor } from '@/services/entitlements';
 import type { ItemStat, LessonProgress } from '@/types';
 
 /**
@@ -223,5 +225,16 @@ describe('the placement check', () => {
     const onboarding = code('src/features/academy/screens/academy-onboarding.tsx');
     assert.ok(onboarding.includes("...(level === 'some' ? ['placement' as const] : [])"));
     assert.ok(onboarding.includes("startDay: level === 'some' ? (startDay ?? 1) : 1"));
+  });
+});
+
+describe('what Elite is', () => {
+  it('costs $8.99 a month, and is the Academy plus an ad-free translator', () => {
+    assert.equal(ELITE_PLAN.displayPrice, '$8.99');
+    assert.ok(capabilitiesFor('elite').has('academy'));
+    assert.ok(capabilitiesFor('elite').has('adFree'));
+    // Paying only for the ad-free translator does not open Fabalita.
+    assert.ok(capabilitiesFor('pro').has('adFree'));
+    assert.equal(capabilitiesFor('pro').has('academy'), false);
   });
 });

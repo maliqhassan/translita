@@ -119,7 +119,7 @@ export const PRO_PLANS = {
  */
 export const ELITE_PLAN = {
   productId: 'translita_elite_monthly',
-  displayPrice: '$9.99',
+  displayPrice: '$8.99',
   period: 'month',
 } as const;
 

@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 import Animated, { FadeInDown, FadeInLeft, FadeInRight, ZoomIn } from 'react-native-reanimated';
 
-import { Button, Card, Icon, Text } from '@/components';
+import { Button, Card, FlagCircle, Icon, Text } from '@/components';
+import { languageName } from '@/constants';
 import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
 
@@ -552,89 +553,269 @@ function BuildStep({
 
 // --- Matching pairs -------------------------------------------------------------------------
 
-function MatchStep({ itemIds, items, onDone }: StepProps & { itemIds: readonly string[] }) {
+/** The colours a made pair is shown in, so each word visibly belongs with its meaning. */
+type PairInk = 'success' | 'aiStrong' | 'flame' | 'accent';
+const PAIR_INKS: readonly PairInk[] = ['success', 'aiStrong', 'flame', 'accent'];
+
+function MatchStep({
+  itemIds,
+  items,
+  language,
+  speak,
+  onDone,
+}: StepProps & { itemIds: readonly string[] }) {
   const theme = useTheme();
   // Each column in its own order, the same every time this step is shown.
   const key = itemIds.join('|');
   const left = useMemo(() => shuffle(itemIds, seededRandom(`${key}:left`)), [itemIds, key]);
   const right = useMemo(() => shuffle(itemIds, seededRandom(`${key}:right`)), [itemIds, key]);
-  const [selected, setSelected] = useState<string>();
+  /** The cell picked first, from either column. */
+  const [picked, setPicked] = useState<{ id: string; side: 'word' | 'meaning' }>();
+  /** Made pairs, in the order they were made: that order is each pair's colour. */
   const [matched, setMatched] = useState<readonly string[]>([]);
   const [mistakes, setMistakes] = useState(0);
-  const [wrongFlash, setWrongFlash] = useState<string>();
+  const [wrong, setWrong] = useState<readonly string[]>([]);
   const finished = matched.length === itemIds.length;
 
-  const pickRight = (id: string) => {
-    if (!selected) return;
-    if (id === selected) {
+  const fills: Record<PairInk, string> = {
+    success: theme.colors.successMuted,
+    aiStrong: theme.colors.aiMuted,
+    flame: theme.colors.warningMuted,
+    accent: theme.colors.accentMuted,
+  };
+  const borders: Record<PairInk, string> = {
+    success: theme.colors.success,
+    aiStrong: theme.colors.aiFrom,
+    flame: theme.colors.flame,
+    accent: theme.colors.accent,
+  };
+
+  const pick = (id: string, side: 'word' | 'meaning') => {
+    if (side === 'word') void speak.say(items.get(id)!.text, language);
+    if (!picked || picked.side === side) {
+      // First of a pair, or a change of mind in the same column.
+      setPicked(picked?.id === id && picked.side === side ? undefined : { id, side });
+      return;
+    }
+    if (picked.id === id) {
       setMatched([...matched, id]);
     } else {
       setMistakes(mistakes + 1);
-      setWrongFlash(id);
-      setTimeout(() => setWrongFlash(undefined), 500);
+      setWrong([`${picked.side}:${picked.id}`, `${side}:${id}`]);
+      setTimeout(() => setWrong([]), 600);
     }
-    setSelected(undefined);
+    setPicked(undefined);
   };
 
-  const cell = (id: string, text: string, side: 'left' | 'right') => {
-    const done = matched.includes(id);
-    const active = side === 'left' && selected === id;
-    const wrong = side === 'right' && wrongFlash === id;
+  const pickedText = picked
+    ? picked.side === 'word'
+      ? items.get(picked.id)!.text
+      : items.get(picked.id)!.meaning
+    : undefined;
+  const hint = wrong.length
+    ? t('Not a pair. Try again!')
+    : picked
+      ? picked.side === 'word'
+        ? t('Now tap what “{word}” means', { word: pickedText ?? '' })
+        : t('Now tap the word for “{meaning}”', { meaning: pickedText ?? '' })
+      : finished
+        ? t('All pairs matched!')
+        : t('Tap a word, then tap its meaning.');
+
+  const cell = (id: string, side: 'word' | 'meaning') => {
+    const pair = matched.indexOf(id);
+    const done = pair >= 0;
+    const ink = done ? PAIR_INKS[pair % PAIR_INKS.length]! : undefined;
+    const active = picked?.id === id && picked.side === side;
+    const isWrong = wrong.includes(`${side}:${id}`);
+    // The other column waits for its half of the pair.
+    const waiting = !done && picked !== undefined && picked.side !== side;
+    const text = side === 'word' ? items.get(id)!.text : items.get(id)!.meaning;
     return (
-      <Shake key={`${side}-${id}`} active={wrong}>
+      <Shake key={`${side}-${id}`} active={isWrong}>
         <Pop active={done}>
           <Pressable
             disabled={done}
-            onPress={() => (side === 'left' ? setSelected(id) : pickRight(id))}
+            onPress={() => pick(id, side)}
             accessibilityRole="button"
             accessibilityState={{ disabled: done, selected: active }}
-            style={{
-              minHeight: theme.layout.minTouchTarget + theme.spacing.sm,
-              justifyContent: 'center',
-              padding: theme.spacing.sm,
-              borderRadius: theme.radius.md,
-              borderWidth: theme.layout.borderWidth,
-              borderColor: done
-                ? theme.colors.success
-                : wrong
-                  ? theme.colors.danger
+            accessibilityLabel={done ? t('{text}, matched', { text }) : text}
+            style={({ pressed }) => ({
+              minHeight: theme.layout.minTouchTarget + theme.spacing.md,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: theme.spacing.xs,
+              paddingHorizontal: theme.spacing.sm,
+              paddingVertical: theme.spacing.sm,
+              borderRadius: theme.radius.lg,
+              borderWidth: active || isWrong || done ? 2 : theme.layout.borderWidth,
+              borderBottomWidth: active ? 2 : 4,
+              borderStyle: waiting ? 'dashed' : 'solid',
+              borderColor: isWrong
+                ? theme.colors.danger
+                : ink
+                  ? borders[ink]
                   : active
                     ? theme.colors.aiFrom
-                    : theme.colors.border,
-              backgroundColor: done
-                ? theme.colors.successMuted
-                : active
-                  ? theme.colors.aiMuted
-                  : theme.colors.surface,
-              borderBottomWidth: 3,
-            }}
+                    : waiting
+                      ? theme.colors.aiBorder
+                      : theme.colors.border,
+              backgroundColor: isWrong
+                ? theme.colors.dangerMuted
+                : ink
+                  ? fills[ink]
+                  : active
+                    ? theme.colors.aiMuted
+                    : theme.colors.surface,
+              transform: [
+                { scale: pressed && !done ? theme.motion.scalePressed : active ? 1.03 : 1 },
+              ],
+            })}
           >
-            <Text variant="body" align="center">
+            {done ? (
+              <View
+                style={{
+                  width: 22,
+                  height: 22,
+                  borderRadius: 11,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: borders[ink!],
+                }}
+              >
+                <Text variant="caption" color="textOnPrimary">
+                  {String(pair + 1)}
+                </Text>
+              </View>
+            ) : side === 'word' ? (
+              <Icon name="volume-medium" size={16} color={active ? 'aiStrong' : 'textMuted'} />
+            ) : null}
+            <Text
+              variant={side === 'word' ? 'rowTitle' : 'body'}
+              style={{ flex: 1 }}
+              color={done ? 'textSecondary' : 'text'}
+            >
               {text}
             </Text>
+            {done ? <Icon name="checkmark-circle" size={18} color={ink!} /> : null}
           </Pressable>
         </Pop>
       </Shake>
     );
   };
 
-  const meaning = (id: string) => items.get(id)!.meaning;
-
   return (
     <View style={{ gap: theme.spacing.lg }}>
-      <Prompt label={t('Match the pairs')}>
-        <Text variant="body" color="textSecondary">
-          {t('Tap a word, then its meaning.')}
+      <View style={{ gap: theme.spacing.sm }}>
+        <Text variant="overline" color="aiStrong">
+          {t('Match the pairs')}
         </Text>
-      </Prompt>
-      <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
-        <View style={{ flex: 1, gap: theme.spacing.sm }}>
-          {left.map((id) => cell(id, items.get(id)!.text, 'left'))}
-        </View>
-        <View style={{ flex: 1, gap: theme.spacing.sm }}>
-          {right.map((id) => cell(id, meaning(id), 'right'))}
+        <Text variant="h3">{t('Join each word to its meaning')}</Text>
+        {/* The two moves, the one to make now lit up. */}
+        <View style={{ flexDirection: 'row', gap: theme.spacing.xs }}>
+          {[
+            { n: 1, label: t('Tap a word'), now: !picked },
+            { n: 2, label: t('Tap its meaning'), now: Boolean(picked) },
+          ].map((move) => (
+            <View
+              key={move.n}
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: theme.spacing.xs,
+                paddingHorizontal: theme.spacing.sm,
+                paddingVertical: theme.spacing.xs,
+                borderRadius: theme.radius.full,
+                backgroundColor:
+                  move.now && !finished ? theme.colors.aiMuted : theme.colors.surfaceMuted,
+                borderWidth: theme.layout.borderWidth,
+                borderColor: move.now && !finished ? theme.colors.aiFrom : 'transparent',
+              }}
+            >
+              <View
+                style={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: 10,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor:
+                    move.now && !finished ? theme.colors.aiFrom : theme.colors.border,
+                }}
+              >
+                <Text variant="caption" color={move.now && !finished ? 'onAi' : 'textSecondary'}>
+                  {String(move.n)}
+                </Text>
+              </View>
+              <Text
+                variant="label"
+                color={move.now && !finished ? 'aiStrong' : 'textSecondary'}
+                numberOfLines={1}
+                style={{ flex: 1 }}
+              >
+                {move.label}
+              </Text>
+            </View>
+          ))}
         </View>
       </View>
+
+      <Text
+        variant="body"
+        color={wrong.length ? 'danger' : picked ? 'aiStrong' : 'textSecondary'}
+        align="center"
+        accessibilityLiveRegion="polite"
+      >
+        {hint}
+      </Text>
+
+      <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
+        <View style={{ flex: 1, gap: theme.spacing.sm }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+            <FlagCircle language={language} size={20} />
+            <Text variant="label" color="textSecondary">
+              {languageName(language)}
+            </Text>
+          </View>
+          {left.map((id) => cell(id, 'word'))}
+        </View>
+        <View style={{ flex: 1, gap: theme.spacing.sm }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.xs }}>
+            <FlagCircle language="en" size={20} />
+            <Text variant="label" color="textSecondary">
+              {languageName('en')}
+            </Text>
+          </View>
+          {right.map((id) => cell(id, 'meaning'))}
+        </View>
+      </View>
+
+      {/* How many pairs are made, as dots. */}
+      <View
+        accessible
+        accessibilityLabel={t('{count} of {total} pairs matched', {
+          count: matched.length,
+          total: itemIds.length,
+        })}
+        style={{ flexDirection: 'row', justifyContent: 'center', gap: theme.spacing.xs }}
+      >
+        {itemIds.map((_, index) => (
+          <View
+            key={index}
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: 5,
+              backgroundColor:
+                index < matched.length
+                  ? borders[PAIR_INKS[index % PAIR_INKS.length]!]
+                  : theme.colors.border,
+            }}
+          />
+        ))}
+      </View>
+
       {finished ? (
         <Feedback correct={mistakes === 0} onContinue={() => onDone(mistakes === 0)} />
       ) : null}
