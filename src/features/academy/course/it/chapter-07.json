@@ -1,0 +1,418 @@
+{
+ "id": "c07",
+ "number": 7,
+ "title": "At the Hotel",
+ "lessons": [
+  {
+   "id": "c07-d1",
+   "day": 31,
+   "title": "There Is/There Are",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d1-i1",
+     "text": "c'è",
+     "meaning": "there is",
+     "example": "C'è una camera libera.",
+     "exampleMeaning": "There is a free room."
+    },
+    {
+     "id": "c07-d1-i2",
+     "text": "ci sono",
+     "meaning": "there are",
+     "example": "Ci sono molte persone.",
+     "exampleMeaning": "There are many people."
+    },
+    {
+     "id": "c07-d1-i3",
+     "text": "un problema",
+     "meaning": "a problem",
+     "example": "C'è un problema con la mia camera.",
+     "exampleMeaning": "There is a problem with my room."
+    },
+    {
+     "id": "c07-d1-i4",
+     "text": "la chiave",
+     "meaning": "the key",
+     "example": "C'è la chiave sul tavolo.",
+     "exampleMeaning": "The key is on the table."
+    },
+    {
+     "id": "c07-d1-i5",
+     "text": "una prenotazione",
+     "meaning": "a reservation",
+     "example": "C'è una prenotazione per due persone.",
+     "exampleMeaning": "There is a reservation for two people."
+    },
+    {
+     "id": "c07-d1-i6",
+     "text": "la reception",
+     "meaning": "the reception",
+     "example": "Ci sono informazioni alla reception.",
+     "exampleMeaning": "There is information at the reception."
+    }
+   ],
+   "tip": "Use 'c'è' for singular nouns and 'ci sono' for plural nouns. This helps you talk about existence in Italian.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "C'è una camera disponibile?",
+     "meaning": "Is there a room available?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, c'è una camera.",
+     "meaning": "Yes, there is a room."
+    },
+    {
+     "speaker": "A",
+     "text": "Ci sono due letti?",
+     "meaning": "Are there two beds?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ci sono due letti.",
+     "meaning": "Yes, there are two beds."
+    },
+    {
+     "speaker": "A",
+     "text": "C'è un problema con la mia prenotazione.",
+     "meaning": "There is a problem with my reservation."
+    },
+    {
+     "speaker": "B",
+     "text": "Non c'è problema, controlliamo.",
+     "meaning": "There is no problem, let’s check."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You work at the hotel reception.",
+    "learnerRole": "You are a guest at the hotel.",
+    "brief": "Ask if there is a room available and if there are two beds. Mention a problem with your reservation.",
+    "goal": "You should find out about the room and address the reservation issue."
+   }
+  },
+  {
+   "id": "c07-d2",
+   "day": 32,
+   "title": "Polite Requests",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d2-i1",
+     "text": "per cortesia",
+     "meaning": "please",
+     "example": "Mi potrebbe aiutare per cortesia?",
+     "exampleMeaning": "Could you help me please?"
+    },
+    {
+     "id": "c07-d2-i2",
+     "text": "potrebbe",
+     "meaning": "could you",
+     "example": "Potrebbe aiutarmi con i bagagli?",
+     "exampleMeaning": "Could you help me with the luggage?"
+    },
+    {
+     "id": "c07-d2-i3",
+     "text": "mi perdoni",
+     "meaning": "excuse me",
+     "example": "Mi perdoni, dove si trova la reception?",
+     "exampleMeaning": "Excuse me, where is the reception?"
+    },
+    {
+     "id": "c07-d2-i4",
+     "text": "gradirei",
+     "meaning": "I would like",
+     "example": "Gradirei un bicchiere d'acqua.",
+     "exampleMeaning": "I would like a glass of water."
+    },
+    {
+     "id": "c07-d2-i5",
+     "text": "è fattibile?",
+     "meaning": "is it possible?",
+     "example": "È fattibile avere una camera con vista?",
+     "exampleMeaning": "Is it possible to have a room with a view?"
+    },
+    {
+     "id": "c07-d2-i6",
+     "text": "gentilmente",
+     "meaning": "kindly",
+     "example": "Può gentilmente ripetere?",
+     "exampleMeaning": "Can you kindly repeat?"
+    }
+   ],
+   "tip": "Use 'per favore' to make requests more polite. It shows good manners when asking for something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Mi scusi, dove si trova la reception?",
+     "meaning": "Excuse me, where is the reception?"
+    },
+    {
+     "speaker": "B",
+     "text": "La reception è lì, per favore.",
+     "meaning": "The reception is there, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Vorrei una camera, per favore.",
+     "meaning": "I would like a room, please."
+    },
+    {
+     "speaker": "B",
+     "text": "Potrebbe firmare qui, per favore?",
+     "meaning": "Could you sign here, please?"
+    },
+    {
+     "speaker": "A",
+     "text": "È possibile avere un asciugamano extra?",
+     "meaning": "Is it possible to have an extra towel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Certo, le porto un asciugamano gentilmente.",
+     "meaning": "Of course, I will kindly bring you a towel."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You work at the hotel reception.",
+    "learnerRole": "You are a guest at the hotel.",
+    "brief": "Ask where the reception is, request a room, and inquire about an extra towel.",
+    "goal": "You should make polite requests during your conversation."
+   }
+  },
+  {
+   "id": "c07-d3",
+   "day": 33,
+   "title": "Reporting Problems",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d3-i1",
+     "text": "ho un problema",
+     "meaning": "I have a problem",
+     "example": "Ho un problema con l'acqua calda.",
+     "exampleMeaning": "I have a problem with the hot water."
+    },
+    {
+     "id": "c07-d3-i2",
+     "text": "non funziona",
+     "meaning": "it does not work",
+     "example": "La TV non funziona.",
+     "exampleMeaning": "The TV does not work."
+    },
+    {
+     "id": "c07-d3-i3",
+     "text": "è rotto",
+     "meaning": "it is broken",
+     "example": "Il ventilatore è rotto.",
+     "exampleMeaning": "The fan is broken."
+    },
+    {
+     "id": "c07-d3-i4",
+     "text": "devo chiamare",
+     "meaning": "I must call",
+     "example": "Devo chiamare il tecnico.",
+     "exampleMeaning": "I must call the technician."
+    },
+    {
+     "id": "c07-d3-i5",
+     "text": "può venire?",
+     "meaning": "can you come?",
+     "example": "Può venire a controllare, per favore?",
+     "exampleMeaning": "Can you come to check, please?"
+    },
+    {
+     "id": "c07-d3-i6",
+     "text": "mi aiuti",
+     "meaning": "help me",
+     "example": "Mi aiuti, per favore?",
+     "exampleMeaning": "Can you help me, please?"
+    }
+   ],
+   "tip": "When reporting a problem, be clear and specific. Use phrases like 'ho un problema' to explain your issue.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ho un problema con l'acqua calda.",
+     "meaning": "I have a problem with the hot water."
+    },
+    {
+     "speaker": "B",
+     "text": "Cosa non funziona?",
+     "meaning": "What does not work?"
+    },
+    {
+     "speaker": "A",
+     "text": "La TV non funziona.",
+     "meaning": "The TV does not work."
+    },
+    {
+     "speaker": "B",
+     "text": "È rotto?",
+     "meaning": "Is it broken?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sì, è rotto.",
+     "meaning": "Yes, it is broken."
+    },
+    {
+     "speaker": "B",
+     "text": "Devo chiamare qualcuno, può venire?",
+     "meaning": "I must call someone, can you come?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You work at the hotel reception.",
+    "learnerRole": "You are a guest at the hotel.",
+    "brief": "Report a problem with the hot water and the TV. Ask for help.",
+    "goal": "You should clearly explain your issues and request assistance."
+   }
+  },
+  {
+   "id": "c07-d4",
+   "day": 34,
+   "title": "Making Requests and Reporting Issues",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d4-i1",
+     "text": "c'è un inconveniente",
+     "meaning": "there is a problem",
+     "example": "C'è un inconveniente con la mia prenotazione.",
+     "exampleMeaning": "There is a problem with my booking."
+    },
+    {
+     "id": "c07-d4-i2",
+     "text": "mi scusi, per favore, può aiutarmi?",
+     "meaning": "excuse me, please, can you help me?",
+     "example": "Mi scusi, per favore, può aiutarmi a trovare la mia camera?",
+     "exampleMeaning": "Excuse me, please, can you help me find my room?"
+    },
+    {
+     "id": "c07-d4-i3",
+     "text": "ho bisogno di aiuto",
+     "meaning": "I need help",
+     "example": "Ho bisogno di aiuto con la mia prenotazione.",
+     "exampleMeaning": "I need help with my reservation."
+    },
+    {
+     "id": "c07-d4-i4",
+     "text": "è tutto a posto",
+     "meaning": "everything is okay",
+     "example": "È tutto a posto ora?",
+     "exampleMeaning": "Is everything okay now?"
+    },
+    {
+     "id": "c07-d4-i5",
+     "text": "può aiutarmi, per favore?",
+     "meaning": "can you help me, please?",
+     "example": "Può aiutarmi, per favore?",
+     "exampleMeaning": "Can you help me, please?"
+    },
+    {
+     "id": "c07-d4-i6",
+     "text": "la camera è bella",
+     "meaning": "the room is nice",
+     "example": "La camera è bella e pulita.",
+     "exampleMeaning": "The room is nice and clean."
+    }
+   ],
+   "tip": "When combining requests and reporting problems, be polite and clear. This helps in getting a quick response.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Mi scusi, per favore, c'è un problema con la mia chiave.",
+     "meaning": "Excuse me, please, there is a problem with my key."
+    },
+    {
+     "speaker": "B",
+     "text": "Certo, che tipo di problema?",
+     "meaning": "Sure, what kind of problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ho bisogno di aiuto con la mia prenotazione.",
+     "meaning": "I need help with my reservation."
+    },
+    {
+     "speaker": "B",
+     "text": "È tutto a posto ora?",
+     "meaning": "Is everything okay now?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sì, la camera è bella.",
+     "meaning": "Yes, the room is nice."
+    },
+    {
+     "speaker": "B",
+     "text": "Può aiutarmi, per favore?",
+     "meaning": "Can you help me, please?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You work at the hotel reception.",
+    "learnerRole": "You are a guest at the hotel.",
+    "brief": "Make a polite request about a problem with your key and ask for help with your reservation.",
+    "goal": "You should successfully report the issue and confirm your reservation."
+   }
+  },
+  {
+   "id": "c07-d5",
+   "day": 35,
+   "title": "Review: Hotel Conversations",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "C'è una camera disponibile?",
+     "meaning": "Is there a room available?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, c'è una camera con vista.",
+     "meaning": "Yes, there is a room with a view."
+    },
+    {
+     "speaker": "A",
+     "text": "Mi scusi, per favore, dove posso trovare il ristorante?",
+     "meaning": "Excuse me, please, where can I find the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "La reception è lì, per favore.",
+     "meaning": "The reception is there, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Ho bisogno di aiuto con la mia prenotazione.",
+     "meaning": "I need help with my reservation."
+    },
+    {
+     "speaker": "B",
+     "text": "Certo, che tipo di problema?",
+     "meaning": "Sure, what kind of problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "La TV non funziona.",
+     "meaning": "The TV does not work."
+    },
+    {
+     "speaker": "B",
+     "text": "Può aiutarmi, per favore?",
+     "meaning": "Can you help me, please?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You work at the hotel reception.",
+    "learnerRole": "You are a guest at the hotel.",
+    "brief": "Review your conversations about room availability, reception location, and reporting problems.",
+    "goal": "You should demonstrate your ability to ask questions and report issues."
+   }
+  }
+ ]
+}

@@ -505,8 +505,6 @@ export const fil: Catalog = {
   'Back to the course': 'Bumalik sa course',
   'This lesson could not be found': 'Hindi nakita ang araling ito',
   Tip: 'Tip',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    'Matuto ng German, French o Spanish mula sa English sa loob ng 60 araw, kasama ang AI coach. Libre ang Araw 1.',
   'Shows the language courses with an AI coach':
     'Ipinapakita ang mga language course na may AI coach',
   'Correct!': 'Tama!',
@@ -630,8 +628,6 @@ export const fil: Catalog = {
     'Hindi maabot ang Elite sa device na ito. Naka-save ang iyong progreso; subukan muli mamaya.',
   'Not now': 'Hindi muna',
   'Unlock Day {day} and the full course': 'I-unlock ang Araw {day} at ang buong kurso',
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Matuto ng German, French o Spanish kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'Walang ads, at ang buong AI Academy',
   'Reset the AI Academy?': 'I-reset ang AI Academy?',
@@ -778,8 +774,6 @@ export const fil: Catalog = {
     'Handa na: isang nakasulat na pagsusulit, tapos usapan kasama si {name}.',
   'All {days} days of {language}, with {name}.':
     'Lahat ng {days} araw ng {language}, kasama si {name}.',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    'Matuto ng German, French o Spanish sa loob ng {days} araw, kasama si {name}.',
   '{name} is marking the conversation…': 'Minamarkahan ni {name} ang usapan…',
   'From {name}': 'Mula kay {name}',
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -835,6 +829,12 @@ export const fil: Catalog = {
   'Tap a word': 'I-tap ang salita',
   'Tap its meaning': 'I-tap ang ibig sabihin',
   '{count} of {total} pairs matched': '{count} sa {total} pares ang napagtugma',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    'Matuto ng German, French, Spanish o Italian mula sa English sa loob ng 60 araw, kasama ang AI coach. Libre ang Araw 1.',
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    'Matuto ng German, French, Spanish o Italian sa loob ng {days} araw, kasama si {name}.',
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Matuto ng German, French, Spanish o Italian kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

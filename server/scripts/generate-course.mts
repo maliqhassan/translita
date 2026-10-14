@@ -297,6 +297,8 @@ async function writeChapter(
 
   let feedback = '';
   let last: DraftChapter | undefined;
+  /** The best attempt whose only fault is repeated items, which `repairChapter` can replace. */
+  let best: { chapter: DraftChapter; repeats: number } | undefined;
   for (let attempt = 1; attempt <= 4; attempt++) {
     const chapter = await ask<DraftChapter>(system, user + feedback, 'chapter', chapterSchema, 0.5);
     // The model sometimes repeats the review as an empty fifth lesson; it
@@ -307,6 +309,12 @@ async function writeChapter(
     last = chapter;
     const problems = shapeProblems(chapter, new Set(earlierItems.map(phraseKey)));
     if (!problems.length) return chapter;
+    const repeatsOnly = problems.every(
+      (problem) => problem.endsWith(' twice') || problem.endsWith('is taught in another chapter'),
+    );
+    if (repeatsOnly && (!best || problems.length < best.repeats)) {
+      best = { chapter, repeats: problems.length };
+    }
     console.warn(`  off-shape (${problems.join(', ')}), asking again`);
     // Said back plainly, so the next attempt fixes exactly this.
     feedback = [
@@ -315,6 +323,11 @@ async function writeChapter(
       'Every item in the 4 lessons must be a different word or phrase — never the same item in two lessons.',
       "Use the earlier lessons' items in later dialogues instead of teaching them again.",
     ].join('\n');
+  }
+  // Sound but for a repeated item or two: kept, and those items replaced after writing.
+  if (best) {
+    console.warn(`  keeping the attempt with ${best.repeats} repeated item(s), to be replaced`);
+    return best.chapter;
   }
   // Kept for a look at what went wrong.
   mkdirSync(join(WORK_DIR, course), { recursive: true });
@@ -348,8 +361,9 @@ async function editChapter(
     0,
   );
   // An edit that turns a word into one another chapter teaches is not kept either.
+  // A draft kept with a repeat or two (replaced afterwards) may keep them through the edit.
   const problems = shapeProblems(edited, taught);
-  if (problems.length) {
+  if (problems.length > shapeProblems(draft, taught).length) {
     console.warn(`  the edit changed the shape (${problems.join(', ')}); keeping the draft`);
     return draft;
   }
@@ -591,6 +605,9 @@ async function main() {
   writeFileSync(workFile(course, number), JSON.stringify(edited, null, 1));
   mkdirSync(join(COURSE_DIR, course), { recursive: true });
   writeFileSync(chapterFile(course, number), JSON.stringify(assemble(number, edited), null, 1));
+  // Any item still taught twice, or taught by another chapter, gets another word.
+  const replaced = await repairChapter(course, number);
+  if (replaced) console.log(`  replaced ${replaced} repeated item(s)`);
   writeCourseList();
   console.log(`Done: ${chapterFile(course, number)}`);
   console.log('Now run `npm run check` in the app folder to validate it.');

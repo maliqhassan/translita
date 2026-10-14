@@ -1,0 +1,366 @@
+{
+ "title": "Greetings and Introductions",
+ "lessons": [
+  {
+   "title": "Hello and Goodbye",
+   "items": [
+    {
+     "text": "Ciao",
+     "meaning": "Hi/Hello",
+     "example": "Ciao, come stai?",
+     "exampleMeaning": "Hi, how are you?"
+    },
+    {
+     "text": "Arrivederci",
+     "meaning": "Goodbye",
+     "example": "Arrivederci, a presto!",
+     "exampleMeaning": "Goodbye, see you soon!"
+    },
+    {
+     "text": "Buongiorno",
+     "meaning": "Good morning",
+     "example": "Buongiorno, signora!",
+     "exampleMeaning": "Good morning, ma'am!"
+    },
+    {
+     "text": "Buonasera",
+     "meaning": "Good evening",
+     "example": "Buonasera, come va?",
+     "exampleMeaning": "Good evening, how's it going?"
+    },
+    {
+     "text": "Come stai?",
+     "meaning": "How are you?",
+     "example": "Ciao! Come stai?",
+     "exampleMeaning": "Hi! How are you?"
+    },
+    {
+     "text": "Bene, grazie.",
+     "meaning": "Well, thank you.",
+     "example": "Sto bene, grazie!",
+     "exampleMeaning": "I am well, thank you!"
+    }
+   ],
+   "tip": "Use 'Ciao' for informal greetings. Use 'Buongiorno' in the morning and 'Buonasera' in the evening.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ciao! Come stai?",
+     "meaning": "Hi! How are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Bene, grazie.",
+     "meaning": "Well, thank you."
+    },
+    {
+     "speaker": "A",
+     "text": "Buongiorno!",
+     "meaning": "Good morning!"
+    },
+    {
+     "speaker": "B",
+     "text": "Buongiorno!",
+     "meaning": "Good morning!"
+    },
+    {
+     "speaker": "A",
+     "text": "Arrivederci!",
+     "meaning": "Goodbye!"
+    },
+    {
+     "speaker": "B",
+     "text": "Arrivederci, a presto!",
+     "meaning": "Goodbye, see you soon!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friendly person who greets the learner.",
+    "learnerRole": "You are meeting someone new.",
+    "brief": "Start with a friendly greeting and ask how they are. Respond positively and say goodbye.",
+    "goal": "You will greet someone and say goodbye."
+   }
+  },
+  {
+   "title": "My Name",
+   "items": [
+    {
+     "text": "Mi chiamo...",
+     "meaning": "My name is...",
+     "example": "Mi chiamo Marco.",
+     "exampleMeaning": "My name is Marco."
+    },
+    {
+     "text": "E tu?",
+     "meaning": "And you?",
+     "example": "Mi chiamo Anna. E tu?",
+     "exampleMeaning": "My name is Anna. And you?"
+    },
+    {
+     "text": "Piacere!",
+     "meaning": "Nice to meet you!",
+     "example": "Piacere di conoscerti!",
+     "exampleMeaning": "Nice to meet you!"
+    },
+    {
+     "text": "Come ti chiami?",
+     "meaning": "What is your name?",
+     "example": "Come ti chiami?",
+     "exampleMeaning": "What is your name?"
+    },
+    {
+     "text": "Sono...",
+     "meaning": "I am...",
+     "example": "Sono italiano.",
+     "exampleMeaning": "I am Italian."
+    },
+    {
+     "text": "Da dove sei?",
+     "meaning": "Where are you from?",
+     "example": "Da dove sei?",
+     "exampleMeaning": "Where are you from?"
+    }
+   ],
+   "tip": "When you want to ask someone their name, say 'Come ti chiami?'. You can respond with 'Mi chiamo...'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Come ti chiami?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi chiamo Luca.",
+     "meaning": "My name is Luca."
+    },
+    {
+     "speaker": "A",
+     "text": "Piacere!",
+     "meaning": "Nice to meet you!"
+    },
+    {
+     "speaker": "B",
+     "text": "E tu?",
+     "meaning": "And you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Mi chiamo Sara.",
+     "meaning": "My name is Sara."
+    },
+    {
+     "speaker": "B",
+     "text": "Piacere di conoscerti!",
+     "meaning": "Nice to meet you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are meeting someone new and want to know their name.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Ask the learner their name and respond to their introduction.",
+    "goal": "You will introduce yourself and ask for their name."
+   }
+  },
+  {
+   "title": "Where Are You From?",
+   "items": [
+    {
+     "text": "Io sono di...",
+     "meaning": "I am from...",
+     "example": "Io sono di Roma.",
+     "exampleMeaning": "I am from Rome."
+    },
+    {
+     "text": "Sei di...?",
+     "meaning": "Are you from...?",
+     "example": "Sei di Milano?",
+     "exampleMeaning": "Are you from Milan?"
+    },
+    {
+     "text": "Sì, sono di...",
+     "meaning": "Yes, I am from...",
+     "example": "Sì, sono di Napoli.",
+     "exampleMeaning": "Yes, I am from Naples."
+    },
+    {
+     "text": "No, non sono di...",
+     "meaning": "No, I am not from...",
+     "example": "No, non sono di Firenze.",
+     "exampleMeaning": "No, I am not from Florence."
+    },
+    {
+     "text": "Lavoro a...",
+     "meaning": "I work in...",
+     "example": "Lavoro a Torino.",
+     "exampleMeaning": "I work in Turin."
+    },
+    {
+     "text": "Vivo a...",
+     "meaning": "I live in...",
+     "example": "Vivo a Bologna.",
+     "exampleMeaning": "I live in Bologna."
+    }
+   ],
+   "tip": "To say where you are from, use 'Io sono di...'. You can also say where you live with 'Vivo a...'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Sei di Milano?",
+     "meaning": "Are you from Milan?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, non sono di Milano.",
+     "meaning": "No, I am not from Milan."
+    },
+    {
+     "speaker": "A",
+     "text": "Io sono di Roma.",
+     "meaning": "I am from Rome."
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, sono di Napoli.",
+     "meaning": "Yes, I am from Naples."
+    },
+    {
+     "speaker": "A",
+     "text": "Lavoro a Torino.",
+     "meaning": "I work in Turin."
+    },
+    {
+     "speaker": "B",
+     "text": "Vivo a Bologna.",
+     "meaning": "I live in Bologna."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are talking to someone about where they are from.",
+    "learnerRole": "You are sharing your origin and where you live.",
+    "brief": "Ask the learner where they are from and share your own origin.",
+    "goal": "You will ask and answer questions about where you are from."
+   }
+  },
+  {
+   "title": "Using 'To Be'",
+   "items": [
+    {
+     "text": "Essere",
+     "meaning": "To be",
+     "example": "Io sono felice.",
+     "exampleMeaning": "I am happy."
+    },
+    {
+     "text": "Sei",
+     "meaning": "You are (informal)",
+     "example": "Tu sei gentile.",
+     "exampleMeaning": "You are kind."
+    },
+    {
+     "text": "È",
+     "meaning": "He/She/It is",
+     "example": "Luca è studente.",
+     "exampleMeaning": "Luca is a student."
+    },
+    {
+     "text": "Siamo",
+     "meaning": "We are",
+     "example": "Noi siamo amici.",
+     "exampleMeaning": "We are friends."
+    },
+    {
+     "text": "Siete",
+     "meaning": "You are (plural)",
+     "example": "Voi siete in ritardo.",
+     "exampleMeaning": "You are late."
+    },
+    {
+     "text": "Lui è",
+     "meaning": "He is",
+     "example": "Lui è un insegnante.",
+     "exampleMeaning": "He is a teacher."
+    }
+   ],
+   "tip": "The verb 'essere' is used to describe people and things. Remember to use the correct form for the subject.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Tu sei gentile.",
+     "meaning": "You are kind."
+    },
+    {
+     "speaker": "B",
+     "text": "Grazie! Io sono felice.",
+     "meaning": "Thank you! I am happy."
+    },
+    {
+     "speaker": "A",
+     "text": "Luca è studente.",
+     "meaning": "Luca is a student."
+    },
+    {
+     "speaker": "B",
+     "text": "Noi siamo amici.",
+     "meaning": "We are friends."
+    },
+    {
+     "speaker": "A",
+     "text": "Voi siete in ritardo.",
+     "meaning": "You are late."
+    },
+    {
+     "speaker": "B",
+     "text": "Loro sono felici.",
+     "meaning": "They are happy."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are having a friendly conversation about feelings and identity.",
+    "learnerRole": "You are expressing happiness and sharing your identity.",
+    "brief": "Ask the learner how they feel and respond to their feelings.",
+    "goal": "You will use 'to be' to describe yourself and others."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 1 Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Ciao! Come ti chiami?",
+    "meaning": "Hi! What is your name?"
+   },
+   {
+    "speaker": "B",
+    "text": "Mi chiamo Anna. E tu?",
+    "meaning": "My name is Anna. And you?"
+   },
+   {
+    "speaker": "A",
+    "text": "Mi chiamo Marco. Da dove sei?",
+    "meaning": "My name is Marco. Where are you from?"
+   },
+   {
+    "speaker": "B",
+    "text": "Io sono di Napoli. E tu?",
+    "meaning": "I am from Naples. And you?"
+   },
+   {
+    "speaker": "A",
+    "text": "Io sono di Roma. Siamo amici ora!",
+    "meaning": "I am from Rome. We are friends now!"
+   },
+   {
+    "speaker": "B",
+    "text": "Sì, sono felice! Arrivederci!",
+    "meaning": "Yes, I am happy! Goodbye!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are meeting someone new and sharing information about yourselves.",
+   "learnerRole": "You are introducing yourself and asking questions.",
+   "brief": "Use greetings, names, origins, and feelings in your conversation.",
+   "goal": "You will have a complete conversation using what you learned in this chapter."
+  }
+ }
+}

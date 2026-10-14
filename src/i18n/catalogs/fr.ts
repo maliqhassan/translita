@@ -510,8 +510,6 @@ export const fr: Catalog = {
   'Back to the course': 'Retour au cours',
   'This lesson could not be found': 'Cette leçon est introuvable',
   Tip: 'Astuce',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    "Apprenez l'allemand, le français ou l'espagnol depuis l'anglais en 60 jours, avec un coach IA. Le jour 1 est gratuit.",
   'Shows the language courses with an AI coach': 'Affiche les cours de langue avec un coach IA',
   'Correct!': 'Correct !',
   'Not quite': 'Pas tout à fait',
@@ -633,8 +631,6 @@ export const fr: Catalog = {
     'Elite est inaccessible sur cet appareil. Votre progression est enregistrée ; réessayez plus tard.',
   'Not now': 'Pas maintenant',
   'Unlock Day {day} and the full course': 'Débloquer le jour {day} et tout le cours',
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    "Apprenez l'allemand, le français ou l'espagnol avec un coach IA. Le jour 1 est gratuit ; Elite ouvre tout le cours et inclut tout Pro.",
   Elite: 'Elite',
   'No ads, and the full AI Academy': "Sans publicité, avec toute l'AI Academy",
   'Reset the AI Academy?': "Réinitialiser l'AI Academy ?",
@@ -780,8 +776,6 @@ export const fr: Catalog = {
   'Ready: a written test, then a conversation with {name}.':
     'Prêt : un test écrit, puis une conversation avec {name}.',
   'All {days} days of {language}, with {name}.': 'Les {days} jours de {language}, avec {name}.',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    "Apprenez l'allemand, le français ou l'espagnol en {days} jours, avec {name}.",
   '{name} is marking the conversation…': '{name} note la conversation…',
   'From {name}': 'De {name}',
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -837,6 +831,12 @@ export const fr: Catalog = {
   'Tap a word': 'Touchez un mot',
   'Tap its meaning': 'Touchez son sens',
   '{count} of {total} pairs matched': '{count} paires sur {total} trouvées',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    "Apprenez l'allemand, le français, l'espagnol ou l'italien depuis l'anglais en 60 jours, avec un coach IA. Le jour 1 est gratuit.",
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    "Apprenez l'allemand, le français, l'espagnol ou l'italien en {days} jours, avec {name}.",
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    "Apprenez l'allemand, le français, l'espagnol ou l'italien avec un coach IA. Le jour 1 est gratuit ; Elite ouvre tout le cours et inclut tout Pro.",
   // Language names
   'Detect language': 'Détecter la langue',
   Afrikaans: 'Afrikaans',

@@ -1,0 +1,418 @@
+{
+ "id": "c12",
+ "number": 12,
+ "title": "Opinions and Experiences",
+ "lessons": [
+  {
+   "id": "c12-d1",
+   "day": 56,
+   "title": "Talking About the Past",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d1-i1",
+     "text": "ho visto",
+     "meaning": "I saw",
+     "example": "Ieri ho visto un film.",
+     "exampleMeaning": "Yesterday I saw a movie."
+    },
+    {
+     "id": "c12-d1-i2",
+     "text": "mi è piaciuto",
+     "meaning": "I liked it",
+     "example": "Il film mi è piaciuto molto.",
+     "exampleMeaning": "I really liked the movie."
+    },
+    {
+     "id": "c12-d1-i3",
+     "text": "ho fatto",
+     "meaning": "I did",
+     "example": "Ho fatto una passeggiata.",
+     "exampleMeaning": "I took a walk."
+    },
+    {
+     "id": "c12-d1-i4",
+     "text": "è stato interessante",
+     "meaning": "It was interesting",
+     "example": "Il libro è stato interessante.",
+     "exampleMeaning": "The book was interesting."
+    },
+    {
+     "id": "c12-d1-i5",
+     "text": "ho mangiato",
+     "meaning": "I ate",
+     "example": "Ho mangiato una pizza.",
+     "exampleMeaning": "I ate a pizza."
+    },
+    {
+     "id": "c12-d1-i6",
+     "text": "ho comprato",
+     "meaning": "I bought",
+     "example": "Ho comprato un regalo.",
+     "exampleMeaning": "I bought a gift."
+    }
+   ],
+   "tip": "In Italian, the past tense often uses 'ho' plus the past participle of the verb. Remember to match the past participle with the subject's gender and number when needed.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Cosa hai fatto ieri?",
+     "meaning": "What did you do yesterday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ho visto un film.",
+     "meaning": "I saw a movie."
+    },
+    {
+     "speaker": "A",
+     "text": "Ti è piaciuto?",
+     "meaning": "Did you like it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, mi è piaciuto.",
+     "meaning": "Yes, I liked it."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai mangiato qualcosa?",
+     "meaning": "Did you eat something?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho mangiato una pizza.",
+     "meaning": "Yes, I ate a pizza."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your friend who is curious about your recent activities.",
+    "learnerRole": "You, sharing your experiences from yesterday.",
+    "brief": "Ask your friend about their day and share what you did. Use the past tense for your actions.",
+    "goal": "You will talk about what you did yesterday."
+   }
+  },
+  {
+   "id": "c12-d2",
+   "day": 57,
+   "title": "Sharing Opinions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d2-i1",
+     "text": "penso che",
+     "meaning": "I think that",
+     "example": "Penso che sia una buona idea.",
+     "exampleMeaning": "I think it is a good idea."
+    },
+    {
+     "id": "c12-d2-i2",
+     "text": "non mi è piaciuto",
+     "meaning": "I didn't like it",
+     "example": "Non mi è piaciuto il film.",
+     "exampleMeaning": "I didn't like the movie."
+    },
+    {
+     "id": "c12-d2-i3",
+     "text": "è noioso",
+     "meaning": "It is boring",
+     "example": "Questo libro è noioso.",
+     "exampleMeaning": "This book is boring."
+    },
+    {
+     "id": "c12-d2-i4",
+     "text": "è divertente",
+     "meaning": "It is fun",
+     "example": "Il gioco è divertente.",
+     "exampleMeaning": "The game is fun."
+    },
+    {
+     "id": "c12-d2-i5",
+     "text": "preferisco",
+     "meaning": "I prefer",
+     "example": "Preferisco il tè al caffè.",
+     "exampleMeaning": "I prefer tea to coffee."
+    },
+    {
+     "id": "c12-d2-i6",
+     "text": "mi sembra che",
+     "meaning": "It seems to me that",
+     "example": "Mi sembra che tu sia stanco.",
+     "exampleMeaning": "It seems to me that you are tired."
+    }
+   ],
+   "tip": "When expressing opinions, you can start with phrases like 'penso che' or 'mi sembra che'. This helps you share your thoughts clearly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Cosa pensi del film?",
+     "meaning": "What do you think of the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Penso che sia interessante.",
+     "meaning": "I think it is interesting."
+    },
+    {
+     "speaker": "A",
+     "text": "E il libro?",
+     "meaning": "And the book?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non mi è piaciuto.",
+     "meaning": "I didn't like it."
+    },
+    {
+     "speaker": "A",
+     "text": "Perché?",
+     "meaning": "Why?"
+    },
+    {
+     "speaker": "B",
+     "text": "È noioso.",
+     "meaning": "It is boring."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who wants to know your opinions on movies and books.",
+    "learnerRole": "You, sharing your thoughts.",
+    "brief": "Discuss your opinions on a movie and a book you recently experienced.",
+    "goal": "You will express your opinions clearly."
+   }
+  },
+  {
+   "id": "c12-d3",
+   "day": 58,
+   "title": "Likes and Dislikes",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d3-i1",
+     "text": "mi piaceva",
+     "meaning": "I liked (it)",
+     "example": "Mi piaceva il gelato.",
+     "exampleMeaning": "I liked the ice cream."
+    },
+    {
+     "id": "c12-d3-i2",
+     "text": "non mi piaceva",
+     "meaning": "I didn't like (it)",
+     "example": "Non mi piaceva la musica.",
+     "exampleMeaning": "I didn't like the music."
+    },
+    {
+     "id": "c12-d3-i3",
+     "text": "ho trovato",
+     "meaning": "I found",
+     "example": "Ho trovato il ristorante.",
+     "exampleMeaning": "I found the restaurant."
+    },
+    {
+     "id": "c12-d3-i4",
+     "text": "è fantastico",
+     "meaning": "It is fantastic",
+     "example": "Il concerto è fantastico.",
+     "exampleMeaning": "The concert is fantastic."
+    },
+    {
+     "id": "c12-d3-i5",
+     "text": "è deludente",
+     "meaning": "It is disappointing",
+     "example": "Il film è deludente.",
+     "exampleMeaning": "The movie is disappointing."
+    },
+    {
+     "id": "c12-d3-i6",
+     "text": "mi interessa",
+     "meaning": "I am interested in",
+     "example": "Mi interessa la storia.",
+     "exampleMeaning": "I am interested in history."
+    }
+   ],
+   "tip": "To express likes and dislikes in the past, use 'mi piaceva' for liked and 'non mi piaceva' for didn't like. This helps convey your feelings clearly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ti piaceva il gelato?",
+     "meaning": "Did you like the ice cream?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, mi piaceva molto.",
+     "meaning": "Yes, I liked it a lot."
+    },
+    {
+     "speaker": "A",
+     "text": "E la musica?",
+     "meaning": "And the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non mi piaceva.",
+     "meaning": "I didn't like it."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai trovato il ristorante?",
+     "meaning": "Did you find the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è fantastico!",
+     "meaning": "Yes, it is fantastic!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who asks about your likes and dislikes.",
+    "learnerRole": "You, responding to their questions.",
+    "brief": "Share your past likes and dislikes about food and entertainment.",
+    "goal": "You will talk about what you liked and didn't like."
+   }
+  },
+  {
+   "id": "c12-d4",
+   "day": 59,
+   "title": "Reflecting on Experiences",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d4-i1",
+     "text": "ho provato",
+     "meaning": "I tried",
+     "example": "Ho provato un nuovo ristorante.",
+     "exampleMeaning": "I tried a new restaurant."
+    },
+    {
+     "id": "c12-d4-i2",
+     "text": "è stato bello",
+     "meaning": "It was nice",
+     "example": "Il viaggio è stato bello.",
+     "exampleMeaning": "The trip was nice."
+    },
+    {
+     "id": "c12-d4-i3",
+     "text": "mi sono divertito",
+     "meaning": "I had fun",
+     "example": "Mi sono divertito al concerto.",
+     "exampleMeaning": "I had fun at the concert."
+    },
+    {
+     "id": "c12-d4-i4",
+     "text": "è stato utile",
+     "meaning": "It was useful",
+     "example": "Il corso è stato utile.",
+     "exampleMeaning": "The course was useful."
+    },
+    {
+     "id": "c12-d4-i5",
+     "text": "ho apprezzato",
+     "meaning": "I appreciated",
+     "example": "Ho apprezzato il tuo aiuto.",
+     "exampleMeaning": "I appreciated your help."
+    },
+    {
+     "id": "c12-d4-i6",
+     "text": "è stato un piacere",
+     "meaning": "It was a pleasure",
+     "example": "È stato un piacere conoscerti.",
+     "exampleMeaning": "It was a pleasure to meet you."
+    }
+   ],
+   "tip": "Use 'ho provato' to talk about trying new things. You can also say 'è stato' to describe experiences positively or negatively.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hai provato quel ristorante?",
+     "meaning": "Did you try that restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è stato bello!",
+     "meaning": "Yes, it was nice!"
+    },
+    {
+     "speaker": "A",
+     "text": "Ti sei divertito al concerto?",
+     "meaning": "Did you have fun at the concert?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, mi sono divertito.",
+     "meaning": "Yes, I had fun."
+    },
+    {
+     "speaker": "A",
+     "text": "Il corso è stato utile?",
+     "meaning": "Was the course useful?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho apprezzato molto.",
+     "meaning": "Yes, I appreciated it a lot."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who asks about your recent experiences.",
+    "learnerRole": "You, sharing your reflections.",
+    "brief": "Discuss your recent experiences and what you thought about them.",
+    "goal": "You will reflect on your experiences and share your thoughts."
+   }
+  },
+  {
+   "id": "c12-d5",
+   "day": 60,
+   "title": "Chapter Summary: Opinions and Experiences",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Cosa hai fatto la settimana scorsa?",
+     "meaning": "What did you do last week?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ho provato un nuovo ristorante.",
+     "meaning": "I tried a new restaurant."
+    },
+    {
+     "speaker": "A",
+     "text": "Ti è piaciuto?",
+     "meaning": "Did you like it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è stato bello!",
+     "meaning": "Yes, it was nice!"
+    },
+    {
+     "speaker": "A",
+     "text": "E il film che hai visto?",
+     "meaning": "And the movie you saw?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non mi è piaciuto, era noioso.",
+     "meaning": "I didn't like it, it was boring."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai trovato qualcosa di interessante?",
+     "meaning": "Did you find something interesting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, mi interessa la storia.",
+     "meaning": "Yes, I am interested in history."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who wants to discuss your opinions and experiences from the past week.",
+    "learnerRole": "You, sharing your reflections and thoughts.",
+    "brief": "Discuss your activities, likes, and dislikes from the past week.",
+    "goal": "You will summarize your experiences and opinions."
+   }
+  }
+ ]
+}

@@ -493,8 +493,6 @@ export const ur: Catalog = {
   'Back to the course': 'کورس پر واپس',
   'This lesson could not be found': 'یہ سبق نہیں ملا',
   Tip: 'مشورہ',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    'AI کوچ کے ساتھ 60 دنوں میں انگریزی کے ذریعے جرمن، فرانسیسی یا ہسپانوی سیکھیں۔ پہلا دن مفت ہے۔',
   'Shows the language courses with an AI coach': 'AI کوچ کے ساتھ زبان کے کورسز دکھاتا ہے',
   'Correct!': 'درست!',
   'Not quite': 'بالکل نہیں',
@@ -614,8 +612,6 @@ export const ur: Catalog = {
     'اس ڈیوائس پر Elite تک رسائی نہ ہو سکی۔ آپ کی پیش رفت محفوظ ہے، آپ بعد میں دوبارہ کوشش کر سکتے ہیں۔',
   'Not now': 'ابھی نہیں',
   'Unlock Day {day} and the full course': 'دن {day} اور پورا کورس کھولیں',
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'AI کوچ کے ساتھ جرمن، فرانسیسی یا ہسپانوی سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'اشتہار نہیں، اور مکمل AI اکیڈمی',
   'Reset the AI Academy?': 'AI اکیڈمی ری سیٹ کریں؟',
@@ -756,8 +752,6 @@ export const ur: Catalog = {
   'Ready: a written test, then a conversation with {name}.':
     'تیار: ایک تحریری امتحان، پھر {name} کے ساتھ گفتگو۔',
   'All {days} days of {language}, with {name}.': '{language} کے تمام {days} دن، {name} کے ساتھ۔',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    '{days} دنوں میں جرمن، فرانسیسی یا ہسپانوی سیکھیں، {name} کے ساتھ۔',
   '{name} is marking the conversation…': '{name} گفتگو کی جانچ کر رہی ہے…',
   'From {name}': '{name} کی طرف سے',
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -812,6 +806,12 @@ export const ur: Catalog = {
   'Tap a word': 'لفظ ٹیپ کریں',
   'Tap its meaning': 'اس کا مطلب ٹیپ کریں',
   '{count} of {total} pairs matched': '{total} میں سے {count} جوڑے مل گئے',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    'انگریزی کے ذریعے 60 دن میں جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں، AI کوچ کے ساتھ۔ پہلا دن مفت ہے۔',
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    '{days} دنوں میں جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں، {name} کے ساتھ۔',
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'AI کوچ کے ساتھ جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

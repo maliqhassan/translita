@@ -153,7 +153,7 @@ export function AcademyFab() {
                 {enrollment
                   ? t('Every day is done. Your final exam is ready.')
                   : t(
-                      'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.',
+                      'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.',
                     )}
               </Text>
             )}

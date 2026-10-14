@@ -1,0 +1,376 @@
+{
+ "title": "At the Airport",
+ "lessons": [
+  {
+   "title": "What Would You Like?",
+   "items": [
+    {
+     "text": "Vorrei",
+     "meaning": "I would like",
+     "example": "Vorrei un caffè.",
+     "exampleMeaning": "I would like a coffee."
+    },
+    {
+     "text": "Un biglietto",
+     "meaning": "A ticket",
+     "example": "Ho bisogno di un biglietto.",
+     "exampleMeaning": "I need a ticket."
+    },
+    {
+     "text": "Vorrei un tè caldo.",
+     "meaning": "I would like a hot tea.",
+     "example": "Vorrei un tè caldo, per favore.",
+     "exampleMeaning": "I would like a hot tea, please."
+    },
+    {
+     "text": "Dove posso trovare...?",
+     "meaning": "Where can I find...?",
+     "example": "Dove posso trovare il check-in?",
+     "exampleMeaning": "Where can I find the check-in?"
+    },
+    {
+     "text": "A che ora arriva?",
+     "meaning": "What time does it arrive?",
+     "example": "A che ora arriva il volo da Roma?",
+     "exampleMeaning": "What time does the flight from Rome arrive?"
+    },
+    {
+     "text": "Posso avere il menu?",
+     "meaning": "Can I have the menu?",
+     "example": "Posso avere il menu, per favore?",
+     "exampleMeaning": "Can I have the menu, please?"
+    }
+   ],
+   "tip": "Use 'vorrei' to express what you want politely. It is a common way to make requests in Italian.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ciao! Cosa vuoi?",
+     "meaning": "Hi! What would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vorrei un biglietto, per favore.",
+     "meaning": "I would like a ticket, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove posso trovare il check-in?",
+     "meaning": "Where can I find the check-in?"
+    },
+    {
+     "speaker": "B",
+     "text": "È vicino a qui?",
+     "meaning": "Is it near here?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sì, è vicino.",
+     "meaning": "Yes, it is near."
+    },
+    {
+     "speaker": "B",
+     "text": "A che ora parte il volo?",
+     "meaning": "What time does the flight leave?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a ticket agent at the airport.",
+    "learnerRole": "You are a traveler looking to buy a ticket.",
+    "brief": "Ask the traveler what they would like and help them with questions about their flight.",
+    "goal": "You need to ask for a ticket and find out about your flight."
+   }
+  },
+  {
+   "title": "Travel Documents",
+   "items": [
+    {
+     "text": "Il passaporto",
+     "meaning": "The passport",
+     "example": "Dove hai messo il passaporto?",
+     "exampleMeaning": "Where did you put the passport?"
+    },
+    {
+     "text": "La carta d'imbarco",
+     "meaning": "The boarding pass",
+     "example": "Ho bisogno della carta d'imbarco.",
+     "exampleMeaning": "I need the boarding pass."
+    },
+    {
+     "text": "Controllare",
+     "meaning": "To check",
+     "example": "Devo controllare il mio passaporto.",
+     "exampleMeaning": "I need to check my passport."
+    },
+    {
+     "text": "È tutto in ordine.",
+     "meaning": "Everything is in order.",
+     "example": "Il passaporto è qui, è tutto in ordine.",
+     "exampleMeaning": "The passport is here, everything is in order."
+    },
+    {
+     "text": "Dove si trova...?",
+     "meaning": "Where is...?",
+     "example": "Dove si trova il gate?",
+     "exampleMeaning": "Where is the gate?"
+    },
+    {
+     "text": "Posso vedere...?",
+     "meaning": "Can I see...?",
+     "example": "Posso vedere la carta d'imbarco?",
+     "exampleMeaning": "Can I see the boarding pass?"
+    }
+   ],
+   "tip": "Use 'il passaporto' and 'la carta d'imbarco' to refer to important travel documents. These are necessary for flights.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hai il passaporto?",
+     "meaning": "Do you have the passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ecco il passaporto.",
+     "meaning": "Yes, here is the passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove si trova la carta d'imbarco?",
+     "meaning": "Where is the boarding pass?"
+    },
+    {
+     "speaker": "B",
+     "text": "Posso vedere la carta d'imbarco?",
+     "meaning": "Can I see the boarding pass?"
+    },
+    {
+     "speaker": "A",
+     "text": "È tutto in ordine, perfetto!",
+     "meaning": "Everything is in order, perfect!"
+    },
+    {
+     "speaker": "B",
+     "text": "Devo controllare il mio passaporto.",
+     "meaning": "I need to check my passport."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a security agent at the airport.",
+    "learnerRole": "You are a traveler going through security.",
+    "brief": "Ask the traveler for their documents and check if everything is in order.",
+    "goal": "You need to show your passport and boarding pass."
+   }
+  },
+  {
+   "title": "Asking Questions",
+   "items": [
+    {
+     "text": "Che tipo di...",
+     "meaning": "What type of...",
+     "example": "Che tipo di volo hai prenotato?",
+     "exampleMeaning": "What type of flight did you book?"
+    },
+    {
+     "text": "Qual è il tuo nome?",
+     "meaning": "What is your name?",
+     "example": "Qual è il tuo nome completo?",
+     "exampleMeaning": "What is your full name?"
+    },
+    {
+     "text": "Da dove parti?",
+     "meaning": "Where are you departing from?",
+     "example": "Da dove parti per Roma?",
+     "exampleMeaning": "Where are you departing from for Rome?"
+    },
+    {
+     "text": "Quando arrivi?",
+     "meaning": "When do you arrive?",
+     "example": "Quando arrivi a Milano?",
+     "exampleMeaning": "When do you arrive in Milan?"
+    },
+    {
+     "text": "Hai bisogno di aiuto?",
+     "meaning": "Do you need help?",
+     "example": "Hai bisogno di aiuto con i bagagli?",
+     "exampleMeaning": "Do you need help with the luggage?"
+    },
+    {
+     "text": "Perché sei in Italia?",
+     "meaning": "Why are you in Italy?",
+     "example": "Perché sei in Italia in vacanza?",
+     "exampleMeaning": "Why are you in Italy on vacation?"
+    }
+   ],
+   "tip": "Questions in Italian often start with words like 'che', 'qual', or 'da dove'. Practice forming questions to communicate better.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Che tipo di volo hai prenotato?",
+     "meaning": "What type of flight did you book?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ho prenotato un volo diretto.",
+     "meaning": "I booked a direct flight."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual è il tuo nome?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il mio nome è Alex.",
+     "meaning": "My name is Alex."
+    },
+    {
+     "speaker": "A",
+     "text": "Da dove parti?",
+     "meaning": "Where are you departing from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Parto da Londra.",
+     "meaning": "I am departing from London."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a flight attendant.",
+    "learnerRole": "You are a passenger asking questions about your flight.",
+    "brief": "Ask the passenger questions about their flight details and help them with information.",
+    "goal": "You need to ask questions to understand your flight better."
+   }
+  },
+  {
+   "title": "Making Requests",
+   "items": [
+    {
+     "text": "Mi può aiutare?",
+     "meaning": "Can you help me?",
+     "example": "Mi può aiutare con il bagaglio?",
+     "exampleMeaning": "Can you help me with the luggage?"
+    },
+    {
+     "text": "Vorrei sapere...",
+     "meaning": "I would like to know...",
+     "example": "Vorrei sapere dove è il gate.",
+     "exampleMeaning": "I would like to know where the gate is."
+    },
+    {
+     "text": "Può dirmi...?",
+     "meaning": "Can you tell me...?",
+     "example": "Può dirmi a che ora parte il volo?",
+     "exampleMeaning": "Can you tell me what time the flight leaves?"
+    },
+    {
+     "text": "Mi scusi, per favore.",
+     "meaning": "Excuse me, please.",
+     "example": "Mi scusi, per favore, dove si trova il bagno?",
+     "exampleMeaning": "Excuse me, please, where is the bathroom?"
+    },
+    {
+     "text": "C'è un problema.",
+     "meaning": "There is a problem.",
+     "example": "C'è un problema con il mio biglietto.",
+     "exampleMeaning": "There is a problem with my ticket."
+    },
+    {
+     "text": "Posso chiedere...?",
+     "meaning": "Can I ask...?",
+     "example": "Posso chiedere dove è il check-in?",
+     "exampleMeaning": "Can I ask where the check-in is?"
+    }
+   ],
+   "tip": "When asking for help, start with 'mi può aiutare?' or 'mi scusi'. This is polite and shows respect.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Mi scusi, per favore, dove si trova il bagno?",
+     "meaning": "Excuse me, please, where is the bathroom?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il bagno è a destra.",
+     "meaning": "The bathroom is to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "C'è un problema con il mio biglietto.",
+     "meaning": "There is a problem with my ticket."
+    },
+    {
+     "speaker": "B",
+     "text": "Mi può aiutare?",
+     "meaning": "Can you help me?"
+    },
+    {
+     "speaker": "A",
+     "text": "Vorrei sapere dove è il gate.",
+     "meaning": "I would like to know where the gate is."
+    },
+    {
+     "speaker": "B",
+     "text": "Può dirmi a che ora parte il volo?",
+     "meaning": "Can you tell me what time the flight leaves?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a customer service representative at the airport.",
+    "learnerRole": "You are a traveler needing assistance.",
+    "brief": "Help the traveler with their questions and requests about their flight.",
+    "goal": "You need to ask for help and get the information you need."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Ciao! Vorrei un biglietto, per favore.",
+    "meaning": "Hi! I would like a ticket, please."
+   },
+   {
+    "speaker": "B",
+    "text": "Hai il passaporto?",
+    "meaning": "Do you have the passport?"
+   },
+   {
+    "speaker": "A",
+    "text": "Sì, ecco il passaporto.",
+    "meaning": "Yes, here is the passport."
+   },
+   {
+    "speaker": "B",
+    "text": "Dove si trova il gate?",
+    "meaning": "Where is the gate?"
+   },
+   {
+    "speaker": "A",
+    "text": "Mi scusi, per favore, dove si trova il bagno?",
+    "meaning": "Excuse me, please, where is the bathroom?"
+   },
+   {
+    "speaker": "B",
+    "text": "C'è un problema con il mio biglietto.",
+    "meaning": "There is a problem with my ticket."
+   },
+   {
+    "speaker": "A",
+    "text": "Quando arrivi a Milano?",
+    "meaning": "When do you arrive in Milan?"
+   },
+   {
+    "speaker": "B",
+    "text": "Mi può aiutare con il bagaglio?",
+    "meaning": "Can you help me with the luggage?"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are an airport staff member.",
+   "learnerRole": "You are a traveler with various questions and requests.",
+   "brief": "Engage in a conversation where you ask for help and information about your flight and documents.",
+   "goal": "You need to use the phrases learned in this chapter to communicate effectively."
+  }
+ }
+}

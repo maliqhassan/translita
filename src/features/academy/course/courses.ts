@@ -38,10 +38,23 @@ import es09 from './es/chapter-09.json';
 import es10 from './es/chapter-10.json';
 import es11 from './es/chapter-11.json';
 import es12 from './es/chapter-12.json';
+import it01 from './it/chapter-01.json';
+import it02 from './it/chapter-02.json';
+import it03 from './it/chapter-03.json';
+import it04 from './it/chapter-04.json';
+import it05 from './it/chapter-05.json';
+import it06 from './it/chapter-06.json';
+import it07 from './it/chapter-07.json';
+import it08 from './it/chapter-08.json';
+import it09 from './it/chapter-09.json';
+import it10 from './it/chapter-10.json';
+import it11 from './it/chapter-11.json';
+import it12 from './it/chapter-12.json';
 
 /** Every course that ships, in the order the app lists them, with the chapters written so far. */
 export const COURSES: readonly Course[] = [
   { id: 'de', chapters: [de01 as unknown as CourseChapter, de02 as unknown as CourseChapter, de03 as unknown as CourseChapter, de04 as unknown as CourseChapter, de05 as unknown as CourseChapter, de06 as unknown as CourseChapter, de07 as unknown as CourseChapter, de08 as unknown as CourseChapter, de09 as unknown as CourseChapter, de10 as unknown as CourseChapter, de11 as unknown as CourseChapter, de12 as unknown as CourseChapter] },
   { id: 'fr', chapters: [fr01 as unknown as CourseChapter, fr02 as unknown as CourseChapter, fr03 as unknown as CourseChapter, fr04 as unknown as CourseChapter, fr05 as unknown as CourseChapter, fr06 as unknown as CourseChapter, fr07 as unknown as CourseChapter, fr08 as unknown as CourseChapter, fr09 as unknown as CourseChapter, fr10 as unknown as CourseChapter, fr11 as unknown as CourseChapter, fr12 as unknown as CourseChapter] },
   { id: 'es', chapters: [es01 as unknown as CourseChapter, es02 as unknown as CourseChapter, es03 as unknown as CourseChapter, es04 as unknown as CourseChapter, es05 as unknown as CourseChapter, es06 as unknown as CourseChapter, es07 as unknown as CourseChapter, es08 as unknown as CourseChapter, es09 as unknown as CourseChapter, es10 as unknown as CourseChapter, es11 as unknown as CourseChapter, es12 as unknown as CourseChapter] },
+  { id: 'it', chapters: [it01 as unknown as CourseChapter, it02 as unknown as CourseChapter, it03 as unknown as CourseChapter, it04 as unknown as CourseChapter, it05 as unknown as CourseChapter, it06 as unknown as CourseChapter, it07 as unknown as CourseChapter, it08 as unknown as CourseChapter, it09 as unknown as CourseChapter, it10 as unknown as CourseChapter, it11 as unknown as CourseChapter, it12 as unknown as CourseChapter] },
 ];

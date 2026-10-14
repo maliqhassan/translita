@@ -1,0 +1,376 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is the... ?",
+   "items": [
+    {
+     "text": "dove",
+     "meaning": "where",
+     "example": "Dove è la stazione?",
+     "exampleMeaning": "Where is the station?"
+    },
+    {
+     "text": "la stazione",
+     "meaning": "the station",
+     "example": "La stazione è lontana.",
+     "exampleMeaning": "The station is far."
+    },
+    {
+     "text": "il ristorante",
+     "meaning": "the restaurant",
+     "example": "Il ristorante è vicino.",
+     "exampleMeaning": "The restaurant is near."
+    },
+    {
+     "text": "la piazza",
+     "meaning": "the square",
+     "example": "La piazza è bella.",
+     "exampleMeaning": "The square is beautiful."
+    },
+    {
+     "text": "a sinistra",
+     "meaning": "to the left",
+     "example": "Vai a sinistra.",
+     "exampleMeaning": "Go to the left."
+    },
+    {
+     "text": "a destra",
+     "meaning": "to the right",
+     "example": "Gira a destra.",
+     "exampleMeaning": "Turn to the right."
+    }
+   ],
+   "tip": "Use 'dove' to ask for the location of places. Remember to use the definite articles 'la' and 'il' for feminine and masculine nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Dove è la stazione?",
+     "meaning": "Where is the station?"
+    },
+    {
+     "speaker": "B",
+     "text": "È lontana?",
+     "meaning": "Is it far?"
+    },
+    {
+     "speaker": "A",
+     "text": "No, è vicino.",
+     "meaning": "No, it is near."
+    },
+    {
+     "speaker": "B",
+     "text": "Dove posso trovare il ristorante?",
+     "meaning": "Where can I find the restaurant?"
+    },
+    {
+     "speaker": "A",
+     "text": "Il ristorante è a sinistra.",
+     "meaning": "The restaurant is to the left."
+    },
+    {
+     "speaker": "B",
+     "text": "Grazie!",
+     "meaning": "Thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A local person",
+    "learnerRole": "B, a tourist",
+    "brief": "You are asking a local person for directions to the station and the restaurant. Ask if the station is far and where the restaurant is.",
+    "goal": "You need to find out where the station and the restaurant are."
+   }
+  },
+  {
+   "title": "Giving Directions",
+   "items": [
+    {
+     "text": "vai",
+     "meaning": "go (imperative)",
+     "example": "Vai dritto.",
+     "exampleMeaning": "Go straight."
+    },
+    {
+     "text": "gira",
+     "meaning": "turn (imperative)",
+     "example": "Gira a sinistra.",
+     "exampleMeaning": "Turn to the left."
+    },
+    {
+     "text": "prendi",
+     "meaning": "take (imperative)",
+     "example": "Prendi la seconda strada.",
+     "exampleMeaning": "Take the second street."
+    },
+    {
+     "text": "dritto",
+     "meaning": "straight",
+     "example": "Vai dritto per due isolati.",
+     "exampleMeaning": "Go straight for two blocks."
+    },
+    {
+     "text": "lì",
+     "meaning": "there",
+     "example": "Il ristorante è lì.",
+     "exampleMeaning": "The restaurant is there."
+    },
+    {
+     "text": "subito",
+     "meaning": "right away",
+     "example": "Vai subito a destra.",
+     "exampleMeaning": "Go right away to the right."
+    }
+   ],
+   "tip": "Use the imperative form to give directions. It is direct and clear. Use 'vai', 'gira', and 'prendi' for commands.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Come arrivo al ristorante?",
+     "meaning": "How do I get to the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vai dritto.",
+     "meaning": "Go straight."
+    },
+    {
+     "speaker": "A",
+     "text": "E poi?",
+     "meaning": "And then?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gira a destra.",
+     "meaning": "Turn to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove è il ristorante?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il ristorante è lì.",
+     "meaning": "The restaurant is there."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A local person",
+    "learnerRole": "B, a tourist",
+    "brief": "You are giving directions to a tourist who wants to reach the restaurant. Use imperative forms to guide them.",
+    "goal": "You need to clearly explain how to get to the restaurant."
+   }
+  },
+  {
+   "title": "More Places",
+   "items": [
+    {
+     "text": "il museo",
+     "meaning": "the museum",
+     "example": "Il museo è interessante.",
+     "exampleMeaning": "The museum is interesting."
+    },
+    {
+     "text": "la farmacia",
+     "meaning": "the pharmacy",
+     "example": "La farmacia è aperta.",
+     "exampleMeaning": "The pharmacy is open."
+    },
+    {
+     "text": "il parco",
+     "meaning": "the park",
+     "example": "Il parco è grande.",
+     "exampleMeaning": "The park is big."
+    },
+    {
+     "text": "la chiesa",
+     "meaning": "the church",
+     "example": "La chiesa è antica.",
+     "exampleMeaning": "The church is old."
+    },
+    {
+     "text": "il supermercato",
+     "meaning": "the supermarket",
+     "example": "Il supermercato è qui.",
+     "exampleMeaning": "The supermarket is here."
+    },
+    {
+     "text": "vicino a",
+     "meaning": "near to",
+     "example": "La farmacia è vicino a me.",
+     "exampleMeaning": "The pharmacy is near to me."
+    }
+   ],
+   "tip": "Remember to use the definite articles 'la' for feminine and 'il' for masculine nouns when talking about places. This helps clarify which place you mean.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Dove è il museo?",
+     "meaning": "Where is the museum?"
+    },
+    {
+     "speaker": "B",
+     "text": "È vicino al parco.",
+     "meaning": "It is near the park."
+    },
+    {
+     "speaker": "A",
+     "text": "E la farmacia?",
+     "meaning": "And the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "La farmacia è qui.",
+     "meaning": "The pharmacy is here."
+    },
+    {
+     "speaker": "A",
+     "text": "C'è un supermercato vicino a me?",
+     "meaning": "Is there a supermarket near me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è lì.",
+     "meaning": "Yes, it is there."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A local person",
+    "learnerRole": "B, a tourist",
+    "brief": "You are asking a local for directions to various places like the museum, pharmacy, and supermarket. Use the new vocabulary to ask where they are.",
+    "goal": "You need to find out where the museum, pharmacy, and supermarket are."
+   }
+  },
+  {
+   "title": "Finding Your Way",
+   "items": [
+    {
+     "text": "lontano",
+     "meaning": "far",
+     "example": "È lontano da qui?",
+     "exampleMeaning": "Is it far from here?"
+    },
+    {
+     "text": "vicino",
+     "meaning": "near",
+     "example": "È vicino alla chiesa?",
+     "exampleMeaning": "Is it near the church?"
+    },
+    {
+     "text": "sopra",
+     "meaning": "above",
+     "example": "Il museo è sopra la farmacia.",
+     "exampleMeaning": "The museum is above the pharmacy."
+    },
+    {
+     "text": "sotto",
+     "meaning": "below",
+     "example": "La chiesa è sotto il parco.",
+     "exampleMeaning": "The church is below the park."
+    },
+    {
+     "text": "di fronte a",
+     "meaning": "in front of",
+     "example": "Il ristorante è di fronte a me.",
+     "exampleMeaning": "The restaurant is in front of me."
+    },
+    {
+     "text": "dietro",
+     "meaning": "behind",
+     "example": "Il supermercato è dietro il museo.",
+     "exampleMeaning": "The supermarket is behind the museum."
+    }
+   ],
+   "tip": "Use 'lontano' for far and 'vicino' for near to describe distances. Also, learn the position words like 'sopra', 'sotto', 'di fronte a', and 'dietro' to explain locations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "È lontano da qui?",
+     "meaning": "Is it far from here?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, è vicino.",
+     "meaning": "No, it is near."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove è il supermercato?",
+     "meaning": "Where is the supermarket?"
+    },
+    {
+     "speaker": "B",
+     "text": "È dietro il museo.",
+     "meaning": "It is behind the museum."
+    },
+    {
+     "speaker": "A",
+     "text": "E la chiesa?",
+     "meaning": "And the church?"
+    },
+    {
+     "speaker": "B",
+     "text": "La chiesa è sopra il parco.",
+     "meaning": "The church is above the park."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A local person",
+    "learnerRole": "B, a tourist",
+    "brief": "You are trying to locate the supermarket and the church. Ask about their distances and positions relative to other places.",
+    "goal": "You need to find out if the supermarket and church are far or near."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Dove è il ristorante?",
+    "meaning": "Where is the restaurant?"
+   },
+   {
+    "speaker": "B",
+    "text": "È vicino alla piazza.",
+    "meaning": "It is near the square."
+   },
+   {
+    "speaker": "A",
+    "text": "E la farmacia?",
+    "meaning": "And the pharmacy?"
+   },
+   {
+    "speaker": "B",
+    "text": "La farmacia è a sinistra.",
+    "meaning": "The pharmacy is to the left."
+   },
+   {
+    "speaker": "A",
+    "text": "È lontano da qui?",
+    "meaning": "Is it far from here?"
+   },
+   {
+    "speaker": "B",
+    "text": "No, è subito.",
+    "meaning": "No, it is right away."
+   },
+   {
+    "speaker": "A",
+    "text": "Dove posso trovare il museo?",
+    "meaning": "Where can I find the museum?"
+   },
+   {
+    "speaker": "B",
+    "text": "Il museo è dietro il parco.",
+    "meaning": "The museum is behind the park."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A local person",
+   "learnerRole": "B, a tourist",
+   "brief": "You are asking for directions to various places like the restaurant, pharmacy, and museum. Use the vocabulary from the chapter to ask your questions.",
+   "goal": "You need to find out where the restaurant, pharmacy, and museum are."
+  }
+ }
+}

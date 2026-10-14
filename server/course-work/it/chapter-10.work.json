@@ -1,0 +1,366 @@
+{
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "title": "Polite Requests",
+   "items": [
+    {
+     "text": "Potrebbe per favore ripetere?",
+     "meaning": "Could you please repeat?",
+     "example": "Potrebbe per favore ripetere? Non ho sentito bene.",
+     "exampleMeaning": "Could you please repeat? I couldn't hear well."
+    },
+    {
+     "text": "Per favore, aspetti.",
+     "meaning": "Please wait.",
+     "example": "Per favore, aspetti un momento.",
+     "exampleMeaning": "Please wait a moment."
+    },
+    {
+     "text": "Mi scusi se disturbo.",
+     "meaning": "Excuse me if I'm disturbing.",
+     "example": "Mi scusi se disturbo, ma ho una domanda.",
+     "exampleMeaning": "Excuse me if I'm disturbing, but I have a question."
+    },
+    {
+     "text": "Vorrei parlare con...",
+     "meaning": "I would like to speak with...",
+     "example": "Vorrei parlare con il signor Rossi.",
+     "exampleMeaning": "I would like to speak with Mr. Rossi."
+    },
+    {
+     "text": "È possibile parlare con...?",
+     "meaning": "Is it possible to speak with...?",
+     "example": "È possibile parlare con la signora Bianchi?",
+     "exampleMeaning": "Is it possible to speak with Mrs. Bianchi?"
+    },
+    {
+     "text": "Mi può dire...?",
+     "meaning": "Can you tell me...?",
+     "example": "Mi può dire se è disponibile?",
+     "exampleMeaning": "Can you tell me if he is available?"
+    }
+   ],
+   "tip": "Use 'Può' for formal requests and 'Puoi' for informal ones. Remember to use 'per favore' for politeness.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Mi scusi, posso parlare con Marco?",
+     "meaning": "Excuse me, can I speak with Marco?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi dispiace, non è disponibile.",
+     "meaning": "I'm sorry, he is not available."
+    },
+    {
+     "speaker": "A",
+     "text": "Può aiutarmi a lasciargli un messaggio?",
+     "meaning": "Can you help me leave him a message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Certo! Qual è il messaggio?",
+     "meaning": "Of course! What is the message?"
+    },
+    {
+     "speaker": "A",
+     "text": "Vorrei dire che richiamo più tardi.",
+     "meaning": "I would like to say that I will call back later."
+    },
+    {
+     "speaker": "B",
+     "text": "Va bene, glielo dirò.",
+     "meaning": "Okay, I will tell him."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the receptionist.",
+    "learnerRole": "You are calling to speak with Marco.",
+    "brief": "Ask for Marco and leave a message if he is not available.",
+    "goal": "You need to leave a message for Marco."
+   }
+  },
+  {
+   "title": "Spelling Names",
+   "items": [
+    {
+     "text": "Come si scrive...?",
+     "meaning": "How do you spell...?",
+     "example": "Come si scrive il tuo nome?",
+     "exampleMeaning": "How do you spell your name?"
+    },
+    {
+     "text": "Il mio nome è...",
+     "meaning": "My name is...",
+     "example": "Il mio nome è Anna.",
+     "exampleMeaning": "My name is Anna."
+    },
+    {
+     "text": "Può ripetere?",
+     "meaning": "Can you repeat?",
+     "example": "Può ripetere il suo nome?",
+     "exampleMeaning": "Can you repeat your name?"
+    },
+    {
+     "text": "Scusi, non ho capito.",
+     "meaning": "Sorry, I didn't understand.",
+     "example": "Scusi, non ho capito il suo nome.",
+     "exampleMeaning": "Sorry, I didn't understand your name."
+    },
+    {
+     "text": "Grazie per l'aiuto.",
+     "meaning": "Thank you for your help.",
+     "example": "Grazie per l'aiuto con il mio messaggio.",
+     "exampleMeaning": "Thank you for your help with my message."
+    },
+    {
+     "text": "Posso avere il suo nome?",
+     "meaning": "Can I have your name?",
+     "example": "Posso avere il suo nome, per favore?",
+     "exampleMeaning": "Can I have your name, please?"
+    }
+   ],
+   "tip": "When asking for spelling, use 'Come si scrive...?'. It’s a polite way to ask for clarification.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Posso avere il suo nome, per favore?",
+     "meaning": "Can I have your name, please?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il mio nome è Luca.",
+     "meaning": "My name is Luca."
+    },
+    {
+     "speaker": "A",
+     "text": "Come si scrive Luca?",
+     "meaning": "How do you spell Luca?"
+    },
+    {
+     "speaker": "B",
+     "text": "Si scrive L-U-C-A.",
+     "meaning": "It is spelled L-U-C-A."
+    },
+    {
+     "speaker": "A",
+     "text": "Scusi, non ho capito.",
+     "meaning": "Sorry, I didn't understand."
+    },
+    {
+     "speaker": "B",
+     "text": "Può ripetere?",
+     "meaning": "Can you repeat?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the caller.",
+    "learnerRole": "You are giving your name to the receptionist.",
+    "brief": "Provide your name and spell it out if needed.",
+    "goal": "You need to successfully spell your name."
+   }
+  },
+  {
+   "title": "Taking a Message",
+   "items": [
+    {
+     "text": "Posso prendere un messaggio?",
+     "meaning": "Can I take a message?",
+     "example": "Posso prendere un messaggio per Marco?",
+     "exampleMeaning": "Can I take a message for Marco?"
+    },
+    {
+     "text": "Quando torna?",
+     "meaning": "When does he return?",
+     "example": "Quando torna il dottore?",
+     "exampleMeaning": "When does the doctor return?"
+    },
+    {
+     "text": "Può chiamare più tardi?",
+     "meaning": "Can he call back later?",
+     "example": "Può chiamare più tardi, per favore?",
+     "exampleMeaning": "Can he call back later, please?"
+    },
+    {
+     "text": "Grazie per l'informazione.",
+     "meaning": "Thank you for the information.",
+     "example": "Grazie per l'informazione sul dottore.",
+     "exampleMeaning": "Thank you for the information about the doctor."
+    },
+    {
+     "text": "Non è qui adesso.",
+     "meaning": "He is not here now.",
+     "example": "Mi dispiace, non è qui adesso.",
+     "exampleMeaning": "I'm sorry, he is not here now."
+    },
+    {
+     "text": "Le lascio un messaggio.",
+     "meaning": "I will leave a message for him.",
+     "example": "Le lascio un messaggio importante.",
+     "exampleMeaning": "I will leave an important message for him."
+    }
+   ],
+   "tip": "Use 'Posso prendere un messaggio?' when you need to take a message. It’s a polite way to ask.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Posso prendere un messaggio per Marco?",
+     "meaning": "Can I take a message for Marco?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, per favore.",
+     "meaning": "Yes, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando torna?",
+     "meaning": "When does he return?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non è qui adesso.",
+     "meaning": "He is not here now."
+    },
+    {
+     "speaker": "A",
+     "text": "Le lascio un messaggio.",
+     "meaning": "I will leave a message for him."
+    },
+    {
+     "speaker": "B",
+     "text": "Grazie per l'informazione.",
+     "meaning": "Thank you for the information."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are leaving a message.",
+    "learnerRole": "You are speaking to the receptionist.",
+    "brief": "Leave a message for Marco and ask when he will return.",
+    "goal": "You need to leave a message for Marco."
+   }
+  },
+  {
+   "title": "Leaving a Message",
+   "items": [
+    {
+     "text": "Può dirgli che...",
+     "meaning": "Can you tell him that...",
+     "example": "Può dirgli che ho chiamato?",
+     "exampleMeaning": "Can you tell him that I called?"
+    },
+    {
+     "text": "Ho bisogno di parlarle.",
+     "meaning": "I need to speak with him.",
+     "example": "Ho bisogno di parlarle urgentemente.",
+     "exampleMeaning": "I need to speak with him urgently."
+    },
+    {
+     "text": "Il mio numero è...",
+     "meaning": "My number is...",
+     "example": "Il mio numero è 123456789.",
+     "exampleMeaning": "My number is 123456789."
+    },
+    {
+     "text": "Mi chiami quando può.",
+     "meaning": "Call me when you can.",
+     "example": "Mi chiami quando può, per favore.",
+     "exampleMeaning": "Call me when you can, please."
+    },
+    {
+     "text": "La ringrazio.",
+     "meaning": "Thank you.",
+     "example": "La ringrazio per l'aiuto.",
+     "exampleMeaning": "Thank you for your help."
+    },
+    {
+     "text": "Aspetto una sua chiamata.",
+     "meaning": "I am waiting for your call.",
+     "example": "Aspetto una sua chiamata domani.",
+     "exampleMeaning": "I am waiting for your call tomorrow."
+    }
+   ],
+   "tip": "When leaving a message, use 'Può dirgli che...' to pass on information. It's polite and clear.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Può dirgli che ho chiamato?",
+     "meaning": "Can you tell him that I called?"
+    },
+    {
+     "speaker": "B",
+     "text": "Certo! Ho bisogno di parlarle.",
+     "meaning": "Of course! I need to speak with him."
+    },
+    {
+     "speaker": "A",
+     "text": "Mi chiami quando può.",
+     "meaning": "Call me when you can."
+    },
+    {
+     "speaker": "B",
+     "text": "Il mio numero è 123456789.",
+     "meaning": "My number is 123456789."
+    },
+    {
+     "speaker": "A",
+     "text": "La ringrazio.",
+     "meaning": "Thank you."
+    },
+    {
+     "speaker": "B",
+     "text": "Aspetto una sua chiamata.",
+     "meaning": "I am waiting for your call."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are leaving a message.",
+    "learnerRole": "You are speaking to the receptionist.",
+    "brief": "Leave a message for Marco, including your number.",
+    "goal": "You need to leave a message with your contact details."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Phone Calls and Messages",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Mi scusi, posso parlare con Marco?",
+    "meaning": "Excuse me, can I speak with Marco?"
+   },
+   {
+    "speaker": "B",
+    "text": "Posso prendere un messaggio?",
+    "meaning": "Can I take a message?"
+   },
+   {
+    "speaker": "A",
+    "text": "Può dirgli che ho chiamato?",
+    "meaning": "Can you tell him that I called?"
+   },
+   {
+    "speaker": "B",
+    "text": "Quando torna?",
+    "meaning": "When does he return?"
+   },
+   {
+    "speaker": "A",
+    "text": "Il mio numero è 123456789.",
+    "meaning": "My number is 123456789."
+   },
+   {
+    "speaker": "B",
+    "text": "Grazie per l'informazione.",
+    "meaning": "Thank you for the information."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are the receptionist.",
+   "learnerRole": "You are calling to leave a message for Marco.",
+   "brief": "Ask for Marco, leave a message, and provide your contact number.",
+   "goal": "You need to leave a complete message for Marco."
+  }
+ }
+}

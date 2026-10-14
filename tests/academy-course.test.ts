@@ -99,10 +99,10 @@ describe('a course chapter', () => {
 });
 
 describe('the courses the app ships', () => {
-  it('teaches German, French and Spanish, from English', () => {
+  it('teaches German, French, Spanish and Italian, from English', () => {
     assert.deepEqual(
       availableCourses().map((course) => course.id),
-      ['de', 'fr', 'es'],
+      ['de', 'fr', 'es', 'it'],
     );
     for (const course of availableCourses()) {
       assert.ok(getLanguage(course.id), `${course.id} is a language the app knows`);

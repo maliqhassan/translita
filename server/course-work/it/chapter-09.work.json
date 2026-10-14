@@ -1,0 +1,366 @@
+{
+ "title": "Health and the Doctor",
+ "lessons": [
+  {
+   "title": "Body Parts",
+   "items": [
+    {
+     "text": "la testa",
+     "meaning": "the head",
+     "example": "Mi fa male la testa.",
+     "exampleMeaning": "My head hurts."
+    },
+    {
+     "text": "il braccio",
+     "meaning": "the arm",
+     "example": "Ho un dolore al braccio.",
+     "exampleMeaning": "I have pain in my arm."
+    },
+    {
+     "text": "la gamba",
+     "meaning": "the leg",
+     "example": "La mia gamba è stanca.",
+     "exampleMeaning": "My leg is tired."
+    },
+    {
+     "text": "la schiena",
+     "meaning": "the back",
+     "example": "Mi fa male la schiena.",
+     "exampleMeaning": "My back hurts."
+    },
+    {
+     "text": "il collo",
+     "meaning": "the neck",
+     "example": "Ho mal di collo.",
+     "exampleMeaning": "I have a pain in my neck."
+    },
+    {
+     "text": "il piede",
+     "meaning": "the foot",
+     "example": "Il mio piede è gonfio.",
+     "exampleMeaning": "My foot is swollen."
+    }
+   ],
+   "tip": "In Italian, some body parts are feminine and some are masculine. For example, 'la testa' is feminine and 'il braccio' is masculine. Pay attention to the articles to use them correctly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ciao! Come ti senti?",
+     "meaning": "Hi! How do you feel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non sto bene. Mi fa male la testa.",
+     "meaning": "I don’t feel well. My head hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "Mi dispiace. Hai bisogno di qualcosa?",
+     "meaning": "I’m sorry. Do you need something?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho anche mal di collo.",
+     "meaning": "Yes, I also have a pain in my neck."
+    },
+    {
+     "speaker": "A",
+     "text": "Devi riposarti un po'.",
+     "meaning": "You should rest a bit."
+    },
+    {
+     "speaker": "B",
+     "text": "Hai ragione, grazie!",
+     "meaning": "You’re right, thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who asks about your health",
+    "learnerRole": "someone who is not feeling well",
+    "brief": "You are talking to a friend. Tell them what hurts. Ask for advice.",
+    "goal": "You should express your symptoms and receive advice."
+   }
+  },
+  {
+   "title": "Describing Pain",
+   "items": [
+    {
+     "text": "fa male",
+     "meaning": "hurts",
+     "example": "Mi fa male il braccio.",
+     "exampleMeaning": "My arm hurts."
+    },
+    {
+     "text": "è gonfio",
+     "meaning": "is swollen",
+     "example": "Il mio piede è gonfio.",
+     "exampleMeaning": "My foot is swollen."
+    },
+    {
+     "text": "è stanco",
+     "meaning": "is tired",
+     "example": "Il mio corpo è stanco.",
+     "exampleMeaning": "My body is tired."
+    },
+    {
+     "text": "ho dolore",
+     "meaning": "I have pain",
+     "example": "Ho dolore alla schiena.",
+     "exampleMeaning": "I have pain in my back."
+    },
+    {
+     "text": "non posso muovere",
+     "meaning": "I cannot move",
+     "example": "Non posso muovere il collo.",
+     "exampleMeaning": "I cannot move my neck."
+    },
+    {
+     "text": "dovrei andare",
+     "meaning": "I should go",
+     "example": "Dovrei andare dal dottore.",
+     "exampleMeaning": "I should go to the doctor."
+    }
+   ],
+   "tip": "When describing pain, use 'fa male' followed by the body part. For example, 'Mi fa male la gamba' means 'My leg hurts.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Cosa ti fa male?",
+     "meaning": "What hurts you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mi fa male il braccio e ho dolore alla schiena.",
+     "meaning": "My arm hurts and I have pain in my back."
+    },
+    {
+     "speaker": "A",
+     "text": "Il tuo piede è gonfio?",
+     "meaning": "Is your foot swollen?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è gonfio e non posso muovere il collo.",
+     "meaning": "Yes, it is swollen and I cannot move my neck."
+    },
+    {
+     "speaker": "A",
+     "text": "Dovresti andare dal dottore.",
+     "meaning": "You should go to the doctor."
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, dovrei andare.",
+     "meaning": "Yes, I should go."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who is concerned about your pain",
+    "learnerRole": "someone describing their pain",
+    "brief": "You are explaining your symptoms to a friend. Use the phrases to describe what hurts.",
+    "goal": "You should clearly describe your pain and consider going to the doctor."
+   }
+  },
+  {
+   "title": "At the Pharmacy",
+   "items": [
+    {
+     "text": "la medicina",
+     "meaning": "the medicine",
+     "example": "Ho bisogno di medicina.",
+     "exampleMeaning": "I need medicine."
+    },
+    {
+     "text": "il dottore",
+     "meaning": "the doctor",
+     "example": "Devo vedere il dottore.",
+     "exampleMeaning": "I must see the doctor."
+    },
+    {
+     "text": "la ricetta",
+     "meaning": "the prescription",
+     "example": "Ho una ricetta per la medicina.",
+     "exampleMeaning": "I have a prescription for the medicine."
+    },
+    {
+     "text": "il farmaco",
+     "meaning": "the drug",
+     "example": "Questo farmaco è efficace.",
+     "exampleMeaning": "This drug is effective."
+    },
+    {
+     "text": "le istruzioni",
+     "meaning": "the instructions",
+     "example": "Leggi le istruzioni della medicina.",
+     "exampleMeaning": "Read the instructions of the medicine."
+    },
+    {
+     "text": "prendere",
+     "meaning": "to take",
+     "example": "Devo prendere la medicina.",
+     "exampleMeaning": "I must take the medicine."
+    }
+   ],
+   "tip": "When you need medicine, you can say 'Ho bisogno di medicina'. If you have a prescription, say 'Ho una ricetta'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hai la ricetta per la medicina?",
+     "meaning": "Do you have the prescription for the medicine?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, e ho bisogno di prendere il farmaco.",
+     "meaning": "Yes, and I need to take the drug."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai letto le istruzioni?",
+     "meaning": "Did you read the instructions?"
+    },
+    {
+     "speaker": "B",
+     "text": "No, non le ho lette.",
+     "meaning": "No, I haven't read them."
+    },
+    {
+     "speaker": "A",
+     "text": "Dovresti leggere le istruzioni.",
+     "meaning": "You should read the instructions."
+    },
+    {
+     "speaker": "B",
+     "text": "Hai ragione, lo farò.",
+     "meaning": "You’re right, I will do it."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a pharmacist",
+    "learnerRole": "a customer needing medicine",
+    "brief": "You are at the pharmacy. Ask for the medicine and discuss the prescription.",
+    "goal": "You should successfully communicate your needs at the pharmacy."
+   }
+  },
+  {
+   "title": "Giving Health Advice",
+   "items": [
+    {
+     "text": "dormire",
+     "meaning": "to sleep",
+     "example": "Dovresti dormire di più.",
+     "exampleMeaning": "You should sleep more."
+    },
+    {
+     "text": "bere",
+     "meaning": "to drink",
+     "example": "Devi bere molta acqua.",
+     "exampleMeaning": "You must drink a lot of water."
+    },
+    {
+     "text": "mangiare",
+     "meaning": "to eat",
+     "example": "È importante mangiare sano.",
+     "exampleMeaning": "It is important to eat healthy."
+    },
+    {
+     "text": "fare esercizio",
+     "meaning": "to exercise",
+     "example": "Dovresti fare esercizio ogni giorno.",
+     "exampleMeaning": "You should exercise every day."
+    },
+    {
+     "text": "stare attento",
+     "meaning": "to be careful",
+     "example": "Devi stare attento alla tua salute.",
+     "exampleMeaning": "You must be careful with your health."
+    },
+    {
+     "text": "rilassarsi",
+     "meaning": "to relax",
+     "example": "È bene rilassarsi dopo una lunga giornata.",
+     "exampleMeaning": "It is good to relax after a long day."
+    }
+   ],
+   "tip": "When giving advice, use 'Dovresti' for 'You should' or 'Devi' for 'You must'. These phrases help express recommendations clearly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Come posso sentirsi meglio?",
+     "meaning": "How can I feel better?"
+    },
+    {
+     "speaker": "B",
+     "text": "Dovresti dormire di più e bere molta acqua.",
+     "meaning": "You should sleep more and drink a lot of water."
+    },
+    {
+     "speaker": "A",
+     "text": "E per il dolore?",
+     "meaning": "And for the pain?"
+    },
+    {
+     "speaker": "B",
+     "text": "Devi mangiare sano e fare esercizio.",
+     "meaning": "You must eat healthy and exercise."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accordo, grazie!",
+     "meaning": "Okay, thank you!"
+    },
+    {
+     "speaker": "B",
+     "text": "Stai attento alla tua salute!",
+     "meaning": "Be careful with your health!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend giving health advice",
+    "learnerRole": "someone seeking advice",
+    "brief": "You are asking a friend for health advice. Use the phrases to suggest solutions.",
+    "goal": "You should give and receive health advice effectively."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review: Health and the Doctor",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Ciao! Come stai?",
+    "meaning": "Hi! How are you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Non bene. Mi fa male la gamba.",
+    "meaning": "Not well. My leg hurts."
+   },
+   {
+    "speaker": "A",
+    "text": "Hai visto il dottore?",
+    "meaning": "Have you seen the doctor?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sì, ho una ricetta per la medicina.",
+    "meaning": "Yes, I have a prescription for the medicine."
+   },
+   {
+    "speaker": "A",
+    "text": "Dovresti bere molta acqua.",
+    "meaning": "You should drink a lot of water."
+   },
+   {
+    "speaker": "B",
+    "text": "E mangiare sano, giusto?",
+    "meaning": "And eat healthy, right?"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a friend checking on your health",
+   "learnerRole": "someone discussing their health and advice",
+   "brief": "You are reviewing what you learned about health. Discuss your symptoms and advice with a friend.",
+   "goal": "You should practice discussing health topics and advice."
+  }
+ }
+}

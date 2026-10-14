@@ -114,7 +114,7 @@ export function EliteScreen() {
                   language,
                   name: FABALITA.name,
                 })
-              : t('Learn German, French or Spanish in {days} days, with {name}.', {
+              : t('Learn German, French, Spanish or Italian in {days} days, with {name}.', {
                   days: COURSE_DAYS,
                   name: FABALITA.name,
                 })}

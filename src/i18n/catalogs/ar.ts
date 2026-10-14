@@ -483,8 +483,6 @@ export const ar: Catalog = {
   'Back to the course': 'العودة إلى الدورة',
   'This lesson could not be found': 'تعذّر العثور على هذا الدرس',
   Tip: 'نصيحة',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية عبر الإنجليزية في 60 يومًا مع مدرب ذكاء اصطناعي. اليوم الأول مجاني.',
   'Shows the language courses with an AI coach': 'يعرض دورات اللغات مع مدرب الذكاء الاصطناعي',
   'Correct!': 'صحيح!',
   'Not quite': 'ليس تمامًا',
@@ -604,8 +602,6 @@ export const ar: Catalog = {
     'تعذّر الوصول إلى Elite على هذا الجهاز. تقدّمك محفوظ، ويمكنك المحاولة لاحقًا.',
   'Not now': 'ليس الآن',
   'Unlock Day {day} and the full course': 'افتح اليوم {day} والدورة كاملة',
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'بلا إعلانات، مع أكاديمية الذكاء الاصطناعي كاملة',
   'Reset the AI Academy?': 'إعادة تعيين أكاديمية الذكاء الاصطناعي؟',
@@ -741,8 +737,6 @@ export const ar: Catalog = {
   'Ready: a written test, then a conversation with {name}.':
     'جاهز: اختبار كتابي، ثم محادثة مع {name}.',
   'All {days} days of {language}, with {name}.': 'كل أيام {language} الـ{days}، مع {name}.',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية في {days} يومًا، مع {name}.',
   '{name} is marking the conversation…': '{name} تقيّم المحادثة…',
   'From {name}': 'من {name}',
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -796,6 +790,12 @@ export const ar: Catalog = {
   'Tap a word': 'اضغط على كلمة',
   'Tap its meaning': 'اضغط على معناها',
   '{count} of {total} pairs matched': 'تمت مطابقة {count} من {total} أزواج',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية من الإنجليزية في 60 يومًا مع مدرب ذكي. اليوم الأول مجاني.',
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية في {days} يومًا، مع {name}.',
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

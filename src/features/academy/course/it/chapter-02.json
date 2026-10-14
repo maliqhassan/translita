@@ -1,0 +1,418 @@
+{
+ "id": "c02",
+ "number": 2,
+ "title": "At the café",
+ "lessons": [
+  {
+   "id": "c02-d1",
+   "day": 6,
+   "title": "Ordering Drinks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d1-i1",
+     "text": "un caffè",
+     "meaning": "a coffee",
+     "example": "Vorrei un caffè, per favore.",
+     "exampleMeaning": "I would like a coffee, please."
+    },
+    {
+     "id": "c02-d1-i2",
+     "text": "un tè",
+     "meaning": "a tea",
+     "example": "Posso avere un tè?",
+     "exampleMeaning": "Can I have a tea?"
+    },
+    {
+     "id": "c02-d1-i3",
+     "text": "un succo",
+     "meaning": "a juice",
+     "example": "Prendo un succo d'arancia.",
+     "exampleMeaning": "I'll have an orange juice."
+    },
+    {
+     "id": "c02-d1-i4",
+     "text": "una bottiglia d'acqua",
+     "meaning": "a bottle of water",
+     "example": "Mi porta una bottiglia d'acqua, per favore?",
+     "exampleMeaning": "Can you bring me a bottle of water, please?"
+    },
+    {
+     "id": "c02-d1-i5",
+     "text": "per favore",
+     "meaning": "please",
+     "example": "Puoi passarmi il menu, per favore?",
+     "exampleMeaning": "Can you pass me the menu, please?"
+    },
+    {
+     "id": "c02-d1-i6",
+     "text": "grazie",
+     "meaning": "thank you",
+     "example": "Grazie per il caffè!",
+     "exampleMeaning": "Thank you for the coffee!"
+    }
+   ],
+   "tip": "Use 'per favore' to be polite when ordering. Always say 'grazie' after receiving something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ciao! Cosa vuoi ordinare?",
+     "meaning": "Hi! What do you want to order?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vorrei un caffè, per favore.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "E da bere?",
+     "meaning": "And to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prendo un succo d'arancia.",
+     "meaning": "I'll have an orange juice."
+    },
+    {
+     "speaker": "A",
+     "text": "Vuoi anche dell'acqua?",
+     "meaning": "Do you also want some water?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, una bottiglia d'acqua, per favore.",
+     "meaning": "Yes, a bottle of water, please."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a café worker taking an order",
+    "learnerRole": "a customer ordering drinks",
+    "brief": "You are at a café. Ask for a coffee, an orange juice, and a bottle of water. Use polite phrases.",
+    "goal": "You should successfully order your drinks."
+   }
+  },
+  {
+   "id": "c02-d2",
+   "day": 7,
+   "title": "Ordering Food",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d2-i1",
+     "text": "un panino",
+     "meaning": "a sandwich",
+     "example": "Vorrei un panino, per favore.",
+     "exampleMeaning": "I would like a sandwich, please."
+    },
+    {
+     "id": "c02-d2-i2",
+     "text": "una pizza",
+     "meaning": "a pizza",
+     "example": "Prendo una pizza margherita.",
+     "exampleMeaning": "I'll have a margherita pizza."
+    },
+    {
+     "id": "c02-d2-i3",
+     "text": "una pasta",
+     "meaning": "a pasta",
+     "example": "Posso avere una pasta?",
+     "exampleMeaning": "Can I have a pasta?"
+    },
+    {
+     "id": "c02-d2-i4",
+     "text": "un dolce",
+     "meaning": "a dessert",
+     "example": "Vorrei un dolce, per favore.",
+     "exampleMeaning": "I would like a dessert, please."
+    },
+    {
+     "id": "c02-d2-i5",
+     "text": "quanto costa?",
+     "meaning": "how much does it cost?",
+     "example": "Quanto costa un panino?",
+     "exampleMeaning": "How much does a sandwich cost?"
+    },
+    {
+     "id": "c02-d2-i6",
+     "text": "buono",
+     "meaning": "good",
+     "example": "Questo dolce è molto buono!",
+     "exampleMeaning": "This dessert is very good!"
+    }
+   ],
+   "tip": "Use 'quanto costa?' to ask for prices. Remember to say 'buono' if you like the food.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Che cosa vuoi mangiare?",
+     "meaning": "What do you want to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vorrei un panino, per favore.",
+     "meaning": "I would like a sandwich, please."
+    },
+    {
+     "speaker": "A",
+     "text": "E per dessert?",
+     "meaning": "And for dessert?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prendo un dolce, grazie.",
+     "meaning": "I'll have a dessert, thank you."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto costa una pizza?",
+     "meaning": "How much does a pizza cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Non lo so, ma è buono!",
+     "meaning": "I don’t know, but it’s good!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a café worker taking an order",
+    "learnerRole": "a customer ordering food",
+    "brief": "You are at a café. Ask for a sandwich and a dessert. Ask about the price of a pizza.",
+    "goal": "You should successfully order your food."
+   }
+  },
+  {
+   "id": "c02-d3",
+   "day": 8,
+   "title": "Using Numbers",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d3-i1",
+     "text": "uno",
+     "meaning": "one",
+     "example": "Vorrei uno, per favore.",
+     "exampleMeaning": "I would like one, please."
+    },
+    {
+     "id": "c02-d3-i2",
+     "text": "due",
+     "meaning": "two",
+     "example": "Prendo due caffè.",
+     "exampleMeaning": "I'll have two coffees."
+    },
+    {
+     "id": "c02-d3-i3",
+     "text": "tre",
+     "meaning": "three",
+     "example": "Ci sono tre dolci.",
+     "exampleMeaning": "There are three desserts."
+    },
+    {
+     "id": "c02-d3-i4",
+     "text": "quattro",
+     "meaning": "four",
+     "example": "Vorrei quattro panini.",
+     "exampleMeaning": "I would like four sandwiches."
+    },
+    {
+     "id": "c02-d3-i5",
+     "text": "cinque",
+     "meaning": "five",
+     "example": "Ho cinque euro.",
+     "exampleMeaning": "I have five euros."
+    },
+    {
+     "id": "c02-d3-i6",
+     "text": "dieci",
+     "meaning": "ten",
+     "example": "Dieci euro, per favore.",
+     "exampleMeaning": "Ten euros, please."
+    }
+   ],
+   "tip": "Numbers are important for ordering. Learn how to count from one to ten to help with prices and quantities.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quanti caffè vuoi?",
+     "meaning": "How many coffees do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prendo due caffè.",
+     "meaning": "I'll have two coffees."
+    },
+    {
+     "speaker": "A",
+     "text": "E quanti panini?",
+     "meaning": "And how many sandwiches?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vorrei quattro panini, per favore.",
+     "meaning": "I would like four sandwiches, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai abbastanza soldi?",
+     "meaning": "Do you have enough money?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho cinque euro.",
+     "meaning": "Yes, I have five euros."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a café worker taking an order",
+    "learnerRole": "a customer ordering food and drinks",
+    "brief": "You are at a café. Order two coffees and four sandwiches. Confirm you have enough money.",
+    "goal": "You should successfully order your items using numbers."
+   }
+  },
+  {
+   "id": "c02-d4",
+   "day": 9,
+   "title": "Polite Conversations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d4-i1",
+     "text": "scusi",
+     "meaning": "excuse me",
+     "example": "Scusi, dove è il bagno?",
+     "exampleMeaning": "Excuse me, where is the bathroom?"
+    },
+    {
+     "id": "c02-d4-i2",
+     "text": "mi scusi",
+     "meaning": "I’m sorry",
+     "example": "Mi scusi, non ho capito.",
+     "exampleMeaning": "I’m sorry, I didn’t understand."
+    },
+    {
+     "id": "c02-d4-i3",
+     "text": "è possibile?",
+     "meaning": "is it possible?",
+     "example": "È possibile avere il menù?",
+     "exampleMeaning": "Is it possible to have the menu?"
+    },
+    {
+     "id": "c02-d4-i4",
+     "text": "non capisco",
+     "meaning": "I don’t understand",
+     "example": "Non capisco il prezzo.",
+     "exampleMeaning": "I don’t understand the price."
+    },
+    {
+     "id": "c02-d4-i5",
+     "text": "può aiutarmi?",
+     "meaning": "can you help me?",
+     "example": "Può aiutarmi con il menù?",
+     "exampleMeaning": "Can you help me with the menu?"
+    },
+    {
+     "id": "c02-d4-i6",
+     "text": "per favore, ripeta",
+     "meaning": "please repeat",
+     "example": "Per favore, ripeta la domanda.",
+     "exampleMeaning": "Please repeat the question."
+    }
+   ],
+   "tip": "Use 'scusi' to get someone's attention politely. If you don’t understand, say 'non capisco'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Scusi, posso avere il menù?",
+     "meaning": "Excuse me, can I have the menu?"
+    },
+    {
+     "speaker": "B",
+     "text": "Certo! Ecco il menù.",
+     "meaning": "Of course! Here is the menu."
+    },
+    {
+     "speaker": "A",
+     "text": "Mi scusi, non capisco il prezzo.",
+     "meaning": "I’m sorry, I don’t understand the price."
+    },
+    {
+     "speaker": "B",
+     "text": "È dieci euro.",
+     "meaning": "It is ten euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Può aiutarmi con il menù?",
+     "meaning": "Can you help me with the menu?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, per favore, ripeta la domanda.",
+     "meaning": "Yes, please repeat the question."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a café worker helping a customer",
+    "learnerRole": "a customer asking for help",
+    "brief": "You are at a café. Ask for the menu and for help with understanding the prices.",
+    "goal": "You should successfully ask for help politely."
+   }
+  },
+  {
+   "id": "c02-d5",
+   "day": 10,
+   "title": "Chapter 2 Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ciao! Cosa vuoi ordinare?",
+     "meaning": "Hi! What do you want to order?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vorrei un tè, per favore.",
+     "meaning": "I would like a tea, please."
+    },
+    {
+     "speaker": "A",
+     "text": "E per mangiare?",
+     "meaning": "And to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prendo una pizza margherita.",
+     "meaning": "I'll have a margherita pizza."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto costa?",
+     "meaning": "How much does it cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "È dieci euro.",
+     "meaning": "It is ten euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Scusi, dove è il bagno?",
+     "meaning": "Excuse me, where is the bathroom?"
+    },
+    {
+     "speaker": "B",
+     "text": "È lì, a sinistra.",
+     "meaning": "It is there, on the left."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a café worker and a customer",
+    "learnerRole": "a customer ordering food and drinks",
+    "brief": "You are at a café. You will order drinks and food, ask about prices, and inquire about the bathroom.",
+    "goal": "You should successfully navigate a conversation at the café."
+   }
+  }
+ ]
+}

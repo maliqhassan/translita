@@ -1,0 +1,366 @@
+{
+ "title": "Making Plans",
+ "lessons": [
+  {
+   "title": "Let's Make Plans!",
+   "items": [
+    {
+     "text": "domani",
+     "meaning": "tomorrow",
+     "example": "Andiamo al cinema domani.",
+     "exampleMeaning": "Let's go to the cinema tomorrow."
+    },
+    {
+     "text": "sabato",
+     "meaning": "Saturday",
+     "example": "Sabato ho una festa.",
+     "exampleMeaning": "On Saturday, I have a party."
+    },
+    {
+     "text": "ci vediamo",
+     "meaning": "we'll see each other",
+     "example": "Ci vediamo alle sei.",
+     "exampleMeaning": "We'll see each other at six."
+    },
+    {
+     "text": "vuoi venire?",
+     "meaning": "do you want to come?",
+     "example": "Vuoi venire al parco?",
+     "exampleMeaning": "Do you want to come to the park?"
+    },
+    {
+     "text": "che ne dici di...",
+     "meaning": "what do you think of...",
+     "example": "Che ne dici di andare a cena?",
+     "exampleMeaning": "What do you think of going to dinner?"
+    },
+    {
+     "text": "d'accordo",
+     "meaning": "agreed",
+     "example": "D'accordo, ci vediamo alle sette.",
+     "exampleMeaning": "Agreed, we'll see each other at seven."
+    }
+   ],
+   "tip": "Use 'domani' to talk about the next day. 'Sabato' is specific to Saturday, so remember to use it when you mean that day.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vuoi venire al cinema domani?",
+     "meaning": "Do you want to come to the cinema tomorrow?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, voglio venire!",
+     "meaning": "Yes, I want to come!"
+    },
+    {
+     "speaker": "A",
+     "text": "Che ne dici di sabato?",
+     "meaning": "What do you think of Saturday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sabato ho una festa.",
+     "meaning": "On Saturday, I have a party."
+    },
+    {
+     "speaker": "A",
+     "text": "D'accordo, ci vediamo domani.",
+     "meaning": "Agreed, we'll see each other tomorrow."
+    },
+    {
+     "speaker": "B",
+     "text": "Perfetto, a domani!",
+     "meaning": "Perfect, see you tomorrow!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your friend who wants to make plans.",
+    "learnerRole": "You, deciding on plans.",
+    "brief": "Ask if they want to go to the cinema tomorrow. Suggest Saturday as an option. Confirm the plan.",
+    "goal": "You should agree on a time to meet."
+   }
+  },
+  {
+   "title": "Invitations and Responses",
+   "items": [
+    {
+     "text": "ti va di...",
+     "meaning": "do you feel like...",
+     "example": "Ti va di andare a cena?",
+     "exampleMeaning": "Do you feel like going to dinner?"
+    },
+    {
+     "text": "suona bene",
+     "meaning": "sounds good",
+     "example": "Suona bene per me!",
+     "exampleMeaning": "Sounds good to me!"
+    },
+    {
+     "text": "non posso",
+     "meaning": "I can't",
+     "example": "Mi dispiace, non posso venire.",
+     "exampleMeaning": "I'm sorry, I can't come."
+    },
+    {
+     "text": "perché no?",
+     "meaning": "why not?",
+     "example": "Perché no? Andiamo insieme!",
+     "exampleMeaning": "Why not? Let's go together!"
+    },
+    {
+     "text": "forse",
+     "meaning": "maybe",
+     "example": "Forse posso venire più tardi.",
+     "exampleMeaning": "Maybe I can come later."
+    },
+    {
+     "text": "aspetta un attimo",
+     "meaning": "wait a moment",
+     "example": "Aspetta un attimo, devo controllare.",
+     "exampleMeaning": "Wait a moment, I need to check."
+    }
+   ],
+   "tip": "Use 'ti va di...' to invite someone to do something. If you can't go, simply say 'non posso'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ti va di andare a cena?",
+     "meaning": "Do you feel like going to dinner?"
+    },
+    {
+     "speaker": "B",
+     "text": "Suona bene, ma non posso stasera.",
+     "meaning": "Sounds good, but I can't tonight."
+    },
+    {
+     "speaker": "A",
+     "text": "Perché no?",
+     "meaning": "Why not?"
+    },
+    {
+     "speaker": "B",
+     "text": "Forse posso venire più tardi.",
+     "meaning": "Maybe I can come later."
+    },
+    {
+     "speaker": "A",
+     "text": "Aspetta un attimo, che ore sono?",
+     "meaning": "Wait a moment, what time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sono le sette.",
+     "meaning": "It's seven o'clock."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your friend inviting you to dinner.",
+    "learnerRole": "You, responding to the invitation.",
+    "brief": "Invite your friend to dinner. Discuss their availability and suggest a different time if needed.",
+    "goal": "You should find a time that works for both of you."
+   }
+  },
+  {
+   "title": "Future Plans",
+   "items": [
+    {
+     "text": "il prossimo weekend",
+     "meaning": "next weekend",
+     "example": "Il prossimo weekend andiamo al mare.",
+     "exampleMeaning": "Next weekend, we are going to the beach."
+    },
+    {
+     "text": "qualche volta",
+     "meaning": "sometimes",
+     "example": "Qualche volta andiamo al cinema.",
+     "exampleMeaning": "Sometimes we go to the cinema."
+    },
+    {
+     "text": "alle otto",
+     "meaning": "at eight",
+     "example": "Ci vediamo alle otto.",
+     "exampleMeaning": "We'll see each other at eight."
+    },
+    {
+     "text": "sì, certo",
+     "meaning": "yes, of course",
+     "example": "Sì, certo, mi piace.",
+     "exampleMeaning": "Yes, of course, I like it."
+    },
+    {
+     "text": "ho già un impegno",
+     "meaning": "I already have an engagement",
+     "example": "Mi dispiace, ho già un impegno.",
+     "exampleMeaning": "I'm sorry, I already have an engagement."
+    },
+    {
+     "text": "va bene",
+     "meaning": "it's fine",
+     "example": "Va bene, ci vediamo dopo.",
+     "exampleMeaning": "It's fine, we'll see each other later."
+    }
+   ],
+   "tip": "Use 'il prossimo weekend' to refer to the weekend that is coming up. Remember to ask 'quando?' to clarify the time.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Il prossimo weekend andiamo al mare.",
+     "meaning": "Next weekend, we are going to the beach."
+    },
+    {
+     "speaker": "B",
+     "text": "Quando ci incontriamo?",
+     "meaning": "When do we meet?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ci vediamo alle otto.",
+     "meaning": "We'll see each other at eight."
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, certo, mi piace!",
+     "meaning": "Yes, of course, I like it!"
+    },
+    {
+     "speaker": "A",
+     "text": "Mi dispiace, ho già un impegno.",
+     "meaning": "I'm sorry, I already have an engagement."
+    },
+    {
+     "speaker": "B",
+     "text": "Va bene, ci vediamo un'altra volta.",
+     "meaning": "It's fine, we'll see each other another time."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend making plans for the weekend.",
+    "learnerRole": "You, discussing the plan.",
+    "brief": "Talk about going to the beach next weekend. Ask when to meet and confirm the time.",
+    "goal": "You should agree on a time to meet for the beach."
+   }
+  },
+  {
+   "title": "Confirming Plans",
+   "items": [
+    {
+     "text": "va bene così",
+     "meaning": "that's fine",
+     "example": "Va bene così, ci vediamo domani.",
+     "exampleMeaning": "That's fine, we'll see each other tomorrow."
+    },
+    {
+     "text": "spero di sì",
+     "meaning": "I hope so",
+     "example": "Spero di sì, di essere libero.",
+     "exampleMeaning": "I hope so, to be free."
+    },
+    {
+     "text": "è un'ottima idea",
+     "meaning": "it's a great idea",
+     "example": "È un'ottima idea andare al cinema.",
+     "exampleMeaning": "It's a great idea to go to the cinema."
+    },
+    {
+     "text": "fai sapere",
+     "meaning": "let me know",
+     "example": "Fai sapere se puoi venire.",
+     "exampleMeaning": "Let me know if you can come."
+    },
+    {
+     "text": "mi fa piacere",
+     "meaning": "I’m happy to hear that",
+     "example": "Mi fa piacere che vieni!",
+     "exampleMeaning": "I’m happy to hear that you are coming!"
+    },
+    {
+     "text": "ci conto",
+     "meaning": "I count on it",
+     "example": "Ci conto, ci vediamo domani!",
+     "exampleMeaning": "I count on it, we'll see each other tomorrow!"
+    }
+   ],
+   "tip": "Use 'va bene così' to confirm plans. If you are happy about something, say 'mi fa piacere'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Va bene così, ci vediamo domani!",
+     "meaning": "That's fine, we'll see each other tomorrow!"
+    },
+    {
+     "speaker": "B",
+     "text": "Spero di sì, di essere libero.",
+     "meaning": "I hope so, to be free."
+    },
+    {
+     "speaker": "A",
+     "text": "È un'ottima idea andare al cinema.",
+     "meaning": "It's a great idea to go to the cinema."
+    },
+    {
+     "speaker": "B",
+     "text": "Fai sapere se puoi venire.",
+     "meaning": "Let me know if you can come."
+    },
+    {
+     "speaker": "A",
+     "text": "Mi fa piacere che vieni!",
+     "meaning": "I’m happy to hear that you are coming!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ci conto, ci vediamo domani!",
+     "meaning": "I count on it, we'll see each other tomorrow!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your friend confirming plans.",
+    "learnerRole": "You, agreeing and confirming the details.",
+    "brief": "Discuss the plans for tomorrow. Confirm the time and express your happiness about the meeting.",
+    "goal": "You should confirm the plans and express your excitement."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Making Plans",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Che ne dici di andare a cena?",
+    "meaning": "What do you think of going to dinner?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ti va di venire al parco domani?",
+    "meaning": "Do you feel like coming to the park tomorrow?"
+   },
+   {
+    "speaker": "A",
+    "text": "Suona bene, ma non posso.",
+    "meaning": "Sounds good, but I can't."
+   },
+   {
+    "speaker": "B",
+    "text": "Va bene, ci vediamo il prossimo weekend.",
+    "meaning": "That's fine, we'll see each other next weekend."
+   },
+   {
+    "speaker": "A",
+    "text": "Quando ci incontriamo?",
+    "meaning": "When do we meet?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ci vediamo alle sette, d'accordo!",
+    "meaning": "We'll see each other at seven, agreed!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "Your friend making plans for the weekend.",
+   "learnerRole": "You, discussing the plan.",
+   "brief": "Discuss possible plans for the weekend and confirm a meeting time.",
+   "goal": "You should agree on a time to meet."
+  }
+ }
+}

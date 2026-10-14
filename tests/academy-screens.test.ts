@@ -128,7 +128,7 @@ describe('the lesson player', () => {
 
 describe('finding lessons', () => {
   it('finds a lesson by id and by day, per course', () => {
-    for (const courseId of ['de', 'fr', 'es']) {
+    for (const courseId of ['de', 'fr', 'es', 'it']) {
       const first = courseLessons(courseId)[0];
       assert.ok(first, courseId);
       assert.equal(findLesson(courseId, first.id)?.day, 1);

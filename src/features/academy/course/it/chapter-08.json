@@ -1,0 +1,428 @@
+{
+ "id": "c08",
+ "number": 8,
+ "title": "At Work",
+ "lessons": [
+  {
+   "id": "c08-d1",
+   "day": 36,
+   "title": "Daily Routine",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d1-i1",
+     "text": "il lavoro",
+     "meaning": "the work",
+     "example": "Il lavoro inizia alle nove.",
+     "exampleMeaning": "The work starts at nine."
+    },
+    {
+     "id": "c08-d1-i2",
+     "text": "l'ufficio",
+     "meaning": "the office",
+     "example": "L'ufficio è grande.",
+     "exampleMeaning": "The office is big."
+    },
+    {
+     "id": "c08-d1-i3",
+     "text": "la pausa",
+     "meaning": "the break",
+     "example": "Ho una pausa alle undici.",
+     "exampleMeaning": "I have a break at eleven."
+    },
+    {
+     "id": "c08-d1-i4",
+     "text": "il collega",
+     "meaning": "the colleague",
+     "example": "Il collega è simpatico.",
+     "exampleMeaning": "The colleague is nice."
+    },
+    {
+     "id": "c08-d1-i5",
+     "text": "l'orario",
+     "meaning": "the schedule",
+     "example": "L'orario è importante.",
+     "exampleMeaning": "The schedule is important."
+    },
+    {
+     "id": "c08-d1-i6",
+     "text": "il progetto",
+     "meaning": "the project",
+     "example": "Il progetto è interessante.",
+     "exampleMeaning": "The project is interesting."
+    }
+   ],
+   "tip": "In Italian, nouns have gender. 'Il' is used for masculine nouns, like 'il lavoro', while 'la' is for feminine nouns, like 'la pausa'. Remember this when using articles.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "A che ora inizia il lavoro?",
+     "meaning": "What time does the work start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Inizia alle nove.",
+     "meaning": "It starts at nine."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove si trova l'ufficio?",
+     "meaning": "Where is the office?"
+    },
+    {
+     "speaker": "B",
+     "text": "L'ufficio è qui vicino.",
+     "meaning": "The office is nearby."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai una pausa oggi?",
+     "meaning": "Do you have a break today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho una pausa alle undici.",
+     "meaning": "Yes, I have a break at eleven."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your partner is a colleague who wants to talk about work.",
+    "learnerRole": "You are a new employee.",
+    "brief": "Ask questions about the work schedule and office details. Respond to your colleague's questions.",
+    "goal": "You need to understand the daily routine at work."
+   }
+  },
+  {
+   "id": "c08-d2",
+   "day": 37,
+   "title": "Meetings",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d2-i1",
+     "text": "la riunione",
+     "meaning": "the meeting",
+     "example": "La riunione è alle dieci.",
+     "exampleMeaning": "The meeting is at ten."
+    },
+    {
+     "id": "c08-d2-i2",
+     "text": "discutere",
+     "meaning": "to discuss",
+     "example": "Dobbiamo discutere il progetto.",
+     "exampleMeaning": "We need to discuss the project."
+    },
+    {
+     "id": "c08-d2-i3",
+     "text": "il documento",
+     "meaning": "the document",
+     "example": "Ho il documento per la riunione.",
+     "exampleMeaning": "I have the document for the meeting."
+    },
+    {
+     "id": "c08-d2-i4",
+     "text": "partecipare",
+     "meaning": "to participate",
+     "example": "Voglio partecipare alla riunione.",
+     "exampleMeaning": "I want to participate in the meeting."
+    },
+    {
+     "id": "c08-d2-i5",
+     "text": "l'agenda",
+     "meaning": "the agenda",
+     "example": "Qual è l'agenda della riunione?",
+     "exampleMeaning": "What is the agenda of the meeting?"
+    },
+    {
+     "id": "c08-d2-i6",
+     "text": "il relatore",
+     "meaning": "the speaker",
+     "example": "Il relatore è molto preparato.",
+     "exampleMeaning": "The speaker is very prepared."
+    }
+   ],
+   "tip": "When talking about meetings, use 'la' for feminine nouns like 'la riunione' and 'l'agenda'. This helps you use the right articles.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "A che ora è la riunione?",
+     "meaning": "What time is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "È alle dieci.",
+     "meaning": "It is at ten."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai il documento per la riunione?",
+     "meaning": "Do you have the document for the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho il documento.",
+     "meaning": "Yes, I have the document."
+    },
+    {
+     "speaker": "A",
+     "text": "Vuoi partecipare alla riunione?",
+     "meaning": "Do you want to participate in the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, voglio partecipare.",
+     "meaning": "Yes, I want to participate."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your partner is a team leader preparing for a meeting.",
+    "learnerRole": "You are a team member.",
+    "brief": "Ask about the meeting time and documents. Discuss your participation.",
+    "goal": "You need to confirm your role in the meeting."
+   }
+  },
+  {
+   "id": "c08-d3",
+   "day": 38,
+   "title": "Daily Tasks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d3-i1",
+     "text": "il compito",
+     "meaning": "the task",
+     "example": "Ho un compito da fare.",
+     "exampleMeaning": "I have a task to do."
+    },
+    {
+     "id": "c08-d3-i2",
+     "text": "organizzare",
+     "meaning": "to organize",
+     "example": "Devo organizzare il lavoro.",
+     "exampleMeaning": "I need to organize the work."
+    },
+    {
+     "id": "c08-d3-i3",
+     "text": "la scadenza",
+     "meaning": "the deadline",
+     "example": "La scadenza è venerdì.",
+     "exampleMeaning": "The deadline is Friday."
+    },
+    {
+     "id": "c08-d3-i4",
+     "text": "il cliente",
+     "meaning": "the client",
+     "example": "Il cliente è soddisfatto.",
+     "exampleMeaning": "The client is satisfied."
+    },
+    {
+     "id": "c08-d3-i5",
+     "text": "comunicare",
+     "meaning": "to communicate",
+     "example": "Dobbiamo comunicare con il cliente.",
+     "exampleMeaning": "We need to communicate with the client."
+    },
+    {
+     "id": "c08-d3-i6",
+     "text": "la risposta",
+     "meaning": "the response",
+     "example": "Aspetto la risposta del cliente.",
+     "exampleMeaning": "I am waiting for the client's response."
+    }
+   ],
+   "tip": "Remember that 'il' is used for masculine nouns like 'il compito' and 'il cliente'. Use 'la' for feminine nouns like 'la scadenza' and 'la risposta'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual è il compito di oggi?",
+     "meaning": "What is today's task?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ho un compito da fare.",
+     "meaning": "I have a task to do."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando è la scadenza?",
+     "meaning": "When is the deadline?"
+    },
+    {
+     "speaker": "B",
+     "text": "La scadenza è venerdì.",
+     "meaning": "The deadline is Friday."
+    },
+    {
+     "speaker": "A",
+     "text": "Dobbiamo comunicare con il cliente?",
+     "meaning": "Do we need to communicate with the client?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, dobbiamo comunicare.",
+     "meaning": "Yes, we need to communicate."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your partner is a project manager assigning tasks.",
+    "learnerRole": "You are a team member.",
+    "brief": "Discuss daily tasks and deadlines with your partner.",
+    "goal": "You need to understand your tasks and deadlines."
+   }
+  },
+  {
+   "id": "c08-d4",
+   "day": 39,
+   "title": "Work Schedule",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d4-i1",
+     "text": "l'orario di lavoro",
+     "meaning": "the work schedule",
+     "example": "Qual è l'orario di lavoro?",
+     "exampleMeaning": "What is the work schedule?"
+    },
+    {
+     "id": "c08-d4-i2",
+     "text": "il turno",
+     "meaning": "the shift",
+     "example": "Il mio turno è di mattina.",
+     "exampleMeaning": "My shift is in the morning."
+    },
+    {
+     "id": "c08-d4-i3",
+     "text": "la settimana",
+     "meaning": "the week",
+     "example": "La settimana inizia lunedì.",
+     "exampleMeaning": "The week starts on Monday."
+    },
+    {
+     "id": "c08-d4-i4",
+     "text": "il giorno",
+     "meaning": "the day",
+     "example": "Oggi è giovedì.",
+     "exampleMeaning": "Today is Thursday."
+    },
+    {
+     "id": "c08-d4-i5",
+     "text": "l'ora",
+     "meaning": "the hour",
+     "example": "A che ora finisce il lavoro?",
+     "exampleMeaning": "What time does work finish?"
+    },
+    {
+     "id": "c08-d4-i6",
+     "text": "il giorno libero",
+     "meaning": "the day off",
+     "example": "Ho un giorno libero sabato.",
+     "exampleMeaning": "I have a day off on Saturday."
+    }
+   ],
+   "tip": "Use 'il' for masculine nouns like 'il turno' and 'il giorno'. Use 'la' for feminine nouns like 'la settimana' and 'l'ora'. This will help you form correct sentences.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual è l'orario di lavoro?",
+     "meaning": "What is the work schedule?"
+    },
+    {
+     "speaker": "B",
+     "text": "L'orario di lavoro è dalle nove alle cinque.",
+     "meaning": "The work schedule is from nine to five."
+    },
+    {
+     "speaker": "A",
+     "text": "A che ora inizia il turno?",
+     "meaning": "What time does the shift start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il turno inizia alle nove.",
+     "meaning": "The shift starts at nine."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando è il tuo giorno libero?",
+     "meaning": "When is your day off?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il mio giorno libero è sabato.",
+     "meaning": "My day off is Saturday."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your partner is a supervisor discussing schedules.",
+    "learnerRole": "You are an employee.",
+    "brief": "Ask about the work schedule and shifts. Discuss your days off.",
+    "goal": "You need to clarify your work schedule."
+   }
+  },
+  {
+   "id": "c08-d5",
+   "day": 40,
+   "title": "Review: At Work",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "A che ora inizia il lavoro?",
+     "meaning": "What time does the work start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Inizia alle nove.",
+     "meaning": "It starts at nine."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove si trova l'ufficio?",
+     "meaning": "Where is the office?"
+    },
+    {
+     "speaker": "B",
+     "text": "L'ufficio è qui vicino.",
+     "meaning": "The office is nearby."
+    },
+    {
+     "speaker": "A",
+     "text": "A che ora è la riunione?",
+     "meaning": "What time is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "È alle dieci.",
+     "meaning": "It is at ten."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual è il compito di oggi?",
+     "meaning": "What is today's task?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ho un compito da fare.",
+     "meaning": "I have a task to do."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando è la scadenza?",
+     "meaning": "When is the deadline?"
+    },
+    {
+     "speaker": "B",
+     "text": "La scadenza è venerdì.",
+     "meaning": "The deadline is Friday."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your partner is a colleague reviewing the chapter.",
+    "learnerRole": "You are a learner.",
+    "brief": "Engage in a conversation about work, meetings, tasks, and schedules.",
+    "goal": "You need to demonstrate your understanding of the vocabulary from the chapter."
+   }
+  }
+ ]
+}

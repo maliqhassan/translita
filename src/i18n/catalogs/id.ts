@@ -497,8 +497,6 @@ export const id: Catalog = {
   'Back to the course': 'Kembali ke kursus',
   'This lesson could not be found': 'Pelajaran ini tidak ditemukan',
   Tip: 'Tips',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    'Belajar bahasa Jerman, Prancis, atau Spanyol dari bahasa Inggris dalam 60 hari, dengan pelatih AI. Hari 1 gratis.',
   'Shows the language courses with an AI coach': 'Menampilkan kursus bahasa dengan pelatih AI',
   'Correct!': 'Benar!',
   'Not quite': 'Belum tepat',
@@ -620,8 +618,6 @@ export const id: Catalog = {
     'Elite tidak dapat dijangkau di perangkat ini. Progresmu tersimpan, coba lagi nanti.',
   'Not now': 'Nanti saja',
   'Unlock Day {day} and the full course': 'Buka Hari {day} dan seluruh kursus',
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Belajar bahasa Jerman, Prancis, atau Spanyol dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   Elite: 'Elite',
   'No ads, and the full AI Academy': 'Tanpa iklan, dan AI Academy lengkap',
   'Reset the AI Academy?': 'Atur ulang AI Academy?',
@@ -763,8 +759,6 @@ export const id: Catalog = {
   'Ready: a written test, then a conversation with {name}.':
     'Siap: tes tertulis, lalu percakapan dengan {name}.',
   'All {days} days of {language}, with {name}.': 'Seluruh {days} hari {language}, bersama {name}.',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    'Belajar bahasa Jerman, Prancis, atau Spanyol dalam {days} hari, bersama {name}.',
   '{name} is marking the conversation…': '{name} sedang menilai percakapan…',
   'From {name}': 'Dari {name}',
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -820,6 +814,12 @@ export const id: Catalog = {
   'Tap a word': 'Ketuk kata',
   'Tap its meaning': 'Ketuk artinya',
   '{count} of {total} pairs matched': '{count} dari {total} pasangan cocok',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dari bahasa Inggris dalam 60 hari, bersama pelatih AI. Hari 1 gratis.',
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dalam {days} hari, bersama {name}.',
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

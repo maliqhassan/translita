@@ -493,8 +493,6 @@ export const tr: Catalog = {
   'Back to the course': 'Kursa dön',
   'This lesson could not be found': 'Bu ders bulunamadı',
   Tip: 'İpucu',
-  'Learn German, French or Spanish from English in 60 days, with an AI coach. Day 1 is free.':
-    'Bir yapay zekâ koçuyla İngilizce üzerinden 60 günde Almanca, Fransızca veya İspanyolca öğrenin. 1. gün ücretsiz.',
   'Shows the language courses with an AI coach': 'Yapay zekâ koçlu dil kurslarını gösterir',
   'Correct!': 'Doğru!',
   'Not quite': 'Tam değil',
@@ -615,8 +613,6 @@ export const tr: Catalog = {
     "Bu cihazda Elite'e ulaşılamadı. İlerlemen kaydedildi, daha sonra yeniden deneyebilirsin.",
   'Not now': 'Şimdi değil',
   'Unlock Day {day} and the full course': "Gün {day}'i ve tüm kursu aç",
-  'Learn German, French or Spanish with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    "Yapay zekâ koçuyla Almanca, Fransızca veya İspanyolca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   Elite: 'Elite',
   'No ads, and the full AI Academy': "Reklam yok ve Yapay Zekâ Akademisi'nin tamamı",
   'Reset the AI Academy?': 'Yapay Zekâ Akademisi sıfırlansın mı?',
@@ -754,8 +750,6 @@ export const tr: Catalog = {
   'Ready: a written test, then a conversation with {name}.':
     'Hazır: önce yazılı sınav, sonra {name} ile konuşma.',
   'All {days} days of {language}, with {name}.': '{language} için {days} günün tamamı, {name} ile.',
-  'Learn German, French or Spanish in {days} days, with {name}.':
-    '{days} günde Almanca, Fransızca veya İspanyolca öğren, {name} ile.',
   '{name} is marking the conversation…': '{name} konuşmayı değerlendiriyor…',
   'From {name}': "{name}'dan",
   'Talk with {name} about your day out. It is marked on vocabulary, grammar, fluency, understanding and getting it done.':
@@ -810,6 +804,12 @@ export const tr: Catalog = {
   'Tap a word': 'Kelimeye dokun',
   'Tap its meaning': 'Anlamına dokun',
   '{count} of {total} pairs matched': '{total} eşten {count} tanesi bulundu',
+  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
+    'İngilizce üzerinden 60 günde Almanca, Fransızca, İspanyolca veya İtalyanca öğren, yapay zekâ koçuyla. 1. gün ücretsiz.',
+  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
+    '{days} günde Almanca, Fransızca, İspanyolca veya İtalyanca öğren, {name} ile.',
+  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    "Yapay zekâ koçuyla Almanca, Fransızca, İspanyolca veya İtalyanca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

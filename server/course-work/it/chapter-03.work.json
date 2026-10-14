@@ -1,0 +1,376 @@
+{
+ "title": "Shopping",
+ "lessons": [
+  {
+   "title": "What's the Price?",
+   "items": [
+    {
+     "text": "questo",
+     "meaning": "this",
+     "example": "Questo è bello.",
+     "exampleMeaning": "This is nice."
+    },
+    {
+     "text": "quello",
+     "meaning": "that",
+     "example": "Quello è costoso.",
+     "exampleMeaning": "That is expensive."
+    },
+    {
+     "text": "quanto?",
+     "meaning": "how much?",
+     "example": "Quanto costa questo?",
+     "exampleMeaning": "How much does this cost?"
+    },
+    {
+     "text": "il prezzo",
+     "meaning": "the price",
+     "example": "Qual è il prezzo?",
+     "exampleMeaning": "What is the price?"
+    },
+    {
+     "text": "costa",
+     "meaning": "costs",
+     "example": "Questo costa dieci euro.",
+     "exampleMeaning": "This costs ten euros."
+    },
+    {
+     "text": "euro",
+     "meaning": "euros",
+     "example": "Ho venti euro.",
+     "exampleMeaning": "I have twenty euros."
+    }
+   ],
+   "tip": "Use 'questo' for things that are near you and 'quello' for things that are farther away. Remember to match the words with the gender of the noun they describe.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quanto costa questo?",
+     "meaning": "How much does this cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Questo costa cinque euro.",
+     "meaning": "This costs five euros."
+    },
+    {
+     "speaker": "A",
+     "text": "E quello?",
+     "meaning": "And that?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quello costa dieci euro.",
+     "meaning": "That costs ten euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual è il prezzo?",
+     "meaning": "What is the price?"
+    },
+    {
+     "speaker": "B",
+     "text": "Il prezzo è quindici euro.",
+     "meaning": "The price is fifteen euros."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant helping a customer.",
+    "learnerRole": "a customer asking about prices.",
+    "brief": "Ask about the prices of items in the shop. Use 'questo' and 'quello' for things nearby and farther away.",
+    "goal": "You will ask for the prices of different items."
+   }
+  },
+  {
+   "title": "Colors and Sizes",
+   "items": [
+    {
+     "text": "rosso",
+     "meaning": "red",
+     "example": "Questa maglietta è rossa.",
+     "exampleMeaning": "This t-shirt is red."
+    },
+    {
+     "text": "blu",
+     "meaning": "blue",
+     "example": "Quella borsa è blu.",
+     "exampleMeaning": "That bag is blue."
+    },
+    {
+     "text": "grande",
+     "meaning": "big",
+     "example": "Ho una giacca grande.",
+     "exampleMeaning": "I have a big jacket."
+    },
+    {
+     "text": "piccolo",
+     "meaning": "small",
+     "example": "Questo è un libro piccolo.",
+     "exampleMeaning": "This is a small book."
+    },
+    {
+     "text": "bianco",
+     "meaning": "white",
+     "example": "La maglietta è bianca.",
+     "exampleMeaning": "The t-shirt is white."
+    },
+    {
+     "text": "nero",
+     "meaning": "black",
+     "example": "Quella scarpa è nera.",
+     "exampleMeaning": "That shoe is black."
+    }
+   ],
+   "tip": "Colors in Italian agree with the nouns they describe. For example, 'rosso' changes to 'rossa' for feminine nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Di che colore è questa maglietta?",
+     "meaning": "What color is this t-shirt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Questa maglietta è rossa.",
+     "meaning": "This t-shirt is red."
+    },
+    {
+     "speaker": "A",
+     "text": "E quella?",
+     "meaning": "And that one?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quella è blu.",
+     "meaning": "That one is blue."
+    },
+    {
+     "speaker": "A",
+     "text": "Hai una giacca grande?",
+     "meaning": "Do you have a big jacket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ho una giacca grande.",
+     "meaning": "Yes, I have a big jacket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant showing clothes.",
+    "learnerRole": "a customer looking for clothes.",
+    "brief": "Ask about the colors and sizes of clothing items. Use 'grande' and 'piccolo' to describe sizes.",
+    "goal": "You will ask about the colors and sizes of clothing."
+   }
+  },
+  {
+   "title": "Numbers to 100",
+   "items": [
+    {
+     "text": "venti",
+     "meaning": "twenty",
+     "example": "Ho venti euro.",
+     "exampleMeaning": "I have twenty euros."
+    },
+    {
+     "text": "trenta",
+     "meaning": "thirty",
+     "example": "Questo costa trenta euro.",
+     "exampleMeaning": "This costs thirty euros."
+    },
+    {
+     "text": "quaranta",
+     "meaning": "forty",
+     "example": "Ho quaranta euro.",
+     "exampleMeaning": "I have forty euros."
+    },
+    {
+     "text": "cinquanta",
+     "meaning": "fifty",
+     "example": "Quello costa cinquanta euro.",
+     "exampleMeaning": "That costs fifty euros."
+    },
+    {
+     "text": "sessanta",
+     "meaning": "sixty",
+     "example": "Il prezzo è sessanta euro.",
+     "exampleMeaning": "The price is sixty euros."
+    },
+    {
+     "text": "settanta",
+     "meaning": "seventy",
+     "example": "Ho settanta euro.",
+     "exampleMeaning": "I have seventy euros."
+    }
+   ],
+   "tip": "When asking about prices, you can use numbers up to 100. Practice counting in Italian to become more comfortable.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quanto costa questo?",
+     "meaning": "How much does this cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Questo costa trenta euro.",
+     "meaning": "This costs thirty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "E quello?",
+     "meaning": "And that one?"
+    },
+    {
+     "speaker": "B",
+     "text": "Quello costa cinquanta euro.",
+     "meaning": "That costs fifty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Ho quaranta euro.",
+     "meaning": "I have forty euros."
+    },
+    {
+     "speaker": "B",
+     "text": "Il prezzo è sessanta euro.",
+     "meaning": "The price is sixty euros."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant checking prices.",
+    "learnerRole": "a customer asking about item prices.",
+    "brief": "Ask about the prices using numbers and items. Use 'venti', 'trenta', 'quaranta', and others.",
+    "goal": "You will inquire about prices using numbers."
+   }
+  },
+  {
+   "title": "Shopping Conversation",
+   "items": [
+    {
+     "text": "mi piace",
+     "meaning": "I like",
+     "example": "Mi piace questo colore.",
+     "exampleMeaning": "I like this color."
+    },
+    {
+     "text": "compro",
+     "meaning": "I buy",
+     "example": "Compro questa maglietta.",
+     "exampleMeaning": "I buy this t-shirt."
+    },
+    {
+     "text": "posso",
+     "meaning": "can I",
+     "example": "Posso avere quello?",
+     "exampleMeaning": "Can I have that?"
+    },
+    {
+     "text": "perché",
+     "meaning": "why",
+     "example": "Perché è costoso?",
+     "exampleMeaning": "Why is it expensive?"
+    },
+    {
+     "text": "è disponibile",
+     "meaning": "is available",
+     "example": "Questa taglia è disponibile?",
+     "exampleMeaning": "Is this size available?"
+    },
+    {
+     "text": "scelgo",
+     "meaning": "I choose",
+     "example": "Scelgo la borsa rossa.",
+     "exampleMeaning": "I choose the red bag."
+    }
+   ],
+   "tip": "Use 'mi piace' to express what you like. To ask if something is available, use 'è disponibile'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Mi piace questa maglietta.",
+     "meaning": "I like this t-shirt."
+    },
+    {
+     "speaker": "B",
+     "text": "Scelgo la borsa blu.",
+     "meaning": "I choose the blue bag."
+    },
+    {
+     "speaker": "A",
+     "text": "Posso avere quella?",
+     "meaning": "Can I have that one?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, è disponibile.",
+     "meaning": "Yes, it is available."
+    },
+    {
+     "speaker": "A",
+     "text": "Perché è costoso?",
+     "meaning": "Why is it expensive?"
+    },
+    {
+     "speaker": "B",
+     "text": "Questa è di alta qualità.",
+     "meaning": "This is high quality."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a shop assistant helping a customer.",
+    "learnerRole": "a customer making choices.",
+    "brief": "Discuss what you like and ask about the availability of items. Use 'mi piace' and 'è disponibile'.",
+    "goal": "You will express your preferences and ask about items."
+   }
+  }
+ ],
+ "review": {
+  "title": "Shopping Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Quanto costa questo?",
+    "meaning": "How much does this cost?"
+   },
+   {
+    "speaker": "B",
+    "text": "Questo costa trenta euro.",
+    "meaning": "This costs thirty euros."
+   },
+   {
+    "speaker": "A",
+    "text": "E quello?",
+    "meaning": "And that one?"
+   },
+   {
+    "speaker": "B",
+    "text": "Quello è blu.",
+    "meaning": "That one is blue."
+   },
+   {
+    "speaker": "A",
+    "text": "Mi piace questa maglietta rossa.",
+    "meaning": "I like this red t-shirt."
+   },
+   {
+    "speaker": "B",
+    "text": "Scelgo la borsa grande.",
+    "meaning": "I choose the big bag."
+   },
+   {
+    "speaker": "A",
+    "text": "È disponibile in bianco?",
+    "meaning": "Is it available in white?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sì, è disponibile.",
+    "meaning": "Yes, it is available."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a shop assistant in a clothing store.",
+   "learnerRole": "a customer asking about items and prices.",
+   "brief": "Engage in a conversation about prices, colors, and sizes. Use the vocabulary from the chapter.",
+   "goal": "You will practice asking about prices and expressing preferences."
+  }
+ }
+}

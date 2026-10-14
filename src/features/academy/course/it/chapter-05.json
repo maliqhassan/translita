@@ -1,0 +1,418 @@
+{
+ "id": "c05",
+ "number": 5,
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "id": "c05-d1",
+   "day": 21,
+   "title": "Telling the Time",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d1-i1",
+     "text": "Che ore sono?",
+     "meaning": "What time is it?",
+     "example": "Che ore sono adesso?",
+     "exampleMeaning": "What time is it now?"
+    },
+    {
+     "id": "c05-d1-i2",
+     "text": "È l'una.",
+     "meaning": "It's one o'clock.",
+     "example": "È l'una del pomeriggio.",
+     "exampleMeaning": "It's one o'clock in the afternoon."
+    },
+    {
+     "id": "c05-d1-i3",
+     "text": "Sono le due.",
+     "meaning": "It's two o'clock.",
+     "example": "Sono le due di notte.",
+     "exampleMeaning": "It's two o'clock at night."
+    },
+    {
+     "id": "c05-d1-i4",
+     "text": "A che ora?",
+     "meaning": "At what time?",
+     "example": "A che ora inizia il film?",
+     "exampleMeaning": "At what time does the movie start?"
+    },
+    {
+     "id": "c05-d1-i5",
+     "text": "Alle tre.",
+     "meaning": "At three o'clock.",
+     "example": "Ci vediamo alle tre.",
+     "exampleMeaning": "We meet at three o'clock."
+    },
+    {
+     "id": "c05-d1-i6",
+     "text": "Mezzogiorno.",
+     "meaning": "Noon.",
+     "example": "Pranzo a mezzogiorno.",
+     "exampleMeaning": "Lunch is at noon."
+    }
+   ],
+   "tip": "In Italian, when telling time, use 'è' for one o'clock and 'sono' for all other hours. Remember to use the definite article before the hour, like 'le' for plural hours.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Che ore sono?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sono le due.",
+     "meaning": "It's two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "A che ora inizia il treno?",
+     "meaning": "At what time does the train start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Inizia alle tre.",
+     "meaning": "It starts at three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Pranzo a mezzogiorno?",
+     "meaning": "Lunch at noon?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, a mezzogiorno.",
+     "meaning": "Yes, at noon."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend asking about the time and train schedule.",
+    "learnerRole": "B is the learner providing the time and information.",
+    "brief": "You are discussing the time and train schedule with your friend. Answer their questions about the time and when to meet.",
+    "goal": "You need to tell the time and answer questions about meeting."
+   }
+  },
+  {
+   "id": "c05-d2",
+   "day": 22,
+   "title": "Buying Tickets",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d2-i1",
+     "text": "Un biglietto per...",
+     "meaning": "A ticket to...",
+     "example": "Vorrei un biglietto per Roma.",
+     "exampleMeaning": "I would like a ticket to Rome."
+    },
+    {
+     "id": "c05-d2-i2",
+     "text": "Quanto costa un biglietto?",
+     "meaning": "How much is a ticket?",
+     "example": "Quanto costa un biglietto per Milano?",
+     "exampleMeaning": "How much is a ticket to Milan?"
+    },
+    {
+     "id": "c05-d2-i3",
+     "text": "Ecco il mio biglietto.",
+     "meaning": "Here is my ticket.",
+     "example": "Ecco il mio biglietto per il treno.",
+     "exampleMeaning": "Here is my ticket for the train."
+    },
+    {
+     "id": "c05-d2-i4",
+     "text": "Dove posso comprare?",
+     "meaning": "Where can I buy?",
+     "example": "Dove posso comprare un biglietto?",
+     "exampleMeaning": "Where can I buy a ticket?"
+    },
+    {
+     "id": "c05-d2-i5",
+     "text": "A che ora parte?",
+     "meaning": "At what time does it leave?",
+     "example": "A che ora parte il bus?",
+     "exampleMeaning": "At what time does the bus leave?"
+    },
+    {
+     "id": "c05-d2-i6",
+     "text": "Prendo un biglietto.",
+     "meaning": "I'll take a ticket.",
+     "example": "Prendo un biglietto per Firenze.",
+     "exampleMeaning": "I'll take a ticket to Florence."
+    }
+   ],
+   "tip": "When buying tickets, you can ask 'Quanto costa un biglietto?' to know the price. Use 'un biglietto per...' to specify your destination.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Dove posso comprare un biglietto?",
+     "meaning": "Where can I buy a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Puoi comprare un biglietto alla stazione.",
+     "meaning": "You can buy a ticket at the station."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto costa un biglietto per Roma?",
+     "meaning": "How much is a ticket to Rome?"
+    },
+    {
+     "speaker": "B",
+     "text": "Costa venti euro.",
+     "meaning": "It costs twenty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "A che ora parte il treno?",
+     "meaning": "At what time does the train leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Parte alle cinque.",
+     "meaning": "It leaves at five o'clock."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a ticket seller at the station.",
+    "learnerRole": "B is the learner buying a ticket.",
+    "brief": "You are at the station asking about tickets. Make sure to ask about the price and the departure time.",
+    "goal": "You need to buy a ticket and know the departure time."
+   }
+  },
+  {
+   "id": "c05-d3",
+   "day": 23,
+   "title": "Using Verbs in Present Tense",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d3-i1",
+     "text": "Vado",
+     "meaning": "I go",
+     "example": "Vado al mercato.",
+     "exampleMeaning": "I go to the market."
+    },
+    {
+     "id": "c05-d3-i2",
+     "text": "Prendo",
+     "meaning": "I take",
+     "example": "Prendo l'autobus.",
+     "exampleMeaning": "I take the bus."
+    },
+    {
+     "id": "c05-d3-i3",
+     "text": "Aspetto",
+     "meaning": "I wait",
+     "example": "Aspetto il treno.",
+     "exampleMeaning": "I wait for the train."
+    },
+    {
+     "id": "c05-d3-i4",
+     "text": "Arrivo",
+     "meaning": "I arrive",
+     "example": "Arrivo alle sei.",
+     "exampleMeaning": "I arrive at six."
+    },
+    {
+     "id": "c05-d3-i5",
+     "text": "Parto",
+     "meaning": "I leave",
+     "example": "Parto domani.",
+     "exampleMeaning": "I leave tomorrow."
+    },
+    {
+     "id": "c05-d3-i6",
+     "text": "Guardo",
+     "meaning": "I watch",
+     "example": "Guardo il paesaggio.",
+     "exampleMeaning": "I watch the landscape."
+    }
+   ],
+   "tip": "The present tense in Italian is formed by changing the verb endings. For example, 'andare' (to go) becomes 'vado' (I go) for the first person.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Dove vai?",
+     "meaning": "Where are you going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vado al mercato.",
+     "meaning": "I go to the market."
+    },
+    {
+     "speaker": "A",
+     "text": "Che autobus prendi?",
+     "meaning": "Which bus do you take?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prendo l'autobus numero cinque.",
+     "meaning": "I take bus number five."
+    },
+    {
+     "speaker": "A",
+     "text": "Aspetti il treno?",
+     "meaning": "Are you waiting for the train?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, aspetto il treno.",
+     "meaning": "Yes, I wait for the train."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend asking about your plans.",
+    "learnerRole": "B is the learner explaining their transport plans.",
+    "brief": "You are discussing your travel plans with a friend. Use present tense verbs to describe what you do.",
+    "goal": "You need to explain where you go and what you take."
+   }
+  },
+  {
+   "id": "c05-d4",
+   "day": 24,
+   "title": "Combining It All",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c05-d4-i1",
+     "text": "Quando?",
+     "meaning": "When?",
+     "example": "Quando partiamo?",
+     "exampleMeaning": "When do we leave?"
+    },
+    {
+     "id": "c05-d4-i2",
+     "text": "Dove andiamo?",
+     "meaning": "Where are we going?",
+     "example": "Dove andiamo stasera?",
+     "exampleMeaning": "Where are we going tonight?"
+    },
+    {
+     "id": "c05-d4-i3",
+     "text": "Posso avere...?",
+     "meaning": "Can I have...?",
+     "example": "Posso avere un biglietto per Firenze?",
+     "exampleMeaning": "Can I have a ticket to Florence?"
+    },
+    {
+     "id": "c05-d4-i4",
+     "text": "A che ora ci incontriamo?",
+     "meaning": "At what time do we meet?",
+     "example": "A che ora ci incontriamo alla stazione?",
+     "exampleMeaning": "At what time do we meet at the station?"
+    },
+    {
+     "id": "c05-d4-i5",
+     "text": "Arriviamo in tempo?",
+     "meaning": "Do we arrive on time?",
+     "example": "Arriviamo in tempo per il treno?",
+     "exampleMeaning": "Do we arrive on time for the train?"
+    },
+    {
+     "id": "c05-d4-i6",
+     "text": "Ho bisogno di...",
+     "meaning": "I need...",
+     "example": "Ho bisogno di un biglietto.",
+     "exampleMeaning": "I need a ticket."
+    }
+   ],
+   "tip": "Use 'quando' to ask about time and 'dove' to ask about places. These questions help you gather information about your plans.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quando partiamo?",
+     "meaning": "When do we leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Partiamo alle sette.",
+     "meaning": "We leave at seven."
+    },
+    {
+     "speaker": "A",
+     "text": "Dove andiamo stasera?",
+     "meaning": "Where are we going tonight?"
+    },
+    {
+     "speaker": "B",
+     "text": "Andiamo al ristorante.",
+     "meaning": "We are going to the restaurant."
+    },
+    {
+     "speaker": "A",
+     "text": "Posso avere un biglietto per Roma?",
+     "meaning": "Can I have a ticket to Rome?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, ecco il biglietto.",
+     "meaning": "Yes, here is the ticket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend planning a trip together.",
+    "learnerRole": "B is the learner discussing the trip details.",
+    "brief": "You and your friend are planning a trip. Ask questions and provide information about the time and tickets.",
+    "goal": "You need to clarify the trip details and make plans."
+   }
+  },
+  {
+   "id": "c05-d5",
+   "day": 25,
+   "title": "Review: Getting Around by Transport",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Che ore sono?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sono le due.",
+     "meaning": "It's two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto costa un biglietto per Roma?",
+     "meaning": "How much is a ticket to Rome?"
+    },
+    {
+     "speaker": "B",
+     "text": "Costa venti euro.",
+     "meaning": "It costs twenty euros."
+    },
+    {
+     "speaker": "A",
+     "text": "Vado al mercato.",
+     "meaning": "I go to the market."
+    },
+    {
+     "speaker": "B",
+     "text": "Quando partiamo?",
+     "meaning": "When do we leave?"
+    },
+    {
+     "speaker": "A",
+     "text": "Arriviamo in tempo per il treno?",
+     "meaning": "Do we arrive on time for the train?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sì, partiamo alle cinque.",
+     "meaning": "Yes, we leave at five."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend discussing plans.",
+    "learnerRole": "B is the learner confirming details.",
+    "brief": "You and your friend are reviewing your plans for the trip. Discuss the time, tickets, and where you are going.",
+    "goal": "You need to confirm your travel plans."
+   }
+  }
+ ]
+}
