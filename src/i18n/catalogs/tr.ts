@@ -804,12 +804,12 @@ export const tr: Catalog = {
   'Tap a word': 'Kelimeye dokun',
   'Tap its meaning': 'Anlamına dokun',
   '{count} of {total} pairs matched': '{total} eşten {count} tanesi bulundu',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'İngilizce üzerinden 60 günde Almanca, Fransızca, İspanyolca veya İtalyanca öğren, yapay zekâ koçuyla. 1. gün ücretsiz.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    '{days} günde Almanca, Fransızca, İspanyolca veya İtalyanca öğren, {name} ile.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    "Yapay zekâ koçuyla Almanca, Fransızca, İspanyolca veya İtalyanca öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'İngilizce üzerinden 60 günde yeni bir dil öğren, yapay zekâ koçuyla. 1. gün ücretsiz.',
+  'Learn a new language in {days} days, with {name}.':
+    '{days} günde yeni bir dil öğren, {name} ile.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    "Yapay zekâ koçuyla yeni bir dil öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

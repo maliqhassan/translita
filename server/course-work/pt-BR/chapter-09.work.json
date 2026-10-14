@@ -1,0 +1,366 @@
+{
+ "title": "Health and the Doctor",
+ "lessons": [
+  {
+   "title": "Body Parts",
+   "items": [
+    {
+     "text": "a cabeça",
+     "meaning": "the head",
+     "example": "Eu tenho dor de cabeça.",
+     "exampleMeaning": "I have a headache."
+    },
+    {
+     "text": "o braço",
+     "meaning": "the arm",
+     "example": "Meu braço dói.",
+     "exampleMeaning": "My arm hurts."
+    },
+    {
+     "text": "a perna",
+     "meaning": "the leg",
+     "example": "A minha perna está cansada.",
+     "exampleMeaning": "My leg is tired."
+    },
+    {
+     "text": "o estômago",
+     "meaning": "the stomach",
+     "example": "Eu estou com dor de estômago.",
+     "exampleMeaning": "I have a stomachache."
+    },
+    {
+     "text": "o pé",
+     "meaning": "the foot",
+     "example": "Meu pé está machucado.",
+     "exampleMeaning": "My foot is hurt."
+    },
+    {
+     "text": "o olho",
+     "meaning": "the eye",
+     "example": "Eu tenho um problema no olho.",
+     "exampleMeaning": "I have a problem with my eye."
+    }
+   ],
+   "tip": "In Brazilian Portuguese, nouns have genders. 'A' is used for feminine nouns and 'o' for masculine nouns. For example, 'a cabeça' (the head) is feminine, while 'o braço' (the arm) is masculine.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que aconteceu?",
+     "meaning": "What happened?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu estou com dor de cabeça.",
+     "meaning": "I have a headache."
+    },
+    {
+     "speaker": "A",
+     "text": "E o que mais dói?",
+     "meaning": "And what else hurts?"
+    },
+    {
+     "speaker": "B",
+     "text": "Meu braço dói.",
+     "meaning": "My arm hurts."
+    },
+    {
+     "speaker": "A",
+     "text": "Você precisa descansar.",
+     "meaning": "You need to rest."
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu vou descansar.",
+     "meaning": "Yes, I will rest."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend who is concerned about your health",
+    "learnerRole": "someone who is not feeling well",
+    "brief": "Your friend asks you about your health. Respond with what hurts and how you feel. Use the body parts you learned.",
+    "goal": "You need to explain your symptoms."
+   }
+  },
+  {
+   "title": "What Hurts?",
+   "items": [
+    {
+     "text": "dói",
+     "meaning": "hurts",
+     "example": "Onde dói?",
+     "exampleMeaning": "Where does it hurt?"
+    },
+    {
+     "text": "a dor",
+     "meaning": "the pain",
+     "example": "A dor é forte.",
+     "exampleMeaning": "The pain is strong."
+    },
+    {
+     "text": "a consulta",
+     "meaning": "the appointment",
+     "example": "Eu tenho uma consulta médica.",
+     "exampleMeaning": "I have a doctor's appointment."
+    },
+    {
+     "text": "o remédio",
+     "meaning": "the medicine",
+     "example": "Eu preciso de remédio.",
+     "exampleMeaning": "I need medicine."
+    },
+    {
+     "text": "o médico",
+     "meaning": "the doctor",
+     "example": "O médico vai me ajudar.",
+     "exampleMeaning": "The doctor will help me."
+    },
+    {
+     "text": "a receita",
+     "meaning": "the prescription",
+     "example": "Eu preciso da receita.",
+     "exampleMeaning": "I need the prescription."
+    }
+   ],
+   "tip": "When saying what hurts, use 'dói' with the body part. For example, 'A cabeça dói' means 'The head hurts.' This structure is common.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde dói?",
+     "meaning": "Where does it hurt?"
+    },
+    {
+     "speaker": "B",
+     "text": "A dor é forte.",
+     "meaning": "The pain is strong."
+    },
+    {
+     "speaker": "A",
+     "text": "Você tem uma consulta?",
+     "meaning": "Do you have an appointment?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu tenho uma consulta médica.",
+     "meaning": "Yes, I have a doctor's appointment."
+    },
+    {
+     "speaker": "A",
+     "text": "Você já tomou remédio?",
+     "meaning": "Have you taken medicine?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não, eu preciso de remédio.",
+     "meaning": "No, I need medicine."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a doctor",
+    "learnerRole": "a patient",
+    "brief": "You are at the doctor's office. The doctor asks you about your pain. Respond with where it hurts and if you have an appointment.",
+    "goal": "You need to describe your pain to the doctor."
+   }
+  },
+  {
+   "title": "At the Pharmacy",
+   "items": [
+    {
+     "text": "o sintoma",
+     "meaning": "the symptom",
+     "example": "Qual é o seu sintoma?",
+     "exampleMeaning": "What is your symptom?"
+    },
+    {
+     "text": "comprar remédio",
+     "meaning": "to buy medicine",
+     "example": "Eu vou comprar remédio.",
+     "exampleMeaning": "I am going to buy medicine."
+    },
+    {
+     "text": "o farmacêutico",
+     "meaning": "the pharmacist",
+     "example": "O farmacêutico me ajudou.",
+     "exampleMeaning": "The pharmacist helped me."
+    },
+    {
+     "text": "a embalagem",
+     "meaning": "the package",
+     "example": "A embalagem está aberta.",
+     "exampleMeaning": "The package is open."
+    },
+    {
+     "text": "a dose",
+     "meaning": "the dose",
+     "example": "Qual é a dose correta?",
+     "exampleMeaning": "What is the correct dose?"
+    },
+    {
+     "text": "tomar",
+     "meaning": "to take",
+     "example": "Eu vou tomar o remédio agora.",
+     "exampleMeaning": "I will take the medicine now."
+    }
+   ],
+   "tip": "When you want to express an action, use the verb in the infinitive form. For example, 'comprar' means 'to buy' and 'tomar' means 'to take.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica a farmácia?",
+     "meaning": "Where is the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "A farmácia está perto.",
+     "meaning": "The pharmacy is nearby."
+    },
+    {
+     "speaker": "A",
+     "text": "Você vai comprar remédio?",
+     "meaning": "Are you going to buy medicine?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu vou comprar remédio.",
+     "meaning": "Yes, I am going to buy medicine."
+    },
+    {
+     "speaker": "A",
+     "text": "Quem pode ajudar?",
+     "meaning": "Who can help?"
+    },
+    {
+     "speaker": "B",
+     "text": "O farmacêutico me ajudou.",
+     "meaning": "The pharmacist helped me."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a pharmacist",
+    "learnerRole": "a customer",
+    "brief": "You are at the pharmacy. Ask where it is and if they can help you with medicine. Use the vocabulary you learned.",
+    "goal": "You need to ask for help at the pharmacy."
+   }
+  },
+  {
+   "title": "Giving Advice",
+   "items": [
+    {
+     "text": "deve",
+     "meaning": "should",
+     "example": "Você deve descansar.",
+     "exampleMeaning": "You should rest."
+    },
+    {
+     "text": "é importante",
+     "meaning": "is important",
+     "example": "É importante tomar água.",
+     "exampleMeaning": "It is important to drink water."
+    },
+    {
+     "text": "evitar",
+     "meaning": "to avoid",
+     "example": "Evite comer muito.",
+     "exampleMeaning": "Avoid eating too much."
+    },
+    {
+     "text": "ficar em casa",
+     "meaning": "to stay at home",
+     "example": "Você deve ficar em casa.",
+     "exampleMeaning": "You should stay at home."
+    },
+    {
+     "text": "consultar um médico",
+     "meaning": "to consult a doctor",
+     "example": "É bom consultar um médico.",
+     "exampleMeaning": "It is good to consult a doctor."
+    },
+    {
+     "text": "seguir as instruções",
+     "meaning": "to follow the instructions",
+     "example": "Você deve seguir as instruções.",
+     "exampleMeaning": "You should follow the instructions."
+    }
+   ],
+   "tip": "To give advice, use 'deve' (should) followed by the verb. For example, 'Você deve descansar' means 'You should rest.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que eu faço agora?",
+     "meaning": "What should I do now?"
+    },
+    {
+     "speaker": "B",
+     "text": "Você deve descansar.",
+     "meaning": "You should rest."
+    },
+    {
+     "speaker": "A",
+     "text": "É importante tomar remédio?",
+     "meaning": "Is it important to take medicine?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, é importante tomar água.",
+     "meaning": "Yes, it is important to drink water."
+    },
+    {
+     "speaker": "A",
+     "text": "Devo ficar em casa?",
+     "meaning": "Should I stay at home?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, você deve ficar em casa.",
+     "meaning": "Yes, you should stay at home."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend giving health advice",
+    "learnerRole": "someone feeling unwell",
+    "brief": "Your friend asks for advice about their health. Use the vocabulary to give suggestions on what they should do.",
+    "goal": "You need to give health advice."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Health and the Doctor",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "O que aconteceu com você?",
+    "meaning": "What happened to you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Eu estou com dor de estômago.",
+    "meaning": "I have a stomachache."
+   },
+   {
+    "speaker": "A",
+    "text": "Você deve ir ao médico.",
+    "meaning": "You should go to the doctor."
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, eu tenho uma consulta.",
+    "meaning": "Yes, I have an appointment."
+   },
+   {
+    "speaker": "A",
+    "text": "Você precisa de remédio?",
+    "meaning": "Do you need medicine?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, eu vou à farmácia comprar remédio.",
+    "meaning": "Yes, I will go to the pharmacy to buy medicine."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a concerned friend",
+   "learnerRole": "someone who is feeling unwell",
+   "brief": "Your friend asks about your health and what you plan to do. Use the vocabulary from the chapter to explain your situation.",
+   "goal": "You need to communicate your health issues and your next steps."
+  }
+ }
+}

@@ -829,12 +829,12 @@ export const fil: Catalog = {
   'Tap a word': 'I-tap ang salita',
   'Tap its meaning': 'I-tap ang ibig sabihin',
   '{count} of {total} pairs matched': '{count} sa {total} pares ang napagtugma',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'Matuto ng German, French, Spanish o Italian mula sa English sa loob ng 60 araw, kasama ang AI coach. Libre ang Araw 1.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'Matuto ng German, French, Spanish o Italian sa loob ng {days} araw, kasama si {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Matuto ng German, French, Spanish o Italian kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'Matuto ng bagong wika mula sa English sa loob ng 60 araw, kasama ang AI coach. Libre ang Araw 1.',
+  'Learn a new language in {days} days, with {name}.':
+    'Matuto ng bagong wika sa loob ng {days} araw, kasama si {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Matuto ng bagong wika kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

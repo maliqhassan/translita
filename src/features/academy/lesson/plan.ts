@@ -203,11 +203,19 @@ function matchRounds(items: readonly CourseItem[], rounds: number, random: () =>
   if (items.length < 4) return [];
   const sets: string[][] = [];
   for (let round = 0; round < rounds; round++) {
-    sets.push(
-      shuffle(items, random)
-        .slice(0, 4)
-        .map((item) => item.id),
-    );
+    // Never two cards that read the same: "jag tyckte om" and "jag gillade"
+    // both mean "I liked", and a round with both could not be told apart.
+    const picks: CourseItem[] = [];
+    for (const item of shuffle(items, random)) {
+      const clash = picks.some(
+        (picked) =>
+          normalize(picked.meaning) === normalize(item.meaning) ||
+          normalize(picked.text) === normalize(item.text),
+      );
+      if (!clash) picks.push(item);
+      if (picks.length === 4) break;
+    }
+    if (picks.length >= 3) sets.push(picks.map((item) => item.id));
   }
   return sets;
 }

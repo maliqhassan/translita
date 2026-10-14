@@ -38,6 +38,7 @@ const LANGUAGE_NAMES: Record<string, string> = {
   it: 'Italian',
   'pt-BR': 'Brazilian Portuguese',
   pt: 'Portuguese',
+  sv: 'Swedish',
 };
 
 /** The learner says this many things before the partner wraps the scene up. */

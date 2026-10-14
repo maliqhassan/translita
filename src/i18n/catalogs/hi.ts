@@ -804,12 +804,12 @@ export const hi: Catalog = {
   'Tap a word': 'शब्द टैप करें',
   'Tap its meaning': 'उसका मतलब टैप करें',
   '{count} of {total} pairs matched': '{total} में से {count} जोड़ियाँ मिलीं',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'अंग्रेज़ी से 60 दिनों में जर्मन, फ़्रेंच, स्पेनिश या इतालवी सीखें, AI कोच के साथ। पहला दिन मुफ़्त है।',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    '{days} दिनों में जर्मन, फ़्रेंच, स्पेनिश या इतालवी सीखें, {name} के साथ।',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'AI कोच के साथ जर्मन, फ़्रेंच, स्पेनिश या इतालवी सीखें। पहला दिन मुफ़्त है; Elite पूरा कोर्स खोलता है और उसमें Pro की हर सुविधा शामिल है।',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'अंग्रेज़ी से 60 दिनों में नई भाषा सीखें, AI कोच के साथ। पहला दिन मुफ़्त है।',
+  'Learn a new language in {days} days, with {name}.':
+    '{days} दिनों में नई भाषा सीखें, {name} के साथ।',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'AI कोच के साथ नई भाषा सीखें। पहला दिन मुफ़्त है; Elite पूरा कोर्स खोलता है और उसमें Pro की हर सुविधा शामिल है।',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',

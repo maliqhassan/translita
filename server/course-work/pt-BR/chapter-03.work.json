@@ -1,0 +1,376 @@
+{
+ "title": "Shopping",
+ "lessons": [
+  {
+   "title": "Let's Ask Prices",
+   "items": [
+    {
+     "text": "quanto é?",
+     "meaning": "how much is it?",
+     "example": "Quanto é esta camisa?",
+     "exampleMeaning": "How much is this shirt?"
+    },
+    {
+     "text": "isto",
+     "meaning": "this",
+     "example": "Isto é muito bonito.",
+     "exampleMeaning": "This is very beautiful."
+    },
+    {
+     "text": "aquilo",
+     "meaning": "that",
+     "example": "Aquilo é caro.",
+     "exampleMeaning": "That is expensive."
+    },
+    {
+     "text": "barato",
+     "meaning": "cheap",
+     "example": "Este livro é barato.",
+     "exampleMeaning": "This book is cheap."
+    },
+    {
+     "text": "caro",
+     "meaning": "expensive",
+     "example": "Aquela bolsa é cara.",
+     "exampleMeaning": "That bag is expensive."
+    },
+    {
+     "text": "preço",
+     "meaning": "price",
+     "example": "Qual é o preço deste sapato?",
+     "exampleMeaning": "What is the price of this shoe?"
+    }
+   ],
+   "tip": "Remember that 'isto' means 'this' for things close to you and 'aquilo' means 'that' for things farther away. Use them correctly to ask about items.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quanto é esta blusa?",
+     "meaning": "How much is this blouse?"
+    },
+    {
+     "speaker": "B",
+     "text": "Isto é trinta reais.",
+     "meaning": "This is thirty reais."
+    },
+    {
+     "speaker": "A",
+     "text": "E quanto custa aquele vestido?",
+     "meaning": "And how much does that dress cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Aquilo é cinquenta reais.",
+     "meaning": "That is fifty reais."
+    },
+    {
+     "speaker": "A",
+     "text": "Este relógio é caro?",
+     "meaning": "Is this watch expensive?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não, este relógio é barato.",
+     "meaning": "No, this watch is cheap."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "You are in a store. Ask the shopkeeper about the price of clothes. Use 'isto' and 'aquilo'.",
+    "goal": "You should find out prices for different items."
+   }
+  },
+  {
+   "title": "Colors and Sizes",
+   "items": [
+    {
+     "text": "vermelho",
+     "meaning": "red",
+     "example": "Eu gosto da camisa vermelha.",
+     "exampleMeaning": "I like the red shirt."
+    },
+    {
+     "text": "azul",
+     "meaning": "blue",
+     "example": "Esta bolsa é azul.",
+     "exampleMeaning": "This bag is blue."
+    },
+    {
+     "text": "grande",
+     "meaning": "big",
+     "example": "Você tem um tamanho grande?",
+     "exampleMeaning": "Do you have a big size?"
+    },
+    {
+     "text": "pequeno",
+     "meaning": "small",
+     "example": "O sapato pequeno é melhor.",
+     "exampleMeaning": "The small shoe is better."
+    },
+    {
+     "text": "médio",
+     "meaning": "medium",
+     "example": "Eu quero um tamanho médio.",
+     "exampleMeaning": "I want a medium size."
+    },
+    {
+     "text": "cores",
+     "meaning": "colors",
+     "example": "Quais são as cores disponíveis?",
+     "exampleMeaning": "What colors are available?"
+    }
+   ],
+   "tip": "When describing items, use colors before the noun. For example, 'camisa vermelha' means 'red shirt'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quais são as cores desta jaqueta?",
+     "meaning": "What are the colors of this jacket?"
+    },
+    {
+     "speaker": "B",
+     "text": "As cores são vermelho e azul.",
+     "meaning": "The colors are red and blue."
+    },
+    {
+     "speaker": "A",
+     "text": "Você tem esta jaqueta em tamanho pequeno?",
+     "meaning": "Do you have this jacket in small size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, temos em tamanho pequeno.",
+     "meaning": "Yes, we have it in small size."
+    },
+    {
+     "speaker": "A",
+     "text": "E em tamanho grande?",
+     "meaning": "And in big size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, temos em tamanho grande também.",
+     "meaning": "Yes, we have it in big size too."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "You are looking for a jacket. Ask about colors and sizes. Use 'vermelho', 'azul', 'grande', and 'pequeno'.",
+    "goal": "You should learn about the available colors and sizes."
+   }
+  },
+  {
+   "title": "Numbers and Prices",
+   "items": [
+    {
+     "text": "dez",
+     "meaning": "ten",
+     "example": "Eu quero dez maçãs.",
+     "exampleMeaning": "I want ten apples."
+    },
+    {
+     "text": "vinte",
+     "meaning": "twenty",
+     "example": "Aquela camisa custa vinte reais.",
+     "exampleMeaning": "That shirt costs twenty reais."
+    },
+    {
+     "text": "trinta",
+     "meaning": "thirty",
+     "example": "Isto é trinta reais.",
+     "exampleMeaning": "This is thirty reais."
+    },
+    {
+     "text": "quarenta",
+     "meaning": "forty",
+     "example": "O preço é quarenta reais.",
+     "exampleMeaning": "The price is forty reais."
+    },
+    {
+     "text": "cinquenta",
+     "meaning": "fifty",
+     "example": "Eu tenho cinquenta reais.",
+     "exampleMeaning": "I have fifty reais."
+    },
+    {
+     "text": "sessenta",
+     "meaning": "sixty",
+     "example": "A calça custa sessenta reais.",
+     "exampleMeaning": "The pants cost sixty reais."
+    }
+   ],
+   "tip": "Practice counting from ten to sixty. This will help you understand prices better when shopping.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quanto custa a jaqueta?",
+     "meaning": "How much is the jacket?"
+    },
+    {
+     "speaker": "B",
+     "text": "A jaqueta custa quarenta reais.",
+     "meaning": "The jacket costs forty reais."
+    },
+    {
+     "speaker": "A",
+     "text": "E aquele vestido?",
+     "meaning": "And that dress?"
+    },
+    {
+     "speaker": "B",
+     "text": "Aquele vestido custa cinquenta reais.",
+     "meaning": "That dress costs fifty reais."
+    },
+    {
+     "speaker": "A",
+     "text": "Eu tenho sessenta reais.",
+     "meaning": "I have sixty reais."
+    },
+    {
+     "speaker": "B",
+     "text": "Isso é suficiente para a jaqueta.",
+     "meaning": "That is enough for the jacket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "You are checking the prices of clothes. Ask about the prices using numbers. Use 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', and 'sessenta'.",
+    "goal": "You should find out if you have enough money for the items."
+   }
+  },
+  {
+   "title": "Shopping Conversation",
+   "items": [
+    {
+     "text": "aqui",
+     "meaning": "here",
+     "example": "Os preços estão aqui.",
+     "exampleMeaning": "The prices are here."
+    },
+    {
+     "text": "ali",
+     "meaning": "there",
+     "example": "O caixa está ali.",
+     "exampleMeaning": "The cash register is there."
+    },
+    {
+     "text": "comprar",
+     "meaning": "to buy",
+     "example": "Eu quero comprar esta camisa.",
+     "exampleMeaning": "I want to buy this shirt."
+    },
+    {
+     "text": "vender",
+     "meaning": "to sell",
+     "example": "Eles vendem sapatos.",
+     "exampleMeaning": "They sell shoes."
+    },
+    {
+     "text": "preciso de...",
+     "meaning": "I need...",
+     "example": "Eu preciso de uma bolsa.",
+     "exampleMeaning": "I need a bag."
+    },
+    {
+     "text": "muito",
+     "meaning": "very",
+     "example": "Isso é muito caro.",
+     "exampleMeaning": "That is very expensive."
+    }
+   ],
+   "tip": "Use 'aqui' for things close to you and 'ali' for things farther away. This helps you give directions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você precisa de ajuda?",
+     "meaning": "Do you need help?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu preciso de uma bolsa.",
+     "meaning": "Yes, I need a bag."
+    },
+    {
+     "speaker": "A",
+     "text": "Os preços estão aqui.",
+     "meaning": "The prices are here."
+    },
+    {
+     "speaker": "B",
+     "text": "Quanto custa aquela bolsa ali?",
+     "meaning": "How much is that bag there?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ela custa trinta reais.",
+     "meaning": "It costs thirty reais."
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero comprar essa bolsa.",
+     "meaning": "I want to buy this bag."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "You are in a store. Ask for help and find out about prices. Use 'aqui', 'ali', 'comprar', and 'preciso de...'.",
+    "goal": "You should successfully ask for help and find an item to buy."
+   }
+  }
+ ],
+ "review": {
+  "title": "Shopping Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Quanto custa esta camisa?",
+    "meaning": "How much is this shirt?"
+   },
+   {
+    "speaker": "B",
+    "text": "Isto é trinta reais.",
+    "meaning": "This is thirty reais."
+   },
+   {
+    "speaker": "A",
+    "text": "E aquele vestido?",
+    "meaning": "And that dress?"
+   },
+   {
+    "speaker": "B",
+    "text": "Aquele vestido custa cinquenta reais.",
+    "meaning": "That dress costs fifty reais."
+   },
+   {
+    "speaker": "A",
+    "text": "Você tem isso em azul?",
+    "meaning": "Do you have this in blue?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, temos em azul e vermelho.",
+    "meaning": "Yes, we have it in blue and red."
+   },
+   {
+    "speaker": "A",
+    "text": "Eu preciso de um tamanho pequeno.",
+    "meaning": "I need a small size."
+   },
+   {
+    "speaker": "B",
+    "text": "Os preços estão aqui.",
+    "meaning": "The prices are here."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A shopkeeper",
+   "learnerRole": "A customer",
+   "brief": "You are looking at different items in a store. Ask about prices, colors, and sizes using what you learned.",
+   "goal": "You should be able to ask about and understand prices and options for items."
+  }
+ }
+}

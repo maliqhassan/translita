@@ -50,6 +50,30 @@ import it09 from './it/chapter-09.json';
 import it10 from './it/chapter-10.json';
 import it11 from './it/chapter-11.json';
 import it12 from './it/chapter-12.json';
+import ptBR01 from './pt-BR/chapter-01.json';
+import ptBR02 from './pt-BR/chapter-02.json';
+import ptBR03 from './pt-BR/chapter-03.json';
+import ptBR04 from './pt-BR/chapter-04.json';
+import ptBR05 from './pt-BR/chapter-05.json';
+import ptBR06 from './pt-BR/chapter-06.json';
+import ptBR07 from './pt-BR/chapter-07.json';
+import ptBR08 from './pt-BR/chapter-08.json';
+import ptBR09 from './pt-BR/chapter-09.json';
+import ptBR10 from './pt-BR/chapter-10.json';
+import ptBR11 from './pt-BR/chapter-11.json';
+import ptBR12 from './pt-BR/chapter-12.json';
+import sv01 from './sv/chapter-01.json';
+import sv02 from './sv/chapter-02.json';
+import sv03 from './sv/chapter-03.json';
+import sv04 from './sv/chapter-04.json';
+import sv05 from './sv/chapter-05.json';
+import sv06 from './sv/chapter-06.json';
+import sv07 from './sv/chapter-07.json';
+import sv08 from './sv/chapter-08.json';
+import sv09 from './sv/chapter-09.json';
+import sv10 from './sv/chapter-10.json';
+import sv11 from './sv/chapter-11.json';
+import sv12 from './sv/chapter-12.json';
 
 /** Every course that ships, in the order the app lists them, with the chapters written so far. */
 export const COURSES: readonly Course[] = [
@@ -57,4 +81,6 @@ export const COURSES: readonly Course[] = [
   { id: 'fr', chapters: [fr01 as unknown as CourseChapter, fr02 as unknown as CourseChapter, fr03 as unknown as CourseChapter, fr04 as unknown as CourseChapter, fr05 as unknown as CourseChapter, fr06 as unknown as CourseChapter, fr07 as unknown as CourseChapter, fr08 as unknown as CourseChapter, fr09 as unknown as CourseChapter, fr10 as unknown as CourseChapter, fr11 as unknown as CourseChapter, fr12 as unknown as CourseChapter] },
   { id: 'es', chapters: [es01 as unknown as CourseChapter, es02 as unknown as CourseChapter, es03 as unknown as CourseChapter, es04 as unknown as CourseChapter, es05 as unknown as CourseChapter, es06 as unknown as CourseChapter, es07 as unknown as CourseChapter, es08 as unknown as CourseChapter, es09 as unknown as CourseChapter, es10 as unknown as CourseChapter, es11 as unknown as CourseChapter, es12 as unknown as CourseChapter] },
   { id: 'it', chapters: [it01 as unknown as CourseChapter, it02 as unknown as CourseChapter, it03 as unknown as CourseChapter, it04 as unknown as CourseChapter, it05 as unknown as CourseChapter, it06 as unknown as CourseChapter, it07 as unknown as CourseChapter, it08 as unknown as CourseChapter, it09 as unknown as CourseChapter, it10 as unknown as CourseChapter, it11 as unknown as CourseChapter, it12 as unknown as CourseChapter] },
+  { id: 'pt-BR', chapters: [ptBR01 as unknown as CourseChapter, ptBR02 as unknown as CourseChapter, ptBR03 as unknown as CourseChapter, ptBR04 as unknown as CourseChapter, ptBR05 as unknown as CourseChapter, ptBR06 as unknown as CourseChapter, ptBR07 as unknown as CourseChapter, ptBR08 as unknown as CourseChapter, ptBR09 as unknown as CourseChapter, ptBR10 as unknown as CourseChapter, ptBR11 as unknown as CourseChapter, ptBR12 as unknown as CourseChapter] },
+  { id: 'sv', chapters: [sv01 as unknown as CourseChapter, sv02 as unknown as CourseChapter, sv03 as unknown as CourseChapter, sv04 as unknown as CourseChapter, sv05 as unknown as CourseChapter, sv06 as unknown as CourseChapter, sv07 as unknown as CourseChapter, sv08 as unknown as CourseChapter, sv09 as unknown as CourseChapter, sv10 as unknown as CourseChapter, sv11 as unknown as CourseChapter, sv12 as unknown as CourseChapter] },
 ];

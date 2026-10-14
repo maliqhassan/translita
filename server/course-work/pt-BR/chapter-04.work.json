@@ -1,0 +1,366 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is the bank?",
+   "items": [
+    {
+     "text": "o banco",
+     "meaning": "the bank",
+     "example": "Onde fica o banco?",
+     "exampleMeaning": "Where is the bank?"
+    },
+    {
+     "text": "a escola",
+     "meaning": "the school",
+     "example": "A escola está perto do banco.",
+     "exampleMeaning": "The school is near the bank."
+    },
+    {
+     "text": "direita",
+     "meaning": "right",
+     "example": "Vire à direita na próxima esquina.",
+     "exampleMeaning": "Turn right at the next corner."
+    },
+    {
+     "text": "esquerda",
+     "meaning": "left",
+     "example": "Vire à esquerda na próxima rua.",
+     "exampleMeaning": "Turn left at the next street."
+    },
+    {
+     "text": "perto",
+     "meaning": "near",
+     "example": "O restaurante está perto da escola.",
+     "exampleMeaning": "The restaurant is near the school."
+    },
+    {
+     "text": "longe",
+     "meaning": "far",
+     "example": "A farmácia está longe do banco.",
+     "exampleMeaning": "The pharmacy is far from the bank."
+    }
+   ],
+   "tip": "In Portuguese, 'direita' means 'right' and 'esquerda' means 'left'. Use these words to give directions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica o banco?",
+     "meaning": "Where is the bank?"
+    },
+    {
+     "speaker": "B",
+     "text": "O banco está perto da escola.",
+     "meaning": "The bank is near the school."
+    },
+    {
+     "speaker": "A",
+     "text": "E onde fica a escola?",
+     "meaning": "And where is the school?"
+    },
+    {
+     "speaker": "B",
+     "text": "A escola está longe do banco.",
+     "meaning": "The school is far from the bank."
+    },
+    {
+     "speaker": "A",
+     "text": "Como eu chego lá?",
+     "meaning": "How do I get there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vire à direita na próxima esquina.",
+     "meaning": "Turn right at the next corner."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person who knows the area.",
+    "learnerRole": "B is a tourist asking for directions.",
+    "brief": "You are asking A where the bank is and how to get to the school. Use the words for places and directions.",
+    "goal": "You need to find out where the bank and the school are."
+   }
+  },
+  {
+   "title": "Finding the restaurant",
+   "items": [
+    {
+     "text": "o restaurante",
+     "meaning": "the restaurant",
+     "example": "O restaurante está na esquina.",
+     "exampleMeaning": "The restaurant is on the corner."
+    },
+    {
+     "text": "a farmácia",
+     "meaning": "the pharmacy",
+     "example": "A farmácia está perto do restaurante.",
+     "exampleMeaning": "The pharmacy is near the restaurant."
+    },
+    {
+     "text": "direções",
+     "meaning": "directions",
+     "example": "Você pode me dar direções para o restaurante?",
+     "exampleMeaning": "Can you give me directions to the restaurant?"
+    },
+    {
+     "text": "siga",
+     "meaning": "follow",
+     "example": "Siga em frente até a farmácia.",
+     "exampleMeaning": "Follow straight until the pharmacy."
+    },
+    {
+     "text": "a esquina",
+     "meaning": "the corner",
+     "example": "O restaurante está na próxima esquina.",
+     "exampleMeaning": "The restaurant is at the next corner."
+    },
+    {
+     "text": "em frente",
+     "meaning": "straight ahead",
+     "example": "Vá em frente e vire à esquerda.",
+     "exampleMeaning": "Go straight ahead and turn left."
+    }
+   ],
+   "tip": "Use 'siga' to tell someone to follow a direction. It is often used with 'em frente' for going straight.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica o restaurante?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "O restaurante está na esquina.",
+     "meaning": "The restaurant is on the corner."
+    },
+    {
+     "speaker": "A",
+     "text": "E a farmácia?",
+     "meaning": "And the pharmacy?"
+    },
+    {
+     "speaker": "B",
+     "text": "A farmácia está perto do restaurante.",
+     "meaning": "The pharmacy is near the restaurant."
+    },
+    {
+     "speaker": "A",
+     "text": "Como eu chego lá?",
+     "meaning": "How do I get there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Siga em frente até a farmácia.",
+     "meaning": "Follow straight until the pharmacy."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person who knows the area.",
+    "learnerRole": "B is a tourist asking for directions.",
+    "brief": "You are asking A for directions to the restaurant and pharmacy. Use the words for places and directions.",
+    "goal": "You need to find out where the restaurant and pharmacy are."
+   }
+  },
+  {
+   "title": "Asking about the park",
+   "items": [
+    {
+     "text": "o parque",
+     "meaning": "the park",
+     "example": "O parque está longe da escola.",
+     "exampleMeaning": "The park is far from the school."
+    },
+    {
+     "text": "a rua",
+     "meaning": "the street",
+     "example": "A escola fica nesta rua.",
+     "exampleMeaning": "The school is on this street."
+    },
+    {
+     "text": "atrás",
+     "meaning": "behind",
+     "example": "O parque está atrás da escola.",
+     "exampleMeaning": "The park is behind the school."
+    },
+    {
+     "text": "na frente",
+     "meaning": "in front",
+     "example": "A farmácia está na frente do banco.",
+     "exampleMeaning": "The pharmacy is in front of the bank."
+    },
+    {
+     "text": "entre",
+     "meaning": "between",
+     "example": "O parque está entre a escola e o banco.",
+     "exampleMeaning": "The park is between the school and the bank."
+    },
+    {
+     "text": "a praça",
+     "meaning": "the square",
+     "example": "A praça está perto do parque.",
+     "exampleMeaning": "The square is near the park."
+    }
+   ],
+   "tip": "Use 'entre' for 'between' when talking about locations. It helps to specify where something is.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica o parque?",
+     "meaning": "Where is the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "O parque está atrás da escola.",
+     "meaning": "The park is behind the school."
+    },
+    {
+     "speaker": "A",
+     "text": "E a praça?",
+     "meaning": "And the square?"
+    },
+    {
+     "speaker": "B",
+     "text": "A praça está perto do parque.",
+     "meaning": "The square is near the park."
+    },
+    {
+     "speaker": "A",
+     "text": "Como eu chego lá?",
+     "meaning": "How do I get there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vá em frente e vire à esquerda.",
+     "meaning": "Go straight ahead and turn left."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person who knows the area.",
+    "learnerRole": "B is a tourist asking for directions.",
+    "brief": "You are asking A for directions to the park and the square. Use the words for places and directions.",
+    "goal": "You need to find out where the park and the square are."
+   }
+  },
+  {
+   "title": "Getting to the bus station",
+   "items": [
+    {
+     "text": "a estação de ônibus",
+     "meaning": "the bus station",
+     "example": "A estação de ônibus está longe do parque.",
+     "exampleMeaning": "The bus station is far from the park."
+    },
+    {
+     "text": "direto",
+     "meaning": "straight",
+     "example": "Vá direto até a estação de ônibus.",
+     "exampleMeaning": "Go straight to the bus station."
+    },
+    {
+     "text": "a parada",
+     "meaning": "the stop",
+     "example": "A parada fica perto da farmácia.",
+     "exampleMeaning": "The stop is near the pharmacy."
+    },
+    {
+     "text": "a cidade",
+     "meaning": "the city",
+     "example": "A estação de ônibus está na cidade.",
+     "exampleMeaning": "The bus station is in the city."
+    },
+    {
+     "text": "o sinal",
+     "meaning": "the traffic light",
+     "example": "Vire à direita no sinal.",
+     "exampleMeaning": "Turn right at the traffic light."
+    },
+    {
+     "text": "o caminho",
+     "meaning": "the way",
+     "example": "Qual é o caminho para a estação de ônibus?",
+     "exampleMeaning": "What is the way to the bus station?"
+    }
+   ],
+   "tip": "Use 'direto' for 'straight' when giving directions. It helps to clarify the path.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica a estação de ônibus?",
+     "meaning": "Where is the bus station?"
+    },
+    {
+     "speaker": "B",
+     "text": "A estação de ônibus está longe do parque.",
+     "meaning": "The bus station is far from the park."
+    },
+    {
+     "speaker": "A",
+     "text": "Como eu chego lá?",
+     "meaning": "How do I get there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vá direto até a estação de ônibus.",
+     "meaning": "Go straight to the bus station."
+    },
+    {
+     "speaker": "A",
+     "text": "E a parada?",
+     "meaning": "And the stop?"
+    },
+    {
+     "speaker": "B",
+     "text": "A parada fica perto da farmácia.",
+     "meaning": "The stop is near the pharmacy."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a local person who knows the area.",
+    "learnerRole": "B is a tourist asking for directions.",
+    "brief": "You are asking A for directions to the bus station and the stop. Use the words for places and directions.",
+    "goal": "You need to find out where the bus station and the stop are."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review: Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Onde fica a escola?",
+    "meaning": "Where is the school?"
+   },
+   {
+    "speaker": "B",
+    "text": "A escola está perto do banco.",
+    "meaning": "The school is near the bank."
+   },
+   {
+    "speaker": "A",
+    "text": "E o restaurante?",
+    "meaning": "And the restaurant?"
+   },
+   {
+    "speaker": "B",
+    "text": "O restaurante está na esquina.",
+    "meaning": "The restaurant is on the corner."
+   },
+   {
+    "speaker": "A",
+    "text": "Como eu chego ao parque?",
+    "meaning": "How do I get to the park?"
+   },
+   {
+    "speaker": "B",
+    "text": "O parque está entre a escola e o banco.",
+    "meaning": "The park is between the school and the bank."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a local person who knows the area.",
+   "learnerRole": "B is a tourist asking for directions.",
+   "brief": "You are asking A about various places in the area. Use the words for places and directions.",
+   "goal": "You need to find out where the school, restaurant, and park are."
+  }
+ }
+}

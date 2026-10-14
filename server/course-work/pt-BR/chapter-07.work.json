@@ -1,0 +1,376 @@
+{
+ "title": "At the hotel",
+ "lessons": [
+  {
+   "title": "There is a problem",
+   "items": [
+    {
+     "text": "tem um problema",
+     "meaning": "there is a problem",
+     "example": "Tem um problema com o meu quarto.",
+     "exampleMeaning": "There is a problem with my room."
+    },
+    {
+     "text": "tem uma toalha",
+     "meaning": "there is a towel",
+     "example": "Tem uma toalha no banheiro.",
+     "exampleMeaning": "There is a towel in the bathroom."
+    },
+    {
+     "text": "tem água",
+     "meaning": "there is water",
+     "example": "Tem água na geladeira.",
+     "exampleMeaning": "There is water in the fridge."
+    },
+    {
+     "text": "tem comida",
+     "meaning": "there is food",
+     "example": "Tem comida no restaurante.",
+     "exampleMeaning": "There is food in the restaurant."
+    },
+    {
+     "text": "não tem luz",
+     "meaning": "there is no light",
+     "example": "Não tem luz no meu quarto.",
+     "exampleMeaning": "There is no light in my room."
+    },
+    {
+     "text": "tem um problema com o ar-condicionado",
+     "meaning": "there is a problem with the air conditioning",
+     "example": "Tem um problema com o ar-condicionado.",
+     "exampleMeaning": "There is a problem with the air conditioning."
+    }
+   ],
+   "tip": "Use 'tem' to say 'there is' or 'there are' in Brazilian Portuguese. It is used for singular and plural.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Tem um problema com o seu quarto?",
+     "meaning": "Is there a problem with your room?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, tem um problema com o ar-condicionado.",
+     "meaning": "Yes, there is a problem with the air conditioning."
+    },
+    {
+     "speaker": "A",
+     "text": "Desculpe! O que mais tem?",
+     "meaning": "Sorry! What else is there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não tem luz no meu quarto.",
+     "meaning": "There is no light in my room."
+    },
+    {
+     "speaker": "A",
+     "text": "Entendi. Tem uma toalha?",
+     "meaning": "I understand. Is there a towel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, tem uma toalha no banheiro.",
+     "meaning": "Yes, there is a towel in the bathroom."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "hotel receptionist",
+    "learnerRole": "guest reporting a problem",
+    "brief": "You are at the hotel reception. You need to report a problem with your room. Ask about the towel as well.",
+    "goal": "You should explain the issues with your room."
+   }
+  },
+  {
+   "title": "Polite requests",
+   "items": [
+    {
+     "text": "pode me ajudar?",
+     "meaning": "can you help me?",
+     "example": "Pode me ajudar com a chave?",
+     "exampleMeaning": "Can you help me with the key?"
+    },
+    {
+     "text": "pode trazer...?",
+     "meaning": "can you bring...?",
+     "example": "Pode trazer mais toalhas?",
+     "exampleMeaning": "Can you bring more towels?"
+    },
+    {
+     "text": "pode verificar?",
+     "meaning": "can you check?",
+     "example": "Pode verificar se tem água?",
+     "exampleMeaning": "Can you check if there is water?"
+    },
+    {
+     "text": "pode trocar...?",
+     "meaning": "can you change...?",
+     "example": "Pode trocar a cama?",
+     "exampleMeaning": "Can you change the bed?"
+    },
+    {
+     "text": "pode falar mais devagar?",
+     "meaning": "can you speak slower?",
+     "example": "Pode falar mais devagar, por favor?",
+     "exampleMeaning": "Can you speak slower, please?"
+    },
+    {
+     "text": "pode me mostrar...?",
+     "meaning": "can you show me...?",
+     "example": "Pode me mostrar o restaurante?",
+     "exampleMeaning": "Can you show me the restaurant?"
+    }
+   ],
+   "tip": "To make polite requests, use 'pode' followed by the verb. This is a common way to ask for help.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Pode me ajudar com a chave?",
+     "meaning": "Can you help me with the key?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro! O que aconteceu?",
+     "meaning": "Of course! What happened?"
+    },
+    {
+     "speaker": "A",
+     "text": "O meu quarto não abre.",
+     "meaning": "My room does not open."
+    },
+    {
+     "speaker": "B",
+     "text": "Pode verificar se tem água?",
+     "meaning": "Can you check if there is water?"
+    },
+    {
+     "speaker": "A",
+     "text": "Sim, claro! Pode trazer mais toalhas?",
+     "meaning": "Yes, of course! Can you bring more towels?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu vou trazer agora.",
+     "meaning": "Yes, I will bring them now."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "hotel staff",
+    "learnerRole": "guest making requests",
+    "brief": "You are at the hotel. You need help with your key and want to request more towels. Ask politely.",
+    "goal": "You should make polite requests for assistance."
+   }
+  },
+  {
+   "title": "Reporting a problem",
+   "items": [
+    {
+     "text": "tem um problema com...",
+     "meaning": "there is a problem with...",
+     "example": "Tem um problema com a água.",
+     "exampleMeaning": "There is a problem with the water."
+    },
+    {
+     "text": "não funciona",
+     "meaning": "does not work",
+     "example": "O ar-condicionado não funciona.",
+     "exampleMeaning": "The air conditioning does not work."
+    },
+    {
+     "text": "está quebrado",
+     "meaning": "is broken",
+     "example": "O elevador está quebrado.",
+     "exampleMeaning": "The elevator is broken."
+    },
+    {
+     "text": "não está limpo",
+     "meaning": "is not clean",
+     "example": "O quarto não está limpo.",
+     "exampleMeaning": "The room is not clean."
+    },
+    {
+     "text": "não tem serviço",
+     "meaning": "there is no service",
+     "example": "Não tem serviço de quarto.",
+     "exampleMeaning": "There is no room service."
+    },
+    {
+     "text": "não está disponível",
+     "meaning": "is not available",
+     "example": "O restaurante não está disponível agora.",
+     "exampleMeaning": "The restaurant is not available now."
+    }
+   ],
+   "tip": "When reporting a problem, use 'tem um problema com...' to explain the issue. Be clear and direct.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Tem um problema com a água?",
+     "meaning": "Is there a problem with the water?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, a água não funciona.",
+     "meaning": "Yes, the water does not work."
+    },
+    {
+     "speaker": "A",
+     "text": "Desculpe! O que mais está quebrado?",
+     "meaning": "Sorry! What else is broken?"
+    },
+    {
+     "speaker": "B",
+     "text": "O elevador está quebrado.",
+     "meaning": "The elevator is broken."
+    },
+    {
+     "speaker": "A",
+     "text": "Entendi. O quarto está limpo?",
+     "meaning": "I understand. Is the room clean?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não, o quarto não está limpo.",
+     "meaning": "No, the room is not clean."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "hotel manager",
+    "learnerRole": "guest reporting issues",
+    "brief": "You are speaking with the hotel manager. Report problems with the water and the elevator and ask about the cleanliness of your room.",
+    "goal": "You should clearly report the issues you are facing."
+   }
+  },
+  {
+   "title": "Asking for assistance",
+   "items": [
+    {
+     "text": "preciso de ajuda",
+     "meaning": "I need help",
+     "example": "Preciso de ajuda com a chave.",
+     "exampleMeaning": "I need help with the key."
+    },
+    {
+     "text": "pode falar com alguém?",
+     "meaning": "can you talk to someone?",
+     "example": "Pode falar com alguém sobre o problema?",
+     "exampleMeaning": "Can you talk to someone about the problem?"
+    },
+    {
+     "text": "onde posso encontrar...?",
+     "meaning": "where can I find...?",
+     "example": "Onde posso encontrar o restaurante?",
+     "exampleMeaning": "Where can I find the restaurant?"
+    },
+    {
+     "text": "onde fica...?",
+     "meaning": "where is...?",
+     "example": "Onde fica a piscina?",
+     "exampleMeaning": "Where is the pool?"
+    },
+    {
+     "text": "tem alguém disponível?",
+     "meaning": "is there someone available?",
+     "example": "Tem alguém disponível para ajudar?",
+     "exampleMeaning": "Is there someone available to help?"
+    },
+    {
+     "text": "posso falar com o gerente?",
+     "meaning": "can I talk to the manager?",
+     "example": "Posso falar com o gerente, por favor?",
+     "exampleMeaning": "Can I talk to the manager, please?"
+    }
+   ],
+   "tip": "Use 'preciso de ajuda' to express that you need help. This is a direct way to ask for assistance.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Preciso de ajuda com a chave.",
+     "meaning": "I need help with the key."
+    },
+    {
+     "speaker": "B",
+     "text": "Claro! Onde posso encontrar o gerente?",
+     "meaning": "Sure! Where can I find the manager?"
+    },
+    {
+     "speaker": "A",
+     "text": "Pode falar com alguém sobre o problema?",
+     "meaning": "Can you talk to someone about the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, tem alguém disponível agora.",
+     "meaning": "Yes, there is someone available now."
+    },
+    {
+     "speaker": "A",
+     "text": "Onde fica a piscina?",
+     "meaning": "Where is the pool?"
+    },
+    {
+     "speaker": "B",
+     "text": "A piscina fica no primeiro andar.",
+     "meaning": "The pool is on the first floor."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "hotel assistant",
+    "learnerRole": "guest asking for assistance",
+    "brief": "You are at the hotel and need help with your key. Ask about the manager and find out where the pool is.",
+    "goal": "You should ask for assistance and get the information you need."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Chapter 7: At the hotel",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Tem um problema com o meu quarto?",
+    "meaning": "Is there a problem with my room?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, não tem luz.",
+    "meaning": "Yes, there is no light."
+   },
+   {
+    "speaker": "A",
+    "text": "Pode me ajudar a resolver isso?",
+    "meaning": "Can you help me solve this?"
+   },
+   {
+    "speaker": "B",
+    "text": "Claro! O que mais está errado?",
+    "meaning": "Of course! What else is wrong?"
+   },
+   {
+    "speaker": "A",
+    "text": "O ar-condicionado não funciona.",
+    "meaning": "The air conditioning does not work."
+   },
+   {
+    "speaker": "B",
+    "text": "Desculpe! Vou chamar alguém.",
+    "meaning": "Sorry! I will call someone."
+   },
+   {
+    "speaker": "A",
+    "text": "Onde posso encontrar o restaurante?",
+    "meaning": "Where can I find the restaurant?"
+   },
+   {
+    "speaker": "B",
+    "text": "O restaurante fica no primeiro andar.",
+    "meaning": "The restaurant is on the first floor."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "hotel staff",
+   "learnerRole": "guest",
+   "brief": "You are discussing issues with the hotel staff. Report problems and ask for help.",
+   "goal": "You should effectively communicate your needs."
+  }
+ }
+}

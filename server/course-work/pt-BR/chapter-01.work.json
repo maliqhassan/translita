@@ -1,0 +1,376 @@
+{
+ "title": "Greetings and Introductions",
+ "lessons": [
+  {
+   "title": "Hello!",
+   "items": [
+    {
+     "text": "Olá!",
+     "meaning": "Hello!",
+     "example": "Olá! Como você está?",
+     "exampleMeaning": "Hello! How are you?"
+    },
+    {
+     "text": "Meu nome é...",
+     "meaning": "My name is...",
+     "example": "Meu nome é Ana.",
+     "exampleMeaning": "My name is Ana."
+    },
+    {
+     "text": "E você?",
+     "meaning": "And you?",
+     "example": "E você? Qual é o seu nome?",
+     "exampleMeaning": "And you? What is your name?"
+    },
+    {
+     "text": "Eu sou de...",
+     "meaning": "I am from...",
+     "example": "Eu sou de São Paulo.",
+     "exampleMeaning": "I am from São Paulo."
+    },
+    {
+     "text": "Prazer!",
+     "meaning": "Nice to meet you!",
+     "example": "Prazer! É um prazer conhecê-lo.",
+     "exampleMeaning": "Nice to meet you! It's a pleasure to meet you."
+    },
+    {
+     "text": "Tudo bem?",
+     "meaning": "Is everything okay?",
+     "example": "Tudo bem? Você está feliz?",
+     "exampleMeaning": "Is everything okay? Are you happy?"
+    }
+   ],
+   "tip": "In Portuguese, the verb 'to be' changes depending on the subject. For example, 'Eu sou' means 'I am'. Remember to use the correct pronoun with the verb!",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Olá! Como você se chama?",
+     "meaning": "Hello! What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Olá! Meu nome é Maria.",
+     "meaning": "Hello! My name is Maria."
+    },
+    {
+     "speaker": "A",
+     "text": "E você? De onde você é?",
+     "meaning": "And you? Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu sou de Brasília.",
+     "meaning": "I am from Brasília."
+    },
+    {
+     "speaker": "A",
+     "text": "Prazer! Tudo bem?",
+     "meaning": "Nice to meet you! Is everything okay?"
+    },
+    {
+     "speaker": "B",
+     "text": "Prazer! Tudo bem, obrigado.",
+     "meaning": "Nice to meet you! Everything is okay, thank you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friendly person meeting someone new.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Start by greeting the person. Ask their name and where they are from. Respond to their questions.",
+    "goal": "You should introduce yourself and ask the other person's name."
+   }
+  },
+  {
+   "title": "Where Are You From?",
+   "items": [
+    {
+     "text": "Você é de...?",
+     "meaning": "Are you from...?",
+     "example": "Você é de onde?",
+     "exampleMeaning": "Where are you from?"
+    },
+    {
+     "text": "Eu sou brasileiro/a.",
+     "meaning": "I am Brazilian.",
+     "example": "Eu sou brasileiro.",
+     "exampleMeaning": "I am Brazilian."
+    },
+    {
+     "text": "Sim!",
+     "meaning": "Yes!",
+     "example": "Sim! Eu sou de Minas Gerais.",
+     "exampleMeaning": "Yes! I am from Minas Gerais."
+    },
+    {
+     "text": "Não.",
+     "meaning": "No.",
+     "example": "Não, eu sou de Portugal.",
+     "exampleMeaning": "No, I am from Portugal."
+    },
+    {
+     "text": "Qual é a sua cidade?",
+     "meaning": "What is your city?",
+     "example": "Qual é a sua cidade?",
+     "exampleMeaning": "What is your city?"
+    },
+    {
+     "text": "Eu moro em...",
+     "meaning": "I live in...",
+     "example": "Eu moro no Rio de Janeiro.",
+     "exampleMeaning": "I live in Rio de Janeiro."
+    }
+   ],
+   "tip": "Use 'Você é de...?' to ask where someone is from. You can answer with 'Eu sou de...' to say your origin.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você é de onde?",
+     "meaning": "Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu sou de Fortaleza.",
+     "meaning": "I am from Fortaleza."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a sua cidade?",
+     "meaning": "What is your city?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu moro em Curitiba.",
+     "meaning": "I live in Curitiba."
+    },
+    {
+     "speaker": "A",
+     "text": "Você é brasileiro?",
+     "meaning": "Are you Brazilian?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim! Eu sou brasileiro.",
+     "meaning": "Yes! I am Brazilian."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are getting to know someone better.",
+    "learnerRole": "You are answering questions about where you are from.",
+    "brief": "Ask where the other person is from and share your own city. Confirm if you are Brazilian.",
+    "goal": "You should confidently share your city and nationality."
+   }
+  },
+  {
+   "title": "Talking About Yourself",
+   "items": [
+    {
+     "text": "Eu sou...",
+     "meaning": "I am...",
+     "example": "Eu sou estudante.",
+     "exampleMeaning": "I am a student."
+    },
+    {
+     "text": "Eu tenho... anos.",
+     "meaning": "I am... years old.",
+     "example": "Eu tenho vinte anos.",
+     "exampleMeaning": "I am twenty years old."
+    },
+    {
+     "text": "Eu gosto de...",
+     "meaning": "I like...",
+     "example": "Eu gosto de música.",
+     "exampleMeaning": "I like music."
+    },
+    {
+     "text": "Eu falo...",
+     "meaning": "I speak...",
+     "example": "Eu falo inglês e português.",
+     "exampleMeaning": "I speak English and Portuguese."
+    },
+    {
+     "text": "Você gosta de...?",
+     "meaning": "Do you like...?",
+     "example": "Você gosta de viajar?",
+     "exampleMeaning": "Do you like to travel?"
+    },
+    {
+     "text": "Sim, eu gosto!",
+     "meaning": "Yes, I like!",
+     "example": "Sim, eu gosto de viajar.",
+     "exampleMeaning": "Yes, I like to travel."
+    }
+   ],
+   "tip": "When describing yourself, use 'Eu sou...' for your profession or traits. For age, use 'Eu tenho... anos.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que você faz?",
+     "meaning": "What do you do?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu sou professor.",
+     "meaning": "I am a teacher."
+    },
+    {
+     "speaker": "A",
+     "text": "Quantos anos você tem?",
+     "meaning": "How old are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu tenho trinta anos.",
+     "meaning": "I am thirty years old."
+    },
+    {
+     "speaker": "A",
+     "text": "Você gosta de esportes?",
+     "meaning": "Do you like sports?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu gosto de futebol.",
+     "meaning": "Yes, I like soccer."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are discussing personal interests and job.",
+    "learnerRole": "You are sharing about yourself.",
+    "brief": "Talk about your job and age. Ask about the other person's interests.",
+    "goal": "You should share your profession and age."
+   }
+  },
+  {
+   "title": "Wrap Up Your Introduction",
+   "items": [
+    {
+     "text": "Vamos nos encontrar de novo?",
+     "meaning": "Shall we meet again?",
+     "example": "Vamos nos encontrar de novo?",
+     "exampleMeaning": "Shall we meet again?"
+    },
+    {
+     "text": "Até logo!",
+     "meaning": "See you later!",
+     "example": "Até logo!",
+     "exampleMeaning": "See you later!"
+    },
+    {
+     "text": "Tenha um bom dia!",
+     "meaning": "Have a good day!",
+     "example": "Tenha um bom dia!",
+     "exampleMeaning": "Have a good day!"
+    },
+    {
+     "text": "Foi bom te conhecer!",
+     "meaning": "It was nice to meet you!",
+     "example": "Foi bom te conhecer!",
+     "exampleMeaning": "It was nice to meet you!"
+    },
+    {
+     "text": "Tchau!",
+     "meaning": "Bye!",
+     "example": "Tchau! Até mais!",
+     "exampleMeaning": "Bye! See you later!"
+    },
+    {
+     "text": "Nos vemos em breve!",
+     "meaning": "See you soon!",
+     "example": "Nos vemos em breve!",
+     "exampleMeaning": "See you soon!"
+    }
+   ],
+   "tip": "Use 'Até logo!' to say goodbye informally. You can also say 'Tenha um bom dia!' to wish someone well.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Foi bom te conhecer!",
+     "meaning": "It was nice to meet you!"
+    },
+    {
+     "speaker": "B",
+     "text": "Foi bom te conhecer também!",
+     "meaning": "It was nice to meet you too!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vamos nos encontrar de novo?",
+     "meaning": "Shall we meet again?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim! Nos vemos em breve!",
+     "meaning": "Yes! See you soon!"
+    },
+    {
+     "speaker": "A",
+     "text": "Tchau!",
+     "meaning": "Bye!"
+    },
+    {
+     "speaker": "B",
+     "text": "Tchau! Até logo!",
+     "meaning": "Bye! See you later!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are saying goodbye after meeting someone.",
+    "learnerRole": "You are wrapping up the conversation.",
+    "brief": "Express that you enjoyed meeting the person and suggest meeting again.",
+    "goal": "You should end the conversation politely."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter 1 Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Olá! Como você está?",
+    "meaning": "Hello! How are you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Eu estou bem, obrigado! E você?",
+    "meaning": "I am well, thank you! And you?"
+   },
+   {
+    "speaker": "A",
+    "text": "Meu nome é Carla. E você?",
+    "meaning": "My name is Carla. And you?"
+   },
+   {
+    "speaker": "B",
+    "text": "Meu nome é Lucas. Eu sou do Rio de Janeiro.",
+    "meaning": "My name is Lucas. I am from Rio de Janeiro."
+   },
+   {
+    "speaker": "A",
+    "text": "Você gosta de música?",
+    "meaning": "Do you like music?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, eu gosto de música! Foi bom te conhecer.",
+    "meaning": "Yes, I like music! It was nice to meet you."
+   },
+   {
+    "speaker": "A",
+    "text": "Até logo! Nos vemos em breve!",
+    "meaning": "See you later! See you soon!"
+   },
+   {
+    "speaker": "B",
+    "text": "Tchau! Tenha um bom dia!",
+    "meaning": "Bye! Have a good day!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are practicing a full conversation with a new acquaintance.",
+   "learnerRole": "You are using all the greetings and introductions learned in this chapter.",
+   "brief": "Have a conversation that includes greetings, names, origins, likes, and goodbyes.",
+   "goal": "You should demonstrate your ability to introduce yourself and ask questions."
+  }
+ }
+}

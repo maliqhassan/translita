@@ -1,0 +1,418 @@
+{
+ "id": "c06",
+ "number": 6,
+ "title": "At the airport",
+ "lessons": [
+  {
+   "id": "c06-d1",
+   "day": 26,
+   "title": "What would you like?",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d1-i1",
+     "text": "Eu gostaria de um bilhete.",
+     "meaning": "I would like a ticket.",
+     "example": "Eu gostaria de um bilhete.",
+     "exampleMeaning": "I would like a ticket."
+    },
+    {
+     "id": "c06-d1-i2",
+     "text": "Você tem um passaporte?",
+     "meaning": "Do you have a passport?",
+     "example": "Você tem um passaporte?",
+     "exampleMeaning": "Do you have a passport?"
+    },
+    {
+     "id": "c06-d1-i3",
+     "text": "Qual é o seu destino?",
+     "meaning": "What is your destination?",
+     "example": "Qual é o seu destino?",
+     "exampleMeaning": "What is your destination?"
+    },
+    {
+     "id": "c06-d1-i4",
+     "text": "Eu quero viajar.",
+     "meaning": "I want to travel.",
+     "example": "Eu quero viajar.",
+     "exampleMeaning": "I want to travel."
+    },
+    {
+     "id": "c06-d1-i5",
+     "text": "Você pode me ajudar?",
+     "meaning": "Can you help me?",
+     "example": "Você pode me ajudar?",
+     "exampleMeaning": "Can you help me?"
+    },
+    {
+     "id": "c06-d1-i6",
+     "text": "Onde fica o check-in?",
+     "meaning": "Where is the check-in?",
+     "example": "Onde fica o check-in?",
+     "exampleMeaning": "Where is the check-in?"
+    }
+   ],
+   "tip": "Use 'gostaria' to express polite requests. It is a good way to ask for something you want.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual é o seu destino?",
+     "meaning": "What is your destination?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero viajar para São Paulo.",
+     "meaning": "I want to travel to São Paulo."
+    },
+    {
+     "speaker": "A",
+     "text": "Você tem um passaporte?",
+     "meaning": "Do you have a passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu tenho um passaporte.",
+     "meaning": "Yes, I have a passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Onde fica o check-in?",
+     "meaning": "Where is the check-in?"
+    },
+    {
+     "speaker": "B",
+     "text": "Está ali, perto do portão.",
+     "meaning": "It is there, near the gate."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member",
+    "learnerRole": "A traveler",
+    "brief": "You are at the airport asking questions about your flight. Start by asking about your destination and your passport.",
+    "goal": "You need to find information about your flight."
+   }
+  },
+  {
+   "id": "c06-d2",
+   "day": 27,
+   "title": "Travel documents",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d2-i1",
+     "text": "Eu preciso de um visto.",
+     "meaning": "I need a visa.",
+     "example": "Eu preciso de um visto.",
+     "exampleMeaning": "I need a visa."
+    },
+    {
+     "id": "c06-d2-i2",
+     "text": "Aqui estão meus documentos.",
+     "meaning": "Here are my documents.",
+     "example": "Aqui estão meus documentos.",
+     "exampleMeaning": "Here are my documents."
+    },
+    {
+     "id": "c06-d2-i3",
+     "text": "Qual é o horário do voo?",
+     "meaning": "What is the flight time?",
+     "example": "Qual é o horário do voo?",
+     "exampleMeaning": "What is the flight time?"
+    },
+    {
+     "id": "c06-d2-i4",
+     "text": "Você pode mostrar seu passaporte?",
+     "meaning": "Can you show your passport?",
+     "example": "Você pode mostrar seu passaporte?",
+     "exampleMeaning": "Can you show your passport?"
+    },
+    {
+     "id": "c06-d2-i5",
+     "text": "Eu tenho tudo aqui.",
+     "meaning": "I have everything here.",
+     "example": "Eu tenho tudo aqui.",
+     "exampleMeaning": "I have everything here."
+    },
+    {
+     "id": "c06-d2-i6",
+     "text": "Por favor, preencha este formulário.",
+     "meaning": "Please fill out this form.",
+     "example": "Por favor, preencha este formulário.",
+     "exampleMeaning": "Please fill out this form."
+    }
+   ],
+   "tip": "When asking for documents, use 'preciso de' for needs. It is a clear way to express what you require.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você pode mostrar seu passaporte?",
+     "meaning": "Can you show your passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Aqui estão meus documentos.",
+     "meaning": "Here are my documents."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é o horário do voo?",
+     "meaning": "What is the flight time?"
+    },
+    {
+     "speaker": "B",
+     "text": "O voo é às três horas.",
+     "meaning": "The flight is at three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Por favor, preencha este formulário.",
+     "meaning": "Please fill out this form."
+    },
+    {
+     "speaker": "B",
+     "text": "Eu tenho tudo aqui.",
+     "meaning": "I have everything here."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An immigration officer",
+    "learnerRole": "A traveler",
+    "brief": "You are at the immigration desk. You need to show your documents and ask about your flight time.",
+    "goal": "You must provide your travel documents."
+   }
+  },
+  {
+   "id": "c06-d3",
+   "day": 28,
+   "title": "Asking questions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d3-i1",
+     "text": "Onde posso encontrar um táxi?",
+     "meaning": "Where can I find a taxi?",
+     "example": "Onde posso encontrar um táxi?",
+     "exampleMeaning": "Where can I find a taxi?"
+    },
+    {
+     "id": "c06-d3-i2",
+     "text": "Você pode me ajudar a encontrar meu voo?",
+     "meaning": "Can you help me find my flight?",
+     "example": "Você pode me ajudar a encontrar meu voo?",
+     "exampleMeaning": "Can you help me find my flight?"
+    },
+    {
+     "id": "c06-d3-i3",
+     "text": "Qual é a porta de embarque?",
+     "meaning": "What is the boarding gate?",
+     "example": "Qual é a porta de embarque?",
+     "exampleMeaning": "What is the boarding gate?"
+    },
+    {
+     "id": "c06-d3-i4",
+     "text": "A que horas chega o voo?",
+     "meaning": "What time does the flight arrive?",
+     "example": "A que horas chega o voo?",
+     "exampleMeaning": "What time does the flight arrive?"
+    },
+    {
+     "id": "c06-d3-i5",
+     "text": "É longe daqui?",
+     "meaning": "Is it far from here?",
+     "example": "É longe daqui?",
+     "exampleMeaning": "Is it far from here?"
+    },
+    {
+     "id": "c06-d3-i6",
+     "text": "Posso pegar um ônibus?",
+     "meaning": "Can I take a bus?",
+     "example": "Posso pegar um ônibus?",
+     "exampleMeaning": "Can I take a bus?"
+    }
+   ],
+   "tip": "Use 'onde' to ask about locations. It's useful for finding places at the airport.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde posso encontrar um táxi?",
+     "meaning": "Where can I find a taxi?"
+    },
+    {
+     "speaker": "B",
+     "text": "O táxi está do lado de fora.",
+     "meaning": "The taxi is outside."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a porta de embarque?",
+     "meaning": "What is the boarding gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "A porta de embarque é número cinco.",
+     "meaning": "The boarding gate is number five."
+    },
+    {
+     "speaker": "A",
+     "text": "A que horas chega o voo?",
+     "meaning": "What time does the flight arrive?"
+    },
+    {
+     "speaker": "B",
+     "text": "O voo chega às quatro horas.",
+     "meaning": "The flight arrives at four o'clock."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A taxi driver",
+    "learnerRole": "A traveler",
+    "brief": "You are at the airport asking about transportation and flight information. Ask about taxis and your boarding gate.",
+    "goal": "You need to get information to reach your destination."
+   }
+  },
+  {
+   "id": "c06-d4",
+   "day": 29,
+   "title": "Final checks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c06-d4-i1",
+     "text": "Você tem tudo?",
+     "meaning": "Do you have everything?",
+     "example": "Você tem tudo?",
+     "exampleMeaning": "Do you have everything?"
+    },
+    {
+     "id": "c06-d4-i2",
+     "text": "Eu estou pronto/a.",
+     "meaning": "I am ready.",
+     "example": "Eu estou pronto.",
+     "exampleMeaning": "I am ready."
+    },
+    {
+     "id": "c06-d4-i3",
+     "text": "Vamos para o portão.",
+     "meaning": "Let's go to the gate.",
+     "example": "Vamos para o portão.",
+     "exampleMeaning": "Let's go to the gate."
+    },
+    {
+     "id": "c06-d4-i4",
+     "text": "Está tudo certo?",
+     "meaning": "Is everything okay?",
+     "example": "Está tudo certo?",
+     "exampleMeaning": "Is everything okay?"
+    },
+    {
+     "id": "c06-d4-i5",
+     "text": "Vamos verificar os documentos.",
+     "meaning": "Let's check the documents.",
+     "example": "Vamos verificar os documentos.",
+     "exampleMeaning": "Let's check the documents."
+    },
+    {
+     "id": "c06-d4-i6",
+     "text": "Não se esqueça do passaporte.",
+     "meaning": "Don't forget the passport.",
+     "example": "Não se esqueça do passaporte.",
+     "exampleMeaning": "Don't forget the passport."
+    }
+   ],
+   "tip": "Use 'tudo' to refer to all things. It helps when checking if you have everything you need.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você tem tudo?",
+     "meaning": "Do you have everything?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu estou pronto.",
+     "meaning": "Yes, I am ready."
+    },
+    {
+     "speaker": "A",
+     "text": "Vamos verificar os documentos.",
+     "meaning": "Let's check the documents."
+    },
+    {
+     "speaker": "B",
+     "text": "Não se esqueça do passaporte.",
+     "meaning": "Don't forget the passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Está tudo certo?",
+     "meaning": "Is everything okay?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, está tudo certo.",
+     "meaning": "Yes, everything is okay."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A travel companion",
+    "learnerRole": "A traveler",
+    "brief": "You are preparing to board your flight. Check if you have everything and confirm your readiness.",
+    "goal": "You need to ensure you are ready for the flight."
+   }
+  },
+  {
+   "id": "c06-d5",
+   "day": 30,
+   "title": "Chapter Review: At the airport",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual é o seu destino?",
+     "meaning": "What is your destination?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero viajar para São Paulo.",
+     "meaning": "I want to travel to São Paulo."
+    },
+    {
+     "speaker": "A",
+     "text": "Você tem um passaporte?",
+     "meaning": "Do you have a passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu tenho um passaporte.",
+     "meaning": "Yes, I have a passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Onde posso encontrar um táxi?",
+     "meaning": "Where can I find a taxi?"
+    },
+    {
+     "speaker": "B",
+     "text": "O táxi está do lado de fora.",
+     "meaning": "The taxi is outside."
+    },
+    {
+     "speaker": "A",
+     "text": "Está tudo certo?",
+     "meaning": "Is everything okay?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, está tudo certo.",
+     "meaning": "Yes, everything is okay."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "An airport staff member",
+    "learnerRole": "A traveler",
+    "brief": "You are at the airport. Ask questions about your travel documents and transportation.",
+    "goal": "You need to confirm your travel plans and information."
+   }
+  }
+ ]
+}

@@ -1,0 +1,418 @@
+{
+ "id": "c12",
+ "number": 12,
+ "title": "Opinions and Experiences",
+ "lessons": [
+  {
+   "id": "c12-d1",
+   "day": 56,
+   "title": "Sharing Opinions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d1-i1",
+     "text": "Acho que",
+     "meaning": "I think that",
+     "example": "Acho que a comida é deliciosa.",
+     "exampleMeaning": "I think that the food is delicious."
+    },
+    {
+     "id": "c12-d1-i2",
+     "text": "Eu gostei",
+     "meaning": "I liked",
+     "example": "Eu gostei do filme.",
+     "exampleMeaning": "I liked the movie."
+    },
+    {
+     "id": "c12-d1-i3",
+     "text": "Foi interessante",
+     "meaning": "It was interesting",
+     "example": "Foi interessante aprender sobre a cultura.",
+     "exampleMeaning": "It was interesting to learn about the culture."
+    },
+    {
+     "id": "c12-d1-i4",
+     "text": "Não gostei",
+     "meaning": "I didn't like",
+     "example": "Não gostei da música.",
+     "exampleMeaning": "I didn't like the music."
+    },
+    {
+     "id": "c12-d1-i5",
+     "text": "Achei bonito",
+     "meaning": "I found it beautiful",
+     "example": "Achei bonito o pôr do sol.",
+     "exampleMeaning": "I found the sunset beautiful."
+    },
+    {
+     "id": "c12-d1-i6",
+     "text": "Foi legal",
+     "meaning": "It was cool",
+     "example": "Foi legal ir ao parque.",
+     "exampleMeaning": "It was cool to go to the park."
+    }
+   ],
+   "tip": "In Portuguese, you express your opinion using phrases like 'Acho que' (I think that) or 'Eu gostei' (I liked). Remember to use the past tense for experiences you are sharing.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que você achou do filme?",
+     "meaning": "What did you think of the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu gostei muito!",
+     "meaning": "I liked it a lot!"
+    },
+    {
+     "speaker": "A",
+     "text": "Foi interessante, né?",
+     "meaning": "It was interesting, right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, foi legal!",
+     "meaning": "Yes, it was cool!"
+    },
+    {
+     "speaker": "A",
+     "text": "E a música?",
+     "meaning": "And the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não gostei muito.",
+     "meaning": "I didn't like it much."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend discussing a movie and music with the learner.",
+    "learnerRole": "You are sharing your opinions about the movie and music.",
+    "brief": "Ask your friend what they thought about the movie and share your thoughts. Discuss the music too.",
+    "goal": "You need to express your opinions clearly."
+   }
+  },
+  {
+   "id": "c12-d2",
+   "day": 57,
+   "title": "Likes and Dislikes in the Past",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d2-i1",
+     "text": "Eu amei",
+     "meaning": "I loved",
+     "example": "Eu amei a festa.",
+     "exampleMeaning": "I loved the party."
+    },
+    {
+     "id": "c12-d2-i2",
+     "text": "Não gostei de",
+     "meaning": "I didn't like",
+     "example": "Não gostei de ficar em casa.",
+     "exampleMeaning": "I didn't like staying at home."
+    },
+    {
+     "id": "c12-d2-i3",
+     "text": "Foi maravilhoso",
+     "meaning": "It was wonderful",
+     "example": "Foi maravilhoso viajar para o Brasil.",
+     "exampleMeaning": "It was wonderful to travel to Brazil."
+    },
+    {
+     "id": "c12-d2-i4",
+     "text": "Eu detestei",
+     "meaning": "I hated",
+     "example": "Eu detestei aquele filme.",
+     "exampleMeaning": "I hated that movie."
+    },
+    {
+     "id": "c12-d2-i5",
+     "text": "Eu preferi",
+     "meaning": "I preferred",
+     "example": "Eu preferi a comida italiana.",
+     "exampleMeaning": "I preferred the Italian food."
+    },
+    {
+     "id": "c12-d2-i6",
+     "text": "Foi chato",
+     "meaning": "It was boring",
+     "example": "Foi chato esperar por horas.",
+     "exampleMeaning": "It was boring to wait for hours."
+    }
+   ],
+   "tip": "Use 'Eu amei' (I loved) for positive experiences and 'Eu detestei' (I hated) for negative ones. This helps to express your feelings about past events.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Como foi a festa?",
+     "meaning": "How was the party?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu amei! Foi maravilhoso.",
+     "meaning": "I loved it! It was wonderful."
+    },
+    {
+     "speaker": "A",
+     "text": "E o filme?",
+     "meaning": "And the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu detestei. Foi chato.",
+     "meaning": "I hated it. It was boring."
+    },
+    {
+     "speaker": "A",
+     "text": "Você preferiu a comida?",
+     "meaning": "Did you prefer the food?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu preferi a comida italiana.",
+     "meaning": "Yes, I preferred the Italian food."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend talking about a recent party and movie with the learner.",
+    "learnerRole": "You are sharing your likes and dislikes about the party and movie.",
+    "brief": "Discuss the party and movie you both attended. Share what you loved and hated.",
+    "goal": "You need to express your likes and dislikes in the past."
+   }
+  },
+  {
+   "id": "c12-d3",
+   "day": 58,
+   "title": "Discussing Experiences",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d3-i1",
+     "text": "Eu viajei",
+     "meaning": "I traveled",
+     "example": "Eu viajei para o Brasil no ano passado.",
+     "exampleMeaning": "I traveled to Brazil last year."
+    },
+    {
+     "id": "c12-d3-i2",
+     "text": "Foi incrível",
+     "meaning": "It was amazing",
+     "example": "Foi incrível ver as montanhas.",
+     "exampleMeaning": "It was amazing to see the mountains."
+    },
+    {
+     "id": "c12-d3-i3",
+     "text": "Eu experimentei",
+     "meaning": "I tried",
+     "example": "Eu experimentei a comida típica.",
+     "exampleMeaning": "I tried the typical food."
+    },
+    {
+     "id": "c12-d3-i4",
+     "text": "Eu gostei mais de",
+     "meaning": "I liked more",
+     "example": "Eu gostei mais de visitar as praias.",
+     "exampleMeaning": "I liked more visiting the beaches."
+    },
+    {
+     "id": "c12-d3-i5",
+     "text": "Foi uma experiência",
+     "meaning": "It was an experience",
+     "example": "Foi uma experiência única.",
+     "exampleMeaning": "It was a unique experience."
+    },
+    {
+     "id": "c12-d3-i6",
+     "text": "Eu aprendi",
+     "meaning": "I learned",
+     "example": "Eu aprendi muito sobre a cultura.",
+     "exampleMeaning": "I learned a lot about the culture."
+    }
+   ],
+   "tip": "Use 'Eu viajei' (I traveled) to share your experiences. You can express how you felt about these experiences using phrases like 'Foi incrível' (It was amazing).",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você viajou no ano passado?",
+     "meaning": "Did you travel last year?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu viajei para o Brasil.",
+     "meaning": "Yes, I traveled to Brazil."
+    },
+    {
+     "speaker": "A",
+     "text": "Como foi?",
+     "meaning": "How was it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Foi incrível! Eu experimentei a comida típica.",
+     "meaning": "It was amazing! I tried the typical food."
+    },
+    {
+     "speaker": "A",
+     "text": "O que você aprendeu?",
+     "meaning": "What did you learn?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu aprendi muito sobre a cultura.",
+     "meaning": "I learned a lot about the culture."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend asking about the learner's travel experiences.",
+    "learnerRole": "You are sharing your travel experiences and what you learned.",
+    "brief": "Talk about your travels and what you experienced. Share what you learned during your trip.",
+    "goal": "You need to discuss your travel experiences clearly."
+   }
+  },
+  {
+   "id": "c12-d4",
+   "day": 59,
+   "title": "Reflecting on Opinions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d4-i1",
+     "text": "Eu pensei que",
+     "meaning": "I thought that",
+     "example": "Eu pensei que a comida seria melhor.",
+     "exampleMeaning": "I thought that the food would be better."
+    },
+    {
+     "id": "c12-d4-i2",
+     "text": "Foi surpreendente",
+     "meaning": "It was surprising",
+     "example": "Foi surpreendente ver a cidade.",
+     "exampleMeaning": "It was surprising to see the city."
+    },
+    {
+     "id": "c12-d4-i3",
+     "text": "Eu não esperava",
+     "meaning": "I didn't expect",
+     "example": "Eu não esperava que fosse tão bonito.",
+     "exampleMeaning": "I didn't expect it to be so beautiful."
+    },
+    {
+     "id": "c12-d4-i4",
+     "text": "Eu achei que",
+     "meaning": "I found that",
+     "example": "Eu achei que o show foi incrível.",
+     "exampleMeaning": "I found that the show was amazing."
+    },
+    {
+     "id": "c12-d4-i5",
+     "text": "Foi uma surpresa",
+     "meaning": "It was a surprise",
+     "example": "Foi uma surpresa encontrar você aqui.",
+     "exampleMeaning": "It was a surprise to find you here."
+    },
+    {
+     "id": "c12-d4-i6",
+     "text": "Eu fiquei feliz",
+     "meaning": "I was happy",
+     "example": "Eu fiquei feliz com a visita.",
+     "exampleMeaning": "I was happy with the visit."
+    }
+   ],
+   "tip": "Use 'Eu pensei que' (I thought that) to reflect on your expectations. This helps to express your feelings about past experiences.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você pensou que o show seria bom?",
+     "meaning": "Did you think the show would be good?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu pensei que seria incrível.",
+     "meaning": "Yes, I thought it would be amazing."
+    },
+    {
+     "speaker": "A",
+     "text": "Foi surpreendente, não foi?",
+     "meaning": "It was surprising, wasn't it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu não esperava que fosse tão bonito.",
+     "meaning": "Yes, I didn't expect it to be so beautiful."
+    },
+    {
+     "speaker": "A",
+     "text": "Você ficou feliz com a visita?",
+     "meaning": "Were you happy with the visit?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu fiquei feliz!",
+     "meaning": "Yes, I was happy!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend reflecting on a recent show and visit with the learner.",
+    "learnerRole": "You are sharing your thoughts about the show and how you felt during the visit.",
+    "brief": "Discuss your thoughts about the show and the visit. Share your feelings and surprises.",
+    "goal": "You need to reflect on your opinions and experiences."
+   }
+  },
+  {
+   "id": "c12-d5",
+   "day": 60,
+   "title": "Chapter Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que você achou do filme?",
+     "meaning": "What did you think of the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu gostei muito! Foi legal.",
+     "meaning": "I liked it a lot! It was cool."
+    },
+    {
+     "speaker": "A",
+     "text": "Você viajou no ano passado?",
+     "meaning": "Did you travel last year?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu viajei para o Brasil. Foi incrível!",
+     "meaning": "Yes, I traveled to Brazil. It was amazing!"
+    },
+    {
+     "speaker": "A",
+     "text": "E a música?",
+     "meaning": "And the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não gostei muito. Eu detestei.",
+     "meaning": "I didn't like it much. I hated it."
+    },
+    {
+     "speaker": "A",
+     "text": "O que você aprendeu na viagem?",
+     "meaning": "What did you learn on the trip?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu aprendi muito sobre a cultura.",
+     "meaning": "I learned a lot about the culture."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend discussing various experiences with the learner.",
+    "learnerRole": "You are sharing your opinions and experiences about movies, travel, and music.",
+    "brief": "Discuss your thoughts on a movie, your travel experiences, and your feelings about music.",
+    "goal": "You need to express your opinions and experiences clearly."
+   }
+  }
+ ]
+}

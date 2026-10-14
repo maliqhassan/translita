@@ -814,12 +814,12 @@ export const id: Catalog = {
   'Tap a word': 'Ketuk kata',
   'Tap its meaning': 'Ketuk artinya',
   '{count} of {total} pairs matched': '{count} dari {total} pasangan cocok',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dari bahasa Inggris dalam 60 hari, bersama pelatih AI. Hari 1 gratis.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dalam {days} hari, bersama {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Belajar bahasa Jerman, Prancis, Spanyol, atau Italia dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'Belajar bahasa baru dari bahasa Inggris dalam 60 hari, bersama pelatih AI. Hari 1 gratis.',
+  'Learn a new language in {days} days, with {name}.':
+    'Belajar bahasa baru dalam {days} hari, bersama {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Belajar bahasa baru dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

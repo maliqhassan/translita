@@ -1,0 +1,376 @@
+{
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "title": "Telling the Time",
+   "items": [
+    {
+     "text": "Que horas são?",
+     "meaning": "What time is it?",
+     "example": "Que horas são agora?",
+     "exampleMeaning": "What time is it now?"
+    },
+    {
+     "text": "São duas horas.",
+     "meaning": "It is two o'clock.",
+     "example": "São duas horas da tarde.",
+     "exampleMeaning": "It is two o'clock in the afternoon."
+    },
+    {
+     "text": "Meia-noite",
+     "meaning": "Midnight",
+     "example": "A festa começa à meia-noite.",
+     "exampleMeaning": "The party starts at midnight."
+    },
+    {
+     "text": "Meia",
+     "meaning": "Half (30 minutes)",
+     "example": "É meia hora depois das cinco.",
+     "exampleMeaning": "It is half an hour after five."
+    },
+    {
+     "text": "Quarto",
+     "meaning": "Quarter (15 minutes)",
+     "example": "São quatro horas e quinze minutos.",
+     "exampleMeaning": "It is four fifteen."
+    },
+    {
+     "text": "Dez minutos",
+     "meaning": "Ten minutes",
+     "example": "Eu chego em dez minutos.",
+     "exampleMeaning": "I arrive in ten minutes."
+    }
+   ],
+   "tip": "In Brazilian Portuguese, when asking for the time, you say 'Que horas são?'. To express time, use 'são' for all times except one o'clock, which uses 'é'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Que horas são?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "São duas horas.",
+     "meaning": "It is two o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "E você chega em dez minutos?",
+     "meaning": "And you arrive in ten minutes?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu chego em dez minutos.",
+     "meaning": "Yes, I arrive in ten minutes."
+    },
+    {
+     "speaker": "A",
+     "text": "A festa começa à meia-noite, certo?",
+     "meaning": "The party starts at midnight, right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, começa à meia-noite.",
+     "meaning": "Yes, it starts at midnight."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who wants to know the time and details about an event.",
+    "learnerRole": "You are the person with the time and event information.",
+    "brief": "Answer questions about the time and when the party starts. Use the phrases from this lesson.",
+    "goal": "You should be able to tell the time and give information about arriving."
+   }
+  },
+  {
+   "title": "Buying Tickets",
+   "items": [
+    {
+     "text": "Um bilhete, por favor.",
+     "meaning": "A ticket, please.",
+     "example": "Eu quero um bilhete, por favor.",
+     "exampleMeaning": "I want a ticket, please."
+    },
+    {
+     "text": "Onde fica a bilheteira?",
+     "meaning": "Where is the ticket office?",
+     "example": "Onde fica a bilheteira da estação?",
+     "exampleMeaning": "Where is the ticket office at the station?"
+    },
+    {
+     "text": "Quantos bilhetes?",
+     "meaning": "How many tickets?",
+     "example": "Quantos bilhetes você precisa?",
+     "exampleMeaning": "How many tickets do you need?"
+    },
+    {
+     "text": "Para onde?",
+     "meaning": "Where to?",
+     "example": "Para onde você vai?",
+     "exampleMeaning": "Where are you going?"
+    },
+    {
+     "text": "Custa dez reais.",
+     "meaning": "It costs ten reais.",
+     "example": "O bilhete custa dez reais.",
+     "exampleMeaning": "The ticket costs ten reais."
+    },
+    {
+     "text": "Eu quero um bilhete de ida.",
+     "meaning": "I want a one-way ticket.",
+     "example": "Eu quero um bilhete de ida para São Paulo.",
+     "exampleMeaning": "I want a one-way ticket to São Paulo."
+    }
+   ],
+   "tip": "When buying tickets, you can say 'Um bilhete, por favor' to request a ticket. Always remember to specify your destination and whether you want a one-way or round-trip ticket.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde fica a bilheteira?",
+     "meaning": "Where is the ticket office?"
+    },
+    {
+     "speaker": "B",
+     "text": "Fica ali, perto da entrada.",
+     "meaning": "It is over there, near the entrance."
+    },
+    {
+     "speaker": "A",
+     "text": "Quantos bilhetes você precisa?",
+     "meaning": "How many tickets do you need?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero um bilhete, por favor.",
+     "meaning": "I want a ticket, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Custa quanto?",
+     "meaning": "How much does it cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Custa dez reais.",
+     "meaning": "It costs ten reais."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A person at the transport station.",
+    "learnerRole": "You are buying a ticket.",
+    "brief": "Ask for the location of the ticket office and the cost of a ticket. Use the phrases from this lesson.",
+    "goal": "You should be able to request a ticket and understand the cost."
+   }
+  },
+  {
+   "title": "Present Tense Verbs",
+   "items": [
+    {
+     "text": "Eu vou",
+     "meaning": "I go",
+     "example": "Eu vou ao trabalho de ônibus.",
+     "exampleMeaning": "I go to work by bus."
+    },
+    {
+     "text": "Você faz",
+     "meaning": "You do",
+     "example": "Você faz a lição de casa?",
+     "exampleMeaning": "Do you do your homework?"
+    },
+    {
+     "text": "Ele/ela estuda",
+     "meaning": "He/she studies",
+     "example": "Ela estuda português.",
+     "exampleMeaning": "She studies Portuguese."
+    },
+    {
+     "text": "Nós viajamos",
+     "meaning": "We travel",
+     "example": "Nós viajamos para o Brasil.",
+     "exampleMeaning": "We travel to Brazil."
+    },
+    {
+     "text": "Eles/elas trabalham",
+     "meaning": "They work",
+     "example": "Eles trabalham no escritório.",
+     "exampleMeaning": "They work in the office."
+    },
+    {
+     "text": "Eu quero",
+     "meaning": "I want",
+     "example": "Eu quero ir ao cinema.",
+     "exampleMeaning": "I want to go to the cinema."
+    }
+   ],
+   "tip": "In Brazilian Portuguese, the present tense is formed by changing the verb endings. For example, 'ir' (to go) becomes 'vou' for 'I go'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você faz a lição de casa?",
+     "meaning": "Do you do your homework?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu faço a lição.",
+     "meaning": "Yes, I do my homework."
+    },
+    {
+     "speaker": "A",
+     "text": "Nós viajamos para o Brasil em julho.",
+     "meaning": "We travel to Brazil in July."
+    },
+    {
+     "speaker": "B",
+     "text": "Ótimo! Eu quero ir também.",
+     "meaning": "Great! I want to go too."
+    },
+    {
+     "speaker": "A",
+     "text": "Ele estuda português, certo?",
+     "meaning": "He studies Portuguese, right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, ele estuda todos os dias.",
+     "meaning": "Yes, he studies every day."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend who is discussing travel plans.",
+    "learnerRole": "You are sharing your study and travel plans.",
+    "brief": "Talk about your homework and travel plans using present tense verbs.",
+    "goal": "You should be able to describe what you do and your plans."
+   }
+  },
+  {
+   "title": "Asking for Directions",
+   "items": [
+    {
+     "text": "Onde está...?",
+     "meaning": "Where is...?",
+     "example": "Onde está a estação de trem?",
+     "exampleMeaning": "Where is the train station?"
+    },
+    {
+     "text": "Vire à direita",
+     "meaning": "Turn right",
+     "example": "Vire à direita na próxima esquina.",
+     "exampleMeaning": "Turn right at the next corner."
+    },
+    {
+     "text": "Vire à esquerda",
+     "meaning": "Turn left",
+     "example": "Vire à esquerda na rua principal.",
+     "exampleMeaning": "Turn left on the main street."
+    },
+    {
+     "text": "Siga em frente",
+     "meaning": "Go straight",
+     "example": "Siga em frente até a praça.",
+     "exampleMeaning": "Go straight until the square."
+    },
+    {
+     "text": "Está longe?",
+     "meaning": "Is it far?",
+     "example": "A estação está longe daqui?",
+     "exampleMeaning": "Is the station far from here?"
+    },
+    {
+     "text": "É perto.",
+     "meaning": "It is near.",
+     "example": "A farmácia é perto da sua casa.",
+     "exampleMeaning": "The pharmacy is near your house."
+    }
+   ],
+   "tip": "When asking for directions, start with 'Onde está...?' to find a place. Use 'vire' for turning and 'siga' for going straight.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Onde está a estação de trem?",
+     "meaning": "Where is the train station?"
+    },
+    {
+     "speaker": "B",
+     "text": "Está perto. Vire à esquerda.",
+     "meaning": "It is near. Turn left."
+    },
+    {
+     "speaker": "A",
+     "text": "E depois?",
+     "meaning": "And then?"
+    },
+    {
+     "speaker": "B",
+     "text": "Siga em frente até a praça.",
+     "meaning": "Go straight until the square."
+    },
+    {
+     "speaker": "A",
+     "text": "Está longe?",
+     "meaning": "Is it far?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não, é perto.",
+     "meaning": "No, it is near."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A person asking for directions.",
+    "learnerRole": "You are giving directions.",
+    "brief": "Help a person find the train station using the phrases from this lesson.",
+    "goal": "You should be able to give clear directions."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Getting around by transport",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Que horas são?",
+    "meaning": "What time is it?"
+   },
+   {
+    "speaker": "B",
+    "text": "São três horas.",
+    "meaning": "It is three o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "Onde fica a bilheteira?",
+    "meaning": "Where is the ticket office?"
+   },
+   {
+    "speaker": "B",
+    "text": "Fica perto da estação.",
+    "meaning": "It is near the station."
+   },
+   {
+    "speaker": "A",
+    "text": "Quantos bilhetes você precisa?",
+    "meaning": "How many tickets do you need?"
+   },
+   {
+    "speaker": "B",
+    "text": "Eu quero dois bilhetes, por favor.",
+    "meaning": "I want two tickets, please."
+   },
+   {
+    "speaker": "A",
+    "text": "Onde está a estação de trem?",
+    "meaning": "Where is the train station?"
+   },
+   {
+    "speaker": "B",
+    "text": "Vire à direita e siga em frente.",
+    "meaning": "Turn right and go straight."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A person asking questions about transport.",
+   "learnerRole": "You are the person answering and reviewing the chapter.",
+   "brief": "Answer questions about telling time, buying tickets, present tense verbs, and giving directions.",
+   "goal": "You should be able to use the phrases from this chapter confidently."
+  }
+ }
+}

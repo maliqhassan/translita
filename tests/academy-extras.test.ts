@@ -238,3 +238,20 @@ describe('what Elite is', () => {
     assert.equal(capabilitiesFor('pro').has('academy'), false);
   });
 });
+
+describe('matching rounds', () => {
+  it('never put two cards that read the same in one round', () => {
+    for (const course of ['de', 'fr', 'es', 'it', 'pt-BR', 'sv']) {
+      for (const chapter of courseChapters(course)) {
+        const items = chapter.lessons.flatMap((lesson) => lesson.items);
+        const byId = new Map(items.map((item) => [item.id, item]));
+        const steps = planPractice(items.slice(0, 10), items, `${course}:${chapter.number}`);
+        for (const step of steps) {
+          if (step.kind !== 'match') continue;
+          const meanings = step.itemIds.map((id) => byId.get(id)!.meaning.toLowerCase().trim());
+          assert.equal(new Set(meanings).size, meanings.length, `${course} ${chapter.number}`);
+        }
+      }
+    }
+  });
+});

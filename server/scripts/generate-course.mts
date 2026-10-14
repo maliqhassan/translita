@@ -53,7 +53,8 @@ const COURSE_LANGUAGES = {
   fr: 'French (standard French as spoken in France)',
   es: 'Spanish (neutral, international Spanish)',
   it: 'Italian',
-  'pt-BR': 'Brazilian Portuguese',
+  'pt-BR': 'Brazilian Portuguese (as spoken in Brazil)',
+  sv: 'Swedish (standard Swedish as spoken in Sweden)',
 } as const;
 type CourseLanguage = keyof typeof COURSE_LANGUAGES;
 

@@ -1,0 +1,376 @@
+{
+ "title": "Making Plans",
+ "lessons": [
+  {
+   "title": "Future Plans",
+   "items": [
+    {
+     "text": "Vou viajar.",
+     "meaning": "I will travel.",
+     "example": "Eu vou viajar no próximo mês.",
+     "exampleMeaning": "I will travel next month."
+    },
+    {
+     "text": "Vamos nos encontrar.",
+     "meaning": "Let's meet.",
+     "example": "Vamos nos encontrar no sábado.",
+     "exampleMeaning": "Let's meet on Saturday."
+    },
+    {
+     "text": "Você quer ir?",
+     "meaning": "Do you want to go?",
+     "example": "Você quer ir ao cinema?",
+     "exampleMeaning": "Do you want to go to the cinema?"
+    },
+    {
+     "text": "Eu quero convidar.",
+     "meaning": "I want to invite.",
+     "example": "Eu quero convidar você para a festa.",
+     "exampleMeaning": "I want to invite you to the party."
+    },
+    {
+     "text": "Qual é a data?",
+     "meaning": "What is the date?",
+     "example": "Qual é a data da reunião?",
+     "exampleMeaning": "What is the date of the meeting?"
+    },
+    {
+     "text": "Está certo!",
+     "meaning": "That's right!",
+     "example": "Está certo, vamos nos encontrar às cinco.",
+     "exampleMeaning": "That's right, let's meet at five."
+    }
+   ],
+   "tip": "In Brazilian Portuguese, the future is often expressed using 'vou' plus the verb. For example, 'Vou viajar' means 'I will travel.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vamos nos encontrar no sábado?",
+     "meaning": "Shall we meet on Saturday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu quero!",
+     "meaning": "Yes, I want to!"
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a data?",
+     "meaning": "What is the date?"
+    },
+    {
+     "speaker": "B",
+     "text": "É dia 15.",
+     "meaning": "It's the 15th."
+    },
+    {
+     "speaker": "A",
+     "text": "Está certo! Que horas?",
+     "meaning": "That's right! What time?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vamos nos encontrar às cinco.",
+     "meaning": "Let's meet at five."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend making plans.",
+    "learnerRole": "You, the learner.",
+    "brief": "You want to make plans for Saturday. Ask about the date and time.",
+    "goal": "You will successfully arrange to meet on Saturday."
+   }
+  },
+  {
+   "title": "Invitations",
+   "items": [
+    {
+     "text": "Você está livre?",
+     "meaning": "Are you free?",
+     "example": "Você está livre no domingo?",
+     "exampleMeaning": "Are you free on Sunday?"
+    },
+    {
+     "text": "Eu tenho um convite.",
+     "meaning": "I have an invitation.",
+     "example": "Eu tenho um convite para a festa.",
+     "exampleMeaning": "I have an invitation to the party."
+    },
+    {
+     "text": "Vamos juntos?",
+     "meaning": "Shall we go together?",
+     "example": "Vamos juntos ao cinema?",
+     "exampleMeaning": "Shall we go together to the cinema?"
+    },
+    {
+     "text": "O que você acha?",
+     "meaning": "What do you think?",
+     "example": "O que você acha da festa?",
+     "exampleMeaning": "What do you think of the party?"
+    },
+    {
+     "text": "Você gostaria de ir?",
+     "meaning": "Would you like to go?",
+     "example": "Você gostaria de ir comigo?",
+     "exampleMeaning": "Would you like to go with me?"
+    },
+    {
+     "text": "Pode ser!",
+     "meaning": "That works!",
+     "example": "Pode ser, eu vou!",
+     "exampleMeaning": "That works, I will go!"
+    }
+   ],
+   "tip": "When inviting someone, you can use 'você gostaria de ir?' to ask if they want to join. It's polite and friendly.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você está livre no domingo?",
+     "meaning": "Are you free on Sunday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, estou livre!",
+     "meaning": "Yes, I am free!"
+    },
+    {
+     "speaker": "A",
+     "text": "Eu tenho um convite para a festa.",
+     "meaning": "I have an invitation to the party."
+    },
+    {
+     "speaker": "B",
+     "text": "O que você acha?",
+     "meaning": "What do you think?"
+    },
+    {
+     "speaker": "A",
+     "text": "Vamos juntos?",
+     "meaning": "Shall we go together?"
+    },
+    {
+     "speaker": "B",
+     "text": "Pode ser!",
+     "meaning": "That works!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend inviting you to a party.",
+    "learnerRole": "You, the learner.",
+    "brief": "Discuss weekend plans and invitations with your friend.",
+    "goal": "You will agree to go to the party together."
+   }
+  },
+  {
+   "title": "Confirming Plans",
+   "items": [
+    {
+     "text": "Você pode confirmar?",
+     "meaning": "Can you confirm?",
+     "example": "Você pode confirmar a hora?",
+     "exampleMeaning": "Can you confirm the time?"
+    },
+    {
+     "text": "Você confirma?",
+     "meaning": "Do you confirm?",
+     "example": "Você confirma o nosso encontro?",
+     "exampleMeaning": "Do you confirm our meeting?"
+    },
+    {
+     "text": "Eu vou confirmar.",
+     "meaning": "I will confirm.",
+     "example": "Eu vou confirmar a data.",
+     "exampleMeaning": "I will confirm the date."
+    },
+    {
+     "text": "Vamos falar mais tarde.",
+     "meaning": "Let's talk later.",
+     "example": "Vamos falar mais tarde sobre isso.",
+     "exampleMeaning": "Let's talk later about this."
+    },
+    {
+     "text": "Qual é o seu plano?",
+     "meaning": "What is your plan?",
+     "example": "Qual é o seu plano para o fim de semana?",
+     "exampleMeaning": "What is your plan for the weekend?"
+    },
+    {
+     "text": "Parece bom!",
+     "meaning": "Sounds good!",
+     "example": "Parece bom, vamos lá!",
+     "exampleMeaning": "Sounds good, let's go!"
+    }
+   ],
+   "tip": "When confirming plans, use 'Você pode confirmar?' to ask for confirmation. It's clear and straightforward.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você pode confirmar a hora?",
+     "meaning": "Can you confirm the time?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, está tudo certo para amanhã.",
+     "meaning": "Yes, everything is okay for tomorrow."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é o seu plano para o fim de semana?",
+     "meaning": "What is your plan for the weekend?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu vou confirmar a data.",
+     "meaning": "I will confirm the date."
+    },
+    {
+     "speaker": "A",
+     "text": "Vamos falar mais tarde?",
+     "meaning": "Let's talk later?"
+    },
+    {
+     "speaker": "B",
+     "text": "Parece bom!",
+     "meaning": "Sounds good!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend confirming plans.",
+    "learnerRole": "You, the learner.",
+    "brief": "Confirm your plans for the weekend with your friend.",
+    "goal": "You will confirm the details for your plans."
+   }
+  },
+  {
+   "title": "Discussing Dates",
+   "items": [
+    {
+     "text": "Qual dia é?",
+     "meaning": "What day is it?",
+     "example": "Qual dia é a festa?",
+     "exampleMeaning": "What day is the party?"
+    },
+    {
+     "text": "Amanhã é...",
+     "meaning": "Tomorrow is...",
+     "example": "Amanhã é quinta-feira.",
+     "exampleMeaning": "Tomorrow is Thursday."
+    },
+    {
+     "text": "Depois de amanhã.",
+     "meaning": "The day after tomorrow.",
+     "example": "Depois de amanhã é sexta-feira.",
+     "exampleMeaning": "The day after tomorrow is Friday."
+    },
+    {
+     "text": "Na próxima semana.",
+     "meaning": "Next week.",
+     "example": "Na próxima semana é a reunião.",
+     "exampleMeaning": "Next week is the meeting."
+    },
+    {
+     "text": "Este mês.",
+     "meaning": "This month.",
+     "example": "Este mês é especial.",
+     "exampleMeaning": "This month is special."
+    },
+    {
+     "text": "Vamos ver!",
+     "meaning": "Let's see!",
+     "example": "Vamos ver se podemos ir.",
+     "exampleMeaning": "Let's see if we can go."
+    }
+   ],
+   "tip": "When discussing dates, you can ask 'Qual dia é?' to find out the specific day. It's a useful question to know.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual dia é a festa?",
+     "meaning": "What day is the party?"
+    },
+    {
+     "speaker": "B",
+     "text": "Amanhã é sábado.",
+     "meaning": "Tomorrow is Saturday."
+    },
+    {
+     "speaker": "A",
+     "text": "E depois de amanhã?",
+     "meaning": "And the day after tomorrow?"
+    },
+    {
+     "speaker": "B",
+     "text": "Depois de amanhã é domingo.",
+     "meaning": "The day after tomorrow is Sunday."
+    },
+    {
+     "speaker": "A",
+     "text": "Na próxima semana, vamos nos encontrar?",
+     "meaning": "Next week, shall we meet?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vamos ver!",
+     "meaning": "Let's see!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A friend discussing plans for the week.",
+    "learnerRole": "You, the learner.",
+    "brief": "Ask about the dates and confirm your plans for the coming days.",
+    "goal": "You will clarify the dates for your plans."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Você está livre no domingo?",
+    "meaning": "Are you free on Sunday?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, estou livre!",
+    "meaning": "Yes, I am free!"
+   },
+   {
+    "speaker": "A",
+    "text": "Qual é a data da reunião?",
+    "meaning": "What is the date of the meeting?"
+   },
+   {
+    "speaker": "B",
+    "text": "É dia 20.",
+    "meaning": "It's the 20th."
+   },
+   {
+    "speaker": "A",
+    "text": "Vamos juntos ao cinema?",
+    "meaning": "Shall we go together to the cinema?"
+   },
+   {
+    "speaker": "B",
+    "text": "Pode ser!",
+    "meaning": "That works!"
+   },
+   {
+    "speaker": "A",
+    "text": "Está tudo certo para amanhã?",
+    "meaning": "Is everything okay for tomorrow?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sim, eu vou confirmar.",
+    "meaning": "Yes, I will confirm."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A friend discussing plans for the weekend.",
+   "learnerRole": "You, the learner.",
+   "brief": "Discuss your weekend plans and confirm details with your friend.",
+   "goal": "You will successfully confirm your plans for the weekend."
+  }
+ }
+}

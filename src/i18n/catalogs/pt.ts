@@ -817,12 +817,12 @@ export const pt: Catalog = {
   'Tap a word': 'Toque numa palavra',
   'Tap its meaning': 'Toque no significado',
   '{count} of {total} pairs matched': '{count} de {total} pares combinados',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'Aprenda alemão, francês, espanhol ou italiano a partir do inglês em 60 dias, com um coach de IA. O dia 1 é grátis.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'Aprenda alemão, francês, espanhol ou italiano em {days} dias, com {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Aprenda alemão, francês, espanhol ou italiano com um coach de IA. O dia 1 é grátis; o Elite libera o curso completo e inclui tudo do Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'Aprenda um novo idioma a partir do inglês em 60 dias, com um coach de IA. O dia 1 é grátis.',
+  'Learn a new language in {days} days, with {name}.':
+    'Aprenda um novo idioma em {days} dias, com {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Aprenda um novo idioma com um coach de IA. O dia 1 é grátis; o Elite libera o curso completo e inclui tudo do Pro.',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',

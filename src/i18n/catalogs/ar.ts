@@ -790,12 +790,12 @@ export const ar: Catalog = {
   'Tap a word': 'اضغط على كلمة',
   'Tap its meaning': 'اضغط على معناها',
   '{count} of {total} pairs matched': 'تمت مطابقة {count} من {total} أزواج',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية من الإنجليزية في 60 يومًا مع مدرب ذكي. اليوم الأول مجاني.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية في {days} يومًا، مع {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'تعلّم لغة جديدة من الإنجليزية في 60 يومًا مع مدرب ذكي. اليوم الأول مجاني.',
+  'Learn a new language in {days} days, with {name}.':
+    'تعلّم لغة جديدة في {days} يومًا، مع {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'تعلّم لغة جديدة مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

@@ -1,0 +1,418 @@
+{
+ "id": "c12",
+ "number": 12,
+ "title": "Opinions and Experiences",
+ "lessons": [
+  {
+   "id": "c12-d1",
+   "day": 56,
+   "title": "Sharing Opinions",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d1-i1",
+     "text": "jag tyckte om",
+     "meaning": "I liked",
+     "example": "Jag tyckte om filmen.",
+     "exampleMeaning": "I liked the movie."
+    },
+    {
+     "id": "c12-d1-i2",
+     "text": "jag gillade",
+     "meaning": "I liked",
+     "example": "Jag gillade boken.",
+     "exampleMeaning": "I liked the book."
+    },
+    {
+     "id": "c12-d1-i3",
+     "text": "intressant",
+     "meaning": "interesting",
+     "example": "Det var en intressant diskussion.",
+     "exampleMeaning": "It was an interesting discussion."
+    },
+    {
+     "id": "c12-d1-i4",
+     "text": "tråkig",
+     "meaning": "boring",
+     "example": "Mötet var tråkigt.",
+     "exampleMeaning": "The meeting was boring."
+    },
+    {
+     "id": "c12-d1-i5",
+     "text": "roligare",
+     "meaning": "more fun",
+     "example": "Det var roligare än jag trodde.",
+     "exampleMeaning": "It was more fun than I thought."
+    },
+    {
+     "id": "c12-d1-i6",
+     "text": "jag föredrog",
+     "meaning": "I preferred",
+     "example": "Jag föredrog den gamla versionen.",
+     "exampleMeaning": "I preferred the old version."
+    }
+   ],
+   "tip": "In Swedish, the past tense is often formed by adding endings to the verb. For example, 'tycka' becomes 'tyckte' in the past.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Gillade du filmen?",
+     "meaning": "Did you like the movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag gillade den.",
+     "meaning": "Yes, I liked it."
+    },
+    {
+     "speaker": "A",
+     "text": "Tyckte du att den var intressant?",
+     "meaning": "Did you think it was interesting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den var mycket intressant.",
+     "meaning": "Yes, it was very interesting."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad tyckte du om musiken?",
+     "meaning": "What did you think of the music?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag tyckte om musiken, den var rolig.",
+     "meaning": "I liked the music, it was fun."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend discussing a movie and music with the learner.",
+    "learnerRole": "You are sharing your opinions about what you watched and heard.",
+    "brief": "Fråga din vän om deras åsikter om filmen och musiken.",
+    "goal": "You should express your likes and dislikes."
+   }
+  },
+  {
+   "id": "c12-d2",
+   "day": 57,
+   "title": "Talking About Experiences",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d2-i1",
+     "text": "jag har varit",
+     "meaning": "I have been",
+     "example": "Jag har varit i Stockholm.",
+     "exampleMeaning": "I have been to Stockholm."
+    },
+    {
+     "id": "c12-d2-i2",
+     "text": "jag har sett",
+     "meaning": "I have seen",
+     "example": "Jag har sett den filmen.",
+     "exampleMeaning": "I have seen that movie."
+    },
+    {
+     "id": "c12-d2-i3",
+     "text": "jag har provat",
+     "meaning": "I have tried",
+     "example": "Jag har provat den restaurangen.",
+     "exampleMeaning": "I have tried that restaurant."
+    },
+    {
+     "id": "c12-d2-i4",
+     "text": "roligt",
+     "meaning": "fun",
+     "example": "Det var roligt att vara där.",
+     "exampleMeaning": "It was fun to be there."
+    },
+    {
+     "id": "c12-d2-i5",
+     "text": "fantastisk",
+     "meaning": "fantastic",
+     "example": "Maten var fantastisk.",
+     "exampleMeaning": "The food was fantastic."
+    },
+    {
+     "id": "c12-d2-i6",
+     "text": "jag har njutit av",
+     "meaning": "I have enjoyed",
+     "example": "Jag har njutit av min semester.",
+     "exampleMeaning": "I have enjoyed my vacation."
+    }
+   ],
+   "tip": "The present perfect tense in Swedish often uses 'har' + the past participle of the verb. For example, 'vara' becomes 'varit'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Har du varit i Stockholm?",
+     "meaning": "Have you been to Stockholm?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har varit där en gång.",
+     "meaning": "Yes, I have been there once."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du sett den filmen?",
+     "meaning": "Have you seen that movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har sett den, den var fantastisk.",
+     "meaning": "Yes, I have seen it, it was fantastic."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du provat den nya restaurangen?",
+     "meaning": "Have you tried the new restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har provat den. Det var roligt.",
+     "meaning": "Yes, I have tried it. It was fun."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend asking the learner about their experiences in different places.",
+    "learnerRole": "You are sharing your past experiences with your friend.",
+    "brief": "Fråga din vän om deras erfarenheter av städer och restauranger.",
+    "goal": "You should describe your past experiences."
+   }
+  },
+  {
+   "id": "c12-d3",
+   "day": 58,
+   "title": "Expressing Likes and Dislikes",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d3-i1",
+     "text": "jag tycker inte om",
+     "meaning": "I do not like",
+     "example": "Jag tycker inte om spenat.",
+     "exampleMeaning": "I do not like spinach."
+    },
+    {
+     "id": "c12-d3-i2",
+     "text": "jag avskyr",
+     "meaning": "I hate",
+     "example": "Jag avskyr att vänta.",
+     "exampleMeaning": "I hate waiting."
+    },
+    {
+     "id": "c12-d3-i3",
+     "text": "det är inte min smak",
+     "meaning": "it is not my taste",
+     "example": "Det är inte min smak.",
+     "exampleMeaning": "It is not my taste."
+    },
+    {
+     "id": "c12-d3-i4",
+     "text": "jag älskar",
+     "meaning": "I love",
+     "example": "Jag älskar choklad.",
+     "exampleMeaning": "I love chocolate."
+    },
+    {
+     "id": "c12-d3-i5",
+     "text": "det är fantastiskt",
+     "meaning": "it is fantastic",
+     "example": "Det är fantastiskt att resa.",
+     "exampleMeaning": "It is fantastic to travel."
+    },
+    {
+     "id": "c12-d3-i6",
+     "text": "jag gillar inte",
+     "meaning": "I do not like",
+     "example": "Jag gillar inte regn.",
+     "exampleMeaning": "I do not like rain."
+    }
+   ],
+   "tip": "When expressing dislikes, you can use 'inte' to negate the verb. For example, 'gilla' becomes 'gillar inte'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Tycker du om spenat?",
+     "meaning": "Do you like spinach?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, jag tycker inte om spenat.",
+     "meaning": "No, I do not like spinach."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad tycker du om att vänta?",
+     "meaning": "What do you think about waiting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag avskyr att vänta.",
+     "meaning": "I hate waiting."
+    },
+    {
+     "speaker": "A",
+     "text": "Gillar du att resa?",
+     "meaning": "Do you like to travel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag älskar att resa!",
+     "meaning": "Yes, I love to travel!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend discussing likes and dislikes with the learner.",
+    "learnerRole": "You are sharing your preferences.",
+    "brief": "Fråga din vän om deras åsikter om mat och aktiviteter.",
+    "goal": "You should express what you like and dislike."
+   }
+  },
+  {
+   "id": "c12-d4",
+   "day": 59,
+   "title": "Reflecting on Experiences",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c12-d4-i1",
+     "text": "det var en bra upplevelse",
+     "meaning": "it was a good experience",
+     "example": "Det var en bra upplevelse att resa.",
+     "exampleMeaning": "It was a good experience to travel."
+    },
+    {
+     "id": "c12-d4-i2",
+     "text": "jag lärde mig",
+     "meaning": "I learned",
+     "example": "Jag lärde mig mycket om kulturen.",
+     "exampleMeaning": "I learned a lot about the culture."
+    },
+    {
+     "id": "c12-d4-i3",
+     "text": "jag kände mig",
+     "meaning": "I felt",
+     "example": "Jag kände mig glad efter resan.",
+     "exampleMeaning": "I felt happy after the trip."
+    },
+    {
+     "id": "c12-d4-i4",
+     "text": "jag rekommenderar",
+     "meaning": "I recommend",
+     "example": "Jag rekommenderar den här boken.",
+     "exampleMeaning": "I recommend this book."
+    },
+    {
+     "id": "c12-d4-i5",
+     "text": "det var värt det",
+     "meaning": "it was worth it",
+     "example": "Det var värt det att åka dit.",
+     "exampleMeaning": "It was worth it to go there."
+    },
+    {
+     "id": "c12-d4-i6",
+     "text": "jag skulle vilja göra det igen",
+     "meaning": "I would like to do it again",
+     "example": "Jag skulle vilja göra det igen.",
+     "exampleMeaning": "I would like to do it again."
+    }
+   ],
+   "tip": "To express your thoughts about experiences, you can use phrases like 'det var' followed by your opinion. This helps to clearly communicate your feelings.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hur var din resa?",
+     "meaning": "How was your trip?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det var en bra upplevelse!",
+     "meaning": "It was a good experience!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vad lärde du dig?",
+     "meaning": "What did you learn?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag lärde mig mycket om kulturen.",
+     "meaning": "I learned a lot about the culture."
+    },
+    {
+     "speaker": "A",
+     "text": "Skulle du vilja åka dit igen?",
+     "meaning": "Would you like to go there again?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag skulle vilja göra det igen.",
+     "meaning": "Yes, I would like to do it again."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend asking the learner about their recent experiences.",
+    "learnerRole": "You are sharing your reflections on your trip.",
+    "brief": "Fråga din vän om deras erfarenheter och rekommendationer.",
+    "goal": "You should reflect on your experiences and share recommendations."
+   }
+  },
+  {
+   "id": "c12-d5",
+   "day": 60,
+   "title": "Chapter Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad tyckte du om konserten?",
+     "meaning": "What did you think of the concert?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag tyckte om den, den var rolig!",
+     "meaning": "I liked it, it was fun!"
+    },
+    {
+     "speaker": "A",
+     "text": "Har du sett den nya filmen?",
+     "meaning": "Have you seen the new movie?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har sett den. Den var fantastisk!",
+     "meaning": "Yes, I have seen it. It was fantastic!"
+    },
+    {
+     "speaker": "A",
+     "text": "Tycker du om att prova nya maträtter?",
+     "meaning": "Do you like to try new dishes?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag älskar att prova nya maträtter!",
+     "meaning": "Yes, I love to try new dishes!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vad tycker du om att vänta?",
+     "meaning": "What do you think about waiting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag avskyr att vänta!",
+     "meaning": "I hate waiting!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend discussing various experiences and opinions with the learner.",
+    "learnerRole": "You are sharing your thoughts on different topics.",
+    "brief": "Fråga din vän om deras åsikter och erfarenheter.",
+    "goal": "You should engage in a conversation about your likes and dislikes."
+   }
+  }
+ ]
+}

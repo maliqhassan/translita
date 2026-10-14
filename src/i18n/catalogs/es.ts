@@ -822,12 +822,12 @@ export const es: Catalog = {
   'Tap a word': 'Toca una palabra',
   'Tap its meaning': 'Toca su significado',
   '{count} of {total} pairs matched': '{count} de {total} parejas emparejadas',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'Aprende alemán, francés, español o italiano desde el inglés en 60 días, con un coach de IA. El día 1 es gratis.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'Aprende alemán, francés, español o italiano en {days} días, con {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Aprende alemán, francés, español o italiano con un coach de IA. El día 1 es gratis; Elite abre el curso completo e incluye todo lo de Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'Aprende un idioma nuevo desde el inglés en 60 días, con un coach de IA. El día 1 es gratis.',
+  'Learn a new language in {days} days, with {name}.':
+    'Aprende un idioma nuevo en {days} días, con {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Aprende un idioma nuevo con un coach de IA. El día 1 es gratis; Elite abre el curso completo e incluye todo lo de Pro.',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Afrikáans',

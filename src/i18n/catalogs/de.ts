@@ -823,12 +823,12 @@ export const de: Catalog = {
   'Tap a word': 'Wort antippen',
   'Tap its meaning': 'Bedeutung antippen',
   '{count} of {total} pairs matched': '{count} von {total} Paaren gefunden',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'Lerne Deutsch, Französisch, Spanisch oder Italienisch auf Englisch in 60 Tagen, mit einem KI-Coach. Tag 1 ist kostenlos.',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    'Lerne Deutsch, Französisch, Spanisch oder Italienisch in {days} Tagen, mit {name}.',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'Lerne Deutsch, Französisch, Spanisch oder Italienisch mit einem KI-Coach. Tag 1 ist kostenlos; Elite öffnet den ganzen Kurs und enthält alles aus Pro.',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'Lerne eine neue Sprache auf Englisch in 60 Tagen, mit einem KI-Coach. Tag 1 ist kostenlos.',
+  'Learn a new language in {days} days, with {name}.':
+    'Lerne eine neue Sprache in {days} Tagen, mit {name}.',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'Lerne eine neue Sprache mit einem KI-Coach. Tag 1 ist kostenlos; Elite öffnet den ganzen Kurs und enthält alles aus Pro.',
   // Language names
   'Detect language': 'Sprache erkennen',
   Afrikaans: 'Afrikaans',

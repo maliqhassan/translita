@@ -1,6 +1,6 @@
 <en-US>
 🌱 Fabalita is live! Meet Translita's worldly sister, your AI language coach.
-• Start learning German, French, Spanish or Italian with AI, 5 minutes a day
+• Learn German, French, Spanish, Italian, Portuguese or Swedish with AI
 • Talk live with Fabalita: real conversations, mistakes corrected as you go
 • Practise speaking, earn badges, keep your streak
 • Finish the 60-day course and get your certificate
@@ -8,7 +8,7 @@
 </en-US>
 <ur>
 🌱 Fabalita آ گئی ہے! Translita کی دنیا دیکھی بہن، آپ کی AI زبان کوچ۔
-• AI کے ساتھ جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھنا شروع کریں، روزانہ 5 منٹ
+• AI کے ساتھ 6 زبانوں میں سے کوئی بھی سیکھیں، روزانہ 5 منٹ
 • Fabalita سے براہِ راست گفتگو کریں، غلطیوں کی ساتھ ساتھ درستی
 • بولنے کی مشق کریں، بیجز جیتیں، اپنا سلسلہ جاری رکھیں
 • 60 دن کا کورس مکمل کریں اور سرٹیفکیٹ حاصل کریں
@@ -16,7 +16,7 @@
 </ur>
 <hi-IN>
 🌱 Fabalita आ गई है! Translita की दुनिया घूमी बहन, आपकी AI भाषा कोच।
-• AI के साथ जर्मन, फ़्रेंच, स्पेनिश या इतालवी सीखना शुरू करें, रोज़ 5 मिनट
+• AI के साथ 6 में से कोई भी भाषा सीखें, रोज़ 5 मिनट
 • Fabalita से लाइव बातचीत करें, गलतियाँ साथ-साथ सुधरती हैं
 • बोलने का अभ्यास करें, बैज जीतें, लगातार पढ़ाई बनाए रखें
 • 60 दिन का कोर्स पूरा करें और प्रमाणपत्र पाएँ
@@ -24,7 +24,7 @@
 </hi-IN>
 <ar>
 🌱 Fabalita متاحة الآن! أخت Translita الجوّالة، مدربتك اللغوية بالذكاء الاصطناعي.
-• ابدأ تعلّم الألمانية أو الفرنسية أو الإسبانية أو الإيطالية بالذكاء الاصطناعي، 5 دقائق يوميًا
+• تعلّم واحدة من 6 لغات بالذكاء الاصطناعي، 5 دقائق يوميًا
 • تحدّث مباشرة مع Fabalita: محادثات حقيقية وتصحيح فوري للأخطاء
 • تدرّب على التحدث، واجمع الشارات، وحافظ على سلسلتك
 • أكمل دورة الـ60 يومًا واحصل على شهادتك
@@ -32,7 +32,7 @@
 </ar>
 <bn-BD>
 🌱 Fabalita এসে গেছে! Translita-র বিশ্ব-ঘোরা বোন, আপনার AI ভাষা কোচ।
-• AI-এর সাথে জার্মান, ফরাসি, স্প্যানিশ বা ইতালীয় শেখা শুরু করুন, দিনে ৫ মিনিট
+• AI-এর সাথে ৬টি ভাষার যেকোনোটি শিখুন, দিনে ৫ মিনিট
 • Fabalita-র সাথে সরাসরি কথা বলুন, ভুল সঙ্গে সঙ্গে শুধরে যায়
 • কথা বলার অনুশীলন করুন, ব্যাজ জিতুন, ধারাবাহিকতা রাখুন
 • ৬০ দিনের কোর্স শেষ করে সার্টিফিকেট নিন
@@ -40,7 +40,7 @@
 </bn-BD>
 <es-ES>
 🌱 ¡Fabalita ya está aquí! La hermana viajera de Translita, tu coach de idiomas con IA.
-• Empieza a aprender alemán, francés, español o italiano con IA, 5 minutos al día
+• Aprende uno de 6 idiomas con IA, 5 minutos al día
 • Habla en vivo con Fabalita: conversaciones reales y errores corregidos al momento
 • Practica hablando, gana insignias y mantén tu racha
 • Completa el curso de 60 días y consigue tu certificado
@@ -48,7 +48,7 @@
 </es-ES>
 <fr-FR>
 🌱 Fabalita est arrivée ! La sœur globe-trotteuse de Translita, votre coach de langue IA.
-• Apprenez l'allemand, le français, l'espagnol ou l'italien avec l'IA, 5 minutes par jour
+• Apprenez l'une de 6 langues avec l'IA, 5 minutes par jour
 • Parlez en direct avec Fabalita : vraies conversations, erreurs corrigées au fil de l'eau
 • Pratiquez l'oral, gagnez des badges, gardez votre série
 • Terminez le cours de 60 jours et obtenez votre certificat
@@ -56,7 +56,7 @@
 </fr-FR>
 <de-DE>
 🌱 Fabalita ist da! Die weitgereiste Schwester von Translita, dein KI-Sprachcoach.
-• Lerne Deutsch, Französisch, Spanisch oder Italienisch mit KI, 5 Minuten am Tag
+• Lerne eine von 6 Sprachen mit KI, 5 Minuten am Tag
 • Sprich live mit Fabalita: echte Gespräche, Fehler werden sofort korrigiert
 • Übe das Sprechen, sammle Abzeichen, halte deine Serie
 • Schließe den 60-Tage-Kurs ab und hol dir dein Zertifikat
@@ -64,7 +64,7 @@
 </de-DE>
 <pt-BR>
 🌱 A Fabalita chegou! A irmã viajada da Translita, sua coach de idiomas com IA.
-• Comece a aprender alemão, francês, espanhol ou italiano com IA, 5 minutos por dia
+• Aprenda um de 6 idiomas com IA, 5 minutos por dia
 • Converse ao vivo com a Fabalita: conversas reais e erros corrigidos na hora
 • Pratique a fala, ganhe medalhas e mantenha sua sequência
 • Conclua o curso de 60 dias e receba seu certificado
@@ -72,7 +72,7 @@
 </pt-BR>
 <id>
 🌱 Fabalita sudah hadir! Saudari Translita yang suka menjelajah, pelatih bahasa AI-mu.
-• Mulai belajar bahasa Jerman, Prancis, Spanyol, atau Italia dengan AI, 5 menit sehari
+• Pelajari satu dari 6 bahasa dengan AI, 5 menit sehari
 • Ngobrol langsung dengan Fabalita: percakapan nyata, kesalahan langsung dikoreksi
 • Latihan berbicara, kumpulkan lencana, jaga runtutanmu
 • Selesaikan kursus 60 hari dan dapatkan sertifikatmu
@@ -80,7 +80,7 @@
 </id>
 <tr-TR>
 🌱 Fabalita yayında! Translita'nın dünyayı gezmiş kız kardeşi, yapay zekâ dil koçun.
-• Yapay zekâ ile Almanca, Fransızca, İspanyolca veya İtalyanca öğrenmeye başla, günde 5 dakika
+• Yapay zekâ ile 6 dilden birini öğren, günde 5 dakika
 • Fabalita ile canlı konuş: gerçek sohbetler, hatalar anında düzeltilir
 • Konuşma pratiği yap, rozet kazan, serini koru
 • 60 günlük kursu bitir ve sertifikanı al
@@ -88,7 +88,7 @@
 </tr-TR>
 <fil>
 🌱 Narito na si Fabalita! Ang palabiyaheng kapatid ni Translita, ang iyong AI language coach.
-• Magsimulang matuto ng German, French, Spanish o Italian gamit ang AI, 5 minuto bawat araw
+• Matuto ng isa sa 6 na wika gamit ang AI, 5 minuto bawat araw
 • Makipag-usap nang live kay Fabalita: totoong usapan, itinatama agad ang mali
 • Magsanay magsalita, mangolekta ng badge, panatilihin ang streak
 • Tapusin ang 60-araw na kurso at kunin ang iyong sertipiko

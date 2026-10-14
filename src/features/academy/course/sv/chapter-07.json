@@ -1,0 +1,418 @@
+{
+ "id": "c07",
+ "number": 7,
+ "title": "At the hotel",
+ "lessons": [
+  {
+   "id": "c07-d1",
+   "day": 31,
+   "title": "There is a problem",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d1-i1",
+     "text": "det finns",
+     "meaning": "there is/there are",
+     "example": "Det finns ett problem.",
+     "exampleMeaning": "There is a problem."
+    },
+    {
+     "id": "c07-d1-i2",
+     "text": "ett rum",
+     "meaning": "a room",
+     "example": "Det finns ett rum ledigt.",
+     "exampleMeaning": "There is a room available."
+    },
+    {
+     "id": "c07-d1-i3",
+     "text": "en säng",
+     "meaning": "a bed",
+     "example": "Det finns en säng i rummet.",
+     "exampleMeaning": "There is a bed in the room."
+    },
+    {
+     "id": "c07-d1-i4",
+     "text": "städning",
+     "meaning": "cleaning",
+     "example": "Det finns städning varje dag.",
+     "exampleMeaning": "There is cleaning every day."
+    },
+    {
+     "id": "c07-d1-i5",
+     "text": "en hiss",
+     "meaning": "an elevator",
+     "example": "Det finns en hiss här.",
+     "exampleMeaning": "There is an elevator here."
+    },
+    {
+     "id": "c07-d1-i6",
+     "text": "ett problem",
+     "meaning": "a problem",
+     "example": "Det finns ett problem med vattnet.",
+     "exampleMeaning": "There is a problem with the water."
+    }
+   ],
+   "tip": "Use 'det finns' to talk about something that exists. It can refer to both singular and plural nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Det finns ett rum ledigt.",
+     "meaning": "There is a room available."
+    },
+    {
+     "speaker": "B",
+     "text": "Bra! Finns det en säng?",
+     "meaning": "Good! Is there a bed?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ja, det finns en säng i rummet.",
+     "meaning": "Yes, there is a bed in the room."
+    },
+    {
+     "speaker": "B",
+     "text": "Finns det städning varje dag?",
+     "meaning": "Is there cleaning every day?"
+    },
+    {
+     "speaker": "A",
+     "text": "Ja, det finns städning varje dag.",
+     "meaning": "Yes, there is cleaning every day."
+    },
+    {
+     "speaker": "B",
+     "text": "Det finns ett problem med vattnet.",
+     "meaning": "There is a problem with the water."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the hotel receptionist. Respond to the learner's questions.",
+    "learnerRole": "You are checking in to the hotel and asking about the room.",
+    "brief": "Fråga om rummet och städning. Nämn ett problem.",
+    "goal": "You need to ask about the room and report a problem."
+   }
+  },
+  {
+   "id": "c07-d2",
+   "day": 32,
+   "title": "Polite Requests",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d2-i1",
+     "text": "kan jag få",
+     "meaning": "can I have",
+     "example": "Kan jag få nyckeln?",
+     "exampleMeaning": "Can I have the key?"
+    },
+    {
+     "id": "c07-d2-i2",
+     "text": "om möjligt",
+     "meaning": "if possible",
+     "example": "Kan jag få ett rum med havsutsikt, om möjligt?",
+     "exampleMeaning": "Can I have a room with a sea view, if possible?"
+    },
+    {
+     "id": "c07-d2-i3",
+     "text": "ett extra",
+     "meaning": "an extra",
+     "example": "Kan jag få en extra handduk?",
+     "exampleMeaning": "Can I have an extra towel?"
+    },
+    {
+     "id": "c07-d2-i4",
+     "text": "hjälp med",
+     "meaning": "help with",
+     "example": "Kan jag få hjälp med väskorna?",
+     "exampleMeaning": "Can I get help with the bags?"
+    },
+    {
+     "id": "c07-d2-i5",
+     "text": "att låna",
+     "meaning": "to borrow",
+     "example": "Kan jag låna en telefon?",
+     "exampleMeaning": "Can I borrow a phone?"
+    },
+    {
+     "id": "c07-d2-i6",
+     "text": "en karta",
+     "meaning": "a map",
+     "example": "Kan jag få en karta, snälla?",
+     "exampleMeaning": "Can I have a map, please?"
+    }
+   ],
+   "tip": "When making polite requests, use 'kan jag få' followed by what you want. Adding 'snälla' makes it even more polite.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Kan jag få nyckeln?",
+     "meaning": "Can I have the key?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, här är nyckeln.",
+     "meaning": "Yes, here is the key."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan jag få en extra handduk?",
+     "meaning": "Can I have an extra towel?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag ger dig en extra handduk.",
+     "meaning": "Yes, I will give you an extra towel."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan jag få hjälp med väskorna?",
+     "meaning": "Can I get help with the bags?"
+    },
+    {
+     "speaker": "B",
+     "text": "Självklart! Jag hjälper dig.",
+     "meaning": "Of course! I will help you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the hotel receptionist. Respond to the learner's polite requests.",
+    "learnerRole": "You are asking for things you need.",
+    "brief": "Be polite and ask for the key, a towel, and help with your bags.",
+    "goal": "You need to make polite requests."
+   }
+  },
+  {
+   "id": "c07-d3",
+   "day": 33,
+   "title": "Reporting a Problem",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d3-i1",
+     "text": "ett klagomål",
+     "meaning": "a complaint",
+     "example": "Jag har ett klagomål.",
+     "exampleMeaning": "I have a complaint."
+    },
+    {
+     "id": "c07-d3-i2",
+     "text": "inte fungerar",
+     "meaning": "does not work",
+     "example": "Hissen fungerar inte.",
+     "exampleMeaning": "The elevator does not work."
+    },
+    {
+     "id": "c07-d3-i3",
+     "text": "ingen vatten",
+     "meaning": "no water",
+     "example": "Det är ingen vatten i duschen.",
+     "exampleMeaning": "There is no water in the shower."
+    },
+    {
+     "id": "c07-d3-i4",
+     "text": "kan du hjälpa mig?",
+     "meaning": "can you help me?",
+     "example": "Kan du hjälpa mig med problemet?",
+     "exampleMeaning": "Can you help me with the problem?"
+    },
+    {
+     "id": "c07-d3-i5",
+     "text": "snabbt",
+     "meaning": "quickly",
+     "example": "Vi behöver hjälp snabbt.",
+     "exampleMeaning": "We need help quickly."
+    },
+    {
+     "id": "c07-d3-i6",
+     "text": "att fixa",
+     "meaning": "to fix",
+     "example": "Kan ni fixa hissen?",
+     "exampleMeaning": "Can you fix the elevator?"
+    }
+   ],
+   "tip": "When reporting a problem, use 'jag har ett klagomål' to express your issue. Be clear about what the problem is.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Jag har ett klagomål.",
+     "meaning": "I have a complaint."
+    },
+    {
+     "speaker": "B",
+     "text": "Vad är problemet?",
+     "meaning": "What is the problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "Hissen fungerar inte.",
+     "meaning": "The elevator does not work."
+    },
+    {
+     "speaker": "B",
+     "text": "Kan du hjälpa mig med problemet?",
+     "meaning": "Can you help me with the problem?"
+    },
+    {
+     "speaker": "A",
+     "text": "Det är ingen vatten i duschen.",
+     "meaning": "There is no water in the shower."
+    },
+    {
+     "speaker": "B",
+     "text": "Vi ska fixa det snabbt.",
+     "meaning": "We will fix it quickly."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the hotel receptionist. Listen to the learner's complaint and respond.",
+    "learnerRole": "You are reporting a problem with the room.",
+    "brief": "Explain the problem with the elevator and water.",
+    "goal": "You need to report a problem."
+   }
+  },
+  {
+   "id": "c07-d4",
+   "day": 34,
+   "title": "Asking for Help",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c07-d4-i1",
+     "text": "kan du visa mig",
+     "meaning": "can you show me",
+     "example": "Kan du visa mig vägen?",
+     "exampleMeaning": "Can you show me the way?"
+    },
+    {
+     "id": "c07-d4-i2",
+     "text": "att få hjälp",
+     "meaning": "to get help",
+     "example": "Jag behöver få hjälp.",
+     "exampleMeaning": "I need to get help."
+    },
+    {
+     "id": "c07-d4-i3",
+     "text": "en annan",
+     "meaning": "another",
+     "example": "Kan jag få en annan nyckel?",
+     "exampleMeaning": "Can I have another key?"
+    },
+    {
+     "id": "c07-d4-i4",
+     "text": "att ringa",
+     "meaning": "to call",
+     "example": "Jag behöver ringa en vän.",
+     "exampleMeaning": "I need to call a friend."
+    },
+    {
+     "id": "c07-d4-i5",
+     "text": "vad ska jag göra?",
+     "meaning": "what should I do?",
+     "example": "Vad ska jag göra nu?",
+     "exampleMeaning": "What should I do now?"
+    },
+    {
+     "id": "c07-d4-i6",
+     "text": "snälla hjälp mig",
+     "meaning": "please help me",
+     "example": "Snälla hjälp mig med nyckeln.",
+     "exampleMeaning": "Please help me with the key."
+    }
+   ],
+   "tip": "When you need help, use 'kan du visa mig' to ask someone to show you something. Always be polite.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Kan du visa mig vägen?",
+     "meaning": "Can you show me the way?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag kan visa dig.",
+     "meaning": "Yes, I can show you."
+    },
+    {
+     "speaker": "A",
+     "text": "Jag behöver få hjälp.",
+     "meaning": "I need to get help."
+    },
+    {
+     "speaker": "B",
+     "text": "Vad ska jag göra?",
+     "meaning": "What should I do?"
+    },
+    {
+     "speaker": "A",
+     "text": "Snälla hjälp mig med nyckeln.",
+     "meaning": "Please help me with the key."
+    },
+    {
+     "speaker": "B",
+     "text": "Självklart, jag hjälper dig.",
+     "meaning": "Of course, I will help you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the hotel receptionist. Help the learner with their requests.",
+    "learnerRole": "You are asking for directions and help.",
+    "brief": "Ask for directions and assistance with the key.",
+    "goal": "You need to ask for help."
+   }
+  },
+  {
+   "id": "c07-d5",
+   "day": 35,
+   "title": "Review of Chapter 7: At the hotel",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Det finns ett rum ledigt.",
+     "meaning": "There is a room available."
+    },
+    {
+     "speaker": "B",
+     "text": "Kan jag få nyckeln, snälla?",
+     "meaning": "Can I have the key, please?"
+    },
+    {
+     "speaker": "A",
+     "text": "Hissen fungerar inte.",
+     "meaning": "The elevator does not work."
+    },
+    {
+     "speaker": "B",
+     "text": "Jag har ett klagomål.",
+     "meaning": "I have a complaint."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan du hjälpa mig med problemet?",
+     "meaning": "Can you help me with the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det är ingen vatten i duschen.",
+     "meaning": "There is no water in the shower."
+    },
+    {
+     "speaker": "A",
+     "text": "Vi ska fixa det snabbt.",
+     "meaning": "We will fix it quickly."
+    },
+    {
+     "speaker": "B",
+     "text": "Kan du visa mig vägen?",
+     "meaning": "Can you show me the way?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are the hotel receptionist. Respond to the learner's various requests and complaints.",
+    "learnerRole": "You are checking in and reporting problems.",
+    "brief": "Use different phrases from the chapter to interact with the receptionist.",
+    "goal": "You need to communicate effectively about your stay."
+   }
+  }
+ ]
+}

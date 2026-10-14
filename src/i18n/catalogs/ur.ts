@@ -806,12 +806,12 @@ export const ur: Catalog = {
   'Tap a word': 'لفظ ٹیپ کریں',
   'Tap its meaning': 'اس کا مطلب ٹیپ کریں',
   '{count} of {total} pairs matched': '{total} میں سے {count} جوڑے مل گئے',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'انگریزی کے ذریعے 60 دن میں جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں، AI کوچ کے ساتھ۔ پہلا دن مفت ہے۔',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    '{days} دنوں میں جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں، {name} کے ساتھ۔',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'AI کوچ کے ساتھ جرمن، فرانسیسی، ہسپانوی یا اطالوی سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'انگریزی کے ذریعے 60 دن میں نئی زبان سیکھیں، AI کوچ کے ساتھ۔ پہلا دن مفت ہے۔',
+  'Learn a new language in {days} days, with {name}.':
+    '{days} دنوں میں نئی زبان سیکھیں، {name} کے ساتھ۔',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'AI کوچ کے ساتھ نئی زبان سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

@@ -1,0 +1,376 @@
+{
+ "title": "Getting around by transport",
+ "lessons": [
+  {
+   "title": "Telling the Time",
+   "items": [
+    {
+     "text": "klockan",
+     "meaning": "the clock",
+     "example": "Vad är klockan?",
+     "exampleMeaning": "What time is it?"
+    },
+    {
+     "text": "halv",
+     "meaning": "half (past)",
+     "example": "Klockan är halv tre.",
+     "exampleMeaning": "It is half past two."
+    },
+    {
+     "text": "kvart",
+     "meaning": "quarter (past/to)",
+     "example": "Klockan är kvart över fyra.",
+     "exampleMeaning": "It is a quarter past four."
+    },
+    {
+     "text": "fem i",
+     "meaning": "five to",
+     "example": "Klockan är fem i två.",
+     "exampleMeaning": "It is five to two."
+    },
+    {
+     "text": "tio över",
+     "meaning": "ten past",
+     "example": "Klockan är tio över fem.",
+     "exampleMeaning": "It is ten past five."
+    },
+    {
+     "text": "vad är klockan?",
+     "meaning": "what time is it?",
+     "example": "Ursäkta, vad är klockan?",
+     "exampleMeaning": "Excuse me, what time is it?"
+    }
+   ],
+   "tip": "In Swedish, we say the hour first, followed by 'över' (past) or 'i' (to) for minutes. Remember to use 'halv' for half past the hour.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad är klockan?",
+     "meaning": "What time is it?"
+    },
+    {
+     "speaker": "B",
+     "text": "Klockan är kvart över fyra.",
+     "meaning": "It is a quarter past four."
+    },
+    {
+     "speaker": "A",
+     "text": "Tack! Vad är klockan nu?",
+     "meaning": "Thanks! What time is it now?"
+    },
+    {
+     "speaker": "B",
+     "text": "Klockan är tio över fem.",
+     "meaning": "It is ten past five."
+    },
+    {
+     "speaker": "A",
+     "text": "Och vad är klockan imorgon?",
+     "meaning": "And what time is it tomorrow?"
+    },
+    {
+     "speaker": "B",
+     "text": "Klockan är halv tre.",
+     "meaning": "It is half past two."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a local who knows the time.",
+    "learnerRole": "You are a visitor asking about the time.",
+    "brief": "Fråga om tiden och svara på frågor om klockan.",
+    "goal": "You need to learn how to ask and tell the time."
+   }
+  },
+  {
+   "title": "Buying Tickets",
+   "items": [
+    {
+     "text": "biljett",
+     "meaning": "ticket",
+     "example": "Jag vill köpa en biljett.",
+     "exampleMeaning": "I want to buy a ticket."
+    },
+    {
+     "text": "en enkelbiljett",
+     "meaning": "a single ticket",
+     "example": "Kan jag få en enkelbiljett?",
+     "exampleMeaning": "Can I have a single ticket?"
+    },
+    {
+     "text": "returbiljett",
+     "meaning": "a return ticket",
+     "example": "Jag behöver en returbiljett.",
+     "exampleMeaning": "I need a return ticket."
+    },
+    {
+     "text": "hur mycket kostar det?",
+     "meaning": "how much does it cost?",
+     "example": "Ursäkta, hur mycket kostar det?",
+     "exampleMeaning": "Excuse me, how much does it cost?"
+    },
+    {
+     "text": "till",
+     "meaning": "to",
+     "example": "Jag åker till Stockholm.",
+     "exampleMeaning": "I am going to Stockholm."
+    },
+    {
+     "text": "från",
+     "meaning": "from",
+     "example": "Jag reser från Göteborg.",
+     "exampleMeaning": "I am traveling from Gothenburg."
+    }
+   ],
+   "tip": "When buying tickets, use 'en enkelbiljett' for a one-way ticket and 'returbiljett' for a round trip. Always ask 'hur mycket kostar det?' to know the price.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vill du köpa en biljett?",
+     "meaning": "Do you want to buy a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag vill ha en returbiljett.",
+     "meaning": "Yes, I want a return ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "Hur mycket kostar det?",
+     "meaning": "How much does it cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ursäkta, hur mycket kostar en enkelbiljett?",
+     "meaning": "Excuse me, how much does a single ticket cost?"
+    },
+    {
+     "speaker": "A",
+     "text": "En enkelbiljett kostar femtio kronor.",
+     "meaning": "A single ticket costs fifty kronor."
+    },
+    {
+     "speaker": "B",
+     "text": "Och en returbiljett?",
+     "meaning": "And a return ticket?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a ticket seller at a train station.",
+    "learnerRole": "You are a customer buying a ticket.",
+    "brief": "Fråga om biljettpriser och köp en biljett.",
+    "goal": "You need to successfully buy a ticket."
+   }
+  },
+  {
+   "title": "Common Verbs in Present Tense",
+   "items": [
+    {
+     "text": "åka",
+     "meaning": "to go (by vehicle)",
+     "example": "Jag åker buss varje dag.",
+     "exampleMeaning": "I go by bus every day."
+    },
+    {
+     "text": "gå",
+     "meaning": "to walk",
+     "example": "Jag går till jobbet.",
+     "exampleMeaning": "I walk to work."
+    },
+    {
+     "text": "ta",
+     "meaning": "to take",
+     "example": "Jag tar tåget till Stockholm.",
+     "exampleMeaning": "I take the train to Stockholm."
+    },
+    {
+     "text": "komma",
+     "meaning": "to come",
+     "example": "Kommer du med mig?",
+     "exampleMeaning": "Are you coming with me?"
+    },
+    {
+     "text": "se",
+     "meaning": "to see",
+     "example": "Jag ser filmen ikväll.",
+     "exampleMeaning": "I see the movie tonight."
+    },
+    {
+     "text": "höra",
+     "meaning": "to hear",
+     "example": "Jag hör musiken.",
+     "exampleMeaning": "I hear the music."
+    }
+   ],
+   "tip": "In Swedish, the present tense is formed by using the infinitive form of the verb. For example, 'åka' becomes 'åker' for 'I go'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Åker du buss?",
+     "meaning": "Do you go by bus?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag åker buss varje dag.",
+     "meaning": "Yes, I go by bus every day."
+    },
+    {
+     "speaker": "A",
+     "text": "Går du till stationen?",
+     "meaning": "Do you walk to the station?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag går dit.",
+     "meaning": "Yes, I walk there."
+    },
+    {
+     "speaker": "A",
+     "text": "Kommer du med mig till museet?",
+     "meaning": "Are you coming with me to the museum?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag kommer med dig.",
+     "meaning": "Yes, I am coming with you."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friend discussing transport.",
+    "learnerRole": "You are the friend who uses public transport.",
+    "brief": "Fråga om resor och prata om hur ni reser.",
+    "goal": "You need to practice using common verbs in the present tense."
+   }
+  },
+  {
+   "title": "Using Time and Transport Together",
+   "items": [
+    {
+     "text": "klockan är",
+     "meaning": "the time is",
+     "example": "Klockan är tre.",
+     "exampleMeaning": "The time is three."
+    },
+    {
+     "text": "jag reser",
+     "meaning": "I travel",
+     "example": "Jag reser till Stockholm imorgon.",
+     "exampleMeaning": "I travel to Stockholm tomorrow."
+    },
+    {
+     "text": "jag åker till",
+     "meaning": "I go to",
+     "example": "Jag åker till universitetet.",
+     "exampleMeaning": "I go to the university."
+    },
+    {
+     "text": "imorgon",
+     "meaning": "tomorrow",
+     "example": "Vi åker imorgon.",
+     "exampleMeaning": "We are going tomorrow."
+    },
+    {
+     "text": "idag",
+     "meaning": "today",
+     "example": "Idag åker jag till Göteborg.",
+     "exampleMeaning": "Today I am going to Gothenburg."
+    },
+    {
+     "text": "senare",
+     "meaning": "later",
+     "example": "Vi ses senare.",
+     "exampleMeaning": "See you later."
+    }
+   ],
+   "tip": "Combine verbs with time expressions to create complete sentences. For example, 'Klockan är tre och jag åker till Stockholm.' means 'The time is three and I go to Stockholm.'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Klockan är tre.",
+     "meaning": "The time is three."
+    },
+    {
+     "speaker": "B",
+     "text": "Jag reser till Stockholm idag.",
+     "meaning": "I travel to Stockholm today."
+    },
+    {
+     "speaker": "A",
+     "text": "Åker du med mig?",
+     "meaning": "Are you going with me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag åker till universitetet senare.",
+     "meaning": "Yes, I go to the university later."
+    },
+    {
+     "speaker": "A",
+     "text": "När åker vi?",
+     "meaning": "When are we going?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vi åker imorgon.",
+     "meaning": "We are going tomorrow."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a travel companion discussing plans.",
+    "learnerRole": "You are the one making plans.",
+    "brief": "Fråga om resor och tid, och planera tillsammans.",
+    "goal": "You need to successfully discuss travel plans using time and transport."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Getting around by transport",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Vad är klockan?",
+    "meaning": "What time is it?"
+   },
+   {
+    "speaker": "B",
+    "text": "Klockan är tio över fem.",
+    "meaning": "It is ten past five."
+   },
+   {
+    "speaker": "A",
+    "text": "Vill du köpa en biljett?",
+    "meaning": "Do you want to buy a ticket?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, jag vill ha en enkelbiljett.",
+    "meaning": "Yes, I want a single ticket."
+   },
+   {
+    "speaker": "A",
+    "text": "Åker du till universitetet?",
+    "meaning": "Are you going to the university?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, jag åker dit idag.",
+    "meaning": "Yes, I am going there today."
+   },
+   {
+    "speaker": "A",
+    "text": "När åker vi?",
+    "meaning": "When are we going?"
+   },
+   {
+    "speaker": "B",
+    "text": "Vi åker imorgon.",
+    "meaning": "We are going tomorrow."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are a friend discussing plans and transport.",
+   "learnerRole": "You are the friend confirming details.",
+   "brief": "Fråga om tider, biljettpriser och resor.",
+   "goal": "You need to show your understanding of the chapter."
+  }
+ }
+}

@@ -1,0 +1,418 @@
+{
+ "id": "c10",
+ "number": 10,
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "id": "c10-d1",
+   "day": 46,
+   "title": "Making a Polite Request",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d1-i1",
+     "text": "Você poderia me ajudar?",
+     "meaning": "Could you help me?",
+     "example": "Você poderia me ajudar com esse problema?",
+     "exampleMeaning": "Could you help me with this problem?"
+    },
+    {
+     "id": "c10-d1-i2",
+     "text": "Eu gostaria de falar com...",
+     "meaning": "I would like to speak with...",
+     "example": "Eu gostaria de falar com Maria.",
+     "exampleMeaning": "I would like to speak with Maria."
+    },
+    {
+     "id": "c10-d1-i3",
+     "text": "Você pode deixar uma mensagem?",
+     "meaning": "Can you leave a message?",
+     "example": "Você pode deixar uma mensagem para mim?",
+     "exampleMeaning": "Can you leave a message for me?"
+    },
+    {
+     "id": "c10-d1-i4",
+     "text": "Qual é o seu nome?",
+     "meaning": "What is your name?",
+     "example": "Qual é o seu nome, por favor?",
+     "exampleMeaning": "What is your name, please?"
+    },
+    {
+     "id": "c10-d1-i5",
+     "text": "Eu vou verificar.",
+     "meaning": "I will check.",
+     "example": "Eu vou verificar se ela está disponível.",
+     "exampleMeaning": "I will check if she is available."
+    },
+    {
+     "id": "c10-d1-i6",
+     "text": "Um momento, por favor.",
+     "meaning": "One moment, please.",
+     "example": "Um momento, por favor, enquanto eu procuro.",
+     "exampleMeaning": "One moment, please, while I look."
+    }
+   ],
+   "tip": "Use 'pode' for polite requests. It makes your request softer and more respectful.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Olá! Você pode me ajudar?",
+     "meaning": "Hello! Can you help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, claro! O que você precisa?",
+     "meaning": "Yes, of course! What do you need?"
+    },
+    {
+     "speaker": "A",
+     "text": "Eu gostaria de falar com Maria.",
+     "meaning": "I would like to speak with Maria."
+    },
+    {
+     "speaker": "B",
+     "text": "Um momento, por favor.",
+     "meaning": "One moment, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é o seu nome?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Meu nome é João.",
+     "meaning": "My name is João."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a receptionist at a company",
+    "learnerRole": "a caller",
+    "brief": "You need help to reach someone. Ask for assistance politely and wait for a response.",
+    "goal": "You want to speak with someone and leave a message."
+   }
+  },
+  {
+   "id": "c10-d2",
+   "day": 47,
+   "title": "Spelling Names",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d2-i1",
+     "text": "Como se escreve?",
+     "meaning": "How do you spell?",
+     "example": "Como se escreve seu nome?",
+     "exampleMeaning": "How do you spell your name?"
+    },
+    {
+     "id": "c10-d2-i2",
+     "text": "Pode repetir, por favor?",
+     "meaning": "Can you repeat, please?",
+     "example": "Pode repetir, por favor? Eu não entendi.",
+     "exampleMeaning": "Can you repeat, please? I didn't understand."
+    },
+    {
+     "id": "c10-d2-i3",
+     "text": "A letra é...",
+     "meaning": "The letter is...",
+     "example": "A letra é 'M'.",
+     "exampleMeaning": "The letter is 'M'."
+    },
+    {
+     "id": "c10-d2-i4",
+     "text": "Você pode escrever?",
+     "meaning": "Can you write it down?",
+     "example": "Você pode escrever o nome?",
+     "exampleMeaning": "Can you write down the name?"
+    },
+    {
+     "id": "c10-d2-i5",
+     "text": "Qual é a pronúncia?",
+     "meaning": "What is the pronunciation?",
+     "example": "Qual é a pronúncia do seu nome?",
+     "exampleMeaning": "What is the pronunciation of your name?"
+    },
+    {
+     "id": "c10-d2-i6",
+     "text": "Estou ouvindo.",
+     "meaning": "I am listening.",
+     "example": "Estou ouvindo, pode falar.",
+     "exampleMeaning": "I am listening, you can speak."
+    }
+   ],
+   "tip": "When asking for spelling, use 'Como se escreve?' to clarify. This helps avoid misunderstandings.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Olá! Qual é a pronúncia do seu nome?",
+     "meaning": "Hello! What is the pronunciation of your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Meu nome é Ana. A letra é 'A'.",
+     "meaning": "My name is Ana. The letter is 'A'."
+    },
+    {
+     "speaker": "A",
+     "text": "Como se escreve?",
+     "meaning": "How do you spell?"
+    },
+    {
+     "speaker": "B",
+     "text": "É 'A-N-A'.",
+     "meaning": "It is 'A-N-A'."
+    },
+    {
+     "speaker": "A",
+     "text": "Pode repetir, por favor?",
+     "meaning": "Can you repeat, please?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro! É 'A-N-A'.",
+     "meaning": "Sure! It is 'A-N-A'."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a colleague",
+    "learnerRole": "a caller",
+    "brief": "You are trying to spell a name over the phone. Ask for clarification if needed.",
+    "goal": "You want to spell your name correctly."
+   }
+  },
+  {
+   "id": "c10-d3",
+   "day": 48,
+   "title": "Leaving a Message",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d3-i1",
+     "text": "Deixe uma mensagem.",
+     "meaning": "Leave a message.",
+     "example": "Por favor, deixe uma mensagem após o sinal.",
+     "exampleMeaning": "Please leave a message after the beep."
+    },
+    {
+     "id": "c10-d3-i2",
+     "text": "Eu ligarei de volta.",
+     "meaning": "I will call back.",
+     "example": "Eu ligarei de volta mais tarde.",
+     "exampleMeaning": "I will call back later."
+    },
+    {
+     "id": "c10-d3-i3",
+     "text": "Você pode falar com...?",
+     "meaning": "Can you talk to...?",
+     "example": "Você pode falar com João?",
+     "exampleMeaning": "Can you talk to João?"
+    },
+    {
+     "id": "c10-d3-i4",
+     "text": "Está tudo bem?",
+     "meaning": "Is everything okay?",
+     "example": "Está tudo bem com você?",
+     "exampleMeaning": "Is everything okay with you?"
+    },
+    {
+     "id": "c10-d3-i5",
+     "text": "Eu espero sua resposta.",
+     "meaning": "I await your response.",
+     "example": "Eu espero sua resposta em breve.",
+     "exampleMeaning": "I await your response soon."
+    },
+    {
+     "id": "c10-d3-i6",
+     "text": "Qual é o número?",
+     "meaning": "What is the number?",
+     "example": "Qual é o número para ligar?",
+     "exampleMeaning": "What is the number to call?"
+    }
+   ],
+   "tip": "When leaving a message, be clear and concise. State your name and reason for calling.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Deixe uma mensagem após o sinal.",
+     "meaning": "Leave a message after the beep."
+    },
+    {
+     "speaker": "B",
+     "text": "Olá, meu nome é Carlos. Eu espero sua resposta.",
+     "meaning": "Hello, my name is Carlos. I await your response."
+    },
+    {
+     "speaker": "A",
+     "text": "Você pode falar com João?",
+     "meaning": "Can you talk to João?"
+    },
+    {
+     "speaker": "B",
+     "text": "Está tudo bem?",
+     "meaning": "Is everything okay?"
+    },
+    {
+     "speaker": "A",
+     "text": "Eu ligarei de volta.",
+     "meaning": "I will call back."
+    },
+    {
+     "speaker": "B",
+     "text": "Qual é o número para ligar?",
+     "meaning": "What is the number to call?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a voicemail system",
+    "learnerRole": "a caller",
+    "brief": "You are leaving a message on a voicemail system. Speak clearly and state your name.",
+    "goal": "You want to leave a message for someone."
+   }
+  },
+  {
+   "id": "c10-d4",
+   "day": 49,
+   "title": "Taking a Message",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c10-d4-i1",
+     "text": "Posso anotar?",
+     "meaning": "Can I take a note?",
+     "example": "Posso anotar o seu número?",
+     "exampleMeaning": "Can I take your number?"
+    },
+    {
+     "id": "c10-d4-i2",
+     "text": "Quem está ligando?",
+     "meaning": "Who is calling?",
+     "example": "Quem está ligando, por favor?",
+     "exampleMeaning": "Who is calling, please?"
+    },
+    {
+     "id": "c10-d4-i3",
+     "text": "Qual é a mensagem?",
+     "meaning": "What is the message?",
+     "example": "Qual é a mensagem que você quer deixar?",
+     "exampleMeaning": "What is the message you want to leave?"
+    },
+    {
+     "id": "c10-d4-i4",
+     "text": "Ele/ela não está disponível.",
+     "meaning": "He/She is not available.",
+     "example": "Ele não está disponível agora.",
+     "exampleMeaning": "He is not available now."
+    },
+    {
+     "id": "c10-d4-i5",
+     "text": "Vou passar a mensagem.",
+     "meaning": "I will pass the message.",
+     "example": "Vou passar a mensagem para ele.",
+     "exampleMeaning": "I will pass the message to him."
+    },
+    {
+     "id": "c10-d4-i6",
+     "text": "Você pode falar mais alto?",
+     "meaning": "Can you speak louder?",
+     "example": "Você pode falar mais alto, por favor?",
+     "exampleMeaning": "Can you speak louder, please?"
+    }
+   ],
+   "tip": "When taking a message, always confirm the details. This ensures accuracy.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quem está ligando?",
+     "meaning": "Who is calling?"
+    },
+    {
+     "speaker": "B",
+     "text": "Meu nome é Laura.",
+     "meaning": "My name is Laura."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a mensagem?",
+     "meaning": "What is the message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ele não está disponível agora.",
+     "meaning": "He is not available now."
+    },
+    {
+     "speaker": "A",
+     "text": "Posso anotar o seu número?",
+     "meaning": "Can I take your number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro! O número é 1234-5678.",
+     "meaning": "Sure! The number is 1234-5678."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a receptionist",
+    "learnerRole": "a caller",
+    "brief": "You need to take a message for someone who is not available. Ask for the caller's name and message.",
+    "goal": "You want to take a clear message."
+   }
+  },
+  {
+   "id": "c10-d5",
+   "day": 50,
+   "title": "Review of Chapter 10",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quem está ligando?",
+     "meaning": "Who is calling?"
+    },
+    {
+     "speaker": "B",
+     "text": "Meu nome é Ana.",
+     "meaning": "My name is Ana."
+    },
+    {
+     "speaker": "A",
+     "text": "Posso anotar?",
+     "meaning": "Can I take a note?"
+    },
+    {
+     "speaker": "B",
+     "text": "Claro! A letra é 'A'.",
+     "meaning": "Sure! The letter is 'A'."
+    },
+    {
+     "speaker": "A",
+     "text": "Está tudo bem?",
+     "meaning": "Is everything okay?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, tudo bem! Eu ligarei de volta.",
+     "meaning": "Yes, everything is fine! I will call back."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a mensagem?",
+     "meaning": "What is the message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Deixe uma mensagem, por favor.",
+     "meaning": "Leave a message, please."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a receptionist",
+    "learnerRole": "a caller",
+    "brief": "You are practicing taking and leaving messages over the phone. Use all the phrases you've learned in this chapter.",
+    "goal": "You want to demonstrate your ability to communicate effectively on the phone."
+   }
+  }
+ ]
+}

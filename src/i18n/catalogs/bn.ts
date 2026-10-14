@@ -803,12 +803,12 @@ export const bn: Catalog = {
   'Tap a word': 'শব্দে ট্যাপ করুন',
   'Tap its meaning': 'তার অর্থে ট্যাপ করুন',
   '{count} of {total} pairs matched': '{total}টির মধ্যে {count}টি জোড়া মিলেছে',
-  'Learn German, French, Spanish or Italian from English in 60 days, with an AI coach. Day 1 is free.':
-    'ইংরেজি থেকে ৬০ দিনে জার্মান, ফরাসি, স্প্যানিশ বা ইতালীয় শিখুন, AI কোচের সাথে। প্রথম দিন বিনামূল্যে।',
-  'Learn German, French, Spanish or Italian in {days} days, with {name}.':
-    '{days} দিনে জার্মান, ফরাসি, স্প্যানিশ বা ইতালীয় শিখুন, {name}-এর সাথে।',
-  'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
-    'AI কোচের সাথে জার্মান, ফরাসি, স্প্যানিশ বা ইতালীয় শিখুন। প্রথম দিন বিনামূল্যে; Elite পুরো কোর্স খোলে এবং Pro-এর সবকিছু অন্তর্ভুক্ত।',
+  'Learn a new language from English in 60 days, with an AI coach. Day 1 is free.':
+    'ইংরেজি থেকে ৬০ দিনে নতুন ভাষা শিখুন, AI কোচের সাথে। প্রথম দিন বিনামূল্যে।',
+  'Learn a new language in {days} days, with {name}.':
+    '{days} দিনে নতুন ভাষা শিখুন, {name}-এর সাথে।',
+  'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
+    'AI কোচের সাথে নতুন ভাষা শিখুন। প্রথম দিন বিনামূল্যে; Elite পুরো কোর্স খোলে এবং Pro-এর সবকিছু অন্তর্ভুক্ত।',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

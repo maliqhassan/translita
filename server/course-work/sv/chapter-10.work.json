@@ -1,0 +1,376 @@
+{
+ "title": "Phone calls and messages",
+ "lessons": [
+  {
+   "title": "Polite Requests",
+   "items": [
+    {
+     "text": "kan du",
+     "meaning": "can you",
+     "example": "Kan du hjälpa mig?",
+     "exampleMeaning": "Can you help me?"
+    },
+    {
+     "text": "vänligen",
+     "meaning": "please (formal)",
+     "example": "Vänligen skicka mig informationen.",
+     "exampleMeaning": "Please send me the information."
+    },
+    {
+     "text": "jag skulle vilja",
+     "meaning": "I would like",
+     "example": "Jag skulle vilja lämna ett meddelande.",
+     "exampleMeaning": "I would like to leave a message."
+    },
+    {
+     "text": "får jag",
+     "meaning": "may I",
+     "example": "Får jag låna din telefon?",
+     "exampleMeaning": "May I borrow your phone?"
+    },
+    {
+     "text": "skicka ett meddelande",
+     "meaning": "send a message",
+     "example": "Kan du skicka ett meddelande till mig?",
+     "exampleMeaning": "Can you send a message to me?"
+    },
+    {
+     "text": "ring tillbaka",
+     "meaning": "call back",
+     "example": "Kan du ringa tillbaka senare?",
+     "exampleMeaning": "Can you call back later?"
+    }
+   ],
+   "tip": "Use 'kan du' to make polite requests. It is a common way to ask someone to do something for you.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Kan du hjälpa mig?",
+     "meaning": "Can you help me?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, självklart! Vad behöver du?",
+     "meaning": "Yes, of course! What do you need?"
+    },
+    {
+     "speaker": "A",
+     "text": "Kan jag få ditt namn?",
+     "meaning": "Can I have your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag heter Alex.",
+     "meaning": "Yes, my name is Alex."
+    },
+    {
+     "speaker": "A",
+     "text": "Snälla, skicka ett meddelande till mig.",
+     "meaning": "Please, send a message to me."
+    },
+    {
+     "speaker": "B",
+     "text": "Självklart, jag gör det!",
+     "meaning": "Of course, I will do that!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a person who needs help with a phone call.",
+    "learnerRole": "B is the learner who is helping.",
+    "brief": "A asks for help with a phone call. A wants to leave a message and needs B's name. Just ask one question at a time.",
+    "goal": "You will help A with the phone call."
+   }
+  },
+  {
+   "title": "Spelling Names",
+   "items": [
+    {
+     "text": "stava",
+     "meaning": "spell",
+     "example": "Kan du stava ditt namn?",
+     "exampleMeaning": "Can you spell your name?"
+    },
+    {
+     "text": "efternamn",
+     "meaning": "last name",
+     "example": "Vad är ditt efternamn?",
+     "exampleMeaning": "What is your last name?"
+    },
+    {
+     "text": "förnamn",
+     "meaning": "first name",
+     "example": "Vad är ditt förnamn?",
+     "exampleMeaning": "What is your first name?"
+    },
+    {
+     "text": "kan du skriva",
+     "meaning": "can you write",
+     "example": "Kan du skriva ner numret?",
+     "exampleMeaning": "Can you write down the number?"
+    },
+    {
+     "text": "jag är ledsen",
+     "meaning": "I am sorry",
+     "example": "Jag är ledsen, jag förstår inte.",
+     "exampleMeaning": "I am sorry, I do not understand."
+    },
+    {
+     "text": "kan du säga igen",
+     "meaning": "can you say again",
+     "example": "Kan du säga det igen?",
+     "exampleMeaning": "Can you say that again?"
+    }
+   ],
+   "tip": "When spelling names, it's common to ask 'kan du stava?'. This helps clarify any misunderstandings.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad är ditt förnamn?",
+     "meaning": "What is your first name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mitt förnamn är Sam.",
+     "meaning": "My first name is Sam."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad är ditt efternamn?",
+     "meaning": "What is your last name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mitt efternamn är Lee.",
+     "meaning": "My last name is Lee."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan du stava ditt namn?",
+     "meaning": "Can you spell your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, det är S-A-M L-E-E.",
+     "meaning": "Yes, it is S-A-M L-E-E."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a person who wants to know your name.",
+    "learnerRole": "B is the learner giving their name.",
+    "brief": "A asks for your name and how to spell it. Answer clearly and politely.",
+    "goal": "You will spell your name for A."
+   }
+  },
+  {
+   "title": "Leaving a Message",
+   "items": [
+    {
+     "text": "lämna ett meddelande",
+     "meaning": "leave a message",
+     "example": "Jag vill lämna ett meddelande.",
+     "exampleMeaning": "I want to leave a message."
+    },
+    {
+     "text": "kan du berätta",
+     "meaning": "can you tell",
+     "example": "Kan du berätta för dem?",
+     "exampleMeaning": "Can you tell them?"
+    },
+    {
+     "text": "jag ringer senare",
+     "meaning": "I will call later",
+     "example": "Jag ringer senare idag.",
+     "exampleMeaning": "I will call later today."
+    },
+    {
+     "text": "är det viktigt",
+     "meaning": "is it important",
+     "example": "Är det viktigt att de vet?",
+     "exampleMeaning": "Is it important that they know?"
+    },
+    {
+     "text": "tack för hjälpen",
+     "meaning": "thank you for your help",
+     "example": "Tack för hjälpen!",
+     "exampleMeaning": "Thank you for your help!"
+    },
+    {
+     "text": "kan jag lämna",
+     "meaning": "can I leave",
+     "example": "Kan jag lämna ett meddelande?",
+     "exampleMeaning": "Can I leave a message?"
+    }
+   ],
+   "tip": "When leaving a message, use 'kan jag lämna ett meddelande?'. This phrase is very useful in phone conversations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vill du lämna ett meddelande?",
+     "meaning": "Do you want to leave a message?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag vill lämna ett meddelande.",
+     "meaning": "Yes, I want to leave a message."
+    },
+    {
+     "speaker": "A",
+     "text": "Är det viktigt?",
+     "meaning": "Is it important?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, det är viktigt att de vet.",
+     "meaning": "Yes, it is important that they know."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan du berätta för dem?",
+     "meaning": "Can you tell them?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag ringer senare.",
+     "meaning": "Yes, I will call later."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a person taking a message.",
+    "learnerRole": "B is the learner leaving a message.",
+    "brief": "A asks if you want to leave a message. Respond with your message clearly.",
+    "goal": "You will leave a message for A."
+   }
+  },
+  {
+   "title": "Taking a Message",
+   "items": [
+    {
+     "text": "kan jag ta ett meddelande",
+     "meaning": "can I take a message",
+     "example": "Kan jag ta ett meddelande för dem?",
+     "exampleMeaning": "Can I take a message for them?"
+    },
+    {
+     "text": "vad handlar det om",
+     "meaning": "what is it about",
+     "example": "Vad handlar meddelandet om?",
+     "exampleMeaning": "What is the message about?"
+    },
+    {
+     "text": "kan du vänta",
+     "meaning": "can you wait",
+     "example": "Kan du vänta en stund?",
+     "exampleMeaning": "Can you wait a moment?"
+    },
+    {
+     "text": "jag återkommer",
+     "meaning": "I will get back to you",
+     "example": "Jag återkommer snart.",
+     "exampleMeaning": "I will get back to you soon."
+    },
+    {
+     "text": "kan du ge mig",
+     "meaning": "can you give me",
+     "example": "Kan du ge mig ditt nummer?",
+     "exampleMeaning": "Can you give me your number?"
+    },
+    {
+     "text": "tack för meddelandet",
+     "meaning": "thank you for the message",
+     "example": "Tack för meddelandet!",
+     "exampleMeaning": "Thank you for the message!"
+    }
+   ],
+   "tip": "When taking a message, ask 'kan jag ta ett meddelande?'. This shows you are ready to help.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Kan jag ta ett meddelande för dem?",
+     "meaning": "Can I take a message for them?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har ett meddelande.",
+     "meaning": "Yes, I have a message."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad handlar meddelandet om?",
+     "meaning": "What is the message about?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det handlar om ett möte.",
+     "meaning": "It is about a meeting."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan du ge mig ditt nummer?",
+     "meaning": "Can you give me your number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, mitt nummer är 123-4567.",
+     "meaning": "Yes, my number is 123-4567."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a person taking a message.",
+    "learnerRole": "B is the learner leaving a message.",
+    "brief": "A asks if they can take a message. Respond with your message and your number.",
+    "goal": "You will provide a message and your contact information."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Phone Calls and Messages",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Kan du hjälpa mig?",
+    "meaning": "Can you help me?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, självklart! Vad behöver du?",
+    "meaning": "Yes, of course! What do you need?"
+   },
+   {
+    "speaker": "A",
+    "text": "Vad är ditt förnamn?",
+    "meaning": "What is your first name?"
+   },
+   {
+    "speaker": "B",
+    "text": "Mitt förnamn är Sam.",
+    "meaning": "My first name is Sam."
+   },
+   {
+    "speaker": "A",
+    "text": "Vill du lämna ett meddelande?",
+    "meaning": "Do you want to leave a message?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, jag vill lämna ett meddelande.",
+    "meaning": "Yes, I want to leave a message."
+   },
+   {
+    "speaker": "A",
+    "text": "Kan jag ta ett meddelande för dem?",
+    "meaning": "Can I take a message for them?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, det handlar om ett möte.",
+    "meaning": "Yes, it is about a meeting."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is a person taking a message.",
+   "learnerRole": "B is the learner leaving a message.",
+   "brief": "A will ask questions about your name and message. Respond clearly and politely.",
+   "goal": "You will practice leaving a message and spelling your name."
+  }
+ }
+}

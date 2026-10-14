@@ -1,0 +1,376 @@
+{
+ "title": "Health and the doctor",
+ "lessons": [
+  {
+   "title": "What Hurts?",
+   "items": [
+    {
+     "text": "huvudvärk",
+     "meaning": "headache",
+     "example": "Jag har huvudvärk.",
+     "exampleMeaning": "I have a headache."
+    },
+    {
+     "text": "ont i magen",
+     "meaning": "stomach pain",
+     "example": "Jag har ont i magen.",
+     "exampleMeaning": "I have stomach pain."
+    },
+    {
+     "text": "ont i ryggen",
+     "meaning": "back pain",
+     "example": "Jag har ont i ryggen.",
+     "exampleMeaning": "I have back pain."
+    },
+    {
+     "text": "feber",
+     "meaning": "fever",
+     "example": "Jag har feber.",
+     "exampleMeaning": "I have a fever."
+    },
+    {
+     "text": "hosta",
+     "meaning": "cough",
+     "example": "Jag har hosta.",
+     "exampleMeaning": "I have a cough."
+    },
+    {
+     "text": "snuvig",
+     "meaning": "sniffly",
+     "example": "Jag är snuvig.",
+     "exampleMeaning": "I am sniffly."
+    }
+   ],
+   "tip": "In Swedish, you can say 'Jag har...' to express that you have something, like a headache or fever. This structure is very useful for describing symptoms.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad är problemet?",
+     "meaning": "What is the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag har huvudvärk.",
+     "meaning": "I have a headache."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du ont i magen också?",
+     "meaning": "Do you have stomach pain too?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, jag har inte ont i magen.",
+     "meaning": "No, I don't have stomach pain."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du feber?",
+     "meaning": "Do you have a fever?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har feber.",
+     "meaning": "Yes, I have a fever."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a doctor",
+    "learnerRole": "a patient",
+    "brief": "Fråga patienten om deras symptom. Ställ en fråga i taget.",
+    "goal": "You need to explain your symptoms."
+   }
+  },
+  {
+   "title": "Going to the Pharmacy",
+   "items": [
+    {
+     "text": "apotek",
+     "meaning": "pharmacy",
+     "example": "Jag går till apoteket.",
+     "exampleMeaning": "I am going to the pharmacy."
+    },
+    {
+     "text": "medicin",
+     "meaning": "medicine",
+     "example": "Jag behöver medicin.",
+     "exampleMeaning": "I need medicine."
+    },
+    {
+     "text": "recept",
+     "meaning": "prescription",
+     "example": "Har du ett recept?",
+     "exampleMeaning": "Do you have a prescription?"
+    },
+    {
+     "text": "tablett",
+     "meaning": "tablet",
+     "example": "Jag tar en tablett.",
+     "exampleMeaning": "I take a tablet."
+    },
+    {
+     "text": "salva",
+     "meaning": "ointment",
+     "example": "Jag behöver salva.",
+     "exampleMeaning": "I need ointment."
+    },
+    {
+     "text": "fråga",
+     "meaning": "ask",
+     "example": "Jag vill fråga om medicin.",
+     "exampleMeaning": "I want to ask about medicine."
+    }
+   ],
+   "tip": "When you need something at the pharmacy, you can say 'Jag behöver...' to explain what you need. This is helpful for asking for medicine or ointments.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hej! Vad kan jag hjälpa dig med?",
+     "meaning": "Hello! How can I help you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag går till apoteket.",
+     "meaning": "I am going to the pharmacy."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du ett recept?",
+     "meaning": "Do you have a prescription?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, jag har inte något recept.",
+     "meaning": "No, I don't have a prescription."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad behöver du?",
+     "meaning": "What do you need?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag behöver medicin.",
+     "meaning": "I need medicine."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a pharmacist",
+    "learnerRole": "a customer",
+    "brief": "Fråga kunden vad de behöver. Ställ frågor om recept och medicin.",
+    "goal": "You need to ask for medicine."
+   }
+  },
+  {
+   "title": "Giving Advice",
+   "items": [
+    {
+     "text": "dricka vatten",
+     "meaning": "drink water",
+     "example": "Drick vatten om du är sjuk.",
+     "exampleMeaning": "Drink water if you are sick."
+    },
+    {
+     "text": "vila",
+     "meaning": "rest",
+     "example": "Du behöver vila.",
+     "exampleMeaning": "You need to rest."
+    },
+    {
+     "text": "äta frukt",
+     "meaning": "eat fruit",
+     "example": "Ät frukt för att bli frisk.",
+     "exampleMeaning": "Eat fruit to get well."
+    },
+    {
+     "text": "gå till läkaren",
+     "meaning": "go to the doctor",
+     "example": "Gå till läkaren om du har ont.",
+     "exampleMeaning": "Go to the doctor if you are in pain."
+    },
+    {
+     "text": "ta medicin",
+     "meaning": "take medicine",
+     "example": "Ta medicin varje dag.",
+     "exampleMeaning": "Take medicine every day."
+    },
+    {
+     "text": "vara försiktig",
+     "meaning": "be careful",
+     "example": "Var försiktig när du är sjuk.",
+     "exampleMeaning": "Be careful when you are sick."
+    }
+   ],
+   "tip": "When giving advice in Swedish, you can use 'Du behöver...' to tell someone what they need to do. This is a polite way to give suggestions.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad ska jag göra?",
+     "meaning": "What should I do?"
+    },
+    {
+     "speaker": "B",
+     "text": "Du behöver vila.",
+     "meaning": "You need to rest."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan jag dricka vatten?",
+     "meaning": "Can I drink water?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, drick vatten.",
+     "meaning": "Yes, drink water."
+    },
+    {
+     "speaker": "A",
+     "text": "Ska jag gå till läkaren?",
+     "meaning": "Should I go to the doctor?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, gå till läkaren om du har ont.",
+     "meaning": "Yes, go to the doctor if you are in pain."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a friend",
+    "learnerRole": "someone seeking advice",
+    "brief": "Fråga din vän om vad du ska göra. Ge råd om hälsa.",
+    "goal": "You need to ask for health advice."
+   }
+  },
+  {
+   "title": "Feeling Better",
+   "items": [
+    {
+     "text": "bättre",
+     "meaning": "better",
+     "example": "Jag mår bättre nu.",
+     "exampleMeaning": "I feel better now."
+    },
+    {
+     "text": "frisk",
+     "meaning": "healthy",
+     "example": "Jag vill vara frisk.",
+     "exampleMeaning": "I want to be healthy."
+    },
+    {
+     "text": "symptom",
+     "meaning": "symptoms",
+     "example": "Mina symptom har försvunnit.",
+     "exampleMeaning": "My symptoms have disappeared."
+    },
+    {
+     "text": "kontrollera",
+     "meaning": "check",
+     "example": "Låt mig kontrollera din temperatur.",
+     "exampleMeaning": "Let me check your temperature."
+    },
+    {
+     "text": "återhämta sig",
+     "meaning": "recover",
+     "example": "Jag behöver tid att återhämta mig.",
+     "exampleMeaning": "I need time to recover."
+    },
+    {
+     "text": "besöka",
+     "meaning": "visit",
+     "example": "Jag ska besöka doktorn igen.",
+     "exampleMeaning": "I will visit the doctor again."
+    }
+   ],
+   "tip": "To express improvement in health, you can say 'Jag mår bättre' which means 'I feel better'. This is a common phrase when discussing health.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hur mår du?",
+     "meaning": "How are you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag mår bättre nu.",
+     "meaning": "I feel better now."
+    },
+    {
+     "speaker": "A",
+     "text": "Är du frisk?",
+     "meaning": "Are you healthy?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill vara frisk.",
+     "meaning": "I want to be healthy."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du några symptom?",
+     "meaning": "Do you have any symptoms?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, mina symptom har försvunnit.",
+     "meaning": "No, my symptoms have disappeared."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "a doctor",
+    "learnerRole": "a patient",
+    "brief": "Fråga patienten om deras tillstånd. Kontrollera om de mår bättre.",
+    "goal": "You need to explain how you feel."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: Health and the Doctor",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Vad har du för symptom?",
+    "meaning": "What symptoms do you have?"
+   },
+   {
+    "speaker": "B",
+    "text": "Jag har ont i magen.",
+    "meaning": "I have stomach pain."
+   },
+   {
+    "speaker": "A",
+    "text": "Har du druckit vatten?",
+    "meaning": "Have you drunk water?"
+   },
+   {
+    "speaker": "B",
+    "text": "Nej, jag behöver dricka vatten.",
+    "meaning": "No, I need to drink water."
+   },
+   {
+    "speaker": "A",
+    "text": "Du behöver vila och ta medicin.",
+    "meaning": "You need to rest and take medicine."
+   },
+   {
+    "speaker": "B",
+    "text": "Jag ska gå till läkaren.",
+    "meaning": "I will go to the doctor."
+   },
+   {
+    "speaker": "A",
+    "text": "Bra! Hoppas du mår bättre snart.",
+    "meaning": "Good! I hope you feel better soon."
+   },
+   {
+    "speaker": "B",
+    "text": "Tack, jag ska återhämta mig.",
+    "meaning": "Thank you, I will recover."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "a doctor",
+   "learnerRole": "a patient",
+   "brief": "Fråga patienten om deras symptom och ge råd. Diskutera hur de mår.",
+   "goal": "You need to explain your symptoms and follow advice."
+  }
+ }
+}

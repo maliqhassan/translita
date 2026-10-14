@@ -323,7 +323,7 @@ function UpgradeContent({
             </Text>
             <Text variant="bodySmall" color="textSecondary">
               {t(
-                'Learn German, French, Spanish or Italian with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.',
+                'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.',
               )}
             </Text>
           </View>

@@ -1,0 +1,418 @@
+{
+ "id": "c08",
+ "number": 8,
+ "title": "At Work",
+ "lessons": [
+  {
+   "id": "c08-d1",
+   "day": 36,
+   "title": "Daily Work Life",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d1-i1",
+     "text": "arbetsdag",
+     "meaning": "workday",
+     "example": "Min arbetsdag börjar klockan åtta.",
+     "exampleMeaning": "My workday starts at eight."
+    },
+    {
+     "id": "c08-d1-i2",
+     "text": "kollega",
+     "meaning": "colleague",
+     "example": "Jag har en snäll kollega.",
+     "exampleMeaning": "I have a nice colleague."
+    },
+    {
+     "id": "c08-d1-i3",
+     "text": "möte",
+     "meaning": "meeting",
+     "example": "Vi har ett möte klockan tio.",
+     "exampleMeaning": "We have a meeting at ten."
+    },
+    {
+     "id": "c08-d1-i4",
+     "text": "schema",
+     "meaning": "schedule",
+     "example": "Jag kollar mitt schema.",
+     "exampleMeaning": "I check my schedule."
+    },
+    {
+     "id": "c08-d1-i5",
+     "text": "uppgift",
+     "meaning": "task",
+     "example": "Jag har en viktig uppgift idag.",
+     "exampleMeaning": "I have an important task today."
+    },
+    {
+     "id": "c08-d1-i6",
+     "text": "paus",
+     "meaning": "break",
+     "example": "Vi tar en paus nu.",
+     "exampleMeaning": "We are taking a break now."
+    }
+   ],
+   "tip": "In Swedish, nouns have gender. 'En' is used for common gender nouns, and 'ett' for neuter nouns. For example, 'en kollega' (a colleague) is common gender.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "När börjar din arbetsdag?",
+     "meaning": "When does your workday start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Min arbetsdag börjar klockan åtta.",
+     "meaning": "My workday starts at eight."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du en kollega som hjälper dig?",
+     "meaning": "Do you have a colleague who helps you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag har en snäll kollega.",
+     "meaning": "Yes, I have a nice colleague."
+    },
+    {
+     "speaker": "A",
+     "text": "När har ni nästa möte?",
+     "meaning": "When do you have your next meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vi har ett möte klockan tio.",
+     "meaning": "We have a meeting at ten."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your colleague at work.",
+    "learnerRole": "You.",
+    "brief": "Fråga din kollega om deras arbetsdag och schema. Berätta om din egen arbetsdag.",
+    "goal": "You need to learn about your colleague's workday."
+   }
+  },
+  {
+   "id": "c08-d2",
+   "day": 37,
+   "title": "Discussing Tasks",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d2-i1",
+     "text": "diskutera",
+     "meaning": "discuss",
+     "example": "Vi ska diskutera uppgiften.",
+     "exampleMeaning": "We will discuss the task."
+    },
+    {
+     "id": "c08-d2-i2",
+     "text": "prioritet",
+     "meaning": "priority",
+     "example": "Vad är din högsta prioritet?",
+     "exampleMeaning": "What is your highest priority?"
+    },
+    {
+     "id": "c08-d2-i3",
+     "text": "ansvar",
+     "meaning": "responsibility",
+     "example": "Jag har ansvar för projektet.",
+     "exampleMeaning": "I am responsible for the project."
+    },
+    {
+     "id": "c08-d2-i4",
+     "text": "slutföra",
+     "meaning": "complete",
+     "example": "Jag måste slutföra min uppgift.",
+     "exampleMeaning": "I must complete my task."
+    },
+    {
+     "id": "c08-d2-i5",
+     "text": "feedback",
+     "meaning": "feedback",
+     "example": "Jag behöver din feedback.",
+     "exampleMeaning": "I need your feedback."
+    },
+    {
+     "id": "c08-d2-i6",
+     "text": "planera",
+     "meaning": "plan",
+     "example": "Vi måste planera mötet.",
+     "exampleMeaning": "We need to plan the meeting."
+    }
+   ],
+   "tip": "The verb 'diskutera' is a regular verb. You can use it in the present tense by adding '-ar' to the root. For example, 'diskutera' means 'to discuss'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad ska vi diskutera idag?",
+     "meaning": "What are we going to discuss today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vi ska diskutera uppgiften.",
+     "meaning": "We will discuss the task."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad är din högsta prioritet?",
+     "meaning": "What is your highest priority?"
+    },
+    {
+     "speaker": "B",
+     "text": "Min högsta prioritet är att slutföra min uppgift.",
+     "meaning": "My highest priority is to complete my task."
+    },
+    {
+     "speaker": "A",
+     "text": "Behöver du feedback på ditt arbete?",
+     "meaning": "Do you need feedback on your work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag behöver din feedback.",
+     "meaning": "Yes, I need your feedback."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "Your manager.",
+    "learnerRole": "You.",
+    "brief": "Diskutera dina uppgifter och prioriteringar med din chef. Fråga om feedback.",
+    "goal": "You need to understand your responsibilities better."
+   }
+  },
+  {
+   "id": "c08-d3",
+   "day": 38,
+   "title": "Planning Meetings",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d3-i1",
+     "text": "datum",
+     "meaning": "date",
+     "example": "Mötet är den första februari.",
+     "exampleMeaning": "The meeting is on the first of February."
+    },
+    {
+     "id": "c08-d3-i2",
+     "text": "tid",
+     "meaning": "time",
+     "example": "Vilken tid är mötet?",
+     "exampleMeaning": "What time is the meeting?"
+    },
+    {
+     "id": "c08-d3-i3",
+     "text": "plats",
+     "meaning": "place",
+     "example": "Mötet är på kontoret.",
+     "exampleMeaning": "The meeting is at the office."
+    },
+    {
+     "id": "c08-d3-i4",
+     "text": "deltagare",
+     "meaning": "participants",
+     "example": "Vi har många deltagare.",
+     "exampleMeaning": "We have many participants."
+    },
+    {
+     "id": "c08-d3-i5",
+     "text": "agenda",
+     "meaning": "agenda",
+     "example": "Vi behöver en agenda för mötet.",
+     "exampleMeaning": "We need an agenda for the meeting."
+    },
+    {
+     "id": "c08-d3-i6",
+     "text": "bekräfta",
+     "meaning": "confirm",
+     "example": "Kan du bekräfta din närvaro?",
+     "exampleMeaning": "Can you confirm your attendance?"
+    }
+   ],
+   "tip": "When talking about dates in Swedish, use 'den' before the day. For example, 'den första februari' means 'the first of February'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "När är mötet?",
+     "meaning": "When is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mötet är den första februari.",
+     "meaning": "The meeting is on the first of February."
+    },
+    {
+     "speaker": "A",
+     "text": "Vilken tid är mötet?",
+     "meaning": "What time is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mötet är klockan nio.",
+     "meaning": "The meeting is at nine."
+    },
+    {
+     "speaker": "A",
+     "text": "Var är mötet?",
+     "meaning": "Where is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mötet är på kontoret.",
+     "meaning": "The meeting is at the office."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A team member.",
+    "learnerRole": "You.",
+    "brief": "Planera ett möte med din kollega. Fråga om datum, tid och plats.",
+    "goal": "You need to set a meeting with your colleague."
+   }
+  },
+  {
+   "id": "c08-d4",
+   "day": 39,
+   "title": "Daily Office Routine",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d4-i1",
+     "text": "kontor",
+     "meaning": "office",
+     "example": "Jag arbetar på kontoret.",
+     "exampleMeaning": "I work at the office."
+    },
+    {
+     "id": "c08-d4-i2",
+     "text": "telefon",
+     "meaning": "phone",
+     "example": "Jag svarar på telefonen.",
+     "exampleMeaning": "I answer the phone."
+    },
+    {
+     "id": "c08-d4-i3",
+     "text": "e-post",
+     "meaning": "email",
+     "example": "Jag skickar ett e-postmeddelande.",
+     "exampleMeaning": "I send an email."
+    },
+    {
+     "id": "c08-d4-i4",
+     "text": "dokument",
+     "meaning": "document",
+     "example": "Jag skriver ett dokument.",
+     "exampleMeaning": "I write a document."
+    },
+    {
+     "id": "c08-d4-i5",
+     "text": "uppdatera",
+     "meaning": "update",
+     "example": "Jag måste uppdatera informationen.",
+     "exampleMeaning": "I need to update the information."
+    },
+    {
+     "id": "c08-d4-i6",
+     "text": "mötesrum",
+     "meaning": "meeting room",
+     "example": "Mötet är i mötesrummet.",
+     "exampleMeaning": "The meeting is in the meeting room."
+    }
+   ],
+   "tip": "Use 'på' when talking about being in a place. For example, 'på kontoret' means 'at the office'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Var arbetar du?",
+     "meaning": "Where do you work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag arbetar på kontoret.",
+     "meaning": "I work at the office."
+    },
+    {
+     "speaker": "A",
+     "text": "Svarar du på telefonen?",
+     "meaning": "Do you answer the phone?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag svarar på telefonen.",
+     "meaning": "Yes, I answer the phone."
+    },
+    {
+     "speaker": "A",
+     "text": "Skickar du e-post?",
+     "meaning": "Do you send emails?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag skickar ett e-postmeddelande.",
+     "meaning": "Yes, I send an email."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A colleague.",
+    "learnerRole": "You.",
+    "brief": "Berätta om din dag på kontoret. Fråga om kollegans arbetsuppgifter.",
+    "goal": "You need to share your daily office routine."
+   }
+  },
+  {
+   "id": "c08-d5",
+   "day": 40,
+   "title": "At Work Review",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "När börjar din arbetsdag?",
+     "meaning": "When does your workday start?"
+    },
+    {
+     "speaker": "B",
+     "text": "Min arbetsdag börjar klockan åtta.",
+     "meaning": "My workday starts at eight."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad är din högsta prioritet?",
+     "meaning": "What is your highest priority?"
+    },
+    {
+     "speaker": "B",
+     "text": "Min högsta prioritet är att slutföra min uppgift.",
+     "meaning": "My highest priority is to complete my task."
+    },
+    {
+     "speaker": "A",
+     "text": "När är mötet?",
+     "meaning": "When is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mötet är den första februari.",
+     "meaning": "The meeting is on the first of February."
+    },
+    {
+     "speaker": "A",
+     "text": "Var är mötet?",
+     "meaning": "Where is the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Mötet är på kontoret.",
+     "meaning": "The meeting is at the office."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A colleague.",
+    "learnerRole": "You.",
+    "brief": "Discuss your workday, priorities, and meetings with your colleague.",
+    "goal": "You need to demonstrate your understanding of work-related vocabulary."
+   }
+  }
+ ]
+}

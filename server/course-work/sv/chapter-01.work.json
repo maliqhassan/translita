@@ -1,0 +1,366 @@
+{
+ "title": "Greetings and Introductions",
+ "lessons": [
+  {
+   "title": "Hello and Goodbye",
+   "items": [
+    {
+     "text": "Hej",
+     "meaning": "Hello",
+     "example": "Hej, hur mår du?",
+     "exampleMeaning": "Hello, how are you?"
+    },
+    {
+     "text": "Adjö",
+     "meaning": "Goodbye",
+     "example": "Adjö, vi ses snart.",
+     "exampleMeaning": "Goodbye, see you soon."
+    },
+    {
+     "text": "God morgon",
+     "meaning": "Good morning",
+     "example": "God morgon! Har du sovit bra?",
+     "exampleMeaning": "Good morning! Did you sleep well?"
+    },
+    {
+     "text": "God kväll",
+     "meaning": "Good evening",
+     "example": "God kväll! Vad gör du?",
+     "exampleMeaning": "Good evening! What are you doing?"
+    },
+    {
+     "text": "Tack",
+     "meaning": "Thank you",
+     "example": "Tack för hjälpen!",
+     "exampleMeaning": "Thank you for the help!"
+    },
+    {
+     "text": "Varsågod",
+     "meaning": "You're welcome",
+     "example": "Varsågod, det var inget.",
+     "exampleMeaning": "You're welcome, it was nothing."
+    }
+   ],
+   "tip": "Use 'Hej' for informal greetings. 'God morgon' is used in the morning, while 'God kväll' is for the evening.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hej!",
+     "meaning": "Hello!"
+    },
+    {
+     "speaker": "B",
+     "text": "Hej! Hur mår du?",
+     "meaning": "Hello! How are you?"
+    },
+    {
+     "speaker": "A",
+     "text": "Jag mår bra, tack!",
+     "meaning": "I am good, thank you!"
+    },
+    {
+     "speaker": "B",
+     "text": "Vad bra! God morgon!",
+     "meaning": "That's good! Good morning!"
+    },
+    {
+     "speaker": "A",
+     "text": "God morgon! Adjö!",
+     "meaning": "Good morning! Goodbye!"
+    },
+    {
+     "speaker": "B",
+     "text": "Adjö!",
+     "meaning": "Goodbye!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a friendly person greeting someone.",
+    "learnerRole": "You are meeting a new person.",
+    "brief": "Hälsa på den nya personen. Fråga hur de mår och säg god morgon.",
+    "goal": "You will greet the person and ask how they are."
+   }
+  },
+  {
+   "title": "My Name is...",
+   "items": [
+    {
+     "text": "Jag heter...",
+     "meaning": "My name is...",
+     "example": "Jag heter Anna.",
+     "exampleMeaning": "My name is Anna."
+    },
+    {
+     "text": "Vad heter du?",
+     "meaning": "What is your name?",
+     "example": "Vad heter du?",
+     "exampleMeaning": "What is your name?"
+    },
+    {
+     "text": "Trevligt att träffas!",
+     "meaning": "Nice to meet you!",
+     "example": "Trevligt att träffas, Anna!",
+     "exampleMeaning": "Nice to meet you, Anna!"
+    },
+    {
+     "text": "Jag är från...",
+     "meaning": "I am from...",
+     "example": "Jag är från Sverige.",
+     "exampleMeaning": "I am from Sweden."
+    },
+    {
+     "text": "Varifrån är du?",
+     "meaning": "Where are you from?",
+     "example": "Varifrån är du?",
+     "exampleMeaning": "Where are you from?"
+    },
+    {
+     "text": "Jag kommer från...",
+     "meaning": "I come from...",
+     "example": "Jag kommer från England.",
+     "exampleMeaning": "I come from England."
+    }
+   ],
+   "tip": "When introducing yourself, use 'Jag heter...' followed by your name. To ask someone their name, say 'Vad heter du?'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad heter du?",
+     "meaning": "What is your name?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag heter Alex.",
+     "meaning": "My name is Alex."
+    },
+    {
+     "speaker": "A",
+     "text": "Trevligt att träffas, Alex!",
+     "meaning": "Nice to meet you, Alex!"
+    },
+    {
+     "speaker": "B",
+     "text": "Trevligt att träffas!",
+     "meaning": "Nice to meet you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Varifrån är du?",
+     "meaning": "Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag kommer från Kanada.",
+     "meaning": "I come from Canada."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are meeting someone new.",
+    "learnerRole": "You are introducing yourself.",
+    "brief": "Fråga efter namnet och var de kommer ifrån.",
+    "goal": "You will introduce yourself and ask for their name."
+   }
+  },
+  {
+   "title": "Talking About Where You're From",
+   "items": [
+    {
+     "text": "Sverige",
+     "meaning": "Sweden",
+     "example": "Jag bor i Sverige.",
+     "exampleMeaning": "I live in Sweden."
+    },
+    {
+     "text": "England",
+     "meaning": "England",
+     "example": "Jag kommer från England.",
+     "exampleMeaning": "I come from England."
+    },
+    {
+     "text": "USA",
+     "meaning": "USA",
+     "example": "Jag är från USA.",
+     "exampleMeaning": "I am from the USA."
+    },
+    {
+     "text": "Tyskland",
+     "meaning": "Germany",
+     "example": "Jag har en vän i Tyskland.",
+     "exampleMeaning": "I have a friend in Germany."
+    },
+    {
+     "text": "Frankrike",
+     "meaning": "France",
+     "example": "Jag vill resa till Frankrike.",
+     "exampleMeaning": "I want to travel to France."
+    },
+    {
+     "text": "Norge",
+     "meaning": "Norway",
+     "example": "Min syster bor i Norge.",
+     "exampleMeaning": "My sister lives in Norway."
+    }
+   ],
+   "tip": "Use the name of your country when saying where you are from. For example, 'Jag är från Sverige' means 'I am from Sweden'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Jag är från Sverige.",
+     "meaning": "I am from Sweden."
+    },
+    {
+     "speaker": "B",
+     "text": "Åh, trevligt! Jag är från England.",
+     "meaning": "Oh, nice! I am from England."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du varit i Sverige?",
+     "meaning": "Have you been to Sweden?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, men jag vill åka dit!",
+     "meaning": "No, but I want to go there!"
+    },
+    {
+     "speaker": "A",
+     "text": "Det skulle vara roligt!",
+     "meaning": "That would be fun!"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, verkligen!",
+     "meaning": "Yes, really!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are talking about your home countries.",
+    "learnerRole": "You are sharing where you are from.",
+    "brief": "Fråga var de kommer ifrån och berätta om ditt land.",
+    "goal": "You will discuss where you are from."
+   }
+  },
+  {
+   "title": "Using 'To Be'",
+   "items": [
+    {
+     "text": "Jag är...",
+     "meaning": "I am...",
+     "example": "Jag är trött.",
+     "exampleMeaning": "I am tired."
+    },
+    {
+     "text": "Du är...",
+     "meaning": "You are...",
+     "example": "Du är snäll.",
+     "exampleMeaning": "You are kind."
+    },
+    {
+     "text": "Han är...",
+     "meaning": "He is...",
+     "example": "Han är glad.",
+     "exampleMeaning": "He is happy."
+    },
+    {
+     "text": "Hon är...",
+     "meaning": "She is...",
+     "example": "Hon är intelligent.",
+     "exampleMeaning": "She is intelligent."
+    },
+    {
+     "text": "Vi är...",
+     "meaning": "We are...",
+     "example": "Vi är vänner.",
+     "exampleMeaning": "We are friends."
+    },
+    {
+     "text": "De är...",
+     "meaning": "They are...",
+     "example": "De är här.",
+     "exampleMeaning": "They are here."
+    }
+   ],
+   "tip": "The verb 'att vara' (to be) is important in Swedish. Use 'Jag är' for 'I am', 'Du är' for 'You are', and so on.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Jag är glad!",
+     "meaning": "I am happy!"
+    },
+    {
+     "speaker": "B",
+     "text": "Vad bra! Du är snäll.",
+     "meaning": "That's good! You are kind."
+    },
+    {
+     "speaker": "A",
+     "text": "Hon är trött.",
+     "meaning": "She is tired."
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, men de är här.",
+     "meaning": "Yes, but they are here."
+    },
+    {
+     "speaker": "A",
+     "text": "Vi är vänner.",
+     "meaning": "We are friends."
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, det är vi!",
+     "meaning": "Yes, we are!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are chatting with a friend.",
+    "learnerRole": "You are sharing feelings and states.",
+    "brief": "Prata om hur ni mår och vad ni är.",
+    "goal": "You will express how you feel and what you are."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Greetings and Introductions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Hej! Vad heter du?",
+    "meaning": "Hello! What is your name?"
+   },
+   {
+    "speaker": "B",
+    "text": "Jag heter John. Trevligt att träffas!",
+    "meaning": "My name is John. Nice to meet you!"
+   },
+   {
+    "speaker": "A",
+    "text": "Trevligt att träffas, John! Varifrån är du?",
+    "meaning": "Nice to meet you, John! Where are you from?"
+   },
+   {
+    "speaker": "B",
+    "text": "Jag är från USA. Och du?",
+    "meaning": "I am from the USA. And you?"
+   },
+   {
+    "speaker": "A",
+    "text": "Jag är från Sverige. Jag är glad!",
+    "meaning": "I am from Sweden. I am happy!"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, det är vi! Tack och adjö!",
+    "meaning": "Yes, we are! Thank you and goodbye!"
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are meeting someone new and introducing yourself.",
+   "learnerRole": "You are introducing yourself and asking questions.",
+   "brief": "Hälsa, fråga efter namn och var de kommer ifrån.",
+   "goal": "You will successfully greet and introduce yourself."
+  }
+ }
+}

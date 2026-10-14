@@ -1,0 +1,418 @@
+{
+ "id": "c08",
+ "number": 8,
+ "title": "At work",
+ "lessons": [
+  {
+   "id": "c08-d1",
+   "day": 36,
+   "title": "Daily Routines",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d1-i1",
+     "text": "o trabalho",
+     "meaning": "the work",
+     "example": "Eu vou para o trabalho às oito horas.",
+     "exampleMeaning": "I go to work at eight o'clock."
+    },
+    {
+     "id": "c08-d1-i2",
+     "text": "a reunião",
+     "meaning": "the meeting",
+     "example": "A reunião começa às nove horas.",
+     "exampleMeaning": "The meeting starts at nine o'clock."
+    },
+    {
+     "id": "c08-d1-i3",
+     "text": "o horário",
+     "meaning": "the schedule",
+     "example": "Eu tenho o meu horário aqui.",
+     "exampleMeaning": "I have my schedule here."
+    },
+    {
+     "id": "c08-d1-i4",
+     "text": "a tarefa",
+     "meaning": "the task",
+     "example": "A tarefa é muito importante.",
+     "exampleMeaning": "The task is very important."
+    },
+    {
+     "id": "c08-d1-i5",
+     "text": "o colega",
+     "meaning": "the colleague",
+     "example": "Meu colega é muito simpático.",
+     "exampleMeaning": "My colleague is very nice."
+    },
+    {
+     "id": "c08-d1-i6",
+     "text": "a pausa",
+     "meaning": "the break",
+     "example": "Nós temos uma pausa às dez horas.",
+     "exampleMeaning": "We have a break at ten o'clock."
+    }
+   ],
+   "tip": "In Brazilian Portuguese, nouns have gender. 'O' is used for masculine nouns, and 'a' for feminine nouns. For example, 'o trabalho' (the work) is masculine, while 'a reunião' (the meeting) is feminine.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Que horas você vai para o trabalho?",
+     "meaning": "What time do you go to work?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu vou para o trabalho às oito horas.",
+     "meaning": "I go to work at eight o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Você tem uma reunião hoje?",
+     "meaning": "Do you have a meeting today?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, a reunião começa às nove horas.",
+     "meaning": "Yes, the meeting starts at nine o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é o seu horário?",
+     "meaning": "What is your schedule?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu tenho o meu horário aqui.",
+     "meaning": "I have my schedule here."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A colleague at work",
+    "learnerRole": "You",
+    "brief": "You are talking about your daily routines at work. Ask questions about the schedule and tasks.",
+    "goal": "You should learn about your colleague's work schedule."
+   }
+  },
+  {
+   "id": "c08-d2",
+   "day": 37,
+   "title": "Tasks and Responsibilities",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d2-i1",
+     "text": "a responsabilidade",
+     "meaning": "the responsibility",
+     "example": "A responsabilidade é minha.",
+     "exampleMeaning": "The responsibility is mine."
+    },
+    {
+     "id": "c08-d2-i2",
+     "text": "fazer uma apresentação",
+     "meaning": "to make a presentation",
+     "example": "Eu vou fazer uma apresentação amanhã.",
+     "exampleMeaning": "I am going to make a presentation tomorrow."
+    },
+    {
+     "id": "c08-d2-i3",
+     "text": "o projeto",
+     "meaning": "the project",
+     "example": "O projeto é muito interessante.",
+     "exampleMeaning": "The project is very interesting."
+    },
+    {
+     "id": "c08-d2-i4",
+     "text": "trabalhar em equipe",
+     "meaning": "to work in a team",
+     "example": "Nós precisamos trabalhar em equipe.",
+     "exampleMeaning": "We need to work in a team."
+    },
+    {
+     "id": "c08-d2-i5",
+     "text": "o prazo",
+     "meaning": "the deadline",
+     "example": "O prazo é na sexta-feira.",
+     "exampleMeaning": "The deadline is on Friday."
+    },
+    {
+     "id": "c08-d2-i6",
+     "text": "ajudar",
+     "meaning": "to help",
+     "example": "Eu posso ajudar você.",
+     "exampleMeaning": "I can help you."
+    }
+   ],
+   "tip": "When talking about responsibilities, use 'é' to say something belongs to someone. For example, 'A responsabilidade é minha' means 'The responsibility is mine'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual é a sua responsabilidade no projeto?",
+     "meaning": "What is your responsibility in the project?"
+    },
+    {
+     "speaker": "B",
+     "text": "A responsabilidade é minha.",
+     "meaning": "The responsibility is mine."
+    },
+    {
+     "speaker": "A",
+     "text": "Você vai fazer uma apresentação?",
+     "meaning": "Are you going to make a presentation?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu vou fazer uma apresentação amanhã.",
+     "meaning": "Yes, I am going to make a presentation tomorrow."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando é o prazo?",
+     "meaning": "When is the deadline?"
+    },
+    {
+     "speaker": "B",
+     "text": "O prazo é na sexta-feira.",
+     "meaning": "The deadline is on Friday."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A project manager",
+    "learnerRole": "You",
+    "brief": "You are discussing tasks and responsibilities for a project. Ask about deadlines and teamwork.",
+    "goal": "You should understand your role in the project."
+   }
+  },
+  {
+   "id": "c08-d3",
+   "day": 38,
+   "title": "Meetings and Schedules",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d3-i1",
+     "text": "a agenda",
+     "meaning": "the agenda",
+     "example": "A agenda da reunião está pronta.",
+     "exampleMeaning": "The agenda for the meeting is ready."
+    },
+    {
+     "id": "c08-d3-i2",
+     "text": "confirmar",
+     "meaning": "to confirm",
+     "example": "Você pode confirmar a reunião?",
+     "exampleMeaning": "Can you confirm the meeting?"
+    },
+    {
+     "id": "c08-d3-i3",
+     "text": "discutir",
+     "meaning": "to discuss",
+     "example": "Vamos discutir o projeto na reunião.",
+     "exampleMeaning": "We will discuss the project in the meeting."
+    },
+    {
+     "id": "c08-d3-i4",
+     "text": "o participante",
+     "meaning": "the participant",
+     "example": "O participante chegou atrasado.",
+     "exampleMeaning": "The participant arrived late."
+    },
+    {
+     "id": "c08-d3-i5",
+     "text": "a data",
+     "meaning": "the date",
+     "example": "Qual é a data da reunião?",
+     "exampleMeaning": "What is the date of the meeting?"
+    },
+    {
+     "id": "c08-d3-i6",
+     "text": "o horário da reunião",
+     "meaning": "the time of the meeting",
+     "example": "Qual é o horário da reunião?",
+     "exampleMeaning": "What is the time of the meeting?"
+    }
+   ],
+   "tip": "Use 'a' for feminine nouns like 'a agenda' (the agenda) and 'o' for masculine nouns like 'o participante' (the participant). Remember the gender when using articles.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual é a agenda da reunião?",
+     "meaning": "What is the agenda for the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "A agenda da reunião está pronta.",
+     "meaning": "The agenda for the meeting is ready."
+    },
+    {
+     "speaker": "A",
+     "text": "Você pode confirmar a reunião?",
+     "meaning": "Can you confirm the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu posso confirmar.",
+     "meaning": "Yes, I can confirm."
+    },
+    {
+     "speaker": "A",
+     "text": "Quando é a data da reunião?",
+     "meaning": "When is the date of the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "A data da reunião é na quarta-feira.",
+     "meaning": "The date of the meeting is on Wednesday."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A meeting organizer",
+    "learnerRole": "You",
+    "brief": "You are discussing the agenda and details of a meeting. Ask about participants and dates.",
+    "goal": "You should know the details of the upcoming meeting."
+   }
+  },
+  {
+   "id": "c08-d4",
+   "day": 39,
+   "title": "Workplace Conversations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c08-d4-i1",
+     "text": "a comunicação",
+     "meaning": "the communication",
+     "example": "A comunicação é importante no trabalho.",
+     "exampleMeaning": "Communication is important at work."
+    },
+    {
+     "id": "c08-d4-i2",
+     "text": "o feedback",
+     "meaning": "the feedback",
+     "example": "Eu preciso do seu feedback.",
+     "exampleMeaning": "I need your feedback."
+    },
+    {
+     "id": "c08-d4-i3",
+     "text": "a solução",
+     "meaning": "the solution",
+     "example": "Qual é a solução para o problema?",
+     "exampleMeaning": "What is the solution to the problem?"
+    },
+    {
+     "id": "c08-d4-i4",
+     "text": "o problema",
+     "meaning": "the problem",
+     "example": "Tem um problema com o computador.",
+     "exampleMeaning": "There is a problem with the computer."
+    },
+    {
+     "id": "c08-d4-i5",
+     "text": "disponível",
+     "meaning": "available",
+     "example": "Estou disponível para ajudar.",
+     "exampleMeaning": "I am available to help."
+    },
+    {
+     "id": "c08-d4-i6",
+     "text": "a ideia",
+     "meaning": "the idea",
+     "example": "Qual é a sua ideia?",
+     "exampleMeaning": "What is your idea?"
+    }
+   ],
+   "tip": "When asking for feedback or ideas, use 'qual é' to ask 'what is'. For example, 'Qual é a sua ideia?' means 'What is your idea?'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Como está a comunicação na equipe?",
+     "meaning": "How is the communication in the team?"
+    },
+    {
+     "speaker": "B",
+     "text": "A comunicação é importante no trabalho.",
+     "meaning": "Communication is important at work."
+    },
+    {
+     "speaker": "A",
+     "text": "Você precisa de feedback?",
+     "meaning": "Do you need feedback?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu preciso do seu feedback.",
+     "meaning": "Yes, I need your feedback."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é a solução para o problema?",
+     "meaning": "What is the solution to the problem?"
+    },
+    {
+     "speaker": "B",
+     "text": "A solução é simples.",
+     "meaning": "The solution is simple."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A team member",
+    "learnerRole": "You",
+    "brief": "You are having a conversation about work-related issues. Discuss communication, problems, and solutions.",
+    "goal": "You should share your ideas and seek feedback."
+   }
+  },
+  {
+   "id": "c08-d5",
+   "day": 40,
+   "title": "Review: At Work",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Qual é a data da reunião?",
+     "meaning": "What is the date of the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "A data da reunião é na quarta-feira.",
+     "meaning": "The date of the meeting is on Wednesday."
+    },
+    {
+     "speaker": "A",
+     "text": "Você vai fazer uma apresentação?",
+     "meaning": "Are you going to make a presentation?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, eu vou fazer uma apresentação amanhã.",
+     "meaning": "Yes, I am going to make a presentation tomorrow."
+    },
+    {
+     "speaker": "A",
+     "text": "Qual é o horário da reunião?",
+     "meaning": "What is the time of the meeting?"
+    },
+    {
+     "speaker": "B",
+     "text": "O horário da reunião é às dez horas.",
+     "meaning": "The time of the meeting is at ten o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "A comunicação é importante no trabalho.",
+     "meaning": "Communication is important at work."
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, a comunicação é fundamental.",
+     "meaning": "Yes, communication is essential."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A colleague",
+    "learnerRole": "You",
+    "brief": "You are discussing various topics related to work. Talk about meetings, responsibilities, and communication.",
+    "goal": "You should demonstrate your understanding of work-related vocabulary."
+   }
+  }
+ ]
+}

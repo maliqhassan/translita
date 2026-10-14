@@ -1,0 +1,376 @@
+{
+ "title": "At the airport",
+ "lessons": [
+  {
+   "title": "What Would You Like?",
+   "items": [
+    {
+     "text": "en biljett",
+     "meaning": "a ticket",
+     "example": "Jag vill ha en biljett.",
+     "exampleMeaning": "I would like a ticket."
+    },
+    {
+     "text": "passet",
+     "meaning": "the passport",
+     "example": "Var är passet?",
+     "exampleMeaning": "Where is the passport?"
+    },
+    {
+     "text": "en returbiljett",
+     "meaning": "a return ticket",
+     "example": "Jag behöver en returbiljett.",
+     "exampleMeaning": "I need a return ticket."
+    },
+    {
+     "text": "flygbiljett",
+     "meaning": "a flight ticket",
+     "example": "Kan jag få en flygbiljett?",
+     "exampleMeaning": "Can I get a flight ticket?"
+    },
+    {
+     "text": "checka in",
+     "meaning": "to check in",
+     "example": "Vi ska checka in nu.",
+     "exampleMeaning": "We are going to check in now."
+    },
+    {
+     "text": "att fråga",
+     "meaning": "to ask",
+     "example": "Jag vill fråga om flyget.",
+     "exampleMeaning": "I want to ask about the flight."
+    }
+   ],
+   "tip": "In Swedish, nouns have genders: 'en' for common gender and 'ett' for neuter. Remember to use the correct article before nouns.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad vill du ha?",
+     "meaning": "What would you like?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill ha en biljett.",
+     "meaning": "I would like a ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du passet?",
+     "meaning": "Do you have the passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, här är passet.",
+     "meaning": "Yes, here is the passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Behöver du en returbiljett?",
+     "meaning": "Do you need a return ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag behöver en returbiljett.",
+     "meaning": "Yes, I need a return ticket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a ticket agent at the airport.",
+    "learnerRole": "You are a traveler.",
+    "brief": "Fråga om biljetter och pass. Be om en returbiljett.",
+    "goal": "You need to ask for a ticket and a return ticket."
+   }
+  },
+  {
+   "title": "Travel Documents",
+   "items": [
+    {
+     "text": "att visa",
+     "meaning": "to show",
+     "example": "Jag måste visa mitt pass.",
+     "exampleMeaning": "I must show my passport."
+    },
+    {
+     "text": "biljettinformation",
+     "meaning": "ticket information",
+     "example": "Kan jag få biljettinformation?",
+     "exampleMeaning": "Can I get ticket information?"
+    },
+    {
+     "text": "flygnummer",
+     "meaning": "flight number",
+     "example": "Vad är flygnumret?",
+     "exampleMeaning": "What is the flight number?"
+    },
+    {
+     "text": "kolla",
+     "meaning": "to check",
+     "example": "Jag ska kolla biljetten.",
+     "exampleMeaning": "I will check the ticket."
+    },
+    {
+     "text": "att behöva",
+     "meaning": "to need",
+     "example": "Jag behöver hjälp med passet.",
+     "exampleMeaning": "I need help with the passport."
+    },
+    {
+     "text": "en säkerhetskontroll",
+     "meaning": "a security check",
+     "example": "Vi går till säkerhetskontrollen.",
+     "exampleMeaning": "We are going to the security check."
+    }
+   ],
+   "tip": "When asking questions in Swedish, you can start with a verb or a question word like 'Vad' (What) or 'Hur' (How). This helps form the question.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Kan du visa ditt pass?",
+     "meaning": "Can you show your passport?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, här är mitt pass.",
+     "meaning": "Yes, here is my passport."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad är flygnumret?",
+     "meaning": "What is the flight number?"
+    },
+    {
+     "speaker": "B",
+     "text": "Flygnumret är 123.",
+     "meaning": "The flight number is 123."
+    },
+    {
+     "speaker": "A",
+     "text": "Behöver du biljettinformation?",
+     "meaning": "Do you need ticket information?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag behöver biljettinformation.",
+     "meaning": "Yes, I need ticket information."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a security officer at the airport.",
+    "learnerRole": "You are a traveler.",
+    "brief": "Fråga om pass och biljettinformation. Be om att kolla biljetten.",
+    "goal": "You need to show your passport and ask for ticket information."
+   }
+  },
+  {
+   "title": "Asking Questions",
+   "items": [
+    {
+     "text": "att fråga om",
+     "meaning": "to ask about",
+     "example": "Jag vill fråga om flyget.",
+     "exampleMeaning": "I want to ask about the flight."
+    },
+    {
+     "text": "när",
+     "meaning": "when",
+     "example": "När går flyget?",
+     "exampleMeaning": "When does the flight leave?"
+    },
+    {
+     "text": "att behöva veta",
+     "meaning": "to need to know",
+     "example": "Jag behöver veta när flyget går.",
+     "exampleMeaning": "I need to know when the flight leaves."
+    },
+    {
+     "text": "var",
+     "meaning": "where",
+     "example": "Var är gaten?",
+     "exampleMeaning": "Where is the gate?"
+    },
+    {
+     "text": "att säga",
+     "meaning": "to say",
+     "example": "Jag vill säga något.",
+     "exampleMeaning": "I want to say something."
+    },
+    {
+     "text": "en biljettförsäljare",
+     "meaning": "a ticket seller",
+     "example": "Är du biljettförsäljare?",
+     "exampleMeaning": "Are you a ticket seller?"
+    }
+   ],
+   "tip": "Use 'att' before verbs to indicate the infinitive form. For example, 'att fråga' means 'to ask'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "När går flyget till Stockholm?",
+     "meaning": "When does the flight to Stockholm leave?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det går klockan tre.",
+     "meaning": "It leaves at three o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Var är gaten?",
+     "meaning": "Where is the gate?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gaten är till vänster.",
+     "meaning": "The gate is to the left."
+    },
+    {
+     "speaker": "A",
+     "text": "Vill du fråga biljettförsäljaren?",
+     "meaning": "Do you want to ask the ticket seller?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag vill fråga om biljetten.",
+     "meaning": "Yes, I want to ask about the ticket."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a ticket seller at the airport.",
+    "learnerRole": "You are a traveler.",
+    "brief": "Fråga om flygtider och gaten. Be om hjälp med biljetten.",
+    "goal": "You need to ask about flight times and where the gate is."
+   }
+  },
+  {
+   "title": "Final Questions",
+   "items": [
+    {
+     "text": "att boka",
+     "meaning": "to book",
+     "example": "Jag vill boka en biljett.",
+     "exampleMeaning": "I want to book a ticket."
+    },
+    {
+     "text": "en plats",
+     "meaning": "a seat",
+     "example": "Har ni en plats kvar?",
+     "exampleMeaning": "Do you have a seat left?"
+    },
+    {
+     "text": "flygtider",
+     "meaning": "flight times",
+     "example": "Vad är flygtiderna?",
+     "exampleMeaning": "What are the flight times?"
+    },
+    {
+     "text": "ett boardingkort",
+     "meaning": "a boarding pass",
+     "example": "Jag har mitt boardingkort här.",
+     "exampleMeaning": "I have my boarding pass here."
+    },
+    {
+     "text": "att anlända",
+     "meaning": "to arrive",
+     "example": "När anländer flyget?",
+     "exampleMeaning": "When does the flight arrive?"
+    },
+    {
+     "text": "att gå till",
+     "meaning": "to go to",
+     "example": "Vi ska gå till gaten.",
+     "exampleMeaning": "We are going to the gate."
+    }
+   ],
+   "tip": "When making requests, use 'Jag vill' (I want) followed by the action. This is a polite way to ask for something.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vill du boka en biljett?",
+     "meaning": "Do you want to book a ticket?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag vill boka en biljett.",
+     "meaning": "Yes, I want to book a ticket."
+    },
+    {
+     "speaker": "A",
+     "text": "Har ni flygtiderna?",
+     "meaning": "Do you have the flight times?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, vad är flygtiderna?",
+     "meaning": "Yes, what are the flight times?"
+    },
+    {
+     "speaker": "A",
+     "text": "När anländer flyget?",
+     "meaning": "When does the flight arrive?"
+    },
+    {
+     "speaker": "B",
+     "text": "Flyget anländer klockan fem.",
+     "meaning": "The flight arrives at five o'clock."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a travel agent.",
+    "learnerRole": "You are a traveler.",
+    "brief": "Fråga om att boka biljetten och flygtider. Be om en plats.",
+    "goal": "You need to ask about booking a ticket and flight times."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of At the Airport",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Vad vill du ha?",
+    "meaning": "What would you like?"
+   },
+   {
+    "speaker": "B",
+    "text": "Jag vill ha en biljett.",
+    "meaning": "I would like a ticket."
+   },
+   {
+    "speaker": "A",
+    "text": "Har du passet?",
+    "meaning": "Do you have the passport?"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, här är passet.",
+    "meaning": "Yes, here is the passport."
+   },
+   {
+    "speaker": "A",
+    "text": "När går flyget?",
+    "meaning": "When does the flight leave?"
+   },
+   {
+    "speaker": "B",
+    "text": "Det går klockan tre.",
+    "meaning": "It leaves at three o'clock."
+   },
+   {
+    "speaker": "A",
+    "text": "Var är gaten?",
+    "meaning": "Where is the gate?"
+   },
+   {
+    "speaker": "B",
+    "text": "Gaten är till vänster.",
+    "meaning": "The gate is to the left."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are at the airport.",
+   "learnerRole": "You are a traveler.",
+   "brief": "Fråga om biljetter, pass, flygtider och gaten. Be om att boka en plats.",
+   "goal": "You need to ask for tickets, your passport, flight times, and where the gate is."
+  }
+ }
+}

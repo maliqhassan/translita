@@ -1,0 +1,418 @@
+{
+ "id": "c02",
+ "number": 2,
+ "title": "At the Café",
+ "lessons": [
+  {
+   "id": "c02-d1",
+   "day": 6,
+   "title": "Ordering Food",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d1-i1",
+     "text": "Um café",
+     "meaning": "A coffee",
+     "example": "Eu quero um café.",
+     "exampleMeaning": "I want a coffee."
+    },
+    {
+     "id": "c02-d1-i2",
+     "text": "Um sanduíche",
+     "meaning": "A sandwich",
+     "example": "Você tem um sanduíche?",
+     "exampleMeaning": "Do you have a sandwich?"
+    },
+    {
+     "id": "c02-d1-i3",
+     "text": "Por favor",
+     "meaning": "Please",
+     "example": "Traga um café, por favor.",
+     "exampleMeaning": "Bring a coffee, please."
+    },
+    {
+     "id": "c02-d1-i4",
+     "text": "Obrigado/a",
+     "meaning": "Thank you",
+     "example": "Obrigado pela ajuda!",
+     "exampleMeaning": "Thank you for the help!"
+    },
+    {
+     "id": "c02-d1-i5",
+     "text": "Quanto custa?",
+     "meaning": "How much does it cost?",
+     "example": "Quanto custa um sanduíche?",
+     "exampleMeaning": "How much does a sandwich cost?"
+    },
+    {
+     "id": "c02-d1-i6",
+     "text": "Eu gostaria de...",
+     "meaning": "I would like...",
+     "example": "Eu gostaria de um café.",
+     "exampleMeaning": "I would like a coffee."
+    }
+   ],
+   "tip": "Use 'por favor' when you ask for something. It's polite and appreciated. Remember to say 'obrigado' or 'obrigada' after receiving help.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que você gostaria de pedir?",
+     "meaning": "What would you like to order?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu gostaria de um café, por favor.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Claro! E para comer?",
+     "meaning": "Of course! And to eat?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero um sanduíche.",
+     "meaning": "I want a sandwich."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto custa o sanduíche?",
+     "meaning": "How much does the sandwich cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Não sei. Você pode me ajudar?",
+     "meaning": "I don’t know. Can you help me?"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café employee",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Ask for a coffee and a sandwich. Ask how much the sandwich costs.",
+    "goal": "You need to order food and drink politely."
+   }
+  },
+  {
+   "id": "c02-d2",
+   "day": 7,
+   "title": "Asking for the Bill",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d2-i1",
+     "text": "A conta",
+     "meaning": "The bill",
+     "example": "Posso ver a conta?",
+     "exampleMeaning": "Can I see the bill?"
+    },
+    {
+     "id": "c02-d2-i2",
+     "text": "Aqui está",
+     "meaning": "Here it is",
+     "example": "Aqui está o seu café.",
+     "exampleMeaning": "Here is your coffee."
+    },
+    {
+     "id": "c02-d2-i3",
+     "text": "Desculpe",
+     "meaning": "Sorry",
+     "example": "Desculpe, eu não entendi.",
+     "exampleMeaning": "Sorry, I didn’t understand."
+    },
+    {
+     "id": "c02-d2-i4",
+     "text": "Mais um, por favor",
+     "meaning": "One more, please",
+     "example": "Eu quero mais um café, por favor.",
+     "exampleMeaning": "I want one more coffee, please."
+    },
+    {
+     "id": "c02-d2-i5",
+     "text": "Sim, claro",
+     "meaning": "Yes, of course",
+     "example": "Sim, claro, eu trago a conta.",
+     "exampleMeaning": "Yes, of course, I will bring the bill."
+    },
+    {
+     "id": "c02-d2-i6",
+     "text": "Um momento",
+     "meaning": "One moment",
+     "example": "Um momento, por favor.",
+     "exampleMeaning": "One moment, please."
+    }
+   ],
+   "tip": "When asking for the bill, say 'a conta'. If you need more time, you can say 'um momento'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você precisa de mais alguma coisa?",
+     "meaning": "Do you need anything else?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, claro. A conta, por favor.",
+     "meaning": "Yes, of course. The bill, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Um momento, eu trago a conta.",
+     "meaning": "One moment, I will bring the bill."
+    },
+    {
+     "speaker": "B",
+     "text": "Desculpe, eu não entendi o preço.",
+     "meaning": "Sorry, I didn’t understand the price."
+    },
+    {
+     "speaker": "A",
+     "text": "Aqui está a conta.",
+     "meaning": "Here is the bill."
+    },
+    {
+     "speaker": "B",
+     "text": "Obrigado!",
+     "meaning": "Thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café employee",
+    "learnerRole": "A customer",
+    "brief": "You finished your meal. Ask for the bill politely and clarify the price if needed.",
+    "goal": "You need to ask for the bill and thank the employee."
+   }
+  },
+  {
+   "id": "c02-d3",
+   "day": 8,
+   "title": "Counting to Twenty",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d3-i1",
+     "text": "Um",
+     "meaning": "One",
+     "example": "Eu quero um café.",
+     "exampleMeaning": "I want one coffee."
+    },
+    {
+     "id": "c02-d3-i2",
+     "text": "Dois",
+     "meaning": "Two",
+     "example": "Eu quero dois sanduíches.",
+     "exampleMeaning": "I want two sandwiches."
+    },
+    {
+     "id": "c02-d3-i3",
+     "text": "Três",
+     "meaning": "Three",
+     "example": "Eu tenho três amigos aqui.",
+     "exampleMeaning": "I have three friends here."
+    },
+    {
+     "id": "c02-d3-i4",
+     "text": "Quatro",
+     "meaning": "Four",
+     "example": "Eu quero quatro copos d'água.",
+     "exampleMeaning": "I want four glasses of water."
+    },
+    {
+     "id": "c02-d3-i5",
+     "text": "Cinco",
+     "meaning": "Five",
+     "example": "Eu preciso de cinco minutos.",
+     "exampleMeaning": "I need five minutes."
+    },
+    {
+     "id": "c02-d3-i6",
+     "text": "Seis",
+     "meaning": "Six",
+     "example": "Eu tenho seis moedas.",
+     "exampleMeaning": "I have six coins."
+    }
+   ],
+   "tip": "Practice counting from one to twenty. It helps when ordering food and drinks.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Quantos cafés você quer?",
+     "meaning": "How many coffees do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero um café, por favor.",
+     "meaning": "I want one coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "E quantos sanduíches?",
+     "meaning": "And how many sandwiches?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu quero dois sanduíches.",
+     "meaning": "I want two sandwiches."
+    },
+    {
+     "speaker": "A",
+     "text": "Você quer água também?",
+     "meaning": "Do you want water too?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, quero quatro copos d'água.",
+     "meaning": "Yes, I want four glasses of water."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café employee",
+    "learnerRole": "A customer",
+    "brief": "You are ordering drinks and food. Use numbers to specify how many you want.",
+    "goal": "You need to order the correct number of items."
+   }
+  },
+  {
+   "id": "c02-d4",
+   "day": 9,
+   "title": "Polite Conversations",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c02-d4-i1",
+     "text": "Com licença",
+     "meaning": "Excuse me",
+     "example": "Com licença, onde está o banheiro?",
+     "exampleMeaning": "Excuse me, where is the bathroom?"
+    },
+    {
+     "id": "c02-d4-i2",
+     "text": "Por favor, fale mais devagar",
+     "meaning": "Please speak more slowly",
+     "example": "Por favor, fale mais devagar.",
+     "exampleMeaning": "Please speak more slowly."
+    },
+    {
+     "id": "c02-d4-i3",
+     "text": "Pode repetir?",
+     "meaning": "Can you repeat?",
+     "example": "Pode repetir, por favor?",
+     "exampleMeaning": "Can you repeat, please?"
+    },
+    {
+     "id": "c02-d4-i4",
+     "text": "Eu não sei",
+     "meaning": "I don’t know",
+     "example": "Desculpe, eu não sei.",
+     "exampleMeaning": "Sorry, I don’t know."
+    },
+    {
+     "id": "c02-d4-i5",
+     "text": "Isso é tudo",
+     "meaning": "That’s all",
+     "example": "Isso é tudo, obrigado!",
+     "exampleMeaning": "That’s all, thank you!"
+    },
+    {
+     "id": "c02-d4-i6",
+     "text": "Entendi",
+     "meaning": "I understand",
+     "example": "Entendi, obrigado!",
+     "exampleMeaning": "I understand, thank you!"
+    }
+   ],
+   "tip": "Use 'com licença' to get someone's attention politely. If you need clarification, say 'pode repetir?'",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Você precisa de ajuda?",
+     "meaning": "Do you need help?"
+    },
+    {
+     "speaker": "B",
+     "text": "Com licença, pode repetir?",
+     "meaning": "Excuse me, can you repeat?"
+    },
+    {
+     "speaker": "A",
+     "text": "Claro! Isso é tudo?",
+     "meaning": "Of course! Is that all?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, isso é tudo, obrigado!",
+     "meaning": "Yes, that’s all, thank you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Por favor, fale mais devagar.",
+     "meaning": "Please, speak more slowly."
+    },
+    {
+     "speaker": "B",
+     "text": "Entendi, obrigado!",
+     "meaning": "I understand, thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café employee",
+    "learnerRole": "A customer",
+    "brief": "You are having a conversation with the café employee. Ask for help and clarify if needed.",
+    "goal": "You need to communicate politely and clearly."
+   }
+  },
+  {
+   "id": "c02-d5",
+   "day": 10,
+   "title": "Review of Chapter 2: At the Café",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "O que você gostaria de pedir?",
+     "meaning": "What would you like to order?"
+    },
+    {
+     "speaker": "B",
+     "text": "Eu gostaria de um café, por favor.",
+     "meaning": "I would like a coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Quanto custa um sanduíche?",
+     "meaning": "How much does a sandwich cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Desculpe, eu não entendi.",
+     "meaning": "Sorry, I didn’t understand."
+    },
+    {
+     "speaker": "A",
+     "text": "Aqui está a conta.",
+     "meaning": "Here is the bill."
+    },
+    {
+     "speaker": "B",
+     "text": "Obrigado!",
+     "meaning": "Thank you!"
+    },
+    {
+     "speaker": "A",
+     "text": "Você precisa de mais alguma coisa?",
+     "meaning": "Do you need anything else?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sim, quero dois sanduíches.",
+     "meaning": "Yes, I want two sandwiches."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A café employee",
+    "learnerRole": "A customer",
+    "brief": "You are at a café. Use everything you learned to order food and drinks, ask for the bill, and communicate politely.",
+    "goal": "You need to practice ordering and asking questions in a café."
+   }
+  }
+ ]
+}

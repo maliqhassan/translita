@@ -1,0 +1,418 @@
+{
+ "id": "c03",
+ "number": 3,
+ "title": "Shopping",
+ "lessons": [
+  {
+   "id": "c03-d1",
+   "day": 11,
+   "title": "What is the Price?",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c03-d1-i1",
+     "text": "Vad kostar det?",
+     "meaning": "What does it cost?",
+     "example": "Vad kostar den här tröjan?",
+     "exampleMeaning": "What does this sweater cost?"
+    },
+    {
+     "id": "c03-d1-i2",
+     "text": "Den här",
+     "meaning": "This (singular)",
+     "example": "Den här boken är intressant.",
+     "exampleMeaning": "This book is interesting."
+    },
+    {
+     "id": "c03-d1-i3",
+     "text": "Den där",
+     "meaning": "That (singular)",
+     "example": "Den där jackan är dyr.",
+     "exampleMeaning": "That jacket is expensive."
+    },
+    {
+     "id": "c03-d1-i4",
+     "text": "Hur mycket?",
+     "meaning": "How much?",
+     "example": "Hur mycket kostar den där?",
+     "exampleMeaning": "How much does that cost?"
+    },
+    {
+     "id": "c03-d1-i5",
+     "text": "Billig",
+     "meaning": "Cheap",
+     "example": "Den här väskan är billig.",
+     "exampleMeaning": "This bag is cheap."
+    },
+    {
+     "id": "c03-d1-i6",
+     "text": "Dyr",
+     "meaning": "Expensive",
+     "example": "Den där bilen är dyr.",
+     "exampleMeaning": "That car is expensive."
+    }
+   ],
+   "tip": "In Swedish, 'den här' is used for something close, while 'den där' is for something further away. Remember to match the gender of the noun when using these phrases.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad kostar den här tröjan?",
+     "meaning": "What does this sweater cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Den här tröjan kostar 300 kronor.",
+     "meaning": "This sweater costs 300 kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Hur mycket kostar den där jackan?",
+     "meaning": "How much does that jacket cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Den där jackan kostar 500 kronor.",
+     "meaning": "That jacket costs 500 kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Är den här väskan billig?",
+     "meaning": "Is this bag cheap?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den här väskan är billig.",
+     "meaning": "Yes, this bag is cheap."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "Fråga om priser på kläder. Använd 'den här' och 'den där'.",
+    "goal": "You will ask about the price of items."
+   }
+  },
+  {
+   "id": "c03-d2",
+   "day": 12,
+   "title": "Numbers and Sizes",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c03-d2-i1",
+     "text": "Stor",
+     "meaning": "Large",
+     "example": "Jag vill ha en stor tröja.",
+     "exampleMeaning": "I want a large sweater."
+    },
+    {
+     "id": "c03-d2-i2",
+     "text": "Liten",
+     "meaning": "Small",
+     "example": "Den här skjortan är liten.",
+     "exampleMeaning": "This shirt is small."
+    },
+    {
+     "id": "c03-d2-i3",
+     "text": "Mellan",
+     "meaning": "Medium",
+     "example": "Jag har en medelstorlek.",
+     "exampleMeaning": "I have a medium size."
+    },
+    {
+     "id": "c03-d2-i4",
+     "text": "Tjugo",
+     "meaning": "Twenty",
+     "example": "Det kostar tjugo kronor.",
+     "exampleMeaning": "It costs twenty kronor."
+    },
+    {
+     "id": "c03-d2-i5",
+     "text": "Femtio",
+     "meaning": "Fifty",
+     "example": "Jag har femtio kronor.",
+     "exampleMeaning": "I have fifty kronor."
+    },
+    {
+     "id": "c03-d2-i6",
+     "text": "Åttio",
+     "meaning": "Eighty",
+     "example": "Den där jackan kostar åttio kronor.",
+     "exampleMeaning": "That jacket costs eighty kronor."
+    }
+   ],
+   "tip": "In Swedish, numbers are important for prices and sizes. Practice counting to help you when shopping.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad kostar den stora tröjan?",
+     "meaning": "What does the large sweater cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Den stora tröjan kostar åttio kronor.",
+     "meaning": "The large sweater costs eighty kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du en liten skjorta?",
+     "meaning": "Do you have a small shirt?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den lilla skjortan kostar tjugo kronor.",
+     "meaning": "Yes, the small shirt costs twenty kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Jag vill ha en medelstorlek.",
+     "meaning": "I want a medium size."
+    },
+    {
+     "speaker": "B",
+     "text": "Den medelstora kostar femtio kronor.",
+     "meaning": "The medium size costs fifty kronor."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "Fråga om storlekar och priser. Använd 'stor', 'liten', och 'mellan'.",
+    "goal": "You will ask for sizes and prices."
+   }
+  },
+  {
+   "id": "c03-d3",
+   "day": 13,
+   "title": "Colors in Shopping",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c03-d3-i1",
+     "text": "Röd",
+     "meaning": "Red",
+     "example": "Den här väskan är röd.",
+     "exampleMeaning": "This bag is red."
+    },
+    {
+     "id": "c03-d3-i2",
+     "text": "Blå",
+     "meaning": "Blue",
+     "example": "Jag gillar den blå tröjan.",
+     "exampleMeaning": "I like the blue sweater."
+    },
+    {
+     "id": "c03-d3-i3",
+     "text": "Grön",
+     "meaning": "Green",
+     "example": "Den där jackan är grön.",
+     "exampleMeaning": "That jacket is green."
+    },
+    {
+     "id": "c03-d3-i4",
+     "text": "Svart",
+     "meaning": "Black",
+     "example": "Jag vill ha en svart skjorta.",
+     "exampleMeaning": "I want a black shirt."
+    },
+    {
+     "id": "c03-d3-i5",
+     "text": "Vit",
+     "meaning": "White",
+     "example": "Den här klänningen är vit.",
+     "exampleMeaning": "This dress is white."
+    },
+    {
+     "id": "c03-d3-i6",
+     "text": "Gul",
+     "meaning": "Yellow",
+     "example": "Den gula väskan är fin.",
+     "exampleMeaning": "The yellow bag is nice."
+    }
+   ],
+   "tip": "Colors in Swedish come after the noun. For example, you say 'den röda väskan' for 'the red bag'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad tycker du om den röda väskan?",
+     "meaning": "What do you think of the red bag?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag gillar den röda väskan.",
+     "meaning": "I like the red bag."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du en blå tröja?",
+     "meaning": "Do you have a blue sweater?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den blå tröjan är fin.",
+     "meaning": "Yes, the blue sweater is nice."
+    },
+    {
+     "speaker": "A",
+     "text": "Den där jackan är grön, eller hur?",
+     "meaning": "That jacket is green, right?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den där jackan är grön.",
+     "meaning": "Yes, that jacket is green."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "Fråga om färger på kläder. Använd 'röd', 'blå', och 'grön'.",
+    "goal": "You will ask about colors of items."
+   }
+  },
+  {
+   "id": "c03-d4",
+   "day": 14,
+   "title": "Combining Everything",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c03-d4-i1",
+     "text": "Kostnad",
+     "meaning": "Cost",
+     "example": "Vad är kostnaden för den här?",
+     "exampleMeaning": "What is the cost of this?"
+    },
+    {
+     "id": "c03-d4-i2",
+     "text": "Färg",
+     "meaning": "Color",
+     "example": "Vilken färg har den där?",
+     "exampleMeaning": "What color does that have?"
+    },
+    {
+     "id": "c03-d4-i3",
+     "text": "Storlek",
+     "meaning": "Size",
+     "example": "Vad är storleken på den här?",
+     "exampleMeaning": "What is the size of this?"
+    },
+    {
+     "id": "c03-d4-i4",
+     "text": "Det är...",
+     "meaning": "It is...",
+     "example": "Det är dyrt.",
+     "exampleMeaning": "It is expensive."
+    },
+    {
+     "id": "c03-d4-i5",
+     "text": "Det kostar...",
+     "meaning": "It costs...",
+     "example": "Det kostar femtio kronor.",
+     "exampleMeaning": "It costs fifty kronor."
+    },
+    {
+     "id": "c03-d4-i6",
+     "text": "Jag vill ha...",
+     "meaning": "I want...",
+     "example": "Jag vill ha den blå tröjan.",
+     "exampleMeaning": "I want the blue sweater."
+    }
+   ],
+   "tip": "When asking about an item, combine 'vad' with the new words. For example, 'Vad kostar den?' means 'What does it cost?'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad kostar den här?",
+     "meaning": "What does this cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det kostar trettio kronor.",
+     "meaning": "It costs thirty kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Vad är storleken på den där?",
+     "meaning": "What is the size of that?"
+    },
+    {
+     "speaker": "B",
+     "text": "Den där är stor.",
+     "meaning": "That one is large."
+    },
+    {
+     "speaker": "A",
+     "text": "Vilken färg har den här?",
+     "meaning": "What color does this have?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det är svart.",
+     "meaning": "It is black."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "Fråga om kostnad, storlek och färg på kläder. Använd alla nya ord.",
+    "goal": "You will ask about cost, size, and color of items."
+   }
+  },
+  {
+   "id": "c03-d5",
+   "day": 15,
+   "title": "Chapter 3 Review: Shopping",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad kostar den här röda tröjan?",
+     "meaning": "What does this red sweater cost?"
+    },
+    {
+     "speaker": "B",
+     "text": "Den kostar åttio kronor.",
+     "meaning": "It costs eighty kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Har du den i storlek mellan?",
+     "meaning": "Do you have it in medium size?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den medelstora är blå.",
+     "meaning": "Yes, the medium size is blue."
+    },
+    {
+     "speaker": "A",
+     "text": "Är den där jackan dyr?",
+     "meaning": "Is that jacket expensive?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, den där jackan kostar femhundra kronor.",
+     "meaning": "Yes, that jacket costs five hundred kronor."
+    },
+    {
+     "speaker": "A",
+     "text": "Jag vill ha en liten vit skjorta.",
+     "meaning": "I want a small white shirt."
+    },
+    {
+     "speaker": "B",
+     "text": "Den lilla skjortan är billig.",
+     "meaning": "The small shirt is cheap."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A shopkeeper",
+    "learnerRole": "A customer",
+    "brief": "Fråga om olika kläder, deras färger, storlekar och priser. Använd det du har lärt dig.",
+    "goal": "You will combine everything to ask about various clothes."
+   }
+  }
+ ]
+}

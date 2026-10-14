@@ -1,0 +1,376 @@
+{
+ "title": "At the café",
+ "lessons": [
+  {
+   "title": "Let’s Order!",
+   "items": [
+    {
+     "text": "kaffe",
+     "meaning": "coffee",
+     "example": "Jag vill ha en kopp 'kaffe'.",
+     "exampleMeaning": "I want a cup of coffee."
+    },
+    {
+     "text": "te",
+     "meaning": "tea",
+     "example": "Jag dricker alltid 'te' på morgonen.",
+     "exampleMeaning": "I always drink tea in the morning."
+    },
+    {
+     "text": "vatten",
+     "meaning": "water",
+     "example": "Kan jag få lite 'vatten', tack?",
+     "exampleMeaning": "Can I have some water, please?"
+    },
+    {
+     "text": "bröd",
+     "meaning": "bread",
+     "example": "Jag vill ha 'bröd' med smör.",
+     "exampleMeaning": "I want bread with butter."
+    },
+    {
+     "text": "kaka",
+     "meaning": "cake",
+     "example": "Den 'kakan' ser god ut.",
+     "exampleMeaning": "That cake looks good."
+    },
+    {
+     "text": "meny",
+     "meaning": "menu",
+     "example": "Var är 'menyn'?",
+     "exampleMeaning": "Where is the menu?"
+    }
+   ],
+   "tip": "In Swedish, nouns have gender. 'Kaffe' is common gender, while 'vatten' is neuter. Remember to use the correct article: en for common and ett for neuter.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad vill du ha?",
+     "meaning": "What do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill ha en kopp kaffe.",
+     "meaning": "I want a cup of coffee."
+    },
+    {
+     "speaker": "A",
+     "text": "Vill du ha något mer?",
+     "meaning": "Do you want anything more?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, jag vill ha en kaka.",
+     "meaning": "Yes, I want a cake."
+    },
+    {
+     "speaker": "A",
+     "text": "Här är menyn.",
+     "meaning": "Here is the menu."
+    },
+    {
+     "speaker": "B",
+     "text": "Tack!",
+     "meaning": "Thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is the café staff.",
+    "learnerRole": "B is a customer.",
+    "brief": "Ställ en fråga om vad kunden vill ha. Ge dem menyn.",
+    "goal": "You should order a drink and a snack."
+   }
+  },
+  {
+   "title": "Using Numbers!",
+   "items": [
+    {
+     "text": "ett",
+     "meaning": "one",
+     "example": "Jag vill ha 'ett' glas vatten.",
+     "exampleMeaning": "I want one glass of water."
+    },
+    {
+     "text": "två",
+     "meaning": "two",
+     "example": "Jag tar 'två' bitar av bröd.",
+     "exampleMeaning": "I will take two pieces of bread."
+    },
+    {
+     "text": "tre",
+     "meaning": "three",
+     "example": "Kan jag få 'tre' koppar te?",
+     "exampleMeaning": "Can I have three cups of tea?"
+    },
+    {
+     "text": "fyra",
+     "meaning": "four",
+     "example": "Vi vill ha 'fyra' kakor.",
+     "exampleMeaning": "We want four cakes."
+    },
+    {
+     "text": "fem",
+     "meaning": "five",
+     "example": "Det kostar 'fem' kronor.",
+     "exampleMeaning": "It costs five kronor."
+    },
+    {
+     "text": "tio",
+     "meaning": "ten",
+     "example": "Jag har 'tio' kronor.",
+     "exampleMeaning": "I have ten kronor."
+    }
+   ],
+   "tip": "Swedish numbers can be tricky. Practice counting from one to ten, as they are often used in daily conversations.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hur många vill du ha?",
+     "meaning": "How many do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill ha två kakor.",
+     "meaning": "I want two cakes."
+    },
+    {
+     "speaker": "A",
+     "text": "Och vad mer?",
+     "meaning": "And what else?"
+    },
+    {
+     "speaker": "B",
+     "text": "En kopp kaffe, tack.",
+     "meaning": "A cup of coffee, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Det blir fem kronor.",
+     "meaning": "That will be five kronor."
+    },
+    {
+     "speaker": "B",
+     "text": "Här är tio kronor.",
+     "meaning": "Here are ten kronor."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is the café staff.",
+    "learnerRole": "B is a customer.",
+    "brief": "Fråga kunden hur många de vill ha av något. Räkna upp priserna.",
+    "goal": "You should order a specific number of items."
+   }
+  },
+  {
+   "title": "Polite Requests!",
+   "items": [
+    {
+     "text": "snälla",
+     "meaning": "please",
+     "example": "Kan jag få en kopp te, 'snälla'?",
+     "exampleMeaning": "Can I have a cup of tea, please?"
+    },
+    {
+     "text": "tack så mycket",
+     "meaning": "thank you very much",
+     "example": "Tack så mycket för maten!",
+     "exampleMeaning": "Thank you very much for the food!"
+    },
+    {
+     "text": "ursäkta",
+     "meaning": "excuse me",
+     "example": "Ursäkta, var är toaletten?",
+     "exampleMeaning": "Excuse me, where is the bathroom?"
+    },
+    {
+     "text": "kan",
+     "meaning": "can",
+     "example": "Kan du ge mig menyn?",
+     "exampleMeaning": "Can you give me the menu?"
+    },
+    {
+     "text": "vill",
+     "meaning": "want",
+     "example": "Jag vill ha en kopp kaffe, snälla.",
+     "exampleMeaning": "I want a cup of coffee, please."
+    },
+    {
+     "text": "hjälp",
+     "meaning": "help",
+     "example": "Kan jag få hjälp?",
+     "exampleMeaning": "Can I get help?"
+    }
+   ],
+   "tip": "Use 'snälla' when you want to make a request polite. It shows respect and kindness.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Ursäkta, vad vill du ha?",
+     "meaning": "Excuse me, what do you want?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill ha en kaka, snälla.",
+     "meaning": "I want a cake, please."
+    },
+    {
+     "speaker": "A",
+     "text": "Vill du ha något att dricka?",
+     "meaning": "Do you want something to drink?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, en kopp te, tack så mycket.",
+     "meaning": "Yes, a cup of tea, thank you very much."
+    },
+    {
+     "speaker": "A",
+     "text": "Självklart!",
+     "meaning": "Of course!"
+    },
+    {
+     "speaker": "B",
+     "text": "Tack!",
+     "meaning": "Thank you!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is the café staff.",
+    "learnerRole": "B is a customer.",
+    "brief": "Fråga kunden om de vill ha något mer. Var artig i din kommunikation.",
+    "goal": "You should make polite requests."
+   }
+  },
+  {
+   "title": "Enjoying the Café!",
+   "items": [
+    {
+     "text": "mysig",
+     "meaning": "cozy",
+     "example": "Det här caféet är 'mysigt'.",
+     "exampleMeaning": "This café is cozy."
+    },
+    {
+     "text": "mat",
+     "meaning": "food",
+     "example": "Jag älskar 'mat' här.",
+     "exampleMeaning": "I love the food here."
+    },
+    {
+     "text": "dryck",
+     "meaning": "drink",
+     "example": "Vilken 'dryck' rekommenderar du?",
+     "exampleMeaning": "Which drink do you recommend?"
+    },
+    {
+     "text": "sitta",
+     "meaning": "sit",
+     "example": "Vi kan 'sitta' vid fönstret.",
+     "exampleMeaning": "We can sit by the window."
+    },
+    {
+     "text": "smaka",
+     "meaning": "taste",
+     "example": "Jag vill 'smaka' på kakan.",
+     "exampleMeaning": "I want to taste the cake."
+    },
+    {
+     "text": "njuta",
+     "meaning": "enjoy",
+     "example": "Jag vill 'njuta' av mitt kaffe.",
+     "exampleMeaning": "I want to enjoy my coffee."
+    }
+   ],
+   "tip": "When describing places, 'mysig' is a great word to express coziness. It’s often used for cafés and homes.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hur är maten här?",
+     "meaning": "How is the food here?"
+    },
+    {
+     "speaker": "B",
+     "text": "Maten är väldigt god!",
+     "meaning": "The food is very good!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vill du 'sitta' här?",
+     "meaning": "Do you want to sit here?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, det är 'mysigt'!",
+     "meaning": "Yes, it is cozy!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vad ska du 'njuta' av?",
+     "meaning": "What will you enjoy?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag vill 'smaka' på kakan.",
+     "meaning": "I want to taste the cake."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is the café staff.",
+    "learnerRole": "B is a customer.",
+    "brief": "Fråga kunden vad de tycker om maten och om de vill sitta.",
+    "goal": "You should express enjoyment of the café experience."
+   }
+  }
+ ],
+ "review": {
+  "title": "Chapter Review: At the Café",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Vad vill du ha?",
+    "meaning": "What do you want?"
+   },
+   {
+    "speaker": "B",
+    "text": "Jag vill ha en kopp kaffe, snälla.",
+    "meaning": "I want a cup of coffee, please."
+   },
+   {
+    "speaker": "A",
+    "text": "Hur många kakor vill du ha?",
+    "meaning": "How many cakes do you want?"
+   },
+   {
+    "speaker": "B",
+    "text": "Två, tack så mycket.",
+    "meaning": "Two, thank you very much."
+   },
+   {
+    "speaker": "A",
+    "text": "Det kostar fem kronor.",
+    "meaning": "It costs five kronor."
+   },
+   {
+    "speaker": "B",
+    "text": "Här är tio kronor.",
+    "meaning": "Here are ten kronor."
+   },
+   {
+    "speaker": "A",
+    "text": "Det här caféet är mysigt!",
+    "meaning": "This café is cozy!"
+   },
+   {
+    "speaker": "B",
+    "text": "Ja, jag vill njuta av min mat här.",
+    "meaning": "Yes, I want to enjoy my food here."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "A is the café staff.",
+   "learnerRole": "B is a customer.",
+   "brief": "Engage in a conversation about ordering food and drinks at the café.",
+   "goal": "You should practice ordering and expressing your preferences."
+  }
+ }
+}

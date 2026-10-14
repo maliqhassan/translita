@@ -1,0 +1,408 @@
+{
+ "id": "c11",
+ "number": 11,
+ "title": "Making plans",
+ "lessons": [
+  {
+   "id": "c11-d1",
+   "day": 51,
+   "title": "Let's plan!",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d1-i1",
+     "text": "Vad gör du?",
+     "meaning": "What are you doing?",
+     "example": "Vad gör du imorgon?",
+     "exampleMeaning": "What are you doing tomorrow?"
+    },
+    {
+     "id": "c11-d1-i2",
+     "text": "Jag ska",
+     "meaning": "I am going to",
+     "example": "Jag ska träffa en vän.",
+     "exampleMeaning": "I am going to meet a friend."
+    },
+    {
+     "id": "c11-d1-i3",
+     "text": "Klockan tre",
+     "meaning": "At three o'clock",
+     "example": "Vi ses klockan tre.",
+     "exampleMeaning": "We meet at three o'clock."
+    },
+    {
+     "id": "c11-d1-i4",
+     "text": "På lördag",
+     "meaning": "On Saturday",
+     "example": "Vi har en fest på lördag.",
+     "exampleMeaning": "We have a party on Saturday."
+    },
+    {
+     "id": "c11-d1-i5",
+     "text": "Vill du följa med?",
+     "meaning": "Do you want to come along?",
+     "example": "Vill du följa med till parken?",
+     "exampleMeaning": "Do you want to come along to the park?"
+    },
+    {
+     "id": "c11-d1-i6",
+     "text": "Ja, gärna!",
+     "meaning": "Yes, please!",
+     "example": "Ja, gärna! Jag kommer.",
+     "exampleMeaning": "Yes, please! I will come."
+    }
+   ],
+   "tip": "When talking about future plans, use 'ska' to express intentions. Remember to mention the time or day for clarity.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad gör du på lördag?",
+     "meaning": "What are you doing on Saturday?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag ska träffa en vän.",
+     "meaning": "I am going to meet a friend."
+    },
+    {
+     "speaker": "A",
+     "text": "Vill du följa med?",
+     "meaning": "Do you want to come along?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, gärna!",
+     "meaning": "Yes, please!"
+    },
+    {
+     "speaker": "A",
+     "text": "Vi ses klockan tre.",
+     "meaning": "We meet at three o'clock."
+    },
+    {
+     "speaker": "B",
+     "text": "Okej, jag ser fram emot det!",
+     "meaning": "Okay, I look forward to it!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is a friend making plans for Saturday.",
+    "learnerRole": "B is the learner confirming their plans.",
+    "brief": "Fråga vad B gör på lördag och bjud in dem. Använd 'ska' och tid.",
+    "goal": "You need to confirm your plans for Saturday."
+   }
+  },
+  {
+   "id": "c11-d2",
+   "day": 52,
+   "title": "Invitations and replies",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d2-i1",
+     "text": "Tack för inbjudan!",
+     "meaning": "Thank you for the invitation!",
+     "example": "Tack för inbjudan till festen!",
+     "exampleMeaning": "Thank you for the invitation to the party!"
+    },
+    {
+     "id": "c11-d2-i2",
+     "text": "Tyvärr",
+     "meaning": "Unfortunately",
+     "example": "Tyvärr kan jag inte komma.",
+     "exampleMeaning": "Unfortunately, I cannot come."
+    },
+    {
+     "id": "c11-d2-i3",
+     "text": "Kanske senare",
+     "meaning": "Maybe later",
+     "example": "Kanske senare i veckan.",
+     "exampleMeaning": "Maybe later in the week."
+    },
+    {
+     "id": "c11-d2-i4",
+     "text": "Vad tid?",
+     "meaning": "What time?",
+     "example": "Vad tid börjar festen?",
+     "exampleMeaning": "What time does the party start?"
+    },
+    {
+     "id": "c11-d2-i5",
+     "text": "Det låter kul!",
+     "meaning": "That sounds fun!",
+     "example": "Det låter kul att gå på konsert.",
+     "exampleMeaning": "That sounds fun to go to a concert."
+    },
+    {
+     "id": "c11-d2-i6",
+     "text": "Jag är ledig.",
+     "meaning": "I am free.",
+     "example": "Jag är ledig på söndag.",
+     "exampleMeaning": "I am free on Sunday."
+    }
+   ],
+   "tip": "Use 'tyvärr' to politely decline an invitation. You can also express interest with 'det låter kul!'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Tack för inbjudan till festen!",
+     "meaning": "Thank you for the invitation to the party!"
+    },
+    {
+     "speaker": "B",
+     "text": "Tyvärr kan jag inte komma.",
+     "meaning": "Unfortunately, I cannot come."
+    },
+    {
+     "speaker": "A",
+     "text": "Kanske senare?",
+     "meaning": "Maybe later?"
+    },
+    {
+     "speaker": "B",
+     "text": "Vad tid börjar festen?",
+     "meaning": "What time does the party start?"
+    },
+    {
+     "speaker": "A",
+     "text": "Det låter kul!",
+     "meaning": "That sounds fun!"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag är ledig på söndag.",
+     "meaning": "I am free on Sunday."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is inviting B to a party.",
+    "learnerRole": "B is responding to the invitation.",
+    "brief": "Fråga om B kan komma och ge dem alternativ.",
+    "goal": "You need to respond to the invitation."
+   }
+  },
+  {
+   "id": "c11-d3",
+   "day": 53,
+   "title": "Making specific plans",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d3-i1",
+     "text": "Vi kan",
+     "meaning": "We can",
+     "example": "Vi kan gå till bio.",
+     "exampleMeaning": "We can go to the cinema."
+    },
+    {
+     "id": "c11-d3-i2",
+     "text": "Låt oss",
+     "meaning": "Let’s",
+     "example": "Låt oss träffas klockan fem.",
+     "exampleMeaning": "Let’s meet at five o'clock."
+    },
+    {
+     "id": "c11-d3-i3",
+     "text": "Hur låter det?",
+     "meaning": "How does that sound?",
+     "example": "Hur låter det för dig?",
+     "exampleMeaning": "How does that sound to you?"
+    },
+    {
+     "id": "c11-d3-i4",
+     "text": "Jag föredrar",
+     "meaning": "I prefer",
+     "example": "Jag föredrar att gå på lördag.",
+     "exampleMeaning": "I prefer to go on Saturday."
+    },
+    {
+     "id": "c11-d3-i5",
+     "text": "Kan vi?",
+     "meaning": "Can we?",
+     "example": "Kan vi träffas tidigare?",
+     "exampleMeaning": "Can we meet earlier?"
+    },
+    {
+     "id": "c11-d3-i6",
+     "text": "Det är en bra idé!",
+     "meaning": "That is a good idea!",
+     "example": "Det är en bra idé att åka tidigt.",
+     "exampleMeaning": "That is a good idea to leave early."
+    }
+   ],
+   "tip": "When suggesting plans, use 'vi kan' or 'låt oss'. This makes your suggestion more inviting.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vi kan gå till bio.",
+     "meaning": "We can go to the cinema."
+    },
+    {
+     "speaker": "B",
+     "text": "Låt oss träffas klockan fem.",
+     "meaning": "Let’s meet at five o'clock."
+    },
+    {
+     "speaker": "A",
+     "text": "Hur låter det?",
+     "meaning": "How does that sound?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag föredrar att gå på lördag.",
+     "meaning": "I prefer to go on Saturday."
+    },
+    {
+     "speaker": "A",
+     "text": "Kan vi träffas tidigare?",
+     "meaning": "Can we meet earlier?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det är en bra idé!",
+     "meaning": "That is a good idea!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is suggesting plans for a movie.",
+    "learnerRole": "B is discussing the details.",
+    "brief": "Fråga om tid och preferenser för att träffas.",
+    "goal": "You need to suggest a time to meet."
+   }
+  },
+  {
+   "id": "c11-d4",
+   "day": 54,
+   "title": "Confirming plans",
+   "checkpoint": false,
+   "items": [
+    {
+     "id": "c11-d4-i1",
+     "text": "Är vi överens?",
+     "meaning": "Are we agreed?",
+     "example": "Är vi överens om tiden?",
+     "exampleMeaning": "Are we agreed on the time?"
+    },
+    {
+     "id": "c11-d4-i2",
+     "text": "Jag ser fram emot det!",
+     "meaning": "I look forward to it!",
+     "example": "Jag ser fram emot att träffas!",
+     "exampleMeaning": "I look forward to meeting!"
+    },
+    {
+     "id": "c11-d4-i3",
+     "text": "Skriv ner det!",
+     "meaning": "Write it down!",
+     "example": "Skriv ner det i din kalender.",
+     "exampleMeaning": "Write it down in your calendar."
+    },
+    {
+     "id": "c11-d4-i4",
+     "text": "Vi ses då!",
+     "meaning": "See you then!",
+     "example": "Vi ses då på lördag.",
+     "exampleMeaning": "See you then on Saturday."
+    },
+    {
+     "id": "c11-d4-i5",
+     "text": "Kom ihåg!",
+     "meaning": "Remember!",
+     "example": "Kom ihåg att ta med biljetterna.",
+     "exampleMeaning": "Remember to bring the tickets."
+    },
+    {
+     "id": "c11-d4-i6",
+     "text": "Det är bestämt!",
+     "meaning": "It is decided!",
+     "example": "Det är bestämt att vi åker.",
+     "exampleMeaning": "It is decided that we are going."
+    }
+   ],
+   "tip": "Use 'är vi överens?' to confirm plans. This helps to ensure everyone is on the same page.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Är vi överens om tiden?",
+     "meaning": "Are we agreed on the time?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, vi ses då!",
+     "meaning": "Yes, see you then!"
+    },
+    {
+     "speaker": "A",
+     "text": "Skriv ner det i din kalender.",
+     "meaning": "Write it down in your calendar."
+    },
+    {
+     "speaker": "B",
+     "text": "Jag ser fram emot att träffas!",
+     "meaning": "I look forward to meeting!"
+    },
+    {
+     "speaker": "A",
+     "text": "Kom ihåg att ta med biljetterna.",
+     "meaning": "Remember to bring the tickets."
+    },
+    {
+     "speaker": "B",
+     "text": "Det är bestämt!",
+     "meaning": "It is decided!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is confirming the plans with B.",
+    "learnerRole": "B is responding to the confirmation.",
+    "brief": "Bekräfta detaljerna och påminn varandra.",
+    "goal": "You need to confirm all details."
+   }
+  },
+  {
+   "id": "c11-d5",
+   "day": 55,
+   "title": "Review of Making plans",
+   "checkpoint": true,
+   "items": [],
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Vad gör du imorgon?",
+     "meaning": "What are you doing tomorrow?"
+    },
+    {
+     "speaker": "B",
+     "text": "Jag ska träffa en vän.",
+     "meaning": "I am going to meet a friend."
+    },
+    {
+     "speaker": "A",
+     "text": "Tack för inbjudan!",
+     "meaning": "Thank you for the invitation!"
+    },
+    {
+     "speaker": "B",
+     "text": "Tyvärr kan jag inte komma.",
+     "meaning": "Unfortunately, I cannot come."
+    },
+    {
+     "speaker": "A",
+     "text": "Hur låter det för dig?",
+     "meaning": "How does that sound to you?"
+    },
+    {
+     "speaker": "B",
+     "text": "Det låter kul!",
+     "meaning": "That sounds fun!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "A is inviting B to an event.",
+    "learnerRole": "B is responding and discussing plans.",
+    "brief": "Fråga om B:s planer och bekräfta detaljer.",
+    "goal": "You need to discuss and confirm your plans."
+   }
+  }
+ ]
+}

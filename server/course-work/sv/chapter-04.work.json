@@ -1,0 +1,376 @@
+{
+ "title": "Asking for Directions",
+ "lessons": [
+  {
+   "title": "Where is the... ?",
+   "items": [
+    {
+     "text": "Var är... ?",
+     "meaning": "Where is...?",
+     "example": "Var är biblioteket?",
+     "exampleMeaning": "Where is the library?"
+    },
+    {
+     "text": "bibliotek",
+     "meaning": "library",
+     "example": "Biblioteket är stort.",
+     "exampleMeaning": "The library is big."
+    },
+    {
+     "text": "sjukhus",
+     "meaning": "hospital",
+     "example": "Sjukhuset ligger här.",
+     "exampleMeaning": "The hospital is here."
+    },
+    {
+     "text": "skola",
+     "meaning": "school",
+     "example": "Skolan är nära.",
+     "exampleMeaning": "The school is close."
+    },
+    {
+     "text": "affär",
+     "meaning": "store",
+     "example": "Affären är på hörnet.",
+     "exampleMeaning": "The store is on the corner."
+    },
+    {
+     "text": "parken",
+     "meaning": "the park",
+     "example": "Parken är fin.",
+     "exampleMeaning": "The park is nice."
+    }
+   ],
+   "tip": "Use 'Var är...' to ask for the location of something. Remember to use the definite article when you refer to specific places, like 'biblioteket'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Var är affären?",
+     "meaning": "Where is the store?"
+    },
+    {
+     "speaker": "B",
+     "text": "Affären är på hörnet.",
+     "meaning": "The store is on the corner."
+    },
+    {
+     "speaker": "A",
+     "text": "Var är sjukhuset?",
+     "meaning": "Where is the hospital?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sjukhuset ligger här.",
+     "meaning": "The hospital is here."
+    },
+    {
+     "speaker": "A",
+     "text": "Var är parken?",
+     "meaning": "Where is the park?"
+    },
+    {
+     "speaker": "B",
+     "text": "Parken är fin.",
+     "meaning": "The park is nice."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a local who knows the area well.",
+    "learnerRole": "You are a tourist asking for directions.",
+    "brief": "Fråga om var affären, sjukhuset och parken ligger. Ge tydliga svar.",
+    "goal": "You need to ask for directions to three different places."
+   }
+  },
+  {
+   "title": "Giving Directions",
+   "items": [
+    {
+     "text": "gå till...",
+     "meaning": "go to...",
+     "example": "Gå till skolan.",
+     "exampleMeaning": "Go to the school."
+    },
+    {
+     "text": "sväng vänster",
+     "meaning": "turn left",
+     "example": "Sväng vänster vid affären.",
+     "exampleMeaning": "Turn left at the store."
+    },
+    {
+     "text": "sväng höger",
+     "meaning": "turn right",
+     "example": "Sväng höger vid biblioteket.",
+     "exampleMeaning": "Turn right at the library."
+    },
+    {
+     "text": "rakt fram",
+     "meaning": "straight ahead",
+     "example": "Gå rakt fram.",
+     "exampleMeaning": "Go straight ahead."
+    },
+    {
+     "text": "bakom",
+     "meaning": "behind",
+     "example": "Sjukhuset är bakom parken.",
+     "exampleMeaning": "The hospital is behind the park."
+    },
+    {
+     "text": "bredvid",
+     "meaning": "next to",
+     "example": "Skolan är bredvid affären.",
+     "exampleMeaning": "The school is next to the store."
+    }
+   ],
+   "tip": "When giving directions, use the imperative form of the verb. For example, 'Gå till...' means 'Go to...'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Hur kommer jag till sjukhuset?",
+     "meaning": "How do I get to the hospital?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gå till skolan.",
+     "meaning": "Go to the school."
+    },
+    {
+     "speaker": "A",
+     "text": "Och sedan?",
+     "meaning": "And then?"
+    },
+    {
+     "speaker": "B",
+     "text": "Sväng vänster vid affären.",
+     "meaning": "Turn left at the store."
+    },
+    {
+     "speaker": "A",
+     "text": "Tack!",
+     "meaning": "Thank you!"
+    },
+    {
+     "speaker": "B",
+     "text": "Varsågod!",
+     "meaning": "You're welcome!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a local who is giving directions.",
+    "learnerRole": "You are a tourist asking for directions.",
+    "brief": "Fråga hur man kommer till sjukhuset. Få instruktioner om att gå till skolan och svänga vänster.",
+    "goal": "You need to understand the directions given to you."
+   }
+  },
+  {
+   "title": "More Places",
+   "items": [
+    {
+     "text": "restaurang",
+     "meaning": "restaurant",
+     "example": "Restaurangen är populär.",
+     "exampleMeaning": "The restaurant is popular."
+    },
+    {
+     "text": "kafé",
+     "meaning": "café",
+     "example": "Kaféet ligger vid parken.",
+     "exampleMeaning": "The café is located by the park."
+    },
+    {
+     "text": "torg",
+     "meaning": "square",
+     "example": "Torget är stort.",
+     "exampleMeaning": "The square is big."
+    },
+    {
+     "text": "station",
+     "meaning": "station",
+     "example": "Stationen är nära.",
+     "exampleMeaning": "The station is nearby."
+    },
+    {
+     "text": "museum",
+     "meaning": "museum",
+     "example": "Museet är intressant.",
+     "exampleMeaning": "The museum is interesting."
+    },
+    {
+     "text": "biograf",
+     "meaning": "cinema",
+     "example": "Biografen är bredvid restaurangen.",
+     "exampleMeaning": "The cinema is next to the restaurant."
+    }
+   ],
+   "tip": "Remember to use the definite article when you refer to specific places. For example, 'restaurangen' means 'the restaurant'.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Var är restaurangen?",
+     "meaning": "Where is the restaurant?"
+    },
+    {
+     "speaker": "B",
+     "text": "Restaurangen är populär.",
+     "meaning": "The restaurant is popular."
+    },
+    {
+     "speaker": "A",
+     "text": "Finns det ett café nära?",
+     "meaning": "Is there a café nearby?"
+    },
+    {
+     "speaker": "B",
+     "text": "Ja, kaféet ligger vid parken.",
+     "meaning": "Yes, the café is located by the park."
+    },
+    {
+     "speaker": "A",
+     "text": "Var ligger stationen?",
+     "meaning": "Where is the station?"
+    },
+    {
+     "speaker": "B",
+     "text": "Stationen är nära.",
+     "meaning": "The station is nearby."
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a local who knows the area.",
+    "learnerRole": "You are a tourist wanting to know about places.",
+    "brief": "Fråga om restaurangen och kaféet. Få information om stationen.",
+    "goal": "You need to find out about three different places."
+   }
+  },
+  {
+   "title": "Finding Your Way",
+   "items": [
+    {
+     "text": "till vänster",
+     "meaning": "to the left",
+     "example": "Gå till vänster.",
+     "exampleMeaning": "Go to the left."
+    },
+    {
+     "text": "till höger",
+     "meaning": "to the right",
+     "example": "Sväng till höger.",
+     "exampleMeaning": "Turn to the right."
+    },
+    {
+     "text": "framför",
+     "meaning": "in front of",
+     "example": "Biografen är framför affären.",
+     "exampleMeaning": "The cinema is in front of the store."
+    },
+    {
+     "text": "i närheten av",
+     "meaning": "near",
+     "example": "Restaurangen är i närheten av torget.",
+     "exampleMeaning": "The restaurant is near the square."
+    },
+    {
+     "text": "långt bort",
+     "meaning": "far away",
+     "example": "Museet är långt bort.",
+     "exampleMeaning": "The museum is far away."
+    },
+    {
+     "text": "gå tillbaka",
+     "meaning": "go back",
+     "example": "Gå tillbaka till parken.",
+     "exampleMeaning": "Go back to the park."
+    }
+   ],
+   "tip": "Use 'till vänster' and 'till höger' to give directions. These phrases help indicate the direction someone should take.",
+   "dialogue": [
+    {
+     "speaker": "A",
+     "text": "Är biografen långt bort?",
+     "meaning": "Is the cinema far away?"
+    },
+    {
+     "speaker": "B",
+     "text": "Nej, den är i närheten av affären.",
+     "meaning": "No, it is near the store."
+    },
+    {
+     "speaker": "A",
+     "text": "Hur kommer jag dit?",
+     "meaning": "How do I get there?"
+    },
+    {
+     "speaker": "B",
+     "text": "Gå till vänster och sväng till höger.",
+     "meaning": "Go to the left and turn to the right."
+    },
+    {
+     "speaker": "A",
+     "text": "Tack för hjälpen!",
+     "meaning": "Thank you for your help!"
+    },
+    {
+     "speaker": "B",
+     "text": "Inga problem!",
+     "meaning": "No problem!"
+    }
+   ],
+   "scenario": {
+    "partnerRole": "You are a local giving directions.",
+    "learnerRole": "You are a tourist trying to find the cinema.",
+    "brief": "Fråga om biografens läge. Få anvisningar om hur man kommer dit.",
+    "goal": "You need to find the cinema."
+   }
+  }
+ ],
+ "review": {
+  "title": "Review of Asking for Directions",
+  "dialogue": [
+   {
+    "speaker": "A",
+    "text": "Var är affären?",
+    "meaning": "Where is the store?"
+   },
+   {
+    "speaker": "B",
+    "text": "Affären är på hörnet.",
+    "meaning": "The store is on the corner."
+   },
+   {
+    "speaker": "A",
+    "text": "Hur kommer jag till museet?",
+    "meaning": "How do I get to the museum?"
+   },
+   {
+    "speaker": "B",
+    "text": "Gå rakt fram och sväng vänster.",
+    "meaning": "Go straight ahead and turn left."
+   },
+   {
+    "speaker": "A",
+    "text": "Är kaféet långt bort?",
+    "meaning": "Is the café far away?"
+   },
+   {
+    "speaker": "B",
+    "text": "Nej, kaféet är i närheten av torget.",
+    "meaning": "No, the café is near the square."
+   },
+   {
+    "speaker": "A",
+    "text": "Var ligger sjukhuset?",
+    "meaning": "Where is the hospital?"
+   },
+   {
+    "speaker": "B",
+    "text": "Sjukhuset ligger bakom skolan.",
+    "meaning": "The hospital is behind the school."
+   }
+  ],
+  "scenario": {
+   "partnerRole": "You are a local who knows the area.",
+   "learnerRole": "You are a tourist asking for directions.",
+   "brief": "Fråga om olika platser som affären, museet och kaféet. Få tydliga svar.",
+   "goal": "You need to ask for and understand directions to various places."
+  }
+ }
+}
