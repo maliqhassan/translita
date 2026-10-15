@@ -16,8 +16,8 @@ const TRANSLATE = 'src/features/translation/screens/translate-screen.tsx';
 describe('the way into the Academy', () => {
   it('floats over the Translate screen, outside its scroll', () => {
     const screen = code(TRANSLATE);
-    assert.ok(screen.includes('<AcademyFab />'));
-    assert.ok(screen.lastIndexOf('</Screen>') < screen.indexOf('<AcademyFab />'));
+    assert.ok(screen.includes('<AcademyFab openAfterAd={ads.openAfterAd} />'));
+    assert.ok(screen.lastIndexOf('</Screen>') < screen.indexOf('<AcademyFab'));
     assert.ok(code(FAB).includes("position: 'absolute'"));
   });
 
@@ -25,6 +25,8 @@ describe('the way into the Academy', () => {
     const fab = code(FAB);
     assert.ok(fab.includes('setOpen((value) => !value)'));
     assert.ok(fab.includes('router.push(ACADEMY_HOME)'));
+    // The free plan's full-screen ad first, through the screen's one interstitial.
+    assert.ok(fab.includes('openAfterAd(() => router.push(ACADEMY_HOME))'));
     assert.ok(fab.includes("t('Continue learning')"));
   });
 

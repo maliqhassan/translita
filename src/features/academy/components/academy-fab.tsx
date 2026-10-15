@@ -46,8 +46,17 @@ const ACADEMY_HOME = '/academy' as Href;
  * lesson is done it glows and, now and then, nudges. The ring around it fills
  * with today's progress, and a flame shows the streak. A card first rather
  * than straight in, because a round icon on its own does not say what it is.
+ *
+ * Opening it goes through `openAfterAd` when the screen hands one in: a
+ * full-screen (video) ad for the free plan, if one is ready and due, then the
+ * Academy. The screen owns the ad, so the translator keeps a single one
+ * loaded; with no ad, or a paid plan, Fabalita opens at once.
  */
-export function AcademyFab() {
+export function AcademyFab({
+  openAfterAd = (open) => open(),
+}: {
+  openAfterAd?: (open: () => void) => void;
+} = {}) {
   const theme = useTheme();
   const router = useRouter();
   const { enrollment, progress } = useActiveCourse();
@@ -61,7 +70,7 @@ export function AcademyFab() {
 
   const go = () => {
     setOpen(false);
-    router.push(ACADEMY_HOME);
+    openAfterAd(() => router.push(ACADEMY_HOME));
   };
 
   return (

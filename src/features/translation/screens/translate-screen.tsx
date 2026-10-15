@@ -364,7 +364,8 @@ export function TranslateScreen() {
           onClose={scan.close}
         />
       </Screen>
-      <AcademyFab />
+      {/* Opening Fabalita shows the free plan's full-screen ad first, when one is due. */}
+      <AcademyFab openAfterAd={ads.openAfterAd} />
     </View>
   );
 }
