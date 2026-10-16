@@ -6,13 +6,15 @@
  * never in anything the mobile app can read. See `docs/ARCHITECTURE.md`.
  */
 
-export type ProviderName = 'azure' | 'fake';
+export type ProviderName = 'azure' | 'google' | 'fake';
 
 export type ServerConfig = {
   port: number;
   provider: ProviderName;
   /** Absent when running the fake provider. */
   providerApiKey?: string;
+  /** Google Cloud Translation's API key, when TRANSLATION_PROVIDER is `google`. */
+  googleApiKey?: string;
   /** Azure resources outside the global endpoint need their region. */
   providerRegion?: string;
   /**
@@ -81,7 +83,8 @@ function readInt(value: string | undefined, fallback: number): number {
 }
 
 function readProvider(value: string | undefined): ProviderName {
-  return value === 'fake' ? 'fake' : 'azure';
+  if (value === 'fake' || value === 'google') return value;
+  return 'azure';
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
@@ -92,6 +95,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     port: readInt(env.PORT, 8787),
     provider,
     providerApiKey: apiKey && apiKey.length > 0 ? apiKey : undefined,
+    googleApiKey: env.GOOGLE_TRANSLATE_API_KEY?.trim() || undefined,
     providerRegion: env.TRANSLATION_PROVIDER_REGION?.trim() || undefined,
     providerEndpoint: env.TRANSLATION_PROVIDER_ENDPOINT?.trim() || undefined,
     maxTextLength: readInt(env.MAX_TEXT_LENGTH, 5000),
@@ -125,6 +129,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
  * present, never any part of its value.
  */
 export function describeConfig(config: ServerConfig): string {
-  const credential = config.providerApiKey ? 'configured' : 'missing';
+  const key = config.provider === 'google' ? config.googleApiKey : config.providerApiKey;
+  const credential = key ? 'configured' : 'missing';
   return `provider=${config.provider} credential=${credential} port=${config.port}`;
 }

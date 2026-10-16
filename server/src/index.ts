@@ -6,6 +6,7 @@ import { describeConfig, loadConfig } from './config';
 import { createRequestHandler } from './server';
 import { createAzureProvider } from './translation/azure-provider';
 import { createFakeProvider } from './translation/fake-provider';
+import { createGoogleProvider } from './translation/google-provider';
 import { createLanguageResolver, loadLanguageMap } from './translation/language-map';
 import type { TranslationProvider } from './translation/provider';
 import type { TutorProvider } from './tutor/contract';
@@ -23,6 +24,18 @@ const languages = createLanguageResolver(loadLanguageMap());
 
 function selectProvider(): TranslationProvider {
   if (config.provider === 'fake') return createFakeProvider();
+
+  if (config.provider === 'google') {
+    const google = createGoogleProvider({
+      apiKey: config.googleApiKey,
+      timeoutMs: config.providerTimeoutMs,
+    });
+    if (!google.isConfigured()) {
+      console.error('GOOGLE_TRANSLATE_API_KEY is not set, and TRANSLATION_PROVIDER is google.');
+      process.exit(1);
+    }
+    return google;
+  }
 
   const azure = createAzureProvider({
     apiKey: config.providerApiKey,
