@@ -847,7 +847,7 @@ money.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
 
-## 0.4.0 (24) -- The AI Academy
+## 0.4.1 (25) -- The AI Academy
 
 A 60-day course in German, French or Spanish, taught from English, beside the
 translator. Built in steps, each committed on its own.
