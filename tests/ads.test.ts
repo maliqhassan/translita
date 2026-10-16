@@ -269,8 +269,15 @@ describe('ads before opening a feature', () => {
   const TRANSLATE = 'src/features/translation/screens/translate-screen.tsx';
   const CAMERA = 'src/features/camera/screens/camera-screen.tsx';
 
-  it('spaces full-screen ads at least 30 seconds apart', () => {
-    assert.match(read('src/constants/config.ts'), /minGapMs: 30_000,/);
+  it('spaces full-screen ads at least 20 seconds apart', () => {
+    assert.match(read('src/constants/config.ts'), /minGapMs: 20_000,/);
+  });
+
+  it('shows one between the parts of a Fabalita lesson, on the free plan', () => {
+    const lesson = code('src/features/academy/screens/lesson-screen.tsx');
+    assert.match(lesson, /const ads = useInterstitialAds\(\);/);
+    assert.ok(lesson.includes('steps[index]!.section !== steps[session.index]!.section'));
+    assert.ok(lesson.includes('ads.openAfterAd(() => {});'));
   });
 
   it('shows one before Conversation and AI Practice open', () => {

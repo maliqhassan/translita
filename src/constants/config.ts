@@ -159,9 +159,13 @@ export const AD_PACING = {
    * An interstitial on every Nth press of Translate, shown as the request
    * goes out, so it covers the wait rather than the result.
    */
-  translationsPerInterstitial: 2,
-  /** Never two full-screen ads closer together than this, of any kind. */
-  minGapMs: 30_000,
+  translationsPerInterstitial: 1,
+  /**
+   * Never two full-screen ads closer together than this, of any kind. With an
+   * ad on every Translate press, this is what sets the pace: at most one every
+   * 20 seconds, however fast someone translates.
+   */
+  minGapMs: 20_000,
   /**
    * An app-open ad on coming back after at least this long away. Anything
    * shorter — a permission prompt, a quick share — is still using the app.

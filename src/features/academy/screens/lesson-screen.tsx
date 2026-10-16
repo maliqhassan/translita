@@ -13,6 +13,7 @@ import Animated, {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, EmptyState, Icon, IconButton, LoadingState, Screen, Text } from '@/components';
+import { useInterstitialAds } from '@/features/ads';
 import { useSpeak } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
@@ -107,6 +108,8 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
 
   const coach = useCoachConnection(enrollment.addressAs);
   const listen = useSpeechPractice(courseId);
+  /** The free plan's full-screen ad, between the parts of a lesson. */
+  const ads = useInterstitialAds();
 
   // --- The course around this lesson -----------------------------------------------------
   const allItems = useMemo(() => {
@@ -276,6 +279,13 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
     const answers =
       correct === null ? session.answers : [...session.answers, { step: session.index, correct }];
     const index = session.index + 1;
+    // A part of the lesson just finished — Learn, Practise, Speak, Review, or
+    // the whole lesson: a natural break, so the free plan's full-screen ad
+    // goes here, never inside a part. Paid plans never request one.
+    if (index >= steps.length || steps[index]!.section !== steps[session.index]!.section) {
+      speak.stop();
+      ads.openAfterAd(() => {});
+    }
     if (index >= steps.length) {
       setSession({ ...session, answers, index });
       void finish(answers);
