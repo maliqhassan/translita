@@ -48,7 +48,7 @@ export function httpStatusError(status: number, cause?: unknown): AppError {
     return appError('invalid_request', `The server rejected the request (${status}).`, cause);
   }
   if (status >= 500) {
-    return appError('service_unavailable', `The server failed to respond (${status}).`, cause);
+    return appError('server_down', `The server failed to respond (${status}).`, cause);
   }
   return appError('unknown', `Unexpected response status ${status}.`, cause);
 }

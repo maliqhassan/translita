@@ -812,6 +812,8 @@ export const ur: Catalog = {
     '{days} دنوں میں نئی زبان سیکھیں، {name} کے ساتھ۔',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'AI کوچ کے ساتھ نئی زبان سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita پر مرمت کا کام جاری ہے۔ جڑے رہیں — ہم چند منٹوں میں واپس آ جائیں گے۔',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',
@@ -918,8 +920,6 @@ export const ur: Catalog = {
     'اس کام کے لیے Translita کو اجازت درکار ہے۔ آپ یہ اجازت سیٹنگز میں دے سکتے ہیں۔',
   'That request could not be sent. Check the text and try again.':
     'وہ درخواست بھیجی نہیں جا سکی۔ متن چیک کریں اور دوبارہ کوشش کریں۔',
-  'The translation came back in an unexpected form. Please try again.':
-    'ترجمہ غیر متوقع شکل میں موصول ہوا۔ براہ کرم دوبارہ کوشش کریں۔',
   'This language pair is not available yet. Try a different pair.':
     'زبانوں کی یہ جوڑی ابھی دستیاب نہیں۔ کوئی اور جوڑی آزمائیں۔',
   'That language pack is not downloaded yet.': 'وہ لینگویج پیک ابھی ڈاؤن لوڈ نہیں ہوا۔',

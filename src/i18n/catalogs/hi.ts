@@ -810,6 +810,8 @@ export const hi: Catalog = {
     '{days} दिनों में नई भाषा सीखें, {name} के साथ।',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'AI कोच के साथ नई भाषा सीखें। पहला दिन मुफ़्त है; Elite पूरा कोर्स खोलता है और उसमें Pro की हर सुविधा शामिल है।',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita पर रखरखाव का काम चल रहा है। बने रहें — हम कुछ ही मिनटों में वापस आएँगे।',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',
@@ -916,8 +918,6 @@ export const hi: Catalog = {
     'इसके लिए Translita को अनुमति चाहिए। आप यह अनुमति सेटिंग में दे सकते हैं।',
   'That request could not be sent. Check the text and try again.':
     'वह अनुरोध भेजा नहीं जा सका। टेक्स्ट जाँचें और फिर से कोशिश करें।',
-  'The translation came back in an unexpected form. Please try again.':
-    'अनुवाद अनपेक्षित रूप में मिला। कृपया फिर से कोशिश करें।',
   'This language pair is not available yet. Try a different pair.':
     'यह भाषा जोड़ी अभी उपलब्ध नहीं है। कोई दूसरी जोड़ी आज़माएँ।',
   'That language pack is not downloaded yet.': 'वह भाषा पैक अभी डाउनलोड नहीं हुआ है।',

@@ -820,6 +820,8 @@ export const id: Catalog = {
     'Belajar bahasa baru dalam {days} hari, bersama {name}.',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Belajar bahasa baru dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita sedang dalam pemeliharaan. Tetap di sini — kami kembali dalam beberapa menit.',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',
@@ -925,8 +927,6 @@ export const id: Catalog = {
     'Translita memerlukan izin untuk itu. Anda bisa memberikannya di Pengaturan.',
   'That request could not be sent. Check the text and try again.':
     'Permintaan tidak dapat dikirim. Periksa teks lalu coba lagi.',
-  'The translation came back in an unexpected form. Please try again.':
-    'Terjemahan kembali dalam bentuk yang tidak terduga. Silakan coba lagi.',
   'This language pair is not available yet. Try a different pair.':
     'Pasangan bahasa ini belum tersedia. Coba pasangan lain.',
   'That language pack is not downloaded yet.': 'Paket bahasa itu belum diunduh.',

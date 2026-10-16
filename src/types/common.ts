@@ -12,6 +12,12 @@ export type AppErrorCode =
   | 'timeout'
   | 'not_implemented'
   | 'service_unavailable'
+  /**
+   * Translita's own server answered with a failure (5xx), or something it
+   * depends on did. Shown as maintenance, not as an error, so a user waits
+   * rather than leaving.
+   */
+  | 'server_down'
   | 'rate_limited'
   | 'permission_denied'
   | 'invalid_request'

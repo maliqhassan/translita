@@ -796,6 +796,8 @@ export const ar: Catalog = {
     'تعلّم لغة جديدة في {days} يومًا، مع {name}.',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'تعلّم لغة جديدة مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita قيد الصيانة. ابقَ معنا — سنعود خلال دقائق قليلة.',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',
@@ -902,8 +904,6 @@ export const ar: Catalog = {
     'يحتاج Translita إلى إذن للقيام بذلك. يمكنك منحه من الإعدادات.',
   'That request could not be sent. Check the text and try again.':
     'تعذّر إرسال الطلب. تحقق من النص وحاول مرة أخرى.',
-  'The translation came back in an unexpected form. Please try again.':
-    'وصلت الترجمة بشكل غير متوقع. يُرجى المحاولة مرة أخرى.',
   'This language pair is not available yet. Try a different pair.':
     'زوج اللغات هذا غير متاح بعد. جرّب زوجًا آخر.',
   'That language pack is not downloaded yet.': 'حزمة اللغة هذه لم تُنزّل بعد.',

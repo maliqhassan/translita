@@ -823,6 +823,8 @@ export const pt: Catalog = {
     'Aprenda um novo idioma em {days} dias, com {name}.',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Aprenda um novo idioma com um coach de IA. O dia 1 é grátis; o Elite libera o curso completo e inclui tudo do Pro.',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'O Translita está em manutenção. Fique por perto — voltamos em poucos minutos.',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Africâner',
@@ -928,8 +930,6 @@ export const pt: Catalog = {
     'O Translita precisa de permissão para isso. Você pode concedê-la em Configurações.',
   'That request could not be sent. Check the text and try again.':
     'Não foi possível enviar a solicitação. Verifique o texto e tente de novo.',
-  'The translation came back in an unexpected form. Please try again.':
-    'A tradução voltou em um formato inesperado. Tente de novo.',
   'This language pair is not available yet. Try a different pair.':
     'Este par de idiomas ainda não está disponível. Tente outro par.',
   'That language pack is not downloaded yet.': 'Esse pacote de idioma ainda não foi baixado.',

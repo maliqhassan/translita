@@ -2,6 +2,12 @@ import { t } from '@/i18n';
 import type { AppError, AppErrorCode } from '@/types';
 
 /**
+ * What a user sees when the server fails or answers nonsense: a short pause,
+ * not a broken app, so they stay rather than uninstall.
+ */
+const MAINTENANCE = 'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.';
+
+/**
  * User-facing copy for failures. Nothing technical reaches the screen: the
  * `AppError.message` is for logs, this map is for people.
  */
@@ -10,10 +16,11 @@ export const ERROR_MESSAGES: Record<AppErrorCode, string> = {
   timeout: 'That took too long to respond. Please try again.',
   not_implemented: 'That is not available in this build yet.',
   service_unavailable: 'Translation is unavailable right now. Please try again in a moment.',
+  server_down: MAINTENANCE,
   rate_limited: 'Too many translations just now. Please wait a moment and try again.',
   permission_denied: 'Translita needs permission to do that. You can grant it in Settings.',
   invalid_request: 'That request could not be sent. Check the text and try again.',
-  invalid_response: 'The translation came back in an unexpected form. Please try again.',
+  invalid_response: MAINTENANCE,
   unsupported_language: 'This language pair is not available yet. Try a different pair.',
   model_missing: 'That language pack is not downloaded yet.',
   entitlement_required: 'That is part of Translita Pro.',

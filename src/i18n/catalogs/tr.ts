@@ -810,6 +810,8 @@ export const tr: Catalog = {
     '{days} günde yeni bir dil öğren, {name} ile.',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     "Yapay zekâ koçuyla yeni bir dil öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita bakımda. Bizi izlemeye devam edin — birkaç dakika içinde geri döneceğiz.',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',
@@ -916,8 +918,6 @@ export const tr: Catalog = {
     'Translita’nın bunun için izne ihtiyacı var. İzni Ayarlar’dan verebilirsiniz.',
   'That request could not be sent. Check the text and try again.':
     'İstek gönderilemedi. Metni kontrol edip tekrar deneyin.',
-  'The translation came back in an unexpected form. Please try again.':
-    'Çeviri beklenmedik bir biçimde geldi. Lütfen tekrar deneyin.',
   'This language pair is not available yet. Try a different pair.':
     'Bu dil çifti henüz kullanılamıyor. Başka bir çift deneyin.',
   'That language pack is not downloaded yet.': 'Bu dil paketi henüz indirilmedi.',

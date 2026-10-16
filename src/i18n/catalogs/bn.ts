@@ -809,6 +809,8 @@ export const bn: Catalog = {
     '{days} দিনে নতুন ভাষা শিখুন, {name}-এর সাথে।',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'AI কোচের সাথে নতুন ভাষা শিখুন। প্রথম দিন বিনামূল্যে; Elite পুরো কোর্স খোলে এবং Pro-এর সবকিছু অন্তর্ভুক্ত।',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Translita-তে রক্ষণাবেক্ষণের কাজ চলছে। সঙ্গে থাকুন — আমরা কয়েক মিনিটের মধ্যেই ফিরে আসব।',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',
@@ -915,8 +917,6 @@ export const bn: Catalog = {
     'এটি করতে Translita-র অনুমতি দরকার। সেটিংসে অনুমতি দিতে পারেন।',
   'That request could not be sent. Check the text and try again.':
     'অনুরোধটি পাঠানো যায়নি। লেখা যাচাই করে আবার চেষ্টা করুন।',
-  'The translation came back in an unexpected form. Please try again.':
-    'অনুবাদটি অপ্রত্যাশিত আকারে এসেছে। দয়া করে আবার চেষ্টা করুন।',
   'This language pair is not available yet. Try a different pair.':
     'এই ভাষা জোড়া এখনও উপলব্ধ নয়। অন্য জোড়া চেষ্টা করুন।',
   'That language pack is not downloaded yet.': 'সেই ভাষা প্যাক এখনও ডাউনলোড হয়নি।',

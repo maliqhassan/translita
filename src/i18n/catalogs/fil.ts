@@ -835,6 +835,8 @@ export const fil: Catalog = {
     'Matuto ng bagong wika sa loob ng {days} araw, kasama si {name}.',
   'Learn a new language with an AI coach. Day 1 is free; Elite opens the full course and includes everything in Pro.':
     'Matuto ng bagong wika kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
+  'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
+    'Nasa maintenance ang Translita. Manatili lang — babalik kami sa loob ng ilang minuto.',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',
@@ -941,8 +943,6 @@ export const fil: Catalog = {
     'Kailangan ng Translita ng pahintulot para doon. Maibibigay mo ito sa Settings.',
   'That request could not be sent. Check the text and try again.':
     'Hindi maipadala ang request. Tingnan ang teksto at subukang muli.',
-  'The translation came back in an unexpected form. Please try again.':
-    'Bumalik ang salin sa hindi inaasahang anyo. Pakisubukang muli.',
   'This language pair is not available yet. Try a different pair.':
     'Hindi pa available ang pares ng wikang ito. Subukan ang ibang pares.',
   'That language pack is not downloaded yet.': 'Hindi pa na-download ang language pack na iyon.',

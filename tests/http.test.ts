@@ -21,9 +21,9 @@ describe('http status mapping', () => {
       [408, 'timeout'],
       [422, 'unsupported_language'],
       [429, 'rate_limited'],
-      [500, 'service_unavailable'],
-      [502, 'service_unavailable'],
-      [503, 'service_unavailable'],
+      [500, 'server_down'],
+      [502, 'server_down'],
+      [503, 'server_down'],
     ];
     for (const [status, code] of cases) {
       assert.equal(httpStatusError(status).code, code, `status ${status}`);
@@ -33,7 +33,7 @@ describe('http status mapping', () => {
   it('never leaks the raw status into user-facing copy paths', () => {
     // The cause is kept for logs, but the code is what the UI maps on.
     const error = httpStatusError(500, new Error('ECONNRESET'));
-    assert.equal(error.code, 'service_unavailable');
+    assert.equal(error.code, 'server_down');
     assert.ok(error.cause instanceof Error);
   });
 
@@ -50,6 +50,7 @@ describe('retry policy', () => {
       'network_unavailable',
       'timeout',
       'service_unavailable',
+      'server_down',
     ] as AppErrorCode[]) {
       assert.equal(isRetryable(fail(code)), true, code);
     }

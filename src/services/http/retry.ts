@@ -20,6 +20,7 @@ const RETRYABLE: ReadonlySet<AppErrorCode> = new Set<AppErrorCode>([
   'network_unavailable',
   'timeout',
   'service_unavailable',
+  'server_down',
 ]);
 
 export function isRetryable(error: AppError): boolean {
