@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { services, type TutorTurn } from '@/services';
+import { logIfServerDown, services, type TutorTurn } from '@/services';
 import {
   useConversationStore,
   usePreferences,
@@ -139,6 +139,7 @@ export function useConversation(
             store.update(mode, id, (turn) =>
               result.ok ? { ...turn, tutor: result.value } : { ...turn, error: result.error },
             );
+            if (!result.ok) logIfServerDown(services.analytics, 'conversation', result.error);
             const answer =
               result.ok && result.value.kind === 'reply'
                 ? { text: `${result.value.reply} ${result.value.followUp}`.trim(), language: to }
@@ -157,6 +158,7 @@ export function useConversation(
         store.update(mode, id, (turn) =>
           result.ok ? { ...turn, result: result.value } : { ...turn, error: result.error },
         );
+        if (!result.ok) logIfServerDown(services.analytics, 'conversation', result.error);
         // The listener's language: `to` is the side that did not speak.
         const answer = result.ok ? { text: result.value.translatedText, language: to } : undefined;
         onReply?.(store.recordReply(), answer);

@@ -172,6 +172,12 @@ export function SettingsScreen() {
     }
     const granted = await services.notifications.requestPermission();
     await update({ reminders: granted, remindersAsked: true });
+    if (granted) {
+      services.analytics.log({
+        name: 'reminder_enabled',
+        params: { hour: preferences.reminderHour },
+      });
+    }
     if (!granted) {
       Alert.alert(
         t('Notifications are blocked'),

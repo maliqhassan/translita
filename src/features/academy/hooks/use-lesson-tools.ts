@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { useSpeechRecognition } from '@/features/translation';
-import { services } from '@/services';
+import { logIfServerDown, services } from '@/services';
 import { useIsOffline } from '@/store';
 import type { AddressForm } from '@/types';
 
@@ -46,7 +46,21 @@ export function useCoachConnection(addressAs: AddressForm): CoachConnection {
   }, []);
   return {
     available: configured && !offline,
-    roleplay: (ask) => services.coach.roleplay(ask),
+    roleplay: async (ask) => {
+      const result = await services.coach.roleplay(ask);
+      const course = ask.learning;
+      const final = ask.final ?? false;
+      if (result.ok) {
+        services.analytics.log({ name: 'roleplay_turn', params: { course, final } });
+      } else {
+        services.analytics.log({
+          name: 'roleplay_failed',
+          params: { course, final, code: result.error.code },
+        });
+        logIfServerDown(services.analytics, 'academy', result.error);
+      }
+      return result;
+    },
     addressAs,
   };
 }

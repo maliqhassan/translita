@@ -57,6 +57,11 @@ export function PracticeScreen() {
 
   // The words to practise: the ones handed in, or every mistake not yet mastered.
   useEffect(() => {
+    if (courseId)
+      services.analytics.log({ name: 'academy_practice_open', params: { course: courseId } });
+  }, [courseId]);
+
+  useEffect(() => {
     if (!courseId) return;
     let active = true;
     const given = (ids ?? '').split(',').filter((id) => items.has(id));

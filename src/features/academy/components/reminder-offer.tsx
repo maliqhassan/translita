@@ -32,6 +32,12 @@ export function ReminderOffer() {
   const yes = async () => {
     const granted = await services.notifications.requestPermission();
     await update({ reminders: granted, remindersAsked: true });
+    if (granted) {
+      services.analytics.log({
+        name: 'reminder_enabled',
+        params: { hour: preferences.reminderHour },
+      });
+    }
     setAnswer(granted ? 'on' : 'blocked');
   };
 

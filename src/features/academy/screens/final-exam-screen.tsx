@@ -9,7 +9,7 @@ import { errorMessage, languageName } from '@/constants';
 import { useSpeak } from '@/features/translation';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
-import { services, type CoachAssessment, type CoachTurn } from '@/services';
+import { logIfServerDown, services, type CoachAssessment, type CoachTurn } from '@/services';
 import { useAcademy } from '@/store';
 import type { AcademyResult, Enrollment, ItemStat } from '@/types';
 import { createId } from '@/utils';
@@ -160,6 +160,10 @@ function FinalExam({ enrollment }: { enrollment: Enrollment }) {
       data,
       createdAt: at,
     });
+    services.analytics.log({
+      name: 'final_part_done',
+      params: { course: courseId, part: 'written', passed, score_percent: Math.round(score * 100) },
+    });
     await load();
     setStage({
       kind: 'written-result',
@@ -184,11 +188,21 @@ function FinalExam({ enrollment }: { enrollment: Enrollment }) {
       transcript,
     });
     if (!result.ok) {
+      logIfServerDown(services.analytics, 'academy', result.error);
       setProblem(errorMessage(result.error));
       return;
     }
     const score = rubricScore(result.value.rubric);
     const passed = score >= FINAL_RULES.passMark;
+    services.analytics.log({
+      name: 'final_part_done',
+      params: {
+        course: courseId,
+        part: 'conversation',
+        passed,
+        score_percent: Math.round(score * 100),
+      },
+    });
     await services.academy.addResult({
       id: createId('r'),
       courseId,

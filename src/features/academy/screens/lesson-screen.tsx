@@ -157,6 +157,10 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
       const reviewIds = [...new Set([...focus, ...dueIds])];
       setOutcome(undefined);
       setSession({ seed: `${lesson.id}:${now()}`, reviewIds, answers: [], index: 0 });
+      services.analytics.log({
+        name: 'lesson_start',
+        params: { course: courseId, day: lesson.day, checkpoint: lesson.checkpoint },
+      });
     },
     [courseId, lesson, allItems],
   );
@@ -283,6 +287,10 @@ function LessonPlayer({ enrollment, lesson }: { enrollment: Enrollment; lesson: 
     // the whole lesson: a natural break, so the free plan's full-screen ad
     // goes here, never inside a part. Paid plans never request one.
     if (index >= steps.length || steps[index]!.section !== steps[session.index]!.section) {
+      services.analytics.log({
+        name: 'lesson_section_complete',
+        params: { course: courseId, day: lesson.day, section: steps[session.index]!.section },
+      });
       speak.stop();
       ads.openAfterAd(() => {});
     }

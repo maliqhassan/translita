@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from 'react';
 
-import { services, type ServiceResult } from '@/services';
+import { academyDayBand, services, type ServiceResult } from '@/services';
 import type { AppError, Enrollment, LessonProgress } from '@/types';
 
 import { useDatabaseReady } from './database-store';
@@ -78,6 +78,21 @@ export function AcademyProvider({ children }: { children: ReactNode }) {
     setEnrollments(enrolled.value);
     setProgress(byCourse);
     setStatus('ready');
+
+    // Who is learning what, and how far: attached to every event, the
+    // uninstall Firebase records on its own included.
+    const current = enrolled.value[0];
+    services.analytics.setUserProperty({
+      name: 'academy_course',
+      value: current?.courseId ?? 'none',
+    });
+    services.analytics.setUserProperty({
+      name: 'academy_day',
+      value: academyDayBand(
+        current ? (byCourse[current.courseId]?.length ?? 0) : 0,
+        current?.completedAt !== undefined,
+      ),
+    });
   }, []);
 
   useEffect(() => {

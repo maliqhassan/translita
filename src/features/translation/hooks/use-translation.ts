@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 
-import { services } from '@/services';
+import { logIfServerDown, services } from '@/services';
 import { useLanguagePair, usePreferences } from '@/store';
 import type { AsyncState, LanguageCode, TranslationResult, TranslationSource } from '@/types';
 
@@ -113,6 +113,8 @@ export function useTranslation(): TranslationController {
           name: 'translation',
           params: { method: origin, source_language: source, target_language: target },
         });
+      } else {
+        logIfServerDown(services.analytics, 'translate', result.error);
       }
       if (id !== requestId.current) return;
 

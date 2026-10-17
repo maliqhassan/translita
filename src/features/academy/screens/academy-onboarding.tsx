@@ -90,6 +90,12 @@ export function AcademyOnboarding({ onClose }: { onClose: () => void }) {
         name: 'academy_onboarding_done',
         params: { course: courseId, minutes },
       });
+      if (level === 'some') {
+        services.analytics.log({
+          name: 'placement_done',
+          params: { course: courseId, start_day: startDay ?? 1 },
+        });
+      }
       void enroll({
         courseId,
         baseLanguage: 'en',

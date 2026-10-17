@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
 import { PHRASE_CATEGORIES } from '@/features/phrases/phrase-catalog';
+import { academyDayBand, logIfServerDown, noopAnalyticsService } from '@/services/analytics';
 import {
   parseSavedPhrases,
   savedPhraseId,
@@ -136,6 +137,70 @@ describe('usage analytics', () => {
     assert.match(
       code('src/store/entitlements-store.tsx'),
       /services\.analytics\.setUserProperty\(\{ name: 'plan', value: current\.plan \}\)/,
+    );
+  });
+
+  it('follows a learner through Fabalita, part by part', () => {
+    const lesson = code('src/features/academy/screens/lesson-screen.tsx');
+    assert.match(lesson, /name: 'lesson_start'/);
+    assert.match(lesson, /name: 'lesson_section_complete'/);
+    const coach = code('src/features/academy/hooks/use-lesson-tools.ts');
+    assert.match(coach, /name: 'roleplay_turn'/);
+    assert.match(coach, /name: 'roleplay_failed'/);
+    assert.match(
+      code('src/features/academy/screens/final-exam-screen.tsx'),
+      /name: 'final_part_done'/,
+    );
+    assert.match(
+      code('src/features/academy/screens/academy-onboarding.tsx'),
+      /name: 'placement_done'/,
+    );
+    assert.match(
+      code('src/features/academy/screens/practice-screen.tsx'),
+      /name: 'academy_practice_open'/,
+    );
+    assert.match(
+      code('src/features/academy/components/reminder-offer.tsx'),
+      /name: 'reminder_enabled'/,
+    );
+  });
+
+  it('counts server outages wherever the maintenance message can show', () => {
+    for (const path of [
+      'src/features/translation/hooks/use-translation.ts',
+      'src/features/conversation/hooks/use-conversation.ts',
+      'src/features/academy/hooks/use-lesson-tools.ts',
+      'src/features/academy/screens/final-exam-screen.tsx',
+    ]) {
+      assert.match(code(path), /logIfServerDown\(services\.analytics, '/, path);
+    }
+    const logged: string[] = [];
+    const analytics = {
+      ...noopAnalyticsService,
+      log: (event: { name: string }) => logged.push(event.name),
+    };
+    logIfServerDown(analytics, 'translate', { code: 'server_down', message: '' });
+    logIfServerDown(analytics, 'translate', { code: 'invalid_response', message: '' });
+    logIfServerDown(analytics, 'translate', { code: 'network_unavailable', message: '' });
+    assert.deepEqual(logged, ['server_down', 'server_down']);
+  });
+
+  it('tells who uninstalled: course, progress and app language', () => {
+    const academy = code('src/store/academy-store.tsx');
+    assert.match(academy, /name: 'academy_course'/);
+    assert.match(academy, /name: 'academy_day'/);
+    assert.match(code('src/store/preferences-store.tsx'), /name: 'app_language'/);
+    assert.deepEqual(
+      [
+        academyDayBand(0, false),
+        academyDayBand(1, false),
+        academyDayBand(5, false),
+        academyDayBand(6, false),
+        academyDayBand(20, false),
+        academyDayBand(59, false),
+        academyDayBand(60, true),
+      ],
+      ['0', '1', '2-5', '6-20', '6-20', '21-60', 'done'],
     );
   });
 

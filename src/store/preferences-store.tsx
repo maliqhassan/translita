@@ -53,6 +53,13 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  // The app language, attached to every event so uninstalls split by it.
+  const appLanguage = preferences?.appLanguage;
+  useEffect(() => {
+    if (appLanguage)
+      services.analytics.setUserProperty({ name: 'app_language', value: appLanguage });
+  }, [appLanguage]);
+
   const value = useMemo<PreferencesContextValue>(() => {
     const current = preferences ?? DEFAULT_PREFERENCES;
 
