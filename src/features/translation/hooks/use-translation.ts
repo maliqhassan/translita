@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 
-import { logIfServerDown, services } from '@/services';
+import { logIfServerDown, services, textLengthBand } from '@/services';
 import { useLanguagePair, usePreferences } from '@/store';
 import type { AsyncState, LanguageCode, TranslationResult, TranslationSource } from '@/types';
 
@@ -93,6 +93,7 @@ export function useTranslation(): TranslationController {
     const { source, target } = pair;
 
     settle({ status: 'loading' }, source, target);
+    const startedAt = Date.now();
 
     // Recording happens inside `translateAndRecord` regardless of staleness:
     // the user did perform this translation, so it belongs in history even if
@@ -111,9 +112,20 @@ export function useTranslation(): TranslationController {
       if (result.ok) {
         services.analytics.log({
           name: 'translation',
-          params: { method: origin, source_language: source, target_language: target },
+          params: {
+            method: origin,
+            source_language: source,
+            target_language: target,
+            engine: result.value.engine,
+            duration_ms: Date.now() - startedAt,
+            length: textLengthBand(text.length),
+          },
         });
       } else {
+        services.analytics.log({
+          name: 'translation_failed',
+          params: { method: origin, code: result.error.code },
+        });
         logIfServerDown(services.analytics, 'translate', result.error);
       }
       if (id !== requestId.current) return;

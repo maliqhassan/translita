@@ -97,6 +97,12 @@ export function usePurchase(
 
       // Backing out of the store sheet is a decision, not a failure. Saying
       // anything at all here would be scolding somebody for changing their mind.
+      if (!result.ok) {
+        services.analytics.log({
+          name: 'purchase_not_completed',
+          params: { plan: planId, code: result.error.code },
+        });
+      }
       if (result.ok || result.error.code === 'cancelled') return;
 
       setNotice(result.error.message);

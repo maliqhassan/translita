@@ -57,6 +57,10 @@ export function createFirebaseAnalyticsService(): AnalyticsService {
       );
     },
 
+    screen(name) {
+      quietly(() => sdk.logScreenView(analytics, { screen_name: name, screen_class: name }));
+    },
+
     setUserProperty(property) {
       quietly(() => sdk.setUserProperty(analytics, property.name, property.value));
     },

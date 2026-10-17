@@ -1,4 +1,10 @@
-import type { AppError, AppErrorCode, LanguageId, TranslationSource } from '@/types';
+import type {
+  AppError,
+  AppErrorCode,
+  LanguageId,
+  TranslationEngine,
+  TranslationSource,
+} from '@/types';
 
 import type { Service } from '../types';
 
@@ -71,8 +77,38 @@ export type AnalyticsEvent =
         method: TranslationSource;
         source_language: LanguageId;
         target_language: LanguageId;
+        /** Which engine answered: `online` is a call to Translita's server. */
+        engine: TranslationEngine;
+        /** From pressing Translate to the answer. */
+        duration_ms: number;
+        /** How long the text was, as a band — never the text. */
+        length: TextLengthBand;
       };
     }
+  /** A translation could not be made. */
+  | { name: 'translation_failed'; params: { method: TranslationSource; code: AppErrorCode } }
+  /** A translation was copied. */
+  | { name: 'translation_copied' }
+  /** A translation was shared to another app. */
+  | { name: 'translation_shared'; params: { from: 'translate' | 'conversation' } }
+  /** The camera read a photo. */
+  | { name: 'camera_scan'; params: { ok: boolean; found_words: boolean } }
+  /** An offline language pack was downloaded or removed. */
+  | {
+      name: 'language_pack';
+      params: { action: 'download' | 'remove'; pack: string; ok: boolean };
+    }
+  /** A full-screen ad was shown, of either kind. */
+  | { name: 'ad_shown'; params: { format: 'interstitial' | 'app_open' } }
+  /** A purchase was started and did not go through, cancelled included. */
+  | { name: 'purchase_not_completed'; params: { plan: string; code: AppErrorCode } }
+  /** A first-time user reached a step of onboarding. */
+  | {
+      name: 'onboarding_step';
+      params: { step: 'loading' | 'language' | 'welcome' | 'tour' | 'pro' };
+    }
+  /** Onboarding was finished and Home opened for the first time. */
+  | { name: 'onboarding_complete' }
   /** The Conversation screen was opened, or switched to the other mode. */
   | { name: 'conversation_open'; params: { mode: 'person' | 'practice' } }
   /** One sentence was spoken and answered in Conversation. */
@@ -96,7 +132,21 @@ export type AnalyticsUserProperty =
   /** How far into the course, in a few broad bands. */
   | { name: 'academy_day'; value: AcademyDayBand }
   /** The language the app is shown in. */
-  | { name: 'app_language'; value: string };
+  | { name: 'app_language'; value: string }
+  /** Auto, online only or on-device only. */
+  | { name: 'translation_mode'; value: string }
+  /** Whether daily lesson reminders are on. */
+  | { name: 'reminders'; value: 'on' | 'off' };
+
+export type TextLengthBand = '1-20' | '21-100' | '101-500' | '500+';
+
+/** A text's length as a band: enough to see usage, never the text itself. */
+export function textLengthBand(length: number): TextLengthBand {
+  if (length <= 20) return '1-20';
+  if (length <= 100) return '21-100';
+  if (length <= 500) return '101-500';
+  return '500+';
+}
 
 export type AcademyDayBand = '0' | '1' | '2-5' | '6-20' | '21-60' | 'done';
 
@@ -130,6 +180,8 @@ export function logIfServerDown(
  */
 export type AnalyticsService = Service & {
   log(event: AnalyticsEvent): void;
+  /** A screen came into view: Firebase's screen_view, with time on screen. */
+  screen(name: string): void;
   setUserProperty(property: AnalyticsUserProperty): void;
 };
 
@@ -140,5 +192,6 @@ export const noopAnalyticsService: AnalyticsService = {
     return false;
   },
   log() {},
+  screen() {},
   setUserProperty() {},
 };

@@ -55,7 +55,7 @@ describe('the conversation interstitial', () => {
   });
 
   it('tells the app-open ad that the next return is the end of this one', () => {
-    assert.match(code(HOOK), /noteFullScreenAdShown\(\);\s*show\(\);/);
+    assert.match(code(HOOK), /noteFullScreenAdShown\('interstitial'\);\s*show\(\);/);
   });
 
   it('hands the screen one function and nothing else', () => {

@@ -2,8 +2,14 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { screenNameOf } from '@/features/analytics/screen-name';
 import { PHRASE_CATEGORIES } from '@/features/phrases/phrase-catalog';
-import { academyDayBand, logIfServerDown, noopAnalyticsService } from '@/services/analytics';
+import {
+  academyDayBand,
+  logIfServerDown,
+  noopAnalyticsService,
+  textLengthBand,
+} from '@/services/analytics';
 import {
   parseSavedPhrases,
   savedPhraseId,
@@ -183,6 +189,45 @@ describe('usage analytics', () => {
     logIfServerDown(analytics, 'translate', { code: 'invalid_response', message: '' });
     logIfServerDown(analytics, 'translate', { code: 'network_unavailable', message: '' });
     assert.deepEqual(logged, ['server_down', 'server_down']);
+  });
+
+  it('names each screen by its route, not by the lesson or item open in it', () => {
+    assert.equal(screenNameOf(['(main)', 'academy', 'lesson', '[id]']), 'academy/lesson/[id]');
+    assert.equal(screenNameOf(['(main)']), 'home');
+    assert.match(code('app/_layout.tsx'), /<ScreenTracker \/>/);
+  });
+
+  it('measures translation use without the text: engine, time and a length band', () => {
+    const hook = code('src/features/translation/hooks/use-translation.ts');
+    assert.match(hook, /engine: result\.value\.engine/);
+    assert.match(hook, /duration_ms: Date\.now\(\) - startedAt/);
+    assert.match(hook, /length: textLengthBand\(text\.length\)/);
+    assert.match(hook, /name: 'translation_failed'/);
+    assert.deepEqual([1, 20, 21, 100, 101, 500, 501].map(textLengthBand), [
+      '1-20',
+      '1-20',
+      '21-100',
+      '21-100',
+      '101-500',
+      '101-500',
+      '500+',
+    ]);
+  });
+
+  it('counts the features people reach for, ads and purchases', () => {
+    for (const [path, event] of [
+      ['src/features/translation/hooks/use-copy-to-clipboard.ts', 'translation_copied'],
+      ['src/features/translation/components/translation-result-card.tsx', 'translation_shared'],
+      ['src/features/conversation/components/conversation-turn.tsx', 'translation_shared'],
+      ['src/features/translation/hooks/use-camera-ocr.ts', 'camera_scan'],
+      ['src/features/offline/hooks/use-language-packs.ts', 'language_pack'],
+      ['src/features/ads/full-screen-ads.ts', 'ad_shown'],
+      ['src/features/paywall/hooks/use-purchase.ts', 'purchase_not_completed'],
+      ['src/features/onboarding/screens/onboarding-flow.tsx', 'onboarding_step'],
+      ['src/features/onboarding/screens/onboarding-flow.tsx', 'onboarding_complete'],
+    ] as const) {
+      assert.match(code(path), new RegExp(`name: '${event}'`), `${event} in ${path}`);
+    }
   });
 
   it('tells who uninstalled: course, progress and app language', () => {

@@ -172,6 +172,10 @@ export function useCameraOcr(onText: (text: string) => void): CameraOcrControlle
       void (async () => {
         const result = await services.ocr.recognize({ imageUri });
         reading.current = false;
+        services.analytics.log({
+          name: 'camera_scan',
+          params: { ok: result.ok, found_words: result.ok && result.value.fullText.length > 0 },
+        });
         if (!mounted.current) return;
 
         if (!result.ok) {

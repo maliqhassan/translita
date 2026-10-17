@@ -17,6 +17,7 @@ import { errorMessage, getLanguage } from '@/constants';
 import type { OfflineNotice } from '@/features/offline';
 import { useTheme } from '@/hooks';
 import { msg, t } from '@/i18n';
+import { services } from '@/services';
 import type {
   AppError,
   AsyncState,
@@ -307,7 +308,10 @@ export function TranslationResultCard({
             label={t('Share')}
             icon="share-social-outline"
             accessibilityLabel={t('Share the translation')}
-            onPress={() => void Share.share({ message: result.translatedText })}
+            onPress={() => {
+              services.analytics.log({ name: 'translation_shared', params: { from: 'translate' } });
+              void Share.share({ message: result.translatedText });
+            }}
           />
           {phrase ? (
             <ResultAction

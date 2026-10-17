@@ -60,6 +60,17 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
       services.analytics.setUserProperty({ name: 'app_language', value: appLanguage });
   }, [appLanguage]);
 
+  const translationMode = preferences?.translationMode;
+  const reminders = preferences?.reminders;
+  useEffect(() => {
+    if (translationMode)
+      services.analytics.setUserProperty({ name: 'translation_mode', value: translationMode });
+  }, [translationMode]);
+  useEffect(() => {
+    if (reminders !== undefined)
+      services.analytics.setUserProperty({ name: 'reminders', value: reminders ? 'on' : 'off' });
+  }, [reminders]);
+
   const value = useMemo<PreferencesContextValue>(() => {
     const current = preferences ?? DEFAULT_PREFERENCES;
 

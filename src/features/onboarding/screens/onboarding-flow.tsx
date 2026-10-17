@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { OnboardingPaywall } from '@/features/paywall';
+import { services } from '@/services';
 import { useEntitlements, useLanguagePair } from '@/store';
 
 import { starterPair } from '../starter-pair';
@@ -28,10 +29,19 @@ type Step = 'loading' | 'language' | 'welcome' | 'tour' | 'pro';
  * same `onComplete`, so there is one place where onboarding is recorded as
  * done rather than several that could drift apart.
  */
-export function OnboardingFlow({ onComplete }: { onComplete: () => void }) {
+export function OnboardingFlow({ onComplete: complete }: { onComplete: () => void }) {
   const [step, setStep] = useState<Step>('loading');
   const { has } = useEntitlements();
   const { setPair } = useLanguagePair();
+
+  // Each step a first-time user reaches, so the drop-off before Home shows.
+  useEffect(() => {
+    services.analytics.log({ name: 'onboarding_step', params: { step } });
+  }, [step]);
+  const onComplete = () => {
+    services.analytics.log({ name: 'onboarding_complete' });
+    complete();
+  };
 
   switch (step) {
     case 'loading':

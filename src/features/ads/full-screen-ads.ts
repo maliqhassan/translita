@@ -1,4 +1,5 @@
 import { AD_PACING } from '@/constants';
+import { services } from '@/services';
 
 /**
  * What the full-screen ads need to know about each other.
@@ -21,7 +22,8 @@ let lastShownAt = 0;
 let closedCount = 0;
 
 /** Called just before any full-screen ad is shown. */
-export function noteFullScreenAdShown(): void {
+export function noteFullScreenAdShown(format: 'interstitial' | 'app_open'): void {
+  services.analytics.log({ name: 'ad_shown', params: { format } });
   returningFromAd = true;
   lastShownAt = Date.now();
 }

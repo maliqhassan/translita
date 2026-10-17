@@ -25,6 +25,7 @@ export function useCopyToClipboard(): CopyController {
 
     void services.clipboard.copy(text).then((result) => {
       if (!result.ok) return;
+      services.analytics.log({ name: 'translation_copied' });
       setJustCopied(true);
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => setJustCopied(false), FEEDBACK_MS);

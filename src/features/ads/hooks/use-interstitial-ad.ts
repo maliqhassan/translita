@@ -120,7 +120,7 @@ function useFreeInterstitial(): FreeInterstitial {
     // for is already on its way, and a missing ad is the app's problem.
     if (!eligible || status !== 'loaded' || !fullScreenAdSpacingElapsed()) return false;
 
-    noteFullScreenAdShown();
+    noteFullScreenAdShown('interstitial');
     show();
     return true;
   }, [eligible, status, show]);

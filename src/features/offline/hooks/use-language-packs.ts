@@ -113,6 +113,14 @@ export function useLanguagePacks(): LanguagePacksState {
       void (async () => {
         const result = await action(modelId);
         inFlight.current.delete(modelId);
+        services.analytics.log({
+          name: 'language_pack',
+          params: {
+            action: busy === 'downloading' ? 'download' : 'remove',
+            pack: modelId,
+            ok: result.ok,
+          },
+        });
 
         setOverrides((current) => {
           const next = { ...current };

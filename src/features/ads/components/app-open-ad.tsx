@@ -114,7 +114,7 @@ export function AppOpenAdController({ showOnLaunch }: AppOpenAdControllerProps):
     const inTime = Date.now() - mountedAt.current <= AD_PACING.appOpenLaunchWaitMs;
     if (!inTime || AppState.currentState !== 'active' || pathname === UPGRADE_ROUTE) return;
 
-    noteFullScreenAdShown();
+    noteFullScreenAdShown('app_open');
     show();
   }, [eligible, status, show, pathname]);
 
@@ -151,7 +151,7 @@ export function AppOpenAdController({ showOnLaunch }: AppOpenAdControllerProps):
           if (Date.now() - loadedAt.current > MAX_AD_AGE_MS) {
             ad.retry();
           } else {
-            noteFullScreenAdShown();
+            noteFullScreenAdShown('app_open');
             ad.show();
           }
         }

@@ -5,6 +5,7 @@ import { Card, IconButton, Text } from '@/components';
 import { errorMessage } from '@/constants';
 import { useTheme } from '@/hooks';
 import { t } from '@/i18n';
+import { services } from '@/services';
 
 import type { ConversationTurn as Turn } from '../hooks/use-conversation';
 
@@ -127,7 +128,13 @@ export function ConversationTurn({ turn, onSpeak, isSpeaking }: ConversationTurn
               name="share-outline"
               size={18}
               accessibilityLabel={t('Share this translation')}
-              onPress={() => void Share.share({ message: translated })}
+              onPress={() => {
+                services.analytics.log({
+                  name: 'translation_shared',
+                  params: { from: 'conversation' },
+                });
+                void Share.share({ message: translated });
+              }}
             />
             <IconButton
               name="copy-outline"
