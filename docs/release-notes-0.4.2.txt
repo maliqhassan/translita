@@ -1,0 +1,72 @@
+<en-US>
+• Smoother lessons with Fabalita, your AI language coach
+• Clearer messages if our servers are briefly busy: we'll be back in minutes
+• Faster, more reliable translation
+• Bug fixes and improvements
+</en-US>
+<ur>
+• Fabalita، آپ کی AI زبان کوچ، کے ساتھ مزید ہموار اسباق
+• اگر ہمارے سرور تھوڑی دیر مصروف ہوں تو واضح پیغام: ہم چند منٹوں میں واپس ہوں گے
+• تیز اور زیادہ قابلِ اعتماد ترجمہ
+• خرابیوں کی درستی اور بہتریاں
+</ur>
+<hi-IN>
+• Fabalita, आपकी AI भाषा कोच, के साथ और आसान पाठ
+• अगर हमारे सर्वर कुछ देर व्यस्त हों तो साफ़ संदेश: हम कुछ ही मिनटों में वापस आएँगे
+• तेज़ और ज़्यादा भरोसेमंद अनुवाद
+• गड़बड़ियों में सुधार और बेहतरियाँ
+</hi-IN>
+<ar>
+• دروس أكثر سلاسة مع Fabalita، مدربتك للغات بالذكاء الاصطناعي
+• رسائل أوضح إذا كانت خوادمنا مشغولة قليلًا: سنعود خلال دقائق
+• ترجمة أسرع وأكثر موثوقية
+• إصلاح أخطاء وتحسينات
+</ar>
+<bn-BD>
+• Fabalita, আপনার AI ভাষা কোচের সাথে আরও মসৃণ পাঠ
+• আমাদের সার্ভার কিছুক্ষণ ব্যস্ত থাকলে পরিষ্কার বার্তা: কয়েক মিনিটেই ফিরে আসব
+• দ্রুত ও আরও নির্ভরযোগ্য অনুবাদ
+• ত্রুটি সংশোধন ও উন্নতি
+</bn-BD>
+<es-ES>
+• Lecciones más fluidas con Fabalita, tu coach de idiomas con IA
+• Mensajes más claros si nuestros servidores están ocupados: volvemos en minutos
+• Traducción más rápida y fiable
+• Corrección de errores y mejoras
+</es-ES>
+<fr-FR>
+• Des leçons plus fluides avec Fabalita, votre coach de langues IA
+• Des messages plus clairs si nos serveurs sont brièvement occupés : retour dans quelques minutes
+• Une traduction plus rapide et plus fiable
+• Corrections de bugs et améliorations
+</fr-FR>
+<de-DE>
+• Flüssigere Lektionen mit Fabalita, deinem KI-Sprachcoach
+• Klarere Hinweise, wenn unsere Server kurz ausgelastet sind: in wenigen Minuten sind wir zurück
+• Schnellere, zuverlässigere Übersetzung
+• Fehlerbehebungen und Verbesserungen
+</de-DE>
+<pt-BR>
+• Lições mais fluidas com a Fabalita, sua coach de idiomas com IA
+• Mensagens mais claras se nossos servidores estiverem ocupados: voltamos em minutos
+• Tradução mais rápida e confiável
+• Correções de bugs e melhorias
+</pt-BR>
+<id>
+• Pelajaran lebih lancar bersama Fabalita, pelatih bahasa AI kamu
+• Pesan lebih jelas jika server kami sedang sibuk: kami kembali dalam beberapa menit
+• Terjemahan lebih cepat dan andal
+• Perbaikan bug dan peningkatan
+</id>
+<tr-TR>
+• Yapay zekâ dil koçun Fabalita ile daha akıcı dersler
+• Sunucularımız kısa süre yoğunsa daha açık mesajlar: birkaç dakikada geri döneriz
+• Daha hızlı ve güvenilir çeviri
+• Hata düzeltmeleri ve iyileştirmeler
+</tr-TR>
+<fil>
+• Mas maayos na aralin kasama si Fabalita, ang iyong AI language coach
+• Mas malinaw na mensahe kung abala sandali ang aming server: babalik kami sa ilang minuto
+• Mas mabilis at maaasahang pagsasalin
+• Pag-aayos ng bug at mga pagpapabuti
+</fil>

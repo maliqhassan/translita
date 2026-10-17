@@ -847,6 +847,17 @@ money.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
 
+## 0.4.2 (26) -- Maintenance message and Fabalita analytics
+
+- **Server failures read as maintenance**: a 5xx or a malformed reply is the
+  `server_down` error, shown as "Translita is under maintenance. Stay tuned —
+  we'll be back in a few minutes." in every app language. Still retried.
+- **Analytics**: lesson start and per-section events, AI role-play turns and
+  failures, placement, each final-exam part, practice, reminders, and
+  `server_down`. User properties `academy_course`, `academy_day` (banded) and
+  `app_language`, so Firebase's automatic `app_remove` splits uninstalls.
+- **Store listing** copy for ASO in `docs/store-listing.md`.
+
 ## 0.4.1 (25) -- The AI Academy
 
 A 60-day course in German, French or Spanish, taught from English, beside the
