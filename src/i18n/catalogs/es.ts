@@ -830,6 +830,10 @@ export const es: Catalog = {
     'Aprende un idioma nuevo con un coach de IA. El día 1 es gratis; Elite abre el curso completo e incluye todo lo de Pro.',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita está en mantenimiento. No te vayas: volvemos en unos minutos.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'La entrada por voz para este idioma aún no está en tu teléfono. Conéctate a internet o descárgala en los ajustes del teléfono: Google › Voz › Reconocimiento de voz sin conexión.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'La entrada por voz necesita internet para este idioma. Para usarla sin conexión, descarga el idioma en los ajustes del teléfono: Google › Voz › Reconocimiento de voz sin conexión.',
   // Language names
   'Detect language': 'Detectar idioma',
   Afrikaans: 'Afrikáans',

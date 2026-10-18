@@ -837,6 +837,10 @@ export const fil: Catalog = {
     'Matuto ng bagong wika kasama ang AI coach. Libre ang Araw 1; binubuksan ng Elite ang buong kurso at kasama na ang lahat ng nasa Pro.',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Nasa maintenance ang Translita. Manatili lang — babalik kami sa loob ng ilang minuto.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Wala pa sa iyong telepono ang voice input para sa wikang ito. Kumonekta sa internet, o i-download ito sa settings ng telepono: Google › Voice › Offline speech recognition.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Kailangan ng internet ang voice input para sa wikang ito. Para magamit offline, i-download ang wika sa settings ng telepono: Google › Voice › Offline speech recognition.',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

@@ -812,6 +812,10 @@ export const tr: Catalog = {
     "Yapay zekâ koçuyla yeni bir dil öğren. 1. gün ücretsiz; Elite tüm kursu açar ve Pro'nun her şeyini içerir.",
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita bakımda. Bizi izlemeye devam edin — birkaç dakika içinde geri döneceğiz.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Bu dil için sesli giriş henüz telefonunda yok. İnternete bağlan ya da telefon ayarlarından indir: Google › Ses › Çevrimdışı konuşma tanıma.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Bu dilde sesli giriş için internet gerekiyor. Çevrimdışı kullanmak için dili telefon ayarlarından indir: Google › Ses › Çevrimdışı konuşma tanıma.',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

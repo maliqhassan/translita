@@ -12,7 +12,7 @@ import {
   SegmentedControl,
   Text,
 } from '@/components';
-import { errorMessage, languageName } from '@/constants';
+import { languageName, speechErrorMessage } from '@/constants';
 import { useConversationInterstitialAd } from '@/features/ads';
 import { useSpeak } from '@/features/translation';
 import { useTheme } from '@/hooks';
@@ -297,7 +297,7 @@ export function ConversationScreen() {
         <Card variant="outlined" style={{ marginBottom: theme.spacing.sm }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
             <Text variant="bodySmall" color="warning" style={{ flex: 1 }}>
-              {errorMessage(speech.error)}
+              {speechErrorMessage(speech.error)}
             </Text>
             <IconButton
               name="close-outline"

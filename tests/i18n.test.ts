@@ -7,6 +7,7 @@ import {
   AUTO_DETECT,
   ERROR_MESSAGES,
   LANGUAGE_CATALOG,
+  SPEECH_ERROR_MESSAGES,
   UNAVAILABLE_INPUT_MESSAGES,
 } from '@/constants';
 import { ONBOARDING_SLIDES } from '@/features/onboarding/onboarding-slides';
@@ -55,6 +56,7 @@ function allKeys(): Set<string> {
   for (const language of [AUTO_DETECT, ...LANGUAGE_CATALOG]) keys.add(language.name);
   for (const message of Object.values(ERROR_MESSAGES)) keys.add(message);
   for (const message of Object.values(UNAVAILABLE_INPUT_MESSAGES)) keys.add(message);
+  for (const message of Object.values(SPEECH_ERROR_MESSAGES)) keys.add(message);
   for (const slide of ONBOARDING_SLIDES) keys.add(slide.heading).add(slide.body);
   for (const benefit of PRO_BENEFITS) keys.add(benefit.title).add(benefit.description);
   for (const feature of INCLUDED_ON_EVERY_PLAN) keys.add(feature.title);

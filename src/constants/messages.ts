@@ -34,6 +34,29 @@ export function errorMessage(error: AppError): string {
 }
 
 /**
+ * Voice input's own copy for the two failures that are about the phone, not
+ * the languages.
+ *
+ * Android recognises speech with Google's recogniser, whose offline languages
+ * are a separate download from Translita's language packs. Without one, it
+ * answers "language not supported" — which the general copy would turn into
+ * "try a different pair", wrong for a pair that translates perfectly well.
+ */
+export const SPEECH_ERROR_MESSAGES = {
+  unsupported_language:
+    'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.',
+  network_unavailable:
+    'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.',
+} as const;
+
+export function speechErrorMessage(error: AppError): string {
+  if (error.code === 'unsupported_language' || error.code === 'network_unavailable') {
+    return t(SPEECH_ERROR_MESSAGES[error.code]);
+  }
+  return errorMessage(error);
+}
+
+/**
  * What Scan and Speak say when they are tapped where they cannot run.
  *
  * The controls stay on screen either way, so a feature this build or device

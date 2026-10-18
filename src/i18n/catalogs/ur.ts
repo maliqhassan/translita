@@ -814,6 +814,10 @@ export const ur: Catalog = {
     'AI کوچ کے ساتھ نئی زبان سیکھیں۔ پہلا دن مفت ہے؛ Elite پورا کورس کھولتا ہے اور اس میں Pro کی ہر چیز شامل ہے۔',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita پر مرمت کا کام جاری ہے۔ جڑے رہیں — ہم چند منٹوں میں واپس آ جائیں گے۔',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'اس زبان کے لیے آواز سے لکھنا ابھی آپ کے فون پر موجود نہیں۔ انٹرنیٹ سے جڑیں، یا اسے فون کی سیٹنگز میں ڈاؤن لوڈ کریں: Google › Voice › Offline speech recognition۔',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'اس زبان میں آواز سے لکھنے کے لیے انٹرنیٹ چاہیے۔ آف لائن استعمال کے لیے زبان فون کی سیٹنگز میں ڈاؤن لوڈ کریں: Google › Voice › Offline speech recognition۔',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

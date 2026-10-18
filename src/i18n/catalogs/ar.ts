@@ -798,6 +798,10 @@ export const ar: Catalog = {
     'تعلّم لغة جديدة مع مدرب ذكي. اليوم الأول مجاني؛ Elite يفتح الدورة كاملة ويشمل كل ما في Pro.',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita قيد الصيانة. ابقَ معنا — سنعود خلال دقائق قليلة.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'الإدخال الصوتي لهذه اللغة غير موجود على هاتفك بعد. اتصل بالإنترنت، أو نزّله من إعدادات هاتفك: Google › Voice › Offline speech recognition.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'الإدخال الصوتي لهذه اللغة يحتاج إلى الإنترنت. لاستخدامه دون اتصال، نزّل اللغة من إعدادات هاتفك: Google › Voice › Offline speech recognition.',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

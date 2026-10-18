@@ -822,6 +822,10 @@ export const id: Catalog = {
     'Belajar bahasa baru dengan pelatih AI. Hari 1 gratis; Elite membuka seluruh kursus dan mencakup semua fitur Pro.',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita sedang dalam pemeliharaan. Tetap di sini — kami kembali dalam beberapa menit.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Input suara untuk bahasa ini belum ada di ponselmu. Sambungkan ke internet, atau unduh di pengaturan ponsel: Google › Suara › Pengenalan ucapan offline.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Input suara untuk bahasa ini butuh internet. Agar bisa offline, unduh bahasanya di pengaturan ponsel: Google › Suara › Pengenalan ucapan offline.',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

@@ -831,6 +831,10 @@ export const de: Catalog = {
     'Lerne eine neue Sprache mit einem KI-Coach. Tag 1 ist kostenlos; Elite öffnet den ganzen Kurs und enthält alles aus Pro.',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita wird gerade gewartet. Bleib dran – wir sind in ein paar Minuten zurück.',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Die Spracheingabe für diese Sprache ist noch nicht auf deinem Handy. Verbinde dich mit dem Internet oder lade sie in den Einstellungen herunter: Google › Sprache › Offline-Spracherkennung.',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'Die Spracheingabe braucht für diese Sprache Internet. Für offline lade die Sprache in den Einstellungen herunter: Google › Sprache › Offline-Spracherkennung.',
   // Language names
   'Detect language': 'Sprache erkennen',
   Afrikaans: 'Afrikaans',

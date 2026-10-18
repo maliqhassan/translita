@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+import { errorMessage, speechErrorMessage } from '@/constants';
 import {
   CAPABILITIES,
   capabilitiesFor,
@@ -613,5 +614,29 @@ describe('dictation is available on every plan', () => {
     // look like a purchase.
     assert.equal(CAPABILITIES.includes('speechRecognition'), true);
     assert.equal(CAPABILITIES.includes('speechInput' as Capability), false);
+  });
+});
+
+describe('voice input explains a missing speech language, not a missing pair', () => {
+  it('points at the phone’s offline speech download, never at the language pair', () => {
+    for (const code of ['unsupported_language', 'network_unavailable'] as const) {
+      const message = speechErrorMessage({ code, message: '' });
+      assert.match(message, /Offline speech recognition/, code);
+      assert.equal(/pair/i.test(message), false, code);
+    }
+    // Anything else keeps the general copy.
+    assert.equal(
+      speechErrorMessage({ code: 'timeout', message: '' }),
+      errorMessage({ code: 'timeout', message: '' }),
+    );
+  });
+
+  it('is what both voice screens show', () => {
+    for (const path of [
+      'src/features/translation/screens/translate-screen.tsx',
+      'src/features/conversation/screens/conversation-screen.tsx',
+    ]) {
+      assert.match(readFileSync(path, 'utf8'), /speechErrorMessage\(speech\.error\)/, path);
+    }
   });
 });

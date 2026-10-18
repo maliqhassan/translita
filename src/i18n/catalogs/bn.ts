@@ -811,6 +811,10 @@ export const bn: Catalog = {
     'AI কোচের সাথে নতুন ভাষা শিখুন। প্রথম দিন বিনামূল্যে; Elite পুরো কোর্স খোলে এবং Pro-এর সবকিছু অন্তর্ভুক্ত।',
   'Translita is under maintenance. Stay tuned — we’ll be back in a few minutes.':
     'Translita-তে রক্ষণাবেক্ষণের কাজ চলছে। সঙ্গে থাকুন — আমরা কয়েক মিনিটের মধ্যেই ফিরে আসব।',
+  'Voice input for this language is not on your phone yet. Connect to the internet, or download it in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'এই ভাষার ভয়েস ইনপুট এখনও আপনার ফোনে নেই। ইন্টারনেটে যুক্ত হন, অথবা ফোনের সেটিংসে ডাউনলোড করুন: Google › Voice › Offline speech recognition।',
+  'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
+    'এই ভাষায় ভয়েস ইনপুটের জন্য ইন্টারনেট দরকার। অফলাইনে ব্যবহার করতে ফোনের সেটিংসে ভাষাটি ডাউনলোড করুন: Google › Voice › Offline speech recognition।',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

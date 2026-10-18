@@ -4,7 +4,7 @@ import { Keyboard, View } from 'react-native';
 import Animated, { LinearTransition } from 'react-native-reanimated';
 
 import { Button, Card, IconButton, Screen, Text } from '@/components';
-import { errorMessage } from '@/constants';
+import { errorMessage, speechErrorMessage } from '@/constants';
 import { AcademyFab } from '@/features/academy';
 import { useInterstitialAds } from '@/features/ads';
 import { TextScanner, consumePendingScan } from '@/features/camera';
@@ -82,7 +82,8 @@ export function TranslateScreen() {
 
   // A failure, or the reason a tap on Scan or Speak could not run here.
   const scanMessage = scan.notice ?? (scan.error ? errorMessage(scan.error) : undefined);
-  const speechMessage = speech.notice ?? (speech.error ? errorMessage(speech.error) : undefined);
+  const speechMessage =
+    speech.notice ?? (speech.error ? speechErrorMessage(speech.error) : undefined);
 
   /**
    * A scan made on the Camera tab arrives here.
