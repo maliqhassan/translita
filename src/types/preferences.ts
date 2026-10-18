@@ -121,6 +121,15 @@ export type Preferences = {
   reminderHour: number;
   /** Whether the learner has been offered the reminder, so it is offered once. */
   remindersAsked: boolean;
+  /** Translations that came back, counted up to the Pro offer and no further. */
+  translationsDone: number;
+  /** Whether the Pro screen has been offered after the first translations. */
+  proOffered: boolean;
+  /**
+   * When onboarding finished, epoch ms; 0 for installs from before this was
+   * kept. A new user's first day has no app-open ads.
+   */
+  onboardedAt: number;
 };
 
 /**

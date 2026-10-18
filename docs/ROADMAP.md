@@ -847,6 +847,18 @@ money.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
 
+## 0.4.3 (27) -- Pro after the first translations, lower prices
+
+- **No paywall in onboarding**: the tour goes straight to Home. Pro is offered
+  once, on the third translation that comes back (`AD_PACING.translationsBeforeProOffer`),
+  and never to someone already ad-free.
+- **No app-open ads on a new user's first day** (`AD_PACING.newUserNoAppOpenMs`),
+  from `onboardedAt`. Installs from before the field keep their ads.
+- **Prices**: Pro $0.70/month, $7/year; Elite $4.90 fallback, set per country in
+  Play Console.
+- **Voice input** explains a missing offline speech language instead of
+  blaming the language pair.
+
 ## 0.4.2 (26) -- Maintenance message and Fabalita analytics
 
 - **Server failures read as maintenance**: a 5xx or a malformed reply is the

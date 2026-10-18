@@ -103,6 +103,10 @@ describe('default preferences', () => {
       reminders: false,
       reminderHour: 19,
       remindersAsked: false,
+      // Nothing translated, Pro not offered, and no onboarding time yet.
+      translationsDone: 0,
+      proOffered: false,
+      onboardedAt: 0,
     });
   });
 
@@ -145,6 +149,10 @@ describe('parsing stored preferences', () => {
       reminders: true,
       reminderHour: 8,
       remindersAsked: true,
+      // Non-defaults, so the Pro offer's progress is proven to survive parsing.
+      translationsDone: 3,
+      proOffered: true,
+      onboardedAt: 1_760_000_000_000,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -257,6 +265,9 @@ describe('preferences service', () => {
       reminders: false,
       reminderHour: 19,
       remindersAsked: false,
+      translationsDone: 2,
+      proOffered: false,
+      onboardedAt: 1_760_000_000_000,
     };
 
     assert.equal((await service.save(saved)).ok, true);

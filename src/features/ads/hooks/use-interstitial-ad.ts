@@ -1,4 +1,4 @@
-import { useRouter } from 'expo-router';
+import { usePathname, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { AD_PACING } from '@/constants';
@@ -65,6 +65,7 @@ type FreeInterstitial = {
  */
 function useFreeInterstitial(): FreeInterstitial {
   const router = useRouter();
+  const pathname = usePathname();
   const { has, loaded } = useEntitlements();
   const eligible = loaded && !has('adFree');
 
@@ -104,7 +105,8 @@ function useFreeInterstitial(): FreeInterstitial {
       retry();
       const promptUpgrade = noteFullScreenAdClosed();
       if (pending.current) runPending();
-      else if (promptUpgrade) router.push('/upgrade');
+      // Never a second Pro screen on top of one already open.
+      else if (promptUpgrade && pathname !== '/upgrade') router.push('/upgrade');
       return undefined;
     }
     if (status !== 'error' && status !== 'no-fill') return undefined;
@@ -113,7 +115,7 @@ function useFreeInterstitial(): FreeInterstitial {
     runPending();
     const timer = setTimeout(retry, AD_RETRY_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [status, retry, router, runPending]);
+  }, [status, retry, router, runPending, pathname]);
 
   const showIfReady = useCallback(() => {
     // Not ready is not a failure worth surfacing: whatever the user asked

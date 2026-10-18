@@ -175,7 +175,7 @@ describe('the app-open ad', () => {
   it('never requests an ad for a Pro account', () => {
     const ad = code(APP_OPEN);
 
-    assert.match(ad, /const eligible = loaded && !has\('adFree'\);/);
+    assert.match(ad, /const eligible = loaded && !has\('adFree'\) && !firstDay;/);
     assert.match(ad, /adUnitId: eligible \? unitFor\('appOpen'\) : null/);
   });
 
@@ -251,7 +251,7 @@ describe('the free plan is paced to sell Pro', () => {
     assert.match(interstitial, /const promptUpgrade = noteFullScreenAdClosed\(\);/);
     assert.match(
       interstitial,
-      /if \(pending\.current\) runPending\(\);\s*else if \(promptUpgrade\) router\.push\('\/upgrade'\);/,
+      /if \(pending\.current\) runPending\(\);\s*else if \(promptUpgrade && pathname !== '\/upgrade'\) router\.push\('\/upgrade'\);/,
     );
   });
 

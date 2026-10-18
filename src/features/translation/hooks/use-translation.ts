@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 
+import { useProOffer } from '@/features/paywall';
 import { logIfServerDown, services, textLengthBand } from '@/services';
 import { useLanguagePair, usePreferences } from '@/store';
 import type { AsyncState, LanguageCode, TranslationResult, TranslationSource } from '@/types';
@@ -43,6 +44,7 @@ const IDLE: AsyncState<TranslationResult> = { status: 'idle' };
 export function useTranslation(): TranslationController {
   const { pair } = useLanguagePair();
   const { preferences } = usePreferences();
+  const { noteTranslation } = useProOffer();
   const [input, setInputState] = useState('');
   /**
    * How the current draft was produced.
@@ -110,6 +112,7 @@ export function useTranslation(): TranslationController {
       { saveHistory: preferences.saveHistory },
     ).then((result) => {
       if (result.ok) {
+        noteTranslation();
         services.analytics.log({
           name: 'translation',
           params: {
@@ -138,7 +141,7 @@ export function useTranslation(): TranslationController {
         target,
       );
     });
-  }, [input, origin, pair, preferences.saveHistory, settle]);
+  }, [input, origin, pair, preferences.saveHistory, settle, noteTranslation]);
 
   const reset = useCallback(() => {
     requestId.current += 1;

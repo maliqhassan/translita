@@ -4,6 +4,7 @@ import path from 'node:path';
 import { afterEach, describe, it } from 'node:test';
 
 import {
+  AD_PACING,
   AUTO_DETECT,
   ERROR_MESSAGES,
   LANGUAGE_CATALOG,
@@ -13,6 +14,7 @@ import {
 import { ONBOARDING_SLIDES } from '@/features/onboarding/onboarding-slides';
 import { starterPair } from '@/features/onboarding/starter-pair';
 import { INCLUDED_ON_EVERY_PLAN, PRO_BENEFITS } from '@/features/paywall/pro-benefits';
+import { proOfferDue } from '@/features/paywall/pro-offer';
 import { PHRASE_CATEGORIES } from '@/features/phrases/phrase-catalog';
 import {
   APP_LANGUAGES,
@@ -174,17 +176,22 @@ describe('existing users are asked once', () => {
   });
 });
 
-describe('the Pro offer after onboarding', () => {
+describe('the Pro offer after the first translations', () => {
   const flow = () => code('src/features/onboarding/screens/onboarding-flow.tsx');
 
-  it('is the last step of the flow, not a route pushed after it', () => {
-    assert.ok(flow().includes('return <OnboardingPaywall onDone={onComplete} />'));
-    assert.ok(flow().indexOf('<OnboardingCarousel') < flow().indexOf('<OnboardingPaywall'));
-    assert.equal(code('app/_layout.tsx').includes('PostOnboardingPaywall'), false);
+  it('is not part of onboarding: the tour goes straight to Home', () => {
+    assert.equal(flow().includes('<OnboardingPaywall'), false);
+    assert.ok(flow().includes('return <OnboardingCarousel onDone={onComplete} />'));
   });
 
-  it('skips anyone who already has Pro', () => {
-    assert.ok(flow().includes("has('adFree') ? onComplete() : setStep('pro')"));
+  it('opens once, on the third translation, and never for someone without ads', () => {
+    assert.equal(AD_PACING.translationsBeforeProOffer, 3);
+    assert.equal(proOfferDue(0, false, false), false);
+    assert.equal(proOfferDue(1, false, false), false);
+    assert.equal(proOfferDue(2, false, false), true);
+    assert.equal(proOfferDue(2, true, false), false, 'already offered');
+    assert.equal(proOfferDue(2, false, true), false, 'already ad-free');
+    assert.match(code('src/features/translation/hooks/use-translation.ts'), /noteTranslation\(\);/);
   });
 
   it('closes to Home from the cross, the button and the back key', () => {
@@ -252,7 +259,6 @@ describe('choosing the app language', () => {
       '<LanguageSelectScreen',
       '<WelcomeScreen',
       '<OnboardingCarousel',
-      '<OnboardingPaywall',
     ];
     const positions = order.map((tag) => flow.indexOf(tag));
     assert.ok(

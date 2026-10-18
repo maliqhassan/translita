@@ -105,7 +105,7 @@ export type AnalyticsEvent =
   /** A first-time user reached a step of onboarding. */
   | {
       name: 'onboarding_step';
-      params: { step: 'loading' | 'language' | 'welcome' | 'tour' | 'pro' };
+      params: { step: 'loading' | 'language' | 'welcome' | 'tour' };
     }
   /** Onboarding was finished and Home opened for the first time. */
   | { name: 'onboarding_complete' }

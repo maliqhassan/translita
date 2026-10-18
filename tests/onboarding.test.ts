@@ -212,7 +212,7 @@ describe('the welcome screen', () => {
     // In one write: two updates in a row would overwrite each other.
     assert.ok(
       code(LAYOUT).includes(
-        'onComplete={() => update({ onboardingComplete: true, appLanguageChosen: true })}',
+        'update({ onboardingComplete: true, appLanguageChosen: true, onboardedAt: Date.now() })',
       ),
     );
     assert.match(code(FLOW), /onGetStarted=\{\(\) => setStep\('tour'\)\}/);

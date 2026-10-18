@@ -57,6 +57,9 @@ export const DEFAULT_PREFERENCES: Preferences = {
   reminders: false,
   reminderHour: 19,
   remindersAsked: false,
+  translationsDone: 0,
+  proOffered: false,
+  onboardedAt: 0,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -223,6 +226,9 @@ export function parsePreferences(payload: unknown): Preferences {
         ? readCount(record.reminderHour, DEFAULT_PREFERENCES.reminderHour)
         : DEFAULT_PREFERENCES.reminderHour,
     remindersAsked: readBoolean(record.remindersAsked, DEFAULT_PREFERENCES.remindersAsked),
+    translationsDone: readCount(record.translationsDone, DEFAULT_PREFERENCES.translationsDone),
+    proOffered: readBoolean(record.proOffered, DEFAULT_PREFERENCES.proOffered),
+    onboardedAt: readCount(record.onboardedAt, DEFAULT_PREFERENCES.onboardedAt),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

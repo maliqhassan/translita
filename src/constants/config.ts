@@ -2,7 +2,7 @@
 export const APP = {
   name: 'Translita',
   tagline: 'Offline translation app',
-  version: '0.4.2',
+  version: '0.4.3',
 } as const;
 
 /**
@@ -100,11 +100,11 @@ export const ADMOB = {
 } as const;
 
 export const PRO_PLANS = {
-  monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.99', period: 'month' },
-  yearly: { productId: 'translita_pro_yearly', displayPrice: '$9.99', period: 'year' },
+  monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.70', period: 'month' },
+  yearly: { productId: 'translita_pro_yearly', displayPrice: '$7.00', period: 'year' },
   /**
    * Shown beside the yearly option. Kept at or under the real saving —
-   * $0.99 × 12 = $11.88 against $9.99 is ~16% — rather than the round number,
+   * $0.70 × 12 = $8.40 against $7.00 is ~16% — rather than the round number,
    * so the badge can never overstate what it claims.
    */
   yearlySavingPercent: 15,
@@ -119,7 +119,7 @@ export const PRO_PLANS = {
  */
 export const ELITE_PLAN = {
   productId: 'translita_elite_monthly',
-  displayPrice: '$8.99',
+  displayPrice: '$4.90',
   period: 'month',
 } as const;
 
@@ -149,7 +149,7 @@ export const CONVERSATION_AD_INTERVAL = 2;
  * here, so the whole policy can be turned up or down in one place.
  *
  * Deliberately heavy. The free plan is meant to be worth leaving, and Pro, at
- * $0.99 a month, removes all of it. Heavy, though, not reckless: each value
+ * $0.70 a month, removes all of it. Heavy, though, not reckless: each value
  * stays inside what AdMob allows — ads at natural breaks, never on top of
  * something the user is in the middle of, never two back to back — because an
  * account limited or closed for ad placement earns nothing at all.
@@ -179,6 +179,13 @@ export const AD_PACING = {
   appOpenLaunchWaitMs: 5_000,
   /** The Pro screen opens after every Nth full-screen ad a free user closes. */
   adsPerUpgradePrompt: 3,
+  /** No app-open ads for this long after onboarding: a new user's first day. */
+  newUserNoAppOpenMs: 24 * 60 * 60_000,
+  /**
+   * The Pro screen is offered once, after this many translations have come
+   * back — never during onboarding, before the app has done anything.
+   */
+  translationsBeforeProOffer: 3,
 } as const;
 
 export const DEFAULTS = {

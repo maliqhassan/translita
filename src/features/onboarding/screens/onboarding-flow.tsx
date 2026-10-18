@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { OnboardingPaywall } from '@/features/paywall';
 import { services } from '@/services';
-import { useEntitlements, useLanguagePair } from '@/store';
+import { useLanguagePair } from '@/store';
 
 import { starterPair } from '../starter-pair';
 
@@ -12,26 +11,22 @@ import { OnboardingCarousel } from './onboarding-carousel';
 import { WelcomeScreen } from './welcome-screen';
 
 /** In the order they appear. */
-type Step = 'loading' | 'language' | 'welcome' | 'tour' | 'pro';
+type Step = 'loading' | 'language' | 'welcome' | 'tour';
 
 /**
  * First launch, from the greeting to the app.
  *
- * The loading page, the language, welcome, the tour, then the Pro offer —
- * and Home. Which step is showing is local state and nothing else: it lives
+ * The loading page, the language, welcome, the tour — and Home. No Pro
+ * offer: that comes after the first few translations. Which step is showing is local state and nothing else: it lives
  * only as long as the flow does, because a half-finished tour is not a thing
  * worth remembering. Someone who closes the app on slide three starts again
  * from the top, which costs a few taps and avoids storing a step number that
  * would need migrating the day a step is added or removed.
  *
- * Only the *finished* state is persisted, by the caller, and only once. Every
- * way out of the Pro offer — buying, closing, continuing with ads — calls the
- * same `onComplete`, so there is one place where onboarding is recorded as
- * done rather than several that could drift apart.
+ * Only the *finished* state is persisted, by the caller, and only once.
  */
 export function OnboardingFlow({ onComplete: complete }: { onComplete: () => void }) {
   const [step, setStep] = useState<Step>('loading');
-  const { has } = useEntitlements();
   const { setPair } = useLanguagePair();
 
   // Each step a first-time user reaches, so the drop-off before Home shows.
@@ -65,10 +60,8 @@ export function OnboardingFlow({ onComplete: complete }: { onComplete: () => voi
       return <WelcomeScreen onGetStarted={() => setStep('tour')} />;
 
     case 'tour':
-      // A reinstall that restored a subscription is not offered Pro again.
-      return <OnboardingCarousel onDone={() => (has('adFree') ? onComplete() : setStep('pro'))} />;
-
-    case 'pro':
-      return <OnboardingPaywall onDone={onComplete} />;
+      // Straight into the app. Pro is offered once the app has proved itself,
+      // after the first few translations — never before it has done anything.
+      return <OnboardingCarousel onDone={onComplete} />;
   }
 }

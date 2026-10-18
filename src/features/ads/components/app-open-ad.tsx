@@ -1,9 +1,9 @@
 import { usePathname, useRouter } from 'expo-router';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
 
 import { AD_PACING } from '@/constants';
-import { useEntitlements } from '@/store';
+import { useEntitlements, usePreferences } from '@/store';
 
 import { AD_RETRY_DELAY_MS, unitFor } from '../ad-units';
 import {
@@ -66,7 +66,15 @@ export function AppOpenAdController({ showOnLaunch }: AppOpenAdControllerProps):
   const router = useRouter();
   const pathname = usePathname();
   const { has, loaded } = useEntitlements();
-  const eligible = loaded && !has('adFree');
+  const { preferences } = usePreferences();
+  // A new user's first day is spent learning the app, not closing adverts:
+  // half the installs from paid campaigns were uninstalled within it.
+  // Read once per launch: the first day ends on a later launch, not mid-visit.
+  const [launchedAt] = useState(() => Date.now());
+  const firstDay =
+    preferences.onboardedAt > 0 &&
+    launchedAt - preferences.onboardedAt < AD_PACING.newUserNoAppOpenMs;
+  const eligible = loaded && !has('adFree') && !firstDay;
 
   const { status, show, retry } = useAppOpen({
     // `null` stops a Pro account's device from ever requesting one.
