@@ -847,6 +847,14 @@ money.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
 
+## 0.4.4 (28) -- Fabalita's notifications
+
+- Every reminder is from "Fabalita", in her own voice, on a high-importance
+  'fabalita' Android channel. The reminder offer also shows on the dashboard
+  once a course is ready.
+- Translator-only users are asked once, after five translations, whether
+  Fabalita may send two invitations (1 and 3 days later; 'FABALITA_INVITES').
+
 ## 0.4.3 (27) -- Pro after the first translations, lower prices
 
 - **No paywall in onboarding**: the tour goes straight to Home. Pro is offered

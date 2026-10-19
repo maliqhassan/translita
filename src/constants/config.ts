@@ -2,7 +2,7 @@
 export const APP = {
   name: 'Translita',
   tagline: 'Offline translation app',
-  version: '0.4.3',
+  version: '0.4.4',
 } as const;
 
 /**

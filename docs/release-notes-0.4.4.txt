@@ -1,0 +1,60 @@
+<en-US>
+• Daily reminders from Fabalita
+• More affordable plans
+• Bug fixes you asked for
+</en-US>
+<ur>
+• Fabalita کی طرف سے روزانہ یاد دہانی
+• مزید سستے پلان
+• آپ کی درخواست پر خرابیوں کی درستی
+</ur>
+<hi-IN>
+• Fabalita से रोज़ाना रिमाइंडर
+• और किफ़ायती प्लान
+• आपके कहने पर गड़बड़ियों में सुधार
+</hi-IN>
+<ar>
+• تذكيرات يومية من Fabalita
+• خطط أوفر
+• إصلاح الأخطاء التي طلبتموها
+</ar>
+<bn-BD>
+• Fabalita-র কাছ থেকে প্রতিদিনের রিমাইন্ডার
+• আরও সাশ্রয়ী প্ল্যান
+• আপনার অনুরোধে ত্রুটি সংশোধন
+</bn-BD>
+<es-ES>
+• Recordatorios diarios de Fabalita
+• Planes más económicos
+• Corrección de errores que nos pediste
+</es-ES>
+<fr-FR>
+• Des rappels quotidiens de Fabalita
+• Des formules plus abordables
+• Les corrections que vous avez demandées
+</fr-FR>
+<de-DE>
+• Tägliche Erinnerungen von Fabalita
+• Günstigere Pläne
+• Fehlerbehebungen, die ihr euch gewünscht habt
+</de-DE>
+<pt-BR>
+• Lembretes diários da Fabalita
+• Planos mais em conta
+• Correções de bugs que você pediu
+</pt-BR>
+<id>
+• Pengingat harian dari Fabalita
+• Paket lebih terjangkau
+• Perbaikan bug sesuai permintaan kamu
+</id>
+<tr-TR>
+• Fabalita'dan günlük hatırlatmalar
+• Daha uygun planlar
+• İstediğiniz hata düzeltmeleri
+</tr-TR>
+<fil>
+• Araw-araw na paalala mula kay Fabalita
+• Mas abot-kayang mga plano
+• Mga bug fix na hiniling ninyo
+</fil>
