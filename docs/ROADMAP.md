@@ -854,7 +854,7 @@ money.
   and never to someone already ad-free.
 - **No app-open ads on a new user's first day** (`AD_PACING.newUserNoAppOpenMs`),
   from `onboardedAt`. Installs from before the field keep their ads.
-- **Prices**: Pro $0.70/month, $7/year; Elite $4.90 fallback, set per country in
+- **Prices**: Pro $0.66/month, $4.99/year; Elite $4.99/month everywhere, set in
   Play Console.
 - **Voice input** explains a missing offline speech language instead of
   blaming the language pair.

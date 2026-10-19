@@ -229,8 +229,8 @@ describe('the placement check', () => {
 });
 
 describe('what Elite is', () => {
-  it('costs $4.90 a month by default, and is the Academy plus an ad-free translator', () => {
-    assert.equal(ELITE_PLAN.displayPrice, '$4.90');
+  it('costs $4.99 a month, and is the Academy plus an ad-free translator', () => {
+    assert.equal(ELITE_PLAN.displayPrice, '$4.99');
     assert.ok(capabilitiesFor('elite').has('academy'));
     assert.ok(capabilitiesFor('elite').has('adFree'));
     // Paying only for the ad-free translator does not open Fabalita.

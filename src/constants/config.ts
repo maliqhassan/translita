@@ -100,14 +100,14 @@ export const ADMOB = {
 } as const;
 
 export const PRO_PLANS = {
-  monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.70', period: 'month' },
-  yearly: { productId: 'translita_pro_yearly', displayPrice: '$7.00', period: 'year' },
+  monthly: { productId: 'translita_pro_monthly', displayPrice: '$0.66', period: 'month' },
+  yearly: { productId: 'translita_pro_yearly', displayPrice: '$4.99', period: 'year' },
   /**
    * Shown beside the yearly option. Kept at or under the real saving —
-   * $0.70 × 12 = $8.40 against $7.00 is ~16% — rather than the round number,
+   * $0.66 × 12 = $7.92 against $4.99 is ~37% — rather than the round number,
    * so the badge can never overstate what it claims.
    */
-  yearlySavingPercent: 15,
+  yearlySavingPercent: 35,
 } as const;
 
 /**
@@ -119,7 +119,7 @@ export const PRO_PLANS = {
  */
 export const ELITE_PLAN = {
   productId: 'translita_elite_monthly',
-  displayPrice: '$4.90',
+  displayPrice: '$4.99',
   period: 'month',
 } as const;
 
@@ -149,7 +149,7 @@ export const CONVERSATION_AD_INTERVAL = 2;
  * here, so the whole policy can be turned up or down in one place.
  *
  * Deliberately heavy. The free plan is meant to be worth leaving, and Pro, at
- * $0.70 a month, removes all of it. Heavy, though, not reckless: each value
+ * $0.66 a month, removes all of it. Heavy, though, not reckless: each value
  * stays inside what AdMob allows — ads at natural breaks, never on top of
  * something the user is in the middle of, never two back to back — because an
  * account limited or closed for ad placement earns nothing at all.
