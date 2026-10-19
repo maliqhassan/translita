@@ -87,7 +87,9 @@ function RootNavigator() {
     return (
       <I18nProvider language={language}>
         <OnboardingFlow
-          onComplete={() => update({ onboardingComplete: true, appLanguageChosen: true })}
+          onComplete={() =>
+            update({ onboardingComplete: true, appLanguageChosen: true, onboardedAt: Date.now() })
+          }
         />
       </I18nProvider>
     );
