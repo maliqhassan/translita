@@ -130,6 +130,12 @@ export type Preferences = {
    * kept. A new user's first day has no app-open ads.
    */
   onboardedAt: number;
+  /** Fabalita may send her two invitations to someone who has not started a course. */
+  invites: boolean;
+  /** When invitations were allowed, epoch ms: they are timed from here. */
+  invitesFrom: number;
+  /** Whether a translator-only user has been asked about invitations, so it is asked once. */
+  invitesAsked: boolean;
 };
 
 /**

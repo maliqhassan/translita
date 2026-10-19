@@ -759,14 +759,6 @@ export const fil: Catalog = {
   'Strong elementary: confident in everyday situations':
     'Malakas na elementarya: may kumpiyansa sa araw-araw na sitwasyon',
   '{name} planned today for you.': 'Inihanda ni {name} ang araw na ito para sa iyo.',
-  'Day {day} is ready. Five minutes is all it takes!':
-    'Handa na ang Araw {day}. Limang minuto lang!',
-  'A new conversation is waiting for you. Shall we?':
-    'May bagong usapan na naghihintay sa iyo. Tara?',
-  'A few minutes today keeps your words fresh.':
-    'Ilang minuto lang ngayon para manatiling sariwa ang iyong mga salita.',
-  '{name} misses you! Pick up where you left off.':
-    'Nami-miss ka ni {name}! Ituloy kung saan ka huminto.',
   '{name} is building your course…': 'Binubuo ni {name} ang iyong kurso…',
   'Practise your mistakes': 'Sanayin ang mga mali mo',
   '{count} words and phrases to get right': '{count} salita at parirala na dapat maitama',
@@ -841,6 +833,24 @@ export const fil: Catalog = {
     'Wala pa sa iyong telepono ang voice input para sa wikang ito. Kumonekta sa internet, o i-download ito sa settings ng telepono: Google › Voice › Offline speech recognition.',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'Kailangan ng internet ang voice input para sa wikang ito. Para magamit offline, i-download ang wika sa settings ng telepono: Google › Voice › Offline speech recognition.',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'Hi! Handa na ang aralin mo sa Day {day}. Sabay nating gawin? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'May bagong usapan na naghihintay sa iyo. Limang minuto lang?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'Panatilihin nating sariwa ang mga bago mong salita. Handa ako kapag handa ka na!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'Huwag mong sirain ang {count}-araw mong streak! Handa na ang Day {day} para sa atin. 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'Nami-miss kita! Ituloy natin kung saan tayo huminto. 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'Hi, ako si Fabalita! 🌱 Gusto mo bang matuto ng bagong wika kasama ko? Libre ang Day 1.',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'Kaya kitang turuan ng German, French, Spanish at iba pa sa 10 minuto bawat araw. Simulan na natin?',
+  'Hi, I’m {name}! 🌱': 'Hi, ako si {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'Puwede ba kitang padalhan ng mensahe paminsan-minsan tungkol sa pag-aaral ng bagong wika? Dalawa lang, walang spam.',
+  'Yes, sure': 'Oo, sige',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

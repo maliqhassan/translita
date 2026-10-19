@@ -738,12 +738,6 @@ export const hi: Catalog = {
   'Strong elementary: confident in everyday situations':
     'मज़बूत प्रारंभिक: रोज़मर्रा की स्थितियों में आत्मविश्वासी',
   '{name} planned today for you.': '{name} ने आज का पाठ आपके लिए तैयार किया है।',
-  'Day {day} is ready. Five minutes is all it takes!': 'दिन {day} तैयार है। बस पाँच मिनट लगते हैं!',
-  'A new conversation is waiting for you. Shall we?':
-    'एक नई बातचीत आपका इंतज़ार कर रही है। शुरू करें?',
-  'A few minutes today keeps your words fresh.': 'आज के कुछ मिनट आपके शब्दों को ताज़ा रखते हैं।',
-  '{name} misses you! Pick up where you left off.':
-    '{name} आपको याद कर रही है! जहाँ छोड़ा था वहीं से शुरू करें।',
   '{name} is building your course…': '{name} आपका कोर्स तैयार कर रही है…',
   'Practise your mistakes': 'अपनी गलतियों का अभ्यास करें',
   '{count} words and phrases to get right': 'सही करने के लिए {count} शब्द और वाक्यांश',
@@ -816,6 +810,24 @@ export const hi: Catalog = {
     'इस भाषा के लिए वॉइस इनपुट अभी आपके फ़ोन पर नहीं है। इंटरनेट से जुड़ें, या इसे फ़ोन की सेटिंग में डाउनलोड करें: Google › Voice › Offline speech recognition।',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'इस भाषा में वॉइस इनपुट के लिए इंटरनेट चाहिए। ऑफ़लाइन इस्तेमाल के लिए भाषा को फ़ोन की सेटिंग में डाउनलोड करें: Google › Voice › Offline speech recognition।',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'नमस्ते! आपका दिन {day} का पाठ तैयार है। साथ में करें? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'आपके लिए एक नई बातचीत तैयार है। बस पाँच मिनट?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'चलो आपके नए शब्द ताज़ा रखें। आप तैयार हों तो मैं भी तैयार हूँ!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'अपनी {count} दिन की स्ट्रीक मत तोड़िए! दिन {day} हमारे लिए तैयार है। 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'मुझे आपकी याद आ रही है! जहाँ छोड़ा था, वहीं से शुरू करें। 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'नमस्ते, मैं Fabalita हूँ! 🌱 मेरे साथ नई भाषा सीखेंगे? पहला दिन मुफ़्त है।',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'मैं आपको रोज़ 10 मिनट में जर्मन, फ़्रेंच, स्पैनिश और भी बहुत कुछ सिखा सकती हूँ। शुरू करें?',
+  'Hi, I’m {name}! 🌱': 'नमस्ते, मैं {name} हूँ! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'क्या मैं कभी-कभी आपको नई भाषा सीखने के बारे में संदेश भेज सकती हूँ? सिर्फ़ दो, कभी स्पैम नहीं।',
+  'Yes, sure': 'हाँ, ज़रूर',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',

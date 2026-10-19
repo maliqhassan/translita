@@ -736,12 +736,6 @@ export const bn: Catalog = {
   'Strong elementary: confident in everyday situations':
     'শক্তিশালী প্রাথমিক: দৈনন্দিন পরিস্থিতিতে আত্মবিশ্বাসী',
   '{name} planned today for you.': '{name} আজকের পাঠ আপনার জন্য সাজিয়েছে।',
-  'Day {day} is ready. Five minutes is all it takes!':
-    'দিন {day} প্রস্তুত। মাত্র পাঁচ মিনিট লাগবে!',
-  'A new conversation is waiting for you. Shall we?': 'একটি নতুন কথোপকথন অপেক্ষা করছে। শুরু করবেন?',
-  'A few minutes today keeps your words fresh.': 'আজকের কয়েক মিনিট আপনার শব্দগুলো তাজা রাখে।',
-  '{name} misses you! Pick up where you left off.':
-    '{name} আপনাকে মিস করছে! যেখানে থেমেছিলেন সেখান থেকে শুরু করুন।',
   '{name} is building your course…': '{name} আপনার কোর্স তৈরি করছে…',
   'Practise your mistakes': 'আপনার ভুলগুলো অনুশীলন করুন',
   '{count} words and phrases to get right': 'ঠিক করার জন্য {count}টি শব্দ ও বাক্যাংশ',
@@ -815,6 +809,24 @@ export const bn: Catalog = {
     'এই ভাষার ভয়েস ইনপুট এখনও আপনার ফোনে নেই। ইন্টারনেটে যুক্ত হন, অথবা ফোনের সেটিংসে ডাউনলোড করুন: Google › Voice › Offline speech recognition।',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'এই ভাষায় ভয়েস ইনপুটের জন্য ইন্টারনেট দরকার। অফলাইনে ব্যবহার করতে ফোনের সেটিংসে ভাষাটি ডাউনলোড করুন: Google › Voice › Offline speech recognition।',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'হাই! আপনার দিন {day}-এর পাঠ তৈরি। একসাথে করি? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'আপনার জন্য একটা নতুন কথোপকথন অপেক্ষা করছে। মাত্র পাঁচ মিনিট?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'চলুন নতুন শব্দগুলো তাজা রাখি। আপনি প্রস্তুত হলেই আমি প্রস্তুত!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'আপনার {count} দিনের স্ট্রিক হারাবেন না! দিন {day} আমাদের জন্য তৈরি। 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'আপনাকে মিস করছি! যেখানে থেমেছিলাম, সেখান থেকে শুরু করি। 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'হাই, আমি Fabalita! 🌱 আমার সাথে নতুন ভাষা শিখবেন? প্রথম দিন বিনামূল্যে।',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'আমি আপনাকে দিনে 10 মিনিটে জার্মান, ফরাসি, স্প্যানিশ ও আরও শেখাতে পারি। শুরু করি?',
+  'Hi, I’m {name}! 🌱': 'হাই, আমি {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'নতুন ভাষা শেখা নিয়ে মাঝে মাঝে আপনাকে একটা বার্তা পাঠাতে পারি? মাত্র দুটি, কখনো স্প্যাম নয়।',
+  'Yes, sure': 'হ্যাঁ, অবশ্যই',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

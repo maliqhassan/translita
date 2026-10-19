@@ -1,4 +1,5 @@
 export * from './components/academy-fab';
+export * from './components/fabalita-invite';
 export * from './components/reminder-scheduler';
 export * from './components/return-to-academy';
 export * from './course';

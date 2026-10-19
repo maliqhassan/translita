@@ -11,7 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { Theme } from '@/constants';
-import { ReminderScheduler, ReturnToAcademy } from '@/features/academy';
+import { FabalitaInvitePrompt, ReminderScheduler, ReturnToAcademy } from '@/features/academy';
 import { AppOpenAdController } from '@/features/ads';
 import { ScreenTracker } from '@/features/analytics';
 import { LanguagePrompt, OnboardingFlow } from '@/features/onboarding';
@@ -120,6 +120,8 @@ function RootNavigator() {
         <ReturnToAcademy />
         {/* The Academy's daily reminders, kept up to date; none unless the learner said yes. */}
         <ReminderScheduler />
+        {/* Once, after a few translations: may Fabalita send her two invitations? */}
+        <FabalitaInvitePrompt />
         {/* Each screen as it opens, for Firebase's screen and engagement reports. */}
         <ScreenTracker />
         {/* Keyed by language: changing it in Settings redraws every screen in

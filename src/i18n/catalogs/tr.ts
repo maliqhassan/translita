@@ -739,11 +739,6 @@ export const tr: Catalog = {
   'Strong elementary: confident in everyday situations':
     'İleri temel: günlük durumlarda kendinden emin',
   '{name} planned today for you.': '{name} bugünü senin için planladı.',
-  'Day {day} is ready. Five minutes is all it takes!': 'Gün {day} hazır. Sadece beş dakika yeter!',
-  'A new conversation is waiting for you. Shall we?':
-    'Yeni bir konuşma seni bekliyor. Başlayalım mı?',
-  'A few minutes today keeps your words fresh.': 'Bugün birkaç dakika, kelimelerini taze tutar.',
-  '{name} misses you! Pick up where you left off.': '{name} seni özledi! Kaldığın yerden devam et.',
   '{name} is building your course…': '{name} kursunu hazırlıyor…',
   'Practise your mistakes': 'Hatalarını çalış',
   '{count} words and phrases to get right': 'Doğru öğrenilecek {count} kelime ve ifade',
@@ -816,6 +811,24 @@ export const tr: Catalog = {
     'Bu dil için sesli giriş henüz telefonunda yok. İnternete bağlan ya da telefon ayarlarından indir: Google › Ses › Çevrimdışı konuşma tanıma.',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'Bu dilde sesli giriş için internet gerekiyor. Çevrimdışı kullanmak için dili telefon ayarlarından indir: Google › Ses › Çevrimdışı konuşma tanıma.',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'Merhaba! {day}. gün dersin hazır. Birlikte yapalım mı? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'Seni bekleyen yeni bir sohbet var. Sadece beş dakika?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'Yeni kelimelerini taze tutalım. Sen hazır olduğunda ben de hazırım!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    '{count} günlük serini kaybetme! {day}. gün bizi bekliyor. 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'Seni özledim! Kaldığımız yerden devam edelim. 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'Merhaba, ben Fabalita! 🌱 Benimle yeni bir dil öğrenmek ister misin? 1. gün ücretsiz.',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'Sana günde 10 dakikada Almanca, Fransızca, İspanyolca ve daha fazlasını öğretebilirim. Başlayalım mı?',
+  'Hi, I’m {name}! 🌱': 'Merhaba, ben {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'Arada bir sana yeni bir dil öğrenmekle ilgili not gönderebilir miyim? Sadece iki tane, asla spam yok.',
+  'Yes, sure': 'Evet, tabii',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

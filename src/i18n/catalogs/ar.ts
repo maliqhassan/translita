@@ -727,10 +727,6 @@ export const ar: Catalog = {
     'أساسي: يتعامل مع المحادثات اليومية البسيطة',
   'Strong elementary: confident in everyday situations': 'أساسي متقدم: واثق في المواقف اليومية',
   '{name} planned today for you.': 'خطّطت {name} يومك هذا من أجلك.',
-  'Day {day} is ready. Five minutes is all it takes!': 'اليوم {day} جاهز. خمس دقائق تكفي!',
-  'A new conversation is waiting for you. Shall we?': 'محادثة جديدة بانتظارك. هل نبدأ؟',
-  'A few minutes today keeps your words fresh.': 'دقائق قليلة اليوم تبقي كلماتك حاضرة.',
-  '{name} misses you! Pick up where you left off.': '{name} تشتاق إليك! تابع من حيث توقفت.',
   '{name} is building your course…': '{name} تبني دورتك…',
   'Practise your mistakes': 'تدرّب على أخطائك',
   '{count} words and phrases to get right': '{count} كلمات وعبارات لتتقنها',
@@ -802,6 +798,23 @@ export const ar: Catalog = {
     'الإدخال الصوتي لهذه اللغة غير موجود على هاتفك بعد. اتصل بالإنترنت، أو نزّله من إعدادات هاتفك: Google › Voice › Offline speech recognition.',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'الإدخال الصوتي لهذه اللغة يحتاج إلى الإنترنت. لاستخدامه دون اتصال، نزّل اللغة من إعدادات هاتفك: Google › Voice › Offline speech recognition.',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'مرحبًا! درس اليوم {day} جاهز. هل نبدأ معًا؟ 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'لديّ محادثة جديدة بانتظارك. خمس دقائق فقط؟',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'لنحافظ على كلماتك الجديدة حاضرة. أنا جاهزة متى كنت جاهزًا!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'لا تخسر سلسلة {count} يومًا! اليوم {day} جاهز لنا. 🔥',
+  'I miss you! Let’s pick up where we left off. 💙': 'اشتقت إليك! لنكمل من حيث توقفنا. 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'مرحبًا، أنا Fabalita! 🌱 هل تريد تعلّم لغة جديدة معي؟ اليوم الأول مجاني.',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'أستطيع أن أعلّمك الألمانية والفرنسية والإسبانية وغيرها في 10 دقائق يوميًا. هل نبدأ؟',
+  'Hi, I’m {name}! 🌱': 'مرحبًا، أنا {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'هل أرسل لك رسالة بين حين وآخر عن تعلّم لغة جديدة؟ رسالتان فقط، دون إزعاج.',
+  'Yes, sure': 'نعم، بالتأكيد',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

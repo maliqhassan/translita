@@ -8,7 +8,9 @@ import type { NotificationService, ReminderPermission } from './notification-ser
 const log = createLogger('notifications');
 
 /** The Android channel the reminders arrive on, named in the phone's settings. */
-const CHANNEL = 'academy-reminders';
+// A new id: Android fixes a channel's importance when it is first made, and
+// Fabalita's notes are meant to pop up, not sit silently in the shade.
+const CHANNEL = 'fabalita';
 /** Marks the reminders this app scheduled, so replacing them touches nothing else. */
 const KIND = 'academy-reminder';
 
@@ -28,8 +30,10 @@ Notifications.setNotificationHandler({
 async function ensureChannel(): Promise<void> {
   if (Platform.OS !== 'android') return;
   await Notifications.setNotificationChannelAsync(CHANNEL, {
-    name: 'Daily learning reminders',
-    importance: Notifications.AndroidImportance.DEFAULT,
+    name: 'Fabalita',
+    description: 'Notes from Fabalita, your AI language coach',
+    importance: Notifications.AndroidImportance.HIGH,
+    lightColor: '#0CC0DF',
   });
 }
 
@@ -73,10 +77,20 @@ export const expoNotificationService: NotificationService = {
           await Notifications.cancelScheduledNotificationAsync(entry.identifier);
         }
       }
+      // The old silent channel from earlier builds, so it does not linger in Settings.
+      if (Platform.OS === 'android')
+        await Notifications.deleteNotificationChannelAsync('academy-reminders');
       for (const reminder of reminders) {
         if (reminder.at <= Date.now()) continue;
         await Notifications.scheduleNotificationAsync({
-          content: { title: reminder.title, body: reminder.body, data: { kind: KIND } },
+          content: {
+            title: reminder.title,
+            body: reminder.body,
+            data: { kind: KIND },
+            color: '#0CC0DF',
+            sound: 'default',
+            priority: Notifications.AndroidNotificationPriority.HIGH,
+          },
           trigger: {
             type: Notifications.SchedulableTriggerInputTypes.DATE,
             date: reminder.at,

@@ -740,12 +740,6 @@ export const ur: Catalog = {
   'Strong elementary: confident in everyday situations':
     'مضبوط ابتدائی درمیانہ: روزمرہ حالات میں پراعتماد',
   '{name} planned today for you.': '{name} نے آج کا سبق آپ کے لیے تیار کیا ہے۔',
-  'Day {day} is ready. Five minutes is all it takes!': 'دن {day} تیار ہے۔ بس پانچ منٹ چاہییں!',
-  'A new conversation is waiting for you. Shall we?':
-    'ایک نئی گفتگو آپ کا انتظار کر رہی ہے۔ شروع کریں؟',
-  'A few minutes today keeps your words fresh.': 'آج چند منٹ آپ کے الفاظ کو تازہ رکھتے ہیں۔',
-  '{name} misses you! Pick up where you left off.':
-    '{name} آپ کو یاد کر رہی ہے! وہیں سے شروع کریں جہاں چھوڑا تھا۔',
   '{name} is building your course…': '{name} آپ کا کورس تیار کر رہی ہے…',
   'Practise your mistakes': 'اپنی غلطیوں کی مشق کریں',
   '{count} words and phrases to get right': 'درست کرنے کے لیے {count} الفاظ اور جملے',
@@ -818,6 +812,24 @@ export const ur: Catalog = {
     'اس زبان کے لیے آواز سے لکھنا ابھی آپ کے فون پر موجود نہیں۔ انٹرنیٹ سے جڑیں، یا اسے فون کی سیٹنگز میں ڈاؤن لوڈ کریں: Google › Voice › Offline speech recognition۔',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'اس زبان میں آواز سے لکھنے کے لیے انٹرنیٹ چاہیے۔ آف لائن استعمال کے لیے زبان فون کی سیٹنگز میں ڈاؤن لوڈ کریں: Google › Voice › Offline speech recognition۔',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'ہیلو! آپ کا دن {day} کا سبق تیار ہے۔ مل کر کریں؟ 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'میرے پاس آپ کے لیے ایک نئی گفتگو تیار ہے۔ بس پانچ منٹ؟',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'آئیں اپنے نئے الفاظ تازہ رکھیں۔ جب آپ تیار ہوں، میں تیار ہوں!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'اپنا {count} دن کا سلسلہ نہ ٹوٹنے دیں! دن {day} ہمارے لیے تیار ہے۔ 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'مجھے آپ کی یاد آ رہی ہے! وہیں سے شروع کریں جہاں چھوڑا تھا۔ 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'ہیلو، میں Fabalita ہوں! 🌱 میرے ساتھ نئی زبان سیکھیں گے؟ پہلا دن مفت ہے۔',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'میں آپ کو روزانہ 10 منٹ میں جرمن، فرانسیسی، ہسپانوی اور مزید سکھا سکتی ہوں۔ شروع کریں؟',
+  'Hi, I’m {name}! 🌱': 'ہیلو، میں {name} ہوں! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'کیا میں کبھی کبھار آپ کو نئی زبان سیکھنے کے بارے میں پیغام بھیج سکتی ہوں؟ صرف دو، کبھی اسپام نہیں۔',
+  'Yes, sure': 'جی، ضرور',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

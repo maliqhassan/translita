@@ -63,6 +63,8 @@ export type AnalyticsEvent =
     }
   /** The mistakes practice was opened. */
   | { name: 'academy_practice_open'; params: { course: LanguageId } }
+  /** A translator-only user answered whether Fabalita may send her invitations. */
+  | { name: 'invite_answer'; params: { allowed: boolean } }
   /** Daily lesson reminders were switched on. */
   | { name: 'reminder_enabled'; params: { hour: number } }
   /**

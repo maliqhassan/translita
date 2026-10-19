@@ -2,11 +2,12 @@ import { useRouter, type Href } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { AppState } from 'react-native';
 
+import { FABALITA_INVITES } from '@/constants';
 import { services } from '@/services';
 import { usePreferences } from '@/store';
 
 import { useActiveCourse } from '../hooks/use-active-course';
-import { buildReminders } from '../reminders';
+import { buildInvites, buildReminders, inviteTimes } from '../reminders';
 import { completedDays, nextDay, reminderTimes, streak, todayProgress } from '../rules';
 
 const ACADEMY_HOME = '/academy' as Href;
@@ -23,7 +24,7 @@ export function ReminderScheduler(): null {
   const { preferences } = usePreferences();
   const { enrollment, progress } = useActiveCourse();
   const [foreground, setForeground] = useState(0);
-  const { reminders, reminderHour } = preferences;
+  const { reminders, reminderHour, invites, invitesFrom } = preferences;
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (state) => {
@@ -35,7 +36,19 @@ export function ReminderScheduler(): null {
   useEffect(() => services.notifications.onOpened(() => router.push(ACADEMY_HOME)), [router]);
 
   useEffect(() => {
-    if (!reminders || !enrollment) {
+    // Someone who has not started a course gets Fabalita's two invitations, if
+    // they said yes to them; starting a course replaces them with the daily ones.
+    if (!enrollment) {
+      if (invites && invitesFrom > 0) {
+        void services.notifications.scheduleReminders(
+          buildInvites(inviteTimes(invitesFrom, reminderHour, FABALITA_INVITES.daysAfter)),
+        );
+      } else {
+        void services.notifications.cancelReminders();
+      }
+      return;
+    }
+    if (!reminders) {
       void services.notifications.cancelReminders();
       return;
     }
@@ -47,7 +60,7 @@ export function ReminderScheduler(): null {
       streak: streak(completions, now),
     });
     void services.notifications.scheduleReminders(plan);
-  }, [reminders, reminderHour, enrollment, progress, foreground]);
+  }, [reminders, reminderHour, enrollment, progress, foreground, invites, invitesFrom]);
 
   return null;
 }

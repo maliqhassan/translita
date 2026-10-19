@@ -137,14 +137,24 @@ describe('reminders', () => {
   it('mentions the streak first, and misses you after quiet days', () => {
     const plan = buildReminders(reminderTimes(NOON, hour, false), { day: 4, streak: 3 });
     assert.ok(plan[0]!.body.includes('3'));
-    assert.ok(plan[3]!.body.includes('Fabalita'));
-    assert.ok(plan.every((reminder) => reminder.title.includes('Fabalita')));
+    // In her own words, from her: after quiet days she says she misses you.
+    assert.ok(plan[3]!.body.startsWith('I miss you'));
+    assert.ok(plan.every((reminder) => reminder.title === 'Fabalita'));
   });
 
   it('asks for permission only after a yes in the app, never at launch', () => {
     const offer = code('src/features/academy/components/reminder-offer.tsx');
     assert.ok(offer.includes('services.notifications.requestPermission()'));
     assert.ok(code('src/features/academy/screens/lesson-screen.tsx').includes('<ReminderOffer />'));
+    // And as soon as the course is ready, on the dashboard.
+    assert.ok(
+      code('src/features/academy/screens/academy-screen.tsx').includes('<ReminderOffer />'),
+    );
+    // A translator-only user is asked in Fabalita's words first; only a yes asks the phone.
+    assert.match(
+      code('src/features/academy/components/fabalita-invite.tsx'),
+      /text: t\('Yes, sure'\),\s*onPress: \(\) => \{\s*void services\.notifications\.requestPermission\(\)/,
+    );
     for (const file of [
       'app/_layout.tsx',
       'src/features/academy/components/reminder-scheduler.tsx',

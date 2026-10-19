@@ -754,14 +754,6 @@ export const de: Catalog = {
   'Strong elementary: confident in everyday situations':
     'Fortgeschrittene Grundstufe: sicher im Alltag',
   '{name} planned today for you.': '{name} hat den heutigen Tag für dich geplant.',
-  'Day {day} is ready. Five minutes is all it takes!':
-    'Tag {day} ist bereit. Fünf Minuten reichen!',
-  'A new conversation is waiting for you. Shall we?':
-    "Ein neues Gespräch wartet auf dich. Los geht's?",
-  'A few minutes today keeps your words fresh.':
-    'Ein paar Minuten heute halten deine Wörter frisch.',
-  '{name} misses you! Pick up where you left off.':
-    '{name} vermisst dich! Mach da weiter, wo du aufgehört hast.',
   '{name} is building your course…': '{name} stellt deinen Kurs zusammen …',
   'Practise your mistakes': 'Übe deine Fehler',
   '{count} words and phrases to get right': '{count} Wörter und Wendungen zum Festigen',
@@ -835,6 +827,24 @@ export const de: Catalog = {
     'Die Spracheingabe für diese Sprache ist noch nicht auf deinem Handy. Verbinde dich mit dem Internet oder lade sie in den Einstellungen herunter: Google › Sprache › Offline-Spracherkennung.',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'Die Spracheingabe braucht für diese Sprache Internet. Für offline lade die Sprache in den Einstellungen herunter: Google › Sprache › Offline-Spracherkennung.',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'Hallo! Deine Lektion für Tag {day} ist fertig. Machen wir sie zusammen? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'Ein neues Gespräch wartet auf dich. Nur fünf Minuten?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'Lass uns deine neuen Wörter frisch halten. Ich bin bereit, wenn du es bist!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'Verlier nicht deine {count}-Tage-Serie! Tag {day} wartet auf uns. 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'Ich vermisse dich! Machen wir da weiter, wo wir aufgehört haben. 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'Hallo, ich bin Fabalita! 🌱 Lernst du mit mir eine neue Sprache? Tag 1 ist kostenlos.',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'Ich bringe dir Deutsch, Französisch, Spanisch und mehr bei, in 10 Minuten am Tag. Fangen wir an?',
+  'Hi, I’m {name}! 🌱': 'Hallo, ich bin {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'Darf ich dir ab und zu eine Nachricht zum Sprachenlernen schicken? Nur zwei, kein Spam.',
+  'Yes, sure': 'Ja, gern',
   // Language names
   'Detect language': 'Sprache erkennen',
   Afrikaans: 'Afrikaans',

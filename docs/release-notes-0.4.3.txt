@@ -1,72 +1,48 @@
 <en-US>
-• New lower prices: ad-free Pro and Fabalita Elite now cost less
-• Start translating right away, with no sign-up screens in the way
-• Fewer interruptions on your first day
-• Clearer help when voice input needs your phone's offline speech language
+• More affordable plans
+• Bug fixes you asked for
 </en-US>
 <ur>
-• نئی کم قیمتیں: اشتہار سے پاک Pro اور Fabalita Elite اب سستے ہیں
-• فوراً ترجمہ شروع کریں، بیچ میں کوئی اضافی اسکرین نہیں
-• پہلے دن کم رکاوٹیں
-• جب آواز سے لکھنے کے لیے فون کی آف لائن زبان چاہیے ہو تو واضح رہنمائی
+• مزید سستے پلان
+• آپ کی درخواست پر خرابیوں کی درستی
 </ur>
 <hi-IN>
-• नई कम कीमतें: बिना विज्ञापन Pro और Fabalita Elite अब सस्ते हैं
-• तुरंत अनुवाद शुरू करें, बीच में कोई अतिरिक्त स्क्रीन नहीं
-• पहले दिन कम रुकावटें
-• जब वॉइस इनपुट को फ़ोन की ऑफ़लाइन भाषा चाहिए हो तो साफ़ मदद
+• और किफ़ायती प्लान
+• आपके कहने पर गड़बड़ियों में सुधार
 </hi-IN>
 <ar>
-• أسعار جديدة أقل: Pro بدون إعلانات وFabalita Elite أصبحا أرخص
-• ابدأ الترجمة فورًا، دون شاشات إضافية
-• مقاطعات أقل في يومك الأول
-• مساعدة أوضح عندما يحتاج الإدخال الصوتي إلى لغة الكلام دون اتصال في هاتفك
+• خطط أوفر
+• إصلاح الأخطاء التي طلبتموها
 </ar>
 <bn-BD>
-• নতুন কম দাম: বিজ্ঞাপনমুক্ত Pro ও Fabalita Elite এখন সস্তা
-• সঙ্গে সঙ্গে অনুবাদ শুরু করুন, মাঝে কোনো বাড়তি স্ক্রিন নেই
-• প্রথম দিনে কম বাধা
-• ভয়েস ইনপুটে ফোনের অফলাইন ভাষা লাগলে পরিষ্কার সাহায্য
+• আরও সাশ্রয়ী প্ল্যান
+• আপনার অনুরোধে ত্রুটি সংশোধন
 </bn-BD>
 <es-ES>
-• Nuevos precios más bajos: Pro sin anuncios y Fabalita Elite cuestan menos
-• Empieza a traducir enseguida, sin pantallas de por medio
-• Menos interrupciones en tu primer día
-• Ayuda más clara cuando la entrada por voz necesita el idioma sin conexión del teléfono
+• Planes más económicos
+• Corrección de errores que nos pediste
 </es-ES>
 <fr-FR>
-• Nouveaux prix plus bas : Pro sans publicité et Fabalita Elite coûtent moins cher
-• Commencez à traduire tout de suite, sans écrans intermédiaires
-• Moins d'interruptions le premier jour
-• Aide plus claire quand la saisie vocale a besoin de la langue hors ligne du téléphone
+• Des formules plus abordables
+• Les corrections que vous avez demandées
 </fr-FR>
 <de-DE>
-• Neue, niedrigere Preise: werbefreies Pro und Fabalita Elite kosten weniger
-• Sofort übersetzen, ohne Zwischenbildschirme
-• Weniger Unterbrechungen am ersten Tag
-• Klarere Hilfe, wenn die Spracheingabe die Offline-Sprache des Handys braucht
+• Günstigere Pläne
+• Fehlerbehebungen, die ihr euch gewünscht habt
 </de-DE>
 <pt-BR>
-• Novos preços mais baixos: Pro sem anúncios e Fabalita Elite custam menos
-• Comece a traduzir na hora, sem telas no caminho
-• Menos interrupções no seu primeiro dia
-• Ajuda mais clara quando a entrada por voz precisa do idioma off-line do celular
+• Planos mais em conta
+• Correções de bugs que você pediu
 </pt-BR>
 <id>
-• Harga baru lebih murah: Pro tanpa iklan dan Fabalita Elite kini lebih hemat
-• Langsung mulai menerjemahkan, tanpa layar tambahan
-• Lebih sedikit gangguan di hari pertama
-• Bantuan lebih jelas saat input suara butuh bahasa ucapan offline di ponsel
+• Paket lebih terjangkau
+• Perbaikan bug sesuai permintaan kamu
 </id>
 <tr-TR>
-• Yeni düşük fiyatlar: reklamsız Pro ve Fabalita Elite artık daha ucuz
-• Hemen çeviriye başla, arada ekran yok
-• İlk gününde daha az kesinti
-• Sesli giriş telefonun çevrimdışı dilini gerektirdiğinde daha açık yardım
+• Daha uygun planlar
+• İstediğiniz hata düzeltmeleri
 </tr-TR>
 <fil>
-• Bagong mas mababang presyo: mas mura na ang ad-free Pro at Fabalita Elite
-• Magsimulang magsalin agad, walang screen na humaharang
-• Mas kaunting abala sa unang araw
-• Mas malinaw na tulong kapag kailangan ng voice input ang offline speech language ng telepono
+• Mas abot-kayang mga plano
+• Mga bug fix na hiniling ninyo
 </fil>

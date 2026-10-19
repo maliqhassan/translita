@@ -747,12 +747,6 @@ export const id: Catalog = {
   'Strong elementary: confident in everyday situations':
     'Dasar lanjut: percaya diri dalam situasi sehari-hari',
   '{name} planned today for you.': '{name} sudah menyiapkan hari ini untukmu.',
-  'Day {day} is ready. Five minutes is all it takes!': 'Hari {day} sudah siap. Cukup lima menit!',
-  'A new conversation is waiting for you. Shall we?': 'Percakapan baru menunggumu. Mulai?',
-  'A few minutes today keeps your words fresh.':
-    'Beberapa menit hari ini menjaga kosakatamu tetap segar.',
-  '{name} misses you! Pick up where you left off.':
-    '{name} rindu kamu! Lanjutkan dari terakhir kali.',
   '{name} is building your course…': '{name} sedang menyusun kursusmu…',
   'Practise your mistakes': 'Latih kesalahanmu',
   '{count} words and phrases to get right': '{count} kata dan frasa untuk dikuasai',
@@ -826,6 +820,24 @@ export const id: Catalog = {
     'Input suara untuk bahasa ini belum ada di ponselmu. Sambungkan ke internet, atau unduh di pengaturan ponsel: Google › Suara › Pengenalan ucapan offline.',
   'Voice input needs the internet for this language. To use it offline, download the language in your phone’s settings: Google › Voice › Offline speech recognition.':
     'Input suara untuk bahasa ini butuh internet. Agar bisa offline, unduh bahasanya di pengaturan ponsel: Google › Suara › Pengenalan ucapan offline.',
+  'Hi! Your Day {day} lesson is ready. Shall we do it together? 🌱':
+    'Hai! Pelajaran hari ke-{day} sudah siap. Kita kerjakan bersama? 🌱',
+  'I have a new conversation waiting for you. Just five minutes?':
+    'Ada percakapan baru menunggumu. Lima menit saja?',
+  'Let’s keep your new words fresh. I’m ready when you are!':
+    'Yuk jaga kosakata barumu tetap segar. Aku siap kapan pun kamu siap!',
+  'Don’t lose your {count}-day streak! Day {day} is ready for us. 🔥':
+    'Jangan putuskan runtutan {count} harimu! Hari ke-{day} sudah siap. 🔥',
+  'I miss you! Let’s pick up where we left off. 💙':
+    'Aku kangen kamu! Yuk lanjutkan dari terakhir kali. 💙',
+  'Hi, I’m Fabalita! 🌱 Want to learn a new language with me? Day 1 is free.':
+    'Hai, aku Fabalita! 🌱 Mau belajar bahasa baru bersamaku? Hari pertama gratis.',
+  'I can teach you German, French, Spanish and more in 10 minutes a day. Shall we start?':
+    'Aku bisa mengajarimu bahasa Jerman, Prancis, Spanyol, dan lainnya dalam 10 menit sehari. Mulai sekarang?',
+  'Hi, I’m {name}! 🌱': 'Hai, aku {name}! 🌱',
+  'Can I send you a note now and then about learning a new language? Just two, never spam.':
+    'Boleh aku kirim pesan sesekali tentang belajar bahasa baru? Hanya dua, tanpa spam.',
+  'Yes, sure': 'Ya, boleh',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

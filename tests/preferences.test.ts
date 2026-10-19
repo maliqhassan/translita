@@ -107,6 +107,10 @@ describe('default preferences', () => {
       translationsDone: 0,
       proOffered: false,
       onboardedAt: 0,
+      // No invitations until a translator-only user says yes.
+      invites: false,
+      invitesFrom: 0,
+      invitesAsked: false,
     });
   });
 
@@ -153,6 +157,10 @@ describe('parsing stored preferences', () => {
       translationsDone: 3,
       proOffered: true,
       onboardedAt: 1_760_000_000_000,
+      // Non-defaults, so the invitations are proven to survive parsing.
+      invites: true,
+      invitesFrom: 1_760_000_000_000,
+      invitesAsked: true,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -268,6 +276,9 @@ describe('preferences service', () => {
       translationsDone: 2,
       proOffered: false,
       onboardedAt: 1_760_000_000_000,
+      invites: false,
+      invitesFrom: 0,
+      invitesAsked: false,
     };
 
     assert.equal((await service.save(saved)).ok, true);

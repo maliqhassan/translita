@@ -24,6 +24,7 @@ import { BadgeShelf } from '../components/badges';
 import { CoachAvatar } from '../components/coach-avatar';
 import { Breathing, CountUp, Floating, Pop, PulseHalo } from '../components/motion';
 import { ProgressRing } from '../components/progress-ring';
+import { ReminderOffer } from '../components/reminder-offer';
 import { WeekStrip } from '../components/week-strip';
 import {
   COURSE_DAYS,
@@ -263,6 +264,9 @@ function Dashboard({
           </Pressable>
         </Animated.View>
       ) : null}
+
+      {/* Asked as soon as the course is ready, while the learner is keenest. */}
+      <ReminderOffer />
 
       {daily.week.length ? (
         <Animated.View entering={FadeInDown.delay(theme.motion.stagger * 3)}>

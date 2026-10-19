@@ -188,6 +188,16 @@ export const AD_PACING = {
   translationsBeforeProOffer: 3,
 } as const;
 
+/**
+ * Fabalita's notifications to someone who has not started a course: asked
+ * about once, after this many translations, then two invitations on these
+ * days after they said yes — and never again.
+ */
+export const FABALITA_INVITES = {
+  afterTranslations: 5,
+  daysAfter: [1, 3],
+} as const;
+
 export const DEFAULTS = {
   sourceLanguage: 'en',
   targetLanguage: 'de',
