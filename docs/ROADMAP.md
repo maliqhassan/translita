@@ -847,6 +847,15 @@ money.
 - **No device verification** of onboarding, the carousel, the home screen,
   camera OCR, dictation or the voice preview.
 
+## 0.4.5 (29) -- Country language
+
+- The phone's region setting (`deviceRegion`, no permission) picks an
+  English-speaking new user's starting pair: English into the country's one
+  language (`countryLanguage`), e.g. English to Filipino in the Philippines.
+- Home offers that language and English for offline use once
+  (`CountryPackOffer`); nothing downloads until Download is pressed.
+- A no-connection failure with packs missing offers the download.
+
 ## 0.4.4 (28) -- Fabalita's notifications
 
 - Every reminder is from "Fabalita", in her own voice, on a high-importance

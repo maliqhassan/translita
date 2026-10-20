@@ -1,0 +1,60 @@
+<en-US>
+• Your country's language, ready for offline in one tap
+• Daily reminders from Fabalita
+• Bug fixes you asked for
+</en-US>
+<ur>
+• آپ کے ملک کی زبان، ایک ٹیپ میں آف لائن کے لیے تیار
+• Fabalita کی طرف سے روزانہ یاد دہانی
+• آپ کی درخواست پر خرابیوں کی درستی
+</ur>
+<hi-IN>
+• आपके देश की भाषा, एक टैप में ऑफ़लाइन के लिए तैयार
+• Fabalita से रोज़ाना रिमाइंडर
+• आपके कहने पर गड़बड़ियों में सुधार
+</hi-IN>
+<ar>
+• لغة بلدك جاهزة دون اتصال بلمسة واحدة
+• تذكيرات يومية من Fabalita
+• إصلاح الأخطاء التي طلبتموها
+</ar>
+<bn-BD>
+• আপনার দেশের ভাষা, এক ট্যাপে অফলাইনের জন্য প্রস্তুত
+• Fabalita-র কাছ থেকে প্রতিদিনের রিমাইন্ডার
+• আপনার অনুরোধে ত্রুটি সংশোধন
+</bn-BD>
+<es-ES>
+• El idioma de tu país, listo sin conexión con un toque
+• Recordatorios diarios de Fabalita
+• Corrección de errores que nos pediste
+</es-ES>
+<fr-FR>
+• La langue de votre pays, prête hors ligne en un geste
+• Des rappels quotidiens de Fabalita
+• Les corrections que vous avez demandées
+</fr-FR>
+<de-DE>
+• Die Sprache deines Landes, mit einem Tipp offline bereit
+• Tägliche Erinnerungen von Fabalita
+• Fehlerbehebungen, die ihr euch gewünscht habt
+</de-DE>
+<pt-BR>
+• O idioma do seu país, pronto off-line com um toque
+• Lembretes diários da Fabalita
+• Correções de bugs que você pediu
+</pt-BR>
+<id>
+• Bahasa negaramu, siap offline dengan sekali ketuk
+• Pengingat harian dari Fabalita
+• Perbaikan bug sesuai permintaan kamu
+</id>
+<tr-TR>
+• Ülkenin dili, tek dokunuşla çevrimdışı hazır
+• Fabalita'dan günlük hatırlatmalar
+• İstediğiniz hata düzeltmeleri
+</tr-TR>
+<fil>
+• Ang wika ng iyong bansa, handa offline sa isang tap
+• Araw-araw na paalala mula kay Fabalita
+• Mga bug fix na hiniling ninyo
+</fil>
