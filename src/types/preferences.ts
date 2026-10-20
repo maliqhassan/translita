@@ -136,6 +136,8 @@ export type Preferences = {
   invitesFrom: number;
   /** Whether a translator-only user has been asked about invitations, so it is asked once. */
   invitesAsked: boolean;
+  /** Whether the country's language pack has been offered on Home, so it is offered once. */
+  countryPackOffered: boolean;
 };
 
 /**

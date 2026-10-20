@@ -63,6 +63,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   invites: false,
   invitesFrom: 0,
   invitesAsked: false,
+  countryPackOffered: false,
 };
 
 const TRANSLATION_MODES: readonly TranslationMode[] = ['auto', 'online', 'offline'];
@@ -235,6 +236,10 @@ export function parsePreferences(payload: unknown): Preferences {
     invites: readBoolean(record.invites, DEFAULT_PREFERENCES.invites),
     invitesFrom: readCount(record.invitesFrom, DEFAULT_PREFERENCES.invitesFrom),
     invitesAsked: readBoolean(record.invitesAsked, DEFAULT_PREFERENCES.invitesAsked),
+    countryPackOffered: readBoolean(
+      record.countryPackOffered,
+      DEFAULT_PREFERENCES.countryPackOffered,
+    ),
     // Spread rather than assigned, so an absent selection leaves the keys off
     // entirely instead of writing `undefined` into stored JSON.
     ...readVoice(record),

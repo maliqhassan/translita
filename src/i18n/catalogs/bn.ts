@@ -827,6 +827,17 @@ export const bn: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'নতুন ভাষা শেখা নিয়ে মাঝে মাঝে আপনাকে একটা বার্তা পাঠাতে পারি? মাত্র দুটি, কখনো স্প্যাম নয়।',
   'Yes, sure': 'হ্যাঁ, অবশ্যই',
+  '{language} is ready offline': '{language} অফলাইনে প্রস্তুত',
+  'In {country}?': '{country}-এ আছেন?',
+  'You can now translate {language} and {english} without internet.':
+    'এখন আপনি ইন্টারনেট ছাড়াই {language} ও {english} অনুবাদ করতে পারবেন।',
+  'Downloading {language} and {english}…': '{language} ও {english} ডাউনলোড হচ্ছে…',
+  'The download did not finish. Try again on a better connection.':
+    'ডাউনলোড শেষ হয়নি। ভালো সংযোগে আবার চেষ্টা করুন।',
+  'Download {language} and {english} to translate without internet.':
+    'ইন্টারনেট ছাড়া অনুবাদ করতে {language} ও {english} ডাউনলোড করুন।',
+  Done: 'হয়ে গেছে',
+  Download: 'ডাউনলোড',
   // Language names
   'Detect language': 'ভাষা শনাক্ত করুন',
   Afrikaans: 'আফ্রিকান্স',

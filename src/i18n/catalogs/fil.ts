@@ -851,6 +851,17 @@ export const fil: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'Puwede ba kitang padalhan ng mensahe paminsan-minsan tungkol sa pag-aaral ng bagong wika? Dalawa lang, walang spam.',
   'Yes, sure': 'Oo, sige',
+  '{language} is ready offline': 'Handa na offline ang {language}',
+  'In {country}?': 'Nasa {country} ka?',
+  'You can now translate {language} and {english} without internet.':
+    'Maaari mo nang isalin ang {language} at {english} kahit walang internet.',
+  'Downloading {language} and {english}…': 'Dina-download ang {language} at {english}…',
+  'The download did not finish. Try again on a better connection.':
+    'Hindi natapos ang download. Subukan ulit sa mas maayos na koneksyon.',
+  'Download {language} and {english} to translate without internet.':
+    'I-download ang {language} at {english} para makapagsalin kahit walang internet.',
+  Done: 'Tapos na',
+  Download: 'I-download',
   // Language names
   'Detect language': 'Tukuyin ang wika',
   Afrikaans: 'Afrikaans',

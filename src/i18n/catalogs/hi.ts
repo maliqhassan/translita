@@ -828,6 +828,17 @@ export const hi: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'क्या मैं कभी-कभी आपको नई भाषा सीखने के बारे में संदेश भेज सकती हूँ? सिर्फ़ दो, कभी स्पैम नहीं।',
   'Yes, sure': 'हाँ, ज़रूर',
+  '{language} is ready offline': '{language} ऑफ़लाइन तैयार है',
+  'In {country}?': '{country} में हैं?',
+  'You can now translate {language} and {english} without internet.':
+    'अब आप बिना इंटरनेट {language} और {english} का अनुवाद कर सकते हैं।',
+  'Downloading {language} and {english}…': '{language} और {english} डाउनलोड हो रहे हैं…',
+  'The download did not finish. Try again on a better connection.':
+    'डाउनलोड पूरा नहीं हुआ। बेहतर कनेक्शन पर फिर से कोशिश करें।',
+  'Download {language} and {english} to translate without internet.':
+    'बिना इंटरनेट अनुवाद के लिए {language} और {english} डाउनलोड करें।',
+  Done: 'हो गया',
+  Download: 'डाउनलोड',
   // Language names
   'Detect language': 'भाषा पहचानें',
   Afrikaans: 'अफ़्रीकांस',

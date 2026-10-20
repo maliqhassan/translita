@@ -111,6 +111,7 @@ describe('default preferences', () => {
       invites: false,
       invitesFrom: 0,
       invitesAsked: false,
+      countryPackOffered: false,
     });
   });
 
@@ -161,6 +162,7 @@ describe('parsing stored preferences', () => {
       invites: true,
       invitesFrom: 1_760_000_000_000,
       invitesAsked: true,
+      countryPackOffered: true,
     };
     assert.deepEqual(parsePreferences({ version: 1, ...stored }), stored);
   });
@@ -279,6 +281,7 @@ describe('preferences service', () => {
       invites: false,
       invitesFrom: 0,
       invitesAsked: false,
+      countryPackOffered: false,
     };
 
     assert.equal((await service.save(saved)).ok, true);

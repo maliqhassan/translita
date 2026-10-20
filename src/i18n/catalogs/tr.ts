@@ -829,6 +829,17 @@ export const tr: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'Arada bir sana yeni bir dil öğrenmekle ilgili not gönderebilir miyim? Sadece iki tane, asla spam yok.',
   'Yes, sure': 'Evet, tabii',
+  '{language} is ready offline': '{language} çevrimdışı hazır',
+  'In {country}?': '{country} içinde misin?',
+  'You can now translate {language} and {english} without internet.':
+    'Artık {language} ve {english} dillerini internetsiz çevirebilirsin.',
+  'Downloading {language} and {english}…': '{language} ve {english} indiriliyor…',
+  'The download did not finish. Try again on a better connection.':
+    'İndirme tamamlanmadı. Daha iyi bir bağlantıyla yeniden dene.',
+  'Download {language} and {english} to translate without internet.':
+    'İnternetsiz çeviri için {language} ve {english} dillerini indir.',
+  Done: 'Tamam',
+  Download: 'İndir',
   // Language names
   'Detect language': 'Dili algıla',
   Afrikaans: 'Afrikaanca',

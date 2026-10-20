@@ -830,6 +830,17 @@ export const ur: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'کیا میں کبھی کبھار آپ کو نئی زبان سیکھنے کے بارے میں پیغام بھیج سکتی ہوں؟ صرف دو، کبھی اسپام نہیں۔',
   'Yes, sure': 'جی، ضرور',
+  '{language} is ready offline': '{language} آف لائن تیار ہے',
+  'In {country}?': '{country} میں ہیں؟',
+  'You can now translate {language} and {english} without internet.':
+    'اب آپ انٹرنیٹ کے بغیر {language} اور {english} کا ترجمہ کر سکتے ہیں۔',
+  'Downloading {language} and {english}…': '{language} اور {english} ڈاؤن لوڈ ہو رہے ہیں…',
+  'The download did not finish. Try again on a better connection.':
+    'ڈاؤن لوڈ مکمل نہیں ہوا۔ بہتر کنکشن پر دوبارہ کوشش کریں۔',
+  'Download {language} and {english} to translate without internet.':
+    'انٹرنیٹ کے بغیر ترجمہ کے لیے {language} اور {english} ڈاؤن لوڈ کریں۔',
+  Done: 'ہو گیا',
+  Download: 'ڈاؤن لوڈ',
   // Language names
   'Detect language': 'زبان پہچانیں',
   Afrikaans: 'افریکانز',

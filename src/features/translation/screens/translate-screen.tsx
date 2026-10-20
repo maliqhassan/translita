@@ -10,6 +10,7 @@ import { useInterstitialAds } from '@/features/ads';
 import { TextScanner, consumePendingScan } from '@/features/camera';
 import { RecentTranslations } from '@/features/history';
 import {
+  CountryPackOffer,
   OfflineReadinessNotice,
   offlineEntitlementNotice,
   offlineNotice,
@@ -124,13 +125,19 @@ export function TranslateScreen() {
    *
    * The entitlement is checked first: it explains the failure completely, and
    * the readiness answer underneath it would only describe a device state the
-   * user cannot act on. Every other failure keeps its generic message, so a
-   * network timeout never turns into an invitation to download a pack.
+   * user cannot act on. No connection with packs missing is offered the
+   * download; every other failure keeps its generic message, so a network
+   * timeout never turns into an invitation to download a pack.
    */
   const offlineDetail = (error: AppError) => {
     if (error.code === 'entitlement_required') return offlineEntitlementNotice();
 
-    return readiness && (error.code === 'model_missing' || error.code === 'unsupported_language')
+    if (readiness && (error.code === 'model_missing' || error.code === 'unsupported_language')) {
+      return offlineNotice(readiness);
+    }
+    // No connection, and packs that would have covered it are a download away:
+    // say so, rather than only "you appear to be offline".
+    return readiness?.kind === 'packs_missing' && error.code === 'network_unavailable'
       ? offlineNotice(readiness)
       : undefined;
   };
@@ -288,6 +295,9 @@ export function TranslateScreen() {
               },
             }}
           />
+
+          {/* The phone's country language, offered once for offline use. */}
+          <CountryPackOffer />
 
           {scanMessage ? (
             <Card variant="outlined">

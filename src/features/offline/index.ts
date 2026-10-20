@@ -1,3 +1,4 @@
+export * from './components/country-pack-offer';
 export * from './components/language-pack-item';
 export * from './components/offline-readiness-notice';
 export * from './hooks/use-language-pack-status';

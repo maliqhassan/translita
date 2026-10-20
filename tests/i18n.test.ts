@@ -132,7 +132,7 @@ describe('the pair a new user starts on', () => {
 
   it('is set once, in onboarding, when the language is confirmed, both sides at once', () => {
     const flow = code('src/features/onboarding/screens/onboarding-flow.tsx');
-    assert.ok(flow.includes('const pair = starterPair(code);'));
+    assert.ok(flow.includes('const pair = starterPair(code, deviceRegion());'));
     assert.ok(flow.includes('if (pair) setPair(pair);'));
     // Not from Settings: changing the app's language later keeps the pair.
     const settings = code('src/features/settings/screens/app-language-screen.tsx');

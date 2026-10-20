@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { deviceRegion } from '@/constants';
 import { services } from '@/services';
 import { useLanguagePair } from '@/store';
 
@@ -49,7 +50,7 @@ export function OnboardingFlow({ onComplete: complete }: { onComplete: () => voi
         <LanguageSelectScreen
           onContinue={(code) => {
             // Home opens on the chosen language into English.
-            const pair = starterPair(code);
+            const pair = starterPair(code, deviceRegion());
             if (pair) setPair(pair);
             setStep('welcome');
           }}

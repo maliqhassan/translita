@@ -845,6 +845,17 @@ export const de: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'Darf ich dir ab und zu eine Nachricht zum Sprachenlernen schicken? Nur zwei, kein Spam.',
   'Yes, sure': 'Ja, gern',
+  '{language} is ready offline': '{language} ist offline bereit',
+  'In {country}?': 'In {country}?',
+  'You can now translate {language} and {english} without internet.':
+    'Du kannst jetzt {language} und {english} ohne Internet übersetzen.',
+  'Downloading {language} and {english}…': '{language} und {english} werden heruntergeladen…',
+  'The download did not finish. Try again on a better connection.':
+    'Der Download wurde nicht fertig. Versuche es mit einer besseren Verbindung erneut.',
+  'Download {language} and {english} to translate without internet.':
+    'Lade {language} und {english} herunter, um ohne Internet zu übersetzen.',
+  Done: 'Fertig',
+  Download: 'Herunterladen',
   // Language names
   'Detect language': 'Sprache erkennen',
   Afrikaans: 'Afrikaans',

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
+import { deviceRegion } from '@/constants';
 import { DEFAULT_PREFERENCES, publishActivePreferences, services } from '@/services';
 import type { AppError, BooleanPreference, Preferences } from '@/types';
 
@@ -51,6 +52,12 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     return () => {
       active = false;
     };
+  }, []);
+
+  // The phone's country, from its region setting, for splitting every report.
+  useEffect(() => {
+    const region = deviceRegion();
+    if (region) services.analytics.setUserProperty({ name: 'region', value: region });
   }, []);
 
   // The app language, attached to every event so uninstalls split by it.

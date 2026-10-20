@@ -65,6 +65,11 @@ export type AnalyticsEvent =
   | { name: 'academy_practice_open'; params: { course: LanguageId } }
   /** A translator-only user answered whether Fabalita may send her invitations. */
   | { name: 'invite_answer'; params: { allowed: boolean } }
+  /** The country's offline pack offer on Home was answered. */
+  | {
+      name: 'country_pack_offer';
+      params: { action: 'download' | 'dismiss'; language: LanguageId };
+    }
   /** Daily lesson reminders were switched on. */
   | { name: 'reminder_enabled'; params: { hour: number } }
   /**
@@ -137,6 +142,8 @@ export type AnalyticsUserProperty =
   | { name: 'app_language'; value: string }
   /** Auto, online only or on-device only. */
   | { name: 'translation_mode'; value: string }
+  /** The country the phone is set to, from its region setting. */
+  | { name: 'region'; value: string }
   /** Whether daily lesson reminders are on. */
   | { name: 'reminders'; value: 'on' | 'off' };
 

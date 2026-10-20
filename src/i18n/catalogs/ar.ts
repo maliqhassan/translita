@@ -815,6 +815,17 @@ export const ar: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'هل أرسل لك رسالة بين حين وآخر عن تعلّم لغة جديدة؟ رسالتان فقط، دون إزعاج.',
   'Yes, sure': 'نعم، بالتأكيد',
+  '{language} is ready offline': '{language} جاهزة دون اتصال',
+  'In {country}?': 'في {country}؟',
+  'You can now translate {language} and {english} without internet.':
+    'يمكنك الآن ترجمة {language} و{english} دون إنترنت.',
+  'Downloading {language} and {english}…': 'جارٍ تنزيل {language} و{english}…',
+  'The download did not finish. Try again on a better connection.':
+    'لم يكتمل التنزيل. حاول مرة أخرى باتصال أفضل.',
+  'Download {language} and {english} to translate without internet.':
+    'نزّل {language} و{english} للترجمة دون إنترنت.',
+  Done: 'تم',
+  Download: 'تنزيل',
   // Language names
   'Detect language': 'اكتشاف اللغة',
   Afrikaans: 'الأفريقانية',

@@ -838,6 +838,17 @@ export const id: Catalog = {
   'Can I send you a note now and then about learning a new language? Just two, never spam.':
     'Boleh aku kirim pesan sesekali tentang belajar bahasa baru? Hanya dua, tanpa spam.',
   'Yes, sure': 'Ya, boleh',
+  '{language} is ready offline': '{language} siap offline',
+  'In {country}?': 'Di {country}?',
+  'You can now translate {language} and {english} without internet.':
+    'Sekarang kamu bisa menerjemahkan {language} dan {english} tanpa internet.',
+  'Downloading {language} and {english}…': 'Mengunduh {language} dan {english}…',
+  'The download did not finish. Try again on a better connection.':
+    'Unduhan belum selesai. Coba lagi dengan koneksi yang lebih baik.',
+  'Download {language} and {english} to translate without internet.':
+    'Unduh {language} dan {english} untuk menerjemahkan tanpa internet.',
+  Done: 'Selesai',
+  Download: 'Unduh',
   // Language names
   'Detect language': 'Deteksi bahasa',
   Afrikaans: 'Afrikaans',

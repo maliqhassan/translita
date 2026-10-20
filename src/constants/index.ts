@@ -6,6 +6,7 @@ export * from './ink';
 export * from './layout';
 export * from './messages';
 export * from './palette';
+export * from './regions';
 export * from './radius';
 export * from './shadows';
 export * from './spacing';
